@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How AI Body Composition Analysis Works — From a Single Selfie | GainFrame Blog</title>
+    <meta name="description"
+        content="GainFrame's Deep Dive uses AI to estimate body fat %, BMI, FFMI, and score 12 muscle groups from one gym selfie. Here's the science behind it.">
+    <meta property="og:title" content="How AI Body Composition Analysis Works — From a Single Selfie">
+    <meta property="og:description"
+        content="Body fat %, BMI, FFMI, and 12 muscle group scores — all from a single gym selfie. No scale. No calipers. No DEXA appointment.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://gainframe.app/assets/deep-dive-report.PNG">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ==================== NAV ==================== -->
+    <nav class="blog-nav">
+        <div class="container blog-nav-inner">
+            <a href="../index.html" class="blog-nav-logo">
+                <img src="../assets/favicon.png" alt="GainFrame" class="blog-nav-icon">
+                <span class="blog-nav-wordmark">GainFrame</span>
+            </a>
+            <div class="blog-nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../blog.html" class="active">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== ARTICLE ==================== -->
+    <article class="post">
+        <div class="container post-container">
+
+            <!-- Post Header -->
+            <header class="post-header hero-text-stagger">
+                <div class="post-meta">
+                    <span class="post-category">Product</span>
+                    <span class="post-date">Feb 21, 2026</span>
+                    <span class="post-read-time">6 min read</span>
+                </div>
+                <h1 class="post-title">How AI Body Composition Analysis Works&mdash;From a Single Selfie</h1>
+                <p class="post-subtitle">Body fat %, BMI, FFMI, and 12 individual muscle group scores. No scale. No
+                    calipers. No DEXA appointment. Just one gym selfie.</p>
+            </header>
+
+            <!-- Hero Image -->
+            <div class="post-hero-image scroll-reveal">
+                <img src="../assets/deep-dive-report.PNG"
+                    alt="GainFrame Deep Dive report showing AI body composition analysis — body fat percentage, BMI, FFMI, lean mass estimate, and muscle group scores generated from a single gym selfie">
+            </div>
+
+            <!-- Post Body -->
+            <div class="post-body">
+
+                <p class="post-lede">You took a gym selfie this morning. Maybe in the locker room mirror, maybe in the
+                    squat rack between sets. That photo holds more data than you think. GainFrame's <strong>Deep
+                        Dive</strong> feature uses AI vision to extract a full body composition analysis from that
+                    single image — the kind of data that used to require expensive lab equipment or an in-person session
+                    with a trainer.</p>
+
+                <p>Here's how it works, what it measures, and why it's more useful than stepping on a scale.</p>
+
+                <hr class="post-divider">
+
+                <h2>The problem with tracking progress by weight alone</h2>
+
+                <p>You've been training consistently for three months. You step on the scale. It reads the same number —
+                    or maybe it went <em>up</em>.</p>
+
+                <p>Does that mean you haven't made progress? Absolutely not.</p>
+
+                <p>Weight is a single number that tells you almost nothing about what's actually changing. You could be
+                    losing fat and gaining muscle at the exact same rate. You could be retaining water from sodium or
+                    creatine loading. You could be measuring at a different time of day.</p>
+
+                <p>Body composition — the ratio of lean mass to fat — is what determines how you actually look and
+                    perform. But tracking it has always required expensive tools: DEXA scans ($75–150 per session),
+                    hydrostatic weighing, or at minimum, a trained professional with calipers.</p>
+
+                <p><strong>Your phone camera changes that equation.</strong></p>
+
+                <hr class="post-divider">
+
+                <h2>What Deep Dive actually measures</h2>
+
+                <p>When you tap <strong>Deep Dive</strong> on any photo in GainFrame, the AI analyzes your image and
+                    returns a full report. Not a vague "you look bigger" assessment — a structured breakdown with real
+                    numbers.</p>
+
+                <div class="post-feature-grid scroll-reveal">
+                    <div class="post-feature-card">
+                        <div class="post-feature-icon">📊</div>
+                        <h3>Body Fat % Estimate</h3>
+                        <p>Visual estimation based on muscle definition, vascularity, ab visibility, and subcutaneous
+                            fat distribution across major body regions.</p>
+                    </div>
+                    <div class="post-feature-card">
+                        <div class="post-feature-icon">📐</div>
+                        <h3>BMI & FFMI</h3>
+                        <p>Both your standard BMI and your Fat-Free Mass Index — a metric designed specifically for
+                            people who lift. FFMI accounts for lean muscle, so it doesn't penalize you for being heavy
+                            because you're strong.</p>
+                    </div>
+                    <div class="post-feature-card">
+                        <div class="post-feature-icon">💪</div>
+                        <h3>Lean Mass Estimate</h3>
+                        <p>An estimated lean body mass in pounds, giving you a clearer picture of how much of your
+                            weight is actually working muscle versus stored fat.</p>
+                    </div>
+                    <div class="post-feature-card">
+                        <div class="post-feature-icon">🎯</div>
+                        <h3>12 Muscle Group Scores</h3>
+                        <p>Individual assessments for shoulders, chest, arms, forearms, abs, obliques, lats, traps,
+                            quads, hamstrings, calves, and glutes — each rated from <em>Needs Work</em> to
+                            <em>Strong</em>.</p>
+                    </div>
+                </div>
+
+                <p>Beyond the numbers, every Deep Dive includes personalized recommendations — macro targets calibrated
+                    to your estimated body composition, training suggestions for lagging muscle groups, and an executive
+                    summary that puts it all in context.</p>
+
+                <hr class="post-divider">
+
+                <h2>How the AI actually works</h2>
+
+                <p>GainFrame uses advanced AI vision models to analyze your photo. Here's what happens when you tap Deep
+                    Dive:</p>
+
+                <ol class="post-steps">
+                    <li>
+                        <strong>Image analysis.</strong> The AI examines your photo for visual cues — muscle separation,
+                        definition, vascularity, visible fat deposits, proportionality between muscle groups, and
+                        overall symmetry.
+                    </li>
+                    <li>
+                        <strong>Body composition estimation.</strong> Based on those visual markers, it estimates your
+                        body fat percentage, calculates BMI and FFMI using your height and weight data (synced via Apple
+                        Health or entered manually), and estimates lean body mass.
+                    </li>
+                    <li>
+                        <strong>Muscle group scoring.</strong> Each of 12 major muscle groups gets an individual score
+                        based on visible development, definition, and proportion relative to the rest of your physique.
+                    </li>
+                    <li>
+                        <strong>Recommendations.</strong> The report generates personalized macro targets (protein,
+                        carbs, fat) based on your estimated composition, plus specific training recommendations for your
+                        weakest muscle groups.
+                    </li>
+                </ol>
+
+                <p>The entire analysis takes about 10 seconds. Every report is saved to your history, so you can compare
+                    your Deep Dive results over time and see exactly what's improving.</p>
+
+                <hr class="post-divider">
+
+                <h2>Accuracy: how close are AI estimates?</h2>
+
+                <p>Let's be straightforward: <strong>a selfie is not a DEXA scan.</strong> AI-based body composition
+                    estimates are visual approximations, not clinical measurements.</p>
+
+                <p>But they're surprisingly useful for what most gym-goers actually need — <strong>tracking change over
+                        time.</strong></p>
+
+                <p>You don't need to know your exact body fat percentage to three decimal places. You need to know:
+                    <em>Am I making progress? Are my shoulders developing faster than my chest? Is my body fat trending
+                        down over six months?</em></p>
+
+                <p>GainFrame's AI estimates are most valuable when used comparatively — your Week 1 Deep Dive versus
+                    your Week 12 Deep Dive. The relative change between consistent scans is far more actionable than any
+                    single measurement.</p>
+
+                <blockquote class="post-callout scroll-reveal">
+                    <p>Think of it like this: a bathroom scale might not give you your exact weight to the ounce. But if
+                        you weigh yourself at the same time every week, the trend line tells you everything you need to
+                        know.</p>
+                    <p>Deep Dive works the same way — with a lot more data points than a scale.</p>
+                </blockquote>
+
+                <hr class="post-divider">
+
+                <h2>What makes this different from other apps</h2>
+
+                <p>Other progress photo apps let you store photos and look at them side by side. That's it. You're left
+                    to eyeball the differences yourself.</p>
+
+                <p>GainFrame is the only app that gives you <strong>structured, quantified AI analysis</strong> of your
+                    physique from a single photo — and compares those analyses over time. No other progress photo app
+                    offers estimated body fat, FFMI, individual muscle group scoring, or personalized macro targets.</p>
+
+                <p>The difference: instead of staring at two photos wondering "do I look different?", you get a report
+                    that says <em>"your shoulders improved from Developing to Strong, your estimated body fat dropped
+                        2.3%, and your lean mass increased by an estimated 4 lbs."</em></p>
+
+                <p>That's not vanity. That's data.</p>
+
+                <hr class="post-divider">
+
+                <h2>Deep Dive Compare: two photos, full analysis</h2>
+
+                <p>Deep Dive gets even more powerful when you compare two photos. Select a before and after shot, and
+                    the AI generates a detailed comparison report — not just "you look bigger," but specific changes
+                    across every metric:</p>
+
+                <ul>
+                    <li>Body fat change (estimated)</li>
+                    <li>Muscle groups that improved vs. regressed</li>
+                    <li>Overall physique score trajectory</li>
+                    <li>A narrative summary of your transformation</li>
+                </ul>
+
+                <div class="post-hero-image scroll-reveal">
+                    <img src="../assets/deep-dive-compare.PNG"
+                        alt="GainFrame Deep Dive Compare showing side-by-side AI analysis of two progress photos with muscle group improvements and body fat change">
+                </div>
+
+                <p>Every comparison generates a shareable card — a clean, branded graphic with your key stats that's
+                    ready to post on Instagram or send to your training partner.</p>
+
+                <hr class="post-divider">
+
+                <h2>How to get the best results</h2>
+
+                <p>The AI works with any gym photo, but you'll get the most consistent and accurate estimates if you
+                    follow a few simple habits:</p>
+
+                <ol class="post-tips">
+                    <li><strong>Same lighting.</strong> Natural or consistent gym lighting beats a dark locker room.
+                        Shadows affect how muscle definition appears.</li>
+                    <li><strong>Same pose.</strong> GainFrame organizes your photos by pose template — Front, Back,
+                        Side, Front Flexed, etc. Stick to the same poses for your comparison photos.</li>
+                    <li><strong>Same time of day.</strong> Morning photos after waking up tend to be the most
+                        consistent. Post-pump photos look great but add variance.</li>
+                    <li><strong>Show enough of your body.</strong> The AI needs to see major muscle groups to score
+                        them. A neck-up selfie won't give you a full analysis.</li>
+                    <li><strong>Use the Ghost Overlay Camera.</strong> GainFrame's built-in camera shows a transparent
+                        overlay of your last photo so you can match your pose exactly — no tripod needed.</li>
+                </ol>
+
+                <hr class="post-divider">
+
+                <h2>Try it now</h2>
+
+                <p>Import your gym selfies. Tap Deep Dive on any photo. See what the AI sees in your physique — body
+                    fat, lean mass, muscle group strengths, and actionable recommendations to improve.</p>
+
+                <p>Your progress photos already hold the data. GainFrame just reads it.</p>
+
+                <div class="post-cta scroll-reveal">
+                    <a href="https://apps.apple.com/app/gainframe/id6740539498" class="appstore-link">
+                        <img src="../appstore-badge.svg" alt="Download on the App Store" class="appstore-badge">
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Author / Back -->
+            <footer class="post-footer scroll-reveal">
+                <a href="../blog.html" class="post-back-link">← Back to all posts</a>
+            </footer>
+
+        </div>
+    </article>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="../privacy.html">Privacy Policy</a>
+                <a href="../blog.html">Blog</a>
+                <a href="mailto:michael@gainframe.app">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        /* Intersection Observer — triggers .visible on scroll */
+        (function () {
+            const selectors = [
+                '.scroll-reveal',
+                '.scroll-reveal-left',
+                '.scroll-reveal-right',
+                '.parallax-float',
+                '.badge-pop',
+                '.tilt-in',
+                '.hero-text-stagger',
+                '.hero-image-stagger'
+            ];
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.05 }
+            );
+
+            document.querySelectorAll(selectors.join(',')).forEach((el) => {
+                observer.observe(el);
+            });
+        })();
+    </script>
+</body>
+
+</html>
