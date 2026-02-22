@@ -527,6 +527,24 @@ body {
     filter: drop-shadow(0 16px 48px rgba(0, 0, 0, 0.08));
 }
 
+/* Video embeds (blog posts) */
+.feature-video-mockup {
+    max-width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+    filter: drop-shadow(0 16px 48px rgba(0, 0, 0, 0.08));
+}
+
+.post-hero-image video,
+.post-body video {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    filter: drop-shadow(0 16px 48px rgba(0, 0, 0, 0.08));
+}
+
 /* =====================================================
    FEATURE CARDS GRID
    ===================================================== */
