@@ -921,112 +921,7 @@ body {
     font-weight: 500;
 }
 
-/* =====================================================
-   MAGAZINE HERO GRID
-   ===================================================== */
 
-.blog-magazine-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: var(--sp-lg);
-    margin-bottom: var(--sp-2xl);
-}
-
-.magazine-card {
-    position: relative;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid var(--color-border);
-    background: var(--color-bg);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    display: flex;
-    flex-direction: column;
-}
-
-.magazine-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
-}
-
-.magazine-lead {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-}
-
-.magazine-secondary {
-    grid-column: 2 / 3;
-}
-
-.magazine-card-image {
-    position: relative;
-    overflow: hidden;
-    flex: 1;
-    min-height: 200px;
-    background: var(--color-surface);
-}
-
-.magazine-lead .magazine-card-image {
-    min-height: 340px;
-}
-
-.magazine-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.magazine-card:hover .magazine-card-image img {
-    transform: scale(1.03);
-}
-
-.magazine-tag {
-    position: absolute;
-    top: var(--sp-md);
-    left: var(--sp-md);
-    padding: 4px 12px;
-    border-radius: var(--radius-full);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    background: var(--color-text);
-    color: var(--color-bg);
-}
-
-.magazine-card-content {
-    padding: var(--sp-lg);
-    background: var(--color-bg);
-}
-
-.magazine-lead .magazine-card-content h2 {
-    font-family: var(--font-display);
-    font-size: 1.85rem;
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: var(--color-text);
-    margin-bottom: var(--sp-sm);
-}
-
-.magazine-lead .magazine-card-content p {
-    color: var(--color-text-secondary);
-    font-size: 1.05rem;
-    line-height: 1.65;
-}
-
-.magazine-secondary .magazine-card-content h3 {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 1.25;
-    color: var(--color-text);
-}
 
 .margin-top-grid {
     margin-top: var(--sp-xl);
@@ -1160,20 +1055,7 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .blog-magazine-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
 
-    .magazine-lead {
-        grid-column: 1 / 2;
-        grid-row: 1 / 2;
-    }
-
-    .magazine-secondary {
-        grid-column: 1 / 2;
-        grid-row: auto;
-    }
 }
 
 /* =====================================================
@@ -1185,21 +1067,7 @@ body {
         font-size: 2.25rem;
     }
 
-    .blog-magazine-grid {
-        gap: var(--sp-md);
-    }
 
-    .magazine-lead .magazine-card-image {
-        min-height: 220px;
-    }
-
-    .magazine-lead .magazine-card-content h2 {
-        font-size: 1.4rem;
-    }
-
-    .magazine-card-content {
-        padding: var(--sp-md);
-    }
 
     .blog-grid {
         grid-template-columns: 1fr;
