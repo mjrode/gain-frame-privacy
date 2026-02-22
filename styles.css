@@ -930,7 +930,7 @@ body {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: var(--sp-lg);
-    margin-bottom: var(--sp-xl);
+    margin-bottom: var(--sp-2xl);
 }
 
 .magazine-card {
