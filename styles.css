@@ -271,12 +271,14 @@ body {
     color: var(--color-text);
 }
 
-.hero-title .accent-underline {
+.hero-title .accent-underline,
+.blog-header-title .accent-underline {
     position: relative;
     display: inline-block;
 }
 
-.hero-title .accent-underline::after {
+.hero-title .accent-underline::after,
+.blog-header-title .accent-underline::after {
     content: '';
     position: absolute;
     bottom: 2px;
