@@ -1422,6 +1422,92 @@ body {
 }
 
 /* =====================================================
+   EMAIL CAPTURE FORM
+   ===================================================== */
+
+.email-capture {
+    max-width: 460px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.email-capture-heading {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: var(--sp-xs);
+    color: var(--color-text);
+}
+
+.email-capture-sub {
+    font-size: 0.9rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--sp-md);
+}
+
+.email-capture-form {
+    display: flex;
+    gap: var(--sp-sm);
+    align-items: stretch;
+}
+
+.email-capture-form input[type="email"] {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.email-capture-form input[type="email"]:focus {
+    border-color: var(--color-text);
+}
+
+.email-capture-form input[type="email"]::placeholder {
+    color: var(--color-text-tertiary);
+}
+
+.email-capture-form button {
+    padding: 12px 24px;
+    background: var(--color-text);
+    color: var(--color-bg);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.email-capture-form button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.email-capture-privacy {
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    margin-top: var(--sp-sm);
+}
+
+@media (max-width: 480px) {
+    .email-capture-form {
+        flex-direction: column;
+    }
+
+    .email-capture-form button {
+        width: 100%;
+    }
+}
+
+/* =====================================================
    BLOG POST RESPONSIVE
    ===================================================== */
 
