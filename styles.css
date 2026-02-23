@@ -293,9 +293,34 @@ body {
 .hero-subtitle {
     font-size: 1.15rem;
     color: var(--color-text-secondary);
-    margin-bottom: var(--sp-xl);
+    margin-bottom: var(--sp-md);
     max-width: 460px;
     line-height: 1.7;
+}
+
+.hero-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--sp-xl) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hero-features li {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.hero-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--color-text);
 }
 
 .hero-mockup {
