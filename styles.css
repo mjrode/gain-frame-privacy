@@ -835,9 +835,11 @@ body {
     }
 
     .hero-features {
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         max-width: 100%;
-        gap: 8px 12px;
+        gap: 8px 16px;
+        justify-items: center;
     }
 
     .hero-chip {
@@ -845,8 +847,7 @@ body {
     }
 
     .hero-chip:not(:last-child)::after {
-        content: "·";
-        margin-left: 6px;
+        display: none;
     }
 
     .hero-cta {
