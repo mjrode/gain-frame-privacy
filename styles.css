@@ -372,6 +372,10 @@ body {
     max-width: 300px;
 }
 
+.phone-frame.phone-frame-blog {
+    max-width: 280px;
+}
+
 .phone-placeholder {
     width: 280px;
     height: 580px;
@@ -1188,6 +1192,20 @@ body {
 .post-hero-image img {
     width: 100%;
     display: block;
+}
+
+/* When a phone frame is inside post-hero-image, center it */
+.post-hero-image:has(.phone-frame) {
+    border: none;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    background: none;
+}
+
+.post-hero-image .phone-frame img {
+    width: 100%;
+    border-radius: 32px;
 }
 
 /* Body Typography */
