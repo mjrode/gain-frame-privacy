@@ -299,12 +299,11 @@ body {
 }
 
 .hero-features {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
     margin: 0 0 var(--sp-xl) 0;
-    max-width: 480px;
+    max-width: 460px;
 }
 
 .hero-chip {
@@ -322,14 +321,6 @@ body {
     flex-shrink: 0;
     color: var(--color-text);
     opacity: 0.6;
-}
-
-.hero-chip:not(:last-child)::after {
-    content: "·";
-    margin-left: 10px;
-    color: var(--color-text-tertiary);
-    font-weight: 400;
-    font-size: 1.1rem;
 }
 
 .hero-mockup {
