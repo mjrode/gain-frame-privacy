@@ -1028,15 +1028,22 @@ body {
     aspect-ratio: 16 / 10;
     overflow: hidden;
     background: var(--color-surface);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    padding: var(--sp-md) var(--sp-md) 0 var(--sp-md);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .blog-card-image img {
-    width: 100%;
+    width: auto;
     height: 100%;
-    object-fit: cover;
-    object-position: top;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: bottom;
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .blog-card:hover .blog-card-image img {
@@ -1193,7 +1200,6 @@ body {
 .post-hero-image img {
     width: 100%;
     display: block;
-    object-position: top;
 }
 
 /* When a phone frame is inside post-hero-image, center it */
