@@ -1035,6 +1035,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top;
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -1192,6 +1193,7 @@ body {
 .post-hero-image img {
     width: 100%;
     display: block;
+    object-position: top;
 }
 
 /* When a phone frame is inside post-hero-image, center it */
