@@ -281,6 +281,27 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script><!-- End Cloudflare Web Analytics -->
+
+    <!-- GA4 Waitlist Conversion Tracker -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var forms = document.querySelectorAll('.email-capture-form');
+            forms.forEach(function(form) {
+                form.addEventListener('submit', function() {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'waitlist_joined', {
+                            'event_category': 'engagement',
+                            'event_label': 'beta_signup',
+                            'page_location': window.location.href,
+                            'utm_source': document.querySelector('.utm-source') ? document.querySelector('.utm-source').value : '',
+                            'utm_medium': document.querySelector('.utm-medium') ? document.querySelector('.utm-medium').value : '',
+                            'utm_campaign': document.querySelector('.utm-campaign') ? document.querySelector('.utm-campaign').value : ''
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
