@@ -290,26 +290,35 @@
 
     <!-- Intersection Observer for Scroll Animations -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
+        /* Intersection Observer — triggers .visible on scroll */
+        (function () {
+            const selectors = [
+                '.scroll-reveal',
+                '.scroll-reveal-left',
+                '.scroll-reveal-right',
+                '.parallax-float',
+                '.badge-pop',
+                '.tilt-in',
+                '.hero-text-stagger',
+                '.hero-image-stagger'
+            ];
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.05 }
+            );
 
-            document.querySelectorAll('.scroll-reveal, .tilt-in').forEach(el => {
+            document.querySelectorAll(selectors.join(',')).forEach((el) => {
                 observer.observe(el);
             });
-        });
+        })();
     </script>
 
     <!-- UTM Tracker Script -->
