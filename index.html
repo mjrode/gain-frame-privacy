@@ -82,6 +82,10 @@
                             action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a7b3e6f0"
                             method="post" target="_blank">
                             <input type="email" name="EMAIL" placeholder="Enter your email" required>
+                            <!-- UTM tracking (hidden) -->
+                            <input type="hidden" name="UTMSOURCE" class="utm-source">
+                            <input type="hidden" name="UTMMEDIUM" class="utm-medium">
+                            <input type="hidden" name="UTMCAMPAIGN" class="utm-campaign">
                             <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text"
                                     name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" tabindex="-1" value=""></div>
                             <button type="submit">Get Early Access</button>
@@ -358,6 +362,10 @@
                     action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a7b3e6f0"
                     method="post" target="_blank">
                     <input type="email" name="EMAIL" placeholder="Enter your email" required>
+                    <!-- UTM tracking (hidden) -->
+                    <input type="hidden" name="UTMSOURCE" class="utm-source">
+                    <input type="hidden" name="UTMMEDIUM" class="utm-medium">
+                    <input type="hidden" name="UTMCAMPAIGN" class="utm-campaign">
                     <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text"
                             name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" tabindex="-1" value=""></div>
                     <button type="submit">Get Early Access</button>
@@ -380,6 +388,21 @@
     </footer>
 
     <script>
+        /* Capture UTM params from URL and populate hidden form fields */
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const mapping = {
+                'utm-source': params.get('utm_source'),
+                'utm-medium': params.get('utm_medium'),
+                'utm-campaign': params.get('utm_campaign')
+            };
+            Object.entries(mapping).forEach(([cls, value]) => {
+                if (value) {
+                    document.querySelectorAll('.' + cls).forEach(el => el.value = value);
+                }
+            });
+        })();
+
         /* Intersection Observer — triggers .visible on scroll */
         (function () {
             const selectors = [
