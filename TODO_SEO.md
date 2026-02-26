@@ -43,6 +43,6 @@ _Items move here once implemented and deployed._
 - [ ] Use `geo-fundamentals` skill for structured approach
 
 ### Performance
-- [ ] Run Core Web Vitals audit
-- [ ] Optimize image loading (lazy load, WebP, srcset)
+- [x] Run Core Web Vitals audit — LCP identified at 10s on homepage hero
+- [x] Optimize image loading — converted 85 images to WebP (210MB→7.7MB), added fetchpriority + lazy load
 - [ ] Use `web-performance-optimization` skill
