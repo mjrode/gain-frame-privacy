@@ -16,7 +16,7 @@ _Items move here once implemented and deployed._
 - [x] Improve `<title>` tags with target keywords
 - [x] Add `<lastmod>` dates to `sitemap.xml`
 - [x] Standardize Twitter cards + JSON-LD on all 11 blog posts
-- [ ] **Create `assets/og-image.png`** (1200×630px) — referenced by OG tags but doesn't exist yet
+- [x] **Create `assets/og-image.png`** (1200×630px) — logo lockup on white, deployed
 
 ## 📋 Backlog (Future Work)
 
@@ -30,7 +30,7 @@ _Items move here once implemented and deployed._
 - [ ] "how to track body recomposition with photos"
 - [ ] "best body fat calculator from photo"
 - [ ] "progress photo tips for bodybuilding"
-- [ ] "how to measure muscle gain without a scale"
+- [x] "how to measure muscle gain without a scale" — published Feb 26
 - [ ] Use `content-creator` skill for SEO-optimized drafts
 
 ### Free Tool (Engineering as Marketing)

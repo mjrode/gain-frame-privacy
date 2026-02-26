@@ -22,6 +22,12 @@
     
     <!-- Blog Posts -->
     <url>
+        <loc>https://gainframe.app/blog/measure-muscle-gain-without-scale/index.html</loc>
+        <lastmod>2026-02-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://gainframe.app/blog/body-fat-from-photo-app/index.html</loc>
         <lastmod>2026-02-25</lastmod>
         <changefreq>monthly</changefreq>
