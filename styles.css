@@ -1123,6 +1123,132 @@ body {
 }
 
 /* =====================================================
+   TESTFLIGHT BETA BANNER
+   ===================================================== */
+
+.testflight-banner {
+    padding: var(--sp-xl) 0;
+}
+
+.testflight-banner-card {
+    text-align: center;
+    padding: var(--sp-2xl) var(--sp-xl);
+    background: var(--color-text);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.testflight-banner-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(232, 76, 61, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(107, 143, 113, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.testflight-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 5px 14px;
+    border-radius: var(--radius-full);
+    background: var(--color-brand-red);
+    color: #fff;
+    margin-bottom: var(--sp-lg);
+    position: relative;
+    animation: badge-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(232, 76, 61, 0);
+    }
+}
+
+.testflight-badge svg {
+    width: 14px;
+    height: 14px;
+}
+
+.testflight-banner-card h2 {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: var(--sp-sm);
+    position: relative;
+}
+
+.testflight-banner-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.05rem;
+    margin-bottom: var(--sp-xl);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.testflight-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-sm);
+    padding: 14px 32px;
+    background: #fff;
+    color: var(--color-text);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.testflight-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.testflight-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.testflight-hint {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: var(--sp-md);
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .testflight-banner-card h2 {
+        font-size: 1.75rem;
+    }
+}
+
+/* =====================================================
    BLOG CTA
    ===================================================== */
 
