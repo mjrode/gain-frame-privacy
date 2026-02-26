@@ -1,0 +1,48 @@
+# GainFrame SEO TODO
+
+> Tracking document for SEO improvements to [gainframe.app](https://gainframe.app)
+
+## ✅ Completed
+
+_Items move here once implemented and deployed._
+
+## 🔄 In Progress
+
+### Quick Wins (Technical SEO)
+- [x] Add `robots.txt` pointing to sitemap
+- [x] Add canonical `<link>` tags to all pages
+- [x] Add JSON-LD structured data (Organization, WebSite, BlogPosting, BreadcrumbList)
+- [x] Add Open Graph + Twitter card meta tags to `index.html` and `blog.html`
+- [x] Improve `<title>` tags with target keywords
+- [x] Add `<lastmod>` dates to `sitemap.xml`
+- [x] Standardize Twitter cards + JSON-LD on all 11 blog posts
+- [ ] **Create `assets/og-image.png`** (1200×630px) — referenced by OG tags but doesn't exist yet
+
+## 📋 Backlog (Future Work)
+
+### Comparison / "vs" Pages
+- [ ] Write "GainFrame vs MyFitnessPal Progress Photos" comparison page
+- [ ] Write "GainFrame vs Gymtrack" comparison page
+- [ ] Write "Best body transformation apps 2026" roundup page
+- [ ] Use `competitor-alternatives` skill to research and generate
+
+### Long-Tail Keyword Blog Posts
+- [ ] "how to track body recomposition with photos"
+- [ ] "best body fat calculator from photo"
+- [ ] "progress photo tips for bodybuilding"
+- [ ] "how to measure muscle gain without a scale"
+- [ ] Use `content-creator` skill for SEO-optimized drafts
+
+### Free Tool (Engineering as Marketing)
+- [ ] Build a free "Estimate Your Body Fat from a Photo" web tool
+- [ ] Standalone page on gainframe.app — drives organic traffic + backlinks
+- [ ] Use `free-tool-strategy` skill to plan and build
+
+### AI Search Optimization (GEO)
+- [ ] Optimize content for AI search engines (ChatGPT, Perplexity, Claude)
+- [ ] Use `geo-fundamentals` skill for structured approach
+
+### Performance
+- [ ] Run Core Web Vitals audit
+- [ ] Optimize image loading (lazy load, WebP, srcset)
+- [ ] Use `web-performance-optimization` skill
