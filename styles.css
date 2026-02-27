@@ -1783,56 +1783,81 @@ body {
     overflow: hidden;
     width: 100%;
     max-width: 520px;
+    display: flex;
+    flex-direction: column;
 }
 
 .dexa-images {
     display: flex;
-    gap: 0;
+    width: 100%;
+    /* Create a fixed landscape window for the side-by-side */
+    aspect-ratio: 16 / 10;
 }
 
 .dexa-img-wrap {
     flex: 1;
     position: relative;
+    /* Force 50% width so they perfectly split */
+    width: 50%;
     overflow: hidden;
+    background: var(--color-surface);
+    /* fallback if image doesn't load */
+}
+
+/* Add a subtle border between the two if they touch */
+.dexa-img-wrap:first-child {
+    border-right: 1px solid var(--color-border);
 }
 
 .dexa-img-wrap img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    /* contain or cover? The user's dexa image is a tall document, the app is a tall phone.
+       If we use cover, it'll crop the tops/bottoms aggressively. 
+       If we use contain with a surface background, the whole thing fits. Let's use cover 
+       but center it on the most important data, then offer a stacked mobile view. */
     object-fit: cover;
-    display: block;
+    object-position: center 20%;
+    /* Biased towards the top where the main data usually is */
 }
 
 .dexa-label {
     position: absolute;
-    top: 8px;
-    left: 8px;
-    background: rgba(0, 0, 0, 0.65);
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
     font-family: var(--font-body);
     font-size: 0.65rem;
-    font-weight: 600;
-    padding: 3px 8px;
+    font-weight: 700;
+    padding: 4px 10px;
     border-radius: var(--radius-full);
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     z-index: 2;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .dexa-label-app {
-    background: var(--color-sage);
+    background: rgba(107, 143, 113, 0.9);
+    /* var(--color-sage) with opacity */
 }
 
 /* Stat comparison row */
 .dexa-stats {
     display: flex;
     border-top: 1px solid var(--color-border);
+    background: var(--color-bg);
 }
 
 .dexa-stat {
     flex: 1;
     text-align: center;
-    padding: 12px 6px;
+    padding: 16px 8px;
     border-right: 1px solid var(--color-border);
 }
 
@@ -1843,24 +1868,24 @@ body {
 .dexa-stat-label {
     display: block;
     font-family: var(--font-body);
-    font-size: 0.6rem;
-    font-weight: 600;
+    font-size: 0.65rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--color-text-tertiary);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .dexa-stat-row {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
-    gap: 4px;
+    gap: 6px;
 }
 
 .dexa-stat-value {
     font-family: var(--font-display);
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--color-text);
 }
@@ -1870,9 +1895,10 @@ body {
 }
 
 .dexa-stat-match {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--color-text-tertiary);
-    font-weight: 400;
+    font-weight: 500;
+    transform: translateY(-2px);
 }
 
 @media (max-width: 480px) {
@@ -1881,15 +1907,32 @@ body {
         border-radius: var(--radius-sm);
     }
 
+    /* On mobile, stacking them prevents them from becoming tiny unreadable slivers */
+    .dexa-images {
+        flex-direction: column;
+        aspect-ratio: auto;
+    }
+
+    .dexa-img-wrap {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        /* Fixed height ratio per image when stacked */
+    }
+
+    .dexa-img-wrap:first-child {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+
     .dexa-stat-value {
-        font-size: 0.75rem;
+        font-size: 0.9rem;
     }
 
     .dexa-stat-label {
-        font-size: 0.55rem;
+        font-size: 0.6rem;
     }
 
     .dexa-stat {
-        padding: 8px 4px;
+        padding: 12px 6px;
     }
 }
