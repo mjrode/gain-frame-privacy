@@ -23,7 +23,7 @@ _Items move here once implemented and deployed._
 ### Comparison / "vs" Pages
 - [ ] Write "GainFrame vs MyFitnessPal Progress Photos" comparison page
 - [ ] Write "GainFrame vs Gymtrack" comparison page
-- [ ] Write "Best body transformation apps 2026" roundup page
+- [x] Write "Best body transformation apps 2026" roundup page — published Feb 26
 - [ ] Use `competitor-alternatives` skill to research and generate
 
 ### Long-Tail Keyword Blog Posts
