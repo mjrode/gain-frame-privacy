@@ -28,7 +28,7 @@ _Items move here once implemented and deployed._
 
 ### Long-Tail Keyword Blog Posts
 - [ ] "how to track body recomposition with photos"
-- [ ] "best body fat calculator from photo"
+- [x] "best body fat calculator from photo" — published Feb 26
 - [ ] "progress photo tips for bodybuilding"
 - [x] "how to measure muscle gain without a scale" — published Feb 26
 - [ ] Use `content-creator` skill for SEO-optimized drafts
