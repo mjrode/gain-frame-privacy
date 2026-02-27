@@ -174,6 +174,93 @@
 
                 <hr class="post-divider">
 
+
+
+
+
+                <style>
+                    .comparison-flex {
+                        display: flex;
+                        gap: 1.5rem;
+                        margin: 2.5rem 0;
+                        align-items: stretch;
+                    }
+
+                    .ratio-dexa {
+                        flex: 0.75;
+                    }
+
+                    .ratio-deepdive-1 {
+                        flex: 0.346;
+                    }
+
+                    .ratio-deepdive-2 {
+                        flex: 0.354;
+                    }
+
+                    .comparison-flex.single {
+                        justify-content: center;
+                    }
+
+                    .comparison-flex.single .ratio-deepdive-1 {
+                        flex: 0;
+                        flex-basis: 350px;
+                        max-width: 100%;
+                    }
+
+                    .comparison-card {
+                        background: var(--color-surface);
+                        border: 1px solid var(--color-border);
+                        border-radius: 16px;
+                        padding: 0.75rem;
+                        display: flex;
+                        flex-direction: column;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+                    }
+
+                    .comparison-card .img-wrapper {
+                        position: relative;
+                        flex-grow: 1;
+                        background: #fdfdfd;
+                        border-radius: 8px;
+                        border: 1px solid rgba(0, 0, 0, 0.05);
+                        /* very subtle inset */
+                        overflow: hidden;
+                    }
+
+                    .comparison-card img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        /* Since we perfectly matched ratios with flex-basis, cover/contain both work, but cover avoids 1px rounding white lines */
+                        display: block;
+                    }
+
+                    .comparison-label {
+                        text-align: center;
+                        font-size: 0.85rem;
+                        color: var(--color-text-secondary);
+                        margin-top: 1rem;
+                        margin-bottom: 0.25rem;
+                        font-weight: 600;
+                        letter-spacing: 0.02em;
+                        text-transform: uppercase;
+                    }
+
+                    @media (max-width: 768px) {
+                        .comparison-flex {
+                            flex-direction: column;
+                            gap: 2rem;
+                        }
+
+                        .ratio-dexa,
+                        .ratio-deepdive-1,
+                        .ratio-deepdive-2 {
+                            flex: auto;
+                        }
+                    }
+                </style>
+
                 <h2>1. The Big Wins: Where They Align Perfectly</h2>
 
                 <p>The core hook of this experiment was the raw numbers. How closely can a visual AI model approximate
@@ -181,23 +268,19 @@
 
                 <p>The answer is: <strong>remarkably well.</strong></p>
 
-                <div class="post-hero-image scroll-reveal" style="max-width: 500px; margin: 0 auto 1.5rem auto;">
-                    <img src="assets/dexa-page1.webp"
-                        alt="DEXA scan report showing 18.6% body fat and 230 lbs of total weight" loading="lazy"
-                        style="border: 1px solid var(--color-border); border-radius: 8px; width: 100%;">
-                    <p
-                        style="text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 0.5rem;">
-                        Clinical DEXA Scan</p>
-                </div>
-
-                <div class="post-hero-image scroll-reveal" style="max-width: 500px; margin: 0 auto 2rem auto;">
-                    <div class="phone-frame phone-frame-blog">
-                        <img src="assets/deep-dive-part1.webp"
-                            alt="GainFrame AI report showing 19% body fat and identical metrics" loading="lazy">
+                <div class="comparison-flex scroll-reveal">
+                    <div class="comparison-card ratio-dexa">
+                        <div class="img-wrapper"><img src="assets/dexa-page1.webp"
+                                alt="DEXA scan report showing 18.6% body fat and 230 lbs of total weight"
+                                loading="lazy"></div>
+                        <p class="comparison-label">Clinical DEXA Scan</p>
                     </div>
-                    <p
-                        style="text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 0.5rem;">
-                        GainFrame Deep Dive</p>
+                    <div class="comparison-card ratio-deepdive-1">
+                        <div class="img-wrapper"><img src="assets/deep-dive-part1.webp"
+                                alt="GainFrame AI report showing 19% body fat and identical metrics" loading="lazy">
+                        </div>
+                        <p class="comparison-label">GainFrame Deep Dive</p>
+                    </div>
                 </div>
 
                 <ul>
@@ -242,24 +325,19 @@
                 <p>While a DEXA scan essentially views your body as blocks of mass, GainFrame's expertise lies in
                     analyzing aesthetics, proportion, and visual shape.</p>
 
-                <div class="post-hero-image scroll-reveal" style="max-width: 500px; margin: 0 auto 1.5rem auto;">
-                    <img src="assets/dexa-page2.webp"
-                        alt="DEXA scan showing regional body lean mass distribution emphasizing arm symmetry"
-                        loading="lazy" style="border: 1px solid var(--color-border); border-radius: 8px; width: 100%;">
-                    <p
-                        style="text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 0.5rem;">
-                        DEXA Regional Breakdown</p>
-                </div>
-
-                <div class="post-hero-image scroll-reveal" style="max-width: 500px; margin: 0 auto 2rem auto;">
-                    <div class="phone-frame phone-frame-blog">
-                        <img src="assets/deep-dive-part2.webp"
-                            alt="GainFrame Muscle Analysis showing Arms labeled Strong and Abs labeled Developing"
-                            loading="lazy">
+                <div class="comparison-flex scroll-reveal">
+                    <div class="comparison-card ratio-dexa">
+                        <div class="img-wrapper"><img src="assets/dexa-page2.webp"
+                                alt="DEXA scan showing regional body lean mass distribution emphasizing arm symmetry"
+                                loading="lazy"></div>
+                        <p class="comparison-label">DEXA Regional Breakdown</p>
                     </div>
-                    <p
-                        style="text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 0.5rem;">
-                        GainFrame Muscle Groups</p>
+                    <div class="comparison-card ratio-deepdive-2">
+                        <div class="img-wrapper"><img src="assets/deep-dive-part2.webp"
+                                alt="GainFrame Muscle Analysis showing Arms labeled Strong and Abs labeled Developing"
+                                loading="lazy"></div>
+                        <p class="comparison-label">GainFrame Muscle Groups</p>
+                    </div>
                 </div>
 
                 <p>GainFrame categorized my Delts, Biceps, and Triceps as <strong>"Strong"</strong>, noting my arms were
@@ -288,10 +366,13 @@
                     posing and bodybuilding coach, intelligently breaks this down visually and prescribes actual
                     exercises (like incline presses) to fix the aesthetic imbalance.</p>
 
-                <div class="post-hero-image scroll-reveal" style="max-width: 400px; margin: 0 auto 2rem auto;">
-                    <img src="assets/deep-dive-part3.webp"
-                        alt="GainFrame posture and training recommendations emphasizing upper chest and symmetric alignment"
-                        loading="lazy" style="border: 1px solid var(--color-border); border-radius: 8px;">
+                <div class="comparison-flex single scroll-reveal">
+                    <div class="comparison-card ratio-deepdive-1">
+                        <div class="img-wrapper"><img src="assets/deep-dive-part3.webp"
+                                alt="GainFrame posture and training recommendations emphasizing upper chest and symmetric alignment"
+                                loading="lazy"></div>
+                        <p class="comparison-label">GainFrame Posture & Action Plan</p>
+                    </div>
                 </div>
 
                 <p>GainFrame also evaluates posture—catching an elevated right shoulder and an anterior pelvic tilt. A
