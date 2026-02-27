@@ -140,19 +140,197 @@
             <!-- Post Body -->
             <div class="post-body">
 
-                                <!-- TestFlight CTA -->
-                <div class="blog-post-cta scroll-reveal" style="margin-top: 0; margin-bottom: 2.5rem;">
-                    <p class="cta-subtitle">The beta is live — try it free.</p>
-                    <a href="https://testflight.apple.com/join/Camc6rHP" target="_blank" rel="noopener"
-                        class="testflight-btn" id="testflight-cta-blog-inline"
-                        onclick="if(typeof gtag==='function'){gtag('event','testflight_click',{event_category:'conversion',event_label:'blog_inline_cta',page_location:window.location.href});}">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                        </svg>
-                        Join the Beta on TestFlight
-                    </a>
+                <div class="post-cta scroll-reveal" style="margin-top: 0; margin-bottom: 2.5rem; padding: 2rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 24px;">
+                    <div class="email-capture">
+                        <h3 class="email-capture-heading" style="margin-top:0;">Get early access</h3>
+                        <p class="email-capture-sub">Be the first to try GainFrame — we'll email you when it launches.</p>
+                        <form class="email-capture-form"
+                            action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a7b3e6f0"
+                            method="post" target="_blank">
+                            <input type="email" name="EMAIL" placeholder="Enter your email" required>
+                            <!-- UTM tracking -->
+                            <input type="hidden" name="UTMSOURCE" class="utm-source">
+                            <input type="hidden" name="UTMMEDIUM" class="utm-medium">
+                            <input type="hidden" name="UTMCAMPAIGN" class="utm-campaign">
+                            <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text"
+                                    name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" tabindex="-1" value=""></div>
+                            <button type="submit">Get Early Access</button>
+                        </form>
+                    </div>
                 </div>
+
+
+                <p class="post-lede">A body transformation timeline turns months of scattered gym selfies into a visual
+                    story of your progress. You've been taking progress photos for months. Maybe you scroll back through
+                    your camera roll occasionally, squinting at thumbnails, trying to spot the difference between
+                    February and August. It's hard to see change when you're looking at photos one at a time.
+                    That's what the Timeline solves.</p>
+
+                <p>GainFrame's <strong>Timeline</strong> organizes every imported photo into a chronological,
+                    pose-filtered view with three zoom levels — Day, Month, and Quarter. Each entry shows the
+                    date, your AI physique score, and estimated body fat. You can see your entire transformation
+                    at a glance, or zoom into a specific day to compare individual shots.</p>
+
+                <hr class="post-divider">
+
+                <h2>Three views for your body transformation timeline</h2>
+
+                <p>The Timeline isn't a single flat list. It's three distinct zoom levels, each designed for a
+                    different purpose:</p>
+
+                <div class="post-feature-grid scroll-reveal">
+                    <div class="post-feature-card">
+                        <div class="post-feature-icon">📅</div>
+                        <h3>Day View</h3>
+                        <p>Every individual photo, one per row. See exactly what you looked like on a specific
+                            date with the AI score and body fat percentage right next to it.</p>
+                    </div>
+                    <div class="post-feature-card">
+                        <div class="post-feature-icon">📆</div>
+                        <h3>Month View</h3>
+                        <p>Monthly snapshots that condense your progress into a digestible overview. Great for
+                            spotting trends without drowning in individual entries.</p>
+                    </div>
+                    <div class="post-feature-card">
+                        <div class="post-feature-icon">📊</div>
+                        <h3>Quarter View</h3>
+                        <p>The widest lens. See 3-month blocks side by side — perfect for tracking slow
+                            transformations that only become visible over longer windows.</p>
+                    </div>
+                </div>
+
+                <p>The key insight: <strong>subtle changes that are invisible day-to-day become obvious at the
+                        quarterly level.</strong> You might not notice your shoulders widening over two weeks,
+                    but three months of photos side by side makes it unmistakable.</p>
+
+                <div class="post-hero-image scroll-reveal">
+                    <div class="phone-frame phone-frame-blog">
+                        <img src="assets/timeline-quarter.webp"
+                            alt="GainFrame quarterly timeline view showing transformation over time">
+                    </div>
+                </div>
+
+                <hr class="post-divider">
+
+                <h2>How the Timeline gets built</h2>
+
+                <p>You don't have to manually organize anything. The Timeline builds itself from your imported
+                    photos:</p>
+
+                <ol class="post-steps">
+                    <li>
+                        <strong>Import your photos.</strong> Select gym selfies from your camera roll — a few or
+                        a few thousand. GainFrame's batch import handles them all in the background.
+                    </li>
+                    <li>
+                        <strong>AI classifies by pose.</strong> Each photo is automatically tagged as Front,
+                        Back, Side, Front Flexed, or your custom templates. The Timeline filters by pose, so
+                        you're always comparing like-to-like.
+                    </li>
+                    <li>
+                        <strong>Chronological sorting.</strong> Photos are ordered by the date they were taken
+                        (from EXIF data), not when you imported them. Import photos from last year and they slot
+                        into the right place automatically.
+                    </li>
+                    <li>
+                        <strong>AI scores every entry.</strong> Each timeline entry shows your GainFrame Physique
+                        Score and estimated body fat percentage — so you can see the numbers changing alongside
+                        the visuals.
+                    </li>
+                </ol>
+
+                <p>The result: a ready-made transformation timeline that might go back months or years,
+                    depending on how many gym photos are in your camera roll.</p>
+
+                <hr class="post-divider">
+
+                <h2>Transformation timeline videos: your progress in motion</h2>
+
+                <p>Static photos show you snapshots. But a <strong>timeline video</strong> shows the full arc of
+                    your transformation as a smooth, morphing sequence — cycling through your progress photos in
+                    chronological order.</p>
+
+                <div class="post-hero-image scroll-reveal">
+                    <div class="phone-frame phone-frame-blog">
+                        <img src="assets/time-line-video.webp"
+                            alt="GainFrame auto-generated transformation video from timeline photos">
+                    </div>
+                </div>
+
+                <p>GainFrame generates these videos automatically from your timeline. Select a pose, choose a
+                    date range, and the app stitches your photos into a looping video with smooth transitions
+                    between frames. The visual effect is striking — you can <em>watch</em> your shoulders widen,
+                    your midsection tighten, and your overall physique evolve frame by frame.</p>
+
+                <blockquote class="post-callout scroll-reveal">
+                    <p>Timeline videos are the single most shareable piece of content GainFrame produces. A 10-second
+                        clip of your 6-month transformation is more compelling than any individual comparison photo.</p>
+                </blockquote>
+
+                <p>These videos are perfect for sharing on Instagram Stories, TikTok, or sending to your
+                    training partner. They're exported at high resolution with the GainFrame watermark, so people
+                    know where it came from.</p>
+
+                <hr class="post-divider">
+
+                <h2>Getting the most out of your Timeline</h2>
+
+                <p>A few habits that make your Timeline dramatically more useful:</p>
+
+                <ol class="post-tips">
+                    <li><strong>Import everything.</strong> Don't cherry-pick. Import all your gym photos — even
+                        the bad ones. The AI filters out non-body photos automatically, and more data points
+                        means a richer timeline.</li>
+                    <li><strong>Stick to 2–3 poses.</strong> Front relaxed and back relaxed cover the most
+                        ground. The Timeline is filtered by pose, so consistency here directly translates to a
+                        cleaner visual story.</li>
+                    <li><strong>Use the Quarter view for motivation.</strong> When daily weigh-ins and weekly
+                        comparisons feel discouraging, zoom out to quarters. The long-term trend is almost always
+                        more positive than you think.</li>
+                    <li><strong>Generate a video every few months.</strong> Set a reminder. The transformation
+                        video gets more impressive with every batch of new photos you add.</li>
+                </ol>
+
+                <hr class="post-divider">
+
+                <h2>Start your timeline</h2>
+
+                <p>Import your gym photos. Let the AI organize and score them. Then switch to Timeline view and
+                    see your transformation unfold — day by day, month by month, quarter by quarter.</p>
+
+                <p>Your progress is already in your camera roll. The body transformation timeline just makes it visible.
+                    Check out our <a href="../5-tips-better-progress-photos/index.html">tips for better progress photos</a> to
+                    get the most out of every shot, or learn about <a
+                        href="../how-ai-body-composition-analysis-works/index.html">how the AI body composition analysis
+                        works</a>.</p>
+
+                <h2>Related posts</h2>
+                <ul>
+                    <li><a href="../5-tips-better-progress-photos/index.html">5 Tips for Better Progress Photos</a></li>
+                    <li><a href="../before-after-comparing-progress-photos/index.html">What Comparing Progress Photos Looked Like
+                            Before GainFrame</a></li>
+                    <li><a href="../smart-integrations-hevy/index.html">Smart Integrations: Hevy Workouts + Album Sync</a></li>
+                    <li><a href="../deep-dive-compare/index.html">Deep Dive Compare: Quantify Exactly What Changed</a></li>
+                </ul>
+
+                <div class="post-cta scroll-reveal">
+                    <div class="email-capture">
+                        <h3 class="email-capture-heading">Get early access</h3>
+                        <p class="email-capture-sub">Be the first to try GainFrame — we'll email you when it launches.
+                        </p>
+                        <form class="email-capture-form"
+                            action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a7b3e6f0"
+                            method="post" target="_blank">
+                            <input type="email" name="EMAIL" placeholder="Enter your email" required>
+                            <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text"
+                                    name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" tabindex="-1" value=""></div>
+                            <button type="submit">Get Early Access</button>
+                        </form>
+                        <p class="email-capture-privacy">Free · No spam · Unsubscribe anytime</p>
+                    </div>
+                </div>
+
+            </div>
 
             <!-- Back -->
             <footer class="post-footer scroll-reveal">

@@ -132,18 +132,161 @@
             <!-- Post Body -->
             <div class="post-body">
 
-                                <!-- TestFlight CTA -->
-                <div class="blog-post-cta scroll-reveal" style="margin-top: 0; margin-bottom: 2.5rem;">
-                    <p class="cta-subtitle">The beta is live — try it free.</p>
-                    <a href="https://testflight.apple.com/join/Camc6rHP" target="_blank" rel="noopener"
-                        class="testflight-btn" id="testflight-cta-blog-inline"
-                        onclick="if(typeof gtag==='function'){gtag('event','testflight_click',{event_category:'conversion',event_label:'blog_inline_cta',page_location:window.location.href});}">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                        </svg>
-                        Join the Beta on TestFlight
-                    </a>
+                <div class="post-cta scroll-reveal" style="margin-top: 0; margin-bottom: 2.5rem; padding: 2rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 24px;">
+                    <div class="email-capture">
+                        <h3 class="email-capture-heading" style="margin-top:0;">Get early access</h3>
+                        <p class="email-capture-sub">Be the first to try GainFrame — we'll email you when it launches.</p>
+                        <form class="email-capture-form"
+                            action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a7b3e6f0"
+                            method="post" target="_blank">
+                            <input type="email" name="EMAIL" placeholder="Enter your email" required>
+                            <!-- UTM tracking -->
+                            <input type="hidden" name="UTMSOURCE" class="utm-source">
+                            <input type="hidden" name="UTMMEDIUM" class="utm-medium">
+                            <input type="hidden" name="UTMCAMPAIGN" class="utm-campaign">
+                            <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text"
+                                    name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" tabindex="-1" value=""></div>
+                            <button type="submit">Get Early Access</button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <p class="post-lede">How does an AI physique prediction actually work? We've all seen the gimmicky photo
+                    and face-swap apps. You upload a single selfie,
+                    tap a button, and suddenly you look like a shredded comic book hero. It's fun for five seconds, but
+                    it's utterly useless for your actual training.</p>
+
+                <p>When we built the <strong>Future Physique</strong> feature for GainFrame, we had one rule: <strong>no
+                        generic templates</strong>. If you are going to base your diet and training off a projection,
+                    that projection has to be anchored in reality. It has to be built from <em>your</em> data,
+                    <em>your</em> frame, and <em>your</em> demonstrated rate of progress.
+                </p>
+
+                <p>Here is an inside look at how GainFrame's AI engine actually calculates your trajectory, visualizes
+                    your future, and gives you the exact numbers you need to hit your goals.</p>
+
+                <hr class="post-divider">
+
+                <h2>Step 1: The AI physique prediction engine (your history)</h2>
+
+                <p>A single photo only tells the engine what you look like <em>today</em>. To figure out where you are
+                    going, the AI needs to know where you have been. This is why GainFrame requires historical data to
+                    generate a highly accurate prediction.</p>
+
+                <div class="post-hero-image scroll-reveal">
+                    <div class="phone-frame phone-frame-blog">
+                        <img src="assets/loading.webp"
+                            alt="GainFrame loading screen showing the AI predicting your future by reviewing 599 days of progress, analyzing changes, and calculating trajectories">
+                    </div>
+                </div>
+
+                <p>When you initiate a prediction, the engine doesn't just look at the photo you just took.</p>
+                <ul>
+                    <li><strong>It reviews your history:</strong> For example, it might analyze exactly how your body
+                        has changed over the last 599 days.</li>
+                    <li><strong>It analyzes regional changes:</strong> It isolates your shoulders, chest, arms,
+                        midsection, and back to see which muscle groups are responding best to your current training.
+                    </li>
+                    <li><strong>It accounts for your goal:</strong> Are you trying to cut, bulk, or body recomp? The AI
+                        adjusts the projection parameters based on your stated objective.</li>
+                </ul>
+
+                <p>By determining your personalized rate of change across multiple data points, the AI isn't guessing;
+                    it's extrapolating a statistically probable outcome.</p>
+
+                <hr class="post-divider">
+
+                <h2>Step 2: The Visual Projection</h2>
+
+                <p>Once the math is done, the engine renders the visual result. This isn't about slapping 3D abs onto
+                    your torso. It is a highly specific rendering of <em>you</em>, further along your current
+                    trajectory.</p>
+
+                <div class="post-hero-image scroll-reveal">
+                    <div class="phone-frame phone-frame-blog">
+                        <img src="assets/future1.webp"
+                            alt="GainFrame AI Future Physique showing 'You in 6 mo' and indicating key improvements like Deltoid Roundness and Abdominal Visibility">
+                    </div>
+                </div>
+
+                <p>Look at the specific improvements called out by the engine in the 6-month prediction above:</p>
+                <ul>
+                    <li><strong>Shoulders:</strong> Significant deltoid roundness and lateral head definition.</li>
+                    <li><strong>Arms:</strong> Improved bicep peak and visible tricep sweep.</li>
+                    <li><strong>Midsection:</strong> Complete abdominal visibility and significantly tighter waist.</li>
+                </ul>
+                <p>These callouts aren't random. They are the exact areas where the AI has observed your fastest
+                    historical growth, projected forward.</p>
+
+                <hr class="post-divider">
+
+                <h2>Step 3: The Hard Numbers</h2>
+
+                <p>Visuals are motivating, but numbers track progress. GainFrame doesn't leave you with just a picture;
+                    it gives you the specific metrics you'll achieve if you stay the course.</p>
+
+                <div class="post-hero-image scroll-reveal">
+                    <div class="phone-frame phone-frame-blog">
+                        <img src="assets/future2.webp"
+                            alt="GainFrame Projected Stats showing a Goal Body Fat of 10%, Weight of 218 lbs, FFMI of 23.1, and a Trajectory Chart mapping the GainFrame Score over time">
+                    </div>
+                </div>
+
+                <p>The <strong>Projected Stats</strong> section breaks down your future state into hard targets:
+                    reaching elite 10% body fat levels, hitting a body weight of 218 lbs, and pushing your FFMI
+                    (Fat-Free Mass Index) to 23.1.</p>
+
+                <p>The <strong>Trajectory Graph</strong> is perhaps the most important tool here. It plots your
+                    GainFrame Physique Score over time. The solid line is reality—what you have already achieved. The
+                    dashed line is the future. It visually proves that the day-to-day fluctuations in the scale don't
+                    matter as long as the <em>trend</em> is moving up and to the right.</p>
+
+                <hr class="post-divider">
+
+                <h2>Step 4: The Action Plan</h2>
+
+                <p>Knowing what you <em>could</em> look like is only half the battle. You need to know exactly what to
+                    do when you walk into the gym tomorrow to make it reality.</p>
+
+                <div class="post-hero-image scroll-reveal">
+                    <div class="phone-frame phone-frame-blog">
+                        <img src="assets/future3.webp"
+                            alt="GainFrame Recommended Focus screen showing specific actionable steps like Lean Bulk Transition, Upper Pectoral Focus, and Posterior Chain Definition">
+                    </div>
+                </div>
+
+                <p>This is where GainFrame bridges the gap between tracking and coaching. Based on your weakest muscle
+                    groups and furthest goals, the AI provides a <strong>Recommended Focus</strong> plan.</p>
+                <p>If your upper chest is lagging behind your lateral delts, you won't get generic advice like "work out
+                    harder." You will get targeted, actionable directives: <em>"Upper Pectoral Focus: Start chest days
+                        with 3 sets of incline dumbbell press."</em> Need more hamstring sweep? <em>"Posterior Chain
+                        Definition: Add 3 sets of Romanian deadlifts weekly."</em></p>
+
+                <hr class="post-divider">
+
+                <h2>Step 5: Accountability</h2>
+
+                <p>Finally, we built the ability to export and share your prediction. When you vocalize a goal and show
+                    people exactly what you are aiming for, you mentally commit to it.</p>
+
+                <div class="post-feature-grid scroll-reveal">
+                    <div class="post-feature-card"
+                        style="grid-column: 1 / -1; display:flex; gap: 2rem; align-items: flex-start; background: transparent; padding: 0;">
+                        <div class="phone-frame phone-frame-blog">
+                            <img src="assets/export.webp"
+                                alt="GainFrame Preview & Share screen allowing users to export their AI Physique Prediction">
+                        </div>
+                        <div style="flex:1;">
+                            <h3 style="margin-top:0;">Export Options</h3>
+                            <p>GainFrame allows you to export your prediction in a clean, shareable card. You can toggle
+                                specific export options—Stats, Narrative, and Score—depending on what you want to share
+                                with your coach, your training partner, or your social feed.</p>
+                            <p>By putting the "You in 6 months" picture on your lock screen, you eliminate the friction
+                                between your current actions and your future goals. Every time you open your phone, you
+                                know exactly what you are working towards.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <hr class="post-divider">
