@@ -31,6 +31,7 @@ _Items move here once implemented and deployed._
 - [x] "best body fat calculator from photo" — published Feb 26
 - [ ] "progress photo tips for bodybuilding"
 - [x] "how to measure muscle gain without a scale" — published Feb 26
+- [x] "Dexa scan vs AI body composition app" — published Feb 27
 - [ ] Use `content-creator` skill for SEO-optimized drafts
 
 ### Free Tool (Engineering as Marketing)
