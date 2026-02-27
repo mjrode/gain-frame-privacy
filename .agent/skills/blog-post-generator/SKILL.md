@@ -48,7 +48,11 @@ Once the interview is complete and assets are provided, execute the following im
    - Ensure you use the standard TestFlight CTA (`.blog-post-cta` container with standard button).
 6. **Update Index:** Add the new blog post to the top of the grid in `blog.html`. Use the generated vector cover image.
 7. **Update Backlog:** If this post was from `TODO_SEO.md`, check it off and add the publish date.
-8. **Deploy:** Git add, commit with `feat: add '[keyword]' SEO blog post`, and push to origin.
+8. **Deploy (MANDATORY — do not skip):** After all files are written and the blog index is updated, you MUST run the following commands automatically:
+   ```bash
+   cd /Users/michael.rode/code/project/gain-frame-privacy && git add -A && git commit -m "feat: add '[keyword]' SEO blog post" && git push
+   ```
+   The site is hosted on GitHub Pages, so pushing to `main` triggers an automatic deployment. The post is not "published" until this step completes.
 
 ## Rules & Constraints
 - **Never write the post in one shot without the interview.** The user's specific tone and raw answers are what make the content rank and convert.
