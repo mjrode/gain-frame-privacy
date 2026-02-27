@@ -139,158 +139,19 @@
             <!-- Post Body -->
             <div class="post-body">
 
-                <div class="post-cta scroll-reveal" style="margin-top: 0; margin-bottom: 2.5rem; padding: 2rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 24px;">
-                    <div class="email-capture">
-                        <h3 class="email-capture-heading" style="margin-top:0;">Get early access</h3>
-                        <p class="email-capture-sub">Be the first to try GainFrame — we'll email you when it launches.</p>
-                        <form class="email-capture-form"
-                            action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a7b3e6f0"
-                            method="post" target="_blank">
-                            <input type="email" name="EMAIL" placeholder="Enter your email" required>
-                            <!-- UTM tracking -->
-                            <input type="hidden" name="UTMSOURCE" class="utm-source">
-                            <input type="hidden" name="UTMMEDIUM" class="utm-medium">
-                            <input type="hidden" name="UTMCAMPAIGN" class="utm-campaign">
-                            <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text"
-                                    name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" tabindex="-1" value=""></div>
-                            <button type="submit">Get Early Access</button>
-                        </form>
-                    </div>
+                                <!-- TestFlight CTA -->
+                <div class="blog-post-cta scroll-reveal" style="margin-top: 0; margin-bottom: 2.5rem;">
+                    <p class="cta-subtitle">The beta is live — try it free.</p>
+                    <a href="https://testflight.apple.com/join/Camc6rHP" target="_blank" rel="noopener"
+                        class="testflight-btn" id="testflight-cta-blog-inline"
+                        onclick="if(typeof gtag==='function'){gtag('event','testflight_click',{event_category:'conversion',event_label:'blog_inline_cta',page_location:window.location.href});}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                        </svg>
+                        Join the Beta on TestFlight
+                    </a>
                 </div>
-
-
-                <p class="post-lede">Your AI physique score is the headline number on every GainFrame report. If you've
-                    run a Deep Dive analysis on a progress photo, you've seen it: that
-                    prominent 1 to 100 number sitting at the top. But the AI physique score isn't
-                    just a gimmick or an arbitrary grade — it's a dynamic, data-driven calculation constructed from
-                    exactly what the AI sees in your photo.</p>
-
-                <p>When we built the scoring engine, we knew a "one-size-fits-all" number wouldn't work. A 60 for
-                    someone bulking means something very different than a 60 for someone cutting. Here is a look under
-                    the hood at how your score is calculated, what the ranges mean, and how you can use this feedback to
-                    accelerate your progress.</p>
-
-                <hr class="post-divider">
-
-                <h2>How the AI physique score is calculated</h2>
-
-                <p>A single selfie holds incredible amounts of data about your body composition. The AI vision model
-                    behind GainFrame analyzes your physique across four distinct dimensions:</p>
-
-                <ol>
-                    <li><strong>Visible Body Fat:</strong> We go beyond simple scale weight. The model looks for key
-                        indicators like abdominal and oblique visibility, <a
-                            href="https://www.healthline.com/nutrition/body-fat-percentage" target="_blank"
-                            rel="noopener">subcutaneous fat</a> around the midsection (love
-                        handles), facial definition, and vascularity in the arms and shoulders.</li>
-                    <li><strong>Muscle Development:</strong> The engine individually assesses your six major visible
-                        muscle groups: shoulders, chest, arms, back, core, and legs. It looks for fullness, separation,
-                        and striations.</li>
-                    <li><strong>Proportions & Symmetry:</strong> A great physique isn't just about size; it's about
-                        balance. The AI evaluates how your muscle groups relate to each other — like whether your arms
-                        are growing proportionally to your shoulders, or if your upper chest is lagging behind your
-                        mid-chest.</li>
-                    <li><strong>Goal Alignment:</strong> This is the most critical factor. Your score is graded against
-                        <em>your specific fitness goal</em>. We use three entirely different rubrics depending on
-                        whether you've told GainFrame you want to Lose Weight, Gain Muscle, or achieve Body Recomp.
-                    </li>
-                </ol>
-
-                <hr class="post-divider">
-
-                <h2>What the AI physique score ranges mean</h2>
-
-                <p>GainFrame doesn't inflate scores to make you feel good. It uses the full 1-100 spectrum. Most
-                    everyday gym-goers who are training consistently will land somewhere between <strong>35 and
-                        75</strong>. Here is the breakdown of the tiers:</p>
-
-                <h3>0–30: Starting</h3>
-                <p><strong>What it means:</strong> Depending on your goal, you either have high body fat with no visible
-                    muscle definition, or you're very thin with minimal muscle mass. This is the baseline — where
-                    everyone starts before serious training kicks in.</p>
-
-                <h3>31–50: Building</h3>
-                <p><strong>What it means:</strong> The work is starting to show. You have some shape visible, but
-                    significant fat covering might still be present, or you've built a base but lack muscle fullness. At
-                    this stage, changes in progress photos become very noticeable month-to-month.</p>
-
-                <h3>51–70: Solid</h3>
-                <p><strong>What it means:</strong> You look like you lift. Definition is emerging, your midsection is
-                    reducing, and you have noticeable size in your major muscle groups. You are successfully executing a
-                    body recomp.</p>
-
-                <h3>71–85: Impressive</h3>
-                <p><strong>What it means:</strong> You are lean, with highly visible muscle definition, a reduced waist,
-                    and good proportions. You have noticeable mass and are carrying it well. A score in this tier puts
-                    you in the top percentage of your local gym.</p>
-
-                <h3>86–100: Elite</h3>
-                <p><strong>What it means:</strong> Exceptional mass, full and thick muscles, clear abs and obliques with
-                    minimal subcutaneous fat, and striking proportions. This is peak physical condition.</p>
-
-                <hr class="post-divider">
-
-                <h2>Turn your score into an action plan</h2>
-
-                <p>A number is useless if it doesn't tell you what to do next. That's why the GainFrame Score is just
-                    the headline — the real value is in the breakdown.</p>
-
-                <p>Because the AI evaluates each of your muscle groups individually, it rates them as
-                    <strong>Strong</strong>, <strong>Developing</strong>, or <strong>Needs Work</strong>. If your score
-                    is stuck at 55, the report might reveal that while your chest and arms are "Strong," your back and
-                    core are "Needs Work."
-                </p>
-
-                <p>GainFrame then translates these lagging body parts into specific, high-priority recommendations
-                    tailored exactly to you. You won't get generic advice like "work out more." You'll get highly
-                    targeted directives like:</p>
-
-                <ul>
-                    <li><em>"To further accentuate your new shoulder width, focus on wide-grip pull-ups to broaden the
-                            V-taper."</em></li>
-                    <li><em>"Now that your body fat is lower, add hanging leg raises to pop the lower abs."</em></li>
-                </ul>
-
-                <p>By attacking the muscle groups dragging your score down, your overall physique balance improves — and
-                    your AI physique score rises with it. For a deeper understanding of how the AI reads your body, see
-                    <a href="../how-ai-body-composition-analysis-works/index.html">how AI body composition analysis works</a>.
-                </p>
-
-                <h2>Related posts</h2>
-                <ul>
-                    <li><a href="../how-ai-body-composition-analysis-works/index.html">How AI Body Composition Analysis Works</a>
-                    </li>
-                    <li><a href="../deep-dive-compare/index.html">Deep Dive Compare: Quantify Exactly What Changed</a></li>
-                    <li><a href="../future-physique-ai-prediction/index.html">Future Physique: AI Physique Prediction</a></li>
-                    <li><a href="../5-tips-better-progress-photos/index.html">5 Tips for Better Progress Photos</a></li>
-                </ul>
-
-            </div>
-
-        </div>
-    </article>
-
-    <!-- ==================== NEWSLETTER CTA ==================== -->
-    <section class="blog-cta">
-        <div class="container">
-            <div class="blog-cta-card scroll-reveal">
-                <h2>Get early access</h2>
-                <p>Be the first to try GainFrame. New features, training tips, and launch updates — straight to your
-                    inbox.</p>
-                <div class="blog-cta-actions">
-                    <div class="email-capture">
-                        <form class="email-capture-form"
-                            action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a7b3e6f0"
-                            method="post" target="_blank">
-                            <input type="email" name="EMAIL" placeholder="Enter your email" required>
-                            <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text"
-                                    name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" tabindex="-1" value=""></div>
-                            <button type="submit">Get Early Access</button>
-                        </form>
-                        <p class="email-capture-privacy">Free · No spam · Unsubscribe anytime</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
