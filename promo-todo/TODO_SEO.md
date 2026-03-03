@@ -27,6 +27,7 @@ _Items move here once implemented and deployed._
 - [ ] Use `competitor-alternatives` skill to research and generate
 
 ### Long-Tail Keyword Blog Posts
+- [x] "ai body fat photo accuracy study" — published Mar 3, 2026
 - [x] "how to track body recomposition with photos" — published Feb 26
 - [x] "best body fat calculator from photo" — published Feb 26
 - [ ] "progress photo tips for bodybuilding"
