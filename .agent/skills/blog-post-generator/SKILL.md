@@ -79,6 +79,17 @@ These rules define GainFrame's editorial voice. Every blog post MUST follow them
 - `post-hero-image` for full-width wide images (comparison grids, charts)
 - `post-table-wrapper` / `post-table` for data tables
 - `post-steps` ordered list for numbered frameworks
+
+### Research Citation Rules (for evidence-based posts)
+When a post cites scientific studies or peer-reviewed research, these additional rules apply:
+1. **Separate findings from recommendations.** Clearly distinguish what the study validated from what you're recommending. Example: *"The study tested two photos under controlled lab conditions. The tips below are about reducing user error at home, not claims validated by the research."*
+2. **Include a "What the Study Did NOT Test" section** (or equivalent) when extrapolating beyond the study's scope. This is critical for E-E-A-T credibility.
+3. **Include a "Limitations" section** before the closing. Acknowledge single-study limitations, controlled conditions vs. real-world use, and the need for replication.
+4. **Use honest hedging language.** Prefer:
+   - ✅ *"showed strong agreement with"* over *"operated interchangeably with"*
+   - ✅ *"suggests"* / *"the findings offer promising evidence"* over *"proves"* / *"is definitive"*
+   - ✅ *"according to the published findings"* attributing claims to the source
+5. **Always link to the original source** — preferably in both the body text and a dedicated callout blockquote.
 5. **Scaffold HTML:** Create `index.html` in the new folder. 
    - Use the standard structure from existing blog posts (e.g., `blog/measure-muscle-gain-without-scale/index.html`).
    - Include Twitter/OpenGraph meta cards. Set the `og:image` to one of the screenshots (not the abstract cover).
