@@ -37,10 +37,48 @@ Once the interview is complete and assets are provided, execute the following im
 2. **Process Images:** Move the user's provided images into the `assets/` folder. Use the `run_command` tool to run `cwebp` to convert all `.png`/`.jpg` files to `.webp` format with `-q 80`. Delete the original files.
 3. **Generate Cover Image:** Use the `generate_image` tool (or `fal-generate` skill) to create a striking 4:3 cover image for the blog grid. **You MUST use this exact prompt structure (fill in the SUBJECT):**
    > *Prompt: "A minimalist, abstract vector line-art illustration of [SUBJECT]. Thin, precise UI-style lines in dark charcoal gray (#2D3748) against a very light off-white/cream background (#F7FAFC). Subtle, muted pastel accent colors (coral red #FF6B6B, sage green #48BB78, golden yellow #ECC94B) used sparingly to highlight key elements. The style should resemble high-end SaaS product illustrations, clean, geometric, with plenty of negative space. No text, no text rendering."*
-4. **Draft the Content:** 
-   - Write the blog post using the raw interview notes. 
+4. **Draft the Content** following the **Writing Voice & Style** rules below.
    - Ensure the primary keyword is in the H1, the first paragraph, and at least one H2.
-   - Use the `content-creator` SEO best practices: solve a pain point, keep paragraphs short, and avoid fluff.
+
+## Writing Voice & Style
+
+These rules define GainFrame's editorial voice. Every blog post MUST follow them.
+
+### Tone: Authority First, Sell Later
+- Write like an objective fitness resource that **earns trust before asking for anything**.
+- Do NOT weave GainFrame pitches into every section. Mention the product **at most twice** in the body — once naturally within a relevant section, once in the closing CTA.
+- Be honest about limitations: *"accuracy varies depending on tool, lighting, and body type"* builds more credibility than *"our AI analyzes topological features with unbiased precision."*
+- Google's Helpful Content guidelines reward content that serves the reader first. Write for the reader, not the business.
+
+### Structure Rules
+1. **Opening hook (mandatory):** The first paragraph must present a concrete, relatable scenario or question — not a thesis statement or SEO keyword summary. Examples:
+   - ✅ *"Someone tells you they're at 15% body fat. What does that actually look like?"*
+   - ✅ *"You ate 1,800 calories yesterday. You hit your protein target."*
+   - ❌ *"Search intent for body fat estimation is relentless and highly visual."*
+2. **Body sections:** Use direct, specific H2s that target long-tail keywords. Prefer "What 15% body fat looks like" over "The 15% Range."
+3. **Actionable closing (mandatory):** End with a concrete numbered framework the reader can follow — not a GainFrame sales pitch. Example: *"First, choose a target. Second, pick a tracking method. Third, reassess every 4–8 weeks."*
+4. **Closing blockquote (optional but encouraged):** A summative callout that reinforces the core takeaway.
+
+### Paragraph & Sentence Style
+- **Maximum 3–4 sentences per paragraph.** If a paragraph exceeds 4 sentences, split it.
+- **Short punchy declarations > long complex sentences.** Use periods, not semicolons.
+  - ✅ *"Same number, completely different appearance."*
+  - ❌ *"This means that a female at 20% body fat looks vastly different — and is significantly leaner relative to her gender — than a male at 20% body fat."*
+- **Second-person address.** Write "you" directly. Avoid "users" or "one."
+- **No fluff.** Every sentence must either advance the argument, provide data, or give actionable advice. Delete anything that is merely transitional filler.
+
+### GainFrame Integration
+- App screenshots use `.post-inline-screenshot` class (240px floated right on desktop, centered on mobile).
+- Never use `.post-hero-image` for phone screenshots — those are for wide comparison images only.
+- Mention GainFrame as one option among several, not the only solution. Credibility > conversion.
+
+### Visual Components Available
+- `post-callout` blockquotes for key takeaways
+- `post-feature-grid` / `post-feature-card` for visual marker cards (emoji icon + title + description)
+- `post-inline-screenshot` for phone screenshots floated inline with text
+- `post-hero-image` for full-width wide images (comparison grids, charts)
+- `post-table-wrapper` / `post-table` for data tables
+- `post-steps` ordered list for numbered frameworks
 5. **Scaffold HTML:** Create `index.html` in the new folder. 
    - Use the standard structure from existing blog posts (e.g., `blog/measure-muscle-gain-without-scale/index.html`).
    - Include Twitter/OpenGraph meta cards. Set the `og:image` to one of the screenshots (not the abstract cover).
