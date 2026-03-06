@@ -1,0 +1,32 @@
+1
+00:00:00,233 --> 00:00:03,566
+your smart scale is less accurate than two photos
+
+2
+00:00:04,366 --> 00:00:06,233
+front photo side photo
+
+3
+00:00:06,233 --> 00:00:09,133
+ai analyzes both angles with your health data
+
+4
+00:00:09,133 --> 00:00:10,800
+to estimate body fat
+
+5
+00:00:11,266 --> 00:00:12,933
+instant body fat estimate
+
+6
+00:00:12,933 --> 00:00:14,400
+no equipment needed
+
+7
+00:00:14,900 --> 00:00:17,900
+it even tells you how confident the reading is
+
+8
+00:00:17,900 --> 00:00:19,500
+link in bio
+

@@ -22,6 +22,12 @@
     
     <!-- Blog Posts -->
     <url>
+        <loc>https://gainframe.app/blog/every-way-to-measure-body-fat/index.html</loc>
+        <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://gainframe.app/blog/stop-weighing-yourself-daily/index.html</loc>
         <lastmod>2026-03-05</lastmod>
         <changefreq>monthly</changefreq>
