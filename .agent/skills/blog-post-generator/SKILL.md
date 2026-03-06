@@ -218,10 +218,34 @@ When generating the email HTML, use this base template. Replace the `<!-- CONTEN
 </html>
 ```
 
+### UTM Tracking (Mandatory)
+
+All links in emails MUST include UTM parameters for Google Analytics attribution. Use this format:
+
+```
+https://gainframe.app/blog/[slug]/index.html?utm_source=mailchimp&utm_medium=email&utm_campaign=[campaign-name]
+```
+
+- `utm_source` — always `mailchimp`
+- `utm_medium` — always `email`
+- `utm_campaign` — a short, descriptive slug for this email (e.g., `new-features`, `welcome-follow`, `weekly-update`)
+
+In HTML, encode `&` as `&amp;` within `href` attributes.
+
+### Mailchimp Merge Tags
+
+Use these merge tags in the HTML template — Mailchimp replaces them at send time:
+
+| Tag | Purpose |
+|-----|---------|
+| `*|UNSUB|*` | **Required.** One-click unsubscribe URL. All campaigns must include this. |
+| `*|FNAME|*` | First name personalization (falls back to empty if not set). |
+| `*|EMAIL|*` | Subscriber's email address. |
+
 ### Workflow When User Asks for an Email
 
 1. **Ask what the email is about.** New feature? Blog post announcement? Launch update?
 2. **Draft the plain-text body first.** Show the user the raw copy before wrapping it in HTML. Get approval on the words.
-3. **Generate the HTML.** Slot the approved copy into the template above using proper `<p>` tags with `style="margin:0 0 16px 0;"` for spacing. Use `<strong>` for bold. Use inline `<a>` tags for links.
+3. **Generate the HTML.** Slot the approved copy into the template above using proper `<p>` tags with `style="margin:0 0 16px 0;"` for spacing. Use `<strong>` for bold. Use inline `<a>` tags for links. **All links must include UTM parameters.**
 4. **Output the complete HTML** in a fenced code block so the user can copy-paste it directly into Mailchimp's HTML editor.
 5. **Remind the user** to preview in Mailchimp and send a test email to themselves before sending.
