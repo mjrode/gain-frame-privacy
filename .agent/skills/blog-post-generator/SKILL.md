@@ -117,3 +117,111 @@ When a post cites scientific studies or peer-reviewed research, these additional
 - `/sitemap.xml` (Must be updated with the new post)
 - `/TODO_SEO.md` (For topic inspiration and task tracking)
 - `/styles.css` (For reference to standard typography and CTA classes)
+
+---
+
+## Mailchimp Email Generation
+
+When the user asks to generate an email, create subscriber update, or send a campaign, use this section instead of the blog post workflow above.
+
+### Email Design Philosophy
+
+**The GainFrame email voice is "founder writing to a friend."** No heavy branding, no emoji bullet sections, no marketing-speak. The inspiration is a plain-text personal email from a real human — like the PostGenius founder email style.
+
+**DO:**
+- Write like a person, not a brand. First person ("I shipped...", "I built this because...").
+- Keep it short. 150–250 words max for the body. People scan emails on their phone.
+- Use line breaks between paragraphs. No walls of text.
+- Sign off with `— Michael` and a link to GainFrame.
+- Include one clear CTA. Two max. Never three.
+- Use plain `<a>` links inline, not big flashy buttons (one small CTA button at the bottom is OK).
+
+**DO NOT:**
+- Use a giant logo header or hero image.
+- Use emoji bullet point sections (📸 Import your gym selfies...).
+- Use multiple colored buttons stacked on top of each other.
+- Write like a marketing email ("We're thrilled to announce..."). Write like a text to a friend.
+- Use sections, dividers, or card layouts. It should read like one continuous message.
+
+### Email Structure Template
+
+Every email follows this skeleton:
+
+1. **One-line greeting** — `Hey {{FNAME}},` (use Mailchimp merge tag)
+2. **The hook** — 1-2 sentences. What's new and why should they care? Lead with the benefit, not the feature name.
+3. **The details** — 2-4 short paragraphs explaining what shipped. Be specific. Use bold for key phrases, not for entire sentences.
+4. **The ask (optional)** — Reply to this email, try the feature, read the blog post.
+5. **Sign-off** — `— Michael` with a small link to gainframe.app.
+6. **Single CTA button (optional)** — One clean, dark button. Left-aligned or centered. No stacking multiple buttons.
+
+### HTML Template (Paste into Mailchimp)
+
+When generating the email HTML, use this base template. Replace the `<!-- CONTENT -->` section with the email body. The template is designed to render as clean plain text in all email clients.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GainFrame</title>
+</head>
+<body style="margin:0; padding:0; background-color:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#ffffff;">
+    <tr>
+      <td align="center" style="padding:40px 20px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
+
+          <!-- CONTENT START -->
+          <tr>
+            <td style="font-size:16px; line-height:1.6; color:#1a1a1a;">
+
+              <!-- REPLACE THIS SECTION WITH EMAIL BODY -->
+
+            </td>
+          </tr>
+          <!-- CONTENT END -->
+
+          <!-- CTA BUTTON (optional — delete if not needed) -->
+          <tr>
+            <td style="padding:28px 0 0 0;">
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="background-color:#1a1a1a; border-radius:6px;">
+                    <a href="https://gainframe.app" target="_blank"
+                       style="display:inline-block; padding:12px 28px; color:#ffffff; text-decoration:none; font-size:15px; font-weight:600;">
+                      Try It Now
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="padding:40px 0 0 0; font-size:12px; line-height:1.5; color:#999999;">
+              <p style="margin:0;">— Michael</p>
+              <p style="margin:4px 0 0 0;"><a href="https://gainframe.app" style="color:#999999;">GainFrame</a></p>
+              <p style="margin:20px 0 0 0; border-top:1px solid #eeeeee; padding-top:16px;">
+                You're receiving this because you signed up at gainframe.app.<br>
+                <a href="*|UNSUB|*" style="color:#999999;">Unsubscribe</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+```
+
+### Workflow When User Asks for an Email
+
+1. **Ask what the email is about.** New feature? Blog post announcement? Launch update?
+2. **Draft the plain-text body first.** Show the user the raw copy before wrapping it in HTML. Get approval on the words.
+3. **Generate the HTML.** Slot the approved copy into the template above using proper `<p>` tags with `style="margin:0 0 16px 0;"` for spacing. Use `<strong>` for bold. Use inline `<a>` tags for links.
+4. **Output the complete HTML** in a fenced code block so the user can copy-paste it directly into Mailchimp's HTML editor.
+5. **Remind the user** to preview in Mailchimp and send a test email to themselves before sending.
