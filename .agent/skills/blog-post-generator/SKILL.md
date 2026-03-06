@@ -48,16 +48,18 @@ These rules define GainFrame's editorial voice. Every blog post MUST follow them
 - Write like an objective fitness resource that **earns trust before asking for anything**.
 - Do NOT weave GainFrame pitches into every section. Mention the product **at most twice** in the body — once naturally within a relevant section, once in the closing CTA.
 - Be honest about limitations: *"accuracy varies depending on tool, lighting, and body type"* builds more credibility than *"our AI analyzes topological features with unbiased precision."*
+- **Hedge scientific claims:** When citing accuracy figures, always attribute them (*"studies generally report..."*, *"research suggests..."*) rather than stating them as absolute facts.
 - Google's Helpful Content guidelines reward content that serves the reader first. Write for the reader, not the business.
 
 ### Structure Rules
-1. **Opening hook (mandatory):** The first paragraph must present a concrete, relatable scenario or question — not a thesis statement or SEO keyword summary. Examples:
+1. **Opening hook (mandatory):** Open with a frustration the reader has personally experienced. Use specific numbers. Make them nod before they scroll. Do not use a generic thesis statement or SEO keyword summary. Examples:
+   - ✅ *"You step on your bathroom scale and it tells you that you're 18% body fat. The next morning... it reads 21%."*
    - ✅ *"Someone tells you they're at 15% body fat. What does that actually look like?"*
-   - ✅ *"You ate 1,800 calories yesterday. You hit your protein target."*
    - ❌ *"Search intent for body fat estimation is relentless and highly visual."*
 2. **Body sections:** Use direct, specific H2s that target long-tail keywords. Prefer "What 15% body fat looks like" over "The 15% Range."
-3. **Actionable closing (mandatory):** End with a concrete numbered framework the reader can follow — not a GainFrame sales pitch. Example: *"First, choose a target. Second, pick a tracking method. Third, reassess every 4–8 weeks."*
-4. **Closing blockquote (optional but encouraged):** A summative callout that reinforces the core takeaway.
+3. **Mid-post Checklist (for guide/comparison posts):** Include a 'Quick Checklist' or 'How to Standardize' section with bullet-pointed, do-it-today advice that readers can easily copy and paste.
+4. **Actionable closing (mandatory):** End with a concrete numbered framework the reader can follow — not a GainFrame sales pitch. Example: *"First, choose a target. Second, pick a tracking method. Third, reassess every 4–8 weeks."*
+5. **Closing blockquote (optional but encouraged):** A summative callout that reinforces the core takeaway.
 
 ### Paragraph & Sentence Style
 - **Maximum 3–4 sentences per paragraph.** If a paragraph exceeds 4 sentences, split it.
