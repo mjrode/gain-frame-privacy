@@ -22,6 +22,12 @@
     
     <!-- Blog Posts -->
     <url>
+        <loc>https://gainframe.app/blog/how-to-take-progress-photos-fast/index.html</loc>
+        <lastmod>2026-03-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://gainframe.app/blog/why-body-fat-score-wrong/index.html</loc>
         <lastmod>2026-03-06</lastmod>
         <changefreq>monthly</changefreq>
