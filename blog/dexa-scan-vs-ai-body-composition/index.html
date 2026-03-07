@@ -164,122 +164,18 @@
 
                 <!-- TestFlight CTA -->
                 <div class="blog-post-cta scroll-reveal" style="margin-top: 2.5rem; margin-bottom: 2.5rem;">
-                    <p class="cta-subtitle">Test it on your own selfies.</p>
-                    <a href="https://testflight.apple.com/join/Camc6rHP" target="_blank" rel="noopener"
-                        class="testflight-btn" id="testflight-cta-blog-inline"
-                        onclick="if(typeof gtag==='function'){gtag('event','testflight_click',{event_category:'conversion',event_label:'blog_inline_cta',page_location:window.location.href});}">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                        </svg>
-                        Join the Beta on TestFlight
-                    </a>
-                </div>
-
-                <hr class="post-divider">
-
-                <style>
-                    .comparison-flex {
-                        display: flex;
-                        gap: 1.5rem;
-                        margin: 2.5rem 0;
-                        align-items: stretch;
-                    }
-
-                    .ratio-dexa {
-                        flex: 0.75;
-                    }
-
-                    .ratio-deepdive-1 {
-                        flex: 0.346;
-                    }
-
-                    .ratio-deepdive-2 {
-                        flex: 0.354;
-                    }
-
-                    .comparison-flex.single {
-                        justify-content: center;
-                    }
-
-                    .comparison-flex.single .ratio-deepdive-1 {
-                        flex: 0;
-                        flex-basis: 350px;
-                        max-width: 100%;
-                    }
-
-                    .comparison-card {
-                        background: var(--color-surface);
-                        border: 1px solid var(--color-border);
-                        border-radius: 16px;
-                        padding: 0.75rem;
-                        display: flex;
-                        flex-direction: column;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-                    }
-
-                    .comparison-card .img-wrapper {
-                        position: relative;
-                        flex-grow: 1;
-                        background: #fdfdfd;
-                        border-radius: 8px;
-                        border: 1px solid rgba(0, 0, 0, 0.05);
-                        /* very subtle inset */
-                        overflow: hidden;
-                    }
-
-                    .comparison-card img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: contain;
-                        /* Since we perfectly matched ratios with flex-basis, cover/contain both work, but cover avoids 1px rounding white lines */
-                        display: block;
-                    }
-
-                    .comparison-label {
-                        text-align: center;
-                        font-size: 0.85rem;
-                        color: var(--color-text-secondary);
-                        margin-top: 1rem;
-                        margin-bottom: 0.25rem;
-                        font-weight: 600;
-                        letter-spacing: 0.02em;
-                        text-transform: uppercase;
-                    }
-
-                    @media (max-width: 768px) {
-                        .comparison-flex {
-                            flex-direction: column;
-                            gap: 2rem;
-                        }
-
-                        .ratio-dexa,
-                        .ratio-deepdive-1,
-                        .ratio-deepdive-2 {
-                            flex: auto;
-                        }
-                    }
-                </style>
-
-                <h2>1. The Big Wins: Where They Align Perfectly</h2>
-
-                <p>The core hook of this experiment was the raw numbers. How closely can a visual AI model approximate
-                    the mathematical precision of clinical-grade X-rays?</p>
-
-                <p>The answer is: <strong>remarkably well.</strong></p>
-
-                <div class="comparison-flex scroll-reveal">
-                    <div class="comparison-card">
-                        <div class="img-wrapper"><img src="assets/bmi-bf.webp"
-                                alt="DEXA scan report showing 18.6% body fat and 230 lbs of total weight"
-                                loading="lazy"></div>
-                        <p class="comparison-label">Clinical DEXA Scan</p>
-                    </div>
-                    <div class="comparison-card">
-                        <div class="img-wrapper"><img src="assets/gf-slice1.webp"
-                                alt="GainFrame AI report showing 19% body fat and identical metrics" loading="lazy">
-                        </div>
-                        <p class="comparison-label">GainFrame Deep Dive</p>
+                    <h3>GainFrame is launching soon.</h3>
+                    <p class="cta-subtitle">Sign up for early access and be the first to know when we go live.</p>
+                    <div class="email-capture" style="margin-top: 0.75rem;">
+                        <form class="email-capture-form"
+                            action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a7b3e6f0"
+                            method="post" target="_blank">
+                            <input type="email" name="EMAIL" placeholder="Enter your email" required>
+                            <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text"
+                                    name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" tabindex="-1" value=""></div>
+                            <button type="submit">Get Early Access</button>
+                        </form>
+                        <p class="email-capture-privacy">Free . No spam . Unsubscribe anytime</p>
                     </div>
                 </div>
 
@@ -418,23 +314,21 @@
                     the actionable coaching you need—right from your bathroom mirror.</p>
 
                 <!-- Bottom CTA -->
-                <div class="blog-post-cta scroll-reveal" style="margin-top: 3rem;">
-                    <h3>Try the Deep Dive on your own selfies.</h3>
-                    <p class="cta-subtitle">AI body composition straight from your phone. No account needed during the
-                        beta.</p>
-                    <a href="https://testflight.apple.com/join/Camc6rHP" target="_blank" rel="noopener"
-                        class="testflight-btn" id="testflight-cta-blog-bottom"
-                        onclick="if(typeof gtag==='function'){gtag('event','testflight_click',{event_category:'conversion',event_label:'blog_bottom_cta',page_location:window.location.href});}">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                        </svg>
-                        Join the Beta on TestFlight
-                    </a>
-                    <p class="cta-hint">Requires iOS 17+ · iPhone only</p>
+                <div class="blog-post-cta scroll-reveal" style="margin-top: 2.5rem; margin-bottom: 2.5rem;">
+                    <h3>GainFrame is launching soon.</h3>
+                    <p class="cta-subtitle">Sign up for early access and be the first to know when we go live.</p>
+                    <div class="email-capture" style="margin-top: 0.75rem;">
+                        <form class="email-capture-form"
+                            action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a7b3e6f0"
+                            method="post" target="_blank">
+                            <input type="email" name="EMAIL" placeholder="Enter your email" required>
+                            <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text"
+                                    name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" tabindex="-1" value=""></div>
+                            <button type="submit">Get Early Access</button>
+                        </form>
+                        <p class="email-capture-privacy">Free . No spam . Unsubscribe anytime</p>
+                    </div>
                 </div>
-
-            </div>
 
             <!-- Author / Back -->
             <footer class="post-footer scroll-reveal">

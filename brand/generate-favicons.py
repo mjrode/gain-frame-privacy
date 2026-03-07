@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Generate all favicon sizes from the new GainFrame 2.0 logo.
+"""Generate all favicon sizes from the GainFrame 2.0 logo.
 
 Replaces all existing favicon assets in /assets/ with the new icon.
 Backs up originals to /assets/favicon-backup/ first.
 
-Run: python3 tiktok/generate-favicons.py
+Run: python3 brand/generate-favicons.py
 """
 
 from PIL import Image
@@ -13,7 +13,7 @@ import shutil
 import struct
 
 ROOT = '/Users/michael.rode/code/project/gain-frame-privacy'
-SRC = os.path.join(ROOT, 'gainframe-icon-2.0')
+SRC = os.path.join(ROOT, 'brand', 'gainframe-icon-2.0-1024.png')
 ASSETS = os.path.join(ROOT, 'assets')
 BACKUP = os.path.join(ASSETS, 'favicon-backup')
 
