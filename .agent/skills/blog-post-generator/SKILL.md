@@ -96,8 +96,8 @@ When a post cites scientific studies or peer-reviewed research, these additional
    - Use the standard structure from existing blog posts (e.g., `blog/measure-muscle-gain-without-scale/index.html`).
    - Include Twitter/OpenGraph meta cards. Set the `og:image` to one of the screenshots (not the abstract cover).
    - Include JSON-LD structured data for `BlogPosting`.
-   - Ensure you use the standard TestFlight CTA (`.blog-post-cta` container with standard button).
-6. **Update Index:** Add the new blog post to the top of the grid in `blog.html`. Use the generated vector cover image.
+   - Ensure you use the standard early-access email CTA (`.blog-post-cta` container with email capture form and "Get Early Access" button).
+6. **Update Index:** Add the new blog post to the top of the grid in `blog.html`. Use the generated vector cover image. **CRITICAL:** Use the standard card structure — `blog-card-content` > `post-meta` > `post-category` + `post-date`, then `h3`, then `p`. Do NOT use `blog-card-body` / `blog-card-category` / `blog-card-title` — those are an old format that doesn't match the site's typography.
 7. **Update Sitemap:** Add the new blog post to `sitemap.xml`.
 8. **Update Backlog:** If this post was from `TODO_SEO.md`, check it off and add the publish date.
 8. **Deploy (MANDATORY — do not skip):** After all files are written and the blog index is updated, you MUST run the following commands automatically:
