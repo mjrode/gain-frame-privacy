@@ -1657,8 +1657,14 @@ body {
         max-width: 100%;
     }
 
+    .img-wrapper {
+        overflow: visible;
+    }
+
     .img-wrapper img {
-        max-height: 400px;
+        width: 100%;
+        height: auto;
+        max-height: none;
         object-fit: contain;
     }
 }
