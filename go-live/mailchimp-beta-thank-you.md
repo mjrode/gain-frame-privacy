@@ -1,8 +1,8 @@
-# Mailchimp Email: Beta Tester Thank-You
+# Mailchimp Email: Beta Tester Thank-You (Tier 0 + Tier 1)
 
-**Audience**: All TestFlight beta testers (segment from your 150-subscriber list)
-**Timing**: Send now
-**Goal**: Thank testers, offer free Pro year, drive App Store download + review
+**Audience**: Top engaged beta testers from [beta-testers.md](./beta-testers.md) — Tier 0 (Allen) and Tier 1 (9 testers)
+**Timing**: Send now (personal emails recommended for Tier 0/1)
+**Goal**: Thank top testers, offer free year of Pro (Tier 1) / lifetime (Tier 0), drive App Store review
 
 ---
 
@@ -13,7 +13,7 @@
 | **From** | Michael @ GainFrame |
 | **Subject** | You helped build GainFrame — claim your free Pro year |
 | **Preview text** | GainFrame is live on the App Store. Your beta testing earned you something. |
-| **Segment** | TestFlight testers tag |
+| **Segment** | Tier 0 + Tier 1 testers only (see beta-testers.md) |
 
 ---
 
@@ -45,11 +45,11 @@
 
               <p style="margin:0 0 16px 0;"><strong>GainFrame is officially live on the App Store</strong>, and I wanted to make sure you heard it from me first.</p>
 
-              <p style="margin:0 0 8px 0;"><strong>Here's what you get for being a beta tester:</strong></p>
+              <p style="margin:0 0 8px 0;"><strong>Here's what you earned:</strong></p>
 
-              <p style="margin:0 0 16px 0;">Every beta tester who helped test GainFrame is eligible for a <strong>free year of Pro</strong> — no strings, no catch. It's the least I can do.</p>
+              <p style="margin:0 0 16px 0;">Your testing and feedback directly shaped GainFrame. As a thank-you, you're getting a <strong>free year of GainFrame Pro</strong> — no strings, no catch. It's the least I can do for someone who helped build this.</p>
 
-              <p style="margin:0 0 16px 0;"><strong>To claim yours, just reply to this email or send a quick note to <a href="mailto:michael@gainframe.app" style="color:#1a1a1a;">michael@gainframe.app</a>.</strong> I'll set it up for you personally.</p>
+              <p style="margin:0 0 16px 0;"><strong>To claim yours, just reply to this email or send a quick note to <a href="mailto:michael@gainframe.app" style="color:#1a1a1a;">michael@gainframe.app</a>.</strong> I'll set it up for you personally via RevenueCat.</p>
 
               <p style="margin:0 0 8px 0;"><strong>What happens next:</strong></p>
 
@@ -93,9 +93,9 @@
 
 ## Notes
 
-- No CTA button needed — the reply/email CTA keeps it personal
-- Track replies: anyone who replies is a Tier 1 engaged user
-- Uses `*|FNAME|*` Mailchimp merge tag for personalization
-- Uses `*|UNSUB|*` Mailchimp merge tag for unsubscribe
+- **Tier 0 (Allen Salama)**: Send separately with "Lifetime Pro" language instead of "free year" — personalize heavily
+- **Tier 1 (9 testers)**: This template works as-is — "free year of Pro"
+- No CTA button — reply-to-claim keeps it personal
+- Uses `*|FNAME|*` and `*|UNSUB|*` Mailchimp merge tags
 - All links include UTM parameters (`utm_campaign=beta-thank-you`)
-- Preview in Mailchimp and send a test email before sending to the full segment
+- Preview in Mailchimp and send a test email before sending

@@ -1,8 +1,8 @@
 # Mailchimp Email: Launch Day Blast
 
-**Audience**: Full Mailchimp list (all 150 subscribers)
+**Audience**: Full Mailchimp list (all 150 subscribers — includes Tier 2 beta testers and general signups)
 **Timing**: Day 0 (Launch Day — now)
-**Goal**: Drive App Store downloads, activate 1-week free trial, get initial reviews
+**Goal**: Drive App Store downloads, offer 1-month free Pro to all subscribers, get initial reviews
 
 ---
 
@@ -12,7 +12,7 @@
 |---|---|
 | **From** | Michael @ GainFrame |
 | **Subject** | It's here. GainFrame is live on the App Store. |
-| **Preview text** | Turn your gym selfies into a measurable body transformation tracker. |
+| **Preview text** | Download now and get a free month of Pro — on the house. |
 
 ---
 
@@ -40,24 +40,20 @@
 
               <p style="margin:0 0 16px 0;">The wait is over. <strong>GainFrame is officially live on the App Store.</strong></p>
 
-              <p style="margin:0 0 16px 0;">If you've been waiting to finally understand what your progress photos are telling you — now is the time.</p>
+              <p style="margin:0 0 16px 0;">You signed up early — and I want to make that mean something.</p>
+
+              <p style="margin:0 0 16px 0;">Every subscriber on this list gets a <strong>free month of GainFrame Pro</strong>. No strings, no credit card required upfront. Just download the app, and reply to this email with your Apple ID email so I can activate it for you.</p>
 
               <p style="margin:0 0 24px 0;"><a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082?utm_source=mailchimp&amp;utm_medium=email&amp;utm_campaign=launch-day" style="color:#1a1a1a; font-weight:600;">Download GainFrame on the App Store →</a></p>
 
-              <p style="margin:0 0 8px 0;"><strong>What it does:</strong></p>
-
-              <p style="margin:0 0 6px 0;">GainFrame turns average gym selfies into an accurate body composition dashboard:</p>
+              <p style="margin:0 0 8px 0;"><strong>What you'll get with Pro:</strong></p>
 
               <ul style="margin:0 0 16px 0; padding-left:20px;">
                 <li style="margin-bottom:6px;"><strong>Precision AI Body Fat</strong> — body fat %, lean mass, and FFMI from a single photo (tested against clinical DEXA scans)</li>
                 <li style="margin-bottom:6px;"><strong>Ghost Overlay</strong> — match your previous pose perfectly, no more crooked comparisons</li>
-                <li style="margin-bottom:6px;"><strong>Deep Dive Compare</strong> — align any two photos and get objective data on exactly what changed</li>
+                <li style="margin-bottom:6px;"><strong>Deep Dive Compare</strong> — align any two photos and see exactly what changed, broken down by muscle group</li>
                 <li style="margin-bottom:6px;"><strong>Future Physique</strong> — see a predicted image of where your body is headed in 3, 6, or 12 months</li>
               </ul>
-
-              <p style="margin:0 0 8px 0;"><strong>Try it completely free</strong></p>
-
-              <p style="margin:0 0 16px 0;">Every new user gets a <strong>1-week free trial</strong> of GainFrame Pro. Try every feature, analyze your photo history, and generate your Future Physique — no commitment.</p>
 
               <p style="margin:0 0 8px 0;"><strong>One quick favor</strong></p>
 
@@ -109,8 +105,9 @@
 
 ## Notes
 
-- Uses `*|FNAME|*` Mailchimp merge tag for personalization
-- Uses `*|UNSUB|*` Mailchimp merge tag for unsubscribe (required)
+- **Offer**: 1 month free Pro for ALL subscribers on the list
+- **Redemption**: Reply with Apple ID email → grant via RevenueCat Promotional Entitlements
+- Uses `*|FNAME|*` and `*|UNSUB|*` Mailchimp merge tags
 - All links include UTM parameters (`utm_campaign=launch-day`)
 - Single CTA button at the bottom links to the App Store
-- Preview in Mailchimp and send a test email to yourself before sending to the full list
+- Preview in Mailchimp and send a test email to yourself before sending
