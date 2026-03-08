@@ -1601,6 +1601,68 @@ body {
     }
 }
 
+/* Comparison Layout (DEXA vs AI post) */
+.comparison-flex {
+    display: flex;
+    gap: var(--sp-lg);
+    margin: var(--sp-xl) 0;
+    align-items: stretch;
+}
+
+.comparison-flex.single {
+    justify-content: center;
+}
+
+.comparison-card {
+    flex: 1;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    padding: var(--sp-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.comparison-flex.single .comparison-card {
+    max-width: 400px;
+}
+
+.img-wrapper {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.comparison-label {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin: var(--sp-sm) 0 0;
+    font-family: var(--font-body);
+}
+
+@media (max-width: 600px) {
+    .comparison-flex {
+        flex-direction: column;
+    }
+
+    .comparison-flex.single .comparison-card {
+        max-width: 100%;
+    }
+
+    .img-wrapper img {
+        max-height: 400px;
+        object-fit: contain;
+    }
+}
+
 /* Tables */
 .post-table-wrapper {
     margin: var(--sp-xl) 0;
