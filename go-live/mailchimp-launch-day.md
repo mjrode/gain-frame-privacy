@@ -40,9 +40,9 @@
 
               <p style="margin:0 0 16px 0;">The wait is over. <strong>GainFrame is officially live on the App Store.</strong></p>
 
-              <p style="margin:0 0 16px 0;">You signed up early — and I want to make that mean something.</p>
+              <p style="margin:0 0 16px 0;">You were there from the start — testing, giving feedback, and helping shape GainFrame into something real. That kind of support deserves more than a thank-you email.</p>
 
-              <p style="margin:0 0 16px 0;">Every subscriber on this list gets a <strong>free month of GainFrame Pro</strong>. No strings, no credit card required upfront. Just download the app, and reply to this email with your Apple ID email so I can activate it for you.</p>
+              <p style="margin:0 0 16px 0;">So here's the deal: you're getting a <strong>free month of GainFrame Pro</strong> on me. Just download the app and reply to this email with your Apple ID email — I'll activate it for you personally.</p>
 
               <p style="margin:0 0 24px 0;"><a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082?utm_source=mailchimp&amp;utm_medium=email&amp;utm_campaign=launch-day" style="color:#1a1a1a; font-weight:600;">Download GainFrame on the App Store →</a></p>
 

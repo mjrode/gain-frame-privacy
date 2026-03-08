@@ -1,101 +1,68 @@
-# Mailchimp Email: Beta Tester Thank-You (Tier 0 + Tier 1)
+# Personal Email: Beta Tester Thank-You (Tier 0 + Tier 1)
 
-**Audience**: Top engaged beta testers from [beta-testers.md](./beta-testers.md) — Tier 0 (Allen) and Tier 1 (9 testers)
-**Timing**: Send now (personal emails recommended for Tier 0/1)
-**Goal**: Thank top testers, offer free year of Pro (Tier 1) / lifetime (Tier 0), drive App Store review
-
----
-
-## Email Details
-
-| Field | Value |
-|---|---|
-| **From** | Michael @ GainFrame |
-| **Subject** | You helped build GainFrame — claim your free Pro year |
-| **Preview text** | GainFrame is live on the App Store. Your beta testing earned you something. |
-| **Segment** | Tier 0 + Tier 1 testers only (see beta-testers.md) |
+**Send from**: Your personal Gmail
+**Send to**: Each tester individually (see list below)
+**Goal**: Thank them, offer free year of Pro, get App Store review
 
 ---
 
-## Paste-Ready HTML
+## Subject Line
 
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GainFrame</title>
-</head>
-<body style="margin:0; padding:0; background-color:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#ffffff;">
-    <tr>
-      <td align="center" style="padding:40px 20px;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
-
-          <!-- CONTENT START -->
-          <tr>
-            <td style="font-size:16px; line-height:1.6; color:#1a1a1a;">
-
-              <p style="margin:0 0 16px 0;">Hey *|FNAME|*,</p>
-
-              <p style="margin:0 0 16px 0;">You've been part of something from the very beginning.</p>
-
-              <p style="margin:0 0 16px 0;">Over the past few months, you've been testing GainFrame on TestFlight — using it, breaking it, and helping shape it into something real. That matters more than you know.</p>
-
-              <p style="margin:0 0 16px 0;"><strong>GainFrame is officially live on the App Store</strong>, and I wanted to make sure you heard it from me first.</p>
-
-              <p style="margin:0 0 8px 0;"><strong>Here's what you earned:</strong></p>
-
-              <p style="margin:0 0 16px 0;">Your testing and feedback directly shaped GainFrame. As a thank-you, you're getting a <strong>free year of GainFrame Pro</strong> — no strings, no catch. It's the least I can do for someone who helped build this.</p>
-
-              <p style="margin:0 0 16px 0;"><strong>To claim yours, just reply to this email or send a quick note to <a href="mailto:michael@gainframe.app" style="color:#1a1a1a;">michael@gainframe.app</a>.</strong> I'll set it up for you personally via RevenueCat.</p>
-
-              <p style="margin:0 0 8px 0;"><strong>What happens next:</strong></p>
-
-              <ul style="margin:0 0 16px 0; padding-left:20px;">
-                <li style="margin-bottom:6px;">The TestFlight beta will expire very soon</li>
-                <li style="margin-bottom:6px;">Download GainFrame from the App Store: <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082?utm_source=mailchimp&amp;utm_medium=email&amp;utm_campaign=beta-thank-you" style="color:#1a1a1a; font-weight:600;">Download GainFrame →</a></li>
-                <li style="margin-bottom:6px;">Your free Pro year will be activated once you're on the App Store version</li>
-              </ul>
-
-              <p style="margin:0 0 8px 0;"><strong>One favor</strong></p>
-
-              <p style="margin:0 0 16px 0;">If GainFrame has been useful to you, I'd really appreciate an honest review on the App Store. Early reviews are make-or-break for a new app, and yours would carry real weight.</p>
-
-              <p style="margin:0 0 0 0;">Thank you for being part of this.</p>
-
-            </td>
-          </tr>
-          <!-- CONTENT END -->
-
-          <!-- FOOTER -->
-          <tr>
-            <td style="padding:40px 0 0 0; font-size:12px; line-height:1.5; color:#999999;">
-              <p style="margin:0;">— Michael</p>
-              <p style="margin:4px 0 0 0;"><a href="https://gainframe.app?utm_source=mailchimp&amp;utm_medium=email&amp;utm_campaign=beta-thank-you" style="color:#999999;">GainFrame</a></p>
-              <p style="margin:20px 0 0 0; border-top:1px solid #eeeeee; padding-top:16px;">
-                You're receiving this because you signed up at gainframe.app.<br>
-                <a href="*|UNSUB|*" style="color:#999999;">Unsubscribe</a>
-              </p>
-            </td>
-          </tr>
-
-        </table>
-      </td>
-    </tr>
-  </table>
-</body>
-</html>
+```
+Thank you, [NAME] — you helped build GainFrame
 ```
 
 ---
 
-## Notes
+## Email Body (copy into Gmail)
 
-- **Tier 0 (Allen Salama)**: Send separately with "Lifetime Pro" language instead of "free year" — personalize heavily
-- **Tier 1 (9 testers)**: This template works as-is — "free year of Pro"
-- No CTA button — reply-to-claim keeps it personal
-- Uses `*|FNAME|*` and `*|UNSUB|*` Mailchimp merge tags
-- All links include UTM parameters (`utm_campaign=beta-thank-you`)
-- Preview in Mailchimp and send a test email before sending
+```
+Hey [NAME],
+
+I wanted to reach out personally because your feedback during the beta genuinely shaped GainFrame. [MENTION SPECIFIC FEEDBACK — e.g., "Your notes on the score consistency really helped me tighten up the whole scoring model."]
+
+GainFrame is officially live on the App Store today, and I wanted to make sure you heard it from me first.
+
+As a thank-you for all your testing, I'm giving you a free year of GainFrame Pro — no strings, no catch. Just download the app from the App Store and reply here with the Apple ID email you used. I'll activate it for you personally.
+
+Download here: https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082
+
+One favor — if you have a minute, an honest App Store review would mean the world. Early reviews are make-or-break for a new indie app, and yours would carry real weight.
+
+Thank you for being part of this from the beginning.
+
+— Michael
+```
+
+---
+
+## Send List
+
+### Tier 0: Lifetime Pro
+
+| Name | Email | Offer | Sent |
+|------|-------|-------|------|
+| Allen Salama | allen.salama@gmail.com | **Lifetime Pro** (change "free year" to "lifetime access" in his email) | ☐ |
+
+### Tier 1: Free Year of Pro
+
+| # | Name | Email | Sent |
+|---|------|-------|------|
+| 1 | Stefano Mazzuca | stefano.mazzuca@sunrise.ch | ☐ |
+| 2 | Dan | dan@thugsandwich.co.uk | ☐ |
+| 3 | Charlie Ryan | chazman1616@gmail.com | ☐ |
+| 4 | Sarat | sagatbabu@gmail.com | ☐ |
+| 5 | Nathan Bratby | nathanbratby@gmail.com | ☐ |
+| 6 | Daniel Bell | daniel.bell87@gmail.com | ☐ |
+| 7 | Hamza | lowhigher1@gmail.com | ☐ |
+| 8 | Codyhh (TikTok) | horvithcmail@gmail.com | ☐ |
+| 9 | Quat (TikTok) | dylanclombardo@gmail.com | ☐ |
+
+---
+
+## How to Activate Their Pro
+
+1. Go to [RevenueCat Dashboard](https://app.revenuecat.com) → GainFrame → Customers
+2. Search by their Apple ID email (may differ from the email above — ask them)
+3. Click the customer → **Grant Promotional Entitlement**
+4. Select the Pro entitlement → Set duration to **1 year** (Tier 1) or **Lifetime** (Allen)
