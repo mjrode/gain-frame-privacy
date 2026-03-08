@@ -137,20 +137,10 @@
                     </div>
                 </div>
                 <div class="hero-cta">
-                    <div class="email-capture">
-                        <form class="email-capture-form"
-                            action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a7b3e6f0"
-                            method="post" target="_blank">
-                            <input type="email" name="EMAIL" placeholder="Enter your email" required>
-                            <!-- UTM tracking (hidden) -->
-                            <input type="hidden" name="UTMSOURCE" class="utm-source">
-                            <input type="hidden" name="UTMMEDIUM" class="utm-medium">
-                            <input type="hidden" name="UTMCAMPAIGN" class="utm-campaign">
-                            <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text"
-                                    name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" tabindex="-1" value=""></div>
-                            <button type="submit">Get Early Access</button>
-                        </form>
-                        <p class="email-capture-privacy">Free · No spam · Unsubscribe anytime</p>
+                    <div class="app-store-wrapper" style="margin-top: 1rem; display: flex; justify-content: center;">
+                        <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="app-store-badge-link" target="_blank" rel="noopener">
+                        <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" style="height: 48px; width: auto;" />
+                    </a>
                     </div>
                 </div>
             </div>
@@ -572,7 +562,7 @@
     <section class="cta" id="download">
         <div class="container">
             <h2 class="section-title scroll-reveal">Ready to see your progress?</h2>
-            <p class="cta-subtitle scroll-reveal">GainFrame is launching soon. Sign up to get notified at launch.</p>
+            <p class="cta-subtitle scroll-reveal">GainFrame is now available. Download now from the App Store.</p>
             <div class="email-capture scroll-reveal">
                 <form class="email-capture-form"
                     action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a7b3e6f0"
@@ -653,26 +643,7 @@
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script><!-- End Cloudflare Web Analytics -->
 
-    <!-- GA4 Waitlist Conversion Tracker -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var forms = document.querySelectorAll('.email-capture-form');
-            forms.forEach(function (form) {
-                form.addEventListener('submit', function () {
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'early_access_signup', {
-                            'event_category': 'engagement',
-                            'event_label': 'early_access',
-                            'page_location': window.location.href,
-                            'utm_source': document.querySelector('.utm-source') ? document.querySelector('.utm-source').value : '',
-                            'utm_medium': document.querySelector('.utm-medium') ? document.querySelector('.utm-medium').value : '',
-                            'utm_campaign': document.querySelector('.utm-campaign') ? document.querySelector('.utm-campaign').value : ''
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+    
 </body>
 
 </html>
