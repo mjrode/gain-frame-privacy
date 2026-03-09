@@ -5,7 +5,7 @@
  * Extracts: post body HTML content between <div class="post-body"> and its closing tag.
  */
 
-import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync, copyFileSync } from 'fs';
 import { join, basename } from 'path';
 
 const BLOG_DIR = join(import.meta.dirname, '..', 'blog');
@@ -208,6 +208,22 @@ for (const slug of slugs) {
 
     const outPath = join(OUTPUT_DIR, `${slug}.md`);
     writeFileSync(outPath, mdxContent);
+
+    // Copy assets to public directory
+    const sourceAssetsDir = join(BLOG_DIR, slug, 'assets');
+    const destAssetsDir = join(process.cwd(), 'public', 'blog', slug, 'assets');
+
+    if (existsSync(sourceAssetsDir)) {
+        if (!existsSync(destAssetsDir)) {
+            mkdirSync(destAssetsDir, { recursive: true });
+        }
+
+        const assets = readdirSync(sourceAssetsDir);
+        for (const asset of assets) {
+            copyFileSync(join(sourceAssetsDir, asset), join(destAssetsDir, asset));
+        }
+    }
+
     console.log(`✓ ${slug}`);
 }
 
