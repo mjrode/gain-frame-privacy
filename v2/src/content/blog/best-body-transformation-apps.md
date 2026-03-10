@@ -29,6 +29,19 @@ relatedPosts:
     title: What Comparing Progress Photos Looked Like Before GainFrame
 ---
 
+<!-- ============ APP 1: GAINFRAME ============ -->
+<h2>1. <a href="https://gainframe.app" target="_blank"
+rel="noopener">GainFrame</a> — Best for AI-powered physique analysis</h2>
+
+<p><strong>Platform:</strong> <a
+href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank"
+rel="noopener">iOS App Store</a> · <strong>Price:</strong> Free with Pro subscription</p>
+
+<img src="/blog/best-body-transformation-apps/assets/single-photo-view.webp"
+alt="GainFrame photo view showing body composition metrics and attached workout data"
+loading="lazy"
+style="max-width: 220px; width: 40%; float: right; margin: 0 0 1rem 1.5rem; border-radius: 12px;">
+
 <p>GainFrame takes a different approach than most apps on this list. Instead of asking you to set up a
 tripod and take controlled photos, it works with whatever gym selfies you already have in your camera
 roll. Point it at an album and it auto-imports, deduplicates, and sorts your progress photos by
@@ -39,11 +52,6 @@ You get estimated body fat %, BMI, FFMI, a composite physique score (0–100), a
 for 12 muscle groups. It's more granular than what Formfy or Recomp AI offer, and unlike those apps
 it tracks changes over time rather than giving you a one-off snapshot.</p>
 
-<img src="/blog/best-body-transformation-apps/assets/single-photo-view.webp"
-alt="GainFrame photo view showing body composition metrics and attached workout data"
-loading="lazy"
-style="max-width: 360px; width: 100%; display: block; margin: 1.5rem auto; border-radius: 12px;">
-
 <p>When you compare two photos side by side, the AI quantifies exactly what changed and generates
 training recommendations — things like "Upper Chest Focus" or "High-Protein Deficit" with daily
 macro targets. It also has a Future Physique prediction that generates an AI image of where you could
@@ -53,6 +61,8 @@ be in 12 months, which is either motivating or terrifying depending on your pers
 your lifts, GainFrame auto-attaches that day's workout to the photo — so you can see what you
 trained alongside what you looked like. No other app on this list connects workout data to progress
 photos.</p>
+
+<div style="clear: both;"></div>
 
 <p><strong>Best for:</strong> Lifters who want AI-driven analysis of their physique, not just a photo
 album with reminders. If you want your progress photos to actually <em>tell you something</em>, this
