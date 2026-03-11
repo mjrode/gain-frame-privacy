@@ -249,6 +249,59 @@ body {
     padding: var(--sp-section) 0 var(--sp-2xl);
 }
 
+/* =====================================================
+   SOCIAL PROOF STRIP
+   ===================================================== */
+
+.social-proof {
+    padding: 0 0 var(--sp-xl);
+}
+
+.proof-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-xl);
+    padding: var(--sp-lg) var(--sp-xl);
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+.proof-item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-sm);
+}
+
+.proof-item svg {
+    flex-shrink: 0;
+    color: var(--color-text);
+    opacity: 0.5;
+}
+
+.proof-value {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.proof-label {
+    font-size: 0.82rem;
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.proof-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--color-border);
+    flex-shrink: 0;
+}
+
 .hero .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -851,6 +904,29 @@ body {
         max-width: calc(100vw - 32px);
     }
 
+    /* Social Proof — Mobile */
+    .proof-strip {
+        flex-wrap: wrap;
+        gap: var(--sp-md);
+        padding: var(--sp-md);
+        justify-content: center;
+    }
+
+    .proof-divider {
+        display: none;
+    }
+
+    .proof-item {
+        min-width: 120px;
+        justify-content: center;
+    }
+
+    /* Nav CTA — Mobile */
+    .nav-cta-btn {
+        padding: 5px 12px !important;
+        font-size: 0.75rem !important;
+    }
+
     .feature-image-mockup {
         max-height: 480px;
         max-width: calc(100vw - 32px);
@@ -964,6 +1040,23 @@ body {
 .blog-nav-links a:hover,
 .blog-nav-links a.active {
     color: var(--color-text);
+}
+
+/* Nav CTA Button */
+.nav-cta-btn {
+    background: var(--color-text) !important;
+    color: var(--color-bg) !important;
+    padding: 6px 16px !important;
+    border-radius: var(--radius-full) !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em;
+    transition: background 0.2s ease, transform 0.2s ease !important;
+}
+
+.nav-cta-btn:hover {
+    background: #333 !important;
+    transform: scale(1.05);
 }
 
 /* =====================================================
