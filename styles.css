@@ -2348,3 +2348,250 @@ body {
         padding: 12px 6px;
     }
 }
+
+/* =====================================================
+   FEATURES HUB PAGE
+   ===================================================== */
+
+/* Hero */
+.features-hub-hero {
+    padding: var(--sp-section) 0 var(--sp-2xl);
+    text-align: center;
+    background: var(--color-bg);
+}
+
+.features-hub-hero .blog-header-title {
+    font-family: var(--font-display);
+    font-size: 3.25rem;
+    font-weight: 800;
+    line-height: 1.15;
+    max-width: 720px;
+    margin: 0 auto var(--sp-lg);
+    color: var(--color-text);
+}
+
+.features-hero-image-wrapper {
+    max-width: 900px;
+    margin: var(--sp-xl) auto 0;
+}
+
+.features-hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+.features-hub-hero .blog-header-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    max-width: 560px;
+    margin: 0 auto var(--sp-xl);
+    line-height: 1.7;
+}
+
+/* Category sections */
+.features-category {
+    padding: var(--sp-2xl) 0;
+}
+
+.features-category.alt-bg {
+    background: var(--color-surface);
+}
+
+.features-category-header {
+    text-align: center;
+    margin-bottom: var(--sp-xl);
+}
+
+.features-category-title {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: var(--sp-sm);
+}
+
+.features-category-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.65;
+}
+
+/* Category badges */
+.feature-badge {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--sp-md);
+    background: var(--color-text);
+    color: var(--color-bg);
+}
+
+.feature-badge.sage-badge {
+    background: var(--color-sage);
+    color: #fff;
+}
+
+.feature-badge.pro-badge {
+    background: var(--color-brand-red);
+    color: #fff;
+}
+
+/* Feature link grid — 2 columns */
+.features-link-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-lg);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Feature link cards */
+.feature-link-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-md);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--sp-lg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-link-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-elevated);
+}
+
+/* Override the feature-icon for hub page — inline with text, not stacked */
+.feature-link-card .feature-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0;
+}
+
+.feature-link-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 4px;
+}
+
+.feature-link-content p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Personas section */
+.personas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-lg);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.persona-card {
+    text-align: center;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--sp-xl) var(--sp-lg);
+}
+
+.persona-emoji {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto var(--sp-md);
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.persona-card h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--sp-sm);
+}
+
+.persona-card p {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* CTA section (features page uses generic .cta) */
+.cta {
+    padding: var(--sp-section) 0;
+    text-align: center;
+    background: var(--color-bg);
+}
+
+.cta-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin: var(--sp-md) auto var(--sp-xl);
+    max-width: 480px;
+}
+
+/* ======================== RESPONSIVE ======================== */
+@media (max-width: 768px) {
+    .features-hub-hero .blog-header-title {
+        font-size: 2.25rem;
+    }
+
+    .features-hub-hero .blog-header-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .features-category-title {
+        font-size: 1.75rem;
+    }
+
+    .features-link-grid {
+        grid-template-columns: 1fr;
+        gap: var(--sp-md);
+    }
+
+    .personas-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--sp-md);
+    }
+
+    .features-category {
+        padding: var(--sp-xl) 0;
+    }
+
+    .features-hub-hero {
+        padding: var(--sp-2xl) 0 var(--sp-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .personas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-hub-hero .blog-header-title {
+        font-size: 1.85rem;
+    }
+}
