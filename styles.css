@@ -1181,6 +1181,14 @@ body {
     align-items: center;
     gap: var(--sp-sm);
     margin-bottom: var(--sp-sm);
+    width: 100%;
+    justify-content: space-between;
+}
+
+.post-meta-left {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-sm);
 }
 
 .post-category {
@@ -1343,18 +1351,17 @@ body {
     flex-shrink: 0;
 }
 
-/* Blog Post inline CTA card */
 /* Compact inline download pill */
 .blog-download-pill {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
+    gap: 6px;
+    padding: 7px 16px;
     background: #111;
     color: #fff;
     border-radius: 980px;
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.78rem;
     font-weight: 600;
     text-decoration: none;
     letter-spacing: -0.01em;
@@ -1368,8 +1375,8 @@ body {
 }
 
 .blog-download-pill svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     flex-shrink: 0;
 }
 
