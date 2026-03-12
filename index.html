@@ -87,121 +87,105 @@
                 <img src="assets/favicon.webp" alt="GainFrame" loading="lazy" class="blog-nav-icon">
                 <span class="blog-nav-wordmark">GainFrame</span>
             </a>
-            <div class="blog-nav-links">
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="blog-nav-links" id="navLinks">
                 <a href="index.html" class="active">Home</a>
+                <a href="features.html">Features</a>
                 <a href="blog.html">Blog</a>
                 <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
                     class="nav-cta-btn" target="_blank" rel="noopener">Download</a>
             </div>
         </div>
     </nav>
+    <script>
+        (function() {
+            var btn = document.getElementById('navHamburger');
+            var links = document.getElementById('navLinks');
+            btn.addEventListener('click', function() {
+                var open = links.classList.toggle('nav-open');
+                btn.classList.toggle('nav-hamburger--open', open);
+                btn.setAttribute('aria-expanded', open);
+            });
+        })();
+    </script>
 
     <!-- ==================== HERO ==================== -->
-    <section class="hero">
+    <section class="hero hero-dark">
         <div class="container">
             <div class="hero-content hero-text-stagger">
-                <h1 class="hero-title">Your physique,<br><span class="accent-underline">decoded.</span>
-                </h1>
-                <p class="hero-subtitle">Take a photo. Get a full body composition analysis — body fat, muscle
-                    scores, and a personalized action plan — in 60 seconds.</p>
+                <h1 class="hero-title">Your physique,<br><span class="accent-underline">decoded.</span></h1>
+                <p class="hero-subtitle">Take a photo. Get a full body composition analysis — body fat, muscle scores, and a personalized action plan — in 60 seconds.</p>
                 <div class="hero-features">
                     <div class="hero-chip">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
                         </svg>
                         Body comp from a photo
                     </div>
                     <div class="hero-chip">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
                         </svg>
                         Future physique preview
                     </div>
                     <div class="hero-chip">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                         </svg>
                         Auto-aligned comparisons
                     </div>
                     <div class="hero-chip">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Track every metric over time
                     </div>
                 </div>
                 <div class="hero-cta">
                     <div class="app-store-wrapper" style="margin-top: 1rem; display: flex; justify-content: center;">
-                        <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
-                            class="app-store-badge-link" target="_blank" rel="noopener">
-                            <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png"
-                                alt="Download on the App Store" style="height: 48px; width: auto;" />
+                        <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="app-store-badge-link" target="_blank" rel="noopener">
+                            <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" style="height: 52px; width: auto;" />
                         </a>
                     </div>
                 </div>
             </div>
             <div class="hero-mockup hero-image-stagger">
-                <video src="assets/GainFrame-1080p-9x16.mp4"
-                    poster="assets/lp-homepage.webp"
-                    autoplay loop muted playsinline
-                    style="max-width: 320px; width: 100%; height: auto; border-radius: 24px; display: block;"></video>
+                <div class="hero-video-card">
+                    <video src="GainFrame-1080p-appstore-red.mp4" autoplay loop muted playsinline></video>
+                </div>
             </div>
         </div>
     </section>
+    <div class="hero-bridge"></div>
 
     <!-- ==================== SOCIAL PROOF ==================== -->
-    <section class="social-proof">
+    <section class="social-proof-v2">
         <div class="container">
-            <div class="proof-strip scroll-reveal">
-                <div class="proof-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                    </svg>
-                    <span class="proof-value">4.9 ★</span>
-                    <span class="proof-label">App Store</span>
+            <div class="proof-strip-v2 scroll-reveal">
+                <div class="proof-item-v2">
+                    <span class="proof-num">4.9 ★</span>
+                    <span class="proof-desc">App Store Rating</span>
                 </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                    </svg>
-                    <span class="proof-value">AI-Powered</span>
-                    <span class="proof-label">Gemini Vision</span>
+                <div class="proof-item-v2">
+                    <span class="proof-num">60s</span>
+                    <span class="proof-desc">Full Body Report</span>
                 </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span class="proof-value">60 sec</span>
-                    <span class="proof-label">Full Report</span>
-                </div>
-                <div class="proof-divider"></div>
-                <div class="proof-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                    </svg>
-                    <span class="proof-value">Privacy-First</span>
-                    <span class="proof-label">No cloud uploads</span>
+                <div class="proof-item-v2">
+                    <span class="proof-num">12</span>
+                    <span class="proof-desc">Muscle Groups Scored</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ==================== FEATURE: AI COMPARE ==================== -->
-    <section class="feature-section">
+    <section class="feature-section feature-section-v2">
         <div class="container">
             <div class="feature-split reverse">
                 <div class="feature-text scroll-reveal-right">
-                    <span class="feature-badge badge-pop">AI Compare</span>
+                    <span class="feature-badge-v2 badge-pop">AI Compare</span>
                     <h2>Your hard work, fully quantified</h2>
                     <p>Stop guessing if your program is working. GainFrame turns any two photos into a comprehensive,
                         data-driven progress report. See the exact delta on your body fat, weight, and FFMI. Get an AI
@@ -227,11 +211,11 @@
 
 
     <!-- ==================== FEATURE: FUTURE PHYSIQUE ==================== -->
-    <section class="feature-section">
+    <section class="feature-section feature-section-v2">
         <div class="container">
             <div class="feature-split reverse">
                 <div class="feature-text scroll-reveal-right">
-                    <span class="feature-badge badge-pop">Future Physique</span>
+                    <span class="feature-badge-v2 badge-pop">Future Physique</span>
                     <h2>See where your physique is headed</h2>
                     <p>Select a pose. Pick a timeline — 3, 6, or 12 months — and set your daily training commitment
                         level. GainFrame's AI analyzes your photos and
@@ -255,11 +239,11 @@
     </section>
 
     <!-- ==================== FEATURE: AI DEEP DIVE ==================== -->
-    <section class="feature-section alt-bg">
+    <section class="feature-section feature-section-v2 alt-bg">
         <div class="container">
             <div class="feature-split">
                 <div class="feature-text scroll-reveal-left">
-                    <span class="feature-badge badge-pop">AI Analysis</span>
+                    <span class="feature-badge-v2 badge-pop">AI Analysis</span>
                     <h2>Full body composition scan — from a selfie</h2>
                     <p>Tap any photo. Get a physique score from 1-100, estimated body fat %, BMI, FFMI, lean mass, and
                         12 individual muscle group scores — each rated from Needs Work to Strong. Plus macro targets and
@@ -284,11 +268,11 @@
 
 
     <!-- ==================== FEATURE: MUSCLE SCORES ==================== -->
-    <section class="feature-section">
+    <section class="feature-section feature-section-v2">
         <div class="container">
             <div class="feature-split reverse">
                 <div class="feature-text scroll-reveal-right">
-                    <span class="feature-badge badge-pop">Muscle Scores</span>
+                    <span class="feature-badge-v2 badge-pop">Muscle Scores</span>
                     <h2>Every muscle, scored</h2>
                     <p>Each analysis breaks down your physique into 12 individual muscle groups — from chest and
                         shoulders to quads and calves. Every group gets a score from 1–100 and a rating: Strong,
@@ -312,11 +296,11 @@
     </section>
 
     <!-- ==================== FEATURE: CHECK-IN ==================== -->
-    <section class="feature-section alt-bg">
+    <section class="feature-section feature-section-v2 alt-bg">
         <div class="container">
             <div class="feature-split">
                 <div class="feature-text scroll-reveal-left">
-                    <span class="feature-badge badge-pop">Check-In</span>
+                    <span class="feature-badge-v2 badge-pop">Check-In</span>
                     <h2>Your weekly progress, on autopilot</h2>
                     <p>GainFrame prompts you to check in at the cadence you set. Take a new photo, log your weight,
                         and the app instantly scores your update against your last entry — showing your body fat delta,
@@ -340,11 +324,11 @@
     </section>
 
     <!-- ==================== FEATURE: THROWBACK ==================== -->
-    <section class="feature-section">
+    <section class="feature-section feature-section-v2">
         <div class="container">
             <div class="feature-split reverse">
                 <div class="feature-text scroll-reveal-right">
-                    <span class="feature-badge badge-pop">Throwback</span>
+                    <span class="feature-badge-v2 badge-pop">Throwback</span>
                     <h2>Look back at how far you've come</h2>
                     <p>GainFrame finds your best throwback comparison and shows your "Then vs. Now" — with body fat,
                         weight, and AI score deltas. Share it or dive deeper into a full comparison.</p>
@@ -365,11 +349,11 @@
     </section>
 
     <!-- ==================== FEATURE: SMART INTEGRATIONS ==================== -->
-    <section class="feature-section alt-bg">
+    <section class="feature-section feature-section-v2 alt-bg">
         <div class="container">
             <div class="feature-split">
                 <div class="feature-text scroll-reveal-left">
-                    <span class="feature-badge badge-pop">Apple Health & Hevy</span>
+                    <span class="feature-badge-v2 badge-pop">Apple Health & Hevy</span>
                     <h2>Workout data, meet photos</h2>
                     <p>GainFrame brings your data out of the spreadsheets and attaches it to reality. Sync your weight
                         from Apple Health. Connect Hevy to automatically pull the exact exercises, sets, and volume you
@@ -393,11 +377,11 @@
     </section>
 
     <!-- ==================== FEATURE: SMART IMPORT ==================== -->
-    <section class="feature-section">
+    <section class="feature-section feature-section-v2">
         <div class="container">
             <div class="feature-split reverse">
                 <div class="feature-text scroll-reveal-right">
-                    <span class="feature-badge badge-pop">Smart Import</span>
+                    <span class="feature-badge-v2 badge-pop">Smart Import</span>
                     <h2>Your camera roll is full of progress you can't see.</h2>
                     <p>You already have the data; GainFrame just reveals it. Select months or years of messy gym selfies
                         from your camera roll. Our AI classifies every photo by pose, extracts the dates, and instantly
@@ -425,7 +409,7 @@
             <p class="section-subtitle scroll-reveal">The smartest way to track your body transformation. Every feature
                 designed for gym-goers who want more than just a photo.</p>
             <div class="features-grid">
-                <div class="feature-card tilt-in reveal-delay-1">
+                <div class="feature-card feature-card-v2 tilt-in reveal-delay-1">
                     <div class="feature-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -438,7 +422,7 @@
                     <h3>Ghost Overlay Camera</h3>
                     <p>See your last photo as a transparent overlay. Match your pose perfectly — no tripod needed.</p>
                 </div>
-                <div class="feature-card tilt-in reveal-delay-2">
+                <div class="feature-card feature-card-v2 tilt-in reveal-delay-2">
                     <div class="feature-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -449,7 +433,7 @@
                     <h3>Swipe Slider Compare</h3>
                     <p>Drag a slider across two auto-aligned photos to reveal exactly what changed.</p>
                 </div>
-                <div class="feature-card tilt-in reveal-delay-3">
+                <div class="feature-card feature-card-v2 tilt-in reveal-delay-3">
                     <div class="feature-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -460,7 +444,7 @@
                     <h3>Transformation Collages</h3>
                     <p>Build multi-photo collages with stats overlays. Export and share in one tap.</p>
                 </div>
-                <div class="feature-card tilt-in reveal-delay-4">
+                <div class="feature-card feature-card-v2 tilt-in reveal-delay-4">
                     <div class="feature-icon sage-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -472,7 +456,7 @@
                     <p>Auto-blur your face and remove backgrounds before sharing. Privacy built into every export — one
                         tap.</p>
                 </div>
-                <div class="feature-card tilt-in reveal-delay-5">
+                <div class="feature-card feature-card-v2 tilt-in reveal-delay-5">
                     <div class="feature-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -483,7 +467,7 @@
                     <h3>Pose Timelines</h3>
                     <p>Chronological timeline per pose — Front, Back, Side. AI score and body fat on every entry.</p>
                 </div>
-                <div class="feature-card tilt-in reveal-delay-6">
+                <div class="feature-card feature-card-v2 tilt-in reveal-delay-6">
                     <div class="feature-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -494,7 +478,7 @@
                     <h3>Trophies & Milestones</h3>
                     <p>Earn trophy badges as you progress. GainFrame celebrates your consistency and transformation.</p>
                 </div>
-                <div class="feature-card tilt-in reveal-delay-7">
+                <div class="feature-card feature-card-v2 tilt-in reveal-delay-7">
                     <div class="feature-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -506,7 +490,7 @@
                     <p>Weight synced from Apple Health. Hevy workout volume — exercises, sets, and total tonnage —
                         auto-attached to the exact photo taken that day.</p>
                 </div>
-                <div class="feature-card tilt-in reveal-delay-8">
+                <div class="feature-card feature-card-v2 tilt-in reveal-delay-8">
                     <div class="feature-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -517,7 +501,7 @@
                     <h3>Weight & Score Charts</h3>
                     <p>Dashboard weight chart and AI score tracking. See your progress at a glance.</p>
                 </div>
-                <div class="feature-card tilt-in reveal-delay-8">
+                <div class="feature-card feature-card-v2 tilt-in reveal-delay-8">
                     <div class="feature-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
@@ -598,15 +582,13 @@
     </section>
 
     <!-- ==================== CTA ==================== -->
-    <section class="cta" id="download">
+    <section class="cta cta-dark" id="download">
         <div class="container">
-            <h2 class="section-title scroll-reveal">Ready to see your progress?</h2>
-            <p class="cta-subtitle scroll-reveal">GainFrame is now available. Download now from the App Store.</p>
+            <h2 class="section-title scroll-reveal">Ready to see your physique, decoded?</h2>
+            <p class="cta-subtitle scroll-reveal">Free to download on iPhone. Your data stays on your device — always.</p>
             <div class="scroll-reveal" style="margin-top: var(--sp-lg); display: flex; justify-content: center;">
-                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
-                    class="app-store-badge-link" target="_blank" rel="noopener">
-                    <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png"
-                        alt="Download on the App Store" style="height: 48px; width: auto;" />
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="app-store-badge-link" target="_blank" rel="noopener">
+                    <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" style="height: 52px; width: auto;" />
                 </a>
             </div>
         </div>
@@ -617,6 +599,7 @@
         <div class="container">
             <div class="footer-links">
                 <a href="privacy.html">Privacy Policy</a>
+                <a href="features.html">Features</a>
                 <a href="blog.html">Blog</a>
                 <a href="mailto:michaelrode44@gmail.com">Contact</a>
             </div>
