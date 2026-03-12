@@ -20,7 +20,7 @@ This user relentlessly tested the app (207 sessions, 22 pieces of feedback) and 
 
 | Name | Email | Feedback Summary | Personal Email Sent | Lifetime Given | Review Requested |
 |------|-------|-----------------|---------------------|----------------|-----------------|
-| Allen Salama | allen.salama@gmail.com | | ☐ | ☐ | ☐ |
+| Allen Salama | allen.salama@gmail.com | | ✅ | ☐ | ☐ |
 
 ---
 
@@ -30,15 +30,15 @@ These users gave meaningful feedback and deserve a personal thank-you + free yea
 
 | # | Name | Email | Feedback Summary | Personal Email Sent | Free Year Given | Review Requested |
 |---|------|-------|-----------------|---------------------|-----------------|-----------------|
-| 1 | Stefano Mazzuca | stefano.mazzuca@sunrise.ch | | ☐ | ☐ | ☐ |
-| 2 | Dan | dan@thugsandwich.co.uk | | ☐ | ☐ | ☐ |
-| 3 | Charlie Ryan | chazman1616@gmail.com | | ☐ | ☐ | ☐ |
-| 4 | Sarat | sagatbabu@gmail.com | | ☐ | ☐ | ☐ |
-| 5 | Nathan Bratby | nathanbratby@gmail.com | | ☐ | ☐ | ☐ |
-| 6 | Daniel Bell | daniel.bell87@gmail.com | | ☐ | ☐ | ☐ |
-| 7 | Hamza | lowhigher1@gmail.com | | ☐ | ☐ | ☐ |
-| 8 | Codyhh (TikTok) | horvithcmail@gmail.com | | ☐ | ☐ | ☐ |
-| 9 | Quat (TikTok) | dylanclombardo@gmail.com | | ☐ | ☐ | ☐ |
+| 1 | Stefano Mazzuca | stefano.mazzuca@sunrise.ch | | ✅ | ☐ | ☐ |
+| 2 | Dan | dan@thugsandwich.co.uk | | ✅ | ☐ | ☐ |
+| 3 | Charlie Ryan | chazman1616@gmail.com | | ✅ | ☐ | ☐ |
+| 4 | Sarat | sagatbabu@gmail.com | | ✅ | ☐ | ☐ |
+| 5 | Nathan Bratby | nathanbratby@gmail.com | | ✅ | ☐ | ☐ |
+| 6 | Daniel Bell | daniel.bell87@gmail.com | | ✅ | ☐ | ☐ |
+| 7 | Hamza | lowhigher1@gmail.com | | ✅ | ☐ | ☐ |
+| 8 | Codyhh (TikTok) | horvithcmail@gmail.com | | ✅ | ☐ | ☐ |
+| 9 | Quat (TikTok) | dylanclombardo@gmail.com | | ✅ | ☐ | ☐ |
 
 > **Action**: Fill in the "Feedback Summary" column with what each person contributed, so you can reference it in your personal email. Check TestFlight feedback to add any additional engaged testers you discover.
 

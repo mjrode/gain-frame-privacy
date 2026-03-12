@@ -112,11 +112,9 @@ per session and aren't practical for the kind of frequent monitoring this situat
 just total weight. You need to see whether you're losing fat from your midsection or losing
 circumference from your arms and thighs.</p>
 
-<div class="post-hero-image scroll-reveal">
 <img src="/blog/glp-1-muscle-loss-tracking/assets/deep-dive-metrics.webp"
 alt="Body composition metrics dashboard showing body fat percentage, FFMI, BMI, waist-to-hip ratio, and physique score with color-coded ranges"
-style="border-radius: 24px;">
-</div>
+style="border-radius: 16px; float: right; max-width: 280px; width: 40%; margin: 0 0 1.5rem 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
 
 <p>AI body composition analysis from progress photos can fill this gap. Instead of a single number on a
 scale, you get body fat percentage trends, muscle group scores, FFMI (fat-free mass index), and
@@ -130,6 +128,7 @@ holds steady or rises, your preservation protocol is working. If FFMI is declini
 fat, you're losing muscle and need to adjust.
 </p>
 
+<div style="clear: both;"></div>
 <hr class="post-divider">
 
 <h2>What to watch for: the warning signs</h2>
@@ -168,11 +167,9 @@ is metabolizing muscle for fuel.
 progress photo — especially when analyzed consistently over time — tells you <em>what</em> that
 weight is made of and <em>where</em> your body is changing.</p>
 
-<div class="post-hero-image scroll-reveal">
 <img src="/blog/glp-1-muscle-loss-tracking/assets/home-dashboard.webp"
 alt="Fitness tracking dashboard showing weight trend over 90 days alongside body fat percentage trend over 6 months"
-style="border-radius: 24px;">
-</div>
+style="border-radius: 16px; float: left; max-width: 280px; width: 40%; margin: 0 1.5rem 1.5rem 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
 
 <p>For someone on GLP-1 medication, this distinction is everything. You need to see:</p>
 
@@ -190,6 +187,7 @@ from the right places</li>
 <p>This is the kind of data that makes the difference between a GLP-1 journey that ends in a healthy,
 sustainable body composition — and one that ends in metabolic damage and eventual regain.</p>
 
+<div style="clear: both;"></div>
 <hr class="post-divider">
 
 <h2>The bottom line</h2>
