@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDEE Calculator — Free Daily Calorie Estimate | GainFrame</title>
+    <meta name="description"
+        content="Calculate your Total Daily Energy Expenditure (TDEE) for free using the Mifflin-St Jeor equation. Find out how many calories you burn per day based on your age, weight, height, and activity level.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="TDEE Calculator — GainFrame">
+    <meta property="og:description"
+        content="Free TDEE calculator. Enter your stats, pick your activity level, and get your total daily calorie expenditure instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gainframe.app/tools/tdee-calculator/">
+    <meta property="og:image" content="https://gainframe.app/assets/gainframe-og-1200x630.png">
+    <meta property="og:site_name" content="GainFrame">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TDEE Calculator — GainFrame">
+    <meta name="twitter:description"
+        content="Free TDEE calculator. Enter your stats, pick your activity level, and get your total daily calorie expenditure instantly.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://gainframe.app/tools/tdee-calculator/">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Outfit:wght@700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <!-- Structured Data: WebApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "TDEE Calculator",
+        "description": "Calculate your Total Daily Energy Expenditure using the Mifflin-St Jeor equation. Free, instant, no signup required.",
+        "url": "https://gainframe.app/tools/tdee-calculator/",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": {
+            "@type": "Organization",
+            "name": "GainFrame",
+            "url": "https://gainframe.app"
+        }
+    }
+    </script>
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is TDEE?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "TDEE stands for Total Daily Energy Expenditure. It is the total number of calories your body burns in a day, combining your Basal Metabolic Rate (BMR) with energy used during daily activities and exercise. Knowing your TDEE helps you set calorie targets for weight loss, maintenance, or muscle gain."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is TDEE calculated?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "This calculator uses the Mifflin-St Jeor equation to estimate your BMR, then multiplies it by an activity factor. For men: BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) + 5. For women: BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) − 161. The BMR is then multiplied by an activity multiplier ranging from 1.2 (sedentary) to 1.9 (very active)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many calories should I eat to lose weight?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A safe and sustainable approach is to eat 300–500 calories below your TDEE (a moderate deficit). This typically results in 0.5–1 lb of fat loss per week. Aggressive deficits above 750 calories below TDEE can cause muscle loss and metabolic adaptation, especially for active individuals."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between BMR and TDEE?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "BMR (Basal Metabolic Rate) is the number of calories your body needs at complete rest — just to keep organs functioning. TDEE includes BMR plus all additional energy from daily movement, exercise, and the thermic effect of food. TDEE is always higher than BMR."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        /* =====================================================
+           TOOL PAGE — scoped styles (shared across tools)
+           ===================================================== */
+
+        .tool-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-hero {
+            background: var(--color-dark);
+            padding: 80px var(--sp-md) 48px;
+            text-align: center;
+        }
+
+        .tool-hero h1 {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .tool-hero p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .tool-body {
+            flex: 1;
+            background: var(--color-dark);
+            padding: 0 var(--sp-md) 80px;
+        }
+
+        .tool-container {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Card */
+        .tool-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, .12);
+        }
+
+        /* Form Elements */
+        .tool-sex-toggle {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 2px solid var(--color-border);
+        }
+
+        .tool-sex-toggle button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: transparent;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tool-sex-toggle button.active {
+            background: var(--color-text);
+            color: #fff;
+        }
+
+        .tool-unit-toggle {
+            display: flex;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .tool-unit-toggle button {
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1.5px solid var(--color-border);
+            background: transparent;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tool-unit-toggle button.active {
+            background: var(--color-text);
+            color: #fff;
+            border-color: var(--color-text);
+        }
+
+        .tool-field {
+            margin-bottom: 16px;
+        }
+
+        .tool-field label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .tool-field input,
+        .tool-field select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-text);
+            background: #fafafa;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+        }
+
+        .tool-field input:focus,
+        .tool-field select:focus {
+            outline: none;
+            border-color: var(--color-text);
+        }
+
+        .tool-field select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .tool-inline-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .tool-calculate-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: var(--radius-sm);
+            background: var(--color-text);
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 8px;
+        }
+
+        .tool-calculate-btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Result */
+        .tool-result {
+            display: none;
+            margin-top: 28px;
+            text-align: center;
+        }
+
+        .tool-result.show {
+            display: block;
+        }
+
+        .tool-result-number {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 3.2rem;
+            letter-spacing: -0.03em;
+            color: var(--color-text);
+            line-height: 1;
+        }
+
+        .tool-result-unit {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-left: 4px;
+        }
+
+        .tool-result-label {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* Goal cards */
+        .tool-goals {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tool-goal-card {
+            background: #f6f6f6;
+            border-radius: var(--radius-sm);
+            padding: 14px 10px;
+            text-align: center;
+        }
+
+        .tool-goal-card .goal-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .tool-goal-card .goal-value {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--color-text);
+            letter-spacing: -0.02em;
+        }
+
+        .tool-goal-card .goal-unit {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+
+        .tool-goal-card.deficit { border-top: 3px solid #4a90d9; }
+        .tool-goal-card.maintain { border-top: 3px solid #5bb85b; }
+        .tool-goal-card.surplus { border-top: 3px solid #e67e22; }
+
+        /* BMR row */
+        .tool-bmr-row {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .tool-bmr-label {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+
+        .tool-bmr-value {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--color-text);
+        }
+
+        /* Info section */
+        .tool-info {
+            margin-top: 28px;
+        }
+
+        .tool-info-card {
+            background: #f6f6f6;
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+
+        .tool-info-card h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+
+        .tool-info-card p,
+        .tool-info-card li {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+        }
+
+        .tool-info-card ul {
+            padding-left: 18px;
+            margin-top: 8px;
+        }
+
+        .tool-info-card li {
+            margin-bottom: 4px;
+        }
+
+        /* Other tools ribbon */
+        .tool-other {
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .tool-other h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .tool-other-links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tool-other-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            background: #f6f6f6;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .tool-other-links a:hover { background: #ececec; }
+
+        /* CTA */
+        .tool-cta-section {
+            background: var(--color-surface);
+            text-align: center;
+            padding: 56px var(--sp-md);
+        }
+
+        .tool-cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .tool-cta-section p {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            max-width: 460px;
+            margin: 0 auto 24px;
+        }
+
+        .tool-cta-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            border-radius: var(--radius-sm);
+            background: var(--color-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-cta-icon svg {
+            width: 26px;
+            height: 26px;
+            color: #fff;
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .tool-card { padding: 24px 18px; }
+            .tool-goals { grid-template-columns: 1fr; gap: 8px; }
+            .tool-goal-card { display: flex; align-items: center; justify-content: space-between; text-align: left; padding: 12px 16px; }
+            .tool-goal-card .goal-label { margin-bottom: 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav class="blog-nav">
+        <div class="container blog-nav-inner">
+            <a href="../../index.html" class="blog-nav-logo">
+                <img src="../../assets/favicon.webp" alt="GainFrame" loading="lazy" class="blog-nav-icon">
+                <span class="blog-nav-wordmark">GainFrame</span>
+            </a>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="blog-nav-links" id="navLinks">
+                <a href="../../index.html">Home</a>
+                <a href="../../blog.html">Blog</a>
+                <a href="../" class="active">Tools</a>
+                <a href="../../features.html">Features</a>
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
+                    class="nav-cta-btn" target="_blank" rel="noopener">Download</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        (function () {
+            var btn = document.getElementById('navHamburger');
+            var links = document.getElementById('navLinks');
+            btn.addEventListener('click', function () {
+                var open = links.classList.toggle('nav-open');
+                btn.classList.toggle('nav-hamburger--open', open);
+                btn.setAttribute('aria-expanded', open);
+            });
+        })();
+    </script>
+
+    <div class="tool-page">
+        <!-- HERO -->
+        <section class="tool-hero">
+            <h1>TDEE Calculator</h1>
+            <p>How many calories do you actually burn per day? Enter your stats below to find out — free, instant, no signup.</p>
+        </section>
+
+        <!-- BODY -->
+        <section class="tool-body">
+            <div class="tool-container">
+                <div class="tool-card">
+                    <!-- Sex toggle -->
+                    <div class="tool-sex-toggle">
+                        <button id="sexMale" class="active" onclick="setSex('male')">Male</button>
+                        <button id="sexFemale" onclick="setSex('female')">Female</button>
+                    </div>
+
+                    <!-- Unit toggle -->
+                    <div class="tool-unit-toggle">
+                        <button id="unitImperial" class="active" onclick="setUnit('imperial')">Imperial</button>
+                        <button id="unitMetric" onclick="setUnit('metric')">Metric</button>
+                    </div>
+
+                    <!-- Age -->
+                    <div class="tool-field">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" placeholder="e.g. 28" min="15" max="99" inputmode="numeric">
+                    </div>
+
+                    <!-- Weight -->
+                    <div class="tool-field" id="weightField">
+                        <label for="weight" id="weightLabel">Weight (lbs)</label>
+                        <input type="number" id="weight" placeholder="e.g. 180" min="60" max="600" step="0.1" inputmode="decimal">
+                    </div>
+
+                    <!-- Height Imperial -->
+                    <div class="tool-inline-pair" id="heightImperial">
+                        <div class="tool-field">
+                            <label for="heightFeet">Height (ft)</label>
+                            <input type="number" id="heightFeet" placeholder="5" min="3" max="8" inputmode="numeric">
+                        </div>
+                        <div class="tool-field">
+                            <label for="heightInches">Height (in)</label>
+                            <input type="number" id="heightInches" placeholder="10" min="0" max="11" inputmode="numeric">
+                        </div>
+                    </div>
+                    <!-- Height Metric -->
+                    <div class="tool-field" id="heightMetric" style="display:none">
+                        <label for="heightCm">Height (cm)</label>
+                        <input type="number" id="heightCm" placeholder="e.g. 178" min="100" max="250" inputmode="numeric">
+                    </div>
+
+                    <!-- Activity Level -->
+                    <div class="tool-field">
+                        <label for="activity">Activity Level</label>
+                        <select id="activity">
+                            <option value="1.2">Sedentary (desk job, little exercise)</option>
+                            <option value="1.375">Light (1–3 days/week)</option>
+                            <option value="1.55" selected>Moderate (3–5 days/week)</option>
+                            <option value="1.725">Active (6–7 days/week)</option>
+                            <option value="1.9">Very Active (2× per day / physical job)</option>
+                        </select>
+                    </div>
+
+                    <button class="tool-calculate-btn" onclick="calculate()">Calculate TDEE</button>
+
+                    <!-- Result -->
+                    <div class="tool-result" id="result">
+                        <div>
+                            <span class="tool-result-number" id="tdeeValue">—</span>
+                            <span class="tool-result-unit">cal/day</span>
+                        </div>
+                        <div class="tool-result-label">Your estimated TDEE</div>
+
+                        <!-- Goal cards -->
+                        <div class="tool-goals">
+                            <div class="tool-goal-card deficit">
+                                <div class="goal-label">Cut (−500)</div>
+                                <div><span class="goal-value" id="cutValue">—</span> <span class="goal-unit">cal</span></div>
+                            </div>
+                            <div class="tool-goal-card maintain">
+                                <div class="goal-label">Maintain</div>
+                                <div><span class="goal-value" id="maintainValue">—</span> <span class="goal-unit">cal</span></div>
+                            </div>
+                            <div class="tool-goal-card surplus">
+                                <div class="goal-label">Bulk (+300)</div>
+                                <div><span class="goal-value" id="bulkValue">—</span> <span class="goal-unit">cal</span></div>
+                            </div>
+                        </div>
+
+                        <!-- BMR -->
+                        <div class="tool-bmr-row">
+                            <span class="tool-bmr-label">Your BMR:</span>
+                            <span class="tool-bmr-value" id="bmrValue">—</span>
+                            <span class="tool-bmr-label">cal/day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="tool-info">
+                    <div class="tool-info-card">
+                        <h3>About This Calculator</h3>
+                        <p>This calculator uses the <strong>Mifflin-St Jeor equation</strong>, widely considered the most accurate BMR formula for the general population. Your BMR is then multiplied by an activity factor to estimate your TDEE.</p>
+                    </div>
+                    <div class="tool-info-card">
+                        <h3>How to Use Your TDEE</h3>
+                        <ul>
+                            <li><strong>Lose fat:</strong> Eat 300–500 calories below your TDEE</li>
+                            <li><strong>Maintain:</strong> Eat at your TDEE</li>
+                            <li><strong>Build muscle:</strong> Eat 200–400 calories above your TDEE</li>
+                        </ul>
+                        <p style="margin-top:10px">These are starting points — adjust based on how your weight responds over 2–3 weeks.</p>
+                    </div>
+                </div>
+
+                <!-- Other tools -->
+                <div class="tool-other">
+                    <h3>More Free Tools</h3>
+                    <div class="tool-other-links">
+                        <a href="../body-fat-estimator/">🔢 Body Fat Calculator</a>
+                        <a href="../macro-calculator/">🥩 Macro Calculator</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="tool-cta-section">
+            <div class="tool-cta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" /><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" /></svg>
+            </div>
+            <h2>Want AI-powered body composition?</h2>
+            <p>GainFrame estimates your body fat, FFMI, muscle scores, and macro targets from a single photo — powered by AI.</p>
+            <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank" rel="noopener" style="display:inline-block">
+                <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" style="height:48px;width:auto" />
+            </a>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="../../privacy.html">Privacy Policy</a>
+                <a href="../../features.html">Features</a>
+                <a href="../../blog.html">Blog</a>
+                <a href="../">Tools</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N6YPFBB8JE');
+    </script>
+
+    <script>
+        /* ===================== STATE ===================== */
+        let sex = 'male';
+        let unit = 'imperial';
+
+        function setSex(s) {
+            sex = s;
+            document.getElementById('sexMale').classList.toggle('active', s === 'male');
+            document.getElementById('sexFemale').classList.toggle('active', s === 'female');
+        }
+
+        function setUnit(u) {
+            unit = u;
+            document.getElementById('unitImperial').classList.toggle('active', u === 'imperial');
+            document.getElementById('unitMetric').classList.toggle('active', u === 'metric');
+            document.getElementById('heightImperial').style.display = u === 'imperial' ? '' : 'none';
+            document.getElementById('heightMetric').style.display = u === 'metric' ? '' : 'none';
+            document.getElementById('weightLabel').textContent = u === 'imperial' ? 'Weight (lbs)' : 'Weight (kg)';
+        }
+
+        /* ============== CALCULATE ============== */
+        function calculate() {
+            const age = parseFloat(document.getElementById('age').value);
+            let weightKg, heightCm;
+
+            if (unit === 'imperial') {
+                const lbs = parseFloat(document.getElementById('weight').value);
+                const ft = parseFloat(document.getElementById('heightFeet').value) || 0;
+                const inches = parseFloat(document.getElementById('heightInches').value) || 0;
+                if (!lbs || !ft || isNaN(age)) return;
+                weightKg = lbs * 0.453592;
+                heightCm = (ft * 12 + inches) * 2.54;
+            } else {
+                weightKg = parseFloat(document.getElementById('weight').value);
+                heightCm = parseFloat(document.getElementById('heightCm').value);
+                if (!weightKg || !heightCm || isNaN(age)) return;
+            }
+
+            /* Mifflin-St Jeor */
+            let bmr;
+            if (sex === 'male') {
+                bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age) + 5;
+            } else {
+                bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age) - 161;
+            }
+
+            const activityMultiplier = parseFloat(document.getElementById('activity').value);
+            const tdee = Math.round(bmr * activityMultiplier);
+            bmr = Math.round(bmr);
+
+            /* Update UI */
+            document.getElementById('tdeeValue').textContent = tdee.toLocaleString();
+            document.getElementById('cutValue').textContent = (tdee - 500).toLocaleString();
+            document.getElementById('maintainValue').textContent = tdee.toLocaleString();
+            document.getElementById('bulkValue').textContent = (tdee + 300).toLocaleString();
+            document.getElementById('bmrValue').textContent = bmr.toLocaleString();
+            document.getElementById('result').classList.add('show');
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+
+</html>

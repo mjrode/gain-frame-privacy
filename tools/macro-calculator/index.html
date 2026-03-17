@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macro Calculator — Free Protein, Carb &amp; Fat Targets | GainFrame</title>
+    <meta name="description"
+        content="Calculate your ideal macronutrient split for free. Get protein, carb, and fat targets based on your TDEE, body weight, and fitness goal — cutting, maintaining, or bulking.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Macro Calculator — GainFrame">
+    <meta property="og:description"
+        content="Free macro calculator. Get personalized protein, carb, and fat targets based on your body and goals.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gainframe.app/tools/macro-calculator/">
+    <meta property="og:image" content="https://gainframe.app/assets/gainframe-og-1200x630.png">
+    <meta property="og:site_name" content="GainFrame">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Macro Calculator — GainFrame">
+    <meta name="twitter:description"
+        content="Free macro calculator. Get personalized protein, carb, and fat targets based on your body and goals.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://gainframe.app/tools/macro-calculator/">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Outfit:wght@700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <!-- Structured Data: WebApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Macro Calculator",
+        "description": "Calculate your ideal macronutrient targets (protein, carbs, fat) based on your weight, TDEE, and fitness goal. Free, instant, no signup required.",
+        "url": "https://gainframe.app/tools/macro-calculator/",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": {
+            "@type": "Organization",
+            "name": "GainFrame",
+            "url": "https://gainframe.app"
+        }
+    }
+    </script>
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much protein do I need per day?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For people who strength-train, research supports 0.7–1.0 grams of protein per pound of body weight (1.6–2.2 g/kg) for muscle building and retention. During a calorie deficit (cutting), aiming for the higher end (1.0 g/lb) helps preserve lean mass. During a surplus (bulking), 0.8 g/lb is generally sufficient."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are macros?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Macros is short for macronutrients — the three main categories of nutrients that provide calories: protein (4 cal/g), carbohydrates (4 cal/g), and fat (9 cal/g). Tracking macros rather than just total calories helps ensure you get enough protein for muscle growth while balancing energy from carbs and fats."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I calculate my macros?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Start with your Total Daily Energy Expenditure (TDEE), then adjust calories up or down based on your goal. Set protein first (typically 0.8–1.0 g per pound of body weight), then fat (around 25–30% of total calories), and fill the remainder with carbohydrates. This calculator handles all of that math for you."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I eat the same macros on rest days?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For most people, keeping macros consistent every day is simpler and just as effective. Advanced athletes sometimes use carb cycling — eating more carbs on training days and fewer on rest days — but the total weekly intake matters more than daily fluctuations. Consistency beats complexity."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        /* =====================================================
+           TOOL PAGE — scoped styles
+           ===================================================== */
+
+        .tool-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-hero {
+            background: var(--color-dark);
+            padding: 80px var(--sp-md) 48px;
+            text-align: center;
+        }
+
+        .tool-hero h1 {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .tool-hero p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .tool-body {
+            flex: 1;
+            background: var(--color-dark);
+            padding: 0 var(--sp-md) 80px;
+        }
+
+        .tool-container {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Card */
+        .tool-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, .12);
+        }
+
+        /* Form elements */
+        .tool-sex-toggle {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 2px solid var(--color-border);
+        }
+
+        .tool-sex-toggle button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: transparent;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tool-sex-toggle button.active {
+            background: var(--color-text);
+            color: #fff;
+        }
+
+        .tool-unit-toggle {
+            display: flex;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .tool-unit-toggle button {
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1.5px solid var(--color-border);
+            background: transparent;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tool-unit-toggle button.active {
+            background: var(--color-text);
+            color: #fff;
+            border-color: var(--color-text);
+        }
+
+        .tool-field {
+            margin-bottom: 16px;
+        }
+
+        .tool-field label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .tool-field input,
+        .tool-field select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-text);
+            background: #fafafa;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+        }
+
+        .tool-field input:focus,
+        .tool-field select:focus {
+            outline: none;
+            border-color: var(--color-text);
+        }
+
+        .tool-field select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .tool-inline-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .tool-calculate-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: var(--radius-sm);
+            background: var(--color-text);
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 8px;
+        }
+
+        .tool-calculate-btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Result */
+        .tool-result {
+            display: none;
+            margin-top: 28px;
+        }
+
+        .tool-result.show {
+            display: block;
+        }
+
+        .tool-result-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tool-result-number {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 3.2rem;
+            letter-spacing: -0.03em;
+            color: var(--color-text);
+            line-height: 1;
+        }
+
+        .tool-result-unit {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-left: 4px;
+        }
+
+        .tool-result-label {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* Macro bars */
+        .macro-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .macro-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .macro-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .macro-dot.protein { background: #e06c53; }
+        .macro-dot.carbs { background: #4a90d9; }
+        .macro-dot.fat { background: #f5b041; }
+
+        .macro-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--color-text);
+            width: 60px;
+            flex-shrink: 0;
+        }
+
+        .macro-bar-track {
+            flex: 1;
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .macro-bar-fill {
+            height: 100%;
+            border-radius: 999px;
+            transition: width 0.6s ease;
+        }
+
+        .macro-bar-fill.protein { background: #e06c53; }
+        .macro-bar-fill.carbs { background: #4a90d9; }
+        .macro-bar-fill.fat { background: #f5b041; }
+
+        .macro-detail {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            width: 100px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        /* Summary pills */
+        .macro-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .macro-pill {
+            text-align: center;
+            background: #f6f6f6;
+            border-radius: var(--radius-sm);
+            padding: 14px 8px;
+        }
+
+        .macro-pill .pill-value {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--color-text);
+            letter-spacing: -0.02em;
+        }
+
+        .macro-pill .pill-unit {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+
+        .macro-pill .pill-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-secondary);
+            margin-top: 2px;
+        }
+
+        .macro-pill.protein { border-top: 3px solid #e06c53; }
+        .macro-pill.carbs { border-top: 3px solid #4a90d9; }
+        .macro-pill.fat { border-top: 3px solid #f5b041; }
+
+        /* Calorie breakdown */
+        .calorie-breakdown {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .calorie-item {
+            text-align: center;
+        }
+
+        .calorie-item .cal-val {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--color-text);
+        }
+
+        .calorie-item .cal-label {
+            font-size: 0.72rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Info section */
+        .tool-info {
+            margin-top: 28px;
+        }
+
+        .tool-info-card {
+            background: #f6f6f6;
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+
+        .tool-info-card h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+
+        .tool-info-card p,
+        .tool-info-card li {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+        }
+
+        .tool-info-card ul {
+            padding-left: 18px;
+            margin-top: 8px;
+        }
+
+        .tool-info-card li {
+            margin-bottom: 4px;
+        }
+
+        /* Other tools */
+        .tool-other {
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .tool-other h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .tool-other-links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tool-other-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            background: #f6f6f6;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .tool-other-links a:hover { background: #ececec; }
+
+        /* CTA */
+        .tool-cta-section {
+            background: var(--color-surface);
+            text-align: center;
+            padding: 56px var(--sp-md);
+        }
+
+        .tool-cta-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            border-radius: var(--radius-sm);
+            background: var(--color-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-cta-icon svg {
+            width: 26px;
+            height: 26px;
+            color: #fff;
+        }
+
+        .tool-cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .tool-cta-section p {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            max-width: 460px;
+            margin: 0 auto 24px;
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .tool-card { padding: 24px 18px; }
+            .macro-summary { grid-template-columns: 1fr; gap: 8px; }
+            .macro-pill { display: flex; align-items: center; justify-content: space-between; text-align: left; padding: 12px 16px; }
+            .macro-pill .pill-label { margin-top: 0; }
+            .macro-detail { width: 80px; font-size: 0.78rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav class="blog-nav">
+        <div class="container blog-nav-inner">
+            <a href="../../index.html" class="blog-nav-logo">
+                <img src="../../assets/favicon.webp" alt="GainFrame" loading="lazy" class="blog-nav-icon">
+                <span class="blog-nav-wordmark">GainFrame</span>
+            </a>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="blog-nav-links" id="navLinks">
+                <a href="../../index.html">Home</a>
+                <a href="../../blog.html">Blog</a>
+                <a href="../" class="active">Tools</a>
+                <a href="../../features.html">Features</a>
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
+                    class="nav-cta-btn" target="_blank" rel="noopener">Download</a>
+            </div>
+        </div>
+    </nav>
+    <script>
+        (function () {
+            var btn = document.getElementById('navHamburger');
+            var links = document.getElementById('navLinks');
+            btn.addEventListener('click', function () {
+                var open = links.classList.toggle('nav-open');
+                btn.classList.toggle('nav-hamburger--open', open);
+                btn.setAttribute('aria-expanded', open);
+            });
+        })();
+    </script>
+
+    <div class="tool-page">
+        <!-- HERO -->
+        <section class="tool-hero">
+            <h1>Macro Calculator</h1>
+            <p>Get personalized protein, carb, and fat targets based on your body and fitness goal — free, instant, no signup.</p>
+        </section>
+
+        <!-- BODY -->
+        <section class="tool-body">
+            <div class="tool-container">
+                <div class="tool-card">
+                    <!-- Sex toggle -->
+                    <div class="tool-sex-toggle">
+                        <button id="sexMale" class="active" onclick="setSex('male')">Male</button>
+                        <button id="sexFemale" onclick="setSex('female')">Female</button>
+                    </div>
+
+                    <!-- Unit toggle -->
+                    <div class="tool-unit-toggle">
+                        <button id="unitImperial" class="active" onclick="setUnit('imperial')">Imperial</button>
+                        <button id="unitMetric" onclick="setUnit('metric')">Metric</button>
+                    </div>
+
+                    <!-- Age -->
+                    <div class="tool-field">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" placeholder="e.g. 28" min="15" max="99" inputmode="numeric">
+                    </div>
+
+                    <!-- Weight -->
+                    <div class="tool-field">
+                        <label for="weight" id="weightLabel">Weight (lbs)</label>
+                        <input type="number" id="weight" placeholder="e.g. 180" min="60" max="600" step="0.1" inputmode="decimal">
+                    </div>
+
+                    <!-- Height Imperial -->
+                    <div class="tool-inline-pair" id="heightImperial">
+                        <div class="tool-field">
+                            <label for="heightFeet">Height (ft)</label>
+                            <input type="number" id="heightFeet" placeholder="5" min="3" max="8" inputmode="numeric">
+                        </div>
+                        <div class="tool-field">
+                            <label for="heightInches">Height (in)</label>
+                            <input type="number" id="heightInches" placeholder="10" min="0" max="11" inputmode="numeric">
+                        </div>
+                    </div>
+                    <div class="tool-field" id="heightMetric" style="display:none">
+                        <label for="heightCm">Height (cm)</label>
+                        <input type="number" id="heightCm" placeholder="e.g. 178" min="100" max="250" inputmode="numeric">
+                    </div>
+
+                    <!-- Activity Level -->
+                    <div class="tool-field">
+                        <label for="activity">Activity Level</label>
+                        <select id="activity">
+                            <option value="1.2">Sedentary (desk job, little exercise)</option>
+                            <option value="1.375">Light (1–3 days/week)</option>
+                            <option value="1.55" selected>Moderate (3–5 days/week)</option>
+                            <option value="1.725">Active (6–7 days/week)</option>
+                            <option value="1.9">Very Active (2× per day / physical job)</option>
+                        </select>
+                    </div>
+
+                    <!-- Goal -->
+                    <div class="tool-field">
+                        <label for="goal">Goal</label>
+                        <select id="goal">
+                            <option value="cut">Cut (lose fat)</option>
+                            <option value="maintain" selected>Maintain</option>
+                            <option value="bulk">Lean bulk (gain muscle)</option>
+                        </select>
+                    </div>
+
+                    <button class="tool-calculate-btn" onclick="calculate()">Calculate Macros</button>
+
+                    <!-- Result -->
+                    <div class="tool-result" id="result">
+                        <div class="tool-result-header">
+                            <span class="tool-result-number" id="totalCal">—</span>
+                            <span class="tool-result-unit">cal/day</span>
+                            <div class="tool-result-label" id="goalLabel">Maintenance calories</div>
+                        </div>
+
+                        <!-- Macro bars -->
+                        <div class="macro-bars">
+                            <div class="macro-row">
+                                <span class="macro-dot protein"></span>
+                                <span class="macro-name">Protein</span>
+                                <div class="macro-bar-track"><div class="macro-bar-fill protein" id="proteinBar" style="width:0"></div></div>
+                                <span class="macro-detail" id="proteinDetail">—</span>
+                            </div>
+                            <div class="macro-row">
+                                <span class="macro-dot carbs"></span>
+                                <span class="macro-name">Carbs</span>
+                                <div class="macro-bar-track"><div class="macro-bar-fill carbs" id="carbsBar" style="width:0"></div></div>
+                                <span class="macro-detail" id="carbsDetail">—</span>
+                            </div>
+                            <div class="macro-row">
+                                <span class="macro-dot fat"></span>
+                                <span class="macro-name">Fat</span>
+                                <div class="macro-bar-track"><div class="macro-bar-fill fat" id="fatBar" style="width:0"></div></div>
+                                <span class="macro-detail" id="fatDetail">—</span>
+                            </div>
+                        </div>
+
+                        <!-- Summary pills -->
+                        <div class="macro-summary">
+                            <div class="macro-pill protein">
+                                <div><span class="pill-value" id="proteinG">—</span><span class="pill-unit">g</span></div>
+                                <div class="pill-label">Protein</div>
+                            </div>
+                            <div class="macro-pill carbs">
+                                <div><span class="pill-value" id="carbsG">—</span><span class="pill-unit">g</span></div>
+                                <div class="pill-label">Carbs</div>
+                            </div>
+                            <div class="macro-pill fat">
+                                <div><span class="pill-value" id="fatG">—</span><span class="pill-unit">g</span></div>
+                                <div class="pill-label">Fat</div>
+                            </div>
+                        </div>
+
+                        <!-- Calorie breakdown -->
+                        <div class="calorie-breakdown">
+                            <div class="calorie-item">
+                                <div class="cal-val" id="proteinCal">—</div>
+                                <div class="cal-label">from protein</div>
+                            </div>
+                            <div class="calorie-item">
+                                <div class="cal-val" id="carbsCal">—</div>
+                                <div class="cal-label">from carbs</div>
+                            </div>
+                            <div class="calorie-item">
+                                <div class="cal-val" id="fatCal">—</div>
+                                <div class="cal-label">from fat</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="tool-info">
+                    <div class="tool-info-card">
+                        <h3>How This Works</h3>
+                        <p>This calculator first estimates your TDEE using the <strong>Mifflin-St Jeor equation</strong>, adjusts it for your goal, then splits calories into macros using evidence-based guidelines:</p>
+                        <ul>
+                            <li><strong>Protein:</strong> 1.0 g/lb (cutting) · 0.8 g/lb (maintaining/bulking)</li>
+                            <li><strong>Fat:</strong> 25% of total calories</li>
+                            <li><strong>Carbs:</strong> Remaining calories after protein & fat</li>
+                        </ul>
+                    </div>
+                    <div class="tool-info-card">
+                        <h3>Tips for Success</h3>
+                        <ul>
+                            <li>Hit your protein target first — it's the most important macro for body composition</li>
+                            <li>Don't stress about hitting carbs/fat exactly — ±10 g is fine</li>
+                            <li>Track for 2–3 weeks, then adjust if your weight isn't moving as expected</li>
+                            <li>These are starting points, not gospel — your body will tell you what it needs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Other tools -->
+                <div class="tool-other">
+                    <h3>More Free Tools</h3>
+                    <div class="tool-other-links">
+                        <a href="../body-fat-estimator/">🔢 Body Fat Calculator</a>
+                        <a href="../tdee-calculator/">🔥 TDEE Calculator</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="tool-cta-section">
+            <div class="tool-cta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" /><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" /></svg>
+            </div>
+            <h2>Want AI-powered macro targets?</h2>
+            <p>GainFrame analyzes your progress photos with AI and generates personalized macro recommendations — no manual calculations needed.</p>
+            <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank" rel="noopener" style="display:inline-block">
+                <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" style="height:48px;width:auto" />
+            </a>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="../../privacy.html">Privacy Policy</a>
+                <a href="../../features.html">Features</a>
+                <a href="../../blog.html">Blog</a>
+                <a href="../">Tools</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N6YPFBB8JE');
+    </script>
+
+    <script>
+        /* ===================== STATE ===================== */
+        let sex = 'male';
+        let unit = 'imperial';
+
+        function setSex(s) {
+            sex = s;
+            document.getElementById('sexMale').classList.toggle('active', s === 'male');
+            document.getElementById('sexFemale').classList.toggle('active', s === 'female');
+        }
+
+        function setUnit(u) {
+            unit = u;
+            document.getElementById('unitImperial').classList.toggle('active', u === 'imperial');
+            document.getElementById('unitMetric').classList.toggle('active', u === 'metric');
+            document.getElementById('heightImperial').style.display = u === 'imperial' ? '' : 'none';
+            document.getElementById('heightMetric').style.display = u === 'metric' ? '' : 'none';
+            document.getElementById('weightLabel').textContent = u === 'imperial' ? 'Weight (lbs)' : 'Weight (kg)';
+        }
+
+        /* ============== CALCULATE ============== */
+        function calculate() {
+            const age = parseFloat(document.getElementById('age').value);
+            let weightKg, weightLbs, heightCm;
+
+            if (unit === 'imperial') {
+                const lbs = parseFloat(document.getElementById('weight').value);
+                const ft = parseFloat(document.getElementById('heightFeet').value) || 0;
+                const inches = parseFloat(document.getElementById('heightInches').value) || 0;
+                if (!lbs || !ft || isNaN(age)) return;
+                weightLbs = lbs;
+                weightKg = lbs * 0.453592;
+                heightCm = (ft * 12 + inches) * 2.54;
+            } else {
+                weightKg = parseFloat(document.getElementById('weight').value);
+                heightCm = parseFloat(document.getElementById('heightCm').value);
+                if (!weightKg || !heightCm || isNaN(age)) return;
+                weightLbs = weightKg * 2.20462;
+            }
+
+            /* Mifflin-St Jeor BMR */
+            let bmr;
+            if (sex === 'male') {
+                bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age) + 5;
+            } else {
+                bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age) - 161;
+            }
+
+            const activityMultiplier = parseFloat(document.getElementById('activity').value);
+            const tdee = Math.round(bmr * activityMultiplier);
+
+            /* Adjust for goal */
+            const goal = document.getElementById('goal').value;
+            let totalCal;
+            let goalText;
+            if (goal === 'cut') {
+                totalCal = tdee - 500;
+                goalText = 'Cutting calories (−500 from TDEE)';
+            } else if (goal === 'bulk') {
+                totalCal = tdee + 300;
+                goalText = 'Lean bulk calories (+300 from TDEE)';
+            } else {
+                totalCal = tdee;
+                goalText = 'Maintenance calories';
+            }
+
+            /* Macro split */
+            const proteinPerLb = goal === 'cut' ? 1.0 : 0.8;
+            const proteinG = Math.round(weightLbs * proteinPerLb);
+            const proteinCalories = proteinG * 4;
+
+            const fatCalories = Math.round(totalCal * 0.25);
+            const fatG = Math.round(fatCalories / 9);
+
+            const carbCalories = totalCal - proteinCalories - fatCalories;
+            const carbsG = Math.max(0, Math.round(carbCalories / 4));
+
+            /* Percentages for bars */
+            const maxG = Math.max(proteinG, carbsG, fatG, 1);
+
+            /* Update UI */
+            document.getElementById('totalCal').textContent = totalCal.toLocaleString();
+            document.getElementById('goalLabel').textContent = goalText;
+
+            document.getElementById('proteinG').textContent = proteinG;
+            document.getElementById('carbsG').textContent = carbsG;
+            document.getElementById('fatG').textContent = fatG;
+
+            document.getElementById('proteinBar').style.width = ((proteinG / maxG) * 100) + '%';
+            document.getElementById('carbsBar').style.width = ((carbsG / maxG) * 100) + '%';
+            document.getElementById('fatBar').style.width = ((fatG / maxG) * 100) + '%';
+
+            document.getElementById('proteinDetail').textContent = proteinG + 'g · ' + proteinCalories + ' cal';
+            document.getElementById('carbsDetail').textContent = carbsG + 'g · ' + (carbsG * 4) + ' cal';
+            document.getElementById('fatDetail').textContent = fatG + 'g · ' + fatCalories + ' cal';
+
+            document.getElementById('proteinCal').textContent = proteinCalories + ' cal';
+            document.getElementById('carbsCal').textContent = (carbsG * 4) + ' cal';
+            document.getElementById('fatCal').textContent = fatCalories + ' cal';
+
+            document.getElementById('result').classList.add('show');
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+
+</html>

@@ -55,6 +55,46 @@
         }
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How accurate is the U.S. Navy body fat formula?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The U.S. Navy body fat formula is accurate to within ±3–4% of DEXA scan results for most people. It uses circumference measurements of the neck, waist, and hips (for women) along with height. It is most reliable for people in the normal to moderately overweight range and is one of the most widely validated field methods."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What measurements do I need for this body fat calculator?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You need your height, neck circumference (measured just below the larynx), and waist circumference (measured at the narrowest point, typically at the navel). Women also need a hip circumference measurement at the widest point. You can use either imperial (inches) or metric (centimeters) units."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a healthy body fat percentage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Healthy body fat ranges vary by sex. For men: athletes 6–13%, fitness 14–17%, average 18–24%. For women: athletes 14–20%, fitness 21–24%, average 25–31%. Essential body fat — the minimum needed for organ function — is 2–5% for men and 10–13% for women."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is body fat percentage different from BMI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "BMI uses only height and weight, so it cannot distinguish between muscle and fat. A muscular person can have a high BMI but low body fat. Body fat percentage directly estimates the proportion of your body that is fat tissue, making it a much more useful metric for people who strength-train."
+                }
+            }
+        ]
+    }
+    </script>
 
     <style>
         /* =====================================================
@@ -69,7 +109,7 @@
 
         .tool-main {
             flex: 1;
-            padding: 120px 0 80px;
+            padding: 80px 0 80px;
         }
 
         /* Header */
@@ -709,7 +749,7 @@
                 <a href="../../index.html">Home</a>
                 <a href="../../features.html">Features</a>
                 <a href="../../blog.html">Blog</a>
-                <a href="./">Tools</a>
+                <a href="../">Tools</a>
             </div>
         </div>
     </nav>
