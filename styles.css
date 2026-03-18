@@ -866,6 +866,28 @@ body {
     transform: translateY(0);
 }
 
+.newsletter-btn:disabled {
+    opacity: 0.7;
+    cursor: wait;
+    transform: none;
+}
+
+.newsletter-status {
+    min-height: 1.25rem;
+    margin: 0 0 var(--sp-xs);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.newsletter-status.is-error {
+    color: #ff9b9b;
+}
+
+.newsletter-status.is-success {
+    color: #b8f3c8;
+}
+
 .newsletter-note {
     font-family: var(--font-body);
     font-size: 0.78rem;
