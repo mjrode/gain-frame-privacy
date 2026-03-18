@@ -788,6 +788,116 @@ body {
 }
 
 /* =====================================================
+   NEWSLETTER
+   ===================================================== */
+
+.newsletter-section {
+    padding: var(--sp-2xl) 0;
+    background: var(--color-dark);
+    text-align: center;
+}
+
+.newsletter-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin-bottom: var(--sp-sm);
+}
+
+.newsletter-desc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    max-width: 420px;
+    margin: 0 auto var(--sp-lg);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    max-width: 440px;
+    margin: 0 auto var(--sp-md);
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 14px 18px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text);
+    background: #fff;
+    border: none;
+    border-radius: var(--radius-full);
+    outline: none;
+    transition: box-shadow 0.2s ease;
+}
+
+.newsletter-input::placeholder {
+    color: var(--color-text-tertiary);
+}
+
+.newsletter-input:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+.newsletter-btn {
+    padding: 14px 28px;
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--color-text-secondary);
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.newsletter-btn:hover {
+    background: var(--color-text-tertiary);
+    transform: translateY(-1px);
+}
+
+.newsletter-btn:active {
+    transform: translateY(0);
+}
+
+.newsletter-note {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 640px) {
+    .newsletter-section {
+        padding: var(--sp-xl) 0;
+    }
+
+    .newsletter-title {
+        font-size: 1.4rem;
+    }
+
+    .newsletter-desc {
+        font-size: 0.92rem;
+        padding: 0 var(--sp-md);
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        padding: 0 var(--sp-md);
+    }
+
+    .newsletter-btn {
+        padding: 14px 24px;
+    }
+}
+
+/* =====================================================
    FOOTER
    ===================================================== */
 
