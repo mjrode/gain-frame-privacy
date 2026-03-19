@@ -78,41 +78,9 @@
     </script>
 </head>
 
-<body>
-
-    <!-- ==================== NAV ==================== -->
-    <nav class="blog-nav">
-        <div class="container blog-nav-inner">
-            <a href="index.html" class="blog-nav-logo">
-                <img src="assets/favicon.webp" alt="GainFrame" loading="lazy" class="blog-nav-icon">
-                <span class="blog-nav-wordmark">GainFrame</span>
-            </a>
-            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-            <div class="blog-nav-links" id="navLinks">
-                <a href="index.html" class="active">Home</a>
-                <a href="blog.html">Blog</a>
-                <a href="tools/">Tools</a>
-                <a href="features.html">Features</a>
-                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
-                    class="nav-cta-btn" target="_blank" rel="noopener">Download</a>
-            </div>
-        </div>
-    </nav>
-    <script>
-        (function() {
-            var btn = document.getElementById('navHamburger');
-            var links = document.getElementById('navLinks');
-            btn.addEventListener('click', function() {
-                var open = links.classList.toggle('nav-open');
-                btn.classList.toggle('nav-hamburger--open', open);
-                btn.setAttribute('aria-expanded', open);
-            });
-        })();
-    </script>
-
-    <!-- ==================== HERO ==================== -->
+<body>    <div data-site-nav></div>
+    <script src="/assets/shared-nav.js"></script>
+<!-- ==================== HERO ==================== -->
     <section class="hero hero-dark">
         <div class="container">
             <div class="hero-content hero-text-stagger">

@@ -29,27 +29,34 @@
     const style = document.createElement("style");
     style.textContent = `
         #gf-capture-bar {
-            position: relative;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
             z-index: 9999;
-            background: #0a0a0a;
+            background: #1c1917;
             color: #fff;
             font-family: 'DM Sans', system-ui, sans-serif;
             font-size: 14px;
-            padding: 10px 56px 10px 20px;
+            padding: 12px 56px 12px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 14px;
             flex-wrap: wrap;
             min-height: 48px;
-            transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.35s ease;
-            overflow: hidden;
+            box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(0);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+            animation: gfBarSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes gfBarSlideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to   { transform: translateY(0);    opacity: 1; }
         }
         #gf-capture-bar.gf-bar-hidden {
-            max-height: 0;
+            transform: translateY(100%);
             opacity: 0;
-            padding-top: 0;
-            padding-bottom: 0;
             pointer-events: none;
         }
         #gf-capture-bar .gf-bar-eyebrow {
@@ -168,8 +175,8 @@
         <button class="gf-bar-close" aria-label="Dismiss">&times;</button>
     `;
 
-    // Insert as very first child of <body>
-    document.body.insertBefore(bar, document.body.firstChild);
+    // Append to end of body (fixed position — order doesn't matter)
+    document.body.appendChild(bar);
 
     // ── Dismiss logic ──────────────────────────────────────────────────────────
     const closeBtn = bar.querySelector(".gf-bar-close");
