@@ -76,11 +76,45 @@ These rules define GainFrame's editorial voice. Every blog post MUST follow them
 
 ### Visual Components Available
 - `post-callout` blockquotes for key takeaways
-- `post-feature-grid` / `post-feature-card` for visual marker cards (emoji icon + title + description)
+- `post-feature-grid` / `post-feature-card` for visual marker cards (SF Symbol icon + title + description)
 - `post-inline-screenshot` for phone screenshots floated inline with text
 - `post-hero-image` for full-width wide images (comparison grids, charts)
 - `post-table-wrapper` / `post-table` for data tables
 - `post-steps` ordered list for numbered frameworks
+
+### Icons: SF Symbols — Never Emoji
+
+**Do NOT use emoji characters (💪, 🎯, 📐, etc.) anywhere in blog post HTML.** They render inconsistently across OSes, look amateurish on desktop, and conflict with GainFrame's typographic voice.
+
+**Instead, use inline SVG paths from SF Symbols.** Source symbol paths at: https://andrewtavis.github.io/sf-symbols-online/
+
+**How to use:**
+1. Go to https://andrewtavis.github.io/sf-symbols-online/
+2. Search for the symbol you need (e.g. `figure.arms.open`, `heart.text.square`, `ruler`, `flame`)
+3. Click the symbol → copy the SVG path data
+4. Paste it as an inline `<svg>` in the `.post-feature-icon` span
+
+**Standard icon markup for `post-feature-card`:**
+```html
+<span class="post-feature-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+    <path d="[PATH FROM SF SYMBOLS ONLINE]"/>
+  </svg>
+</span>
+```
+
+**Common symbols for fitness/body content:**
+| Use case | Symbol name to search |
+|---|---|
+| Body / physique | `figure.arms.open` or `person` |
+| Muscle / strength | `dumbbell` or `bolt` |
+| Measurement | `ruler` or `number.square` |
+| Health / stats | `heart.text.square` or `chart.bar` |
+| Camera / photo | `camera` or `photo.on.rectangle` |
+| Checklist | `checkmark.circle` |
+| Warning / note | `exclamationmark.triangle` |
+
+**This rule applies everywhere in the post HTML** — feature cards, callouts, list markers, inline icons, CTA icons. No exceptions.
 
 ### Research Citation Rules (for evidence-based posts)
 When a post cites scientific studies or peer-reviewed research, these additional rules apply:
