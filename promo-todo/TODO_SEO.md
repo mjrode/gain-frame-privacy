@@ -30,7 +30,8 @@ _Items move here once implemented and deployed._
 - [x] "ai body fat photo accuracy study" — published Mar 3, 2026
 - [x] "how to track body recomposition with photos" — published Feb 26
 - [x] "best body fat calculator from photo" — published Feb 26
-- [ ] "progress photo tips for bodybuilding"
+    - [x] "how to read body fat from photos" — published Mar 19, 2026
+    - [x] "progress photo tips for bodybuilding" — covered by above post
 - [x] "how to measure muscle gain without a scale" — published Feb 26
 - [x] "Dexa scan vs AI body composition app" — published Feb 27
 - [ ] Use `content-creator` skill for SEO-optimized drafts
