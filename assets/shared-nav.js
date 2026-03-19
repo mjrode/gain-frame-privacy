@@ -8,14 +8,9 @@
     const placeholder = document.querySelector("[data-site-nav]");
     if (!placeholder) return;
 
-    // ── Determine path prefix from current page depth ────────────────────────
+    // ── Use absolute paths (site is at domain root) ────────────────────────────
     const path = window.location.pathname;
-
-    // Resolve the base path to site root so all links work from any depth
-    const depth = (path.replace(/\/[^/]*$/, "").match(/\//g) || []).length;
-    // For root pages (index.html, blog.html, features.html) depth is 1
-    // For /tools/ depth is 2, for /tools/body-fat-estimator/ and /blog/slug/ depth is 3
-    const prefix = depth <= 1 ? "" : "../".repeat(depth - 1);
+    const prefix = "/";
 
     // ── Determine active link ────────────────────────────────────────────────
     const normPath = path.replace(/index\.html$/, "").replace(/\/$/, "") || "/";
