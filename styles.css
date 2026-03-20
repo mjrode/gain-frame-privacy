@@ -507,7 +507,7 @@ body {
 
 .steps-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--sp-lg);
 }
 
@@ -3252,4 +3252,101 @@ body {
     .hero-video-card {
         max-width: 240px;
     }
+}
+
+/* =====================================================
+   REPLACES VALUE ANCHORING
+   ===================================================== */
+
+.replaces-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-accent, #66bb6a);
+    margin-top: var(--sp-md);
+    padding: 8px 16px;
+    border: 1px dashed var(--color-accent, #66bb6a);
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    letter-spacing: 0.01em;
+}
+
+/* =====================================================
+   HERO TRUST COPY
+   ===================================================== */
+
+.hero-trust-copy {
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    opacity: 0.8;
+    letter-spacing: 0.01em;
+    margin: 0;
+}
+
+/* =====================================================
+   FAQ SECTION
+   ===================================================== */
+
+.faq-section {
+    padding: var(--sp-section) 0;
+    background: var(--color-surface);
+}
+
+.faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.faq-item:first-child {
+    border-top: 1px solid var(--color-border);
+}
+
+.faq-question {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+    padding: var(--sp-md) 0;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--sp-md);
+    transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+    color: var(--color-accent, #66bb6a);
+}
+
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.4rem;
+    font-weight: 300;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.faq-item[open] .faq-question::after {
+    content: '\2212';
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 0 var(--sp-md) 0;
+}
+
+.faq-answer p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0;
 }
