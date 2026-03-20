@@ -211,6 +211,26 @@
                 <button class="hiw-tab" role="tab" aria-selected="false" data-tab="deep-dive">Deep Dive</button>
             </div>
 
+            <!-- Step progress indicator -->
+            <div class="hiw-progress scroll-reveal">
+                <div class="hiw-progress-track"></div>
+                <div class="hiw-progress-fill" id="hiwProgressFill"></div>
+                <div class="hiw-progress-dots">
+                    <div class="hiw-dot-group">
+                        <div class="hiw-dot active"></div>
+                        <span class="hiw-dot-label">01</span>
+                    </div>
+                    <div class="hiw-dot-group">
+                        <div class="hiw-dot active"></div>
+                        <span class="hiw-dot-label">02</span>
+                    </div>
+                    <div class="hiw-dot-group">
+                        <div class="hiw-dot"></div>
+                        <span class="hiw-dot-label">03</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- Tab panels -->
             <div class="hiw-panels">
                 <!-- Body Scan -->
@@ -817,34 +837,78 @@
             });
         })();
 
-        /* How-It-Works tab switching */
+        /* How-It-Works tab switching + progress indicator */
         (function () {
             const tabs = document.querySelectorAll('.hiw-tab');
             const panels = document.querySelectorAll('.hiw-panel');
+            const fill = document.getElementById('hiwProgressFill');
+            const dots = document.querySelectorAll('.hiw-dot');
             if (!tabs.length) return;
 
-            tabs.forEach(tab => {
+            const tabKeys = Array.from(tabs).map(t => t.getAttribute('data-tab'));
+
+            function activateTab(index) {
+                const target = tabKeys[index];
+
+                /* Tabs */
+                tabs.forEach((t, i) => {
+                    const isActive = i === index;
+                    t.classList.toggle('active', isActive);
+                    t.setAttribute('aria-selected', isActive);
+                });
+
+                /* Panels */
+                panels.forEach(p => {
+                    const isActive = p.getAttribute('data-panel') === target;
+                    p.classList.toggle('active', isActive);
+                    if (isActive) {
+                        p.style.animation = 'none';
+                        p.offsetHeight;
+                        p.style.animation = '';
+                    }
+                });
+
+                /* Progress fill: 0 → 0.5 → 1.0 */
+                if (fill) {
+                    fill.style.transform = 'scaleX(' + (index / (tabKeys.length - 1)) + ')';
+                }
+
+                /* Dots: active up to and including current index */
+                dots.forEach((d, i) => d.classList.toggle('active', i <= index));
+            }
+
+            /* Click handlers */
+            tabs.forEach((tab, i) => {
                 tab.addEventListener('click', () => {
-                    const target = tab.getAttribute('data-tab');
-
-                    tabs.forEach(t => {
-                        const isActive = t === tab;
-                        t.classList.toggle('active', isActive);
-                        t.setAttribute('aria-selected', isActive);
-                    });
-
-                    panels.forEach(p => {
-                        const isActive = p.getAttribute('data-panel') === target;
-                        p.classList.toggle('active', isActive);
-                        if (isActive) {
-                            /* Re-trigger fade animation */
-                            p.style.animation = 'none';
-                            p.offsetHeight; /* force reflow */
-                            p.style.animation = '';
-                        }
-                    });
+                    activateTab(i);
+                    resetAutoAdvance();
                 });
             });
+
+            /* Auto-advance every 4s */
+            let current = 0;
+            let intervalId = null;
+
+            function advance() {
+                current = (current + 1) % tabKeys.length;
+                activateTab(current);
+            }
+
+            function startAutoAdvance() {
+                intervalId = setInterval(advance, 4000);
+            }
+
+            function resetAutoAdvance() {
+                clearInterval(intervalId);
+                current = tabKeys.indexOf(
+                    document.querySelector('.hiw-tab.active')?.getAttribute('data-tab')
+                ) || 0;
+                startAutoAdvance();
+            }
+
+            /* Initialize: first tab active with progress at 0 */
+            activateTab(0);
+            startAutoAdvance();
         })();
 
         /* Intersection Observer — triggers .visible on scroll */
