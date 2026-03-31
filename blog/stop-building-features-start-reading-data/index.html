@@ -445,7 +445,7 @@
         <div class="container post-container">
 
             <!-- Post Header -->
-            <header class="post-header hero-text-stagger">
+            <header class="post-header">
                 <div class="post-meta">
                     <span class="post-category">Founder Story</span>
                     <span class="post-date">Mar 31, 2026</span>
@@ -454,6 +454,13 @@
                 <h1 class="post-title">Stop Building Features. Start Reading Your Data.</h1>
                 <p class="post-subtitle">Analytics for indie developers who think they need more users. I had 599 installs and no idea what was happening inside my app. 92 users in PostHog rewrote my entire roadmap.</p>
             </header>
+
+            <!-- Post Hero Image -->
+            <div class="post-hero-image">
+                <img src="assets/cover.webp"
+                    alt="Dark analytics dashboard showing gradient funnel bars representing user activation steps from App Opened through First Score Received"
+                    style="border-radius: 24px;">
+            </div>
 
             <!-- Post Body -->
             <div class="post-body">
@@ -1195,6 +1202,80 @@
         </div>
     </article>
 
-    <script src="/assets/shared-footer.js"></script>
+    <!-- ==================== FOOTER ==================== -->
+    
+    <!-- ==================== NEWSLETTER ==================== -->
+    <div data-newsletter-signup></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="../../privacy.html">Privacy Policy</a>
+                <a href="../../features.html">Features</a>
+                <a href="../../blog.html">Blog</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        /* Intersection Observer — triggers .visible on scroll */
+        (function () {
+            const selectors = [
+                '.scroll-reveal',
+                '.scroll-reveal-left',
+                '.scroll-reveal-right',
+                '.parallax-float',
+                '.badge-pop',
+                '.tilt-in',
+                '.hero-text-stagger',
+                '.hero-image-stagger'
+            ];
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.05 }
+            );
+
+            document.querySelectorAll(selectors.join(',')).forEach((el) => {
+                observer.observe(el);
+            });
+        })();
+    </script>
+    <!-- TikTok Pixel Code Start -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
+                for (
+                    var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
+            }, ttq.load = function (e, n) {
+                var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
+                    ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+            };
+
+            ttq.load('D6MSGGBC77U9JTU05FR0');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script><!-- End Cloudflare Web Analytics -->
+
+    <!-- Floating Download Pill -->
+    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="blog-floating-pill" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download GainFrame
+    </a>
+    <script defer src="/assets/newsletter-form.js"></script>
+    <script defer src="/assets/email-capture-bar.js"></script>
 </body>
 </html>
