@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics for Indie Developers: 92 Users Rewrote My Roadmap</title>
+  <meta name="description" content="I had 599 users and no idea what they did. Analytics for indie developers showed my flagship feature had 10x fewer users than expected in my app.">
+  <meta name="keywords" content="analytics for indie developers">
+  <meta name="generator" content="PostGenius">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    h2 { font-size: 1.75rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    p { margin-bottom: 1rem; }
+    ul, ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+    blockquote { border-left: 4px solid #e5e5e5; padding-left: 1rem; margin: 1rem 0; color: #666; }
+    code { background: #f5f5f5; padding: 0.2em 0.4em; border-radius: 3px; font-size: 0.9em; }
+    pre { background: #f5f5f5; padding: 1rem; border-radius: 6px; overflow-x: auto; }
+    img { max-width: 100%; height: auto; border-radius: 8px; margin: 1rem 0; display: block; }
+    img.featured-image { border-radius: 12px; }
+    a { color: #2563eb; text-decoration: underline; }
+  </style>
+</head>
+<body>
+<h1></h1><h1>Stop Building Features: Analytics for Indie Developers Who Think They Need More Users</h1><p>
+
+</p><h2>The Builder's Blind Spot</h2><p>
+
+</p><p>Six weeks after launch, I had 599 users and no idea what they were doing inside my app.</p><p>
+
+</p><p>Downloads were climbing. Fifty-nine people had subscribed to Pro. I was building AI features I was excited about. Then I looked at my analytics, and everything I thought I knew turned out to be wrong.</p><p>
+
+</p><p>The problem: I was building based on how <em>I</em> experienced my product. My account had months of data, dozens of photos, every feature unlocked. But I was not my users. The empty states I skipped past during development were the exact screens where real users decided my app was not worth their time.</p><p>
+
+</p><p>Analytics for indie developers does not require massive scale. With data from just 92 users, I completely rewrote my roadmap.</p><p>
+
+</p><h2>Three Things 92 Users Revealed</h2><p>
+
+</p><p>I added PostHog for deeper event tracking. Within five days, three problems became obvious:</p><p>
+
+</p><ul><li><p><strong>My activation metric was broken</strong> - it only fired on 2 of 8 code paths. My dashboard said 16% of users were getting scored. The real number was 45%.</p></li><li><p><strong>A third of users never uploaded a photo</strong> - GainFrame is a photo comparison app. Without photos, it cannot provide value. Yet 37% of users had zero.</p></li><li><p><strong>My flagship AI feature had 10x fewer users than the simplest feature</strong> - Compare (side-by-side photos) was used by 87% of users. Deep Dive (the AI report I spent weeks on) was used by 12%.</p></li></ul><p>
+
+</p><p></p><img src="[funnel-visualization-placeholder]" alt="Onboarding funnel showing 15% drop-off at photo import step" width="100%" alignment="center" caption=""><p>
+
+</p><h2>The Onboarding Cliff</h2><p>
+
+</p><p>I pulled the full onboarding funnel. Most steps lost one or two users. One step lost twelve.</p><p>
+
+</p><p><strong>Import Photos. Step 11 of 17.</strong></p><p>
+
+</p><p>Users got through goal-setting, body stats, and pose setup. Then the app asked for a photo. About 15% closed the app and never came back. No error. No crash. They hit a screen asking for something they did not have ready.</p><p>
+
+</p><p>Worse: 21% of users skipped onboarding entirely. Of those, 98% bounced - they opened Compare, saw an empty screen, and left.</p><p>
+
+</p><h2>The Conversion Plot Twist</h2><p>
+
+</p><p>I assumed the problem was conversion. Users were not seeing enough value to subscribe.</p><p>
+
+</p><p>Wrong.</p><p>
+
+</p><p>Among users who received their first AI score, 50% subscribed to Pro. In recent cohorts, 60%. The product converts well once someone experiences it.</p><p>
+
+</p><p>The problem was that most users who started onboarding never received a score. They never reached the value moment. I was optimizing the paywall when I should have been optimizing onboarding.</p><p>
+
+</p><p></p><img src="[user-cohort-chart-placeholder]" alt="User engagement breakdown showing 40% bounced, 20% exploring, 22% activated, 16% engaged" width="100%" alignment="center" caption=""><p>
+
+</p><h2>A Simple Engagement Framework</h2><p>
+
+</p><p>I built a composite score using six signals: completed onboarding, has photos, used Compare, used Check-in, used an AI feature, viewed a score breakdown. Each user scores 0-6.</p><p>
+
+</p><p>The distribution:</p><p>
+
+</p><ul><li><p><strong>Bounced (1 signal): 41%</strong> - opened Compare with no photos and left</p></li><li><p><strong>Exploring (2 signals): 20%</strong> - completed onboarding, never imported photos</p></li><li><p><strong>Activated (3 signals): 22%</strong> - onboarding plus photos plus Compare</p></li><li><p><strong>Engaged (4-6 signals): 16%</strong> - retained users and subscribers</p></li></ul><p>
+
+</p><p>I did not need more Pro features for the 16% already engaged. I needed to move the 61% bouncing or exploring into the activated tier.</p><p>
+
+</p><h2>What Changed</h2><p>
+
+</p><p><strong>Built:</strong></p><ul><li><p>Post-onboarding flow guiding users to import photos immediately</p></li><li><p>Fixed empty Compare state with photo slots and clear import prompt</p></li></ul><p>
+
+</p><p><strong>Killed:</strong></p><ul><li><p>Throwback dashboard card (24 users total)</p></li><li><p>Skip onboarding button (98% of skippers bounced)</p></li></ul><p>
+
+</p><p><strong>Deprioritized:</strong></p><ul><li><p>Workout integration, guided recording, multiple subscription tiers</p></li></ul><p>
+
+</p><p>Every decision came from the data.</p><p>
+
+</p><h2>Analytics for Indie Developers: The Minimum</h2><p>
+
+</p><p>You need four event types:</p><p>
+
+</p><ul><li><p><strong>Onboarding step events</strong> - one per step with step_number property</p></li><li><p><strong>Core value moment</strong> - the event when users experience what your app actually does</p></li><li><p><strong>Feature usage events</strong> - one per major feature, on meaningful interaction</p></li><li><p><strong>Subscription events</strong> - paywall_viewed, subscription_started, subscription_cancelled</p></li></ul><p>
+
+</p><p>Test your analytics events like you test your code. My activation metric was wrong for weeks because I never verified it fired on all code paths.</p><p>
+
+</p><p></p><img src="[event-tracking-diagram-placeholder]" alt="Diagram showing analytics event flow through app" width="100%" alignment="center" caption=""><p>
+
+</p><h2>The Single Metric That Matters</h2><p>
+
+</p><p>Your most important metric is not downloads. It is the percentage of users who reach your core value moment.</p><p>
+
+</p><p>For GainFrame, that is receiving a first AI score. For your app, it is whatever moment makes a user think "I need this".</p><p>
+
+</p><p>Measure that percentage. It will be lower than you expect.</p><p>
+
+</p><p>Analytics for indie developers is about closing the gap between what you think is happening and what is actually happening. You do not need millions of users. You need 50 users and the willingness to accept that your assumptions might be wrong.</p><p>
+
+</p><p><strong>Funnels before features. Every time.</strong></p>
+</body>
+</html>
