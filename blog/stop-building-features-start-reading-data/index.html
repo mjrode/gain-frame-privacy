@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Building Features. Start Reading Your Data. | GainFrame Blog</title>
+    <meta name="description"
+        content="I had 599 users and no idea what they were doing in my app. Analytics from just 92 users completely rewrote my roadmap. Here's the framework I used to find the biggest leaks.">
+    <meta property="og:title" content="Stop Building Features. Start Reading Your Data.">
+    <meta property="og:description"
+        content="Analytics from just 92 users completely rewrote my roadmap. A framework for indie developers to find the biggest leaks in their app.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://gainframe.app/blog/stop-building-features-start-reading-data/assets/cover.webp">
+    <link rel="canonical" href="https://gainframe.app/blog/stop-building-features-start-reading-data/">
+    <meta property="og:url" content="https://gainframe.app/blog/stop-building-features-start-reading-data/">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stop Building Features. Start Reading Your Data.">
+    <meta name="twitter:description"
+        content="Analytics from just 92 users completely rewrote my roadmap. A framework for indie developers to find the biggest leaks in their app.">
+    <meta name="twitter:image"
+        content="https://gainframe.app/blog/stop-building-features-start-reading-data/assets/cover.webp">
+
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.webp">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.webp">
+    <link rel="apple-touch-icon" sizes="192x192" href="/assets/favicon-192.webp">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N6YPFBB8JE');
+    </script>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Stop Building Features. Start Reading Your Data.",
+        "description": "I had 599 users and no idea what they were doing in my app. Analytics from just 92 users completely rewrote my roadmap. Here's the framework I used to find the biggest leaks.",
+        "image": "https://gainframe.app/blog/stop-building-features-start-reading-data/assets/cover.webp",
+        "datePublished": "2026-03-31",
+        "dateModified": "2026-03-31",
+        "author": {
+                "@type": "Person",
+                "name": "Michael Rode",
+                "url": "https://gainframe.app"
+        },
+        "publisher": {
+                "@type": "Organization",
+                "name": "GainFrame",
+                "url": "https://gainframe.app",
+                "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://gainframe.app/assets/favicon.webp"
+                }
+        },
+        "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://gainframe.app/blog/stop-building-features-start-reading-data/"
+        },
+        "articleSection": "Founder Story"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+                {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://gainframe.app/"
+                },
+                {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Blog",
+                        "item": "https://gainframe.app/blog.html"
+                },
+                {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Stop Building Features. Start Reading Your Data.",
+                        "item": "https://gainframe.app/blog/stop-building-features-start-reading-data/"
+                }
+        ]
+    }
+    </script>
+
+    <!-- ══════ Chart Styles ══════ -->
+    <style>
+        :root {
+            --color-accent: #6366F1;
+            --color-accent-light: rgba(99, 102, 241, 0.08);
+            --color-danger: #EF4444;
+            --color-danger-light: rgba(239, 68, 68, 0.08);
+            --color-success: #22c55e;
+            --color-success-light: rgba(34, 197, 94, 0.08);
+        }
+
+        /* ── Chart 1: Photo Distribution Waffle ── */
+        .chart-photo-dist {
+            margin: var(--sp-xl) 0;
+            padding: var(--sp-lg) var(--sp-xl);
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+        }
+        .chart-photo-dist__title {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-text-tertiary);
+            margin-bottom: var(--sp-lg);
+        }
+        .chart-photo-dist__grid {
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);
+            gap: 3px;
+            margin-bottom: var(--sp-lg);
+        }
+        .chart-photo-dist__cell {
+            aspect-ratio: 1;
+            border-radius: 3px;
+            transition: transform 0.15s ease;
+        }
+        .chart-photo-dist__cell:hover { transform: scale(1.3); z-index: 1; }
+        .chart-photo-dist__cell--zero { background: var(--color-danger); opacity: 0.8; }
+        .chart-photo-dist__cell--low { background: var(--color-text); opacity: 0.25; }
+        .chart-photo-dist__cell--mid { background: var(--color-text); opacity: 0.45; }
+        .chart-photo-dist__cell--high { background: var(--color-accent); opacity: 0.85; }
+        .chart-photo-dist__legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--sp-md) var(--sp-xl);
+        }
+        .chart-photo-dist__legend-item {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-sm);
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+        }
+        .chart-photo-dist__legend-swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .chart-photo-dist__legend-item strong { color: var(--color-text); font-weight: 600; }
+
+        /* ── Chart 2: Onboarding Cliff ── */
+        .chart-onboarding {
+            margin: var(--sp-xl) 0;
+            padding: var(--sp-lg) var(--sp-xl);
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            overflow-x: auto;
+        }
+        .chart-onboarding__title {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-text-tertiary);
+            margin-bottom: var(--sp-lg);
+        }
+        .chart-onboarding__steps {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 200px;
+            min-width: 600px;
+            padding-bottom: var(--sp-xl);
+            position: relative;
+        }
+        .chart-onboarding__steps::before {
+            content: '';
+            position: absolute;
+            bottom: calc(var(--sp-xl) - 1px);
+            left: 0; right: 0;
+            height: 1px;
+            background: var(--color-border);
+        }
+        .chart-onboarding__bar-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            height: 100%;
+            justify-content: flex-end;
+        }
+        .chart-onboarding__bar {
+            width: 100%;
+            background: var(--color-text);
+            opacity: 0.18;
+            border-radius: 3px 3px 0 0;
+            transition: opacity 0.2s ease;
+            min-height: 2px;
+        }
+        .chart-onboarding__bar-group:hover .chart-onboarding__bar { opacity: 0.3; }
+        .chart-onboarding__bar--danger { background: var(--color-danger); opacity: 0.75; }
+        .chart-onboarding__bar-group:hover .chart-onboarding__bar--danger { opacity: 0.9; }
+        .chart-onboarding__bar-group--highlight .chart-onboarding__drop-badge { display: flex; }
+        .chart-onboarding__value {
+            font-family: var(--font-display);
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 4px;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+        .chart-onboarding__bar-group:hover .chart-onboarding__value,
+        .chart-onboarding__bar-group--highlight .chart-onboarding__value,
+        .chart-onboarding__bar-group:first-child .chart-onboarding__value,
+        .chart-onboarding__bar-group:last-child .chart-onboarding__value { opacity: 1; }
+        .chart-onboarding__label {
+            position: absolute;
+            bottom: -20px;
+            font-size: 0.55rem;
+            color: var(--color-text-tertiary);
+            white-space: nowrap;
+            transform: rotate(-45deg);
+            transform-origin: top right;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+        .chart-onboarding__bar-group:hover .chart-onboarding__label,
+        .chart-onboarding__bar-group--highlight .chart-onboarding__label,
+        .chart-onboarding__bar-group:first-child .chart-onboarding__label,
+        .chart-onboarding__bar-group:last-child .chart-onboarding__label { opacity: 1; }
+        .chart-onboarding__drop-badge {
+            display: none;
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-danger);
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: var(--radius-full);
+            white-space: nowrap;
+            z-index: 2;
+        }
+        .chart-onboarding__annotation {
+            margin-top: var(--sp-xl);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--sp-sm);
+            padding: var(--sp-md);
+            background: var(--color-danger-light);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(239, 68, 68, 0.12);
+        }
+        .chart-onboarding__annotation svg { flex-shrink: 0; width: 16px; height: 16px; color: var(--color-danger); margin-top: 2px; }
+        .chart-onboarding__annotation p { font-size: 0.85rem !important; line-height: 1.5 !important; color: var(--color-text) !important; margin: 0 !important; }
+
+        /* ── Chart 3: Feature Usage ── */
+        .chart-features {
+            margin: var(--sp-xl) 0;
+            padding: var(--sp-lg) var(--sp-xl);
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+        }
+        .chart-features__title {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-text-tertiary);
+            margin-bottom: var(--sp-lg);
+        }
+        .chart-features__row {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            align-items: center;
+            gap: var(--sp-md);
+            margin-bottom: var(--sp-md);
+        }
+        .chart-features__row:last-child { margin-bottom: 0; }
+        .chart-features__label { font-size: 0.85rem; font-weight: 500; color: var(--color-text-secondary); text-align: right; }
+        .chart-features__bar-track { height: 28px; background: var(--color-bg); border-radius: 6px; overflow: hidden; }
+        .chart-features__bar-fill {
+            height: 100%;
+            border-radius: 6px;
+            background: var(--color-text);
+            opacity: 0.15;
+            transition: opacity 0.2s ease;
+        }
+        .chart-features__row:hover .chart-features__bar-fill { opacity: 0.25; }
+        .chart-features__bar-fill--hero { background: var(--color-accent); opacity: 0.8; }
+        .chart-features__row:hover .chart-features__bar-fill--hero { opacity: 0.9; }
+        .chart-features__bar-fill--dim { opacity: 0.08; }
+        .chart-features__row:hover .chart-features__bar-fill--dim { opacity: 0.15; }
+        .chart-features__count { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--color-text); min-width: 40px; text-align: right; }
+        .chart-features__count--hero { color: var(--color-accent); }
+        .chart-features__gap-note {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-family: var(--font-display);
+            padding: var(--sp-xs) 0;
+        }
+
+        /* ── Chart 4: Conversion Funnel ── */
+        .chart-funnel {
+            margin: var(--sp-xl) 0;
+            padding: var(--sp-lg) var(--sp-xl);
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+        }
+        .chart-funnel__title {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-text-tertiary);
+            margin-bottom: var(--sp-lg);
+        }
+        .chart-funnel__stage { display: flex; align-items: center; gap: var(--sp-md); margin-bottom: 6px; }
+        .chart-funnel__stage-label { width: 140px; flex-shrink: 0; font-size: 0.82rem; font-weight: 500; color: var(--color-text-secondary); text-align: right; }
+        .chart-funnel__stage-bar-wrap { flex: 1; position: relative; }
+        .chart-funnel__stage-bar {
+            height: 36px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            padding: 0 var(--sp-md);
+            transition: opacity 0.2s ease;
+        }
+        .chart-funnel__stage-bar--leaky { background: var(--color-text); opacity: 0.12; }
+        .chart-funnel__stage:hover .chart-funnel__stage-bar--leaky { opacity: 0.18; }
+        .chart-funnel__stage-bar--strong { background: var(--color-success); opacity: 0.2; }
+        .chart-funnel__stage:hover .chart-funnel__stage-bar--strong { opacity: 0.3; }
+        .chart-funnel__stage-count { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; color: var(--color-text); }
+        .chart-funnel__stage-meta { width: 140px; flex-shrink: 0; display: flex; align-items: center; gap: var(--sp-sm); }
+        .chart-funnel__stage-pct { font-family: var(--font-display); font-size: 0.78rem; font-weight: 600; color: var(--color-text-tertiary); }
+        .chart-funnel__stage-pct--good { color: var(--color-success); }
+        .chart-funnel__connector { display: flex; align-items: center; margin: 0 0 6px 140px; padding-left: var(--sp-md); gap: var(--sp-sm); }
+        .chart-funnel__connector-line { width: 1px; height: 16px; background: var(--color-border); margin-left: var(--sp-md); }
+        .chart-funnel__connector-drop { font-size: 0.7rem; font-weight: 600; color: var(--color-danger); font-family: var(--font-display); }
+        .chart-funnel__connector-drop--good { color: var(--color-success); }
+        .chart-funnel__takeaway { margin-top: var(--sp-lg); display: flex; gap: var(--sp-md); }
+        .chart-funnel__takeaway-card { flex: 1; padding: var(--sp-md); border-radius: var(--radius-sm); text-align: center; }
+        .chart-funnel__takeaway-card--problem { background: var(--color-danger-light); border: 1px solid rgba(239, 68, 68, 0.1); }
+        .chart-funnel__takeaway-card--strength { background: var(--color-success-light); border: 1px solid rgba(34, 197, 94, 0.1); }
+        .chart-funnel__takeaway-card span { display: block; font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin-bottom: 2px; }
+        .chart-funnel__takeaway-card--problem span { color: var(--color-danger); }
+        .chart-funnel__takeaway-card--strength span { color: var(--color-success); }
+        .chart-funnel__takeaway-card small { font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.3; }
+
+        /* ── Chart 5: Cohort Distribution ── */
+        .chart-cohorts {
+            margin: var(--sp-xl) 0;
+            padding: var(--sp-lg) var(--sp-xl);
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+        }
+        .chart-cohorts__title {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-text-tertiary);
+            margin-bottom: var(--sp-lg);
+        }
+        .chart-cohorts__bar { display: flex; height: 48px; border-radius: 8px; overflow: hidden; gap: 2px; margin-bottom: var(--sp-lg); }
+        .chart-cohorts__segment { display: flex; align-items: center; justify-content: center; cursor: default; }
+        .chart-cohorts__segment span { font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; color: #fff; opacity: 0.9; }
+        .chart-cohorts__segment--bounced { background: var(--color-danger); opacity: 0.75; }
+        .chart-cohorts__segment--exploring { background: #F59E0B; opacity: 0.75; }
+        .chart-cohorts__segment--activated { background: var(--color-accent); opacity: 0.8; }
+        .chart-cohorts__segment--engaged { background: var(--color-success); opacity: 0.75; }
+        .chart-cohorts__segment--power { background: var(--color-text); opacity: 0.85; }
+        .chart-cohorts__details { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-sm); }
+        .chart-cohorts__detail { display: flex; align-items: flex-start; gap: var(--sp-sm); padding: var(--sp-md); border-radius: var(--radius-sm); background: var(--color-bg); border: 1px solid var(--color-border); }
+        .chart-cohorts__detail-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; margin-top: 4px; }
+        .chart-cohorts__detail-text { display: flex; flex-direction: column; }
+        .chart-cohorts__detail-label { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; color: var(--color-text); }
+        .chart-cohorts__detail-pct { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; color: var(--color-text-tertiary); }
+        .chart-cohorts__detail-desc { font-size: 0.78rem; color: var(--color-text-secondary); line-height: 1.4; margin-top: 2px; }
+        .chart-cohorts__detail--wide { grid-column: 1 / -1; }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .chart-photo-dist,
+            .chart-onboarding,
+            .chart-features,
+            .chart-funnel,
+            .chart-cohorts {
+                padding: var(--sp-md);
+            }
+            .chart-photo-dist__grid { grid-template-columns: repeat(10, 1fr); }
+            .chart-photo-dist__legend { gap: var(--sp-sm) var(--sp-md); }
+            .chart-features__row { grid-template-columns: 90px 1fr auto; gap: var(--sp-sm); }
+            .chart-features__label { font-size: 0.78rem; }
+            .chart-features__bar-track { height: 22px; }
+            .chart-funnel__stage-label { width: 90px; font-size: 0.72rem; }
+            .chart-funnel__stage-bar { height: 28px; }
+            .chart-funnel__stage-meta { width: 80px; }
+            .chart-funnel__connector { margin-left: 90px; }
+            .chart-funnel__takeaway { flex-direction: column; }
+            .chart-cohorts__details { grid-template-columns: 1fr; }
+            .chart-cohorts__detail--wide { grid-column: 1; }
+            .chart-cohorts__bar { height: 36px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div data-site-nav></div>
+    <script src="/assets/shared-nav.js"></script>
+
+<!-- ==================== ARTICLE ==================== -->
+    <article class="post">
+        <div class="container post-container">
+
+            <!-- Post Header -->
+            <header class="post-header hero-text-stagger">
+                <div class="post-meta">
+                    <span class="post-category">Founder Story</span>
+                    <span class="post-date">Mar 31, 2026</span>
+                    <span class="post-read-time">18 min read</span>
+                </div>
+                <h1 class="post-title">Stop Building Features. Start Reading Your Data.</h1>
+                <p class="post-subtitle">Analytics for indie developers who think they need more users. I had 599 installs and no idea what was happening inside my app. 92 users in PostHog rewrote my entire roadmap.</p>
+            </header>
+
+            <!-- Post Body -->
+            <div class="post-body">
+
+                <h2>The Builder's Blind Spot</h2>
+
+                <p>Six weeks after launch, I had 599 users and absolutely no idea what they were doing inside my app.</p>
+
+                <p>Downloads were climbing. Daily active users looked healthy. Fifty-nine people had subscribed to Pro. I was deep in the code, building AI features I was genuinely excited about. The roadmap felt obvious.</p>
+
+                <p>Then I looked at my analytics, and everything I thought I knew turned out to be wrong.</p>
+
+                <p>The problem was simple but devastating: I was building based on how I experienced my own product. My account had months of data, dozens of photos, every feature unlocked. When I opened the app, everything worked beautifully. But I was not my users. I never could be. And the decisions I was making from that perspective were leading me in exactly the wrong direction.</p>
+
+                <p>I instrumented specific events and funnels, watched patterns emerge from just 92 users, and that small-sample data completely rewrote my roadmap. App retention metrics do not require massive scale to be useful. The framework I used to segment users by engagement applies to any app, and you can implement the same approach this week.</p>
+
+                <hr class="post-divider">
+
+                <h2>You Have Context Your Users Never Will</h2>
+
+                <p>When you build something, you accumulate context that real users simply do not have. You know where every button leads. You understand why features exist. You have patience to explore because you already know the payoff.</p>
+
+                <p>New users have none of this. They download your app, open it once, and make a decision in seconds about whether it deserves their attention. The empty states you skip past during development are the exact screens where real users decide your app is not worth their time.</p>
+
+                <hr class="post-divider">
+
+                <h2>The Roadmap I Built Was Almost Entirely Wrong</h2>
+
+                <p>GainFrame is a progress photo comparison app. I had spent weeks building features I was proud of: AI deep dive reports, prediction models showing what users could look like in 4, 8, or 12 weeks, weekly summaries that automatically generated trend reports. The roadmap felt clear. More AI features, more analysis, more sophistication.</p>
+
+                <p>Then I added PostHog for deeper event tracking. Within five days, with data from just 92 users, three things became immediately obvious:</p>
+
+                <ul>
+                    <li><strong>My activation metric was broken</strong></li>
+                    <li><strong>A third of users never uploaded a single photo</strong></li>
+                    <li><strong>The features I spent weeks building were being used by a fraction of the people using the simplest feature in the app</strong></li>
+                </ul>
+
+                <hr class="post-divider">
+
+                <h2>Common Instrumentation Gaps in App Retention Metrics</h2>
+
+                <p>Most indie developers have analytics installed. Firebase, Mixpanel, Amplitude, PostHog. The dashboard exists. Events are firing. But the uncomfortable truth is that your implementation may be misleading you — not because the tools are broken, but because the instrumentation is incomplete.</p>
+
+                <div class="post-callout">
+                    <p><strong>A Note on Methodology:</strong> The metrics throughout this piece come from my internal PostHog and Firebase GA4 dashboards for GainFrame, covering the period from launch through the first six weeks. When I say "user", I mean someone who completed app installation and opened the app at least once. "Bounce" means a user who triggered only one engagement signal (typically opening a single feature tab) before churning. Cohorts were formed based on composite engagement scores, which I explain in detail below. All numbers are rounded and should be read as approximate figures from my dashboard, not statistically rigorous research.</p>
+                </div>
+
+                <h3>My Activation Metric Only Fired on 2 of 8 Code Paths</h3>
+
+                <p>I had a <code>first_score_received</code> event that was supposed to fire when a user got their first AI physique analysis. This was my primary success metric.</p>
+
+                <p>For weeks, my dashboard said about 16% of users were getting scored. The real number was closer to 45%. The event was only firing on 2 of 8 code paths that could trigger a score. I had been making product decisions based on fiction.</p>
+
+                <p>If you are not testing your analytics events the same way you test your code, your implementation may have similar gaps.</p>
+
+                <hr class="post-divider">
+
+                <h2>Over a Third Never Experienced the Core Value</h2>
+
+                <p>This was the stat that rewired everything.</p>
+
+                <p>GainFrame is a progress photo comparison app. The entire value proposition requires photos. Without photos, there is nothing to compare, nothing to analyze, nothing to score. Photos are the app.</p>
+
+                <p>Yet roughly a third of tracked users had zero photos. Not one photo. Not a blurry gym selfie they uploaded and forgot about. Zero.</p>
+
+                <p>That is like building a note-taking app where a third of your users have never written a note. The product literally cannot provide value to these people.</p>
+
+                <!-- ══════ CHART 1: Photo Distribution Waffle ══════ -->
+                <figure class="post-figure" style="margin: var(--sp-lg) 0;">
+                    <div class="chart-photo-dist">
+                        <div class="chart-photo-dist__title">User photo count — 91 tracked users</div>
+                        <div class="chart-photo-dist__grid">
+                            <!-- 0 photos: 34 cells (37%) -->
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--zero"></div>
+                            <!-- 1-5 photos: 31 cells (34%) -->
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--low"></div>
+                            <!-- 6-20 photos: 16 cells (18%) -->
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--mid"></div>
+                            <!-- 20+ photos: 10 cells (11%) -->
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--high"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--high"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--high"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--high"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--high"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--high"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--high"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--high"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--high"></div>
+                            <div class="chart-photo-dist__cell chart-photo-dist__cell--high"></div>
+                            <!-- Empty: 9 to fill grid -->
+                            <div class="chart-photo-dist__cell" style="opacity:0"></div>
+                            <div class="chart-photo-dist__cell" style="opacity:0"></div>
+                            <div class="chart-photo-dist__cell" style="opacity:0"></div>
+                            <div class="chart-photo-dist__cell" style="opacity:0"></div>
+                            <div class="chart-photo-dist__cell" style="opacity:0"></div>
+                            <div class="chart-photo-dist__cell" style="opacity:0"></div>
+                            <div class="chart-photo-dist__cell" style="opacity:0"></div>
+                            <div class="chart-photo-dist__cell" style="opacity:0"></div>
+                            <div class="chart-photo-dist__cell" style="opacity:0"></div>
+                        </div>
+                        <div class="chart-photo-dist__legend">
+                            <div class="chart-photo-dist__legend-item">
+                                <div class="chart-photo-dist__legend-swatch" style="background: var(--color-danger); opacity: 0.8;"></div>
+                                <span><strong>0 photos</strong> — 34 users (37%)</span>
+                            </div>
+                            <div class="chart-photo-dist__legend-item">
+                                <div class="chart-photo-dist__legend-swatch" style="background: var(--color-text); opacity: 0.25;"></div>
+                                <span><strong>1-5</strong> — 31 users (34%)</span>
+                            </div>
+                            <div class="chart-photo-dist__legend-item">
+                                <div class="chart-photo-dist__legend-swatch" style="background: var(--color-text); opacity: 0.45;"></div>
+                                <span><strong>6-20</strong> — 16 users (18%)</span>
+                            </div>
+                            <div class="chart-photo-dist__legend-item">
+                                <div class="chart-photo-dist__legend-swatch" style="background: var(--color-accent); opacity: 0.85;"></div>
+                                <span><strong>20+</strong> — 10 users (11%)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption style="text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 8px;">Each square is one user. Red = never uploaded a single photo.</figcaption>
+                </figure>
+
+                <hr class="post-divider">
+
+                <h2>The Onboarding Step That Lost 15% of Users</h2>
+
+                <p>Once I saw the zero-photo problem, I pulled the full onboarding funnel from PostHog. Step by step, where every user dropped.</p>
+
+                <p>The funnel from Welcome through Finish had roughly a 36% cumulative drop-off. But the drops were not evenly distributed. Most steps lost one or two users. One step lost twelve.</p>
+
+                <p><strong>Import Photos.</strong> Step 11 of 17.</p>
+
+                <p>Users got through goal-setting, body stats, and pose setup. Then the app asked them to import or take a photo. And about 15% of remaining users closed the app and never came back. No error. No crash. They hit a screen that asked for something they did not have ready, and they left.</p>
+
+                <!-- ══════ CHART 2: Onboarding Cliff ══════ -->
+                <figure class="post-figure" style="margin: var(--sp-lg) 0;">
+                    <div class="chart-onboarding">
+                        <div class="chart-onboarding__title">Onboarding funnel — 92 users, 17 steps</div>
+                        <div class="chart-onboarding__steps">
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">92</span>
+                                <div class="chart-onboarding__bar" style="height: 100%;"></div>
+                                <span class="chart-onboarding__label">Welcome</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">86</span>
+                                <div class="chart-onboarding__bar" style="height: 93.5%;"></div>
+                                <span class="chart-onboarding__label">Goal</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">83</span>
+                                <div class="chart-onboarding__bar" style="height: 90.2%;"></div>
+                                <span class="chart-onboarding__label">Desired Outcome</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">81</span>
+                                <div class="chart-onboarding__bar" style="height: 88%;"></div>
+                                <span class="chart-onboarding__label">Obstacle</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">81</span>
+                                <div class="chart-onboarding__bar" style="height: 88%;"></div>
+                                <span class="chart-onboarding__label">Expectation</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">81</span>
+                                <div class="chart-onboarding__bar" style="height: 88%;"></div>
+                                <span class="chart-onboarding__label">Gender</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">81</span>
+                                <div class="chart-onboarding__bar" style="height: 88%;"></div>
+                                <span class="chart-onboarding__label">HealthKit</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">79</span>
+                                <div class="chart-onboarding__bar" style="height: 85.9%;"></div>
+                                <span class="chart-onboarding__label">Body Stats</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">78</span>
+                                <div class="chart-onboarding__bar" style="height: 84.8%;"></div>
+                                <span class="chart-onboarding__label">Age</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">78</span>
+                                <div class="chart-onboarding__bar" style="height: 84.8%;"></div>
+                                <span class="chart-onboarding__label">Pose Setup</span>
+                            </div>
+                            <!-- THE CLIFF -->
+                            <div class="chart-onboarding__bar-group chart-onboarding__bar-group--highlight">
+                                <div class="chart-onboarding__drop-badge">-15.4%</div>
+                                <span class="chart-onboarding__value" style="color: var(--color-danger);">66</span>
+                                <div class="chart-onboarding__bar chart-onboarding__bar--danger" style="height: 71.7%;"></div>
+                                <span class="chart-onboarding__label" style="color: var(--color-danger); font-weight: 600;">Import Photos</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">65</span>
+                                <div class="chart-onboarding__bar" style="height: 70.6%;"></div>
+                                <span class="chart-onboarding__label">Baseline</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">65</span>
+                                <div class="chart-onboarding__bar" style="height: 70.6%;"></div>
+                                <span class="chart-onboarding__label">Goal Weight</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">61</span>
+                                <div class="chart-onboarding__bar" style="height: 66.3%;"></div>
+                                <span class="chart-onboarding__label">Notifications</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">60</span>
+                                <div class="chart-onboarding__bar" style="height: 65.2%;"></div>
+                                <span class="chart-onboarding__label">Account</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">60</span>
+                                <div class="chart-onboarding__bar" style="height: 65.2%;"></div>
+                                <span class="chart-onboarding__label">Widget</span>
+                            </div>
+                            <div class="chart-onboarding__bar-group">
+                                <span class="chart-onboarding__value">59</span>
+                                <div class="chart-onboarding__bar" style="height: 64.1%;"></div>
+                                <span class="chart-onboarding__label">Finish</span>
+                            </div>
+                        </div>
+                        <div class="chart-onboarding__annotation">
+                            <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.5v4M8 10.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                            <p><strong>Import Photos</strong> lost 12 users in a single step — more than all other drops combined. Users were asked for photos before they had seen any value from the app.</p>
+                        </div>
+                    </div>
+                    <figcaption style="text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 8px;">17-step onboarding funnel. The red bar is where 15.4% of remaining users silently disappeared.</figcaption>
+                </figure>
+
+                <hr class="post-divider">
+
+                <h2>The Features You Built vs The Features They Use</h2>
+
+                <p>There is a painful moment in every builder's journey when the data reveals that the features you are proudest of are not the ones your users care about.</p>
+
+                <p>I had spent weeks on sophisticated AI analysis. Deep dive reports. Prediction models. Weekly summaries. These were the features I talked about when describing the app. They were the technical achievements I was excited to ship. And they were being used by a tiny fraction of my user base.</p>
+
+                <p>App retention metrics are not just about finding bugs or measuring growth. They are about discovering the gap between what you think matters and what actually matters to the people using your product.</p>
+
+                <h3>Compare: 10x More Users Than My Flagship AI Feature</h3>
+
+                <!-- ══════ CHART 3: Feature Usage ══════ -->
+                <figure class="post-figure" style="margin: var(--sp-lg) 0;">
+                    <div class="chart-features">
+                        <div class="chart-features__title">Feature usage — unique users, all time</div>
+                        <div class="chart-features__row">
+                            <span class="chart-features__label">Compare</span>
+                            <div class="chart-features__bar-track">
+                                <div class="chart-features__bar-fill chart-features__bar-fill--hero" style="width: 100%;"></div>
+                            </div>
+                            <span class="chart-features__count chart-features__count--hero">519</span>
+                        </div>
+                        <div class="chart-features__gap-note">4.8x gap</div>
+                        <div class="chart-features__row">
+                            <span class="chart-features__label">Check-in</span>
+                            <div class="chart-features__bar-track">
+                                <div class="chart-features__bar-fill" style="width: 20.6%;"></div>
+                            </div>
+                            <span class="chart-features__count">107</span>
+                        </div>
+                        <div class="chart-features__row">
+                            <span class="chart-features__label">Deep Dive</span>
+                            <div class="chart-features__bar-track">
+                                <div class="chart-features__bar-fill" style="width: 13.7%;"></div>
+                            </div>
+                            <span class="chart-features__count">71</span>
+                        </div>
+                        <div class="chart-features__row">
+                            <span class="chart-features__label">Throwback</span>
+                            <div class="chart-features__bar-track">
+                                <div class="chart-features__bar-fill chart-features__bar-fill--dim" style="width: 4.6%;"></div>
+                            </div>
+                            <span class="chart-features__count">24</span>
+                        </div>
+                        <div class="chart-features__row">
+                            <span class="chart-features__label" style="color: var(--color-danger);">Weekly Summary</span>
+                            <div class="chart-features__bar-track">
+                                <div class="chart-features__bar-fill chart-features__bar-fill--dim" style="width: 1.9%;"></div>
+                            </div>
+                            <span class="chart-features__count" style="color: var(--color-danger);">10</span>
+                        </div>
+                    </div>
+                    <figcaption style="text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 8px;">Compare — the simplest feature — dwarfs everything else. 70 weekly summaries were generated but only 10 were ever viewed.</figcaption>
+                </figure>
+
+                <p>The simplest feature in the app was used by 10x more people than the most complex one.</p>
+
+                <h3>Hundreds of Weekly Summaries Created, Most Never Viewed</h3>
+
+                <p>The weekly summary feature automatically generated trend reports for users. The system was working perfectly from a technical perspective. Summaries were being created on schedule. The AI was analyzing progress and writing personalized insights.</p>
+
+                <p>There was just one problem: almost nobody was reading them.</p>
+
+                <p>Of the users who had summaries automatically generated, only about 15% ever viewed one. I was generating content nobody asked for, solving a problem nobody had, and feeling productive while doing it.</p>
+
+                <hr class="post-divider">
+
+                <h2>The Conversion Plot Twist</h2>
+
+                <p>The data told a story I did not expect.</p>
+
+                <p>I had assumed the problem was conversion. Users were not seeing enough value in Pro to subscribe. The paywall needed better copy. The pricing needed adjustment.</p>
+
+                <p>I was wrong.</p>
+
+                <p>Among users who actually received their first AI score, roughly half subscribed to Pro. In the more recent cohort, it was closer to 60%. Those are strong conversion rates for an indie app.</p>
+
+                <p>The problem was not that users saw the value and decided it was not worth paying for. The problem was that most users who started onboarding never received a score at all. They never reached the moment where the app demonstrates its value. I was optimizing the paywall when I should have been optimizing onboarding.</p>
+
+                <!-- ══════ CHART 4: Conversion Funnel ══════ -->
+                <figure class="post-figure" style="margin: var(--sp-lg) 0;">
+                    <div class="chart-funnel">
+                        <div class="chart-funnel__title">Install to subscription — Mar 12-30, 2026</div>
+                        <div class="chart-funnel__stage">
+                            <span class="chart-funnel__stage-label">Started Onboarding</span>
+                            <div class="chart-funnel__stage-bar-wrap">
+                                <div class="chart-funnel__stage-bar chart-funnel__stage-bar--leaky" style="width: 100%;">
+                                    <span class="chart-funnel__stage-count">342</span>
+                                </div>
+                            </div>
+                            <div class="chart-funnel__stage-meta"><span class="chart-funnel__stage-pct">100%</span></div>
+                        </div>
+                        <div class="chart-funnel__connector">
+                            <div class="chart-funnel__connector-line"></div>
+                            <span class="chart-funnel__connector-drop">-36% lost</span>
+                        </div>
+                        <div class="chart-funnel__stage">
+                            <span class="chart-funnel__stage-label">Completed</span>
+                            <div class="chart-funnel__stage-bar-wrap">
+                                <div class="chart-funnel__stage-bar chart-funnel__stage-bar--leaky" style="width: 64%;">
+                                    <span class="chart-funnel__stage-count">219</span>
+                                </div>
+                            </div>
+                            <div class="chart-funnel__stage-meta"><span class="chart-funnel__stage-pct">64.0%</span></div>
+                        </div>
+                        <div class="chart-funnel__connector">
+                            <div class="chart-funnel__connector-line"></div>
+                            <span class="chart-funnel__connector-drop">-46% lost</span>
+                        </div>
+                        <div class="chart-funnel__stage">
+                            <span class="chart-funnel__stage-label">Imported Photos</span>
+                            <div class="chart-funnel__stage-bar-wrap">
+                                <div class="chart-funnel__stage-bar chart-funnel__stage-bar--leaky" style="width: 34.5%;">
+                                    <span class="chart-funnel__stage-count">118</span>
+                                </div>
+                            </div>
+                            <div class="chart-funnel__stage-meta"><span class="chart-funnel__stage-pct">34.5%</span></div>
+                        </div>
+                        <div class="chart-funnel__connector">
+                            <div class="chart-funnel__connector-line"></div>
+                            <span class="chart-funnel__connector-drop chart-funnel__connector-drop--good">82% kept</span>
+                        </div>
+                        <div class="chart-funnel__stage">
+                            <span class="chart-funnel__stage-label">First Score</span>
+                            <div class="chart-funnel__stage-bar-wrap">
+                                <div class="chart-funnel__stage-bar chart-funnel__stage-bar--strong" style="width: 28.4%;">
+                                    <span class="chart-funnel__stage-count">97</span>
+                                </div>
+                            </div>
+                            <div class="chart-funnel__stage-meta"><span class="chart-funnel__stage-pct chart-funnel__stage-pct--good">44.3% of completers</span></div>
+                        </div>
+                        <div class="chart-funnel__connector">
+                            <div class="chart-funnel__connector-line"></div>
+                            <span class="chart-funnel__connector-drop chart-funnel__connector-drop--good">60.8% convert</span>
+                        </div>
+                        <div class="chart-funnel__stage">
+                            <span class="chart-funnel__stage-label">Subscribed</span>
+                            <div class="chart-funnel__stage-bar-wrap">
+                                <div class="chart-funnel__stage-bar chart-funnel__stage-bar--strong" style="width: 17.3%;">
+                                    <span class="chart-funnel__stage-count">59</span>
+                                </div>
+                            </div>
+                            <div class="chart-funnel__stage-meta"><span class="chart-funnel__stage-pct chart-funnel__stage-pct--good">60.8% of scored</span></div>
+                        </div>
+                        <div class="chart-funnel__takeaway">
+                            <div class="chart-funnel__takeaway-card chart-funnel__takeaway-card--problem">
+                                <span>36%</span>
+                                <small>drop during onboarding — the leaky top</small>
+                            </div>
+                            <div class="chart-funnel__takeaway-card chart-funnel__takeaway-card--strength">
+                                <span>60.8%</span>
+                                <small>score-to-subscribe — the strong bottom</small>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption style="text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 8px;">The product converts well. The problem is getting users to experience it.</figcaption>
+                </figure>
+
+                <hr class="post-divider">
+
+                <h2>Building a Composite Engagement Framework</h2>
+
+                <p>Raw percentages are useful but they did not help me prioritize. Knowing that a third of users had zero photos told me there was a problem. It did not tell me how to segment users or where to focus my limited time.</p>
+
+                <p>So I built a composite engagement framework using six signals:</p>
+
+                <ol>
+                    <li><strong>Completed onboarding</strong></li>
+                    <li><strong>Has photos</strong></li>
+                    <li><strong>Used Compare</strong></li>
+                    <li><strong>Used Check-in</strong></li>
+                    <li><strong>Used an AI feature</strong></li>
+                    <li><strong>Viewed a score breakdown</strong></li>
+                </ol>
+
+                <p>Each user gets a score from 0 to 6. This approach tracks actual behaviour patterns rather than surface-level metrics like downloads or session counts.</p>
+
+                <h3>Over 40% Did Exactly One Thing and Left</h3>
+
+                <p>The framework revealed four distinct user categories:</p>
+
+                <!-- ══════ CHART 5: Cohort Distribution ══════ -->
+                <figure class="post-figure" style="margin: var(--sp-lg) 0;">
+                    <div class="chart-cohorts">
+                        <div class="chart-cohorts__title">User engagement cohorts — 123 tracked users</div>
+                        <div class="chart-cohorts__bar">
+                            <div class="chart-cohorts__segment chart-cohorts__segment--bounced" style="flex: 41.5;" title="Bounced — 41.5%"><span>41.5%</span></div>
+                            <div class="chart-cohorts__segment chart-cohorts__segment--exploring" style="flex: 20.3;" title="Exploring — 20.3%"><span>20.3%</span></div>
+                            <div class="chart-cohorts__segment chart-cohorts__segment--activated" style="flex: 22;" title="Activated — 22.0%"><span>22.0%</span></div>
+                            <div class="chart-cohorts__segment chart-cohorts__segment--engaged" style="flex: 10.6;" title="Engaged — 10.6%"><span>10.6%</span></div>
+                            <div class="chart-cohorts__segment chart-cohorts__segment--power" style="flex: 5.7;" title="Power — 5.7%"><span></span></div>
+                        </div>
+                        <div class="chart-cohorts__details">
+                            <div class="chart-cohorts__detail chart-cohorts__detail--wide">
+                                <div class="chart-cohorts__detail-dot" style="background: var(--color-danger); opacity: 0.75;"></div>
+                                <div class="chart-cohorts__detail-text">
+                                    <span class="chart-cohorts__detail-label">Bounced <span class="chart-cohorts__detail-pct">41.5% — 51 users</span></span>
+                                    <span class="chart-cohorts__detail-desc">50 of 51 did exactly one thing: opened Compare with no photos and left.</span>
+                                </div>
+                            </div>
+                            <div class="chart-cohorts__detail">
+                                <div class="chart-cohorts__detail-dot" style="background: #F59E0B; opacity: 0.75;"></div>
+                                <div class="chart-cohorts__detail-text">
+                                    <span class="chart-cohorts__detail-label">Exploring <span class="chart-cohorts__detail-pct">20.3%</span></span>
+                                    <span class="chart-cohorts__detail-desc">Onboarded + looked around. Never imported photos.</span>
+                                </div>
+                            </div>
+                            <div class="chart-cohorts__detail">
+                                <div class="chart-cohorts__detail-dot" style="background: var(--color-accent); opacity: 0.8;"></div>
+                                <div class="chart-cohorts__detail-text">
+                                    <span class="chart-cohorts__detail-label">Activated <span class="chart-cohorts__detail-pct">22.0%</span></span>
+                                    <span class="chart-cohorts__detail-desc">Found the path: onboarding + photos + compare.</span>
+                                </div>
+                            </div>
+                            <div class="chart-cohorts__detail">
+                                <div class="chart-cohorts__detail-dot" style="background: var(--color-success); opacity: 0.75;"></div>
+                                <div class="chart-cohorts__detail-text">
+                                    <span class="chart-cohorts__detail-label">Engaged <span class="chart-cohorts__detail-pct">10.6%</span></span>
+                                    <span class="chart-cohorts__detail-desc">Multiple features, regular usage.</span>
+                                </div>
+                            </div>
+                            <div class="chart-cohorts__detail">
+                                <div class="chart-cohorts__detail-dot" style="background: var(--color-text); opacity: 0.85;"></div>
+                                <div class="chart-cohorts__detail-text">
+                                    <span class="chart-cohorts__detail-label">Power <span class="chart-cohorts__detail-pct">5.7%</span></span>
+                                    <span class="chart-cohorts__detail-desc">5-6 signals. Your subscribers and advocates.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <figcaption style="text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 8px;">62% of users are Bounced or Exploring — they never reached the core value.</figcaption>
+                </figure>
+
+                <h3>Users Who Skipped Onboarding Almost Always Bounced</h3>
+
+                <p>I had included a skip button in onboarding because I thought some users would prefer to explore on their own.</p>
+
+                <p>The data told a different story. Of the users who skipped onboarding entirely, 98% became bounced users. They did exactly one thing — opened Compare, saw an empty screen with no photos to compare, and left forever.</p>
+
+                <p>The skip button I added for user convenience was destroying retention. Twenty-one percent of all users were hitting it, and virtually none of them survived.</p>
+
+                <h3>Only 16% Became Engaged or Power Users</h3>
+
+                <p>Once I could see the cohorts, the roadmap rewrote itself.</p>
+
+                <p>I did not need more Pro features for the 16% who were already engaged. I needed to move the 62% who were bouncing or exploring into the activated tier.</p>
+
+                <p>The math made this painfully clear: if I fixed onboarding completion from 64% to 85%, I would get roughly a third more subscribers from the exact same install volume. No new marketing spend. No new features. Just getting more people to the value they already would have paid for.</p>
+
+                <hr class="post-divider">
+
+                <h2>92 Users Is Enough to Rewrite Your Roadmap</h2>
+
+                <p>One objection I hear from other indie devs is that analytics are not useful until you have significant volume.</p>
+
+                <p>In my experience with early-stage apps, this is often wrong.</p>
+
+                <p>I had 92 users in PostHog when these patterns became clear. That was enough to:</p>
+
+                <ul>
+                    <li><strong>See that a third of users had zero photos</strong></li>
+                    <li><strong>Find the exact onboarding step where people quit</strong></li>
+                    <li><strong>Discover that my flagship feature had 10x fewer users than the simplest one</strong></li>
+                </ul>
+
+                <p>App retention metrics do not require millions of users. They require asking the right questions and instrumenting the right events.</p>
+
+                <h3>Finding the Biggest Leaks With Small Numbers</h3>
+
+                <p>I cross-validated the PostHog data against Firebase GA4 and the proportions held. PostHog showed about 42% bounce rate; GA4 showed 50%. PostHog showed roughly 39% of onboarders never importing photos; GA4 showed 46%.</p>
+
+                <p>The small sample was directionally correct and actionable. You do not need statistical significance to notice that a third of your users are not doing the one thing your app requires.</p>
+
+                <hr class="post-divider">
+
+                <h2>The New Roadmap: Fixing Funnels Before Building Features</h2>
+
+                <p>The data pointed to specific decisions, not vague intentions.</p>
+
+                <p><strong>Built:</strong></p>
+                <ul>
+                    <li>Redesigned post-onboarding flow to immediately guide users toward importing photos</li>
+                    <li>Fixed the empty Compare state to show photo slots and a clear prompt to import</li>
+                    <li>Added a weekly summary banner on the dashboard (the summaries existed, nobody knew)</li>
+                </ul>
+
+                <p><strong>Killed:</strong></p>
+                <ul>
+                    <li>Removed the Throwback dashboard card (fewer than 25 users total)</li>
+                    <li>Removed the option to skip onboarding entirely</li>
+                </ul>
+
+                <p><strong>Deprioritized:</strong></p>
+                <ul>
+                    <li>Hevy workout integration, guided recording improvements, multiple subscription tiers</li>
+                </ul>
+
+                <p>Every single one of these decisions came from the data.</p>
+
+                <hr class="post-divider">
+
+                <h2>What These Fixes Should Actually Produce</h2>
+
+                <p>Identifying the problems is one thing. Projecting the impact is what turns analysis into accountability. If the fixes do not move these numbers, then either the diagnosis was wrong or the execution was off. Either way, I will know.</p>
+
+                <p>Here is what I expect each change to produce and how I will measure whether it worked:</p>
+
+                <div style="overflow-x: auto; margin: var(--sp-xl) 0;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--color-border);">
+                                <th style="text-align: left; padding: var(--sp-sm) var(--sp-md); font-family: var(--font-display); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-tertiary);">Fix</th>
+                                <th style="text-align: left; padding: var(--sp-sm) var(--sp-md); font-family: var(--font-display); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-tertiary);">Current</th>
+                                <th style="text-align: left; padding: var(--sp-sm) var(--sp-md); font-family: var(--font-display); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-tertiary);">Target</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--color-border);"><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text-secondary);">Onboarding completion</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text); font-weight: 600;">64%</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-success); font-weight: 600;">80-85%</td></tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);"><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text-secondary);">Import Photos drop-off</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text); font-weight: 600;">15% lost</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-success); font-weight: 600;">&lt;5%</td></tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);"><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text-secondary);">Users with zero photos</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text); font-weight: 600;">~37%</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-success); font-weight: 600;">&lt;15%</td></tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);"><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text-secondary);">First score activation</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text); font-weight: 600;">44% of completers</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-success); font-weight: 600;">60%+</td></tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);"><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text-secondary);">Bounce cohort (1 signal)</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text); font-weight: 600;">40%+</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-success); font-weight: 600;">&lt;25%</td></tr>
+                            <tr><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text-secondary);">Weekly summary views</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-text); font-weight: 600;">~15% of generated</td><td style="padding: var(--sp-sm) var(--sp-md); color: var(--color-success); font-weight: 600;">40%+</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>The Revenue Math</h3>
+
+                <p>The projection is straightforward. With current numbers, roughly 17% of onboarding starters eventually subscribe. If I fix onboarding completion to 85% and scoring activation to 60%, the same install volume should produce roughly 30-45% more subscribers. No new marketing spend. No new features. Just fewer people falling out of a broken funnel.</p>
+
+                <p>I will run the comparison over a 30-day window after each fix ships. The metric that matters most is the end-to-end conversion: <code>onboarding_start</code> to <code>subscription_started</code>. If that percentage does not move, none of the intermediate fixes mattered.</p>
+
+                <h3>The Benchmarks I Am Setting</h3>
+
+                <p>I am committing to publishing a follow-up with actual results. Not projections. Not "we expect to see improvements." The real numbers, compared against these targets, with an honest accounting of what worked and what did not.</p>
+
+                <p>If I learned anything from this exercise, it is that the uncomfortable data is the useful data. The same applies to publishing outcomes. If a fix did not move the number, that is worth knowing too.</p>
+
+                <hr class="post-divider">
+
+                <h2>The Implementation Checklist</h2>
+
+                <p>The pattern that emerged from this analysis was clear: complete instrumentation reveals your biggest leaks, funnel visualization shows you exactly where users drop, and event QA ensures you are not making decisions based on broken data.</p>
+
+                <p>If you are building an app and have not yet implemented analytics with tested event tracking, you are guessing which screen is losing users.</p>
+
+                <h3>Minimum Viable Analytics: The Events You Actually Need</h3>
+
+                <p>Start with these core events before adding anything else:</p>
+
+                <ul>
+                    <li><strong>Onboarding step events:</strong> one event per step with a <code>step_number</code> property, so you can build a funnel visualization</li>
+                    <li><strong>Core value moment:</strong> the single event that fires when a user experiences what your app is actually for</li>
+                    <li><strong>Feature usage events:</strong> one event per major feature, fired on first meaningful interaction (not just opening a tab)</li>
+                    <li><strong>Subscription events:</strong> <code>paywall_viewed</code>, <code>subscription_started</code>, <code>subscription_cancelled</code></li>
+                </ul>
+
+                <p>For each event, define it clearly before implementation. What triggers it? What properties does it include? On which code paths should it fire? Document this in a simple spreadsheet so you can validate against it later.</p>
+
+                <h3>Instrument Before You Build</h3>
+
+                <p>Add event tracking for every step of your onboarding funnel and every core feature interaction before you ship. Not after. The earlier you have data, the earlier you can adjust direction based on verified funnel drop-offs.</p>
+
+                <p>Your most important metric is not downloads. It is the percentage of users who reach your core value moment.</p>
+
+                <p>For GainFrame, that is receiving a first AI score. For your app, it is whatever moment makes a user think "I need this". Measure that percentage. It will likely be lower than you expect.</p>
+
+                <h3>Test Events Like Code and Build Funnel Visualizations First</h3>
+
+                <p>My activation metric was wrong for weeks because I never verified the event was firing on all code paths. Treat analytics events like any other code that needs testing. Verify they fire when they should. Verify they do not fire when they should not.</p>
+
+                <p>Build a funnel visualization for your onboarding flow and your core feature adoption path. Look at it weekly. The step where users silently disappear is almost never the step you would guess.</p>
+
+                <hr class="post-divider">
+
+                <h2>Conclusion</h2>
+
+                <p>The features you are proudest of are probably not the ones your users care about most. And that is fine. Your job is to serve the user, not to ship the most technically impressive thing you can build.</p>
+
+                <p>App retention metrics are not about dashboards or metrics for their own sake. They are about closing the gap between what you think is happening in your app and what is actually happening.</p>
+
+                <p>Start with the basics:</p>
+
+                <ol>
+                    <li><strong>Instrument your onboarding funnel</strong></li>
+                    <li><strong>Track your core feature usage</strong></li>
+                    <li><strong>Test your events like you test your code</strong></li>
+                </ol>
+
+                <p>You do not need millions of users to make decisions based on verified funnel drop-offs. You need 50 users and the willingness to accept that your assumptions might be wrong.</p>
+
+                <p>This week, pick one funnel to fix. Instrument your onboarding flow with one event per step if you have not already. Validate that your core value moment event fires on every code path. Build one funnel visualization and review where users actually drop.</p>
+
+                <p>The single metric to watch: what percentage of users who start onboarding actually reach the moment where your app delivers its promise?</p>
+
+                <p>That number will tell you whether to keep building features or fix the funnel first.</p>
+
+                <p>In my case, the answer was obvious. Funnels before features. Every time.</p>
+
+                <hr class="post-divider">
+
+                <h2>Coming Next: Running Ads Without Attribution</h2>
+
+                <p>Fixing your funnel is step one. Step two is figuring out where your best users actually come from — and that problem is harder than it sounds.</p>
+
+                <p>In the next post, I will share what happened when I started running paid ads across TikTok, Instagram, and Apple Search Ads without proper attribution. The platform dashboards told me one story. The cohort data told a completely different one. Clicks and installs are vanity metrics when you cannot see which ad platform produces users who actually activate, retain, and subscribe.</p>
+
+                <p>The difference between a $2 install that churns in 24 hours and a $6 install that converts to a $50/year subscriber is invisible in every default ad dashboard. I will break down how I built cohort-level attribution to see which channels produce valuable users versus which ones just inflate install counts. If you are spending money on ads without this, you are spending blind.</p>
+
+            </div>
+
+            <!-- Related Articles -->
+            <aside style="padding: var(--sp-xl) 0; border-top: 1px solid var(--color-border);">
+                <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: var(--sp-lg);">Related Articles</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: var(--sp-md);"><a href="/blog/two-months-launching-second-app/" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">My First App Flopped. Here's How I Launched My Second One in 2 Months.</a></li>
+                    <li style="margin-bottom: var(--sp-md);"><a href="/blog/gainframe-is-live/" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">GainFrame Is Live on the App Store</a></li>
+                    <li style="margin-bottom: var(--sp-md);"><a href="/blog/understanding-ai-physique-score/" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">Understanding Your AI Physique Score: What 1-100 Really Means</a></li>
+                    <li><a href="/blog/deep-dive-compare/" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">The All-New Deep Dive: Posture, Macros, and Goal-Driven Analysis</a></li>
+                </ul>
+            </aside>
+
+        </div>
+    </article>
+
+    <script src="/assets/shared-footer.js"></script>
+</body>
+</html>
