@@ -12,7 +12,7 @@ triggers:
 # TikTok Carousel Generator Skill
 
 ## Overview
-This skill orchestrates the creation of TikTok carousel comic posts featuring the GainFrame mascot character. It follows a phased conversational workflow: brainstorm or select a topic, draft the slide text (cover + 4-5 numbered slides), iterate until the copy is sharp, then generate each **complete slide image** (illustration + text) using Nano Banana (GEMINI_GENERATE_IMAGE) with style-locked prompts referencing the mascot character sheet.
+This skill orchestrates the creation of TikTok carousel comic posts featuring the GainFrame mascot character. It follows a phased conversational workflow: brainstorm or select a topic, draft the slide text (cover + 4-5 numbered slides), iterate until the copy is sharp, then generate each **complete slide image** (illustration + text) using Antigravity's `generate_image` tool with `ImagePaths` referencing the mascot character sheet for visual consistency.
 
 Every post uses the same mascot character, visual style, and layout — ensuring brand consistency across all content. Text banners and subtitles are baked directly into the generated images — no CapCut/Canva compositing needed.
 
@@ -86,7 +86,7 @@ Follow these phases sequentially. **Do not skip ahead. Get user approval before 
 
 For each slide, draft:
 - **Title:** Short, bold statement (3-8 words). This goes in the black number banner.
-- **Subtitle:** 1-3 lines of supporting text. Conversational, direct ("you" language). Should stand alone without the illustration.
+- **Subtitle:** 1 sentence MAX. Short, punchy, conversational. Think "Carbs provide quick energy and help fuel your workouts" — not a paragraph. Should stand alone without the illustration.
 - **Scene description (internal — not shown to user):** Brief description of what the mascot should be doing in the illustration. This will become the image prompt later.
 
 **Slide Writing Rules:**
@@ -116,7 +116,14 @@ For each slide, draft:
 
 ### Phase 3: Image Generation
 
-**Goal:** Generate 6 mascot illustrations (1 cover + 5 slides) using Nano Banana.
+**Goal:** Generate 6 mascot illustrations (1 cover + 5 slides) with perfect character consistency.
+
+#### ⚠️ CRITICAL: Tool Selection
+
+**USE:** Antigravity's built-in `generate_image` tool with `ImagePaths` pointing to mascot reference files.
+**DO NOT USE:** `GEMINI_GENERATE_IMAGE` via Rube/Composio — it cannot pass reference images as real image data.
+
+See `STYLE_GUIDE.md > Prompt Engineering Notes` for full rationale.
 
 #### Setup
 1. **Create output directory:**
@@ -125,49 +132,70 @@ For each slide, draft:
    ```
    Use a short kebab-case slug based on the topic (e.g., `gym-advice-must-know`, `perfect-leg-day`).
 
-2. **Load reference images.** Before generating, view the mascot template and at least 2 existing slide examples from `assets/gf-mascot/` to calibrate your prompt descriptions:
+2. **Read the style guide** to get the base prompt prefix:
    ```
-   view_file assets/gf-mascot/gf-mascot-template.jpeg
-   view_file assets/gf-mascot/mirror-mascot.jpeg
+   view_file assets/gf-mascot/STYLE_GUIDE.md
    ```
 
 #### Generate Each Image
 
-For each slide, use `RUBE_MULTI_EXECUTE_TOOL` with `GEMINI_GENERATE_IMAGE` and this structure:
+For each slide, use `generate_image` with this configuration:
+
+**Required for EVERY call:**
+```
+ImagePaths: [
+  "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg",
+  "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/[closest-scene-ref].jpeg"
+]
+```
+
+Pick a second reference image matching the scene type:
+- Flexing/mirror → `mirror-mascot.jpeg`
+- Form comparison → `mascot-form.jpeg`
+- Gym equipment → `mascot-legs.jpeg`
+- Phone/photos → `mascot-pictures.jpeg`
+- Sleeping/recovery → `mascot-sleep.jpeg`
 
 **Prompt template for numbered slides:**
 ```
-[BASE PROMPT PREFIX from Style Guide]
+A cartoon illustration of this exact character from the reference images in a new scene. 
+CRITICAL: The head is NOT a solid square — it is four separate corner brackets floating 
+in space with the background visible between them. The eyes and S-curve nose float inside 
+the bracket frame with NO background fill, NO square, NO box behind them. Copy the head 
+design from the reference images exactly — open bracket corners, not a filled square.
 
-[SCENE DESCRIPTION specific to this slide]
+Scene: [SCENE DESCRIPTION specific to this slide]
 
-At the top of the image, there is a black rounded rectangle banner containing bold white text that reads "[NUMBER]. [TITLE]". Below the banner, bold dark text reads "[SUBTITLE LINE 1]" and "[SUBTITLE LINE 2]". The text is large, clean, and easy to read. No watermarks. The character should be the focal point of the scene.
+At the top, a black rounded rectangle banner with bold white text reads "[NUMBER]. [TITLE]". 
+Below, bold dark text reads "[SUBTITLE]." Clean cartoon style, thick outlines, flat colors, 
+warm beige background. 4:5 TikTok format. No watermarks.
 ```
 
 **Prompt template for cover slide:**
 ```
-[BASE PROMPT PREFIX from Style Guide]
+A cartoon illustration of this exact character from the reference images in a new scene. 
+CRITICAL: The head is NOT a solid square — it is four separate corner brackets floating 
+in space with the background visible between them. The eyes and S-curve nose float inside 
+the bracket frame with NO background fill, NO square, NO box behind them. Copy the head 
+design from the reference images exactly — open bracket corners, not a filled square.
 
-[SCENE DESCRIPTION — mascot in a representative pose]
+Scene: [MASCOT in a representative pose for the topic]
 
-Large bold text prominently displayed reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red. The text is very large, eye-catching, and the primary visual element alongside the character. No watermarks.
+Large bold text prominently displayed reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red. 
+Very prominent and eye-catching. Clean cartoon style, thick outlines, flat colors, 
+warm beige background. 4:5 TikTok format. No watermarks.
 ```
-
-**Parameters:**
-- `model`: `"gemini-3-pro-image-preview"` (best quality for character consistency and text rendering)
-- `aspect_ratio`: `"4:5"` (TikTok carousel standard)
-- `image_size`: `"2K"` (high quality for TikTok)
 
 **IMPORTANT:**
 - Generate ONE image at a time, not in parallel. This lets you course-correct style drift.
 - After each generation, show the result to the user and ask if it matches the style. If not, refine the prompt.
-- If the mascot character drifts (different head shape, missing red bracket, wrong body color), add more specificity to the prompt and retry.
+- Always include `gf-mascot-template.jpeg` as the first reference image.
 - Keep concurrency ≤ 1 for character consistency. Quality > speed.
 
 #### Save Images
-After each approved image, download the s3url and save it to the output directory:
+After each approved image, copy it to the output directory:
 ```bash
-curl -L "[s3url]" -o assets/tiktok/comic/[slug]/slide-[N].jpeg
+cp [generated-image-path] assets/tiktok/comic/[slug]/slide-[N].jpeg
 ```
 
 Name the files:

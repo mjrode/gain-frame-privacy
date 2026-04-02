@@ -104,26 +104,51 @@ These are proven high-engagement title formats from similar mascot-style fitness
 
 ## Prompt Engineering Notes
 
-When generating mascot illustrations via Nano Banana (GEMINI_GENERATE_IMAGE), always include:
+### ⚠️ CRITICAL: Use `generate_image` with `ImagePaths` — NOT Rube/Composio
+
+**DO NOT use `GEMINI_GENERATE_IMAGE` via Rube/Composio for mascot illustrations.** That tool only accepts a text `prompt` parameter — it cannot pass reference images as actual image data to the model. URLs embedded in the prompt text are treated as noise and ignored, causing the model to hallucinate random characters (dragons, human faces, etc.).
+
+**ALWAYS use Antigravity's built-in `generate_image` tool** with `ImagePaths` pointing to the mascot reference files. This passes the images as real multimodal input so the model can actually SEE and replicate the design.
+
+### Required Tool Configuration
+
+```
+Tool: generate_image
+ImagePaths: [
+  "assets/gf-mascot/gf-mascot-template.jpeg",   # ALWAYS include template
+  "assets/gf-mascot/mascot-pictures.jpeg"         # Include 1-2 scene refs
+]
+```
+
+Use absolute paths when calling the tool. Pick 1-2 reference images from the Scene Reference Library that are closest to the scene you're generating.
 
 ### Base Prompt Prefix (use for every generation)
 ```
-A cartoon illustration of a character with a square bracket-frame head (like a camera viewfinder/scan frame with corner brackets), googly eyes, an S-curve nose, and a red bracket accent on the bottom-right of the face. The character has a solid black body wearing olive-green shorts and gray-brown chunky sneakers. Clean cartoon comic style with thick outlines and flat colors on a warm beige/tan background.
+A cartoon illustration of this exact character from the reference images in a new scene. 
+CRITICAL: The head is NOT a solid square — it is four separate corner brackets floating 
+in space with the background visible between them. The eyes and S-curve nose float inside 
+the bracket frame with NO background fill, NO square, NO box behind them. Copy the head 
+design from the reference images exactly — open bracket corners, not a filled square.
+
+Scene: [SCENE DESCRIPTION HERE]
 ```
 
 ### Text Integration in Prompts
-When generating slides with text, append the text instructions to the scene description:
+For numbered content slides, append:
 ```
-At the top of the image, there is a black rounded rectangle banner containing bold white text that reads "[SLIDE NUMBER]. [TITLE TEXT]". Below the banner, bold dark text reads "[SUBTITLE LINE 1]" and "[SUBTITLE LINE 2]". The text is large, clean, and easy to read.
-```
-
-For cover slides, the text should be larger and more prominent:
-```
-Large bold text at the top of the image reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red. The text is very prominent and eye-catching.
+At the top, a black rounded rectangle banner with bold white text reads "[NUMBER]. [TITLE]". 
+Below, bold dark text reads "[SUBTITLE]." Clean cartoon style, thick outlines, flat colors, 
+warm beige background. 4:5 TikTok format. No watermarks.
 ```
 
-### Scene Suffix (append based on the slide content)
-Examples:
+For cover slides:
+```
+Large bold text at the top reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red. 
+Very prominent and eye-catching. Clean cartoon style, thick outlines, flat colors, 
+warm beige background. 4:5 TikTok format. No watermarks.
+```
+
+### Scene Suffix Examples
 - "The character is squatting with a barbell across their shoulders with proper form"
 - "Two versions of the character side by side — left one with a green checkmark doing an exercise correctly, right one with a red X doing it wrong"
 - "The character is lying in a bed with a large alarm clock next to them, sleeping peacefully"
