@@ -7,25 +7,24 @@
     <title>I Built a Site in 50 Minutes. 19,000 People Showed Up the Same Day. | GainFrame Blog</title>
     <meta name="description"
         content="How AI agentic workflows let me build and deploy a fully interactive topical site in under an hour — and what 19,000 same-day visitors taught me about velocity, iteration, and building GainFrame faster.">
-    <link rel="canonical" href="https://gainframe.app/blog/the-velocity-advantage/">
-    <!-- Open Graph -->
     <meta property="og:title" content="I Built a Site in 50 Minutes. 19,000 People Showed Up the Same Day.">
     <meta property="og:description"
         content="How AI agentic workflows let me build and deploy a fully interactive topical site in under an hour — and what 19,000 same-day visitors taught me about velocity, iteration, and building GainFrame faster.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://gainframe.app/blog/the-velocity-advantage/">
     <meta property="og:image" content="https://gainframe.app/blog/the-velocity-advantage/assets/cover.webp">
-    <meta property="og:site_name" content="GainFrame">
+    <link rel="canonical" href="https://gainframe.app/blog/the-velocity-advantage/">
+    <meta property="og:url" content="https://gainframe.app/blog/the-velocity-advantage/">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="I Built a Site in 50 Minutes. 19,000 People Showed Up the Same Day.">
     <meta name="twitter:description"
         content="How AI agentic workflows let me build and deploy a fully interactive topical site in under an hour — and what 19,000 same-day visitors taught me about velocity, iteration, and building GainFrame faster.">
     <meta name="twitter:image" content="https://gainframe.app/blog/the-velocity-advantage/assets/cover.webp">
+
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.webp">
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.webp">
     <link rel="apple-touch-icon" sizes="192x192" href="/assets/favicon-192.webp">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="../../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -51,661 +50,248 @@
         "dateModified": "2026-04-08",
         "author": {
             "@type": "Person",
-            "name": "Michael Rode"
+            "name": "Michael Rode",
+            "url": "https://gainframe.app"
         },
         "publisher": {
             "@type": "Organization",
             "name": "GainFrame",
+            "url": "https://gainframe.app",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://gainframe.app/assets/favicon-192.webp"
+                "url": "https://gainframe.app/assets/favicon.webp"
             }
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://gainframe.app/blog/the-velocity-advantage/"
-        }
+        },
+        "articleSection": "Founder Story"
     }
     </script>
-    <style>
-        /* ——— Post-specific overrides ——— */
-        .post-hero {
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #0d1117 100%);
-            padding: 5rem 0 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .post-hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -20%;
-            width: 60%;
-            height: 200%;
-            background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .post-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            right: -10%;
-            width: 50%;
-            height: 150%;
-            background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .post-hero-inner {
-            position: relative;
-            z-index: 1;
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .post-category-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: rgba(99, 102, 241, 0.15);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            color: #a5b4fc;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.35rem 0.85rem;
-            border-radius: 100px;
-            margin-bottom: 1.5rem;
-        }
-
-        .post-hero h1 {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 800;
-            line-height: 1.15;
-            color: #ffffff;
-            margin: 0 0 1.25rem;
-            letter-spacing: -0.02em;
-        }
-
-        .post-hero h1 .accent {
-            background: linear-gradient(135deg, #6366f1 0%, #10b981 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .post-subtitle {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.15rem;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, 0.65);
-            margin-bottom: 2rem;
-            max-width: 640px;
-        }
-
-        .post-meta-row {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-        }
-
-        .meta-author {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .meta-author-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6366f1, #10b981);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .meta-author-name {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .meta-date {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.45);
-        }
-
-        .meta-read-time {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.45);
-        }
-
-        /* Hero cover image */
-        .post-cover {
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            margin-top: -1rem;
-        }
-
-        .post-cover img {
-            width: 100%;
-            max-height: 420px;
-            object-fit: cover;
-            border-radius: 16px;
-            display: block;
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Article body */
-        .post-body {
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 3.5rem 1.5rem 4rem;
-        }
-
-        .post-body p {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.05rem;
-            line-height: 1.85;
-            color: var(--color-text, #1a1a1a);
-            margin-bottom: 1.5rem;
-        }
-
-        .post-body h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.65rem;
-            font-weight: 700;
-            line-height: 1.25;
-            color: var(--color-heading, #0d1117);
-            margin: 3rem 0 1rem;
-            letter-spacing: -0.02em;
-        }
-
-        .post-body h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.35;
-            color: var(--color-heading, #0d1117);
-            margin: 2rem 0 0.75rem;
-        }
-
-        .post-body a {
-            color: #6366f1;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        .post-body strong {
-            font-weight: 700;
-            color: var(--color-heading, #0d1117);
-        }
-
-        /* Stat callout cards */
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #f8f7ff 0%, #f0f4ff 100%);
-            border: 1px solid rgba(99, 102, 241, 0.15);
-            border-radius: 14px;
-            padding: 1.25rem 1.25rem 1rem;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #6366f1 0%, #10b981 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin-bottom: 0.35rem;
-        }
-
-        .stat-label {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Pullquote */
-        .pullquote {
-            border-left: 4px solid #6366f1;
-            background: linear-gradient(135deg, #f8f7ff 0%, #f0f4ff 100%);
-            border-radius: 0 12px 12px 0;
-            padding: 1.5rem 1.75rem;
-            margin: 2.5rem 0;
-        }
-
-        .pullquote p {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.5;
-            color: #1a1a2e;
-            margin: 0;
-            font-style: italic;
-        }
-
-        /* Inline image caption */
-        .post-image-block {
-            margin: 2.5rem 0;
-        }
-
-        .post-image-block img {
-            width: 100%;
-            border-radius: 12px;
-            display: block;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-        }
-
-        .post-image-block figcaption {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.8rem;
-            color: #888;
-            text-align: center;
-            margin-top: 0.75rem;
-            font-style: italic;
-        }
-
-        /* Two-column image grid */
-        .image-pair {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 2.5rem 0;
-        }
-
-        @media (max-width: 600px) {
-            .image-pair {
-                grid-template-columns: 1fr;
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://gainframe.app/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://gainframe.app/blog.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "I Built a Site in 50 Minutes. 19,000 People Showed Up the Same Day.",
+                "item": "https://gainframe.app/blog/the-velocity-advantage/"
             }
-        }
-
-        .image-pair figure {
-            margin: 0;
-        }
-
-        .image-pair img {
-            width: 100%;
-            border-radius: 12px;
-            display: block;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-        }
-
-        .image-pair figcaption {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.78rem;
-            color: #888;
-            text-align: center;
-            margin-top: 0.6rem;
-            font-style: italic;
-        }
-
-        /* Code/terminal block */
-        .terminal-block {
-            background: #0d1117;
-            border-radius: 12px;
-            padding: 1.25rem 1.5rem;
-            margin: 2rem 0;
-            overflow-x: auto;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .terminal-block pre {
-            margin: 0;
-            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-            font-size: 0.85rem;
-            line-height: 1.7;
-            color: #e6edf3;
-        }
-
-        .terminal-block .cmd { color: #79c0ff; }
-        .terminal-block .comment { color: #8b949e; }
-        .terminal-block .output { color: #3fb950; }
-
-        /* Workflow steps */
-        .workflow-steps {
-            counter-reset: step;
-            list-style: none;
-            padding: 0;
-            margin: 2rem 0;
-        }
-
-        .workflow-steps li {
-            counter-increment: step;
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            color: var(--color-text, #1a1a1a);
-            line-height: 1.7;
-        }
-
-        .workflow-steps li::before {
-            content: counter(step);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #6366f1, #10b981);
-            color: white;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 0.85rem;
-            border-radius: 50%;
-            flex-shrink: 0;
-            margin-top: 0.1rem;
-        }
-
-        /* Tag pills */
-        .tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 2rem 0 0;
-        }
-
-        .tag-pill {
-            background: rgba(99, 102, 241, 0.08);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            color: #6366f1;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 600;
-            padding: 0.3rem 0.75rem;
-            border-radius: 100px;
-        }
-
-        /* CTA Box */
-        .post-cta-box {
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
-            border-radius: 16px;
-            padding: 2.5rem;
-            text-align: center;
-            margin: 3rem 0 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .post-cta-box::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 200%;
-            background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .post-cta-box h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-            margin: 0 0 0.75rem;
-            position: relative;
-        }
-
-        .post-cta-box p {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.6);
-            margin: 0 0 1.75rem;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-        }
-
-        .post-cta-box .app-store-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Back link */
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #6366f1;
-            text-decoration: none;
-            margin-bottom: 2rem;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        .post-section-divider {
-            border: none;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            margin: 3rem 0;
-        }
-    </style>
+        ]
+    }
+    </script>
 </head>
 
 <body>
     <div data-site-nav></div>
     <script src="/assets/shared-nav.js"></script>
 
-    <!-- ==================== POST HERO ==================== -->
-    <header class="post-hero">
-        <div class="post-hero-inner">
-            <div class="post-category-pill">⚡ Founder Story</div>
-            <h1>I Built a Site in <span class="accent">50 Minutes.</span><br>19,000 People Showed Up the Same Day.</h1>
-            <p class="post-subtitle">What a one-day geopolitical traffic experiment taught me about AI agentic workflows — and why the velocity advantage is now the most important moat for indie developers.</p>
-            <div class="post-meta-row">
-                <div class="meta-author">
-                    <div class="meta-author-avatar">MR</div>
-                    <span class="meta-author-name">Michael Rode</span>
+<!-- ==================== ARTICLE ==================== -->
+    <article class="post">
+        <div class="container post-container">
+
+            <!-- Post Header -->
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="post-category">Founder Story</span>
+                    <span class="post-date">Apr 8, 2026</span>
+                    <span class="post-read-time">7 min read</span>
                 </div>
-                <span class="meta-date">April 8, 2026</span>
-                <span class="meta-read-time">· 7 min read</span>
+                <h1 class="post-title">I Built a Site in 50 Minutes. 19,000 People Showed Up the Same Day.</h1>
+                <p class="post-subtitle">What a one-day geopolitical traffic experiment taught me about AI agentic workflows — and why the velocity advantage is now the most important moat for indie developers.</p>
+            </header>
+
+            <!-- Post Hero Image -->
+            <div class="post-hero-image">
+                <img src="assets/cover.webp"
+                    alt="Abstract vector illustration of a rocket launching from a laptop screen with a traffic spike graph, representing rapid AI-driven development velocity"
+                    style="border-radius: 24px;">
             </div>
-        </div>
-    </header>
 
-    <!-- ==================== COVER IMAGE ==================== -->
-    <div class="post-cover">
-        <img src="assets/cover.webp"
-            alt="Abstract vector illustration of a rocket launching from a laptop screen with a traffic spike graph in the background, representing rapid AI-driven development velocity">
-    </div>
+            <!-- Post Body -->
+            <div class="post-body">
 
-    <!-- ==================== POST BODY ==================== -->
-    <article class="post-body">
+                <p>Last week, I had an idea at 9 PM. There was a news story breaking about the Strait of Hormuz — shipping lanes, geopolitical tension, global oil supply. My first thought wasn't <em>this is interesting</em>. It was: <strong>how fast could I deploy something useful about this?</strong></p>
 
-        <a href="/blog.html" class="back-link">← Back to Blog</a>
+                <p>By 9:50 PM, a fully interactive site — live data, ship tracking, oil price feeds, real-time news — was deployed and indexed. Fifty minutes from idea to production. By midnight the same night, 19,000 people had visited it.</p>
 
-        <p>Last week, I had an idea at 9 PM. There was a news story breaking about the Strait of Hormuz — shipping lanes, geopolitical tension, global oil supply. My first thought wasn't <em>"this is interesting."</em> It was: <strong>how fast could I deploy something useful about this?</strong></p>
+                <p>That wasn't luck. It was a workflow.</p>
 
-        <p>By 9:50 PM, a fully interactive site — live data, ship tracking, oil price feeds, real-time news — was deployed and indexed. Fifty minutes from idea to production. By midnight the same night, 19,000 people had visited it.</p>
+                <div class="post-feature-grid">
+                    <div class="post-feature-card" style="text-align: center;">
+                        <strong style="font-size: 2rem; display: block; margin-bottom: 0.25rem;">50</strong>
+                        <p>Minutes to first deploy</p>
+                    </div>
+                    <div class="post-feature-card" style="text-align: center;">
+                        <strong style="font-size: 2rem; display: block; margin-bottom: 0.25rem;">~3</strong>
+                        <p>Minutes per iteration cycle</p>
+                    </div>
+                    <div class="post-feature-card" style="text-align: center;">
+                        <strong style="font-size: 2rem; display: block; margin-bottom: 0.25rem;">19k</strong>
+                        <p>Users, same day</p>
+                    </div>
+                    <div class="post-feature-card" style="text-align: center;">
+                        <strong style="font-size: 2rem; display: block; margin-bottom: 0.25rem;">5k</strong>
+                        <p>Concurrent peak users</p>
+                    </div>
+                </div>
 
-        <p>That wasn't luck. It was a workflow.</p>
+                <hr class="post-divider">
 
-        <div class="stat-grid">
-            <div class="stat-card">
-                <div class="stat-number">50</div>
-                <div class="stat-label">Minutes to first deploy</div>
+                <h2>The Execution Bottleneck Is Gone</h2>
+
+                <p>For years, the biggest constraint for indie developers wasn't ideas — it was execution time. You'd have an idea on Monday, spend a week building it, fight your deployment pipeline on Thursday, and launch on Friday to find the news cycle had moved on. By the time your thing was live, nobody cared.</p>
+
+                <p>AI agentic workflows break this equation. The constraint is no longer "how long does it take to build?" The constraint is now "how fast can you think?"</p>
+
+                <p>The Strait Watch project — that's what I called it — was a deliberate test. I wanted to see if I could turn a news moment into a live, interactive product before the traffic opportunity passed. This wasn't just a personal experiment: it was a proof-of-concept for the exact same workflows I use to build and iterate on GainFrame every week.</p>
+
+                <hr class="post-divider">
+
+                <h2>The Workflow: Role-Scoped Agents with Hard Constraints</h2>
+
+                <p>The approach that made this possible isn't just "use ChatGPT to write code." It's a structured pattern I've developed over months of building GainFrame features. Here's how it works:</p>
+
+                <ol class="post-steps">
+                    <li><strong>Define scope before depth.</strong> Instead of one agent doing everything, I assign specific roles: one agent owns layout structure, one owns data formatting, one owns styling. Each prompt includes an explicit constraint list — no frameworks, vanilla JS only, Cloudflare Workers-compatible, no external dependencies. Role-scoping keeps output deterministic.</li>
+                    <li><strong>Manual validation gates before every push.</strong> Every agent output gets a human review before hitting <code>wrangler deploy</code>. This isn't optional — it's the step that keeps the error rate low. On this project, roughly 20% of agent output needed manual correction, mostly HTML semantic and ARIA issues.</li>
+                    <li><strong>Sub-minute push cycles via Wrangler CLI.</strong> Cloudflare Workers + Wrangler CLI means the feedback loop from file save to live verification was under 60 seconds. That's the part that creates the velocity — fast deployment collapses the iteration time to ~3 minutes total.</li>
+                    <li><strong>Explicit success criteria per iteration.</strong> Before starting a new iteration, I write down exactly what "done" looks like. This forces clarity before the agent runs and reduces the back-and-forth correction loop dramatically.</li>
+                </ol>
+
+                <hr class="post-divider">
+
+                <h2>What the Site Looked Like</h2>
+
+                <p>Strait Watch was built entirely with vanilla JavaScript and Cloudflare Workers — no frameworks, no build pipeline, no database. It pulled live ship AIS data, oil price feeds, and real-time news about the Strait of Hormuz. The entire thing ran serverlessly at the edge, which meant it could handle the traffic spike without any infrastructure changes.</p>
+
+                <div class="post-inline-screenshot">
+                    <figure>
+                        <img src="assets/site-screenshot-1.webp"
+                            alt="Strait Watch site showing real-time ship tracking data and live news feed for the Strait of Hormuz">
+                        <figcaption>Live ship tracking and news feed — deployed in the first 50 minutes</figcaption>
+                    </figure>
+                </div>
+
+                <div class="post-inline-screenshot">
+                    <figure>
+                        <img src="assets/site-screenshot-2.webp"
+                            alt="Strait Watch site showing oil price data and geopolitical context about the Strait of Hormuz">
+                        <figcaption>Oil price feeds and geopolitical context, all from public APIs. Total manual code written: under 50 lines.</figcaption>
+                    </figure>
+                </div>
+
+                <hr class="post-divider">
+
+                <h2>The Traffic: What Actually Happened</h2>
+
+                <p>The traffic wasn't from a viral post or a paid campaign. It came from a single Reddit comment pointing to the site during an active discussion thread about the Strait situation. That comment hit at peak interest — when people were actively searching for consolidated, real-time information and couldn't find it anywhere else.</p>
+
+                <p>The GA4 data tells the full story:</p>
+
+                <div class="post-inline-screenshot">
+                    <figure>
+                        <img src="assets/traffic-24hr.webp"
+                            alt="Google Analytics 24-hour traffic chart showing a massive same-day traffic spike to 19,000 users for Strait Watch">
+                        <figcaption>GA4 — 19,000 users, same day. The spike arrived as fast as the buildout did.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="post-inline-screenshot">
+                    <figure>
+                        <img src="assets/traffic-realtime.webp"
+                            alt="Google Analytics real-time dashboard showing 5,000 concurrent users at peak on Strait Watch">
+                        <figcaption>At peak: 5,000 people on the site simultaneously.</figcaption>
+                    </figure>
+                </div>
+
+                <p>The spike came fast. It also faded fast — that's how topical traffic works. The point isn't that this site has long-term value. The point is that the <em>window to capture that traffic was measured in hours</em>, and I was inside the window instead of missing it.</p>
+
+                <div class="post-callout">
+                    <p>The window to capture topical traffic is measured in hours. You either have a workflow fast enough to be inside it — or you don't.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <h2>How This Connects to Building GainFrame</h2>
+
+                <p>GainFrame is not a news site. The dynamics are completely different. But the underlying workflow is the same, and the Strait Watch experiment gave me real data to validate it at an extreme.</p>
+
+                <p>When a GainFrame user submits feedback — say, a request for a new import format or a UI fix — the same role-scoped agent workflow kicks in. I define scope, agents handle implementation, I validate and push. The feedback-to-update cycle that used to take days now takes hours. In a few cases, it's taken under an hour from feature request to TestFlight build.</p>
+
+                <p>That's not a small thing. Most apps move on a weekly or biweekly release cadence because that's how long it takes to build, test, and ship. Compress that cycle — and do it reliably — and you build a different kind of product. One that feels like it's listening.</p>
+
+                <hr class="post-divider">
+
+                <h2>The Honest Numbers on Agent Reliability</h2>
+
+                <p>I want to be clear about the limitations here, because the hype around AI coding often obscures the actual workflow.</p>
+
+                <p><strong>About 20% of agent output required manual correction.</strong> On Strait Watch, this was mostly HTML semantic issues and ARIA attribute errors — things that didn't break visual rendering but would fail accessibility audits. In GainFrame work, the typical failures are around edge cases in data formatting and occasionally incorrect SwiftUI modifier ordering.</p>
+
+                <p>The agents aren't magic. They're fast, precise within a narrow scope, and consistent when given tight constraints. The human work shifts from writing code to writing good prompts, validating outputs, and knowing what to fix manually. That's a fundamentally different skill — but it's a learnable one, and the leverage it creates is real.</p>
+
+                <hr class="post-divider">
+
+                <h2>What the Velocity Advantage Actually Means</h2>
+
+                <p>The traditional competitive moat for a software product was depth: more features, more polish, more time invested than your competitors. That moat still exists. But it takes longer to build and longer to show results.</p>
+
+                <p>Velocity is a different moat. When you can ship a response to user feedback in hours instead of weeks, you create a different relationship with your users. They feel heard. The product improves faster than they expect. The review momentum builds.</p>
+
+                <p>For indie developers, this isn't theoretical. It's the most practical advantage available right now. You can't out-resource a team of 50 engineers. You can out-iterate them.</p>
+
+                <p>The execution bottleneck is gone. The question is whether you've built the workflow to prove it.</p>
+
+                <hr class="post-divider">
+
+                <h2>Try the App Built with This Workflow</h2>
+
+                <p>GainFrame is built using these same agentic workflows — rapid iteration, data-driven prioritization, and user feedback that actually moves the roadmap. Download it and see your first AI physique analysis in under a minute.</p>
+
+                <div class="post-callout" style="text-align: center;">
+                    <p><strong>Track your physique like a product team tracks users.</strong> Download GainFrame and get your first AI muscle group breakdown instantly.</p>
+                    <div class="app-store-wrapper" style="margin-top: 1rem; display: flex; justify-content: center;">
+                        <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
+                            class="app-store-badge-link" target="_blank" rel="noopener">
+                            <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png"
+                                alt="Download on the App Store" style="height: 48px; width: auto;" />
+                        </a>
+                    </div>
+                </div>
+
             </div>
-            <div class="stat-card">
-                <div class="stat-number">~3</div>
-                <div class="stat-label">Min per iteration cycle</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">19k</div>
-                <div class="stat-label">Users, same day</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">5k</div>
-                <div class="stat-label">Concurrent peak users</div>
-            </div>
+
+            <!-- Related Articles -->
+            <aside style="padding: var(--sp-xl) 0; border-top: 1px solid var(--color-border);">
+                <h3 style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: var(--sp-lg);">Related Articles</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: var(--sp-md);"><a href="/blog/stop-building-features-start-reading-data/" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">Stop Building Features. Start Reading Your Data.</a></li>
+                    <li style="margin-bottom: var(--sp-md);"><a href="/blog/two-months-launching-second-app/" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">My First App Flopped. Here's How I Launched My Second One in 2 Months.</a></li>
+                    <li style="margin-bottom: var(--sp-md);"><a href="/blog/from-score-to-action-target-training/" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">Your Score Says Your Chest Needs Work — Now What?</a></li>
+                    <li><a href="/blog/understanding-ai-physique-score/" style="color: var(--color-text); text-decoration: underline; text-underline-offset: 3px;">Understanding Your AI Physique Score: What 1–100 Really Means</a></li>
+                </ul>
+            </aside>
+
         </div>
-
-        <h2>The Execution Bottleneck Is Gone</h2>
-
-        <p>For years, the biggest constraint for indie developers wasn't ideas — it was execution time. You'd have an idea on Monday, spend a week building it, fight your deployment pipeline on Thursday, and launch on Friday to find the news cycle had moved on. By the time your thing was live, nobody cared.</p>
-
-        <p>AI agentic workflows break this equation. The constraint is no longer "how long does it take to build?" The constraint is now "how fast can you think?"</p>
-
-        <p>The Strait Watch project — that's what I called it — was a deliberate test. I wanted to see if I could turn a news moment into a live, interactive product before the traffic opportunity passed. This wasn't just a personal experiment either: it was a proof-of-concept for the exact same workflows I use to build and iterate on GainFrame every week.</p>
-
-        <h2>The Workflow: Role-Scoped Agents with Hard Constraints</h2>
-
-        <p>The approach that made this possible isn't just "use ChatGPT to write code." It's a structured pattern I've developed over months of building GainFrame features. Here's the core:</p>
-
-        <ol class="workflow-steps">
-            <li><strong>Define scope before depth.</strong> Instead of one agent doing everything, I assign specific roles: one agent owns layout structure, one owns data formatting, one owns styling. Each prompt includes an explicit constraint list (no frameworks, vanilla JS only, Cloudflare Workers-compatible, no external dependencies). Role-scoping keeps output deterministic.</li>
-            <li><strong>Manual validation gates before every push.</strong> Every agent output gets a human review before hitting <code>wrangler deploy</code>. This isn't optional — it's the step that keeps the error rate low. On this project, roughly 20% of agent output needed manual correction, mostly HTML semantic issues and ARIA attributes.</li>
-            <li><strong>Sub-minute push cycles via Wrangler CLI.</strong> Cloudflare Workers + Wrangler CLI means the feedback loop from file save to live verification was under 60 seconds. That's the part that creates the velocity — fast deployment collapses the iteration time.</li>
-            <li><strong>Explicit success criteria per iteration.</strong> Before starting a new iteration, I write down exactly what "done" looks like. This forces clarity before the agent runs and reduces the back-and-forth correction loop dramatically.</li>
-        </ol>
-
-        <div class="terminal-block">
-            <pre><span class="comment"># Typical iteration cycle for Strait Watch</span>
-<span class="cmd">$ wrangler deploy</span>
-<span class="output">✓  Deployed to thestraitwatch.com (0.8s)</span>
-
-<span class="comment"># File save → live verification: ~3 minutes total
-# ~12 pushes per hour during active development</span></pre>
-        </div>
-
-        <h2>What the Site Looked Like</h2>
-
-        <p>Strait Watch was built entirely with vanilla JavaScript and Cloudflare Workers — no frameworks, no build pipeline, no database. It pulled live ship AIS data, oil price feeds, and real-time news about the Strait of Hormuz. The entire thing ran serverlessly at the edge, which meant it could handle the traffic spike without any infrastructure changes.</p>
-
-        <div class="image-pair">
-            <figure>
-                <img src="assets/site-screenshot-1.webp"
-                    alt="Strait Watch site showing real-time ship tracking data and live news feed for the Strait of Hormuz">
-                <figcaption>Live ship tracking and news feed — deployed in the first hour</figcaption>
-            </figure>
-            <figure>
-                <img src="assets/site-screenshot-2.webp"
-                    alt="Strait Watch site showing oil price data and geopolitical context about the Strait of Hormuz">
-                <figcaption>Oil price feeds and geopolitical context, all from public APIs</figcaption>
-            </figure>
-        </div>
-
-        <p>Every data feed was a public API. The agents wrote the fetch logic, the styling, the interactivity. My job was to define what mattered, review outputs, and push. The total lines of code I wrote manually: under 50.</p>
-
-        <h2>The Traffic: What Actually Happened</h2>
-
-        <p>The traffic wasn't from a viral post or a paid campaign. It came from a single Reddit comment pointing to the site during an active discussion thread about the Strait situation. That comment hit at peak interest — when people were actively searching for consolidated information.</p>
-
-        <p>The GA4 data tells the full story:</p>
-
-        <div class="post-image-block">
-            <figure>
-                <img src="assets/traffic-24hr.webp"
-                    alt="Google Analytics 24-hour traffic chart showing a massive same-day traffic spike to 19,000 users for Strait Watch">
-                <figcaption>GA4 — 19,000 users, same day. The spike was as fast as the buildout.</figcaption>
-            </figure>
-        </div>
-
-        <div class="post-image-block">
-            <figure>
-                <img src="assets/traffic-realtime.webp"
-                    alt="Google Analytics real-time dashboard showing 5,000 concurrent users at peak on Strait Watch">
-                <figcaption>At peak: 5,000 people on the site simultaneously.</figcaption>
-            </figure>
-        </div>
-
-        <p>The spike came fast. It also faded fast — that's how topical traffic works. The point isn't that this site has long-term value. The point is that the <em>window to capture that traffic was measured in hours</em>, and I was inside the window instead of missing it.</p>
-
-        <div class="pullquote">
-            <p>"The window to capture topical traffic is measured in hours. You either have a workflow fast enough to be inside it — or you don't."</p>
-        </div>
-
-        <h2>How This Connects to Building GainFrame</h2>
-
-        <p>GainFrame is not a news site. The dynamics are completely different. But the underlying workflow is the same, and the Strait Watch experiment gave me data to validate it at an extreme.</p>
-
-        <p>When a GainFrame user submits feedback — say, a request for a new import format or a UI fix — the same role-scoped agent workflow kicks in. I define scope, agents handle implementation, I validate and push. The feedback-to-update cycle that used to take days now takes hours. In a few cases, it's taken under an hour from feature request to TestFlight build.</p>
-
-        <p>That's not a small thing. Most apps move on a weekly or biweekly release cadence because that's how long it takes to build, test, and ship. If you can compress that cycle — and do it reliably — you build a different kind of product. One that feels like it's listening.</p>
-
-        <h2>The Honest Numbers on Agent Reliability</h2>
-
-        <p>I want to be clear about the limitations here, because the hype around AI coding often obscures the actual workflow.</p>
-
-        <p><strong>About 20% of agent output required manual correction.</strong> On Strait Watch, this was mostly HTML/ARIA semantic errors — things that didn't break visual rendering but would fail accessibility audits. In GainFrame work, the typical failures are around edge cases in data formatting and occasionally incorrect SwiftUI modifier ordering.</p>
-
-        <p>The agents aren't magic. They're fast, precise within a narrow scope, and consistent when given tight constraints. The human work shifts from writing code to writing good prompts, validating outputs, and knowing what to fix manually. That's a fundamentally different skill — but it's a learnable one, and the leverage it creates is real.</p>
-
-        <h2>What the Velocity Advantage Actually Means</h2>
-
-        <p>The traditional competitive moat for a software product was depth: more features, more polish, more time invested than your competitors. That moat still exists. But it takes longer to build and longer to show results.</p>
-
-        <p>Velocity is a different moat. When you can ship a response to user feedback in hours instead of weeks, you create a different relationship with your users. They feel heard. The product improves faster than they expect. The review momentum builds.</p>
-
-        <p>For indie developers, this isn't theoretical. It's the most practical advantage available right now. You can't out-resource a team of 50 engineers. You can out-iterate them.</p>
-
-        <p>The execution bottleneck is gone. The question is whether you've built the workflow to prove it.</p>
-
-        <hr class="post-section-divider">
-
-        <div class="tag-row">
-            <span class="tag-pill">AI Development</span>
-            <span class="tag-pill">Indie Dev</span>
-            <span class="tag-pill">Agentic Workflows</span>
-            <span class="tag-pill">Cloudflare Workers</span>
-            <span class="tag-pill">Founder Story</span>
-            <span class="tag-pill">Build in Public</span>
-        </div>
-
-        <!-- CTA -->
-        <div class="post-cta-box">
-            <h3>Track your physique with the same velocity mindset</h3>
-            <p>GainFrame uses AI to analyze your progress photos so you can iterate on your training like a product team — data first, fast feedback, clear direction.</p>
-            <div class="app-store-wrapper">
-                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
-                    class="app-store-badge-link" target="_blank" rel="noopener">
-                    <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png"
-                        alt="Download on the App Store" style="height: 48px; width: auto;" />
-                </a>
-            </div>
-        </div>
-
     </article>
+
+    <!-- ==================== FOOTER ==================== -->
 
     <!-- ==================== NEWSLETTER ==================== -->
     <div data-newsletter-signup></div>
@@ -713,9 +299,9 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-links">
-                <a href="/privacy.html">Privacy Policy</a>
-                <a href="/features.html">Features</a>
-                <a href="/blog.html">Blog</a>
+                <a href="../../privacy.html">Privacy Policy</a>
+                <a href="../../features.html">Features</a>
+                <a href="../../blog.html">Blog</a>
                 <a href="mailto:michaelrode44@gmail.com">Contact</a>
             </div>
             <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
@@ -725,6 +311,17 @@
     <script>
         /* Intersection Observer — triggers .visible on scroll */
         (function () {
+            const selectors = [
+                '.scroll-reveal',
+                '.scroll-reveal-left',
+                '.scroll-reveal-right',
+                '.parallax-float',
+                '.badge-pop',
+                '.tilt-in',
+                '.hero-text-stagger',
+                '.hero-image-stagger'
+            ];
+
             const observer = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {
@@ -736,7 +333,10 @@
                 },
                 { threshold: 0.05 }
             );
-            document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+
+            document.querySelectorAll(selectors.join(',')).forEach((el) => {
+                observer.observe(el);
+            });
         })();
     </script>
     <!-- TikTok Pixel Code Start -->
@@ -757,11 +357,16 @@
     <!-- TikTok Pixel Code End -->
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-        data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script>
-    <!-- End Cloudflare Web Analytics -->
+        data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script><!-- End Cloudflare Web Analytics -->
 
-    <script defer src="/assets/email-capture-bar.js"></script>
+    <!-- Floating Download Pill -->
+    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="blog-floating-pill" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download GainFrame
+    </a>
     <script defer src="/assets/newsletter-form.js"></script>
+    <script defer src="/assets/email-capture-bar.js"></script>
+
 </body>
 
 </html>
