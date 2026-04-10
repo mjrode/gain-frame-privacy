@@ -6,6 +6,9 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "beginner-gym-split",         title: "The Perfect Gym Split For Beginners", date: "2026-04-10", ext: "png" },
+    { slug: "supplements-that-work",      title: "5 Supplements That Actually Work", date: "2026-04-10", ext: "png" },
+    { slug: "one-year-lifting",           title: "What 1 Year of Lifting Looks Like", date: "2026-04-10", ext: "png" },
     { slug: "exercises-doing-wrong",      title: "5 Exercises You're Doing Wrong",   date: "2026-04-10", ext: "png" },
     { slug: "cheap-muscle-foods",         title: "5 Cheap Foods That Build Muscle",  date: "2026-04-10", ext: "png" },
     { slug: "progressive-overload",       title: "Progressive Overload Explained",   date: "2026-04-10", ext: "png" },
