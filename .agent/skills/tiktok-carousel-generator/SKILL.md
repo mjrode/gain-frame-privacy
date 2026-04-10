@@ -186,7 +186,10 @@ reading "GAINFRAME GUY". Keep it small like a watermark — about 10% of image w
 
 Scene: [SCENE DESCRIPTION specific to this slide]
 
-At the top, a black rounded rectangle banner with bold white text in Impact-style 
+CRITICAL PLACEMENT: The character and all props MUST be drawn completely within the 
+BOTTOM 65% of the image.
+
+At the very top, a black rounded rectangle banner with bold white text in Impact-style 
 condensed sans-serif reads "[NUMBER]. [TITLE]" (ALL CAPS). Below, bold clean sans-serif 
 text (Helvetica-style) reads "[SUBTITLE]."
 
@@ -220,12 +223,16 @@ reading "GAINFRAME GUY". Keep it small like a watermark — about 10% of image w
 
 Scene: [MASCOT in a representative pose for the topic]
 
+CRITICAL PLACEMENT: The character and all props MUST be drawn completely within the 
+BOTTOM 60% of the image.
+
 TITLE TEXT PLACEMENT (CRITICAL — READ CAREFULLY): 
+- The title text MUST be placed in the TOP 40% of the image.
 - The title text MUST be centered in the MIDDLE 50% of the image width. 
 - There must be VERY LARGE empty margins on both the left and right sides.
 - The text must NEVER extend to the edges — it will be cropped in the TikTok grid.
 - Stack the title into 2-3 SHORT lines (max 3-4 words per line), centered.
-- Position the text block vertically centered or slightly above center.
+- Position the text block vertically centered within the top 40% or slightly above center.
 - The title reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red (#E53935). 
 - Very prominent bold text, eye-catching, but COMPACT — not wide.
 

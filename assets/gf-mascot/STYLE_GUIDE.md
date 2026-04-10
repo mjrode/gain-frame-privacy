@@ -28,41 +28,25 @@ Fonts must be explicitly specified in EVERY prompt. Letting the AI choose = inco
 | **Badge text** | Clean sans-serif | Bold | ALL CAPS |
 | **Accent words** | Same font as surrounding text | Same weight | Red (#E53935) color |
 
-**In prompts, always include:** `"Use bold Impact-style condensed sans-serif font for all titles and banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle body text. NO handwritten, script, or decorative fonts."`
+**In prompts, NEVER ask the AI to draw text.** To ensure pixel-perfect, completely consistent typography like the "Blue Bro" aesthetic, we use a hybrid programmatic workflow:
+- The AI generator ONLY creates the background and character.
+- The `assets/tiktok/scripts/overlay_text.py` script applies the title and subtitle using authentic `.ttf` fonts over the blank image space.
 
-### Branding Badge — "GainFrame Guy" (on EVERY slide)
+### Branding Badge — "GainFrame Guy"
 
-Inspired by the "Blue Bro" branding pattern — a small mascot identity in the top-left corner.
-
-- **Position:** Top-left corner of every slide (cover AND numbered)
-- **Layout:** Small mascot head icon (bracket-frame face only) + bold text "GAINFRAME GUY" to its right
-- **Size:** Small — roughly 10-15% of image width. It's a watermark/identity, not a focal point
-- **Style:** The head icon matches the main character but is small and flat. Text is bold sans-serif, dark gray or black.
-- **Reference file:** `gary-badge.png` — use this as an ImagePaths reference so the AI sees the exact badge design
-
-**In prompts, always include:** `"In the top-left corner, draw a small branding badge: a tiny version of the character's bracket-frame head icon next to bold sans-serif text reading 'GAINFRAME GUY'. Keep it small like a watermark — about 10% of image width."`
+We overlay the branding badge programmatically using the script. **DO NOT ask the AI to draw the badge.**
 
 ## Slide Layout Patterns
 
 ### Cover Slide (Slide 0)
-- Bold, all-caps title text (Impact-style condensed sans-serif, NOT handwritten)
-- White text on black banner/pill, or large bold text with accent color on key words
-- Text is PART OF the generated image — Nano Banana renders the title directly
-- Mascot in a simple pose or action that represents the topic
-- May include the mascot interacting with a prop (whiteboard, clipboard, etc.)
-- **GainFrame Guy badge in top-left corner**
-- **⚠️ GRID SAFE ZONE:** Title text must stay in the center 50% of image width. TikTok crops ~25% from each side in the profile grid. Rules:
-  - **Max 3-4 words per line**, stacked into 2-3 short centered lines
-  - **Total title: 4-8 words max** — shorter = more readable in grid
-  - Text NEVER touches left/right edges — huge margins on both sides
-  - Good: "THE PERFECT / **ARM** WORKOUT" (4 words, 2 lines)
-  - Bad: "YOU'RE TRACKING PROGRESS WRONG" (too wide, gets clipped)
+- **Programmatic Text Overlay:** The AI should leave the **top 40% of the image COMPLETELY BLANK**.
+- The script will render the bold, all-caps title text in the empty space (Impact-style).
+- Mascot is positioned and interacting with props entirely in the **bottom 60%**.
 
 ### Numbered Content Slides (1-5)
-- **Title banner:** Numbered title at top in black pill/banner with white text (e.g., "1. You Won't See Progress Overnight") — Impact-style condensed sans-serif, ALL CAPS
-- **Subtitle:** 2-3 lines of supporting text in bold clean sans-serif (Helvetica-style), dark text below the banner
-- **Illustration:** Mascot performing an action that visualizes the tip
-- **GainFrame Guy badge in top-left corner**
+- **Programmatic Text Overlay:** The AI should leave the **top 35% of the image COMPLETELY BLANK**.
+- The script will render the numbered title banner and subtext in the empty space.
+- Mascot is positioned in the **bottom 65%**.
 - Common visual devices:
   - ✅/❌ comparison (correct form vs. wrong form)
   - Mirror reflection (aspiration vs. reality)
@@ -136,7 +120,7 @@ These are proven high-engagement title formats from similar mascot-style fitness
 2. **"TOP 5 [EXERCISES] FOR [GOAL]"** — listicle format
 3. **"THE #1 MISTAKE [NEGATIVE OUTCOME]"** — fear/curiosity hook
 4. **"STOP [BAD HABIT]"** — command format
-5. **"[QUESTION]?"** — curiosity gap
+5. "[QUESTION]?" — curiosity gap
 6. **"HOW TO [ACHIEVE GOAL]"** — instructional
 7. **"DO THIS IF YOU'RE [CONDITION]"** — conditional targeting
 8. **Key word highlighting:** One or two words in red/accent color (e.g., "THE PERFECT **ARM** WORKOUT", "Build Your Perfect **Bulking Routine**")
@@ -162,13 +146,12 @@ ImagePaths: [
 
 Use absolute paths when calling the tool. Pick 1 scene reference image from the Scene Reference Library that is closest to the scene you're generating. **Always include both the template AND the badge reference.**
 
-### Base Prompt Prefix (use for EVERY generation)
+**Cover Slide Prompt Base:**
 ```
 A cartoon illustration of this exact character from the reference images in a new scene. 
 CRITICAL: The head is NOT a solid square — it is four separate corner brackets floating 
 in space with the background visible between them. The eyes and S-curve nose float inside 
-the bracket frame with NO background fill, NO square, NO box behind them. Copy the head 
-design from the reference images exactly — open bracket corners, not a filled square.
+the bracket frame with NO background fill.
 
 In the top-left corner, draw a small branding badge: a tiny version of the character's 
 bracket-frame head icon (matching the badge reference image) next to bold sans-serif text 
@@ -176,26 +159,52 @@ reading "GAINFRAME GUY". Keep it small like a watermark — about 10% of image w
 
 Scene: [SCENE DESCRIPTION HERE]
 
-TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for ALL title text and 
-number banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle/body text. 
-NO handwritten, script, or decorative fonts anywhere.
+CRITICAL PLACEMENT: The character and all props MUST be drawn completely within the 
+BOTTOM 60% of the image.
+
+TITLE TEXT PLACEMENT (CRITICAL — READ CAREFULLY): 
+- The title text MUST be placed in the TOP 40% of the image.
+- The title text MUST be centered in the MIDDLE 50% of the image width. 
+- There must be VERY LARGE empty margins on both the left and right sides.
+- The text must NEVER extend to the edges — it will be cropped in the TikTok grid.
+- Stack the title into 2-3 SHORT lines (max 3-4 words per line), centered.
+- Position the text block vertically centered within the top 40% or slightly above center.
+- The title reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red (#E53935). 
+- Very prominent bold text, eye-catching, but COMPACT — not wide.
+
+TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for the title (ALL CAPS). 
+NO handwritten, script, or decorative fonts.
 
 Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
 4:5 TikTok format (1080x1350). No watermarks except the GainFrame Guy badge.
 ```
 
-### Text Integration in Prompts
-For numbered content slides, append:
+**Numbered Slide Prompt Base:**
 ```
-At the top, a black rounded rectangle banner with bold white text in Impact-style 
+A cartoon illustration of this exact character from the reference images in a new scene. 
+CRITICAL: The head is NOT a solid square — it is four separate corner brackets floating 
+in space with the background visible between them. The eyes and S-curve nose float inside 
+the bracket frame with NO background fill.
+
+In the top-left corner, draw a small branding badge: a tiny version of the character's 
+bracket-frame head icon (matching the badge reference image) next to bold sans-serif text 
+reading "GAINFRAME GUY". Keep it small like a watermark — about 10% of image width.
+
+Scene: [SCENE DESCRIPTION HERE]
+
+CRITICAL PLACEMENT: The character and all props MUST be drawn completely within the 
+BOTTOM 65% of the image.
+
+At the very top, a black rounded rectangle banner with bold white text in Impact-style 
 condensed sans-serif reads "[NUMBER]. [TITLE]" (ALL CAPS). Below, bold clean sans-serif 
 text (Helvetica-style) reads "[SUBTITLE]."
-```
 
-For cover slides:
-```
-Large bold text in Impact-style condensed sans-serif reads "[COVER TITLE]" (ALL CAPS) 
-with the word "[ACCENT WORD]" in red (#E53935). Very prominent and eye-catching.
+TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for ALL title text and 
+number banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle/body text. 
+NO handwritten, script, or decorative fonts anywhere.
+
+Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
+4:5 TikTok format. No watermarks except the GainFrame Guy badge.
 ```
 
 ### Scene Suffix Examples

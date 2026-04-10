@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=UnifrakturCook:wght@700&display=swap"
         rel="stylesheet">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
@@ -56,82 +56,164 @@
     </script>
     <style>
         /* =====================================================
-           COMICS GALLERY — Inline styles (page-specific)
+           COMICS GALLERY — Newspaper / Editorial Theme
            ===================================================== */
 
-        .comics-hero {
-            padding: var(--sp-2xl) 0 var(--sp-xl);
+        :root {
+            --paper: #f5f0e8;
+            --paper-light: #faf7f2;
+            --ink: #1a1a18;
+            --ink-muted: #5c5a54;
+            --ink-light: #8a877e;
+            --rule: #c4bfb3;
+            --rule-light: #ddd8cc;
+            --accent-red: #c23a22;
+            --font-serif: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+            --font-blackletter: 'UnifrakturCook', cursive;
+        }
+
+        /* Override page background */
+        body {
+            background: var(--paper) !important;
+        }
+
+        /* ---- Masthead ---- */
+        .newspaper-masthead {
             text-align: center;
-            background: var(--color-bg);
+            padding: 48px 0 0;
+            background: var(--paper);
         }
 
-        .comics-hero .blog-header-title {
-            margin-bottom: var(--sp-sm);
+        .masthead-rule {
+            height: 4px;
+            background: var(--ink);
+            margin: 0 auto;
+            max-width: 900px;
         }
 
-        .comics-count {
-            display: inline-flex;
+        .masthead-rule-thin {
+            height: 1px;
+            background: var(--ink);
+            margin: 3px auto 0;
+            max-width: 900px;
+        }
+
+        .masthead-title {
+            font-family: var(--font-blackletter);
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: 0.02em;
+            margin: 20px 0 8px;
+            line-height: 1;
+        }
+
+        .masthead-subtitle {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--ink-muted);
+            letter-spacing: 0.02em;
+            margin: 0 0 12px;
+        }
+
+        .masthead-dateline {
+            display: flex;
             align-items: center;
-            gap: 6px;
-            margin-top: var(--sp-md);
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--color-text-secondary);
-            letter-spacing: 0.03em;
+            justify-content: center;
+            gap: 24px;
+            padding: 10px 0;
+            border-top: 1px solid var(--ink);
+            border-bottom: 1px solid var(--ink);
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: var(--font-serif);
+            font-size: 0.78rem;
+            color: var(--ink-muted);
             text-transform: uppercase;
+            letter-spacing: 0.12em;
         }
 
-        .comics-count-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--color-brand-red);
-            animation: dotPulse 2s infinite;
+        .dateline-diamond {
+            width: 5px;
+            height: 5px;
+            background: var(--ink);
+            transform: rotate(45deg);
+            flex-shrink: 0;
         }
 
-        @keyframes dotPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+        /* ---- Gallery Section ---- */
+        .newspaper-gallery {
+            padding: 40px 0 80px;
+            max-width: 960px;
+            margin: 0 auto;
+            padding-left: 24px;
+            padding-right: 24px;
         }
 
-        /* ---- Gallery Grid ---- */
-        .comics-gallery {
-            padding: 0 0 var(--sp-section);
+        /* Section header with horizontal rule */
+        .section-headline {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
         }
 
-        .comics-grid {
+        .section-headline h2 {
+            font-family: var(--font-serif);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--ink);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            white-space: nowrap;
+            margin: 0;
+        }
+
+        .section-headline::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--rule);
+        }
+
+        .section-count {
+            font-family: var(--font-serif);
+            font-size: 0.72rem;
+            color: var(--ink-light);
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+
+        /* ---- Newspaper Grid ---- */
+        .newspaper-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--sp-lg);
+            gap: 28px;
         }
 
-        /* ---- Comic Card ---- */
+        /* ---- Newspaper Card ---- */
         .comic-card {
             text-decoration: none;
             color: inherit;
-            border-radius: var(--radius-lg);
             overflow: hidden;
-            background: var(--color-bg);
-            border: 1.5px solid rgba(0, 0, 0, 0.08);
-            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                        border-color 0.3s ease;
+            background: var(--paper-light);
+            border: 1px solid var(--rule);
             display: flex;
             flex-direction: column;
             cursor: pointer;
+            transition: background 0.25s ease, box-shadow 0.3s ease;
+            position: relative;
         }
 
         .comic-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 24px 56px rgba(0, 0, 0, 0.12);
-            border-color: rgba(0, 0, 0, 0.16);
+            background: #eee9dd;
         }
 
         .comic-card-cover {
             width: 100%;
             aspect-ratio: 4 / 5;
             overflow: hidden;
-            background: #0C0C0E;
             position: relative;
         }
 
@@ -139,57 +221,104 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            filter: saturate(0.9);
         }
 
         .comic-card:hover .comic-card-cover img {
-            transform: scale(1.05);
+            transform: scale(1.04);
+            filter: saturate(1);
+        }
+
+        /* Issue number badge */
+        .comic-issue-num {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: var(--font-serif);
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            background: rgba(245, 240, 232, 0.92);
+            padding: 3px 8px;
+            border: 1px solid var(--rule-light);
         }
 
         /* Slide count badge */
         .comic-slide-count {
             position: absolute;
-            bottom: 12px;
-            right: 12px;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: #fff;
-            font-size: 0.72rem;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: var(--radius-full);
-            letter-spacing: 0.03em;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(26, 26, 24, 0.7);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            color: var(--paper);
+            font-family: var(--font-serif);
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            letter-spacing: 0.06em;
             display: flex;
             align-items: center;
             gap: 4px;
         }
 
         .comic-slide-count svg {
-            width: 12px;
-            height: 12px;
-            opacity: 0.8;
+            width: 11px;
+            height: 11px;
+            opacity: 0.7;
         }
 
         .comic-card-info {
-            padding: var(--sp-md) var(--sp-lg) var(--sp-lg);
+            padding: 14px 16px 18px;
+            border-top: 1px solid var(--rule-light);
         }
 
         .comic-card-info h3 {
-            font-family: var(--font-display);
-            font-size: 1.05rem;
+            font-family: var(--font-serif);
+            font-size: 1rem;
             font-weight: 700;
-            color: var(--color-text);
+            color: var(--ink);
             line-height: 1.3;
-            margin: 0;
+            margin: 0 0 4px;
         }
 
-        /* ---- Peek Carousel Viewer ---- */
+        .comic-card-date {
+            font-family: var(--font-serif);
+            font-size: 0.7rem;
+            color: var(--ink-light);
+            letter-spacing: 0.06em;
+        }
+
+        /* ---- Bottom ornament ---- */
+        .newspaper-endmark {
+            text-align: center;
+            padding: 40px 0 0;
+        }
+
+        .endmark-rule {
+            height: 1px;
+            background: var(--rule);
+            max-width: 200px;
+            margin: 0 auto 16px;
+        }
+
+        .endmark-symbol {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--ink-light);
+        }
+
+        /* ============================================
+           PEEK CAROUSEL VIEWER (newspaper theme)
+           ============================================ */
         .comic-viewer {
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background: #f0ece7;
+            background: var(--paper);
             display: none;
             flex-direction: column;
             align-items: center;
@@ -203,7 +332,6 @@
             opacity: 1;
         }
 
-        /* Header bar */
         .comic-viewer-header {
             position: absolute;
             top: 0;
@@ -211,101 +339,104 @@
             right: 0;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             padding: 20px 28px;
             z-index: 10;
+            border-bottom: 1px solid var(--rule);
         }
 
         .comic-viewer-title {
-            font-family: var(--font-display);
+            font-family: var(--font-serif);
             font-size: 1.05rem;
             font-weight: 700;
-            color: var(--color-text);
+            color: var(--ink);
+            text-align: center;
         }
 
         .comic-viewer-counter {
-            font-family: var(--font-display);
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--color-text-secondary);
-            letter-spacing: -0.01em;
+            position: absolute;
+            left: 28px;
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--ink-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         .comic-viewer-counter .current-num {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--color-text);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ink);
         }
 
         .comic-viewer-close {
             position: absolute;
-            top: 20px;
+            top: 14px;
             right: 28px;
             background: transparent;
-            border: 1.5px solid var(--color-border);
-            color: var(--color-text);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.3rem;
+            border: 1px solid var(--rule);
+            color: var(--ink);
+            width: 36px;
+            height: 36px;
+            font-size: 1.2rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s ease, border-color 0.2s ease;
-            z-index: 10;
+            transition: background 0.2s ease;
+            z-index: 11;
         }
 
         .comic-viewer-close:hover {
-            background: var(--color-surface);
-            border-color: rgba(0, 0, 0, 0.2);
+            background: var(--rule-light);
         }
 
         /* Carousel track */
         .comic-viewer-stage {
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             width: 100%;
             height: 100%;
             overflow: hidden;
         }
 
         .comic-viewer-track {
+            position: absolute;
+            top: 50%;
+            left: 50%;
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 28px;
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
             will-change: transform;
-            /* Initial offset is set via JS. Slides are positioned in a row. */
         }
 
         .comic-viewer-slide {
             flex-shrink: 0;
             width: min(380px, 70vw);
-            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--rule);
+            box-shadow: 0 4px 20px rgba(26, 26, 24, 0.06);
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
                         opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
                         box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
             transform: scale(0.82);
-            opacity: 0.4;
+            opacity: 0.35;
             cursor: pointer;
             user-select: none;
+            background: var(--paper-light);
         }
 
         .comic-viewer-slide.active {
             transform: scale(1);
             opacity: 1;
-            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 16px 48px rgba(26, 26, 24, 0.12);
             cursor: default;
         }
 
         .comic-viewer-slide.adjacent {
             transform: scale(0.82);
-            opacity: 0.5;
+            opacity: 0.45;
         }
 
         .comic-viewer-slide.far {
@@ -320,30 +451,27 @@
             display: block;
         }
 
-        /* Nav arrows */
+        /* Nav arrows — newspaper style (square) */
         .comic-viewer-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: #fff;
-            border: 1.5px solid rgba(0, 0, 0, 0.08);
-            color: var(--color-text);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            font-size: 1.4rem;
+            background: var(--paper-light);
+            border: 1px solid var(--rule);
+            color: var(--ink);
+            width: 44px;
+            height: 44px;
+            font-size: 1.3rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+            transition: background 0.2s ease;
             z-index: 5;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
         }
 
         .comic-viewer-nav:hover {
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
-            transform: translateY(-50%) scale(1.06);
+            background: var(--rule-light);
         }
 
         .comic-viewer-nav:disabled {
@@ -352,94 +480,108 @@
             pointer-events: none;
         }
 
-        .comic-viewer-nav.prev { left: max(16px, calc(50% - min(380px, 70vw) - 60px)); }
-        .comic-viewer-nav.next { right: max(16px, calc(50% - min(380px, 70vw) - 60px)); }
+        .comic-viewer-nav.prev { left: max(16px, calc(50% - min(380px, 70vw) - 56px)); }
+        .comic-viewer-nav.next { right: max(16px, calc(50% - min(380px, 70vw) - 56px)); }
 
         /* Bottom dots */
         .comic-viewer-dots {
             position: absolute;
-            bottom: 32px;
+            bottom: 28px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
+            gap: 8px;
             z-index: 10;
         }
 
         .comic-viewer-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.12);
+            width: 8px;
+            height: 8px;
+            background: var(--rule);
             transition: background 0.3s ease, transform 0.3s ease;
             cursor: pointer;
+            transform: rotate(45deg);
         }
 
         .comic-viewer-dot.active {
-            background: var(--color-text);
-            transform: scale(1.2);
+            background: var(--ink);
+            transform: rotate(45deg) scale(1.2);
         }
 
         .comic-viewer-dot:hover:not(.active) {
-            background: rgba(0, 0, 0, 0.3);
+            background: var(--ink-light);
         }
 
         /* ---- Responsive ---- */
         @media (max-width: 900px) {
-            .comics-grid {
+            .newspaper-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: var(--sp-md);
+                gap: 24px;
             }
 
-            .comic-viewer-slide {
-                width: min(320px, 65vw);
-            }
-
-            .comic-viewer-track {
-                gap: 16px;
-            }
+            .comic-viewer-slide { width: min(320px, 65vw); }
+            .comic-viewer-track { gap: 18px; }
         }
 
         @media (max-width: 560px) {
-            .comics-grid {
+            .newspaper-grid {
                 grid-template-columns: 1fr;
-                max-width: 360px;
+                max-width: 400px;
                 margin: 0 auto;
+                gap: 20px;
             }
 
-            .comics-hero .blog-header-title {
-                font-size: 2.25rem;
-            }
+            .masthead-title { font-size: 2.5rem; }
 
-            .comic-viewer-slide {
-                width: min(280px, 75vw);
-            }
-
-            .comic-viewer-track {
+            .masthead-dateline {
                 gap: 12px;
+                font-size: 0.65rem;
+                padding: 8px 12px;
             }
+
+            .newspaper-gallery { padding: 24px 16px 60px; }
+
+            .comic-viewer-slide { width: min(280px, 75vw); }
+            .comic-viewer-track { gap: 12px; }
 
             .comic-viewer-nav {
-                width: 38px;
-                height: 38px;
-                font-size: 1.1rem;
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
             }
 
             .comic-viewer-nav.prev { left: 8px; }
             .comic-viewer-nav.next { right: 8px; }
 
             .comic-viewer-title {
-                font-size: 0.9rem;
-                max-width: 50%;
+                font-size: 0.85rem;
+                max-width: 55%;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
 
-            .comic-viewer-header {
-                padding: 16px 16px;
-            }
+            .comic-viewer-header { padding: 14px 16px; }
         }
+
+        /* ---- Scroll reveal ---- */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.05s; }
+        .reveal-delay-2 { transition-delay: 0.1s; }
+        .reveal-delay-3 { transition-delay: 0.15s; }
+        .reveal-delay-4 { transition-delay: 0.2s; }
+        .reveal-delay-5 { transition-delay: 0.25s; }
+        .reveal-delay-6 { transition-delay: 0.3s; }
     </style>
 </head>
 
@@ -447,24 +589,35 @@
     <div data-site-nav></div>
     <script src="/assets/shared-nav.js"></script>
 
-    <!-- ==================== COMICS HEADER ==================== -->
-    <header class="comics-hero">
-        <div class="container">
-            <h1 class="blog-header-title hero-text-stagger">GainFrame <span class="accent-underline">Comics</span></h1>
-            <p class="blog-header-subtitle hero-text-stagger">Science-backed gym tips in swipe-through visuals. Nutrition, training, and body composition — explained simply.</p>
-            <div class="comics-count hero-text-stagger">
-                <span class="comics-count-dot"></span>
-                <span id="comicsCountLabel">11 comics</span>
+    <!-- ==================== NEWSPAPER MASTHEAD ==================== -->
+    <header class="newspaper-masthead">
+        <div class="container" style="max-width: 960px;">
+            <div class="masthead-rule"></div>
+            <div class="masthead-rule-thin"></div>
+            <h1 class="masthead-title">The GainFrame Gazette</h1>
+            <p class="masthead-subtitle">"All the gains that are fit to print."</p>
+            <div class="masthead-dateline">
+                <span>Science-Backed</span>
+                <span class="dateline-diamond"></span>
+                <span id="comicsCountLabel">11 Issues</span>
+                <span class="dateline-diamond"></span>
+                <span>Est. 2026</span>
             </div>
         </div>
     </header>
 
     <!-- ==================== COMICS GRID ==================== -->
-    <section class="comics-gallery">
-        <div class="container">
-            <div class="comics-grid" id="comicsGrid">
-                <!-- Rendered by JS from the manifest -->
-            </div>
+    <section class="newspaper-gallery">
+        <div class="section-headline">
+            <h2>Latest Issues</h2>
+            <span class="section-count" id="sectionCount"></span>
+        </div>
+        <div class="newspaper-grid" id="comicsGrid">
+            <!-- Rendered by JS from the manifest -->
+        </div>
+        <div class="newspaper-endmark">
+            <div class="endmark-rule"></div>
+            <div class="endmark-symbol">— ◆ —</div>
         </div>
     </section>
 
@@ -486,10 +639,10 @@
     </div>
 
     <!-- ==================== CTA ==================== -->
-    <section class="cta" id="download">
+    <section class="cta" id="download" style="background: var(--paper-light);">
         <div class="container">
-            <h2 class="section-title scroll-reveal">Stop guessing. Start tracking.</h2>
-            <p class="cta-subtitle scroll-reveal">Free 1-month trial. $4.99/mo after that. Your photos never leave your device.</p>
+            <h2 class="section-title scroll-reveal" style="font-family: var(--font-serif); color: var(--ink);">Stop guessing. Start tracking.</h2>
+            <p class="cta-subtitle scroll-reveal">AI-powered physique tracking that keeps your photos private. See your progress like never before.</p>
             <div class="scroll-reveal" style="margin-top: var(--sp-lg); display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
                 <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="app-store-badge-link" target="_blank" rel="noopener">
                     <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" style="height: 52px; width: auto;" />
@@ -502,7 +655,7 @@
     <!-- ==================== FOOTER ==================== -->
     <div data-newsletter-signup></div>
 
-    <footer class="footer">
+    <footer class="footer" style="background: var(--paper-light);">
         <div class="container">
             <div class="footer-links">
                 <a href="privacy.html">Privacy Policy</a>
@@ -519,17 +672,26 @@
     <!-- ==================== SCRIPTS ==================== -->
     <script src="/assets/tiktok/comic/comics-manifest.js"></script>
     <script>
+        /* ---- Format date for newspaper ---- */
+        function formatNewspaperDate(dateStr) {
+            if (!dateStr) return '';
+            const d = new Date(dateStr + 'T00:00:00');
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+        }
+
         /* ---- Render Gallery Grid ---- */
         (() => {
             const grid = document.getElementById('comicsGrid');
             const countLabel = document.getElementById('comicsCountLabel');
+            const sectionCount = document.getElementById('sectionCount');
             if (!grid || typeof COMICS_MANIFEST === 'undefined') return;
 
-            countLabel.textContent = `${COMICS_MANIFEST.length} comic${COMICS_MANIFEST.length !== 1 ? 's' : ''}`;
+            countLabel.textContent = `${COMICS_MANIFEST.length} Issue${COMICS_MANIFEST.length !== 1 ? 's' : ''}`;
+            sectionCount.textContent = `${COMICS_MANIFEST.length} comic${COMICS_MANIFEST.length !== 1 ? 's' : ''} published`;
 
             COMICS_MANIFEST.forEach((comic, i) => {
                 const card = document.createElement('div');
-                card.className = `comic-card scroll-reveal reveal-delay-${Math.min(i + 1, 8)}`;
+                card.className = `comic-card scroll-reveal reveal-delay-${Math.min(i + 1, 6)}`;
                 card.setAttribute('data-slug', comic.slug);
                 card.setAttribute('role', 'button');
                 card.setAttribute('tabindex', '0');
@@ -537,9 +699,10 @@
                     <div class="comic-card-cover">
                         <img src="assets/tiktok/comic/${comic.slug}/slide-0-cover.${comic.ext}"
                              alt="${comic.title}" loading="lazy">
+                        <span class="comic-issue-num">No. ${String(COMICS_MANIFEST.length - i).padStart(2, '0')}</span>
                         <span class="comic-slide-count">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
                                 <path d="M3 9h18M9 3v18"/>
                             </svg>
                             6 slides
@@ -547,6 +710,7 @@
                     </div>
                     <div class="comic-card-info">
                         <h3>${comic.title}</h3>
+                        <div class="comic-card-date">${formatNewspaperDate(comic.date)}</div>
                     </div>
                 `;
                 grid.appendChild(card);
@@ -599,7 +763,7 @@
             }
 
             function updateCounter() {
-                counterEl.innerHTML = `<span class="current-num">0${currentSlide + 1}</span>/${String(totalSlides).padStart(2, '0')}`;
+                counterEl.innerHTML = `<span class="current-num">0${currentSlide + 1}</span> of ${String(totalSlides).padStart(2, '0')}`;
             }
 
             function renderDots() {
@@ -622,12 +786,17 @@
                     else slide.classList.add('far');
                 });
 
-                // Center the active slide in the viewport
-                const slideWidth = slides[0] ? slides[0].offsetWidth : 380;
-                const gap = parseInt(getComputedStyle(track).gap) || 24;
-                const stageWidth = track.parentElement.offsetWidth;
-                const offset = currentSlide * (slideWidth + gap) - (stageWidth / 2 - slideWidth / 2);
-                track.style.transform = `translateX(${-offset}px)`;
+                // Track is positioned at left:50%, top:50%.
+                // We translate so the active slide's center sits at left:50% (the page center).
+                const activeSlide = slides[currentSlide];
+                if (!activeSlide) return;
+                // Temporarily remove transition to measure, then re-add
+                track.style.transition = 'none';
+                track.style.transform = 'translate(0, -50%)';
+                void track.offsetWidth; // force reflow
+                const slideCenterX = activeSlide.offsetLeft + activeSlide.offsetWidth / 2;
+                track.style.transition = '';
+                track.style.transform = `translate(${-slideCenterX}px, -50%)`;
             }
 
             function goToSlide(index) {
@@ -646,7 +815,6 @@
                 buildSlides(slug);
                 viewer.classList.add('active');
                 document.body.style.overflow = 'hidden';
-                // Wait for DOM layout then position
                 requestAnimationFrame(() => {
                     goToSlide(0);
                 });
@@ -704,46 +872,24 @@
 
         /* ---- Scroll Reveal Observer ---- */
         (() => {
-            const selectors = [
-                '.scroll-reveal',
-                '.hero-text-stagger',
-                '.hero-image-stagger'
-            ];
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.05 }
-            );
-            document.querySelectorAll(selectors.join(',')).forEach((el) => observer.observe(el));
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+            // Re-observe after grid renders
+            setTimeout(() => {
+                document.querySelectorAll('.scroll-reveal').forEach(el => {
+                    if (!el.classList.contains('visible')) observer.observe(el);
+                });
+            }, 100);
         })();
     </script>
-    <!-- TikTok Pixel Code Start -->
-    <script>
-        !function (w, d, t) {
-            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
-                for (
-                    var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
-            }, ttq.load = function (e, n) {
-                var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
-                    ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
-            };
-            ttq.load('D6MSGGBC77U9JTU05FR0');
-            ttq.page();
-        }(window, document, 'ttq');
-    </script>
-    <!-- TikTok Pixel Code End -->
-    <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-        data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script>
-
-    <script defer src="/assets/email-capture-bar.js"></script>
-    <script defer src="/assets/newsletter-form.js"></script>
 </body>
 
 </html>
