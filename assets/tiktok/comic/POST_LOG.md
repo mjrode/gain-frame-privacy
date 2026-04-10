@@ -1,5 +1,11 @@
 # TikTok Carousel Post Log
 
+## 2026-04-10 — YOUR FIRST GYM WEEK
+- Slug: your-first-gym-week
+- Slides: 6
+- GainFrame mention: Yes (Slide 5)
+- Status: Complete (Text baked in)
+
 ## 2026-04-02 — 5 SIGNS YOU'RE MAKING GAINS (You Don't See Yet)
 - Slug: signs-making-gains
 - Slides: 6
