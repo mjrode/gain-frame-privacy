@@ -931,6 +931,122 @@
         .comic-viewer-next-up:hover .next-up-cta { color: var(--accent-red); border-color: var(--accent-red); }
 
         /* ============================================
+           FEATURE: "Already Read" Indicator
+           ============================================ */
+        .comic-card-read {
+            position: absolute; top: 10px; right: 10px;
+            background: rgba(26,26,24,0.7);
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            color: var(--paper);
+            font-family: var(--font-serif);
+            font-size: 0.55rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.12em;
+            padding: 3px 8px;
+            display: flex; align-items: center; gap: 4px;
+            pointer-events: none;
+        }
+        .comic-card-read svg {
+            width: 10px; height: 10px;
+            stroke: currentColor; fill: none;
+            stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+        }
+
+        /* ============================================
+           FEATURE: "New" Ribbon
+           ============================================ */
+        .comic-new-ribbon {
+            position: absolute; top: 0; left: 0;
+            width: 60px; height: 60px;
+            overflow: hidden;
+            pointer-events: none; z-index: 2;
+        }
+        .comic-new-ribbon span {
+            position: absolute;
+            display: block;
+            width: 90px;
+            padding: 4px 0;
+            background: var(--accent-red);
+            color: #fff;
+            font-family: var(--font-serif);
+            font-size: 0.55rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            text-align: center;
+            transform: rotate(-45deg);
+            top: 14px; left: -20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        /* ============================================
+           FEATURE: Filter Bar
+           ============================================ */
+        .filter-bar {
+            display: flex; gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            margin-bottom: 28px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .filter-bar::-webkit-scrollbar { display: none; }
+        .filter-pill {
+            flex-shrink: 0;
+            font-family: var(--font-serif);
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--ink-muted);
+            background: transparent;
+            border: 1px solid var(--rule);
+            padding: 6px 16px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .filter-pill:hover { color: var(--ink); border-color: var(--ink-muted); }
+        .filter-pill.active {
+            background: var(--ink); color: var(--paper);
+            border-color: var(--ink);
+        }
+
+        /* Filter transitions on cards and pull-quotes */
+        .filter-hidden {
+            display: none !important;
+        }
+
+        /* ============================================
+           FEATURE: Comic Series Collections
+           ============================================ */
+        .comic-series-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            font-family: var(--font-serif);
+            font-size: 0.55rem; font-weight: 700;
+            color: var(--accent-red);
+            text-transform: uppercase; letter-spacing: 0.08em;
+            margin-top: 4px;
+        }
+        .comic-series-badge svg {
+            width: 10px; height: 10px;
+            stroke: currentColor; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+
+        /* ============================================
+           FEATURE: Animated Card Entrance
+           ============================================ */
+        .scroll-reveal-card {
+            opacity: 0;
+            transform: translateY(28px) scale(0.97);
+            transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1),
+                        transform 0.6s cubic-bezier(0.22,1,0.36,1);
+        }
+        .scroll-reveal-card.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .card-delay-1 { transition-delay: 0s; }
+        .card-delay-2 { transition-delay: 0.08s; }
+        .card-delay-3 { transition-delay: 0.16s; }
+
+        /* ============================================
            FEATURE: Swipe Hint
            ============================================ */
         .swipe-hint {
@@ -1015,6 +1131,7 @@
             <h2>Latest Issues</h2>
             <span class="section-count" id="sectionCount"></span>
         </div>
+        <div class="filter-bar" id="filterBar"></div>
         <div class="newspaper-grid" id="comicsGrid">
             <!-- Rendered by JS from the manifest -->
         </div>
@@ -1115,12 +1232,25 @@
         /* ---- Render Gallery Grid ---- */
         (() => {
             const grid = document.getElementById('comicsGrid');
+            const filterBar = document.getElementById('filterBar');
             const countLabel = document.getElementById('comicsCountLabel');
             const sectionCount = document.getElementById('sectionCount');
             if (!grid || typeof COMICS_MANIFEST === 'undefined') return;
 
             countLabel.textContent = `${COMICS_MANIFEST.length} Issue${COMICS_MANIFEST.length !== 1 ? 's' : ''}`;
             sectionCount.textContent = `${COMICS_MANIFEST.length} comic${COMICS_MANIFEST.length !== 1 ? 's' : ''} published`;
+
+            // Read tracking
+            const readComics = JSON.parse(localStorage.getItem('gf-read-comics') || '[]');
+
+            // "New" threshold — 7 days
+            const NEW_DAYS = 7;
+            const now = new Date();
+            function isNew(dateStr) {
+                if (!dateStr) return false;
+                const diff = (now - new Date(dateStr + 'T00:00:00')) / 86400000;
+                return diff <= NEW_DAYS;
+            }
 
             const TAG_MAP = {
                 Training: /exercise|split|overload|core|gym|workout|lifting|working-out|doing-wrong|that-guy|beginner/,
@@ -1135,14 +1265,52 @@
                 return 'Mindset';
             }
 
+            // Comic series collections
+            const SERIES = {
+                "Beginner's Guide": ['beginner-gym-split', 'your-first-gym-week', 'progressive-overload', 'first-cut-tips'],
+                'Nutrition Essentials': ['30g-of-protein', 'cheap-muscle-foods', 'supplements-that-work', 'creatine-myths-vs-facts'],
+                'Body Recomp': ['skinny-fat-trap', 'bulk-vs-cut', 'bulk-cut-maintain', 'stop-guessing-body-fat'],
+            };
+            function getSeriesName(slug) {
+                for (const [name, slugs] of Object.entries(SERIES)) {
+                    if (slugs.includes(slug)) return name;
+                }
+                return null;
+            }
+
             const PULL_QUOTES = [
                 { text: '"The last three reps are what makes the muscle grow."', cite: '— Arnold Schwarzenegger' },
                 { text: '"What gets measured, gets managed."', cite: '— Peter Drucker' },
                 { text: '"Discipline is choosing between what you want now and what you want most."', cite: '— Abraham Lincoln' },
             ];
 
+            // Filter bar
+            const allTags = ['All', 'Training', 'Nutrition', 'Recovery', 'Body Comp', 'Mindset'];
+            let activeFilter = 'All';
+            allTags.forEach(tag => {
+                const pill = document.createElement('button');
+                pill.className = 'filter-pill' + (tag === 'All' ? ' active' : '');
+                pill.textContent = tag;
+                pill.addEventListener('click', () => {
+                    activeFilter = tag;
+                    filterBar.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.textContent === tag));
+                    grid.querySelectorAll('.comic-card').forEach(card => {
+                        const cardTag = card.getAttribute('data-tag');
+                        card.classList.toggle('filter-hidden', tag !== 'All' && cardTag !== tag);
+                    });
+                    // Show/hide pull-quotes when filtering
+                    grid.querySelectorAll('.newspaper-pullquote').forEach(pq => {
+                        pq.classList.toggle('filter-hidden', tag !== 'All');
+                    });
+                });
+                filterBar.appendChild(pill);
+            });
+
             // Hero card — first comic
             const hero = COMICS_MANIFEST[0];
+            const heroRead = readComics.includes(hero.slug);
+            const heroNew = isNew(hero.date);
+            const heroSeries = getSeriesName(hero.slug);
             const heroEl = document.createElement('div');
             heroEl.className = 'comic-hero scroll-reveal';
             heroEl.setAttribute('data-slug', hero.slug);
@@ -1151,11 +1319,14 @@
             heroEl.innerHTML = `
                 <div class="comic-hero-cover">
                     <img src="assets/tiktok/comic/${hero.slug}/slide-0-cover.${hero.ext}" alt="${hero.title}" loading="eager">
+                    ${heroRead ? '<span class="comic-card-read"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Read</span>' : ''}
+                    ${heroNew ? '<div class="comic-new-ribbon"><span>New</span></div>' : ''}
                 </div>
                 <div class="comic-hero-info">
                     <span class="hero-label">Latest Issue — No. ${String(COMICS_MANIFEST.length).padStart(2, '0')}</span>
                     <h3>${hero.title}</h3>
                     <span class="comic-tag">${getTag(hero.slug)}</span>
+                    ${heroSeries ? `<span class="comic-series-badge"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M4 4.5A2.5 2.5 0 016.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15z"/></svg>${heroSeries}</span>` : ''}
                     <span class="hero-date">${formatNewspaperDate(hero.date)}</span>
                     <span class="hero-cta">Read Now &#8594;</span>
                 </div>
@@ -1175,12 +1346,16 @@
                     grid.appendChild(quoteEl);
                 }
 
+                const tag = getTag(comic.slug);
+                const isRead = readComics.includes(comic.slug);
+                const comicIsNew = isNew(comic.date);
+                const series = getSeriesName(comic.slug);
                 const card = document.createElement('div');
-                card.className = `comic-card scroll-reveal reveal-delay-${Math.min((i % 3) + 1, 6)}`;
+                card.className = `comic-card scroll-reveal-card card-delay-${(i % 3) + 1}`;
                 card.setAttribute('data-slug', comic.slug);
+                card.setAttribute('data-tag', tag);
                 card.setAttribute('role', 'button');
                 card.setAttribute('tabindex', '0');
-                const tag = getTag(comic.slug);
                 card.innerHTML = `
                     <div class="comic-card-cover">
                         <img src="assets/tiktok/comic/${comic.slug}/slide-0-cover.${comic.ext}"
@@ -1193,11 +1368,14 @@
                             </svg>
                             6 slides
                         </span>
+                        ${isRead ? '<span class="comic-card-read"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Read</span>' : ''}
+                        ${comicIsNew ? '<div class="comic-new-ribbon"><span>New</span></div>' : ''}
                     </div>
                     <div class="comic-card-info">
                         <h3>${comic.title}</h3>
                         <div class="comic-card-date">${formatNewspaperDate(comic.date)}</div>
                         <span class="comic-tag">${tag}</span>
+                        ${series ? `<span class="comic-series-badge"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M4 4.5A2.5 2.5 0 016.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15z"/></svg>${series}</span>` : ''}
                         <button class="comic-share-btn" onclick="event.stopPropagation();shareComic('${comic.slug}','${comic.title.replace(/'/g, "\\'")}');" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></button>
                     </div>
                 `;
@@ -1347,6 +1525,18 @@
                 titleEl.textContent = getComicTitle(slug);
                 buildSlides(slug);
                 renderDots();
+
+                // Mark as read
+                const read = JSON.parse(localStorage.getItem('gf-read-comics') || '[]');
+                if (!read.includes(slug)) {
+                    read.push(slug);
+                    localStorage.setItem('gf-read-comics', JSON.stringify(read));
+                    // Add read badge to the card in the grid
+                    const card = document.querySelector(`[data-slug="${slug}"] .comic-card-cover`);
+                    if (card && !card.querySelector('.comic-card-read')) {
+                        card.insertAdjacentHTML('beforeend', '<span class="comic-card-read"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Read</span>');
+                    }
+                }
 
                 // Suppress track & slide transitions for instant initial position
                 track.classList.add('dragging');
@@ -1546,10 +1736,10 @@
                 });
             }, { threshold: 0.1 });
 
-            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+            document.querySelectorAll('.scroll-reveal, .scroll-reveal-card').forEach(el => observer.observe(el));
             // Re-observe after grid renders
             setTimeout(() => {
-                document.querySelectorAll('.scroll-reveal').forEach(el => {
+                document.querySelectorAll('.scroll-reveal, .scroll-reveal-card').forEach(el => {
                     if (!el.classList.contains('visible')) observer.observe(el);
                 });
             }, 100);
