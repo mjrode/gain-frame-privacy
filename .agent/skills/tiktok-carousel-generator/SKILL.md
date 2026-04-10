@@ -1,19 +1,19 @@
 ---
 name: TikTok Carousel Generator
-description: Interactive workflow for generating GainFrame Gary TikTok carousel posts — from topic ideation through text iteration to Nano Banana image generation.
+description: Interactive workflow for generating GainFrame Guy TikTok carousel posts — from topic ideation through text iteration to Nano Banana image generation.
 triggers:
   - "tiktok post"
   - "tiktok carousel"
   - "new tiktok"
   - "mascot post"
   - "carousel post"
-  - "gainframe gary"
+  - "gainframe guy"
 ---
 
 # TikTok Carousel Generator Skill
 
 ## Overview
-This skill orchestrates the creation of TikTok carousel comic posts featuring **GainFrame Gary** — the GainFrame mascot character. It follows a phased conversational workflow: brainstorm or select a topic, draft the slide text (cover + 4-5 numbered slides), iterate until the copy is sharp, then generate each **complete slide image** (illustration + text) using Antigravity's `generate_image` tool with `ImagePaths` referencing the mascot character sheet for visual consistency.
+This skill orchestrates the creation of TikTok carousel comic posts featuring **GainFrame Guy** — the GainFrame mascot character. It follows a phased conversational workflow: brainstorm or select a topic, draft the slide text (cover + 4-5 numbered slides), iterate until the copy is sharp, then generate each **complete slide image** (illustration + text) using Antigravity's `generate_image` tool with `ImagePaths` referencing the mascot character sheet for visual consistency.
 
 Every post uses the same mascot character, visual style, branding badge, and layout — ensuring brand consistency across all content. Text banners and subtitles are baked directly into the generated images — no CapCut/Canva compositing needed.
 
@@ -28,7 +28,7 @@ This file contains:
 - Character design specs (bracket-frame head, body, clothing)
 - Visual style constants (background color, palette, aspect ratio)
 - **Typography rules** (Impact-style sans-serif for titles, Helvetica-style for subtitles — NO handwritten fonts)
-- **GainFrame Gary branding badge** specs (top-left on every slide)
+- **GainFrame Guy branding badge** specs (top-left on every slide)
 - Slide layout patterns (cover + numbered slides)
 - Competitor title patterns for inspiration
 - The exact Nano Banana base prompt prefix to use for every image
@@ -119,7 +119,7 @@ For each slide, draft:
 
 ### Phase 3: Image Generation
 
-**Goal:** Generate 6 GainFrame Gary illustrations (1 cover + 5 slides) with perfect character consistency, clean typography, and branding.
+**Goal:** Generate 6 GainFrame Guy illustrations (1 cover + 5 slides) with perfect character consistency, clean typography, and branding.
 
 #### ⚠️ CRITICAL: Tool Selection
 
@@ -172,7 +172,7 @@ design from the reference images exactly — open bracket corners, not a filled 
 
 In the top-left corner, draw a small branding badge: a tiny version of the character's 
 bracket-frame head icon (matching the badge reference image) next to bold sans-serif text 
-reading "GAINFRAME GARY". Keep it small like a watermark — about 10% of image width.
+reading "GAINFRAME GUY". Keep it small like a watermark — about 10% of image width.
 
 Scene: [SCENE DESCRIPTION specific to this slide]
 
@@ -185,7 +185,7 @@ number banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle/bod
 NO handwritten, script, or decorative fonts anywhere.
 
 Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
-4:5 TikTok format (1080x1350). No watermarks except the GainFrame Gary badge.
+4:5 TikTok format (1080x1350). No watermarks except the GainFrame Guy badge.
 ```
 
 **Prompt template for cover slide:**
@@ -205,7 +205,7 @@ design from the reference images exactly — open bracket corners, not a filled 
 
 In the top-left corner, draw a small branding badge: a tiny version of the character's 
 bracket-frame head icon (matching the badge reference image) next to bold sans-serif text 
-reading "GAINFRAME GARY". Keep it small like a watermark — about 10% of image width.
+reading "GAINFRAME GUY". Keep it small like a watermark — about 10% of image width.
 
 Scene: [MASCOT in a representative pose for the topic]
 
@@ -219,7 +219,7 @@ TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for the title (ALL C
 NO handwritten, script, or decorative fonts.
 
 Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
-4:5 TikTok format (1080x1350). No watermarks except the GainFrame Gary badge.
+4:5 TikTok format (1080x1350). No watermarks except the GainFrame Guy badge.
 ```
 
 **IMPORTANT:**

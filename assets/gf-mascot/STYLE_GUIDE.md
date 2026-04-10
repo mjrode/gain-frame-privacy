@@ -1,8 +1,8 @@
-# GainFrame Gary — TikTok Carousel Comic Style Guide
+# GainFrame Guy — TikTok Carousel Comic Style Guide
 
-## The Character — "GainFrame Gary"
+## The Character — "GainFrame Guy"
 
-- **Name:** GainFrame Gary (used in branding badge on every slide)
+- **Name:** GainFrame Guy (used in branding badge on every slide)
 - **Head:** GainFrame scan-frame logo (bracket corners in black, with the "S"-curve nose, two googly eyes, and a red bracket accent in the bottom-right)
 - **Body:** Solid black/dark charcoal silhouette figure wearing olive/army-green shorts and gray/brown chunky sneakers
 - **Build:** Can range from average (template pose) to muscular (gym scenes) depending on the slide context
@@ -30,17 +30,17 @@ Fonts must be explicitly specified in EVERY prompt. Letting the AI choose = inco
 
 **In prompts, always include:** `"Use bold Impact-style condensed sans-serif font for all titles and banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle body text. NO handwritten, script, or decorative fonts."`
 
-### Branding Badge — "GainFrame Gary" (on EVERY slide)
+### Branding Badge — "GainFrame Guy" (on EVERY slide)
 
 Inspired by the "Blue Bro" branding pattern — a small mascot identity in the top-left corner.
 
 - **Position:** Top-left corner of every slide (cover AND numbered)
-- **Layout:** Small mascot head icon (bracket-frame face only) + bold text "GAINFRAME GARY" to its right
+- **Layout:** Small mascot head icon (bracket-frame face only) + bold text "GAINFRAME GUY" to its right
 - **Size:** Small — roughly 10-15% of image width. It's a watermark/identity, not a focal point
 - **Style:** The head icon matches the main character but is small and flat. Text is bold sans-serif, dark gray or black.
 - **Reference file:** `gary-badge.png` — use this as an ImagePaths reference so the AI sees the exact badge design
 
-**In prompts, always include:** `"In the top-left corner, draw a small branding badge: a tiny version of the character's bracket-frame head icon next to bold sans-serif text reading 'GAINFRAME GARY'. Keep it small like a watermark — about 10% of image width."`
+**In prompts, always include:** `"In the top-left corner, draw a small branding badge: a tiny version of the character's bracket-frame head icon next to bold sans-serif text reading 'GAINFRAME GUY'. Keep it small like a watermark — about 10% of image width."`
 
 ## Slide Layout Patterns
 
@@ -50,13 +50,13 @@ Inspired by the "Blue Bro" branding pattern — a small mascot identity in the t
 - Text is PART OF the generated image — Nano Banana renders the title directly
 - Mascot in a simple pose or action that represents the topic
 - May include the mascot interacting with a prop (whiteboard, clipboard, etc.)
-- **GainFrame Gary badge in top-left corner**
+- **GainFrame Guy badge in top-left corner**
 
 ### Numbered Content Slides (1-5)
 - **Title banner:** Numbered title at top in black pill/banner with white text (e.g., "1. You Won't See Progress Overnight") — Impact-style condensed sans-serif, ALL CAPS
 - **Subtitle:** 2-3 lines of supporting text in bold clean sans-serif (Helvetica-style), dark text below the banner
 - **Illustration:** Mascot performing an action that visualizes the tip
-- **GainFrame Gary badge in top-left corner**
+- **GainFrame Guy badge in top-left corner**
 - Common visual devices:
   - ✅/❌ comparison (correct form vs. wrong form)
   - Mirror reflection (aspiration vs. reality)
@@ -166,7 +166,7 @@ design from the reference images exactly — open bracket corners, not a filled 
 
 In the top-left corner, draw a small branding badge: a tiny version of the character's 
 bracket-frame head icon (matching the badge reference image) next to bold sans-serif text 
-reading "GAINFRAME GARY". Keep it small like a watermark — about 10% of image width.
+reading "GAINFRAME GUY". Keep it small like a watermark — about 10% of image width.
 
 Scene: [SCENE DESCRIPTION HERE]
 
@@ -175,7 +175,7 @@ number banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle/bod
 NO handwritten, script, or decorative fonts anywhere.
 
 Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
-4:5 TikTok format (1080x1350). No watermarks except the GainFrame Gary badge.
+4:5 TikTok format (1080x1350). No watermarks except the GainFrame Guy badge.
 ```
 
 ### Text Integration in Prompts
