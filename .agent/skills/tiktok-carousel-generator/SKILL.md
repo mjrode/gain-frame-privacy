@@ -172,6 +172,13 @@ warm beige background. 4:5 TikTok format. No watermarks.
 ```
 
 **Prompt template for cover slide:**
+
+**⚠️ TIKTOK GRID SAFE ZONE:** TikTok crops 4:5 images to ~1:1 square thumbnails in the profile grid, clipping ~135px from each side and cropping the top and bottom. ALL cover title text must be:
+- Centered horizontally in the middle 60% of the image (large left/right margins)
+- Positioned vertically centered or slightly above center — NOT at the very top edge
+- Short enough to fit on 1-2 lines within the safe zone (max ~20 characters per line)
+- If a title is long, split it onto 2 stacked lines with the hook/accent word on the second line
+
 ```
 A cartoon illustration of this exact character from the reference images in a new scene. 
 CRITICAL: The head is NOT a solid square — it is four separate corner brackets floating 
@@ -181,9 +188,13 @@ design from the reference images exactly — open bracket corners, not a filled 
 
 Scene: [MASCOT in a representative pose for the topic]
 
-Large bold text prominently displayed reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red. 
-Very prominent and eye-catching. Clean cartoon style, thick outlines, flat colors, 
-warm beige background. 4:5 TikTok format. No watermarks.
+TITLE TEXT PLACEMENT (CRITICAL): Center the title text in the MIDDLE of the image, NOT at 
+the top edge. The text must have very large left and right margins — keep it within the 
+center 60% of the image width so it is NOT clipped when TikTok crops to a square thumbnail. 
+Split long titles onto 2 centered lines. The title reads "[COVER TITLE]" with the word 
+"[ACCENT WORD]" in red. Very prominent bold text, eye-catching. Clean cartoon style, thick 
+outlines, flat colors, warm beige background (#E8D5B7). 4:5 TikTok format (1080x1350). 
+No watermarks.
 ```
 
 **IMPORTANT:**
@@ -214,11 +225,11 @@ Name the files:
    - **Caption:** 2-3 sentences, hook-first, with a CTA ("Save this for your next gym session 💪")
    - **Hashtags:** 5-10 relevant hashtags mixing broad (#gymtok #fitness) and niche (#gymmistakes #workoutsplit)
 
-4. **Save the text content** to a `content.md` file in the output directory for reference:
+4. **Save the text content** to a `content.md` file in the output directory — this is a **copy-paste ready** file for TikTok posting:
    ```
    assets/tiktok/comic/[slug]/content.md
    ```
-   Include: title, all slide text, caption, hashtags, and the exact Nano Banana prompts used (for reproducibility).
+   Include ONLY: the caption and hashtags. Do NOT include slide text, prompts, or other metadata. The file should be minimal — just what gets pasted into TikTok.
 
 5. **Update the post log.** Append to `assets/tiktok/comic/POST_LOG.md` (create if doesn't exist):
    ```
@@ -228,6 +239,12 @@ Name the files:
    - GainFrame mention: Yes/No (Slide #)
    - Status: Ready for text overlay
    ```
+
+6. **Register in the comics gallery.** Add a new entry to the top of the `COMICS_MANIFEST` array in `assets/tiktok/comic/comics-manifest.js` so the comic automatically appears on the website gallery page. Insert it as the **first entry** (newest first) with today's date. Use `"png"` for ext unless the images were saved as `.jpeg`.
+   ```js
+   { slug: "[slug]", title: "[Cover Title]", date: "[YYYY-MM-DD]", ext: "png" },
+   ```
+   Make sure the title matches the cover slide title (properly capitalized, no ALL-CAPS).
 
 ---
 
@@ -250,3 +267,4 @@ Name the files:
 - `assets/gf-mascot/mascot-pictures.jpeg` — Example: progress photos with phone tripod
 - `assets/gf-mascot/mascot-sleep.jpeg` — Example: recovery/sleeping scene
 - `assets/tiktok/comic/POST_LOG.md` — Running log of all generated carousels
+- `assets/tiktok/comic/comics-manifest.js` — Gallery manifest (add new comics here for them to appear on the website)

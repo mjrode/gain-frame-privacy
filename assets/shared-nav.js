@@ -16,6 +16,7 @@
     const normPath = path.replace(/index\.html$/, "").replace(/\/$/, "") || "/";
     const isHome = normPath === "" || normPath === "/" || /^\/index\.html?$/.test(path);
     const isBlog = /\/blog(\.html)?$/.test(normPath) || /\/blog\//.test(normPath);
+    const isComics = /\/comics(\.html)?$/.test(normPath);
     const isTools = /\/tools/.test(normPath);
     const isFeatures = /\/features(\.html)?$/.test(normPath);
 
@@ -35,6 +36,7 @@
             <div class="blog-nav-links" id="navLinks">
                 <a href="${prefix}index.html"${activeClass(isHome)}>Home</a>
                 <a href="${prefix}blog.html"${activeClass(isBlog)}>Blog</a>
+                <a href="${prefix}comics.html"${activeClass(isComics)}>Comics</a>
                 <a href="${prefix}tools/"${activeClass(isTools)}>Tools</a>
                 <a href="${prefix}features.html"${activeClass(isFeatures)}>Features</a>
                 <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"

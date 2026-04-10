@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GainFrame Comics — Science-Backed Gym Tips & Fitness Education</title>
+    <meta name="description"
+        content="Visual guides to nutrition, training, and body composition. Swipe-through comics that make fitness science simple — from the GainFrame team.">
+    <link rel="canonical" href="https://gainframe.app/comics.html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="GainFrame Comics — Science-Backed Gym Tips & Fitness Education">
+    <meta property="og:description"
+        content="Visual guides to nutrition, training, and body composition. Swipe-through comics that make fitness science simple.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gainframe.app/comics.html">
+    <meta property="og:image" content="https://gainframe.app/assets/og-image.png">
+    <meta property="og:site_name" content="GainFrame">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GainFrame Comics — Science-Backed Gym Tips">
+    <meta name="twitter:description"
+        content="Visual guides to nutrition, training, and body composition from GainFrame.">
+    <meta name="twitter:image" content="https://gainframe.app/assets/og-image.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.webp">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.webp">
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/favicon-192.webp">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N6YPFBB8JE');
+    </script>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "GainFrame Comics",
+        "description": "Visual guides to nutrition, training, and body composition. Swipe-through comics that make fitness science simple.",
+        "url": "https://gainframe.app/comics.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "GainFrame",
+            "url": "https://gainframe.app"
+        }
+    }
+    </script>
+    <style>
+        /* =====================================================
+           COMICS GALLERY — Inline styles (page-specific)
+           ===================================================== */
+
+        .comics-hero {
+            padding: var(--sp-2xl) 0 var(--sp-xl);
+            text-align: center;
+            background: var(--color-bg);
+        }
+
+        .comics-hero .blog-header-title {
+            margin-bottom: var(--sp-sm);
+        }
+
+        .comics-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: var(--sp-md);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .comics-count-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-brand-red);
+            animation: dotPulse 2s infinite;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ---- Gallery Grid ---- */
+        .comics-gallery {
+            padding: 0 0 var(--sp-section);
+        }
+
+        .comics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--sp-lg);
+        }
+
+        /* ---- Comic Card ---- */
+        .comic-card {
+            text-decoration: none;
+            color: inherit;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--color-bg);
+            border: 1.5px solid rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .comic-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 56px rgba(0, 0, 0, 0.12);
+            border-color: rgba(0, 0, 0, 0.16);
+        }
+
+        .comic-card-cover {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            background: #0C0C0E;
+            position: relative;
+        }
+
+        .comic-card-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .comic-card:hover .comic-card-cover img {
+            transform: scale(1.05);
+        }
+
+        /* Slide count badge */
+        .comic-slide-count {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            letter-spacing: 0.03em;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .comic-slide-count svg {
+            width: 12px;
+            height: 12px;
+            opacity: 0.8;
+        }
+
+        .comic-card-info {
+            padding: var(--sp-md) var(--sp-lg) var(--sp-lg);
+        }
+
+        .comic-card-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--color-text);
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        /* ---- Peek Carousel Viewer ---- */
+        .comic-viewer {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: #f0ece7;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .comic-viewer.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        /* Header bar */
+        .comic-viewer-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 28px;
+            z-index: 10;
+        }
+
+        .comic-viewer-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        .comic-viewer-counter {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            letter-spacing: -0.01em;
+        }
+
+        .comic-viewer-counter .current-num {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--color-text);
+        }
+
+        .comic-viewer-close {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            background: transparent;
+            border: 1.5px solid var(--color-border);
+            color: var(--color-text);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease, border-color 0.2s ease;
+            z-index: 10;
+        }
+
+        .comic-viewer-close:hover {
+            background: var(--color-surface);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Carousel track */
+        .comic-viewer-stage {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .comic-viewer-track {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
+            /* Initial offset is set via JS. Slides are positioned in a row. */
+        }
+
+        .comic-viewer-slide {
+            flex-shrink: 0;
+            width: min(380px, 70vw);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                        opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: scale(0.82);
+            opacity: 0.4;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .comic-viewer-slide.active {
+            transform: scale(1);
+            opacity: 1;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+            cursor: default;
+        }
+
+        .comic-viewer-slide.adjacent {
+            transform: scale(0.82);
+            opacity: 0.5;
+        }
+
+        .comic-viewer-slide.far {
+            transform: scale(0.7);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .comic-viewer-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Nav arrows */
+        .comic-viewer-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: 1.5px solid rgba(0, 0, 0, 0.08);
+            color: var(--color-text);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+            z-index: 5;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .comic-viewer-nav:hover {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .comic-viewer-nav:disabled {
+            opacity: 0.15;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .comic-viewer-nav.prev { left: max(16px, calc(50% - min(380px, 70vw) - 60px)); }
+        .comic-viewer-nav.next { right: max(16px, calc(50% - min(380px, 70vw) - 60px)); }
+
+        /* Bottom dots */
+        .comic-viewer-dots {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .comic-viewer-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.12);
+            transition: background 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .comic-viewer-dot.active {
+            background: var(--color-text);
+            transform: scale(1.2);
+        }
+
+        .comic-viewer-dot:hover:not(.active) {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 900px) {
+            .comics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--sp-md);
+            }
+
+            .comic-viewer-slide {
+                width: min(320px, 65vw);
+            }
+
+            .comic-viewer-track {
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .comics-grid {
+                grid-template-columns: 1fr;
+                max-width: 360px;
+                margin: 0 auto;
+            }
+
+            .comics-hero .blog-header-title {
+                font-size: 2.25rem;
+            }
+
+            .comic-viewer-slide {
+                width: min(280px, 75vw);
+            }
+
+            .comic-viewer-track {
+                gap: 12px;
+            }
+
+            .comic-viewer-nav {
+                width: 38px;
+                height: 38px;
+                font-size: 1.1rem;
+            }
+
+            .comic-viewer-nav.prev { left: 8px; }
+            .comic-viewer-nav.next { right: 8px; }
+
+            .comic-viewer-title {
+                font-size: 0.9rem;
+                max-width: 50%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .comic-viewer-header {
+                padding: 16px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div data-site-nav></div>
+    <script src="/assets/shared-nav.js"></script>
+
+    <!-- ==================== COMICS HEADER ==================== -->
+    <header class="comics-hero">
+        <div class="container">
+            <h1 class="blog-header-title hero-text-stagger">GainFrame <span class="accent-underline">Comics</span></h1>
+            <p class="blog-header-subtitle hero-text-stagger">Science-backed gym tips in swipe-through visuals. Nutrition, training, and body composition — explained simply.</p>
+            <div class="comics-count hero-text-stagger">
+                <span class="comics-count-dot"></span>
+                <span id="comicsCountLabel">11 comics</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== COMICS GRID ==================== -->
+    <section class="comics-gallery">
+        <div class="container">
+            <div class="comics-grid" id="comicsGrid">
+                <!-- Rendered by JS from the manifest -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PEEK CAROUSEL VIEWER ==================== -->
+    <div class="comic-viewer" id="comicViewer">
+        <div class="comic-viewer-header">
+            <span class="comic-viewer-title" id="viewerTitle"></span>
+            <span class="comic-viewer-counter" id="viewerCounter"></span>
+        </div>
+        <button class="comic-viewer-close" id="viewerClose" aria-label="Close viewer">&times;</button>
+        <div class="comic-viewer-stage">
+            <button class="comic-viewer-nav prev" id="viewerPrev" aria-label="Previous slide">&#8249;</button>
+            <div class="comic-viewer-track" id="viewerTrack">
+                <!-- Slides rendered by JS -->
+            </div>
+            <button class="comic-viewer-nav next" id="viewerNext" aria-label="Next slide">&#8250;</button>
+        </div>
+        <div class="comic-viewer-dots" id="viewerDots"></div>
+    </div>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta" id="download">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Stop guessing. Start tracking.</h2>
+            <p class="cta-subtitle scroll-reveal">Free 1-month trial. $4.99/mo after that. Your photos never leave your device.</p>
+            <div class="scroll-reveal" style="margin-top: var(--sp-lg); display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="app-store-badge-link" target="_blank" rel="noopener">
+                    <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" style="height: 52px; width: auto;" />
+                </a>
+                <p class="hero-trust-copy">No credit card required · Cancel anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <div data-newsletter-signup></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="features.html">Features</a>
+                <a href="blog.html">Blog</a>
+                <a href="comics.html">Comics</a>
+                <a href="tools/">Tools</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="/assets/tiktok/comic/comics-manifest.js"></script>
+    <script>
+        /* ---- Render Gallery Grid ---- */
+        (() => {
+            const grid = document.getElementById('comicsGrid');
+            const countLabel = document.getElementById('comicsCountLabel');
+            if (!grid || typeof COMICS_MANIFEST === 'undefined') return;
+
+            countLabel.textContent = `${COMICS_MANIFEST.length} comic${COMICS_MANIFEST.length !== 1 ? 's' : ''}`;
+
+            COMICS_MANIFEST.forEach((comic, i) => {
+                const card = document.createElement('div');
+                card.className = `comic-card scroll-reveal reveal-delay-${Math.min(i + 1, 8)}`;
+                card.setAttribute('data-slug', comic.slug);
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.innerHTML = `
+                    <div class="comic-card-cover">
+                        <img src="assets/tiktok/comic/${comic.slug}/slide-0-cover.${comic.ext}"
+                             alt="${comic.title}" loading="lazy">
+                        <span class="comic-slide-count">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                                <path d="M3 9h18M9 3v18"/>
+                            </svg>
+                            6 slides
+                        </span>
+                    </div>
+                    <div class="comic-card-info">
+                        <h3>${comic.title}</h3>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        })();
+
+        /* ---- Peek Carousel Viewer ---- */
+        (() => {
+            const viewer = document.getElementById('comicViewer');
+            const track = document.getElementById('viewerTrack');
+            const titleEl = document.getElementById('viewerTitle');
+            const counterEl = document.getElementById('viewerCounter');
+            const dotsEl = document.getElementById('viewerDots');
+            const prevBtn = document.getElementById('viewerPrev');
+            const nextBtn = document.getElementById('viewerNext');
+            const closeBtn = document.getElementById('viewerClose');
+
+            let currentSlug = '';
+            let currentSlide = 0;
+            const totalSlides = 6;
+
+            function getSlideUrl(slug, index) {
+                const comic = COMICS_MANIFEST.find(c => c.slug === slug);
+                const ext = comic ? comic.ext : 'png';
+                if (index === 0) return `assets/tiktok/comic/${slug}/slide-0-cover.${ext}`;
+                return `assets/tiktok/comic/${slug}/slide-${index}.${ext}`;
+            }
+
+            function getComicTitle(slug) {
+                const comic = COMICS_MANIFEST.find(c => c.slug === slug);
+                return comic ? comic.title : slug;
+            }
+
+            function buildSlides(slug) {
+                track.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const slide = document.createElement('div');
+                    slide.className = 'comic-viewer-slide';
+                    slide.setAttribute('data-index', i);
+                    const img = document.createElement('img');
+                    img.src = getSlideUrl(slug, i);
+                    img.alt = `${getComicTitle(slug)} — Slide ${i + 1}`;
+                    img.loading = i <= 2 ? 'eager' : 'lazy';
+                    slide.appendChild(img);
+                    slide.addEventListener('click', () => {
+                        if (i !== currentSlide) goToSlide(i);
+                    });
+                    track.appendChild(slide);
+                }
+            }
+
+            function updateCounter() {
+                counterEl.innerHTML = `<span class="current-num">0${currentSlide + 1}</span>/${String(totalSlides).padStart(2, '0')}`;
+            }
+
+            function renderDots() {
+                dotsEl.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = `comic-viewer-dot${i === currentSlide ? ' active' : ''}`;
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsEl.appendChild(dot);
+                }
+            }
+
+            function updateSlideStates() {
+                const slides = track.querySelectorAll('.comic-viewer-slide');
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active', 'adjacent', 'far');
+                    const diff = Math.abs(i - currentSlide);
+                    if (diff === 0) slide.classList.add('active');
+                    else if (diff === 1) slide.classList.add('adjacent');
+                    else slide.classList.add('far');
+                });
+
+                // Center the active slide in the viewport
+                const slideWidth = slides[0] ? slides[0].offsetWidth : 380;
+                const gap = parseInt(getComputedStyle(track).gap) || 24;
+                const stageWidth = track.parentElement.offsetWidth;
+                const offset = currentSlide * (slideWidth + gap) - (stageWidth / 2 - slideWidth / 2);
+                track.style.transform = `translateX(${-offset}px)`;
+            }
+
+            function goToSlide(index) {
+                currentSlide = Math.max(0, Math.min(index, totalSlides - 1));
+                updateSlideStates();
+                updateCounter();
+                renderDots();
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+            }
+
+            function openViewer(slug) {
+                currentSlug = slug;
+                currentSlide = 0;
+                titleEl.textContent = getComicTitle(slug);
+                buildSlides(slug);
+                viewer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                // Wait for DOM layout then position
+                requestAnimationFrame(() => {
+                    goToSlide(0);
+                });
+            }
+
+            function closeViewer() {
+                viewer.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Card click handlers
+            document.addEventListener('click', (e) => {
+                const card = e.target.closest('.comic-card');
+                if (card) openViewer(card.getAttribute('data-slug'));
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const card = e.target.closest('.comic-card');
+                    if (card) openViewer(card.getAttribute('data-slug'));
+                }
+            });
+
+            // Nav
+            prevBtn.addEventListener('click', () => { if (currentSlide > 0) goToSlide(currentSlide - 1); });
+            nextBtn.addEventListener('click', () => { if (currentSlide < totalSlides - 1) goToSlide(currentSlide + 1); });
+
+            // Close
+            closeBtn.addEventListener('click', closeViewer);
+            viewer.addEventListener('click', (e) => {
+                if (e.target === viewer || e.target.classList.contains('comic-viewer-stage')) closeViewer();
+            });
+
+            // Keyboard
+            document.addEventListener('keydown', (e) => {
+                if (!viewer.classList.contains('active')) return;
+                if (e.key === 'Escape') closeViewer();
+                if (e.key === 'ArrowLeft' && currentSlide > 0) goToSlide(currentSlide - 1);
+                if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
+            });
+
+            // Swipe support
+            let touchStartX = 0;
+            viewer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            viewer.addEventListener('touchend', (e) => {
+                const diff = touchStartX - e.changedTouches[0].screenX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0 && currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
+                    if (diff < 0 && currentSlide > 0) goToSlide(currentSlide - 1);
+                }
+            }, { passive: true });
+        })();
+
+        /* ---- Scroll Reveal Observer ---- */
+        (() => {
+            const selectors = [
+                '.scroll-reveal',
+                '.hero-text-stagger',
+                '.hero-image-stagger'
+            ];
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.05 }
+            );
+            document.querySelectorAll(selectors.join(',')).forEach((el) => observer.observe(el));
+        })();
+    </script>
+    <!-- TikTok Pixel Code Start -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
+                for (
+                    var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
+            }, ttq.load = function (e, n) {
+                var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
+                    ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+            };
+            ttq.load('D6MSGGBC77U9JTU05FR0');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script>
+
+    <script defer src="/assets/email-capture-bar.js"></script>
+    <script defer src="/assets/newsletter-form.js"></script>
+</body>
+
+</html>
