@@ -91,11 +91,12 @@ Follow these phases sequentially. **Do not skip ahead. Get user approval before 
 
 ---
 
-### Phase 2: Numbered Slides Text (1-5)
+### Phase 2: Numbered Slides Text
 
-**Slide count:** Default to 5 numbered slides, but 4 is acceptable if the topic doesn't need 5. Ask the user if they have a preference.
+**Slide count:** Default to 5 or 6 numbered slides depending on the format.
+**⚠️ CRITICAL "TOP X" RULE:** If a post promises a specific number of tips (e.g., "Top 5 Mistakes"), you MUST provide exactly that many tips PLUS one additional slide for the GainFrame plug. For a "Top 5" post, you must generate **6 numbered slides** (Slides 1-5 for tips, Slide 6 for the GainFrame plug). Do NOT use one of the promised tips as the plug.
 
-**Goal:** Write punchy, scannable content for 5 slides.
+**Goal:** Write punchy, scannable content for the numbered slides.
 
 For each slide, draft:
 - **Title:** Short, bold statement (3-8 words). This goes in the black number banner.
@@ -110,7 +111,7 @@ For each slide, draft:
   - At least 1 solo mascot action scene
   - Consider: mirror/dream sequence, prop interaction, before/after
 - The slides should build on each other — not just random tips
-- **GainFrame mention is MANDATORY** — place it on slide 4 or 5 (never the first 3). It should feel like a natural recommendation.
+- **GainFrame mention is MANDATORY** — place it on the final slide (e.g., Slide 5 or Slide 6). It should feel like a natural recommendation. For "Top 5" posts, the GainFrame mention MUST be Slide 6.
 
 **Present the full draft to the user as a formatted table:**
 
@@ -122,6 +123,7 @@ For each slide, draft:
 | 3 | [Title] | [Subtitle text] | [Scene] |
 | 4 | [Title] | [Subtitle text] | [Scene] |
 | 5 | [Title] | [Subtitle text] | [Scene] |
+| 6 | [Title] | [Subtitle text] | [Scene] (If needed for "Top 5" rule) |
 
 **Iterate with the user until they approve all slide text.**
 
@@ -129,7 +131,7 @@ For each slide, draft:
 
 ### Phase 3: Image Generation
 
-**Goal:** Generate 6 GainFrame Guy illustrations (1 cover + 5 slides) with perfect character consistency, clean typography, and branding.
+**Goal:** Generate 6-7 GainFrame Guy illustrations (1 cover + 5-6 numbered slides) with perfect character consistency, clean typography, and branding.
 
 #### ⚠️ CRITICAL: Tool Selection
 
@@ -256,6 +258,7 @@ CRITICAL EXACT FILE NAMING YOU MUST USE TO SAVE THE IMAGES:
 - `slide-3.png`
 - `slide-4.png`
 - `slide-5.png`
+- `slide-6.png` (if doing a 6-slide post)
 
 Do NOT name them `cover.png` or `slide1.png` or `slide_1.png`. You MUST use HYPHENS (-), NOT UNDERSCORES (_). The web gallery explicitly searches for `slide-0-cover` and `slide-[N]` with dashes. Failure to use this exact naming convention will result in broken images on the website.
 
@@ -263,7 +266,7 @@ Do NOT name them `cover.png` or `slide1.png` or `slide_1.png`. You MUST use HYPH
 
 ### Phase 4: Review & Export
 
-1. **Show the full set.** Display all 6 images together so the user can review the complete carousel.
+1. **Show the full set.** Display all 6-7 images together so the user can review the complete carousel.
 
 2. **Verify text rendering.** Check that the text in each generated image is readable and correctly spelled. If any text is garbled or cut off, regenerate that slide with a simplified text prompt.
 
@@ -281,7 +284,7 @@ Do NOT name them `cover.png` or `slide1.png` or `slide_1.png`. You MUST use HYPH
    ```
    ## [Date] — [Title]
    - Slug: [slug]
-   - Slides: 6
+   - Slides: 6-7
    - GainFrame mention: Yes/No (Slide #)
    - Status: Done
    ```
@@ -315,7 +318,7 @@ This step copies the finished slides and `content.md` to a dedicated folder insi
 2. **Confirm to user:** Let them know the files are syncing and where to find them:
    - Open **Files** app on iPhone
    - Navigate to **iCloud Drive → TikTok-Drafts → [slug]**
-   - All 6 slides + caption/hashtags are there
+   - All 6-7 slides + caption/hashtags are there
    - Open TikTok → New Post → Select photos from Files app
 
 3. **Cleanup (optional):** Old drafts can be deleted from the TikTok-Drafts folder after posting. The canonical copies always live in `assets/tiktok/comic/[slug]/`.
