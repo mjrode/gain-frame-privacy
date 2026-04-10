@@ -1244,12 +1244,10 @@
             const readComics = JSON.parse(localStorage.getItem('gf-read-comics') || '[]');
 
             // "New" threshold — 7 days
-            const NEW_DAYS = 7;
-            const now = new Date();
-            function isNew(dateStr) {
-                if (!dateStr) return false;
-                const diff = (now - new Date(dateStr + 'T00:00:00')) / 86400000;
-                return diff <= NEW_DAYS;
+            // "New" ribbon on the 3 newest comics only
+            const NEW_COUNT = 3;
+            function isNew(index) {
+                return index < NEW_COUNT;
             }
 
             const TAG_MAP = {
@@ -1309,7 +1307,7 @@
             // Hero card — first comic
             const hero = COMICS_MANIFEST[0];
             const heroRead = readComics.includes(hero.slug);
-            const heroNew = isNew(hero.date);
+            const heroNew = isNew(0);
             const heroSeries = getSeriesName(hero.slug);
             const heroEl = document.createElement('div');
             heroEl.className = 'comic-hero scroll-reveal';
@@ -1348,7 +1346,7 @@
 
                 const tag = getTag(comic.slug);
                 const isRead = readComics.includes(comic.slug);
-                const comicIsNew = isNew(comic.date);
+                const comicIsNew = isNew(i + 1);
                 const series = getSeriesName(comic.slug);
                 const card = document.createElement('div');
                 card.className = `comic-card scroll-reveal-card card-delay-${(i % 3) + 1}`;
