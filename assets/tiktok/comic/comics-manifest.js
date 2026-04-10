@@ -6,6 +6,7 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "gym-bro-pipeline",           title: "The Gym Bro Pipeline",     date: "2026-04-10", ext: "png" },
     { slug: "skinny-fat-trap",            title: "The Skinny-Fat Trap",      date: "2026-04-10", ext: "png" },
     { slug: "fix-progress-photos",        title: "Fix Your Progress Photos", date: "2026-04-10", ext: "png" },
     { slug: "optimal-training-truth",     title: "The Truth About Optimal Training", date: "2026-04-10", ext: "png" },
