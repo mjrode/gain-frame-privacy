@@ -28,25 +28,23 @@ Fonts must be explicitly specified in EVERY prompt. Letting the AI choose = inco
 | **Badge text** | Clean sans-serif | Bold | ALL CAPS |
 | **Accent words** | Same font as surrounding text | Same weight | Red (#E53935) color |
 
-**In prompts, NEVER ask the AI to draw text.** To ensure pixel-perfect, completely consistent typography like the "Blue Bro" aesthetic, we use a hybrid programmatic workflow:
-- The AI generator ONLY creates the background and character.
-- The `assets/tiktok/scripts/overlay_text.py` script applies the title and subtitle using authentic `.ttf` fonts over the blank image space.
+**In prompts, instruct the AI to draw the text.** To ensure completely consistent typography like the "Blue Bro" aesthetic, we define the typography rules directly in the generated prompt.
 
 ### Branding Badge — "GainFrame Guy"
 
-We overlay the branding badge programmatically using the script. **DO NOT ask the AI to draw the badge.**
+The GainFrame Guy branding badge should ONLY appear on the **cover slide**. Do not include the badge on numbered slides.
 
 ## Slide Layout Patterns
 
 ### Cover Slide (Slide 0)
-- **Programmatic Text Overlay:** The AI should leave the **top 40% of the image COMPLETELY BLANK**.
-- The script will render the bold, all-caps title text in the empty space (Impact-style).
+- The AI generates the bold, all-caps title text in the **top 40%** of the image (Impact-style).
 - Mascot is positioned and interacting with props entirely in the **bottom 60%**.
+- GainFrame Guy branding badge is explicitly drawn in the top-left corner.
 
 ### Numbered Content Slides (1-5)
-- **Programmatic Text Overlay:** The AI should leave the **top 35% of the image COMPLETELY BLANK**.
-- The script will render the numbered title banner and subtext in the empty space.
+- The AI generates the numbered title banner and subtext in the **top 35%** of the image.
 - Mascot is positioned in the **bottom 65%**.
+- **NO GainFrame Guy branding badge on numbered slides.**
 - Common visual devices:
   - ✅/❌ comparison (correct form vs. wrong form)
   - Mirror reflection (aspiration vs. reality)

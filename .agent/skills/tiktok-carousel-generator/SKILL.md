@@ -15,7 +15,7 @@ triggers:
 ## Overview
 This skill orchestrates the creation of TikTok carousel comic posts featuring **GainFrame Guy** — the GainFrame mascot character. It follows a phased conversational workflow: brainstorm or select a topic, draft the slide text (cover + 4-5 numbered slides), iterate until the copy is sharp, then generate each **complete slide image** (illustration + text) using Antigravity's `generate_image` tool with `ImagePaths` referencing the mascot character sheet for visual consistency.
 
-Every post uses the same mascot character, visual style, branding badge, and layout — ensuring brand consistency across all content. Text banners and subtitles are baked directly into the generated images — no CapCut/Canva compositing needed.
+Every post uses the same mascot character, visual style, and layout — ensuring brand consistency across all content. The GainFrame Guy branding badge ONLY appears on the cover slide. Text banners and subtitles are baked directly into the generated images by Gemini — no CapCut/Canva compositing or programmatic text overlays needed.
 
 ## CRITICAL: Read the Style Guide First
 
@@ -154,18 +154,19 @@ See `STYLE_GUIDE.md > Prompt Engineering Notes` for full rationale.
 
 For each slide, use `generate_image` with this configuration:
 
-**Required ImagePaths for EVERY call (3 references):**
+**Required ImagePaths:**
+- **Cover Slide (3 references):** Include `gf-mascot-template.jpeg`, the scene reference, AND `gary-badge.png` for the top-left corner branding.
+- **Numbered Slides (2 references):** Include `gf-mascot-template.jpeg` and the scene reference. DO NOT include `gary-badge.png` as numbered slides do not have the badge.
+
+Example for Numbered Slides:
 ```
 ImagePaths: [
   "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg",
-  "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gary-badge.png",
   "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/[closest-scene-ref].jpeg"
 ]
 ```
 
-- **Always include `gf-mascot-template.jpeg`** — the character design reference
-- **Always include `gary-badge.png`** — the head-only badge for the top-left corner branding
-- Pick a third reference image matching the scene type:
+- Pick a scene reference image matching the scene type:
   - Flexing/mirror → `mirror-mascot.jpeg`
   - Form comparison → `mascot-form.jpeg`
   - Gym equipment → `mascot-legs.jpeg`
@@ -240,18 +241,14 @@ Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat 
 **IMPORTANT:**
 - Generate ONE image at a time, not in parallel. This lets you course-correct style drift.
 - After each generation, show the result to the user and ask if it matches the style. If not, refine the prompt.
-- Always include `gf-mascot-template.jpeg` AND `gary-badge.png` as reference images.
+- Always include `gf-mascot-template.jpeg` as a reference image. Only include `gary-badge.png` for the cover slide.
 - Keep concurrency ≤ 1 for character consistency. Quality > speed.
 
-#### Overlay Text & Save Images
-After generating the image from Nano Banana, you MUST ALWAYS run it through the Python script to bake in the title, subtitle, and branding badge. Use the `--output` parameter to save directly to the correct final path.
+#### Save Images
 
-**Example Command:**
-```bash
-python3 assets/tiktok/scripts/overlay_text.py /path/to/raw_generation.png --type slide --title "DONT DO THIS" --subtitle "Keep your back straight" --output assets/tiktok/comic/[slug]/slide-[N].png
-```
+Once Nano Banana generates the slide, save it directly to the correct final path. No programmatic text overlay script is needed, as Gemini generates the image with text baked in natively.
 
-CRITICAL EXACT FILE NAMING YOU MUST USE FOR THE `--output` FLAG:
+CRITICAL EXACT FILE NAMING YOU MUST USE TO SAVE THE IMAGES:
 - `slide-0-cover.png` (for the cover)
 - `slide-1.png`
 - `slide-2.png`
@@ -285,7 +282,7 @@ Do NOT name them `cover.png` or `slide1.png`. The web gallery explicitly searche
    - Slug: [slug]
    - Slides: 6
    - GainFrame mention: Yes/No (Slide #)
-   - Status: Ready for text overlay
+   - Status: Done
    ```
 
 6. **Register in the comics gallery.** Add a new entry to the top of the `COMICS_MANIFEST` array in `assets/tiktok/comic/comics-manifest.js` so the comic automatically appears on the website gallery page. Insert it as the **first entry** (newest first) with today's date. Use `"png"` for ext unless the images were saved as `.jpeg`.
@@ -301,9 +298,9 @@ Do NOT name them `cover.png` or `slide1.png`. The web gallery explicitly searche
 - **Never skip the text iteration phase.** The copy must be approved before generating any images. Bad copy = wasted generation credits.
 - **One image at a time.** Do NOT batch-generate all images. Character consistency requires sequential generation with review.
 - **Always use the base prompt prefix.** The mascot's visual identity is defined by the exact prompt prefix in the style guide. Never freestyle it.
-- **Always include the GainFrame Gary badge.** Every slide gets the top-left branding badge. Include `gary-badge.png` in ImagePaths.
+- **GainFrame Gary badge.** Only the COVER slide gets the top-left branding badge. Do not include it on numbered slides.
 - **Always specify fonts.** Every prompt must explicitly request Impact-style condensed sans-serif for titles and clean sans-serif for subtitles. Never let the AI choose fonts freely.
-- **Text Overlay Script.** While Nano Banana sometimes gets text right, you MUST ALWAYS run the generated images through `assets/tiktok/scripts/overlay_text.py` if the text fails or to ensure consistency, and then save the final output using the strict `slide-0-cover.png` and `slide-[N].png` formats. No external CapCut/Canva compositing needed.
+- **No Text Overlay Script.** You do NOT use any Python script to overlay text. Gemini generates the text directly in the image. If the text fails, adjust your prompt and regenerate the slide. Save the final output using the strict `slide-0-cover.png` and `slide-[N].png` formats.
 - **Save everything.** Every carousel must have its own directory under `assets/tiktok/comic/[slug]/` with all images AND a `content.md` with the text + prompts used.
 - **Prompt reproducibility.** Always save the exact prompt used for each image in `content.md`. If a style works well, it becomes the new reference.
 - **Exactly 1 GainFrame mention per carousel.** Always included, never in the first 3 slides. Pure value first — product mention is earned, not forced.
@@ -311,7 +308,7 @@ Do NOT name them `cover.png` or `slide1.png`. The web gallery explicitly searche
 ## Reference Files
 - `assets/gf-mascot/STYLE_GUIDE.md` — **MUST READ FIRST** — Character design, visual constants, typography, badge specs, title patterns, prompt templates
 - `assets/gf-mascot/gf-mascot-template.jpeg` — Mascot character sheet (neutral standing pose)
-- `assets/gf-mascot/gary-badge.png` — **Head-only badge icon** for top-left branding (ALWAYS include in ImagePaths)
+- `assets/gf-mascot/gary-badge.png` — **Head-only badge icon** for top-left branding (include ONLY when generating the cover slide)
 - `assets/gf-mascot/mirror-mascot.jpeg` — Example: mirror reflection scene
 - `assets/gf-mascot/mascot-form.jpeg` — Example: good vs. bad form (✅/❌ comparison)
 - `assets/gf-mascot/mascot-legs.jpeg` — Example: gym equipment interaction
