@@ -180,10 +180,6 @@ in space with the background visible between them. The eyes and S-curve nose flo
 the bracket frame with NO background fill, NO square, NO box behind them. Copy the head 
 design from the reference images exactly — open bracket corners, not a filled square.
 
-In the top-left corner, draw a small branding badge: a tiny version of the character's 
-bracket-frame head icon (matching the badge reference image) next to bold sans-serif text 
-reading "GAINFRAME GUY". Keep it small like a watermark — about 10% of image width.
-
 Scene: [SCENE DESCRIPTION specific to this slide]
 
 CRITICAL PLACEMENT: The character and all props MUST be drawn completely within the 
@@ -198,17 +194,16 @@ number banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle/bod
 NO handwritten, script, or decorative fonts anywhere.
 
 Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
-4:5 TikTok format (1080x1350). No watermarks except the GainFrame Guy badge.
+4:5 TikTok format (1080x1350). No watermarks whatsoever.
 ```
 
 **Prompt template for cover slide:**
 
-**⚠️ TIKTOK GRID SAFE ZONE:** TikTok crops 4:5 images to ~1:1 square thumbnails in the profile grid, clipping ~25% from each side and cropping top/bottom significantly. Text that bleeds to the edges WILL be cut off. ALL cover title text must be:
-- Centered horizontally in the **middle 50%** of the image (huge left/right margins)
-- Positioned vertically centered or slightly above center — NOT at the very top edge
-- **Max 3-4 words per line**, stacked into 2-3 short lines
-- **Total title: 4-8 words max** — if it's longer, it WILL get clipped
-- Text must NEVER touch or come close to the left/right edges of the image
+**⚠️ TIKTOK GRID SAFE ZONE:** TikTok crops 4:5 images to ~1:1 square thumbnails in the profile grid, clipping some space from each side and cropping top/bottom significantly. ALL cover title text must be:
+- Centered horizontally, taking up around **75% to 80%** of the image width
+- Positioned vertically centered or slightly above center within the top area — NOT at the very top edge
+- **Max 4-5 words per line**, stacked into 2-3 short lines
+- Text needs moderate margins on left/right so it doesn't touch the edges and respects the crop
 
 ```
 A cartoon illustration of this exact character from the reference images in a new scene. 
@@ -228,13 +223,12 @@ BOTTOM 60% of the image.
 
 TITLE TEXT PLACEMENT (CRITICAL — READ CAREFULLY): 
 - The title text MUST be placed in the TOP 40% of the image.
-- The title text MUST be centered in the MIDDLE 50% of the image width. 
-- There must be VERY LARGE empty margins on both the left and right sides.
-- The text must NEVER extend to the edges — it will be cropped in the TikTok grid.
-- Stack the title into 2-3 SHORT lines (max 3-4 words per line), centered.
+- The title text MUST be centered horizontally, taking up around 75% to 80% of the image width.
+- Leave moderate margins on both the left and right sides so it doesn't touch the edges.
+- Stack the title into 2-3 SHORT lines (max 4-5 words per line), centered.
 - Position the text block vertically centered within the top 40% or slightly above center.
 - The title reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red (#E53935). 
-- Very prominent bold text, eye-catching, but COMPACT — not wide.
+- Very prominent bold text, eye-catching.
 
 TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for the title (ALL CAPS). 
 NO handwritten, script, or decorative fonts.

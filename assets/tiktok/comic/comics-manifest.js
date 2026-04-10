@@ -6,6 +6,7 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "your-first-gym-week",        title: "Your First Gym Week",             date: "2026-04-09", ext: "png" },
     { slug: "creatine-myths-vs-facts",   title: "Creatine: Myths vs Facts",       date: "2026-04-09", ext: "png" },
     { slug: "not-drinking-enough-water",  title: "You're Not Drinking Enough Water", date: "2026-04-09", ext: "png" },
     { slug: "alcohol-stealing-gains",     title: "Alcohol Is Stealing Your Gains",  date: "2026-04-09", ext: "png" },

@@ -164,13 +164,12 @@ BOTTOM 60% of the image.
 
 TITLE TEXT PLACEMENT (CRITICAL — READ CAREFULLY): 
 - The title text MUST be placed in the TOP 40% of the image.
-- The title text MUST be centered in the MIDDLE 50% of the image width. 
-- There must be VERY LARGE empty margins on both the left and right sides.
-- The text must NEVER extend to the edges — it will be cropped in the TikTok grid.
-- Stack the title into 2-3 SHORT lines (max 3-4 words per line), centered.
+- The title text MUST be centered horizontally, taking up around 75% to 80% of the image width.
+- Leave moderate margins on both the left and right sides so it doesn't touch the edges.
+- Stack the title into 2-3 SHORT lines (max 4-5 words per line), centered.
 - Position the text block vertically centered within the top 40% or slightly above center.
 - The title reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red (#E53935). 
-- Very prominent bold text, eye-catching, but COMPACT — not wide.
+- Very prominent bold text, eye-catching.
 
 TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for the title (ALL CAPS). 
 NO handwritten, script, or decorative fonts.
@@ -186,10 +185,6 @@ CRITICAL: The head is NOT a solid square — it is four separate corner brackets
 in space with the background visible between them. The eyes and S-curve nose float inside 
 the bracket frame with NO background fill.
 
-In the top-left corner, draw a small branding badge: a tiny version of the character's 
-bracket-frame head icon (matching the badge reference image) next to bold sans-serif text 
-reading "GAINFRAME GUY". Keep it small like a watermark — about 10% of image width.
-
 Scene: [SCENE DESCRIPTION HERE]
 
 CRITICAL PLACEMENT: The character and all props MUST be drawn completely within the 
@@ -204,7 +199,7 @@ number banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle/bod
 NO handwritten, script, or decorative fonts anywhere.
 
 Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
-4:5 TikTok format. No watermarks except the GainFrame Guy badge.
+4:5 TikTok format. No watermarks whatsoever.
 ```
 
 ### Scene Suffix Examples
