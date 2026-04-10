@@ -162,6 +162,7 @@ BOTTOM 60% of the image.
 
 TITLE TEXT PLACEMENT (CRITICAL — READ CAREFULLY): 
 - The title text MUST be placed in the TOP 40% of the image.
+- The title text MUST be raw text directly on the background. DO NOT place the title inside any shape, box, or black rounded rectangle banner.
 - The title text MUST be centered horizontally, taking up around 75% to 80% of the image width.
 - Leave moderate margins on both the left and right sides so it doesn't touch the edges.
 - Stack the title into 2-3 SHORT lines (max 4-5 words per line), centered.
