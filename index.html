@@ -32,10 +32,11 @@
     <meta name="apple-mobile-web-app-title" content="GainFrame">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="homepage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
@@ -126,574 +127,285 @@
     </script>
 </head>
 
-<body>    <div data-site-nav></div>
+<body class="homepage">
+    <div data-site-nav></div>
     <script src="/assets/shared-nav.js"></script>
-<!-- ==================== HERO ==================== -->
-    <section class="hero hero-dark">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hp-hero">
         <div class="container">
-            <div class="hero-content hero-text-stagger">
-                <h1 class="hero-title">Your scale is lying to you.<br><span class="accent-underline">Here's the proof.</span></h1>
-                <p class="hero-subtitle">One photo. Body fat %, muscle-by-muscle scores, and a clear read on whether your program is actually working. Do it weekly — you'll see exactly where you're gaining, where you're stalling, and what to fix next.</p>
-                <div class="hero-features">
-                    <div class="hero-chip">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                        </svg>
-                        Replaces $150 DEXA scans
+            <div class="hp-hero-grid">
+                <div class="hp-hero-content scroll-reveal">
+                    <span class="hp-eyebrow">AI Body Composition</span>
+                    <h1 class="hp-hero-title">Body composition<br>analysis. From a photo.</h1>
+                    <p class="hp-hero-sub">Body fat %, FFMI, 12 muscle group scores, and personalized
+                        recommendations — generated in 60 seconds from a single photo.</p>
+                    <div class="hp-specimen-row">
+                        <span class="hp-specimen">BF% <strong>17.2</strong></span>
+                        <span class="hp-specimen-sep">|</span>
+                        <span class="hp-specimen">FFMI <strong>21.4</strong></span>
+                        <span class="hp-specimen-sep">|</span>
+                        <span class="hp-specimen">Score <strong>74</strong>/100</span>
+                        <span class="hp-specimen-sep">|</span>
+                        <span class="hp-specimen">Muscles <strong>12</strong></span>
                     </div>
-                    <div class="hero-chip">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        See what your scale can't show
-                    </div>
-                    <div class="hero-chip">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
-                        </svg>
-                        Track every metric over time
-                    </div>
-                    <div class="hero-chip">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
-                        </svg>
-                        Spot muscle loss before it's too late
-                    </div>
-                </div>
-                <div class="hero-cta">
-                    <div class="app-store-wrapper" style="margin-top: 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-                        <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="app-store-badge-link" target="_blank" rel="noopener">
-                            <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" style="height: 52px; width: auto;" />
+                    <div class="hp-hero-cta">
+                        <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
+                            class="app-store-badge-link" target="_blank" rel="noopener">
+                            <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png"
+                                alt="Download on the App Store" style="height: 52px; width: auto;" />
                         </a>
-                        <p class="hero-trust-copy">Free 1-month trial · $4.99/mo · Photos never stored outside your device</p>
+                        <p class="hp-trust">Free 1-month trial &middot; $4.99/mo &middot; Photos never leave your
+                            device</p>
                     </div>
                 </div>
-            </div>
-            <div class="hero-mockup hero-image-stagger">
-                <div class="hero-video-card">
-                    <video src="GainFrame-1080p-appstore-red.mp4" autoplay loop muted playsinline></video>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="hero-bridge"></div>
-
-    <!-- ==================== SOCIAL PROOF ==================== -->
-    <section class="social-proof-v2">
-        <div class="container">
-            <div class="proof-strip-v2 scroll-reveal">
-                <div class="proof-item-v2">
-                    <span class="proof-num">4.9 ★</span>
-                    <span class="proof-desc">App Store Rating</span>
-                </div>
-                <div class="proof-item-v2">
-                    <span class="proof-num">60s</span>
-                    <span class="proof-desc">Full Body Report</span>
-                </div>
-                <div class="proof-item-v2">
-                    <span class="proof-num">12</span>
-                    <span class="proof-desc">Muscle Groups Scored</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== HOW IT WORKS (TABBED) ==================== -->
-    <section class="how-it-works">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">How GainFrame works</h2>
-
-            <!-- Tab bar -->
-            <div class="hiw-tabs scroll-reveal" role="tablist">
-                <button class="hiw-tab active" role="tab" aria-selected="true" data-tab="scan">Body Scan</button>
-                <button class="hiw-tab" role="tab" aria-selected="false" data-tab="trends">Trend Tracking</button>
-                <button class="hiw-tab" role="tab" aria-selected="false" data-tab="deep-dive">Deep Dive</button>
-            </div>
-
-            <!-- Step progress indicator -->
-            <div class="hiw-progress scroll-reveal">
-                <div class="hiw-progress-track"></div>
-                <div class="hiw-progress-fill" id="hiwProgressFill"></div>
-                <div class="hiw-progress-dots">
-                    <div class="hiw-dot-group">
-                        <div class="hiw-dot active"></div>
-                        <span class="hiw-dot-label">01</span>
-                    </div>
-                    <div class="hiw-dot-group">
-                        <div class="hiw-dot active"></div>
-                        <span class="hiw-dot-label">02</span>
-                    </div>
-                    <div class="hiw-dot-group">
-                        <div class="hiw-dot"></div>
-                        <span class="hiw-dot-label">03</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tab panels -->
-            <div class="hiw-panels">
-                <!-- Body Scan -->
-                <div class="hiw-panel active" data-panel="scan" role="tabpanel">
-                    <div class="steps-grid">
-                        <div class="step">
-                            <div class="step-icon-tl">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
-                                </svg>
-                            </div>
-                            <div class="step-number">01</div>
-                            <h3>Take a photo</h3>
-                            <p>Front, side, or any gym selfie. The ghost overlay guides your pose so every check-in is comparable.</p>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon-tl">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                                </svg>
-                            </div>
-                            <div class="step-number">02</div>
-                            <h3>AI analyzes your body</h3>
-                            <p>Body fat %, 12 muscle group scores, and FFMI — generated in 60 seconds from a single image.</p>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon-tl">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" />
-                                </svg>
-                            </div>
-                            <div class="step-number">03</div>
-                            <h3>Get your baseline</h3>
-                            <p>See exactly where you're starting. Your first scan becomes the benchmark every future check-in is measured against.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Trend Tracking -->
-                <div class="hiw-panel" data-panel="trends" role="tabpanel">
-                    <div class="steps-grid">
-                        <div class="step">
-                            <div class="step-icon-tl">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                                </svg>
-                            </div>
-                            <div class="step-number">01</div>
-                            <h3>Scan weekly</h3>
-                            <p>Set a reminder and check in once a week. The app uses your trend data — not just one snapshot — to give real feedback.</p>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon-tl">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
-                                </svg>
-                            </div>
-                            <div class="step-number">02</div>
-                            <h3>Watch your trends</h3>
-                            <p>Body fat, muscle scores, and weight plotted over time. See exactly what's rising, falling, or stalling.</p>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon-tl">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
-                                </svg>
-                            </div>
-                            <div class="step-number">03</div>
-                            <h3>Catch problems early</h3>
-                            <p>Losing muscle on a cut? Gaining fat on a bulk? Your trend data flags it before you've wasted weeks.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Deep Dive -->
-                <div class="hiw-panel" data-panel="deep-dive" role="tabpanel">
-                    <div class="steps-grid">
-                        <div class="step">
-                            <div class="step-icon-tl">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H3.75A2.25 2.25 0 001.5 6.75v12a2.25 2.25 0 002.25 2.25z" />
-                                </svg>
-                            </div>
-                            <div class="step-number">01</div>
-                            <h3>Pick any two photos</h3>
-                            <p>Select two scans from your timeline — last week vs. today, or January vs. now.</p>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon-tl">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
-                                </svg>
-                            </div>
-                            <div class="step-number">02</div>
-                            <h3>AI compares everything</h3>
-                            <p>Body fat delta, muscle-by-muscle changes, FFMI shift — presented in a detailed report card.</p>
-                        </div>
-                        <div class="step">
-                            <div class="step-icon-tl">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                                </svg>
-                            </div>
-                            <div class="step-number">03</div>
-                            <h3>Get actionable recommendations</h3>
-                            <p>Personalized training and nutrition adjustments based on what the data actually shows — not generic advice.</p>
-                        </div>
+                <div class="hp-hero-visual scroll-reveal">
+                    <div class="hp-phone-minimal">
+                        <video src="GainFrame-1080p-appstore-red.mp4" autoplay loop muted playsinline></video>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== FEATURE: AI COMPARE ==================== -->
-    <section class="feature-section feature-section-v2">
+    <!-- ==================== MEASUREMENT STRIP ==================== -->
+    <section class="hp-measure">
         <div class="container">
-            <div class="feature-split reverse">
-                <div class="feature-text scroll-reveal-right">
-                    <span class="feature-badge-v2 badge-pop">AI Compare</span>
-                    <h2>Your hard work, fully quantified</h2>
-                    <p>Stop guessing if your program is working. GainFrame turns any two photos into a comprehensive,
-                        data-driven progress report. See the exact delta on your body fat, weight, and FFMI. Get an AI
-                        breakdown of your key muscle improvements, and unlock personalized recommendations for your next
-                        phase of training.
+            <div class="hp-measure-grid">
+                <div class="hp-measure-item scroll-reveal">
+                    <span class="hp-measure-num">4.9</span>
+                    <span class="hp-measure-label">App Store Rating</span>
+                </div>
+                <div class="hp-measure-item scroll-reveal">
+                    <span class="hp-measure-num">60s</span>
+                    <span class="hp-measure-label">Full Body Report</span>
+                </div>
+                <div class="hp-measure-item scroll-reveal">
+                    <span class="hp-measure-num">12</span>
+                    <span class="hp-measure-label">Muscle Groups Scored</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROCESS FLOW ==================== -->
+    <section class="hp-process">
+        <div class="container">
+            <h2 class="hp-section-title scroll-reveal">How it works</h2>
+            <div class="hp-flow">
+                <div class="hp-flow-node scroll-reveal">
+                    <div class="hp-flow-circle">01</div>
+                    <h3>Take a photo</h3>
+                    <p>Front, side, or any gym selfie. Ghost overlay guides your pose for consistency.</p>
+                </div>
+                <div class="hp-flow-line"></div>
+                <div class="hp-flow-node scroll-reveal">
+                    <div class="hp-flow-circle">02</div>
+                    <h3>AI analyzes</h3>
+                    <p>Body fat, FFMI, 12 muscle scores, and macro targets — all in 60 seconds.</p>
+                </div>
+                <div class="hp-flow-line"></div>
+                <div class="hp-flow-node scroll-reveal">
+                    <div class="hp-flow-circle">03</div>
+                    <h3>Track over time</h3>
+                    <p>Weekly check-ins reveal trends. See exactly what's improving and what's stalling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ANNOTATED SHOWCASE ==================== -->
+    <section class="hp-showcase">
+        <div class="container">
+            <h2 class="hp-section-title scroll-reveal">What one photo reveals</h2>
+            <p class="hp-section-sub scroll-reveal">Every scan generates a comprehensive body composition report — not
+                just a number.</p>
+            <div class="hp-showcase-layout">
+                <div class="hp-callout hp-callout--left scroll-reveal">
+                    <span class="hp-callout-label">Physique Score</span>
+                    <p>AI-generated 1-100 score based on visible muscle development and overall body composition.</p>
+                </div>
+                <div class="hp-callout hp-callout--right scroll-reveal">
+                    <span class="hp-callout-label">Body Fat %</span>
+                    <p>Estimated from muscle definition, fat distribution, and body proportions. Within 2-4% of DEXA.
                     </p>
-                    <ul class="feature-list">
-                        <li>Body fat, weight, and FFMI deltas</li>
-                        <li>AI analysis of key muscle improvements</li>
-                        <li>Personalized training & macro targets</li>
-                        <li>High-fidelity shareable report cards</li>
-                    </ul>
-                    <p class="replaces-tag">Replaces spreadsheets and guessing if your program works</p>
                 </div>
-                <div class="feature-images parallax-float">
-                    <div class="phone-frame phone-frame-feature">
-                        <img src="assets/lp-deep-dive-summary.webp" alt="GainFrame AI Compare report showing before and after body composition with dual score ring gauges"
-                            loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ==================== FEATURE: FUTURE PHYSIQUE ==================== -->
-    <section class="feature-section feature-section-v2">
-        <div class="container">
-            <div class="feature-split reverse">
-                <div class="feature-text scroll-reveal-right">
-                    <span class="feature-badge-v2 badge-pop">Future Physique</span>
-                    <h2>See where your physique is headed</h2>
-                    <p>Select a pose. Pick a timeline — 3, 6, or 12 months — and set your daily training commitment
-                        level. GainFrame's AI analyzes your photos and
-                        generates a projected image of your future body with predicted stats, trajectory charts, and
-                        goal-specific recommendations.</p>
-                    <ul class="feature-list">
-                        <li>AI-generated future image</li>
-                        <li>Predicted body fat, FFMI, and weight</li>
-                        <li>Adjustable training commitment level</li>
-                        <li>Per-muscle-group trajectory</li>
-                    </ul>
-                    <p class="replaces-tag">Nothing else does this. Only in GainFrame.</p>
-                </div>
-                <div class="feature-images parallax-float">
-                    <div class="phone-frame phone-frame-feature">
-                        <img src="assets/lp-future-3-months.webp"
-                            alt="GainFrame AI future physique prediction showing projected body at 3 months" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FEATURE: AI DEEP DIVE ==================== -->
-    <section class="feature-section feature-section-v2 alt-bg">
-        <div class="container">
-            <div class="feature-split">
-                <div class="feature-text scroll-reveal-left">
-                    <span class="feature-badge-v2 badge-pop">AI Analysis</span>
-                    <h2>Full body composition scan — from a selfie</h2>
-                    <p>Tap any photo. Get a physique score from 1-100, estimated body fat %, BMI, FFMI, lean mass, and
-                        12 individual muscle group scores — each rated from Needs Work to Strong. Plus macro targets and
-                        training recommendations.</p>
-                    <ul class="feature-list">
-                        <li>Physique score with goal-specific feedback</li>
-                        <li>12 muscle groups scored individually</li>
-                        <li>Daily macro targets based on your stats</li>
-                        <li>Shareable report card</li>
-                    </ul>
-                    <p class="replaces-tag">Replaces $150 DEXA scans and $30 InBody visits</p>
-                </div>
-                <div class="feature-images parallax-float">
-                    <div class="phone-frame phone-frame-feature">
+                <div class="hp-showcase-phone scroll-reveal">
+                    <div class="hp-phone-minimal">
                         <img src="assets/lp-deep-dive.webp"
-                            alt="GainFrame single photo deep dive report showing physique score, body fat, BMI, FFMI, and muscle group scores"
+                            alt="GainFrame full body composition report showing physique score, body fat, FFMI, and muscle group scores"
                             loading="lazy">
                     </div>
                 </div>
+                <div class="hp-callout hp-callout--left scroll-reveal">
+                    <span class="hp-callout-label">12 Muscle Groups</span>
+                    <p>Each scored 1-100 with Strong, Developing, or Needs Work ratings and color-coded progress bars.
+                    </p>
+                </div>
+                <div class="hp-callout hp-callout--right scroll-reveal">
+                    <span class="hp-callout-label">Recommendations</span>
+                    <p>Personalized daily macro targets and training adjustments based on your actual data.</p>
+                </div>
             </div>
         </div>
     </section>
 
-
-    <!-- ==================== FEATURE: MUSCLE SCORES ==================== -->
-    <section class="feature-section feature-section-v2">
+    <!-- ==================== FEATURE SPECIMENS ==================== -->
+    <section class="hp-specimens">
         <div class="container">
-            <div class="feature-split reverse">
-                <div class="feature-text scroll-reveal-right">
-                    <span class="feature-badge-v2 badge-pop">Muscle Scores</span>
-                    <h2>Every muscle, scored</h2>
-                    <p>Each analysis breaks down your physique into 12 individual muscle groups — from chest and
-                        shoulders to quads and calves. Every group gets a score from 1–100 and a rating: Strong,
-                        Developing, or Needs Work. Know exactly where you're excelling and where to focus next.</p>
-                    <ul class="feature-list">
-                        <li>12 muscle groups scored individually</li>
-                        <li>Strong / Developing / Needs Work ratings</li>
-                        <li>Color-coded progress bars per group</li>
-                        <li>Track each muscle group over time</li>
-                    </ul>
-                </div>
-                <div class="feature-images parallax-float">
-                    <div class="phone-frame phone-frame-feature">
-                        <img src="assets/lp-muscle.webp"
-                            alt="GainFrame muscle breakdown showing individual scores and ratings for 12 muscle groups"
+            <h2 class="hp-section-title scroll-reveal">More than a photo app</h2>
+            <p class="hp-section-sub scroll-reveal">Every feature designed for gym-goers who want data, not just
+                pictures.</p>
+
+            <!-- Primary feature cards with mockup thumbnails -->
+            <div class="hp-specimens-primary">
+                <div class="hp-specimen-card scroll-reveal">
+                    <div class="hp-specimen-thumb">
+                        <img src="assets/lp-future-3-months.webp" alt="GainFrame Future Physique AI prediction"
                             loading="lazy">
                     </div>
+                    <span class="hp-specimen-name">Future Physique</span>
+                    <h3>See where your body is headed</h3>
+                    <p>AI-generated image of your future physique at 3, 6, or 12 months with predicted body fat, FFMI,
+                        and weight.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FEATURE: CHECK-IN ==================== -->
-    <section class="feature-section feature-section-v2 alt-bg">
-        <div class="container">
-            <div class="feature-split">
-                <div class="feature-text scroll-reveal-left">
-                    <span class="feature-badge-v2 badge-pop">Check-In</span>
-                    <h2>Your weekly progress, on autopilot</h2>
-                    <p>GainFrame prompts you to check in at the cadence you set. Take a new photo, log your weight,
-                        and the app instantly scores your update against your last entry — showing your body fat delta,
-                        weight change, and AI score movement. Consistency wins.</p>
-                    <ul class="feature-list">
-                        <li>Customizable check-in reminders</li>
-                        <li>Instant delta vs last check-in</li>
-                        <li>Body fat, weight, and score tracking</li>
-                        <li>Build streaks and stay accountable</li>
-                    </ul>
-                </div>
-                <div class="feature-images parallax-float">
-                    <div class="phone-frame phone-frame-feature">
-                        <img src="assets/lp-check-in.webp"
-                            alt="GainFrame progress check-in flow showing weight, body fat, and AI score deltas"
+                <div class="hp-specimen-card scroll-reveal">
+                    <div class="hp-specimen-thumb">
+                        <img src="assets/smart-import.webp" alt="GainFrame Smart Import from camera roll"
                             loading="lazy">
                     </div>
+                    <span class="hp-specimen-name">Smart Import</span>
+                    <h3>Your camera roll is full of data</h3>
+                    <p>Batch-import old gym selfies. AI classifies each by pose, extracts dates, and builds your
+                        transformation timeline.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FEATURE: THROWBACK ==================== -->
-    <section class="feature-section feature-section-v2">
-        <div class="container">
-            <div class="feature-split reverse">
-                <div class="feature-text scroll-reveal-right">
-                    <span class="feature-badge-v2 badge-pop">Throwback</span>
-                    <h2>Look back at how far you've come</h2>
-                    <p>GainFrame finds your best throwback comparison and shows your "Then vs. Now" — with body fat,
-                        weight, and AI score deltas. Share it or dive deeper into a full comparison.</p>
-                    <ul class="feature-list">
-                        <li>Auto-selected best comparison</li>
-                        <li>Body fat, weight, and score deltas</li>
-                        <li>Shareable throwback card</li>
-                        <li>One tap to full Deep Dive compare</li>
-                    </ul>
-                </div>
-                <div class="feature-images parallax-float">
-                    <div class="phone-frame phone-frame-feature">
-                        <img src="assets/throwback.webp" alt="Throwback Comparison" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FEATURE: SMART INTEGRATIONS ==================== -->
-    <section class="feature-section feature-section-v2 alt-bg">
-        <div class="container">
-            <div class="feature-split">
-                <div class="feature-text scroll-reveal-left">
-                    <span class="feature-badge-v2 badge-pop">Apple Health & Hevy</span>
-                    <h2>Workout data, meet photos</h2>
-                    <p>GainFrame brings your data out of the spreadsheets and attaches it to reality. Sync your weight
-                        from Apple Health. Connect Hevy to automatically pull the exact exercises, sets, and volume you
-                        lifted on the exact day you took the photo.</p>
-                    <ul class="feature-list">
-                        <li>Automatic Apple Health weight syncing</li>
-                        <li>Hevy workout integration</li>
-                        <li>See lifting volume overlaid on photos</li>
-                        <li>No manual data entry required</li>
-                    </ul>
-                </div>
-                <div class="feature-images parallax-float">
-                    <div class="phone-frame phone-frame-feature">
+                <div class="hp-specimen-card scroll-reveal">
+                    <div class="hp-specimen-thumb">
                         <img src="assets/lp-workout-integration.webp"
-                            alt="GainFrame showing Hevy workout data — exercises, sets, and volume — overlaid on a progress photo"
-                            loading="lazy">
+                            alt="GainFrame Apple Health and Hevy workout integration" loading="lazy">
                     </div>
+                    <span class="hp-specimen-name">Apple Health & Hevy</span>
+                    <h3>Workout data meets photos</h3>
+                    <p>Weight from Apple Health. Exercises, sets, and volume from Hevy — auto-attached to each photo.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ==================== FEATURE: SMART IMPORT ==================== -->
-    <section class="feature-section feature-section-v2">
-        <div class="container">
-            <div class="feature-split reverse">
-                <div class="feature-text scroll-reveal-right">
-                    <span class="feature-badge-v2 badge-pop">Smart Import</span>
-                    <h2>Your camera roll is full of progress you can't see.</h2>
-                    <p>You already have the data; GainFrame just reveals it. Select months or years of messy gym selfies
-                        from your camera roll. Our AI classifies every photo by pose, extracts the dates, and instantly
-                        builds a chronological timeline of your transformation.</p>
-                    <ul class="feature-list">
-                        <li>Batch import from camera roll</li>
-                        <li>AI classifies by pose (Front, Back, Side)</li>
-                        <li>Auto body alignment and cropping</li>
-                        <li>Background processing</li>
-                    </ul>
-                    <p class="replaces-tag">Replaces months of lost progress hiding in your camera roll</p>
-                </div>
-                <div class="feature-images parallax-float">
-                    <div class="phone-frame phone-frame-feature">
-                        <img src="assets/smart-import.webp" alt="Smart Import Pipeline" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== EVERYTHING YOU NEED ==================== -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Your transformation, quantified.</h2>
-            <p class="section-subtitle scroll-reveal">The smartest way to track your body transformation. Every feature
-                designed for gym-goers who want more than just a photo.</p>
-            <div class="features-grid">
-                <div class="feature-card feature-card-v2 tilt-in reveal-delay-1">
-                    <div class="feature-icon">
+            <!-- Compact feature cards -->
+            <div class="hp-specimens-compact">
+                <div class="hp-compact-card scroll-reveal">
+                    <div class="hp-compact-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                         </svg>
                     </div>
-                    <h3>Ghost Overlay Camera</h3>
-                    <p>See your last photo as a transparent overlay. Match your pose perfectly — no tripod needed.</p>
+                    <div>
+                        <h4>Weekly Check-In</h4>
+                        <p>Prompted reminders. Instant body fat and score deltas vs your last scan. Build streaks.</p>
+                    </div>
                 </div>
-                <div class="feature-card feature-card-v2 tilt-in reveal-delay-2">
-                    <div class="feature-icon">
+                <div class="hp-compact-card scroll-reveal">
+                    <div class="hp-compact-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                         </svg>
                     </div>
-                    <h3>Swipe Slider Compare</h3>
-                    <p>Drag a slider across two auto-aligned photos to reveal exactly what changed.</p>
-                </div>
-                <div class="feature-card feature-card-v2 tilt-in reveal-delay-3">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
-                        </svg>
+                    <div>
+                        <h4>Throwback Compare</h4>
+                        <p>Auto-selected "Then vs Now" with body fat and score deltas. One-tap share.</p>
                     </div>
-                    <h3>Transformation Collages</h3>
-                    <p>Build multi-photo collages with stats overlays. Export and share in one tap.</p>
                 </div>
-                <div class="feature-card feature-card-v2 tilt-in reveal-delay-4">
-                    <div class="feature-icon sage-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                        </svg>
-                    </div>
-                    <h3>Face Blur & BG Remove</h3>
-                    <p>Auto-blur your face and remove backgrounds before sharing. Privacy built into every export — one
-                        tap.</p>
-                </div>
-                <div class="feature-card feature-card-v2 tilt-in reveal-delay-5">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3>Pose Timelines</h3>
-                    <p>Chronological timeline per pose — Front, Back, Side. AI score and body fat on every entry.</p>
-                </div>
-                <div class="feature-card feature-card-v2 tilt-in reveal-delay-6">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.996.178-1.768.919-1.768 1.839 0 .972.858 1.676 1.916 1.676h.136a6.737 6.737 0 01-.063-1.676M18.75 4.236c.996.178 1.768.919 1.768 1.839 0 .972-.858 1.676-1.916 1.676h-.136a6.737 6.737 0 00.063-1.676" />
-                        </svg>
-                    </div>
-                    <h3>Trophies & Milestones</h3>
-                    <p>Earn trophy badges as you progress. GainFrame celebrates your consistency and transformation.</p>
-                </div>
-                <div class="feature-card feature-card-v2 tilt-in reveal-delay-7">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </div>
-                    <h3>Apple Health & Hevy</h3>
-                    <p>Weight synced from Apple Health. Hevy workout volume — exercises, sets, and total tonnage —
-                        auto-attached to the exact photo taken that day.</p>
-                </div>
-                <div class="feature-card feature-card-v2 tilt-in reveal-delay-8">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
-                        </svg>
-                    </div>
-                    <h3>Weight & Score Charts</h3>
-                    <p>Dashboard weight chart and AI score tracking. See your progress at a glance.</p>
-                </div>
-                <div class="feature-card feature-card-v2 tilt-in reveal-delay-8">
-                    <div class="feature-icon">
+                <div class="hp-compact-card scroll-reveal">
+                    <div class="hp-compact-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                         </svg>
                     </div>
-                    <h3>Privacy First</h3>
-                    <p>All data stored locally. No account. Photos processed by AI but never stored on any server.</p>
+                    <div>
+                        <h4>Privacy First</h4>
+                        <p>All data on your device. No account required. Face blur and background removal built in.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== FROM THE BLOG ==================== -->
-    <section class="blog-preview-section" style="padding: var(--sp-2xl) 0; background: var(--color-surface);">
+    <!-- ==================== COMPARISON TABLE ==================== -->
+    <section class="hp-compare">
         <div class="container">
-            <div style="text-align: center; margin-bottom: var(--sp-xl);">
-                <h2 class="section-title scroll-reveal">From the GainFrame Blog</h2>
-                <p class="section-subtitle scroll-reveal">Tips, training science, and product updates for gym-goers who
-                    track with photos.</p>
+            <h2 class="hp-section-title scroll-reveal">How GainFrame stacks up</h2>
+            <p class="hp-section-sub scroll-reveal">Replace expensive, infrequent scans with weekly analysis from your
+                phone.</p>
+            <div class="hp-compare-table scroll-reveal">
+                <div class="hp-compare-header">
+                    <div></div>
+                    <div>Scale</div>
+                    <div>DEXA Scan</div>
+                    <div class="hp-compare-highlight">GainFrame</div>
+                </div>
+                <div class="hp-compare-row">
+                    <div>Cost</div>
+                    <div>$30-50</div>
+                    <div>$100-200</div>
+                    <div class="hp-compare-highlight">$4.99/mo</div>
+                </div>
+                <div class="hp-compare-row">
+                    <div>Frequency</div>
+                    <div>Daily</div>
+                    <div>Every 3-6 mo</div>
+                    <div class="hp-compare-highlight">Weekly</div>
+                </div>
+                <div class="hp-compare-row">
+                    <div>Body fat %</div>
+                    <div><span class="hp-cross">&mdash;</span></div>
+                    <div><span class="hp-check">&#10003;</span></div>
+                    <div class="hp-compare-highlight"><span class="hp-check">&#10003;</span></div>
+                </div>
+                <div class="hp-compare-row">
+                    <div>FFMI</div>
+                    <div><span class="hp-cross">&mdash;</span></div>
+                    <div><span class="hp-cross">&mdash;</span></div>
+                    <div class="hp-compare-highlight"><span class="hp-check">&#10003;</span></div>
+                </div>
+                <div class="hp-compare-row">
+                    <div>Muscle scores</div>
+                    <div><span class="hp-cross">&mdash;</span></div>
+                    <div><span class="hp-cross">&mdash;</span></div>
+                    <div class="hp-compare-highlight">12 groups</div>
+                </div>
+                <div class="hp-compare-row">
+                    <div>Trend tracking</div>
+                    <div>Manual</div>
+                    <div><span class="hp-cross">&mdash;</span></div>
+                    <div class="hp-compare-highlight">Automatic</div>
+                </div>
+                <div class="hp-compare-row">
+                    <div>Predictions</div>
+                    <div><span class="hp-cross">&mdash;</span></div>
+                    <div><span class="hp-cross">&mdash;</span></div>
+                    <div class="hp-compare-highlight">AI-generated</div>
+                </div>
+                <div class="hp-compare-row">
+                    <div>Privacy</div>
+                    <div>N/A</div>
+                    <div>In-clinic data</div>
+                    <div class="hp-compare-highlight">100% on-device</div>
+                </div>
             </div>
+        </div>
+    </section>
 
+    <!-- ==================== BLOG PREVIEW ==================== -->
+    <section class="hp-blog">
+        <div class="container">
+            <h2 class="hp-section-title scroll-reveal">Research & Guides</h2>
+            <p class="hp-section-sub scroll-reveal">Training science, product deep dives, and body composition insights.
+            </p>
             <div class="blog-grid">
                 <a href="blog/deep-dive-compare/index.html" class="blog-card scroll-reveal">
                     <div class="blog-card-image">
@@ -709,7 +421,6 @@
                             specific muscle upgrades.</p>
                     </div>
                 </a>
-
                 <a href="blog/behind-the-prediction-future-physique/index.html"
                     class="blog-card scroll-reveal reveal-delay-1">
                     <div class="blog-card-image">
@@ -725,7 +436,6 @@
                             trajectory.</p>
                     </div>
                 </a>
-
                 <a href="blog/5-tips-better-progress-photos/index.html" class="blog-card scroll-reveal reveal-delay-2">
                     <div class="blog-card-image">
                         <img src="assets/blog-covers/5-tips-photos.webp"
@@ -741,7 +451,6 @@
                     </div>
                 </a>
             </div>
-
             <div style="text-align: center; margin-top: var(--sp-2xl);">
                 <a href="blog.html"
                     style="font-weight: 600; font-size: 1.05rem; color: var(--color-text); text-decoration: none; border-bottom: 2px solid var(--color-text); padding-bottom: 4px; transition: opacity 0.2s ease;">Read
@@ -758,31 +467,46 @@
                 <details class="faq-item scroll-reveal">
                     <summary class="faq-question">How accurate is the AI body fat estimate?</summary>
                     <div class="faq-answer">
-                        <p>GainFrame uses the same visual estimation method that trained coaches use — analyzing visible muscle definition, fat distribution, and body proportions. Studies show AI photo-based estimation is within 2–4% of DEXA for most users. More importantly, the <strong>trend data</strong> from consistent weekly photos is extremely reliable — even more useful than any single DEXA reading.</p>
+                        <p>GainFrame uses the same visual estimation method that trained coaches use — analyzing visible
+                            muscle definition, fat distribution, and body proportions. Studies show AI photo-based
+                            estimation is within 2-4% of DEXA for most users. More importantly, the <strong>trend
+                                data</strong> from consistent weekly photos is extremely reliable — even more useful than
+                            any single DEXA reading.</p>
                     </div>
                 </details>
                 <details class="faq-item scroll-reveal">
                     <summary class="faq-question">Are my photos private?</summary>
                     <div class="faq-answer">
-                        <p>Yes. Your photos are sent to AI for analysis but are <strong>never stored</strong> outside your device. No account required. No cloud storage. All data lives locally on your iPhone. Face blur and background removal are built in for sharing.</p>
+                        <p>Yes. Your photos are sent to AI for analysis but are <strong>never stored</strong> outside
+                            your device. No account required. No cloud storage. All data lives locally on your iPhone.
+                            Face blur and background removal are built in for sharing.</p>
                     </div>
                 </details>
                 <details class="faq-item scroll-reveal">
                     <summary class="faq-question">How much does GainFrame cost?</summary>
                     <div class="faq-answer">
-                        <p><strong>Free 1-month trial</strong> — no credit card required. After that, it's $4.99/month or $29.99/year. That's less than a single DEXA scan, and you can track your body composition every week instead of every few months.</p>
+                        <p><strong>Free 1-month trial</strong> — no credit card required. After that, it's $4.99/month
+                            or $29.99/year. That's less than a single DEXA scan, and you can track your body composition
+                            every week instead of every few months.</p>
                     </div>
                 </details>
                 <details class="faq-item scroll-reveal">
                     <summary class="faq-question">Can I import old gym selfies?</summary>
                     <div class="faq-answer">
-                        <p>Yes — Smart Import lets you batch-select months or years of photos from your camera roll. The AI classifies each by pose (front, back, side), extracts dates, and builds your full transformation timeline automatically. Most users start with 6–12 months of existing photos.</p>
+                        <p>Yes — Smart Import lets you batch-select months or years of photos from your camera roll. The
+                            AI classifies each by pose (front, back, side), extracts dates, and builds your full
+                            transformation timeline automatically. Most users start with 6-12 months of existing photos.
+                        </p>
                     </div>
                 </details>
                 <details class="faq-item scroll-reveal">
-                    <summary class="faq-question">What makes GainFrame different from other progress photo apps?</summary>
+                    <summary class="faq-question">What makes GainFrame different from other progress photo apps?
+                    </summary>
                     <div class="faq-answer">
-                        <p>Most progress photo apps just store and compare photos. GainFrame is an <strong>AI body composition tracker</strong> — it scores 12 individual muscle groups, estimates body fat and FFMI, generates future physique predictions, and tracks every metric over time. It replaces DEXA scans, spreadsheets, and guesswork with real data from your phone.</p>
+                        <p>Most progress photo apps just store and compare photos. GainFrame is an <strong>AI body
+                                composition tracker</strong> — it scores 12 individual muscle groups, estimates body fat
+                            and FFMI, generates future physique predictions, and tracks every metric over time. It
+                            replaces DEXA scans, spreadsheets, and guesswork with real data from your phone.</p>
                     </div>
                 </details>
             </div>
@@ -790,24 +514,25 @@
     </section>
 
     <!-- ==================== CTA ==================== -->
-    <section class="cta cta-dark" id="download">
+    <section class="hp-cta" id="download">
         <div class="container">
-            <h2 class="section-title scroll-reveal">Stop guessing. Start tracking.</h2>
-            <p class="cta-subtitle scroll-reveal">Free 1-month trial. $4.99/mo after that. Your photos never leave your device.</p>
-            <div class="scroll-reveal" style="margin-top: var(--sp-lg); display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="app-store-badge-link" target="_blank" rel="noopener">
-                    <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" style="height: 52px; width: auto;" />
+            <h2 class="hp-section-title scroll-reveal">Ready to measure.</h2>
+            <div class="scroll-reveal"
+                style="margin-top: var(--sp-lg); display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
+                    class="app-store-badge-link" target="_blank" rel="noopener">
+                    <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png"
+                        alt="Download on the App Store" style="height: 52px; width: auto;" />
                 </a>
-                <p class="hero-trust-copy">No credit card required · Cancel anytime</p>
+                <p class="hp-trust">Free 1-month trial &middot; No credit card required &middot; Cancel anytime</p>
             </div>
         </div>
     </section>
 
-    <!-- ==================== FOOTER ==================== -->
-    
     <!-- ==================== NEWSLETTER ==================== -->
     <div data-newsletter-signup></div>
 
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-links">
@@ -836,80 +561,6 @@
                     document.querySelectorAll('.' + cls).forEach(el => el.value = value);
                 }
             });
-        })();
-
-        /* How-It-Works tab switching + progress indicator */
-        (function () {
-            const tabs = document.querySelectorAll('.hiw-tab');
-            const panels = document.querySelectorAll('.hiw-panel');
-            const fill = document.getElementById('hiwProgressFill');
-            const dots = document.querySelectorAll('.hiw-dot');
-            if (!tabs.length) return;
-
-            const tabKeys = Array.from(tabs).map(t => t.getAttribute('data-tab'));
-
-            function activateTab(index) {
-                const target = tabKeys[index];
-
-                /* Tabs */
-                tabs.forEach((t, i) => {
-                    const isActive = i === index;
-                    t.classList.toggle('active', isActive);
-                    t.setAttribute('aria-selected', isActive);
-                });
-
-                /* Panels */
-                panels.forEach(p => {
-                    const isActive = p.getAttribute('data-panel') === target;
-                    p.classList.toggle('active', isActive);
-                    if (isActive) {
-                        p.style.animation = 'none';
-                        p.offsetHeight;
-                        p.style.animation = '';
-                    }
-                });
-
-                /* Progress fill: 0 → 0.5 → 1.0 */
-                if (fill) {
-                    fill.style.transform = 'scaleX(' + (index / (tabKeys.length - 1)) + ')';
-                }
-
-                /* Dots: active up to and including current index */
-                dots.forEach((d, i) => d.classList.toggle('active', i <= index));
-            }
-
-            /* Click handlers */
-            tabs.forEach((tab, i) => {
-                tab.addEventListener('click', () => {
-                    activateTab(i);
-                    resetAutoAdvance();
-                });
-            });
-
-            /* Auto-advance every 4s */
-            let current = 0;
-            let intervalId = null;
-
-            function advance() {
-                current = (current + 1) % tabKeys.length;
-                activateTab(current);
-            }
-
-            function startAutoAdvance() {
-                intervalId = setInterval(advance, 4000);
-            }
-
-            function resetAutoAdvance() {
-                clearInterval(intervalId);
-                current = tabKeys.indexOf(
-                    document.querySelector('.hiw-tab.active')?.getAttribute('data-tab')
-                ) || 0;
-                startAutoAdvance();
-            }
-
-            /* Initialize: first tab active with progress at 0 */
-            activateTab(0);
-            startAutoAdvance();
         })();
 
         /* Intersection Observer — triggers .visible on scroll */
@@ -961,7 +612,6 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script><!-- End Cloudflare Web Analytics -->
-
 
     <script defer src="/assets/email-capture-bar.js"></script>
     <script defer src="/assets/newsletter-form.js"></script>

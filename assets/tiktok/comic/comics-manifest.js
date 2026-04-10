@@ -6,6 +6,9 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "mental-game",                title: "The Mental Game of Lifting", date: "2026-04-10", ext: "png" },
+    { slug: "nobody-trains",              title: "5 Muscles Nobody Trains", date: "2026-04-10", ext: "png" },
+    { slug: "split-tier-list",            title: "The Workout Split Tier List", date: "2026-04-10", ext: "png" },
     { slug: "day1-self",                  title: "Things I'd Tell My Day-1 Self", date: "2026-04-10", ext: "png" },
     { slug: "gym-bro-pipeline",           title: "The Gym Bro Pipeline",     date: "2026-04-10", ext: "png" },
     { slug: "skinny-fat-trap",            title: "The Skinny-Fat Trap",      date: "2026-04-10", ext: "png" },
