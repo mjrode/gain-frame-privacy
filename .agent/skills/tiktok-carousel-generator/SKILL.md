@@ -294,6 +294,33 @@ Do NOT name them `cover.png` or `slide1.png`. The web gallery explicitly searche
 
 ---
 
+### Phase 5: Send to Phone (iCloud Sync)
+
+**Goal:** Automatically deliver the finished carousel + caption to the user's iPhone so they can post directly from TikTok without any manual file transfers.
+
+This step copies the finished slides and `content.md` to an iCloud-synced folder on the Desktop. The files will automatically appear in the **Files** app on the user's iPhone (under iCloud Drive → Desktop → TikTok-Drafts).
+
+1. **Copy all assets to the iCloud drafts folder:**
+   ```bash
+   SLUG="[slug]"
+   DEST="$HOME/Desktop/TikTok-Drafts/$SLUG"
+   mkdir -p "$DEST"
+   cp assets/tiktok/comic/$SLUG/slide-*.png "$DEST/"
+   cp assets/tiktok/comic/$SLUG/content.md "$DEST/"
+   ```
+
+2. **Confirm to user:** Let them know the files are syncing and where to find them:
+   - Open **Files** app on iPhone
+   - Navigate to **iCloud Drive → Desktop → TikTok-Drafts → [slug]**
+   - All 6 slides + caption/hashtags are there
+   - Open TikTok → New Post → Select photos from Files app
+
+3. **Cleanup (optional):** Old drafts can be deleted from `~/Desktop/TikTok-Drafts/` after posting. The canonical copies always live in `assets/tiktok/comic/[slug]/`.
+
+> **Note:** This requires iCloud Desktop & Documents sync to be enabled in System Settings → Apple ID → iCloud → iCloud Drive. If sync is off, the user can still AirDrop from the Desktop folder.
+
+---
+
 ## Rules & Constraints
 
 - **Never skip the text iteration phase.** The copy must be approved before generating any images. Bad copy = wasted generation credits.
