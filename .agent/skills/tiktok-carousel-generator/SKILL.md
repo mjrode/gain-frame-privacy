@@ -62,22 +62,32 @@ Follow these phases sequentially. **Do not skip ahead. Get user approval before 
 
 ### Phase 1: Cover Slide Text
 
-**Goal:** Nail the scroll-stopping cover slide title.
+**Goal:** Nail the scroll-stopping cover slide title that is FULLY VISIBLE in TikTok's profile grid.
+
+**⚠️ TITLE LENGTH IS CRITICAL.** TikTok crops 4:5 covers to ~1:1 square thumbnails in the profile grid, clipping ~25% from each side. Titles that are too wide get cut off and look unprofessional. EVERY title must follow these rules:
+
+- **Max 3-4 words per line** — short, punchy, stacked vertically
+- **Max 2-3 stacked lines** — never more than 3 lines of title text
+- **Total title: 4-8 words max** — if you can't say it in 8 words, simplify
+- **Center-aligned** — text sits in the middle 50% of the image width
+- Study Blue Bro examples: "THE PERFECT PUSH DAY" (5 words), "STOP SKIPPING LEG DAY" (4 words)
 
 1. **Draft 3 title options** using the proven formats:
-   - **Authority:** "THE ULTIMATE [TOPIC]"
-   - **Listicle:** "TOP 5 [THINGS] FOR [GOAL]"
-   - **Fear/Curiosity:** "THE #1 MISTAKE [NEGATIVE OUTCOME]"
-   - **Command:** "STOP [BAD HABIT]"
-   - **Question:** "[PROVOCATIVE QUESTION]?"
-   - **Conditional:** "DO THIS IF YOU'RE [CONDITION]"
+   - **Authority:** "THE ULTIMATE [TOPIC]" (e.g., "THE ULTIMATE LEG DAY")
+   - **Listicle:** "TOP 5 [THINGS]" (e.g., "TOP 5 CHEST EXERCISES")
+   - **Fear/Curiosity:** "THE #1 MISTAKE" + second line (e.g., "THE #1 MISTAKE / KILLING YOUR GAINS")
+   - **Command:** "STOP [BAD HABIT]" (e.g., "STOP SKIPPING LEGS")
+   - **Question:** "[SHORT QUESTION]?" (e.g., "IS YOUR SPLIT WRONG?")
+   - **Conditional:** "DO THIS IF [CONDITION]" (e.g., "DO THIS IF YOU'RE SKINNY FAT")
 
 2. **Accent word.** Identify which word(s) in the title should be highlighted in the accent color (red). Typically the body part, the action word, or the hook word. Examples:
    - "THE PERFECT **ARM** WORKOUT"
-   - "Build Your Perfect **Bulking Routine**"
-   - "STOP SKIPPING YOUR **SHOULDER WARM-UP**"
+   - "STOP SKIPPING **LEG DAY**"
+   - "IS YOUR **SPLIT** WRONG?"
 
-3. **Present to user.** Show all 3 options with the accent word marked. Wait for approval or iteration.
+3. **Grid-check the title.** Before presenting, imagine the title cropped to a center square. Can you still read the full title? If ANY word would be clipped, shorten it.
+
+4. **Present to user.** Show all 3 options with the accent word marked. Wait for approval or iteration.
 
 ---
 
@@ -190,11 +200,12 @@ Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat 
 
 **Prompt template for cover slide:**
 
-**⚠️ TIKTOK GRID SAFE ZONE:** TikTok crops 4:5 images to ~1:1 square thumbnails in the profile grid, clipping ~135px from each side and cropping the top and bottom. ALL cover title text must be:
-- Centered horizontally in the middle 60% of the image (large left/right margins)
+**⚠️ TIKTOK GRID SAFE ZONE:** TikTok crops 4:5 images to ~1:1 square thumbnails in the profile grid, clipping ~25% from each side and cropping top/bottom significantly. Text that bleeds to the edges WILL be cut off. ALL cover title text must be:
+- Centered horizontally in the **middle 50%** of the image (huge left/right margins)
 - Positioned vertically centered or slightly above center — NOT at the very top edge
-- Short enough to fit on 1-2 lines within the safe zone (max ~20 characters per line)
-- If a title is long, split it onto 2 stacked lines with the hook/accent word on the second line
+- **Max 3-4 words per line**, stacked into 2-3 short lines
+- **Total title: 4-8 words max** — if it's longer, it WILL get clipped
+- Text must NEVER touch or come close to the left/right edges of the image
 
 ```
 A cartoon illustration of this exact character from the reference images in a new scene. 
@@ -209,11 +220,14 @@ reading "GAINFRAME GUY". Keep it small like a watermark — about 10% of image w
 
 Scene: [MASCOT in a representative pose for the topic]
 
-TITLE TEXT PLACEMENT (CRITICAL): Center the title text in the MIDDLE of the image, NOT at 
-the top edge. The text must have very large left and right margins — keep it within the 
-center 60% of the image width so it is NOT clipped when TikTok crops to a square thumbnail. 
-Split long titles onto 2 centered lines. The title reads "[COVER TITLE]" with the word 
-"[ACCENT WORD]" in red (#E53935). Very prominent bold text, eye-catching.
+TITLE TEXT PLACEMENT (CRITICAL — READ CAREFULLY): 
+- The title text MUST be centered in the MIDDLE 50% of the image width. 
+- There must be VERY LARGE empty margins on both the left and right sides.
+- The text must NEVER extend to the edges — it will be cropped in the TikTok grid.
+- Stack the title into 2-3 SHORT lines (max 3-4 words per line), centered.
+- Position the text block vertically centered or slightly above center.
+- The title reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red (#E53935). 
+- Very prominent bold text, eye-catching, but COMPACT — not wide.
 
 TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for the title (ALL CAPS). 
 NO handwritten, script, or decorative fonts.

@@ -51,6 +51,12 @@ Inspired by the "Blue Bro" branding pattern — a small mascot identity in the t
 - Mascot in a simple pose or action that represents the topic
 - May include the mascot interacting with a prop (whiteboard, clipboard, etc.)
 - **GainFrame Guy badge in top-left corner**
+- **⚠️ GRID SAFE ZONE:** Title text must stay in the center 50% of image width. TikTok crops ~25% from each side in the profile grid. Rules:
+  - **Max 3-4 words per line**, stacked into 2-3 short centered lines
+  - **Total title: 4-8 words max** — shorter = more readable in grid
+  - Text NEVER touches left/right edges — huge margins on both sides
+  - Good: "THE PERFECT / **ARM** WORKOUT" (4 words, 2 lines)
+  - Bad: "YOU'RE TRACKING PROGRESS WRONG" (too wide, gets clipped)
 
 ### Numbered Content Slides (1-5)
 - **Title banner:** Numbered title at top in black pill/banner with white text (e.g., "1. You Won't See Progress Overnight") — Impact-style condensed sans-serif, ALL CAPS
