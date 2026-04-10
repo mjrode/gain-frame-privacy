@@ -6,6 +6,13 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "exercises-doing-wrong",      title: "5 Exercises You're Doing Wrong",   date: "2026-04-10", ext: "png" },
+    { slug: "cheap-muscle-foods",         title: "5 Cheap Foods That Build Muscle",  date: "2026-04-10", ext: "png" },
+    { slug: "progressive-overload",       title: "Progressive Overload Explained",   date: "2026-04-10", ext: "png" },
+    { slug: "first-cut-tips",             title: "Your First Cut: 5 Tips",           date: "2026-04-10", ext: "png" },
+    { slug: "overtraining-signs",         title: "5 Signs You're Overtraining",      date: "2026-04-10", ext: "png" },
+    { slug: "stop-working-out",           title: "What Happens When You Stop Lifting", date: "2026-04-10", ext: "png" },
+    { slug: "bulk-vs-cut",               title: "Bulk vs Cut: Which One?",           date: "2026-04-10", ext: "png" },
     { slug: "top-5-core-exercises",       title: "Top 5 Core Exercises",            date: "2026-04-10", ext: "png" },
     { slug: "your-first-gym-week",        title: "Your First Gym Week",             date: "2026-04-09", ext: "png" },
     { slug: "creatine-myths-vs-facts",   title: "Creatine: Myths vs Facts",       date: "2026-04-09", ext: "png" },
