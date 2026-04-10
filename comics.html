@@ -790,12 +790,7 @@
                 // We translate so the active slide's center sits at left:50% (the page center).
                 const activeSlide = slides[currentSlide];
                 if (!activeSlide) return;
-                // Temporarily remove transition to measure, then re-add
-                track.style.transition = 'none';
-                track.style.transform = 'translate(0, -50%)';
-                void track.offsetWidth; // force reflow
                 const slideCenterX = activeSlide.offsetLeft + activeSlide.offsetWidth / 2;
-                track.style.transition = '';
                 track.style.transform = `translate(${-slideCenterX}px, -50%)`;
             }
 
