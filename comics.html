@@ -837,6 +837,154 @@
             /* Override enhancement defaults at mobile */
             .comic-viewer-progress { width: 160px; }
         }
+
+        /* ============================================
+           FEATURE: Share Buttons
+           ============================================ */
+        .comic-share-btn {
+            background: transparent;
+            border: 1px solid var(--rule);
+            color: var(--ink-light);
+            width: 30px; height: 30px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: color 0.2s, border-color 0.2s;
+            position: absolute; top: 12px; right: 12px;
+        }
+        .comic-share-btn:hover { color: var(--ink); border-color: var(--ink-muted); }
+        .comic-share-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .comic-card-info { position: relative; }
+
+        .viewer-share-btn {
+            position: absolute; top: 14px; right: 72px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--paper);
+            width: 36px; height: 36px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+            z-index: 11;
+        }
+        .viewer-share-btn:hover { background: rgba(255,255,255,0.1); }
+        .viewer-share-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        .share-toast {
+            position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%);
+            background: var(--ink); color: var(--paper);
+            font-family: var(--font-serif); font-size: 0.82rem; letter-spacing: 0.04em;
+            padding: 10px 24px;
+            z-index: 100000;
+            opacity: 0; transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .share-toast.show { opacity: 1; }
+
+        @media (max-width: 560px) {
+            .viewer-share-btn { top: 10px; right: 50px; width: 32px; height: 32px; }
+        }
+
+        /* ============================================
+           FEATURE: Next Up Card
+           ============================================ */
+        .comic-viewer-next-up {
+            position: relative;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: var(--ink);
+            overflow: hidden;
+        }
+        .comic-viewer-next-up img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            position: absolute; inset: 0;
+            transition: opacity 0.3s;
+        }
+        .comic-viewer-next-up:hover img { opacity: 0.5; }
+        .next-up-content {
+            position: relative; z-index: 2;
+            text-align: center; padding: 24px;
+        }
+        .next-up-label {
+            font-family: var(--font-serif);
+            font-size: 0.65rem; font-weight: 700;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase; letter-spacing: 0.18em;
+            margin-bottom: 12px;
+        }
+        .next-up-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem; font-weight: 900;
+            color: var(--paper); line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .next-up-cta {
+            font-family: var(--font-serif);
+            font-size: 0.78rem; font-weight: 700;
+            color: var(--paper);
+            text-transform: uppercase; letter-spacing: 0.08em;
+            border-bottom: 2px solid var(--paper);
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .comic-viewer-next-up:hover .next-up-cta { color: var(--accent-red); border-color: var(--accent-red); }
+
+        /* ============================================
+           FEATURE: Swipe Hint
+           ============================================ */
+        .swipe-hint {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+            pointer-events: none;
+            animation: swipeHint 1.8s ease-out forwards;
+        }
+        .swipe-hint svg {
+            width: 48px; height: 48px;
+            fill: none; stroke: rgba(255,255,255,0.6);
+            stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+        }
+        @keyframes swipeHint {
+            0%   { opacity: 0; transform: translate(-50%, -50%) translateX(20px); }
+            15%  { opacity: 1; transform: translate(-50%, -50%) translateX(20px); }
+            50%  { opacity: 1; transform: translate(-50%, -50%) translateX(-20px); }
+            70%  { opacity: 1; transform: translate(-50%, -50%) translateX(-20px); }
+            100% { opacity: 0; transform: translate(-50%, -50%) translateX(-20px); }
+        }
+
+        /* ============================================
+           FEATURE: Animated Masthead
+           ============================================ */
+        @keyframes mastheadRuleIn {
+            from { transform: scaleX(0); }
+            to   { transform: scaleX(1); }
+        }
+        @keyframes mastheadFadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .masthead-animate .masthead-rule {
+            transform: scaleX(0);
+            animation: mastheadRuleIn 0.5s cubic-bezier(0.22,1,0.36,1) 0.1s forwards;
+        }
+        .masthead-animate .masthead-rule-thin {
+            transform: scaleX(0);
+            animation: mastheadRuleIn 0.4s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
+        }
+        .masthead-animate .masthead-title {
+            opacity: 0;
+            animation: mastheadFadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.35s forwards;
+        }
+        .masthead-animate .masthead-subtitle {
+            opacity: 0;
+            animation: mastheadFadeUp 0.5s cubic-bezier(0.22,1,0.36,1) 0.65s forwards;
+        }
+        .masthead-animate .masthead-dateline {
+            opacity: 0;
+            animation: mastheadFadeUp 0.5s cubic-bezier(0.22,1,0.36,1) 0.85s forwards;
+        }
     </style>
 </head>
 
@@ -882,6 +1030,7 @@
             <span class="comic-viewer-title" id="viewerTitle"></span>
             <span class="comic-viewer-counter" id="viewerCounter"></span>
         </div>
+        <button class="viewer-share-btn" id="viewerShare" aria-label="Share comic"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></button>
         <button class="comic-viewer-close" id="viewerClose" aria-label="Close viewer">&times;</button>
         <div class="comic-viewer-stage">
             <button class="comic-viewer-nav prev" id="viewerPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
@@ -925,6 +1074,8 @@
         </div>
     </footer>
 
+    <div class="share-toast" id="shareToast">Link copied!</div>
+
     <!-- ==================== SCRIPTS ==================== -->
     <script src="/assets/tiktok/comic/comics-manifest.js"></script>
     <script>
@@ -933,6 +1084,32 @@
             if (!dateStr) return '';
             const d = new Date(dateStr + 'T00:00:00');
             return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+        }
+
+        /* ---- Masthead entrance animation ---- */
+        (() => {
+            const masthead = document.querySelector('.newspaper-masthead');
+            if (!masthead) return;
+            if (!sessionStorage.getItem('gf-masthead-played')) {
+                masthead.classList.add('masthead-animate');
+                sessionStorage.setItem('gf-masthead-played', '1');
+            }
+        })();
+
+        /* ---- Share utility ---- */
+        const shareToast = document.getElementById('shareToast');
+        let toastTimer = null;
+        function shareComic(slug, title) {
+            const url = `${window.location.origin}/comics.html?comic=${slug}`;
+            if (navigator.share) {
+                navigator.share({ title: title, text: `Check out "${title}" from GainFrame`, url: url }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(url).then(() => {
+                    shareToast.classList.add('show');
+                    clearTimeout(toastTimer);
+                    toastTimer = setTimeout(() => shareToast.classList.remove('show'), 2000);
+                }).catch(() => {});
+            }
         }
 
         /* ---- Render Gallery Grid ---- */
@@ -982,6 +1159,7 @@
                     <span class="hero-date">${formatNewspaperDate(hero.date)}</span>
                     <span class="hero-cta">Read Now &#8594;</span>
                 </div>
+                <button class="comic-share-btn" style="top:auto;bottom:12px;right:12px" onclick="event.stopPropagation();shareComic('${hero.slug}','${hero.title.replace(/'/g, "\\'")}');" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></button>
             `;
             grid.parentNode.insertBefore(heroEl, grid);
 
@@ -1020,6 +1198,7 @@
                         <h3>${comic.title}</h3>
                         <div class="comic-card-date">${formatNewspaperDate(comic.date)}</div>
                         <span class="comic-tag">${tag}</span>
+                        <button class="comic-share-btn" onclick="event.stopPropagation();shareComic('${comic.slug}','${comic.title.replace(/'/g, "\\'")}');" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></button>
                     </div>
                 `;
                 grid.appendChild(card);
@@ -1040,7 +1219,8 @@
 
             let currentSlug = '';
             let currentSlide = 0;
-            const totalSlides = 6;
+            let totalSlides = 6;
+            const BASE_SLIDES = 6;
 
             // Layout metrics — computed once on open and on resize
             let slideWidth = 0;
@@ -1074,7 +1254,11 @@
 
             function buildSlides(slug) {
                 track.innerHTML = '';
-                for (let i = 0; i < totalSlides; i++) {
+                const currentIdx = COMICS_MANIFEST.findIndex(c => c.slug === slug);
+                const nextComic = currentIdx >= 0 && currentIdx < COMICS_MANIFEST.length - 1 ? COMICS_MANIFEST[currentIdx + 1] : null;
+                totalSlides = nextComic ? BASE_SLIDES + 1 : BASE_SLIDES;
+
+                for (let i = 0; i < BASE_SLIDES; i++) {
                     const slide = document.createElement('div');
                     slide.className = 'comic-viewer-slide';
                     slide.setAttribute('data-index', i);
@@ -1089,6 +1273,24 @@
                         if (i !== currentSlide) goToSlide(i);
                     });
                     track.appendChild(slide);
+                }
+
+                // "Next Up" card
+                if (nextComic) {
+                    const nextSlide = document.createElement('div');
+                    nextSlide.className = 'comic-viewer-slide comic-viewer-next-up';
+                    nextSlide.setAttribute('data-index', BASE_SLIDES);
+                    const nextImg = document.createElement('img');
+                    nextImg.src = `assets/tiktok/comic/${nextComic.slug}/slide-0-cover.${nextComic.ext}`;
+                    nextImg.alt = nextComic.title;
+                    nextImg.draggable = false;
+                    nextSlide.appendChild(nextImg);
+                    nextSlide.innerHTML += `<div class="next-up-content"><div class="next-up-label">Next Up</div><div class="next-up-title">${nextComic.title}</div><span class="next-up-cta">Read Next &#8594;</span></div>`;
+                    nextSlide.addEventListener('click', () => {
+                        if (wasDragging) { wasDragging = false; return; }
+                        openViewer(nextComic.slug);
+                    });
+                    track.appendChild(nextSlide);
                 }
             }
 
@@ -1174,6 +1376,20 @@
                     });
                 });
 
+                // Swipe hint — first open on touch devices only
+                if ('ontouchstart' in window && !localStorage.getItem('gf-swipe-hint-shown')) {
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            const hint = document.createElement('div');
+                            hint.className = 'swipe-hint';
+                            hint.innerHTML = '<svg viewBox="0 0 48 48"><path d="M24 38V22"/><path d="M20 14c0-2.2 1.8-4 4-4s4 1.8 4 4v12"/><path d="M28 20c0-2.2 1.8-4 4-4s4 1.8 4 4v8"/><path d="M36 24c0-2.2 1.8-4 4-4s4 1.8 4 4v6a14 14 0 01-14 14h-4a14 14 0 01-10-4l-8-8c-1.5-1.5-1.5-4 0-5.5 1.5-1.5 4-1.5 5.5 0l4.5 4.5"/></svg>';
+                            document.querySelector('.comic-viewer-stage').appendChild(hint);
+                            localStorage.setItem('gf-swipe-hint-shown', '1');
+                            setTimeout(() => hint.remove(), 2000);
+                        });
+                    });
+                }
+
                 if (!skipHistory) {
                     const url = new URL(window.location);
                     url.searchParams.set('comic', slug);
@@ -1209,6 +1425,11 @@
                         openViewer(card.getAttribute('data-slug'));
                     }
                 }
+            });
+
+            // Share in viewer
+            document.getElementById('viewerShare').addEventListener('click', () => {
+                shareComic(currentSlug, getComicTitle(currentSlug));
             });
 
             // Nav buttons
