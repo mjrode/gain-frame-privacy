@@ -157,7 +157,10 @@ See `STYLE_GUIDE.md > Prompt Engineering Notes` for full rationale.
 For each slide, use `generate_image` with this configuration:
 
 **Required ImagePaths:**
-- **Cover Slide (3 references):** Include `gf-mascot-template.jpeg`, the scene reference, AND `gary-badge.png` for the top-left corner branding.
+- **Cover Slide (3 references, MANDATORY):** Always include these three exactly:
+  1. `gf-mascot-template.jpeg` — character design reference
+  2. `assets/tiktok/comic/gym-bro-pipeline/slide-0-cover.png` — **VISUAL STYLE REFERENCE** for the correct title text treatment (bare text on cream, no banners)
+  3. `gary-badge.png` — for the top-left corner branding badge
 - **Numbered Slides (2 references):** Include `gf-mascot-template.jpeg` and the scene reference. DO NOT include `gary-badge.png` as numbered slides do not have the badge.
 
 Example for Numbered Slides:
@@ -208,8 +211,18 @@ Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat 
 - **Max 4-5 words per line**, stacked into 2-3 short lines
 - Text needs moderate margins on left/right so it doesn't touch the edges and respects the crop
 
+**🚨 CRITICAL ANTI-PATTERN — READ BEFORE GENERATING:** The most common failure mode is placing the title text inside a black pill/banner/rounded rectangle. This is **WRONG**. The correct style has the text floating as raw text directly on the cream background — no shape, no box, no banner of any kind behind it. The second reference image (gym-bro-pipeline cover) is the **visual ground truth** for this style. ALWAYS include it as a reference image for covers.
+
+**Required ImagePaths for Cover Slides (3 images):**
 ```
-A cartoon illustration of this exact character from the reference images in a new scene. 
+["/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg",
+ "/Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/gym-bro-pipeline/slide-0-cover.png",
+ "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gary-badge.png"]
+```
+The `gym-bro-pipeline/slide-0-cover.png` is the **visual style reference** — it shows exactly how the title text should look (bare Impact text on cream, red accent word, GAINFRAME GUY badge top-left). Always include it.
+
+```
+A cartoon illustration of this exact GainFrame Guy character from the reference images in a new scene. 
 CRITICAL: The head is NOT a solid square — it is four separate corner brackets floating 
 in space with the background visible between them. The eyes and S-curve nose float inside 
 the bracket frame with NO background fill, NO square, NO box behind them. Copy the head 
@@ -226,16 +239,19 @@ BOTTOM 60% of the image.
 
 TITLE TEXT PLACEMENT (CRITICAL — READ CAREFULLY): 
 - The title text MUST be placed in the TOP 40% of the image.
-- The title text MUST be raw text directly on the background. DO NOT place the title inside any shape, box, or black rounded rectangle banner.
+- The title text MUST be raw text floating directly on the cream background — NO banner,
+  NO pill shape, NO rounded rectangle, NO black box, NO background shape of ANY kind
+  behind the title text. TEXT FLOATS BARE ON THE BACKGROUND. See the gym-bro-pipeline
+  reference image — copy that exact title text treatment.
 - The title text MUST be centered horizontally, taking up around 75% to 80% of the image width.
 - Leave moderate margins on both the left and right sides so it doesn't touch the edges.
 - Stack the title into 2-3 SHORT lines (max 4-5 words per line), centered.
-- Position the text block vertically centered within the top 40% or slightly above center.
-- The title reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red (#E53935). 
-- Very prominent bold text, eye-catching.
+- The title reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red (#E53935).
+  All other words are in near-black (#1A1A1A).
+- Very prominent bold text, eye-catching and large.
 
 TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for the title (ALL CAPS). 
-NO handwritten, script, or decorative fonts.
+NO handwritten, script, or decorative fonts. NO text inside any box or shape.
 
 Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
 4:5 TikTok format (1080x1350). No watermarks except the GainFrame Guy badge.
