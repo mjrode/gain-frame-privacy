@@ -638,26 +638,186 @@
 }
 
 /* ==================================================
-   CTA — clinical dark
+   CTA + FOOTER — unified dark section
    ================================================== */
 
 .hp-cta {
-    padding: 80px 0;
+    padding: 72px 0 56px;
     background: var(--hp-text);
     text-align: center;
 }
 
 .hp-cta .hp-section-title {
     color: #fff;
+    margin-bottom: 8px;
+}
+
+.hp-cta-sub {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 1rem;
+    margin-bottom: 28px;
 }
 
 .hp-cta .hp-trust {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.8rem;
 }
 
-.hp-cta .app-store-badge-link img {
-    height: 52px;
-    width: auto;
+/* Custom download button — clean, clinical */
+.hp-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: #fff;
+    color: var(--hp-text);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hp-cta-btn svg {
+    flex-shrink: 0;
+}
+
+.hp-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Newsletter — compact dark strip between CTA and footer */
+.homepage .newsletter-section {
+    background: var(--hp-text);
+    padding: 28px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.homepage .newsletter-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.homepage .newsletter-desc {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+}
+
+.homepage .newsletter-form {
+    max-width: 380px;
+    gap: 8px;
+}
+
+.homepage .newsletter-input {
+    padding: 11px 16px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.homepage .newsletter-input:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+}
+
+.homepage .newsletter-btn {
+    padding: 11px 20px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    background: var(--hp-green);
+    font-weight: 600;
+}
+
+.homepage .newsletter-btn:hover {
+    background: #5a7d60;
+}
+
+.homepage .newsletter-note {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+/* Dark footer flowing from newsletter */
+.homepage .footer {
+    background: var(--hp-text);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 24px 0;
+}
+
+.homepage .footer-links a {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.82rem;
+}
+
+.homepage .footer-links a:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.homepage .footer-copy {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.78rem;
+}
+
+/* ==================================================
+   EMAIL CAPTURE BAR — clinical restyle
+   ================================================== */
+
+.homepage #gf-capture-bar {
+    background: #fff;
+    color: var(--hp-text);
+    box-shadow: 0 -1px 0 var(--hp-border), 0 -4px 16px rgba(0, 0, 0, 0.04);
+    border-top: 1px solid var(--hp-border);
+}
+
+.homepage #gf-capture-bar .gf-bar-eyebrow {
+    font-family: var(--hp-mono);
+    color: var(--hp-green);
+    background: var(--hp-green-soft);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+.homepage #gf-capture-bar .gf-bar-message {
+    color: var(--hp-text);
+    font-weight: 600;
+}
+
+.homepage #gf-capture-bar .gf-bar-input {
+    background: var(--hp-surface);
+    color: var(--hp-text);
+    border: 1px solid var(--hp-border);
+}
+
+.homepage #gf-capture-bar .gf-bar-input::placeholder {
+    color: var(--hp-text-3);
+}
+
+.homepage #gf-capture-bar .gf-bar-input:focus {
+    background: #fff;
+    border-color: var(--hp-green);
+}
+
+.homepage #gf-capture-bar .gf-bar-btn {
+    background: var(--hp-green);
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.homepage #gf-capture-bar .gf-bar-btn:hover {
+    background: #5a7d60;
+}
+
+.homepage #gf-capture-bar .gf-bar-close {
+    color: var(--hp-text-3);
+}
+
+.homepage #gf-capture-bar .gf-bar-close:hover {
+    color: var(--hp-text);
 }
 
 /* ==================================================
@@ -766,15 +926,16 @@
         margin-right: auto;
     }
 
-    /* Comparison table — scroll horizontally */
-    .hp-compare-table {
-        overflow-x: auto;
-    }
-
+    /* Comparison table — fit in viewport */
     .hp-compare-header,
     .hp-compare-row {
-        grid-template-columns: 120px repeat(3, 1fr);
-        min-width: 480px;
+        grid-template-columns: 90px repeat(3, 1fr);
+    }
+
+    .hp-compare-header > div,
+    .hp-compare-row > div {
+        padding: 12px 10px;
+        font-size: 0.8rem;
     }
 
     /* Process flow */
@@ -833,13 +994,16 @@
 
     .hp-compare-header,
     .hp-compare-row {
-        grid-template-columns: 100px repeat(3, 1fr);
-        min-width: 420px;
+        grid-template-columns: 72px repeat(3, 1fr);
     }
 
     .hp-compare-header > div,
     .hp-compare-row > div {
-        padding: 10px 12px;
-        font-size: 0.78rem;
+        padding: 10px 6px;
+        font-size: 0.72rem;
+    }
+
+    .hp-compare-row > div:first-child {
+        font-size: 0.7rem;
     }
 }
