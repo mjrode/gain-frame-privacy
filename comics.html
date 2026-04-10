@@ -462,37 +462,52 @@
             display: block;
         }
 
-        /* Nav arrows — newspaper style (square) */
+        /* Nav arrows — refined ghost circles */
         .comic-viewer-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: var(--paper-light);
-            border: 1px solid var(--rule);
-            color: var(--ink);
-            width: 44px;
-            height: 44px;
-            font-size: 1.3rem;
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            color: rgba(255, 255, 255, 0.8);
+            width: 48px;
+            height: 48px;
+            font-size: 0;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s ease;
+            transition: border-color 0.3s ease, background 0.3s ease, opacity 0.3s ease;
             z-index: 5;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .comic-viewer-nav svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .comic-viewer-nav:hover {
-            background: var(--rule-light);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.45);
+            color: rgba(255, 255, 255, 1);
         }
 
         .comic-viewer-nav:disabled {
-            opacity: 0.15;
+            opacity: 0;
             cursor: default;
             pointer-events: none;
         }
 
-        .comic-viewer-nav.prev { left: max(16px, calc(50% - min(380px, 70vw) - 56px)); }
-        .comic-viewer-nav.next { right: max(16px, calc(50% - min(380px, 70vw) - 56px)); }
+        .comic-viewer-nav.prev { left: max(20px, calc(50% - min(380px, 70vw) - 64px)); }
+        .comic-viewer-nav.next { right: max(20px, calc(50% - min(380px, 70vw) - 64px)); }
 
         /* Bottom dots */
         .comic-viewer-dots {
@@ -586,14 +601,15 @@
             }
 
             .comic-viewer-nav {
-                width: 34px;
-                height: 34px;
-                font-size: 0.95rem;
-                opacity: 0.85;
+                width: 40px;
+                height: 40px;
+                border-width: 1px;
+                opacity: 0.7;
             }
+            .comic-viewer-nav svg { width: 15px; height: 15px; }
 
-            .comic-viewer-nav.prev { left: 4px; }
-            .comic-viewer-nav.next { right: 4px; }
+            .comic-viewer-nav.prev { left: 8px; }
+            .comic-viewer-nav.next { right: 8px; }
 
             .comic-viewer-dots {
                 bottom: calc(28px + env(safe-area-inset-bottom, 0px));
@@ -868,11 +884,11 @@
         </div>
         <button class="comic-viewer-close" id="viewerClose" aria-label="Close viewer">&times;</button>
         <div class="comic-viewer-stage">
-            <button class="comic-viewer-nav prev" id="viewerPrev" aria-label="Previous slide">&#8249;</button>
+            <button class="comic-viewer-nav prev" id="viewerPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
             <div class="comic-viewer-track" id="viewerTrack">
                 <!-- Slides rendered by JS -->
             </div>
-            <button class="comic-viewer-nav next" id="viewerNext" aria-label="Next slide">&#8250;</button>
+            <button class="comic-viewer-nav next" id="viewerNext" aria-label="Next slide"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
         </div>
         <div class="comic-viewer-progress" id="viewerProgress"><div class="comic-viewer-progress-fill" id="viewerProgressFill"></div></div>
         <div class="comic-viewer-dots" id="viewerDots"></div>
