@@ -319,17 +319,21 @@
             inset: 0;
             z-index: 9999;
             background: var(--paper);
-            display: none;
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        visibility 0.4s;
         }
 
         .comic-viewer.active {
-            display: flex;
             opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
 
         .comic-viewer-header {
@@ -407,8 +411,12 @@
             display: flex;
             align-items: center;
             gap: 28px;
-            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: transform 0.55s cubic-bezier(0.32, 0.72, 0, 1);
             will-change: transform;
+        }
+
+        .comic-viewer-track.dragging {
+            transition: none;
         }
 
         .comic-viewer-slide {
@@ -417,9 +425,9 @@
             overflow: hidden;
             border: 1px solid var(--rule);
             box-shadow: 0 4px 20px rgba(26, 26, 24, 0.06);
-            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                        opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                        box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
             transform: scale(0.82);
             opacity: 0.35;
             cursor: pointer;
@@ -432,6 +440,9 @@
             opacity: 1;
             box-shadow: 0 16px 48px rgba(26, 26, 24, 0.12);
             cursor: default;
+            transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1) 0.06s,
+                        opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1) 0.06s,
+                        box-shadow 0.5s cubic-bezier(0.32, 0.72, 0, 1) 0.06s;
         }
 
         .comic-viewer-slide.adjacent {
@@ -498,7 +509,8 @@
             width: 8px;
             height: 8px;
             background: var(--rule);
-            transition: background 0.3s ease, transform 0.3s ease;
+            transition: background 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
             cursor: pointer;
             transform: rotate(45deg);
         }
@@ -732,6 +744,22 @@
             let currentSlide = 0;
             const totalSlides = 6;
 
+            // Layout metrics — computed once on open and on resize
+            let slideWidth = 0;
+            let slideGap = 28;
+
+            function computeLayout() {
+                const s = track.querySelector('.comic-viewer-slide');
+                if (s) slideWidth = s.offsetWidth;
+                else slideWidth = Math.min(380, window.innerWidth * 0.7);
+                slideGap = parseFloat(getComputedStyle(track).gap) || 28;
+            }
+
+            // Math-based offset: no DOM measurement needed during transitions
+            function trackOffset(index, drag) {
+                return -(index * (slideWidth + slideGap) + slideWidth / 2) + (drag || 0);
+            }
+
             function getSlideUrl(slug, index) {
                 const comic = COMICS_MANIFEST.find(c => c.slug === slug);
                 const ext = comic ? comic.ext : 'png';
@@ -744,6 +772,8 @@
                 return comic ? comic.title : slug;
             }
 
+            let wasDragging = false;
+
             function buildSlides(slug) {
                 track.innerHTML = '';
                 for (let i = 0; i < totalSlides; i++) {
@@ -754,8 +784,10 @@
                     img.src = getSlideUrl(slug, i);
                     img.alt = `${getComicTitle(slug)} — Slide ${i + 1}`;
                     img.loading = i <= 2 ? 'eager' : 'lazy';
+                    img.draggable = false;
                     slide.appendChild(img);
                     slide.addEventListener('click', () => {
+                        if (wasDragging) { wasDragging = false; return; }
                         if (i !== currentSlide) goToSlide(i);
                     });
                     track.appendChild(slide);
@@ -766,80 +798,124 @@
                 counterEl.innerHTML = `<span class="current-num">0${currentSlide + 1}</span> of ${String(totalSlides).padStart(2, '0')}`;
             }
 
+            // Build dots once; update classes on navigate for smooth CSS transitions
             function renderDots() {
                 dotsEl.innerHTML = '';
                 for (let i = 0; i < totalSlides; i++) {
                     const dot = document.createElement('div');
-                    dot.className = `comic-viewer-dot${i === currentSlide ? ' active' : ''}`;
+                    dot.className = 'comic-viewer-dot';
+                    if (i === currentSlide) dot.classList.add('active');
                     dot.addEventListener('click', () => goToSlide(i));
                     dotsEl.appendChild(dot);
                 }
             }
 
+            function updateDots() {
+                dotsEl.querySelectorAll('.comic-viewer-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === currentSlide);
+                });
+            }
+
             function updateSlideStates() {
-                const slides = track.querySelectorAll('.comic-viewer-slide');
-                slides.forEach((slide, i) => {
+                track.querySelectorAll('.comic-viewer-slide').forEach((slide, i) => {
                     slide.classList.remove('active', 'adjacent', 'far');
                     const diff = Math.abs(i - currentSlide);
                     if (diff === 0) slide.classList.add('active');
                     else if (diff === 1) slide.classList.add('adjacent');
                     else slide.classList.add('far');
                 });
-
-                // Track is positioned at left:50%, top:50%.
-                // We translate so the active slide's center sits at left:50% (the page center).
-                const activeSlide = slides[currentSlide];
-                if (!activeSlide) return;
-                const slideCenterX = activeSlide.offsetLeft + activeSlide.offsetWidth / 2;
-                track.style.transform = `translate(${-slideCenterX}px, -50%)`;
+                track.style.transform = `translate(${trackOffset(currentSlide)}px, -50%)`;
             }
 
             function goToSlide(index) {
                 currentSlide = Math.max(0, Math.min(index, totalSlides - 1));
                 updateSlideStates();
                 updateCounter();
-                renderDots();
+                updateDots();
                 prevBtn.disabled = currentSlide === 0;
                 nextBtn.disabled = currentSlide === totalSlides - 1;
             }
 
-            function openViewer(slug) {
+            function openViewer(slug, skipHistory = false) {
                 currentSlug = slug;
                 currentSlide = 0;
                 titleEl.textContent = getComicTitle(slug);
                 buildSlides(slug);
+                renderDots();
+
+                // Suppress track & slide transitions for instant initial position
+                track.classList.add('dragging');
                 viewer.classList.add('active');
                 document.body.style.overflow = 'hidden';
+
+                // Two-frame RAF: frame 1 lets browser lay out, frame 2 enables transitions
                 requestAnimationFrame(() => {
-                    goToSlide(0);
+                    computeLayout();
+                    track.style.transform = `translate(${trackOffset(0)}px, -50%)`;
+
+                    const slides = track.querySelectorAll('.comic-viewer-slide');
+                    slides.forEach((s, i) => {
+                        s.style.transition = 'none';
+                        s.classList.remove('active', 'adjacent', 'far');
+                        if (i === 0) s.classList.add('active');
+                        else if (i === 1) s.classList.add('adjacent');
+                        else s.classList.add('far');
+                    });
+
+                    requestAnimationFrame(() => {
+                        track.classList.remove('dragging');
+                        slides.forEach(s => s.style.transition = '');
+                        updateCounter();
+                        prevBtn.disabled = true;
+                        nextBtn.disabled = totalSlides <= 1;
+                    });
                 });
+
+                if (!skipHistory) {
+                    const url = new URL(window.location);
+                    url.searchParams.set('comic', slug);
+                    window.history.pushState({ comic: slug }, '', url);
+                }
             }
 
-            function closeViewer() {
+            function closeViewer(skipHistory = false) {
+                if (!viewer.classList.contains('active')) return;
                 viewer.classList.remove('active');
                 document.body.style.overflow = '';
+                if (!skipHistory) {
+                    const url = new URL(window.location);
+                    url.searchParams.delete('comic');
+                    window.history.pushState({}, '', url);
+                }
             }
 
             // Card click handlers
             document.addEventListener('click', (e) => {
                 const card = e.target.closest('.comic-card');
-                if (card) openViewer(card.getAttribute('data-slug'));
+                if (card) {
+                    e.preventDefault();
+                    openViewer(card.getAttribute('data-slug'));
+                }
             });
 
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') {
                     const card = e.target.closest('.comic-card');
-                    if (card) openViewer(card.getAttribute('data-slug'));
+                    if (card) {
+                        e.preventDefault();
+                        openViewer(card.getAttribute('data-slug'));
+                    }
                 }
             });
 
-            // Nav
+            // Nav buttons
             prevBtn.addEventListener('click', () => { if (currentSlide > 0) goToSlide(currentSlide - 1); });
             nextBtn.addEventListener('click', () => { if (currentSlide < totalSlides - 1) goToSlide(currentSlide + 1); });
 
             // Close
-            closeBtn.addEventListener('click', closeViewer);
+            closeBtn.addEventListener('click', () => closeViewer());
             viewer.addEventListener('click', (e) => {
+                if (wasDragging) { wasDragging = false; return; }
                 if (e.target === viewer || e.target.classList.contains('comic-viewer-stage')) closeViewer();
             });
 
@@ -851,18 +927,88 @@
                 if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
             });
 
-            // Swipe support
-            let touchStartX = 0;
-            viewer.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-            viewer.addEventListener('touchend', (e) => {
-                const diff = touchStartX - e.changedTouches[0].screenX;
-                if (Math.abs(diff) > 50) {
-                    if (diff > 0 && currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
-                    if (diff < 0 && currentSlide > 0) goToSlide(currentSlide - 1);
+            // ---- Drag support (touch + mouse) ----
+            let isDragging = false;
+            let dragStartX = 0;
+            let dragDelta = 0;
+            let dragStartTime = 0;
+
+            function onDragStart(x) {
+                isDragging = true;
+                dragStartX = x;
+                dragDelta = 0;
+                dragStartTime = Date.now();
+                track.classList.add('dragging');
+            }
+
+            function onDragMove(x) {
+                if (!isDragging) return;
+                dragDelta = x - dragStartX;
+                track.style.transform = `translate(${trackOffset(currentSlide, dragDelta)}px, -50%)`;
+            }
+
+            function onDragEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                wasDragging = Math.abs(dragDelta) > 5;
+                track.classList.remove('dragging');
+
+                const velocity = dragDelta / Math.max(Date.now() - dragStartTime, 1);
+                const threshold = slideWidth * 0.2;
+                let target = currentSlide;
+
+                if (Math.abs(dragDelta) > threshold || Math.abs(velocity) > 0.3) {
+                    if (dragDelta > 0 && currentSlide > 0) target--;
+                    else if (dragDelta < 0 && currentSlide < totalSlides - 1) target++;
                 }
+                goToSlide(target);
+            }
+
+            // Touch events
+            viewer.addEventListener('touchstart', (e) => {
+                if (e.target.closest('.comic-viewer-nav, .comic-viewer-close, .comic-viewer-dot')) return;
+                onDragStart(e.touches[0].clientX);
             }, { passive: true });
+            viewer.addEventListener('touchmove', (e) => onDragMove(e.touches[0].clientX), { passive: true });
+            viewer.addEventListener('touchend', () => onDragEnd(), { passive: true });
+
+            // Mouse drag events
+            viewer.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.comic-viewer-nav, .comic-viewer-close, .comic-viewer-dot')) return;
+                e.preventDefault();
+                onDragStart(e.clientX);
+            });
+            window.addEventListener('mousemove', (e) => { if (isDragging) { e.preventDefault(); onDragMove(e.clientX); } });
+            window.addEventListener('mouseup', () => onDragEnd());
+
+            // Reposition on resize without animation
+            window.addEventListener('resize', () => {
+                if (!viewer.classList.contains('active')) return;
+                computeLayout();
+                track.classList.add('dragging');
+                track.style.transform = `translate(${trackOffset(currentSlide)}px, -50%)`;
+                requestAnimationFrame(() => track.classList.remove('dragging'));
+            });
+
+            // Deep Linking & History
+            window.addEventListener('popstate', () => {
+                const url = new URL(window.location);
+                const comic = url.searchParams.get('comic');
+                if (comic) {
+                    openViewer(comic, true);
+                } else {
+                    closeViewer(true);
+                }
+            });
+
+            // Init from URL
+            setTimeout(() => {
+                const url = new URL(window.location);
+                const comic = url.searchParams.get('comic');
+                if (comic) {
+                    openViewer(comic, true);
+                }
+            }, 50);
         })();
 
         /* ---- Scroll Reveal Observer ---- */
