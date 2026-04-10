@@ -6,6 +6,11 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "skinny-fat-trap",            title: "The Skinny-Fat Trap",      date: "2026-04-10", ext: "png" },
+    { slug: "fix-progress-photos",        title: "Fix Your Progress Photos", date: "2026-04-10", ext: "png" },
+    { slug: "optimal-training-truth",     title: "The Truth About Optimal Training", date: "2026-04-10", ext: "png" },
+    { slug: "bulk-cut-maintain",          title: "Bulk, Cut, or Maintain?",  date: "2026-04-10", ext: "png" },
+    { slug: "chest-wont-grow",            title: "Why Your Chest Won't Grow", date: "2026-04-10", ext: "png" },
     { slug: "beginner-gym-split",         title: "The Perfect Gym Split For Beginners", date: "2026-04-10", ext: "png" },
     { slug: "supplements-that-work",      title: "5 Supplements That Actually Work", date: "2026-04-10", ext: "png" },
     { slug: "one-year-lifting",           title: "What 1 Year of Lifting Looks Like", date: "2026-04-10", ext: "png" },
