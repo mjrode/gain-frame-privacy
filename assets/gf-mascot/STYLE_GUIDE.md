@@ -1,30 +1,62 @@
-# GainFrame Mascot — TikTok Carousel Comic Style Guide
+# GainFrame Gary — TikTok Carousel Comic Style Guide
 
-## The Character
+## The Character — "GainFrame Gary"
+
+- **Name:** GainFrame Gary (used in branding badge on every slide)
 - **Head:** GainFrame scan-frame logo (bracket corners in black, with the "S"-curve nose, two googly eyes, and a red bracket accent in the bottom-right)
 - **Body:** Solid black/dark charcoal silhouette figure wearing olive/army-green shorts and gray/brown chunky sneakers
 - **Build:** Can range from average (template pose) to muscular (gym scenes) depending on the slide context
 - **Expression:** Conveyed through the googly eyes and nose position — curious, strained, happy, sleeping, etc.
 
 ## Visual Style Constants
-- **Background:** Warm beige/tan (#E8D5B7 to #F0E0C8) — flat, no gradients
+
+- **Background:** Clean off-white / light cream (#F5F0EB) — flat, no gradients. NOT the old warm beige. Think clean, modern, like a whiteboard.
 - **Art style:** Clean cartoon/comic illustration — thick outlines, flat colors, minimal shading
 - **Color palette:** Black body, olive-green shorts, gray-brown shoes, red bracket accent. Props use muted realistic tones (silver gym equipment, blue bedding, etc.)
 - **Aspect ratio:** 4:5 (1080×1350) for TikTok carousel photos
 - **Text IN the image:** Title banners and subtitle text are generated directly in the image via Nano Banana — NOT added later in CapCut/Canva. The AI generates the complete slide (illustration + text) in one shot.
 
+### Typography (CRITICAL for consistency)
+
+Fonts must be explicitly specified in EVERY prompt. Letting the AI choose = inconsistent handwritten/random fonts.
+
+| Element | Font Style | Weight | Case |
+|---------|-----------|--------|------|
+| **Cover title** | Impact / Bebas Neue style condensed sans-serif | Extra bold / Black | ALL CAPS |
+| **Number banner** | Same as cover title | Bold | ALL CAPS |
+| **Subtitle body text** | Clean sans-serif (Helvetica / Arial style) | Bold | Sentence case |
+| **Badge text** | Clean sans-serif | Bold | ALL CAPS |
+| **Accent words** | Same font as surrounding text | Same weight | Red (#E53935) color |
+
+**In prompts, always include:** `"Use bold Impact-style condensed sans-serif font for all titles and banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle body text. NO handwritten, script, or decorative fonts."`
+
+### Branding Badge — "GainFrame Gary" (on EVERY slide)
+
+Inspired by the "Blue Bro" branding pattern — a small mascot identity in the top-left corner.
+
+- **Position:** Top-left corner of every slide (cover AND numbered)
+- **Layout:** Small mascot head icon (bracket-frame face only) + bold text "GAINFRAME GARY" to its right
+- **Size:** Small — roughly 10-15% of image width. It's a watermark/identity, not a focal point
+- **Style:** The head icon matches the main character but is small and flat. Text is bold sans-serif, dark gray or black.
+- **Reference file:** `gary-badge.png` — use this as an ImagePaths reference so the AI sees the exact badge design
+
+**In prompts, always include:** `"In the top-left corner, draw a small branding badge: a tiny version of the character's bracket-frame head icon next to bold sans-serif text reading 'GAINFRAME GARY'. Keep it small like a watermark — about 10% of image width."`
+
 ## Slide Layout Patterns
 
 ### Cover Slide (Slide 0)
-- Bold, all-caps title text (white text on black banner/pill, or large bold text with accent color on key words)
+- Bold, all-caps title text (Impact-style condensed sans-serif, NOT handwritten)
+- White text on black banner/pill, or large bold text with accent color on key words
 - Text is PART OF the generated image — Nano Banana renders the title directly
 - Mascot in a simple pose or action that represents the topic
 - May include the mascot interacting with a prop (whiteboard, clipboard, etc.)
+- **GainFrame Gary badge in top-left corner**
 
 ### Numbered Content Slides (1-5)
-- **Title banner:** Numbered title at top in black pill/banner with white text (e.g., "1. You Won't See Progress Overnight") — rendered in the image by Nano Banana
-- **Subtitle:** 2-3 lines of supporting text in bold, dark text below the banner — also rendered in the image
+- **Title banner:** Numbered title at top in black pill/banner with white text (e.g., "1. You Won't See Progress Overnight") — Impact-style condensed sans-serif, ALL CAPS
+- **Subtitle:** 2-3 lines of supporting text in bold clean sans-serif (Helvetica-style), dark text below the banner
 - **Illustration:** Mascot performing an action that visualizes the tip
+- **GainFrame Gary badge in top-left corner**
 - Common visual devices:
   - ✅/❌ comparison (correct form vs. wrong form)
   - Mirror reflection (aspiration vs. reality)
@@ -43,6 +75,7 @@
 | Leg Day | Muscular build, doing shoulder press near leg press machine | `mascot-legs.jpeg` |
 | Progress Photos | Double bicep flex pose next to phone on tripod | `mascot-pictures.jpeg` |
 | Sleeping/Recovery | Lying in bed with alarm clock, peaceful expression | `mascot-sleep.jpeg` |
+| Badge Icon | Head-only bracket-frame face for top-left branding | `gary-badge.png` |
 
 ## Competitor Reference — Title Patterns (Blue Mascot Accounts)
 
@@ -116,13 +149,14 @@ These are proven high-engagement title formats from similar mascot-style fitness
 Tool: generate_image
 ImagePaths: [
   "assets/gf-mascot/gf-mascot-template.jpeg",   # ALWAYS include template
-  "assets/gf-mascot/mascot-pictures.jpeg"         # Include 1-2 scene refs
+  "assets/gf-mascot/gary-badge.png",              # ALWAYS include badge ref
+  "assets/gf-mascot/mascot-pictures.jpeg"         # Include 1 scene ref
 ]
 ```
 
-Use absolute paths when calling the tool. Pick 1-2 reference images from the Scene Reference Library that are closest to the scene you're generating.
+Use absolute paths when calling the tool. Pick 1 scene reference image from the Scene Reference Library that is closest to the scene you're generating. **Always include both the template AND the badge reference.**
 
-### Base Prompt Prefix (use for every generation)
+### Base Prompt Prefix (use for EVERY generation)
 ```
 A cartoon illustration of this exact character from the reference images in a new scene. 
 CRITICAL: The head is NOT a solid square — it is four separate corner brackets floating 
@@ -130,22 +164,32 @@ in space with the background visible between them. The eyes and S-curve nose flo
 the bracket frame with NO background fill, NO square, NO box behind them. Copy the head 
 design from the reference images exactly — open bracket corners, not a filled square.
 
+In the top-left corner, draw a small branding badge: a tiny version of the character's 
+bracket-frame head icon (matching the badge reference image) next to bold sans-serif text 
+reading "GAINFRAME GARY". Keep it small like a watermark — about 10% of image width.
+
 Scene: [SCENE DESCRIPTION HERE]
+
+TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for ALL title text and 
+number banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle/body text. 
+NO handwritten, script, or decorative fonts anywhere.
+
+Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
+4:5 TikTok format (1080x1350). No watermarks except the GainFrame Gary badge.
 ```
 
 ### Text Integration in Prompts
 For numbered content slides, append:
 ```
-At the top, a black rounded rectangle banner with bold white text reads "[NUMBER]. [TITLE]". 
-Below, bold dark text reads "[SUBTITLE]." Clean cartoon style, thick outlines, flat colors, 
-warm beige background. 4:5 TikTok format. No watermarks.
+At the top, a black rounded rectangle banner with bold white text in Impact-style 
+condensed sans-serif reads "[NUMBER]. [TITLE]" (ALL CAPS). Below, bold clean sans-serif 
+text (Helvetica-style) reads "[SUBTITLE]."
 ```
 
 For cover slides:
 ```
-Large bold text at the top reads "[COVER TITLE]" with the word "[ACCENT WORD]" in red. 
-Very prominent and eye-catching. Clean cartoon style, thick outlines, flat colors, 
-warm beige background. 4:5 TikTok format. No watermarks.
+Large bold text in Impact-style condensed sans-serif reads "[COVER TITLE]" (ALL CAPS) 
+with the word "[ACCENT WORD]" in red (#E53935). Very prominent and eye-catching.
 ```
 
 ### Scene Suffix Examples

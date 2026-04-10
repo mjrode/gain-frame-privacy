@@ -1,20 +1,21 @@
 ---
 name: TikTok Carousel Generator
-description: Interactive workflow for generating GainFrame mascot TikTok carousel posts — from topic ideation through text iteration to Nano Banana image generation.
+description: Interactive workflow for generating GainFrame Gary TikTok carousel posts — from topic ideation through text iteration to Nano Banana image generation.
 triggers:
   - "tiktok post"
   - "tiktok carousel"
   - "new tiktok"
   - "mascot post"
   - "carousel post"
+  - "gainframe gary"
 ---
 
 # TikTok Carousel Generator Skill
 
 ## Overview
-This skill orchestrates the creation of TikTok carousel comic posts featuring the GainFrame mascot character. It follows a phased conversational workflow: brainstorm or select a topic, draft the slide text (cover + 4-5 numbered slides), iterate until the copy is sharp, then generate each **complete slide image** (illustration + text) using Antigravity's `generate_image` tool with `ImagePaths` referencing the mascot character sheet for visual consistency.
+This skill orchestrates the creation of TikTok carousel comic posts featuring **GainFrame Gary** — the GainFrame mascot character. It follows a phased conversational workflow: brainstorm or select a topic, draft the slide text (cover + 4-5 numbered slides), iterate until the copy is sharp, then generate each **complete slide image** (illustration + text) using Antigravity's `generate_image` tool with `ImagePaths` referencing the mascot character sheet for visual consistency.
 
-Every post uses the same mascot character, visual style, and layout — ensuring brand consistency across all content. Text banners and subtitles are baked directly into the generated images — no CapCut/Canva compositing needed.
+Every post uses the same mascot character, visual style, branding badge, and layout — ensuring brand consistency across all content. Text banners and subtitles are baked directly into the generated images — no CapCut/Canva compositing needed.
 
 ## CRITICAL: Read the Style Guide First
 
@@ -26,6 +27,8 @@ view_file /Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/S
 This file contains:
 - Character design specs (bracket-frame head, body, clothing)
 - Visual style constants (background color, palette, aspect ratio)
+- **Typography rules** (Impact-style sans-serif for titles, Helvetica-style for subtitles — NO handwritten fonts)
+- **GainFrame Gary branding badge** specs (top-left on every slide)
 - Slide layout patterns (cover + numbered slides)
 - Competitor title patterns for inspiration
 - The exact Nano Banana base prompt prefix to use for every image
@@ -116,7 +119,7 @@ For each slide, draft:
 
 ### Phase 3: Image Generation
 
-**Goal:** Generate 6 mascot illustrations (1 cover + 5 slides) with perfect character consistency.
+**Goal:** Generate 6 GainFrame Gary illustrations (1 cover + 5 slides) with perfect character consistency, clean typography, and branding.
 
 #### ⚠️ CRITICAL: Tool Selection
 
@@ -132,7 +135,7 @@ See `STYLE_GUIDE.md > Prompt Engineering Notes` for full rationale.
    ```
    Use a short kebab-case slug based on the topic (e.g., `gym-advice-must-know`, `perfect-leg-day`).
 
-2. **Read the style guide** to get the base prompt prefix:
+2. **Read the style guide** to get the base prompt prefix, typography rules, and badge specs:
    ```
    view_file assets/gf-mascot/STYLE_GUIDE.md
    ```
@@ -141,20 +144,23 @@ See `STYLE_GUIDE.md > Prompt Engineering Notes` for full rationale.
 
 For each slide, use `generate_image` with this configuration:
 
-**Required for EVERY call:**
+**Required ImagePaths for EVERY call (3 references):**
 ```
 ImagePaths: [
   "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg",
+  "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gary-badge.png",
   "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/[closest-scene-ref].jpeg"
 ]
 ```
 
-Pick a second reference image matching the scene type:
-- Flexing/mirror → `mirror-mascot.jpeg`
-- Form comparison → `mascot-form.jpeg`
-- Gym equipment → `mascot-legs.jpeg`
-- Phone/photos → `mascot-pictures.jpeg`
-- Sleeping/recovery → `mascot-sleep.jpeg`
+- **Always include `gf-mascot-template.jpeg`** — the character design reference
+- **Always include `gary-badge.png`** — the head-only badge for the top-left corner branding
+- Pick a third reference image matching the scene type:
+  - Flexing/mirror → `mirror-mascot.jpeg`
+  - Form comparison → `mascot-form.jpeg`
+  - Gym equipment → `mascot-legs.jpeg`
+  - Phone/photos → `mascot-pictures.jpeg`
+  - Sleeping/recovery → `mascot-sleep.jpeg`
 
 **Prompt template for numbered slides:**
 ```
@@ -164,11 +170,22 @@ in space with the background visible between them. The eyes and S-curve nose flo
 the bracket frame with NO background fill, NO square, NO box behind them. Copy the head 
 design from the reference images exactly — open bracket corners, not a filled square.
 
+In the top-left corner, draw a small branding badge: a tiny version of the character's 
+bracket-frame head icon (matching the badge reference image) next to bold sans-serif text 
+reading "GAINFRAME GARY". Keep it small like a watermark — about 10% of image width.
+
 Scene: [SCENE DESCRIPTION specific to this slide]
 
-At the top, a black rounded rectangle banner with bold white text reads "[NUMBER]. [TITLE]". 
-Below, bold dark text reads "[SUBTITLE]." Clean cartoon style, thick outlines, flat colors, 
-warm beige background. 4:5 TikTok format. No watermarks.
+At the top, a black rounded rectangle banner with bold white text in Impact-style 
+condensed sans-serif reads "[NUMBER]. [TITLE]" (ALL CAPS). Below, bold clean sans-serif 
+text (Helvetica-style) reads "[SUBTITLE]."
+
+TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for ALL title text and 
+number banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle/body text. 
+NO handwritten, script, or decorative fonts anywhere.
+
+Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
+4:5 TikTok format (1080x1350). No watermarks except the GainFrame Gary badge.
 ```
 
 **Prompt template for cover slide:**
@@ -186,21 +203,29 @@ in space with the background visible between them. The eyes and S-curve nose flo
 the bracket frame with NO background fill, NO square, NO box behind them. Copy the head 
 design from the reference images exactly — open bracket corners, not a filled square.
 
+In the top-left corner, draw a small branding badge: a tiny version of the character's 
+bracket-frame head icon (matching the badge reference image) next to bold sans-serif text 
+reading "GAINFRAME GARY". Keep it small like a watermark — about 10% of image width.
+
 Scene: [MASCOT in a representative pose for the topic]
 
 TITLE TEXT PLACEMENT (CRITICAL): Center the title text in the MIDDLE of the image, NOT at 
 the top edge. The text must have very large left and right margins — keep it within the 
 center 60% of the image width so it is NOT clipped when TikTok crops to a square thumbnail. 
 Split long titles onto 2 centered lines. The title reads "[COVER TITLE]" with the word 
-"[ACCENT WORD]" in red. Very prominent bold text, eye-catching. Clean cartoon style, thick 
-outlines, flat colors, warm beige background (#E8D5B7). 4:5 TikTok format (1080x1350). 
-No watermarks.
+"[ACCENT WORD]" in red (#E53935). Very prominent bold text, eye-catching.
+
+TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for the title (ALL CAPS). 
+NO handwritten, script, or decorative fonts.
+
+Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
+4:5 TikTok format (1080x1350). No watermarks except the GainFrame Gary badge.
 ```
 
 **IMPORTANT:**
 - Generate ONE image at a time, not in parallel. This lets you course-correct style drift.
 - After each generation, show the result to the user and ask if it matches the style. If not, refine the prompt.
-- Always include `gf-mascot-template.jpeg` as the first reference image.
+- Always include `gf-mascot-template.jpeg` AND `gary-badge.png` as reference images.
 - Keep concurrency ≤ 1 for character consistency. Quality > speed.
 
 #### Save Images
@@ -253,14 +278,17 @@ Name the files:
 - **Never skip the text iteration phase.** The copy must be approved before generating any images. Bad copy = wasted generation credits.
 - **One image at a time.** Do NOT batch-generate all images. Character consistency requires sequential generation with review.
 - **Always use the base prompt prefix.** The mascot's visual identity is defined by the exact prompt prefix in the style guide. Never freestyle it.
+- **Always include the GainFrame Gary badge.** Every slide gets the top-left branding badge. Include `gary-badge.png` in ImagePaths.
+- **Always specify fonts.** Every prompt must explicitly request Impact-style condensed sans-serif for titles and clean sans-serif for subtitles. Never let the AI choose fonts freely.
 - **Text is baked IN.** All text (titles, subtitles, numbers) is generated directly in the image via Nano Banana. No post-processing in CapCut/Canva needed.
 - **Save everything.** Every carousel must have its own directory under `assets/tiktok/comic/[slug]/` with all images AND a `content.md` with the text + prompts used.
 - **Prompt reproducibility.** Always save the exact prompt used for each image in `content.md`. If a style works well, it becomes the new reference.
 - **Exactly 1 GainFrame mention per carousel.** Always included, never in the first 3 slides. Pure value first — product mention is earned, not forced.
 
 ## Reference Files
-- `assets/gf-mascot/STYLE_GUIDE.md` — **MUST READ FIRST** — Character design, visual constants, title patterns, prompt templates
+- `assets/gf-mascot/STYLE_GUIDE.md` — **MUST READ FIRST** — Character design, visual constants, typography, badge specs, title patterns, prompt templates
 - `assets/gf-mascot/gf-mascot-template.jpeg` — Mascot character sheet (neutral standing pose)
+- `assets/gf-mascot/gary-badge.png` — **Head-only badge icon** for top-left branding (ALWAYS include in ImagePaths)
 - `assets/gf-mascot/mirror-mascot.jpeg` — Example: mirror reflection scene
 - `assets/gf-mascot/mascot-form.jpeg` — Example: good vs. bad form (✅/❌ comparison)
 - `assets/gf-mascot/mascot-legs.jpeg` — Example: gym equipment interaction
