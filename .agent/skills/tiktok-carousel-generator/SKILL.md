@@ -257,7 +257,7 @@ CRITICAL EXACT FILE NAMING YOU MUST USE TO SAVE THE IMAGES:
 - `slide-4.png`
 - `slide-5.png`
 
-Do NOT name them `cover.png` or `slide1.png`. The web gallery explicitly searches for `slide-0-cover` and `slide-[N]` with dashes. Failure to use this exact naming convention will result in broken images on the website.
+Do NOT name them `cover.png` or `slide1.png` or `slide_1.png`. You MUST use HYPHENS (-), NOT UNDERSCORES (_). The web gallery explicitly searches for `slide-0-cover` and `slide-[N]` with dashes. Failure to use this exact naming convention will result in broken images on the website.
 
 ---
 
@@ -303,8 +303,11 @@ This step copies the finished slides and `content.md` to a dedicated folder insi
 1. **Copy all assets to the iCloud drafts folder:**
    ```bash
    SLUG="[slug]"
-   DEST="$HOME/Library/Mobile Documents/com~apple~CloudDocs/TikTok-Drafts/$SLUG"
+   # ABSOLUTE PATH MUST BE USED EXACTLY AS WRITTEN:
+   DEST="/Users/michael.rode/Library/Mobile Documents/com~apple~CloudDocs/TikTok-Drafts/$SLUG"
    mkdir -p "$DEST"
+   
+   # COPY ONLY FILES WITH HYPHENS (e.g., slide-1.png NEVER slide_1.png)
    cp assets/tiktok/comic/$SLUG/slide-*.png "$DEST/"
    cp assets/tiktok/comic/$SLUG/content.md "$DEST/"
    ```
