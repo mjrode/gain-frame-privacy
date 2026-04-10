@@ -107,6 +107,7 @@ def main():
     parser.add_argument("--title", required=True, help="Title text (shouting/all caps)")
     parser.add_argument("--accent", help="Accent word to color red (only for cover slides)")
     parser.add_argument("--subtitle", help="Subtitle text (only for numbered slides)")
+    parser.add_argument("--output", help="Optional output path (defaults to appending _styled to input)")
     args = parser.parse_args()
 
     # Load image
@@ -153,7 +154,10 @@ def main():
 
     # Convert back to RGB and save
     out_img = img.convert("RGB")
-    out_name = args.image.replace(".png", "_styled.png").replace(".jpg", "_styled.jpg")
+    if args.output:
+        out_name = args.output
+    else:
+        out_name = args.image.replace(".png", "_styled.png").replace(".jpg", "_styled.jpg")
     out_img.save(out_name)
     print(f"Saved styled image to {out_name}")
 

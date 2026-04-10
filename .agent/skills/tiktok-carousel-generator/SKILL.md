@@ -243,15 +243,23 @@ Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat 
 - Always include `gf-mascot-template.jpeg` AND `gary-badge.png` as reference images.
 - Keep concurrency ≤ 1 for character consistency. Quality > speed.
 
-#### Save Images
-After each approved image, copy it to the output directory:
+#### Overlay Text & Save Images
+After generating the image from Nano Banana, you MUST ALWAYS run it through the Python script to bake in the title, subtitle, and branding badge. Use the `--output` parameter to save directly to the correct final path.
+
+**Example Command:**
 ```bash
-cp [generated-image-path] assets/tiktok/comic/[slug]/slide-[N].jpeg
+python3 assets/tiktok/scripts/overlay_text.py /path/to/raw_generation.png --type slide --title "DONT DO THIS" --subtitle "Keep your back straight" --output assets/tiktok/comic/[slug]/slide-[N].png
 ```
 
-Name the files:
-- `slide-0-cover.jpeg`
-- `slide-1.jpeg` through `slide-5.jpeg`
+CRITICAL EXACT FILE NAMING YOU MUST USE FOR THE `--output` FLAG:
+- `slide-0-cover.png` (for the cover)
+- `slide-1.png`
+- `slide-2.png`
+- `slide-3.png`
+- `slide-4.png`
+- `slide-5.png`
+
+Do NOT name them `cover.png` or `slide1.png`. The web gallery explicitly searches for `slide-0-cover` and `slide-[N]` with dashes. Failure to use this exact naming convention will result in broken images on the website.
 
 ---
 
@@ -295,7 +303,7 @@ Name the files:
 - **Always use the base prompt prefix.** The mascot's visual identity is defined by the exact prompt prefix in the style guide. Never freestyle it.
 - **Always include the GainFrame Gary badge.** Every slide gets the top-left branding badge. Include `gary-badge.png` in ImagePaths.
 - **Always specify fonts.** Every prompt must explicitly request Impact-style condensed sans-serif for titles and clean sans-serif for subtitles. Never let the AI choose fonts freely.
-- **Text is baked IN.** All text (titles, subtitles, numbers) is generated directly in the image via Nano Banana. No post-processing in CapCut/Canva needed.
+- **Text Overlay Script.** While Nano Banana sometimes gets text right, you MUST ALWAYS run the generated images through `assets/tiktok/scripts/overlay_text.py` if the text fails or to ensure consistency, and then save the final output using the strict `slide-0-cover.png` and `slide-[N].png` formats. No external CapCut/Canva compositing needed.
 - **Save everything.** Every carousel must have its own directory under `assets/tiktok/comic/[slug]/` with all images AND a `content.md` with the text + prompts used.
 - **Prompt reproducibility.** Always save the exact prompt used for each image in `content.md`. If a style works well, it becomes the new reference.
 - **Exactly 1 GainFrame mention per carousel.** Always included, never in the first 3 slides. Pure value first — product mention is earned, not forced.
