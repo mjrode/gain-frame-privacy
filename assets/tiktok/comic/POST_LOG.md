@@ -1,5 +1,11 @@
 # TikTok Carousel Post Log
 
+## 2026-04-10 — TOP 5 CORE EXERCISES
+- Slug: top-5-core-exercises
+- Slides: 6
+- GainFrame mention: Yes (Slide 5)
+- Status: Complete (Text baked in)
+
 ## 2026-04-10 — YOUR FIRST GYM WEEK
 - Slug: your-first-gym-week
 - Slides: 6
