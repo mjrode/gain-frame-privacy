@@ -693,61 +693,7 @@ body.homepage {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-/* Newsletter — compact dark strip between CTA and footer */
-.homepage .newsletter-section {
-    background: var(--hp-text);
-    padding: 28px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.homepage .newsletter-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-.homepage .newsletter-desc {
-    font-size: 0.8rem;
-    margin-bottom: 16px;
-}
-
-.homepage .newsletter-form {
-    max-width: 380px;
-    gap: 8px;
-}
-
-.homepage .newsletter-input {
-    padding: 11px 16px;
-    font-size: 0.85rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.homepage .newsletter-input:focus {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: none;
-}
-
-.homepage .newsletter-btn {
-    padding: 11px 20px;
-    font-size: 0.85rem;
-    border-radius: 8px;
-    background: var(--hp-green);
-    font-weight: 600;
-}
-
-.homepage .newsletter-btn:hover {
-    background: #5a7d60;
-}
-
-.homepage .newsletter-note {
-    font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.25);
-}
-
-/* Dark footer flowing from newsletter */
+/* Dark footer */
 .homepage .footer {
     background: var(--hp-text);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -781,21 +727,24 @@ body.homepage {
    ================================================== */
 
 .homepage .newsletter-section {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    background: #fff;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    background: #fff !important;
     border-top: 1px solid var(--hp-border);
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
-    padding: 14px 24px;
-    display: flex;
+    padding: 14px 24px !important;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     gap: 14px;
     flex-wrap: wrap;
     min-height: 56px;
+    text-align: left;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
     animation: hp-bar-slide-up 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
