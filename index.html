@@ -529,8 +529,16 @@
         </div>
     </section>
 
-    <!-- ==================== NEWSLETTER — compact strip ==================== -->
-    <div data-newsletter-signup></div>
+    <!-- ==================== FLOATING EMAIL BAR ==================== -->
+    <div id="hp-email-bar" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#fff;border-top:1px solid #E5E7EB;box-shadow:0 -4px 20px rgba(0,0,0,0.06);padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;-webkit-transform:translateZ(0);transform:translateZ(0);">
+        <span style="font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:700;color:#111;white-space:nowrap;">Stay in the Loop</span>
+        <form id="hp-bar-form" action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a8b3e6f0" method="post" novalidate style="display:flex;gap:6px;flex-shrink:0;">
+            <input type="hidden" name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" value="">
+            <input type="email" name="EMAIL" placeholder="Your email address" required autocomplete="email" aria-label="Email address" style="height:36px;padding:0 14px;border-radius:8px;border:1px solid #E5E7EB;font-size:13px;font-family:'DM Sans',sans-serif;background:#F4F5F7;color:#111;width:200px;outline:none;">
+            <button type="submit" style="height:36px;padding:0 18px;border-radius:8px;border:none;background:#6B8F71;color:#fff;font-size:13px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;white-space:nowrap;">Subscribe</button>
+        </form>
+        <span id="hp-bar-status" aria-live="polite" style="font-size:12px;font-weight:600;"></span>
+    </div>
 
     <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
@@ -591,6 +599,69 @@
             document.querySelectorAll(selectors.join(',')).forEach((el) => {
                 observer.observe(el);
             });
+        })();
+
+        /* Floating email bar — JSONP submission */
+        (function () {
+            var form = document.getElementById('hp-bar-form');
+            var status = document.getElementById('hp-bar-status');
+            if (!form) return;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (!form.reportValidity()) return;
+
+                var cb = 'hpBarCb_' + Date.now();
+                var script = document.createElement('script');
+                var params = new URLSearchParams(new FormData(form));
+                params.set('c', cb);
+
+                var url = form.action.replace('/post', '/post-json');
+                script.src = url + '&' + params.toString();
+                script.async = true;
+
+                var btn = form.querySelector('button');
+                btn.disabled = true;
+                status.textContent = '';
+                status.style.color = '';
+
+                window[cb] = function (r) {
+                    btn.disabled = false;
+                    if (script.parentNode) script.parentNode.removeChild(script);
+                    try { delete window[cb]; } catch (_) { window[cb] = undefined; }
+
+                    if (r && r.result === 'success') {
+                        form.reset();
+                        status.textContent = 'Subscribed!';
+                        status.style.color = '#6B8F71';
+                    } else {
+                        var tmp = document.createElement('div');
+                        tmp.innerHTML = (r && r.msg) || 'Something went wrong.';
+                        status.textContent = tmp.textContent;
+                        status.style.color = '#E84C3D';
+                    }
+                };
+
+                script.onerror = function () {
+                    btn.disabled = false;
+                    if (script.parentNode) script.parentNode.removeChild(script);
+                    status.textContent = 'Something went wrong.';
+                    status.style.color = '#E84C3D';
+                };
+
+                document.body.appendChild(script);
+            });
+
+            /* Mobile: stack vertically */
+            if (window.innerWidth <= 600) {
+                var bar = document.getElementById('hp-email-bar');
+                bar.style.flexDirection = 'column';
+                bar.style.gap = '8px';
+                bar.style.padding = '10px 16px 14px';
+                var input = form.querySelector('input[type=email]');
+                if (input) { input.style.width = '100%'; input.style.flex = '1'; }
+                form.style.width = '100%';
+            }
         })();
     </script>
     <!-- TikTok Pixel Code Start -->
