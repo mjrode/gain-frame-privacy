@@ -3,6 +3,11 @@
    Precision instrument aesthetic
    ================================================== */
 
+/* ── Body padding for fixed newsletter bar ── */
+body.homepage {
+    padding-bottom: 64px;
+}
+
 /* ── Homepage Variables ── */
 .homepage {
     --hp-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
@@ -764,60 +769,131 @@
 }
 
 /* ==================================================
-   EMAIL CAPTURE BAR — clinical restyle
+   HIDE CAPTURE BAR ON HOMEPAGE — newsletter bar replaces it
    ================================================== */
 
 .homepage #gf-capture-bar {
+    display: none !important;
+}
+
+/* ==================================================
+   NEWSLETTER — floating bar (position: fixed)
+   ================================================== */
+
+.homepage .newsletter-section {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
     background: #fff;
-    color: var(--hp-text);
-    box-shadow: 0 -1px 0 var(--hp-border), 0 -4px 16px rgba(0, 0, 0, 0.04);
     border-top: 1px solid var(--hp-border);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    min-height: 56px;
+    animation: hp-bar-slide-up 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.homepage #gf-capture-bar .gf-bar-eyebrow {
-    font-family: var(--hp-mono);
-    color: var(--hp-green);
-    background: var(--hp-green-soft);
-    font-size: 10px;
-    letter-spacing: 0.1em;
+@keyframes hp-bar-slide-up {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
 }
 
-.homepage #gf-capture-bar .gf-bar-message {
+.homepage .newsletter-title {
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 700;
     color: var(--hp-text);
-    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
 }
 
-.homepage #gf-capture-bar .gf-bar-input {
+.homepage .newsletter-desc {
+    display: none;
+}
+
+.homepage .newsletter-form {
+    display: flex;
+    gap: 6px;
+    margin: 0;
+    max-width: none;
+    flex-shrink: 0;
+}
+
+.homepage .newsletter-input {
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1px solid var(--hp-border);
+    outline: none;
+    font-size: 13px;
+    font-family: var(--font-body);
     background: var(--hp-surface);
     color: var(--hp-text);
-    border: 1px solid var(--hp-border);
+    width: 220px;
+    transition: border-color 0.2s, background 0.2s;
 }
 
-.homepage #gf-capture-bar .gf-bar-input::placeholder {
+.homepage .newsletter-input::placeholder {
     color: var(--hp-text-3);
 }
 
-.homepage #gf-capture-bar .gf-bar-input:focus {
+.homepage .newsletter-input:focus {
     background: #fff;
     border-color: var(--hp-green);
+    box-shadow: none;
 }
 
-.homepage #gf-capture-bar .gf-bar-btn {
-    background: var(--hp-green);
-    font-weight: 600;
+.homepage .newsletter-btn {
+    height: 36px;
+    padding: 0 18px;
     border-radius: 8px;
+    border: none;
+    background: var(--hp-green);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: var(--font-display);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
 }
 
-.homepage #gf-capture-bar .gf-bar-btn:hover {
+.homepage .newsletter-btn:hover {
     background: #5a7d60;
 }
 
-.homepage #gf-capture-bar .gf-bar-close {
-    color: var(--hp-text-3);
+.homepage .newsletter-status {
+    font-size: 12px;
+    min-height: 0;
+    margin: 0;
 }
 
-.homepage #gf-capture-bar .gf-bar-close:hover {
-    color: var(--hp-text);
+.homepage .newsletter-note {
+    display: none;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 600px) {
+    .homepage .newsletter-section {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 16px 16px;
+    }
+
+    .homepage .newsletter-form {
+        width: 100%;
+    }
+
+    .homepage .newsletter-input {
+        flex: 1;
+        width: auto;
+    }
 }
 
 /* ==================================================
