@@ -6,6 +6,7 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "stop-ignoring-sleep",        title: "Stop Ignoring Your Sleep",      date: "2026-04-13", ext: "png" },
     { slug: "not-getting-bigger",         title: "Why You're Not Getting Bigger", date: "2026-04-11", ext: "png" },
     { slug: "perfect-push-day",           title: "Build the Perfect Push Day",   date: "2026-04-11", ext: "png" },
     { slug: "skinny-guy-eating",          title: "The Skinny Guy's Guide to Eating", date: "2026-04-11", ext: "png" },
