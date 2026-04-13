@@ -56,7 +56,7 @@ Follow these phases sequentially. **Do not skip ahead. Get user approval before 
 
 2. **Confirm the angle.** Ask: "What's the one thing you want someone to walk away knowing after seeing this post?" This ensures the slides have a clear through-line, not just random tips.
 
-3. **GainFrame mention (mandatory).** Every carousel MUST include exactly 1 natural GainFrame tie-in. Place it on slide 4 or 5. It should feel like a natural recommendation, not an ad. Example: "Track your progress with GainFrame" or "GainFrame helps catch trends you'd miss."
+3. **GainFrame mention (optional — 1 in 3 cadence).** Do NOT include a GainFrame promo slide in every carousel. Aim for roughly 1 in every 3 carousels. When included, place it on the final slide and make it feel like a natural recommendation, not an ad. Example: "Track your progress with GainFrame" or "GainFrame helps catch trends you'd miss." If the current comic is NOT the one to include it, end on a strong tip or motivational slide instead.
 
 ---
 
@@ -111,7 +111,7 @@ For each slide, draft:
   - At least 1 solo mascot action scene
   - Consider: mirror/dream sequence, prop interaction, before/after
 - The slides should build on each other — not just random tips
-- **GainFrame mention is MANDATORY** — place it on the final slide (e.g., Slide 5 or Slide 6). It should feel like a natural recommendation. For "Top 5" posts, the GainFrame mention MUST be Slide 6.
+- **GainFrame mention is OPTIONAL (1-in-3 cadence)** — skip it in most carousels. When included, place it on the final slide. It should feel organic, not promotional. For "Top 5" posts where GainFrame IS included, it becomes Slide 6 so you still deliver 5 real tips.
 
 **Present the full draft to the user as a formatted table:**
 
@@ -351,7 +351,7 @@ This step copies the finished slides and `content.md` to a dedicated folder insi
 - **No Text Overlay Script.** You do NOT use any Python script to overlay text. Gemini generates the text directly in the image. If the text fails, adjust your prompt and regenerate the slide. Save the final output using the strict `slide-0-cover.png` and `slide-[N].png` formats.
 - **Save everything.** Every carousel must have its own directory under `assets/tiktok/comic/[slug]/` with all images AND a `content.md` with the text + prompts used.
 - **Prompt reproducibility.** Always save the exact prompt used for each image in `content.md`. If a style works well, it becomes the new reference.
-- **Exactly 1 GainFrame mention per carousel.** Always included, never in the first 3 slides. Pure value first — product mention is earned, not forced.
+- **GainFrame mention: 1 in every 3 carousels, not every one.** When included, place it on the final slide only. Never in the first 3 slides. Pure value first — product mention is earned, not forced. Most carousels should end with a strong tip, not a plug.
 
 ## Reference Files
 - `assets/gf-mascot/STYLE_GUIDE.md` — **MUST READ FIRST** — Character design, visual constants, typography, badge specs, title patterns, prompt templates
