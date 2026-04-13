@@ -6,6 +6,7 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "its-not-your-body",            title: "It's Not Your Body",            date: "2026-04-13", ext: "png" },
     { slug: "plateau-breaker",             title: "Do This If You're Stalled",     date: "2026-04-13", ext: "png" },
     { slug: "mind-muscle",                 title: "Do This If You Can't Feel It",  date: "2026-04-13", ext: "png" },
     { slug: "ego-lifting",                 title: "The #1 Mistake Killing Your Gains", date: "2026-04-13", ext: "png" },

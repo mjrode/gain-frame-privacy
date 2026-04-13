@@ -37,6 +37,91 @@ This file contains:
 
 Follow these phases sequentially. **Do not skip ahead. Get user approval before moving between phases.**
 
+**⚠️ FIRST: Choose a Format.** There are two carousel formats. Pick one at the start — every phase differs based on format:
+
+| Format | Best For | Look |
+|--------|----------|------|
+| **Standard (Tips)** | Lists, how-tos, numbered advice | Single scene per slide, black banner title, numbered tips |
+| **Split Panel (Reframe)** | "You're not X, you are Y" truth bombs | Each slide = 2 stacked panels, bold white text overlaid on scenes |
+
+If the user shows a reference image with the split panel style (two stacked scenes per slide), use the **Split Panel Format** below. Otherwise, continue with the standard workflow.
+
+---
+
+## Split Panel Format
+
+### What It Is
+Each slide is a **single 4:5 image split horizontally into two panels**:
+- **Top panel (upper 48%):** Shows the wrong assumption or problem. Bold white text with black stroke at the very top of the panel.
+- **Thin black divider line** at the center.
+- **Bottom panel (lower 48%):** Shows the truth or reframe. Bold white text with black stroke at the very bottom of the panel.
+
+The structure mirrors viral reframe content: "YOU'RE NOT [X]" → "YOU ARE [REAL REASON]". GainFrame Guy appears in both panels — each showing a different scenario (problem vs. truth).
+
+### Topic Formula
+Works best with reframe statements:
+- "YOU'RE NOT [ASSUMPTION]" vs. "YOU'RE JUST [REAL CAUSE]"
+- "YOU DON'T NEED [THING]" vs. "YOU NEED [REAL SOLUTION]"
+- "IT'S NOT [EXCUSE]" vs. "IT'S [ACTUAL REASON]"
+
+### Phase SP-0: Topic & Slide Plan
+Draft all slides as a table. Each row = one full slide image (two panels):
+
+| Slide | TOP text | Top scene | BOTTOM text | Bottom scene |
+|-------|----------|-----------|-------------|--------------|
+| Cover | [hook line] | [GF Guy scene] | [punchline] | [GF Guy scene] |
+| 1 | [statement] | [scene] | [reframe] | [scene] |
+| … | … | … | … | … |
+
+Aim for **5-6 slides** (cover + 4-5 reframe slides). No GainFrame promo unless this is the 1-in-3 comic.
+
+### Phase SP-1: Cover
+The cover uses the split panel layout — top half has the GainFrame Guy badge top-left (small), bold white title text at the top with black stroke. **No bare-text cream background for split panel covers** — the text overlays directly on the illustrated scene.
+
+### Phase SP-2: Image Generation for Split Panel Slides
+
+**CRITICAL PROMPT STRUCTURE — read before generating any slide:**
+
+Each slide is a **single generate_image call** that produces one image with both panels.
+
+```
+A single wide-format cartoon illustration split into TWO stacked horizontal panels, each taking 50% of the image height, with a thick black horizontal divider line between them.
+
+GainFrame Guy character appears in BOTH panels. 
+CRITICAL HEAD DESIGN: The head is NOT a solid square — it is four separate corner brackets floating in space with the background visible between them. The eyes and S-curve nose float inside the bracket frame. Open bracket corners, not a filled square.
+
+TOP PANEL (upper 50% of image):
+- Scene: [TOP SCENE DESCRIPTION]
+- At the very top edge of the top panel, large bold white text in Impact-style condensed sans-serif, ALL CAPS, reads "[TOP TEXT]". The text has a very strong, thick black outline/stroke.
+- The scene fills the rest of the top panel below the text.
+
+BOTTOM PANEL (lower 50% of image):
+- Scene: [BOTTOM SCENE DESCRIPTION]
+- At the very bottom edge of the bottom panel, large bold white text in Impact-style condensed sans-serif, ALL CAPS, reads "[BOTTOM TEXT]". The text has a very strong, thick black outline/stroke.
+- The scene fills the rest of the bottom panel above the text.
+
+TYPOGRAPHY: Bold Impact-style condensed sans-serif font, ALL CAPS, white fill, very thick black outline. NO banners, pills, or background shapes behind text — white text floats directly on the scene with black stroke only.
+
+Clean cartoon style, thick outlines, flat colors. The two panels can have different lighting/mood to reinforce the contrast. 4:5 TikTok format (1080x1350). No watermarks whatsoever.
+```
+
+**For the cover slide**, add the GainFrame Guy badge to the top-left of the top panel:
+```
+In the top-left corner of the TOP PANEL ONLY, draw a small branding badge: a tiny bracket-frame head icon next to bold sans-serif text reading "GAINFRAME GUY". Keep it small — about 8% of image width.
+```
+
+**ImagePaths for all split panel slides (2 references):**
+```
+ImagePaths: [
+  "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg",
+  "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/[closest-scene-ref].jpeg"
+]
+```
+For the cover (3 references), also include `gary-badge.png`.
+
+### Phase SP-3: Save & Register
+Same as standard format — use slug, save as `slide-0-cover.png` through `slide-[N].png`, create `content.md`, add to `comics-manifest.js`, sync to iCloud.
+
 ---
 
 ### Phase 0: Topic Selection
