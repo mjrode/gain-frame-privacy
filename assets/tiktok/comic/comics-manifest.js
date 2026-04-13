@@ -6,6 +6,7 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "ego-lifting",                 title: "The #1 Mistake Killing Your Gains", date: "2026-04-13", ext: "png" },
     { slug: "protein-truth",               title: "The Truth About Protein",       date: "2026-04-13", ext: "png" },
     { slug: "stop-ignoring-sleep",        title: "Stop Ignoring Your Sleep",      date: "2026-04-13", ext: "png" },
     { slug: "not-getting-bigger",         title: "Why You're Not Getting Bigger", date: "2026-04-11", ext: "png" },
