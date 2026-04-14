@@ -6,6 +6,11 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "discipline-not-motivation",    title: "Discipline Beats Motivation",   date: "2026-04-14", ext: "png" },
+    { slug: "thats-not-a-bulk",            title: "That's Not a Bulk",             date: "2026-04-14", ext: "png" },
+    { slug: "cardio-vs-weights",           title: "Cardio vs. Weights",            date: "2026-04-14", ext: "png" },
+    { slug: "truth-about-rest-days",       title: "The Truth About Rest Days",     date: "2026-04-14", ext: "png" },
+    { slug: "not-your-metabolism",         title: "It's Not Your Metabolism",      date: "2026-04-14", ext: "png" },
     { slug: "its-not-your-body",            title: "It's Not Your Body",            date: "2026-04-13", ext: "png" },
     { slug: "plateau-breaker",             title: "Do This If You're Stalled",     date: "2026-04-13", ext: "png" },
     { slug: "mind-muscle",                 title: "Do This If You Can't Feel It",  date: "2026-04-13", ext: "png" },
