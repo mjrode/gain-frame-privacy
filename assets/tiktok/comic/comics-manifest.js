@@ -6,6 +6,8 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "bicep-curl-mistake",          title: "The Bicep Curl Mistake",        date: "2026-04-14", ext: "png" },
+    { slug: "fasted-cardio-myth",          title: "The Fasted Cardio Myth",        date: "2026-04-14", ext: "png" },
     { slug: "heavy-vs-high-reps",          title: "Heavy vs High Reps",            date: "2026-04-14", ext: "png" },
     { slug: "muscle-memory-reality",       title: "The Muscle Memory Reality",     date: "2026-04-14", ext: "png" },
     { slug: "cant-feel-glutes",            title: "Why You Can't Feel Your Glutes", date: "2026-04-14", ext: "png" },
