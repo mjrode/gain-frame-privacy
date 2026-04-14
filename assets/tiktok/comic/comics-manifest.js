@@ -6,6 +6,11 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "real-reason-leg-day",         title: "The Real Reason You Skip Leg Day", date: "2026-04-14", ext: "png" },
+    { slug: "gym-selfie-truth",            title: "What Your Gym Selfie Doesn't Show", date: "2026-04-14", ext: "png" },
+    { slug: "five-stages-gym",             title: "The 5 Stages of Every New Gym-Goer", date: "2026-04-14", ext: "png" },
+    { slug: "dont-need-supplements",       title: "You Don't Need More Supplements", date: "2026-04-14", ext: "png" },
+    { slug: "no-form-excuses",             title: "No More Form Excuses",          date: "2026-04-14", ext: "png" },
     { slug: "discipline-not-motivation",    title: "Discipline Beats Motivation",   date: "2026-04-14", ext: "png" },
     { slug: "thats-not-a-bulk",            title: "That's Not a Bulk",             date: "2026-04-14", ext: "png" },
     { slug: "cardio-vs-weights",           title: "Cardio vs. Weights",            date: "2026-04-14", ext: "png" },
