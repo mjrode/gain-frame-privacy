@@ -6,6 +6,7 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "five-stages-gym",             title: "Which Stage Are You?",          date: "2026-04-14", ext: "png" },
     { slug: "bicep-curl-mistake",          title: "The Bicep Curl Mistake",        date: "2026-04-14", ext: "png" },
     { slug: "discipline-not-motivation",    title: "Discipline Beats Motivation",   date: "2026-04-14", ext: "png" },
     { slug: "thats-not-a-bulk",            title: "That's Not a Bulk",             date: "2026-04-14", ext: "png" },
