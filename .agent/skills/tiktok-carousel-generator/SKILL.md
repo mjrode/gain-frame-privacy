@@ -102,7 +102,9 @@ BOTTOM PANEL (lower 50% of image):
 
 TYPOGRAPHY: Bold Impact-style condensed sans-serif font, ALL CAPS, white fill, very thick black outline. NO banners, pills, or background shapes behind text — white text floats directly on the scene with black stroke only.
 
-Clean cartoon style, thick outlines, flat colors. The two panels can have different lighting/mood to reinforce the contrast. 4:5 TikTok format (1080x1350). No watermarks whatsoever.
+BACKGROUNDS — KEEP CLEAN AND MINIMAL (CRITICAL): Each panel must have a simple flat-color or subtle 2-tone gradient background. Maximum 1 key prop per panel — the character + one object tells the whole story. NO busy rooms, NO cluttered environments, NO shelves or multiple competing objects. Think: GainFrame Guy + ONE prop on a clean solid background.
+
+Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080x1350). No watermarks whatsoever.
 ```
 
 **For the cover slide**, add the GainFrame Guy badge to the top-left of the top panel:
