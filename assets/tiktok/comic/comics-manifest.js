@@ -6,6 +6,9 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "heavy-vs-high-reps",          title: "Heavy vs High Reps",            date: "2026-04-14", ext: "png" },
+    { slug: "muscle-memory-reality",       title: "The Muscle Memory Reality",     date: "2026-04-14", ext: "png" },
+    { slug: "cant-feel-glutes",            title: "Why You Can't Feel Your Glutes", date: "2026-04-14", ext: "png" },
     { slug: "real-reason-leg-day",         title: "The Real Reason You Skip Leg Day", date: "2026-04-14", ext: "png" },
     { slug: "gym-selfie-truth",            title: "What Your Gym Selfie Doesn't Show", date: "2026-04-14", ext: "png" },
     { slug: "five-stages-gym",             title: "The 5 Stages of Every New Gym-Goer", date: "2026-04-14", ext: "png" },
