@@ -6,6 +6,9 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "cant-feel-glutes",            title: "Can't Feel Your Glutes?",          date: "2026-04-15", ext: "png" },
+    { slug: "dont-need-supplements",       title: "The Truth About Supplements",      date: "2026-04-15", ext: "png" },
+    { slug: "real-reason-leg-day",         title: "The Real Reason You Need to Hit Legs", date: "2026-04-15", ext: "png" },
     { slug: "no-form-excuses",             title: "I'll Fix My Form Later",           date: "2026-04-15", ext: "png" },
     { slug: "heavy-vs-high-reps",          title: "You're Asking the Wrong Question",  date: "2026-04-15", ext: "png" },
     { slug: "gym-selfie-truth",             title: "You're Taking Progress Photos Wrong", date: "2026-04-15", ext: "png" },
