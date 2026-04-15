@@ -102,7 +102,7 @@ BOTTOM PANEL (lower 50% of image):
 
 TYPOGRAPHY: Bold Impact-style condensed sans-serif font, ALL CAPS, white fill, very thick black outline. NO banners, pills, or background shapes behind text — white text floats directly on the scene with black stroke only.
 
-BACKGROUNDS — KEEP CLEAN AND MINIMAL (CRITICAL): Each panel must have a simple flat-color or subtle 2-tone gradient background. Maximum 1 key prop per panel — the character + one object tells the whole story. NO busy rooms, NO cluttered environments, NO shelves or multiple competing objects. Think: GainFrame Guy + ONE prop on a clean solid background.
+BACKGROUND: Both panels use a clean off-white cream background (#F5F0EB) — the same background used across all GainFrame slides. Do NOT use flat solid colors (no yellow, green, gray, blue, etc.) or gradient backgrounds. The scene should feel cohesive and on-brand, not like colored panels. Keep props and environments simple and readable, but the background is always cream.
 
 Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080x1350). No watermarks whatsoever.
 ```
