@@ -6,6 +6,9 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "stages-bad-workout",          title: "Stages of a Bad Workout",          date: "2026-04-15", ext: "png" },
+    { slug: "4am-gym-guy",                 title: "The 4AM Gym Guy",                  date: "2026-04-15", ext: "png" },
+    { slug: "gym-lied-to-you",             title: "The Gym Lied to You",              date: "2026-04-15", ext: "png" },
     { slug: "cant-feel-glutes",            title: "Can't Feel Your Glutes?",          date: "2026-04-15", ext: "png" },
     { slug: "dont-need-supplements",       title: "The Truth About Supplements",      date: "2026-04-15", ext: "png" },
     { slug: "real-reason-leg-day",         title: "The Real Reason You Need to Hit Legs", date: "2026-04-15", ext: "png" },
