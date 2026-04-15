@@ -6,6 +6,9 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "gym-crush-secrets",           title: "Your Gym Crush's Secrets",         date: "2026-04-15", ext: "png" },
+    { slug: "1000-days-lifting",           title: "1000 Days of Lifting",             date: "2026-04-15", ext: "png" },
+    { slug: "body-lying-to-you",           title: "Your Body is Lying to You",        date: "2026-04-15", ext: "png" },
     { slug: "stages-bad-workout",          title: "Stages of a Bad Workout",          date: "2026-04-15", ext: "png" },
     { slug: "4am-gym-guy",                 title: "The 4AM Gym Guy",                  date: "2026-04-15", ext: "png" },
     { slug: "gym-lied-to-you",             title: "The Gym Lied to You",              date: "2026-04-15", ext: "png" },
