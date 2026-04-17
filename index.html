@@ -31,6 +31,9 @@
     <link rel="apple-touch-icon" sizes="192x192" href="assets/favicon-192.png">
     <meta name="apple-mobile-web-app-title" content="GainFrame">
     <link rel="manifest" href="/site.webmanifest">
+    <!-- Agent discovery (RFC 8288 Link relations) -->
+    <link rel="api-catalog" href="/.well-known/api-catalog.json">
+    <link rel="service-doc" href="/blog.html" title="GainFrame Blog & Documentation">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="homepage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -680,6 +683,45 @@
         }(window, document, 'ttq');
     </script>
     <!-- TikTok Pixel Code End -->
+    <!-- WebMCP — expose site tools to AI agents -->
+    <script>
+        if (navigator.modelContext && navigator.modelContext.provideContext) {
+            navigator.modelContext.provideContext({
+                tools: [
+                    {
+                        name: "get_app_info",
+                        description: "Get information about GainFrame — an AI body composition analysis app for iPhone",
+                        inputSchema: { type: "object", properties: {} },
+                        execute: function () {
+                            return {
+                                name: "GainFrame",
+                                tagline: "Body composition analysis. From a photo.",
+                                platform: "iOS (iPhone)",
+                                pricing: "Free 1-month trial, then $4.99/mo or $29.99/year",
+                                appStore: "https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082",
+                                features: ["Body fat % estimation", "12 muscle group scores", "FFMI calculation", "Future physique prediction", "Progress tracking", "Apple Health & Hevy integration", "Smart Import from camera roll", "Privacy-first (all data on device)"],
+                                website: "https://gainframe.app"
+                            };
+                        }
+                    },
+                    {
+                        name: "get_fitness_tools",
+                        description: "Get links to free fitness calculators on GainFrame",
+                        inputSchema: { type: "object", properties: {} },
+                        execute: function () {
+                            return {
+                                tools: [
+                                    { name: "Body Fat Estimator", url: "https://gainframe.app/tools/body-fat-estimator/", description: "Estimate body fat % using the U.S. Navy formula" },
+                                    { name: "Macro Calculator", url: "https://gainframe.app/tools/macro-calculator/", description: "Calculate daily protein, carb, and fat targets" },
+                                    { name: "TDEE Calculator", url: "https://gainframe.app/tools/tdee-calculator/", description: "Calculate Total Daily Energy Expenditure" }
+                                ]
+                            };
+                        }
+                    }
+                ]
+            });
+        }
+    </script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script><!-- End Cloudflare Web Analytics -->

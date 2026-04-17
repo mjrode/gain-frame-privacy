@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "body-composition-analysis",
+      "type": "informational",
+      "description": "Learn about AI-powered body composition analysis from photos, including body fat estimation, muscle scoring, FFMI calculation, and progress tracking over time.",
+      "url": "https://gainframe.app/",
+      "sha256": ""
+    },
+    {
+      "name": "body-fat-estimator-tool",
+      "type": "tool",
+      "description": "Free online body fat percentage estimator based on height, weight, waist, and neck measurements using the U.S. Navy formula.",
+      "url": "https://gainframe.app/tools/body-fat-estimator/",
+      "sha256": ""
+    },
+    {
+      "name": "macro-calculator-tool",
+      "type": "tool",
+      "description": "Free macro calculator that computes daily protein, carbohydrate, and fat targets based on weight, activity level, and fitness goals.",
+      "url": "https://gainframe.app/tools/macro-calculator/",
+      "sha256": ""
+    },
+    {
+      "name": "tdee-calculator-tool",
+      "type": "tool",
+      "description": "Free Total Daily Energy Expenditure calculator using the Mifflin-St Jeor equation with activity multiplier.",
+      "url": "https://gainframe.app/tools/tdee-calculator/",
+      "sha256": ""
+    }
+  ]
+}

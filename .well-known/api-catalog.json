@@ -1,0 +1,24 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://gainframe.app/",
+      "service-doc": [
+        {
+          "href": "https://gainframe.app/blog.html",
+          "type": "text/html",
+          "title": "GainFrame Blog & Documentation"
+        }
+      ]
+    },
+    {
+      "anchor": "https://gainframe.app/tools/",
+      "service-doc": [
+        {
+          "href": "https://gainframe.app/tools/",
+          "type": "text/html",
+          "title": "Free Fitness Calculators"
+        }
+      ]
+    }
+  ]
+}
