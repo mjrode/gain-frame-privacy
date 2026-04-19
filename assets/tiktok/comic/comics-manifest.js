@@ -6,6 +6,7 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "gym-unwritten-rules",         title: "The Unwritten Rules",              date: "2026-04-19", ext: "png" },
     { slug: "skip-day-spiral",             title: "The Skip Day Spiral",              date: "2026-04-17", ext: "png" },
     { slug: "gym-person-signs",            title: "Signs You've Become a Gym Person", date: "2026-04-17", ext: "png" },
     { slug: "squat-rack-standoff",         title: "The Squat Rack Standoff",          date: "2026-04-17", ext: "png" },
