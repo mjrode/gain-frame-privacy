@@ -6,6 +6,9 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "mirror-self-perception",       title: "Why You Always Look Bad in the Mirror",     date: "2026-04-20", ext: "png" },
+    { slug: "best-chest-day",               title: "The Best Chest Day Workout",                date: "2026-04-20", ext: "png" },
+    { slug: "getting-lean-truth",           title: "What Nobody Tells You About Getting Lean",  date: "2026-04-20", ext: "png" },
     { slug: "year-1-vs-year-5",            title: "Stop Comparing Your Year 1 to Their Year 5", date: "2026-04-20", ext: "png" },
     { slug: "what-3000-calories-looks-like", title: "What 3,000 Calories Actually Looks Like",   date: "2026-04-20", ext: "png" },
     { slug: "gym-unwritten-rules",         title: "The Unwritten Rules",              date: "2026-04-19", ext: "png" },
