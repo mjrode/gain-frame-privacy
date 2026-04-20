@@ -246,9 +246,9 @@ For each slide, use `generate_image` with this configuration:
 **Required ImagePaths:**
 - **Cover Slide (3 references, MANDATORY):** Always include these three exactly:
   1. `gf-mascot-template.jpeg` — character design reference
-  2. `assets/tiktok/comic/gym-bro-pipeline/slide-0-cover.png` — **VISUAL STYLE REFERENCE** for the correct title text treatment (bare text on cream, no banners)
+  2. `assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png` — **VISUAL STYLE REFERENCE** for the correct cover text treatment (bare Impact text on cream, red accent word, GAINFRAME GUY badge top-left)
   3. `gary-badge.png` — for the top-left corner branding badge
-- **Numbered Slides (2 references):** Include `gf-mascot-template.jpeg` and the scene reference. DO NOT include `gary-badge.png` as numbered slides do not have the badge.
+- **Numbered Slides (2 references):** Include `gf-mascot-template.jpeg` AND `discipline-not-motivation/slide-1.png`. The discipline slide is the **banner style ground truth** — it shows the exact solid black full-width bar with red #N and white title. DO NOT include `gary-badge.png` as numbered slides do not have the badge.
 
 Example for Numbered Slides:
 ```
@@ -266,6 +266,9 @@ ImagePaths: [
   - Sleeping/recovery → `mascot-sleep.jpeg`
 
 **Prompt template for numbered slides:**
+
+🎨 **BANNER STYLE GROUND TRUTH:** The `discipline-not-motivation/slide-1.png` reference image IS the correct banner style. Match it exactly: solid black bar, edge-to-edge, square corners, red number, white title. No rounded rectangle. No subtitle text in the banner.
+
 ```
 A cartoon illustration of this exact character from the reference images in a new scene. 
 CRITICAL: The head is NOT a solid square — it is four separate corner brackets floating 
@@ -276,17 +279,28 @@ design from the reference images exactly — open bracket corners, not a filled 
 Scene: [SCENE DESCRIPTION specific to this slide]
 
 CRITICAL PLACEMENT: The character and all props MUST be drawn completely within the 
-BOTTOM 65% of the image.
+BOTTOM 72% of the image. Leave the top 28% clear for the banner.
 
-At the very top, a black rounded rectangle banner with bold white text in Impact-style 
-condensed sans-serif reads "[NUMBER]. [TITLE]" (ALL CAPS). Below, bold clean sans-serif 
-text (Helvetica-style) reads "[SUBTITLE]."
+BANNER (TOP OF IMAGE — CRITICAL):
+- A solid BLACK rectangular bar that spans the FULL WIDTH of the image edge-to-edge, 
+  from the very top edge down. Square corners — NO rounded corners, NO border-radius.
+- The bar is approximately 12-14% of the total image height tall.
+- Inside the bar, LEFT-ALIGNED: the number "#[N]" in bold Impact ALL CAPS, in bright RED (#E53935).
+- Immediately to the right of the number: the slide title "[TITLE]" in bold white Impact 
+  ALL CAPS. Both the number and title sit on the same baseline, vertically centered in the bar.
+- NO subtitle text inside the banner. The banner contains ONLY the number + title.
+- NO rounded rectangle. NO pill shape. NO border. Just a flat edge-to-edge black bar.
+- See the reference image — copy the banner exactly as shown.
 
-TYPOGRAPHY: Use bold Impact-style condensed sans-serif font for ALL title text and 
-number banners (ALL CAPS). Use clean Helvetica-style sans-serif for subtitle/body text. 
+Below the banner, bold dark sans-serif subtitle text (Helvetica-style, dark charcoal #1A1A1A),
+center-aligned, reads "[SUBTITLE]." This subtitle floats on the cream background BELOW the 
+black bar — NOT inside it.
+
+TYPOGRAPHY: Bold Impact-style condensed sans-serif for banner title (ALL CAPS, white). 
+Clean Helvetica-style sans-serif for subtitle below banner (mixed case OK). 
 NO handwritten, script, or decorative fonts anywhere.
 
-Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 
+Clean off-white background (#F5F0EB) below the banner. Clean cartoon style, thick outlines, flat colors. 
 4:5 TikTok format (1080x1350). No watermarks whatsoever.
 ```
 
@@ -298,15 +312,22 @@ Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat 
 - **Max 4-5 words per line**, stacked into 2-3 short lines
 - Text needs moderate margins on left/right so it doesn't touch the edges and respects the crop
 
-**🚨 CRITICAL ANTI-PATTERN — READ BEFORE GENERATING:** The most common failure mode is placing the title text inside a black pill/banner/rounded rectangle. This is **WRONG**. The correct style has the text floating as raw text directly on the cream background — no shape, no box, no banner of any kind behind it. The second reference image (gym-bro-pipeline cover) is the **visual ground truth** for this style. ALWAYS include it as a reference image for covers.
+**🚨 CRITICAL ANTI-PATTERN — READ BEFORE GENERATING:** The most common failure mode is placing the cover title text inside a black pill/banner/rounded rectangle. This is **WRONG** for covers. The correct cover style has the title floating as raw bare text directly on the cream background — no shape, no box, no banner behind the cover title. The discipline reference cover is the **visual ground truth**. ALWAYS include it.
 
 **Required ImagePaths for Cover Slides (3 images):**
 ```
 ["/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg",
- "/Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/gym-bro-pipeline/slide-0-cover.png",
+ "/Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png",
  "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gary-badge.png"]
 ```
-The `gym-bro-pipeline/slide-0-cover.png` is the **visual style reference** — it shows exactly how the title text should look (bare Impact text on cream, red accent word, GAINFRAME GUY badge top-left). Always include it.
+The `discipline-not-motivation/slide-0-cover.png` is the **cover style reference** — it shows exactly how the title text should look (bare Impact text on cream, red accent word, GAINFRAME GUY badge top-left). Always include it.
+
+**Required ImagePaths for Numbered Slides (2 images):**
+```
+["/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg",
+ "/Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/discipline-not-motivation/slide-1.png"]
+```
+The `discipline-not-motivation/slide-1.png` is the **numbered slide banner style reference** — solid black full-width bar, red #N, white Impact title, no rounded corners, no subtitle in the bar. Always include it for numbered slides.
 
 ```
 A cartoon illustration of this exact GainFrame Guy character from the reference images in a new scene. 
