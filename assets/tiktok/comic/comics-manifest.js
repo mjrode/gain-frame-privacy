@@ -6,6 +6,8 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "year-1-vs-year-5",            title: "Stop Comparing Your Year 1 to Their Year 5", date: "2026-04-20", ext: "png" },
+    { slug: "what-3000-calories-looks-like", title: "What 3,000 Calories Actually Looks Like",   date: "2026-04-20", ext: "png" },
     { slug: "gym-unwritten-rules",         title: "The Unwritten Rules",              date: "2026-04-19", ext: "png" },
     { slug: "skip-day-spiral",             title: "The Skip Day Spiral",              date: "2026-04-17", ext: "png" },
     { slug: "gym-person-signs",            title: "Signs You've Become a Gym Person", date: "2026-04-17", ext: "png" },
