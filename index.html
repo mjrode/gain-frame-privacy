@@ -4,25 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>GainFrame — The Best AI Progress Photo App for Gym Goers</title>
+    <title>GainFrame — The AI Body Composition App for Gym Goers</title>
     <meta name="description"
-        content="The AI-powered progress photo app and body transformation tracker. Import your gym selfies, get an AI physique score, and track body composition over time.">
+        content="The AI body composition app. Take one gym selfie, get your physique score, precision body fat, 12 muscle ratings, and your next milestone — in 60 seconds.">
     <meta name="keywords"
-        content="progress photo app, body transformation app, ai fitness app, gym tracker, AI physique, body composition, workout photos">
+        content="progress photo app, body transformation app, ai fitness app, gym tracker, AI physique, body composition, workout photos, precision body fat, muscle score, fitness streaks">
     <link rel="canonical" href="https://gainframe.app/">
     <!-- Open Graph -->
-    <meta property="og:title" content="GainFrame — The Best AI Progress Photo App for Gym Goers">
+    <meta property="og:title" content="GainFrame — The AI Body Composition App">
     <meta property="og:description"
-        content="The AI-powered progress photo app and body transformation tracker. Import your gym selfies, get an AI physique score, and track body composition over time.">
+        content="See the body you're building. One gym selfie, full report in 60 seconds — precision BF%, 12 muscle scores, and your next milestone.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gainframe.app/">
     <meta property="og:image" content="https://gainframe.app/assets/og-image.png">
     <meta property="og:site_name" content="GainFrame">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="GainFrame — The Best AI Progress Photo App for Gym Goers">
+    <meta name="twitter:title" content="GainFrame — The AI Body Composition App">
     <meta name="twitter:description"
-        content="The AI-powered progress photo app and body transformation tracker. Import your gym selfies, get an AI physique score, and track body composition over time.">
+        content="See the body you're building. One gym selfie, full report in 60 seconds — precision BF%, 12 muscle scores, and your next milestone.">
     <meta name="twitter:image" content="https://gainframe.app/assets/og-image.png">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
@@ -34,12 +34,11 @@
     <!-- Agent discovery (RFC 8288 Link relations) -->
     <link rel="api-catalog" href="/.well-known/api-catalog.json">
     <link rel="service-doc" href="/blog.html" title="GainFrame Blog & Documentation">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="/styles-clean.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
@@ -57,7 +56,7 @@
         "name": "GainFrame",
         "url": "https://gainframe.app",
         "logo": "https://gainframe.app/assets/favicon.webp",
-        "description": "The AI-powered progress photo app and body transformation tracker for gym-goers.",
+        "description": "The AI body composition app for gym-goers. Take one photo, get your score, body fat, muscle breakdown, and next milestone.",
         "contactPoint": {
             "@type": "ContactPoint",
             "email": "michaelrode44@gmail.com",
@@ -72,7 +71,7 @@
         "name": "GainFrame",
         "alternateName": ["Gain Frame", "GainFrame App"],
         "url": "https://gainframe.app",
-        "description": "The AI-powered progress photo app and body transformation tracker. Import your gym selfies, get an AI physique score, and track body composition over time.",
+        "description": "The AI body composition app. Take one gym selfie, get your physique score, precision body fat, 12 muscle ratings, and your next milestone — in 60 seconds.",
         "potentialAction": {
             "@type": "SearchAction",
             "target": "https://gainframe.app/blog.html?q={search_term_string}",
@@ -90,7 +89,7 @@
                 "name": "How accurate is the AI body fat estimate?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "GainFrame uses the same visual estimation method that trained coaches use — analyzing visible muscle definition, fat distribution, and body proportions. Studies show AI photo-based estimation is within 2–4% of DEXA for most users. More importantly, the trend data from consistent weekly photos is extremely reliable — even more useful than any single DEXA reading."
+                    "text": "Within 2–4% of DEXA for most users — the same visual estimation method trained coaches use. The Precision Body Fat reading (from front + side + back photos together) is our highest-confidence number. The trend across consistent weekly photos is arguably more useful than any single DEXA reading."
                 }
             },
             {
@@ -98,7 +97,7 @@
                 "name": "Are my photos private?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Your photos are sent to AI for analysis but are never stored outside your device. No account required. No cloud storage. All data lives locally on your iPhone. Face blur and background removal are built in for sharing."
+                    "text": "Yes. Photos are analyzed then stored only on your device. No account required, no cloud sync. Face blur and background removal are built in for when you want to share."
                 }
             },
             {
@@ -106,7 +105,7 @@
                 "name": "How much does GainFrame cost?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Free 1-month trial — no credit card required. After that, it's $4.99/month or $29.99/year. That's less than a single DEXA scan, and you can track your body composition every week instead of every few months."
+                    "text": "Free 30-day trial — no credit card required. After that, $4.99/month or $29.99/year. That's less than a single DEXA scan, and you can measure yourself every week."
                 }
             },
             {
@@ -114,7 +113,7 @@
                 "name": "Can I import old gym selfies?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes — Smart Import lets you batch-select months or years of photos from your camera roll. The AI classifies each by pose (front, back, side), extracts dates, and builds your full transformation timeline automatically. Most users start with 6–12 months of existing photos."
+                    "text": "Yes. Smart Import batch-selects months or years of photos from your camera roll. The AI classifies each by pose (front, back, side), extracts the date, and builds your full transformation timeline automatically."
                 }
             },
             {
@@ -122,7 +121,7 @@
                 "name": "What makes GainFrame different from other progress photo apps?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Most progress photo apps just store and compare photos. GainFrame is an AI body composition tracker — it scores 12 individual muscle groups, estimates body fat and FFMI, generates future physique predictions, and tracks every metric over time. It replaces DEXA scans, spreadsheets, and guesswork with real data from your phone."
+                    "text": "Most apps just store and compare photos. GainFrame is a full body-composition tracker — Precision BF%, FFMI, 12 individually-scored muscle groups, Future Physique predictions, streaks, and macro targets that update per scan."
                 }
             }
         ]
@@ -130,604 +129,678 @@
     </script>
 </head>
 
-<body class="homepage">
-    <div data-site-nav></div>
-    <script src="/assets/shared-nav.js"></script>
+<body>
 
-    <!-- ==================== HERO ==================== -->
-    <section class="hp-hero">
-        <div class="container">
-            <div class="hp-hero-grid">
-                <div class="hp-hero-content scroll-reveal">
-                    <span class="hp-eyebrow">AI Body Composition</span>
-                    <h1 class="hp-hero-title">Body composition<br>analysis. From a photo.</h1>
-                    <p class="hp-hero-sub">Body fat %, FFMI, 12 muscle group scores, and personalized
-                        recommendations — generated in 60 seconds from a single photo.</p>
-                    <div class="hp-specimen-row">
-                        <span class="hp-specimen">BF% <strong>17.2</strong></span>
-                        <span class="hp-specimen-sep">|</span>
-                        <span class="hp-specimen">FFMI <strong>21.4</strong></span>
-                        <span class="hp-specimen-sep">|</span>
-                        <span class="hp-specimen">Score <strong>74</strong>/100</span>
-                        <span class="hp-specimen-sep">|</span>
-                        <span class="hp-specimen">Muscles <strong>12</strong></span>
-                    </div>
-                    <div class="hp-hero-cta">
-                        <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
-                            class="app-store-badge-link" target="_blank" rel="noopener">
-                            <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png"
-                                alt="Download on the App Store" style="height: 52px; width: auto;" />
-                        </a>
-                        <p class="hp-trust">Free 1-month trial &middot; $4.99/mo &middot; Photos never leave your
-                            device</p>
-                    </div>
-                </div>
-                <div class="hp-hero-visual scroll-reveal">
-                    <div class="hp-phone-minimal">
-                        <video src="GainFrame-1080p-appstore-red.mp4" autoplay loop muted playsinline></video>
-                    </div>
-                </div>
-            </div>
+<!-- FLOATING NAV -->
+<nav class="nav">
+  <a class="nav-brand" href="/">
+    <img class="nav-logo" src="/assets/favicon.webp" alt="GainFrame" />
+    <span>GainFrame</span>
+  </a>
+  <div class="nav-links">
+    <a href="/" class="active">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/comics.html">Comics</a>
+    <a href="/tools/">Tools</a>
+    <a href="/features.html">Features</a>
+  </div>
+  <a class="nav-cta" href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank" rel="noopener">
+    Download
+  </a>
+  <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <div class="hero-inner">
+    <span class="pill">
+      <span class="dot"></span>
+      The AI body composition app
+    </span>
+
+    <h1 class="h1">
+      See the body<br/>
+      <span class="h1-accent">you're building.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Take one gym selfie. Get your physique score, precision body fat, 12 muscle ratings, and your next milestone — in sixty seconds.
+    </p>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank" rel="noopener">
+        <svg class="btn-apple" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09M12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25"/></svg>
+        Download on App Store
+      </a>
+      <div class="hero-trust">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <div>
+          <strong>4.9</strong> · App Store
+          <span class="sep">·</span>
+          Free 30 days
         </div>
-    </section>
-
-    <!-- ==================== MEASUREMENT STRIP ==================== -->
-    <section class="hp-measure">
-        <div class="container">
-            <div class="hp-measure-grid">
-                <div class="hp-measure-item scroll-reveal">
-                    <span class="hp-measure-num">4.9</span>
-                    <span class="hp-measure-label">App Store Rating</span>
-                </div>
-                <div class="hp-measure-item scroll-reveal">
-                    <span class="hp-measure-num">60s</span>
-                    <span class="hp-measure-label">Full Body Report</span>
-                </div>
-                <div class="hp-measure-item scroll-reveal">
-                    <span class="hp-measure-num">12</span>
-                    <span class="hp-measure-label">Muscle Groups Scored</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== PROCESS FLOW ==================== -->
-    <section class="hp-process">
-        <div class="container">
-            <h2 class="hp-section-title scroll-reveal">How it works</h2>
-            <div class="hp-flow">
-                <div class="hp-flow-node scroll-reveal">
-                    <div class="hp-flow-circle">01</div>
-                    <h3>Take a photo</h3>
-                    <p>Front, side, or any gym selfie. Ghost overlay guides your pose for consistency.</p>
-                </div>
-                <div class="hp-flow-line"></div>
-                <div class="hp-flow-node scroll-reveal">
-                    <div class="hp-flow-circle">02</div>
-                    <h3>AI analyzes</h3>
-                    <p>Body fat, FFMI, 12 muscle scores, and macro targets — all in 60 seconds.</p>
-                </div>
-                <div class="hp-flow-line"></div>
-                <div class="hp-flow-node scroll-reveal">
-                    <div class="hp-flow-circle">03</div>
-                    <h3>Track over time</h3>
-                    <p>Weekly check-ins reveal trends. See exactly what's improving and what's stalling.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== ANNOTATED SHOWCASE ==================== -->
-    <section class="hp-showcase">
-        <div class="container">
-            <h2 class="hp-section-title scroll-reveal">What one photo reveals</h2>
-            <p class="hp-section-sub scroll-reveal">Every scan generates a comprehensive body composition report — not
-                just a number.</p>
-            <div class="hp-showcase-layout">
-                <div class="hp-callout hp-callout--left scroll-reveal">
-                    <span class="hp-callout-label">Physique Score</span>
-                    <p>AI-generated 1-100 score based on visible muscle development and overall body composition.</p>
-                </div>
-                <div class="hp-callout hp-callout--right scroll-reveal">
-                    <span class="hp-callout-label">Body Fat %</span>
-                    <p>Estimated from muscle definition, fat distribution, and body proportions. Within 2-4% of DEXA.
-                    </p>
-                </div>
-                <div class="hp-showcase-phone scroll-reveal">
-                    <div class="hp-phone-minimal">
-                        <img src="assets/lp-deep-dive.webp"
-                            alt="GainFrame full body composition report showing physique score, body fat, FFMI, and muscle group scores"
-                            loading="lazy">
-                    </div>
-                </div>
-                <div class="hp-callout hp-callout--left scroll-reveal">
-                    <span class="hp-callout-label">12 Muscle Groups</span>
-                    <p>Each scored 1-100 with Strong, Developing, or Needs Work ratings and color-coded progress bars.
-                    </p>
-                </div>
-                <div class="hp-callout hp-callout--right scroll-reveal">
-                    <span class="hp-callout-label">Recommendations</span>
-                    <p>Personalized daily macro targets and training adjustments based on your actual data.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FEATURE SPECIMENS ==================== -->
-    <section class="hp-specimens">
-        <div class="container">
-            <h2 class="hp-section-title scroll-reveal">More than a photo app</h2>
-            <p class="hp-section-sub scroll-reveal">Every feature designed for gym-goers who want data, not just
-                pictures.</p>
-
-            <!-- Primary feature cards with mockup thumbnails -->
-            <div class="hp-specimens-primary">
-                <div class="hp-specimen-card scroll-reveal">
-                    <div class="hp-specimen-thumb">
-                        <img src="assets/lp-future-3-months.webp" alt="GainFrame Future Physique AI prediction"
-                            loading="lazy">
-                    </div>
-                    <span class="hp-specimen-name">Future Physique</span>
-                    <h3>See where your body is headed</h3>
-                    <p>AI-generated image of your future physique at 3, 6, or 12 months with predicted body fat, FFMI,
-                        and weight.</p>
-                </div>
-                <div class="hp-specimen-card scroll-reveal">
-                    <div class="hp-specimen-thumb">
-                        <img src="assets/smart-import.webp" alt="GainFrame Smart Import from camera roll"
-                            loading="lazy">
-                    </div>
-                    <span class="hp-specimen-name">Smart Import</span>
-                    <h3>Your camera roll is full of data</h3>
-                    <p>Batch-import old gym selfies. AI classifies each by pose, extracts dates, and builds your
-                        transformation timeline.</p>
-                </div>
-                <div class="hp-specimen-card scroll-reveal">
-                    <div class="hp-specimen-thumb">
-                        <img src="assets/lp-workout-integration.webp"
-                            alt="GainFrame Apple Health and Hevy workout integration" loading="lazy">
-                    </div>
-                    <span class="hp-specimen-name">Apple Health & Hevy</span>
-                    <h3>Workout data meets photos</h3>
-                    <p>Weight from Apple Health. Exercises, sets, and volume from Hevy — auto-attached to each photo.</p>
-                </div>
-            </div>
-
-            <!-- Compact feature cards -->
-            <div class="hp-specimens-compact">
-                <div class="hp-compact-card scroll-reveal">
-                    <div class="hp-compact-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h4>Weekly Check-In</h4>
-                        <p>Prompted reminders. Instant body fat and score deltas vs your last scan. Build streaks.</p>
-                    </div>
-                </div>
-                <div class="hp-compact-card scroll-reveal">
-                    <div class="hp-compact-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h4>Throwback Compare</h4>
-                        <p>Auto-selected "Then vs Now" with body fat and score deltas. One-tap share.</p>
-                    </div>
-                </div>
-                <div class="hp-compact-card scroll-reveal">
-                    <div class="hp-compact-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h4>Privacy First</h4>
-                        <p>All data on your device. No account required. Face blur and background removal built in.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== COMPARISON TABLE ==================== -->
-    <section class="hp-compare">
-        <div class="container">
-            <h2 class="hp-section-title scroll-reveal">How GainFrame stacks up</h2>
-            <p class="hp-section-sub scroll-reveal">Replace expensive, infrequent scans with weekly analysis from your
-                phone.</p>
-            <div class="hp-compare-table scroll-reveal">
-                <div class="hp-compare-header">
-                    <div></div>
-                    <div>Scale</div>
-                    <div>DEXA Scan</div>
-                    <div class="hp-compare-highlight">GainFrame</div>
-                </div>
-                <div class="hp-compare-row">
-                    <div>Cost</div>
-                    <div>$30-50</div>
-                    <div>$100-200</div>
-                    <div class="hp-compare-highlight">$4.99/mo</div>
-                </div>
-                <div class="hp-compare-row">
-                    <div>Frequency</div>
-                    <div>Daily</div>
-                    <div>Every 3-6 mo</div>
-                    <div class="hp-compare-highlight">Weekly</div>
-                </div>
-                <div class="hp-compare-row">
-                    <div>Body fat %</div>
-                    <div><span class="hp-cross">&mdash;</span></div>
-                    <div><span class="hp-check">&#10003;</span></div>
-                    <div class="hp-compare-highlight"><span class="hp-check">&#10003;</span></div>
-                </div>
-                <div class="hp-compare-row">
-                    <div>FFMI</div>
-                    <div><span class="hp-cross">&mdash;</span></div>
-                    <div><span class="hp-cross">&mdash;</span></div>
-                    <div class="hp-compare-highlight"><span class="hp-check">&#10003;</span></div>
-                </div>
-                <div class="hp-compare-row">
-                    <div>Muscle scores</div>
-                    <div><span class="hp-cross">&mdash;</span></div>
-                    <div><span class="hp-cross">&mdash;</span></div>
-                    <div class="hp-compare-highlight">12 groups</div>
-                </div>
-                <div class="hp-compare-row">
-                    <div>Trend tracking</div>
-                    <div>Manual</div>
-                    <div><span class="hp-cross">&mdash;</span></div>
-                    <div class="hp-compare-highlight">Automatic</div>
-                </div>
-                <div class="hp-compare-row">
-                    <div>Predictions</div>
-                    <div><span class="hp-cross">&mdash;</span></div>
-                    <div><span class="hp-cross">&mdash;</span></div>
-                    <div class="hp-compare-highlight">AI-generated</div>
-                </div>
-                <div class="hp-compare-row">
-                    <div>Privacy</div>
-                    <div>N/A</div>
-                    <div>In-clinic data</div>
-                    <div class="hp-compare-highlight">100% on-device</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== BLOG PREVIEW ==================== -->
-    <section class="hp-blog">
-        <div class="container">
-            <h2 class="hp-section-title scroll-reveal">Research & Guides</h2>
-            <p class="hp-section-sub scroll-reveal">Training science, product deep dives, and body composition insights.
-            </p>
-            <div class="blog-grid">
-                <a href="blog/deep-dive-compare/index.html" class="blog-card scroll-reveal">
-                    <div class="blog-card-image">
-                        <img src="assets/blog-covers/deep-dive-compare.webp"
-                            alt="Abstract vector illustration of the Deep Dive Compare feature">
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="post-meta">
-                            <span class="post-category">Product</span>
-                        </div>
-                        <h3 style="margin-top:8px;">Deep Dive Compare</h3>
-                        <p>Move beyond "I think I look bigger." See objective data on your body fat transitions and
-                            specific muscle upgrades.</p>
-                    </div>
-                </a>
-                <a href="blog/behind-the-prediction-future-physique/index.html"
-                    class="blog-card scroll-reveal reveal-delay-1">
-                    <div class="blog-card-image">
-                        <img src="assets/blog-covers/behind-prediction.webp"
-                            alt="Abstract vector illustration of physics predictions">
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="post-meta">
-                            <span class="post-category">Deep Dive</span>
-                        </div>
-                        <h3 style="margin-top:8px;">Behind the Prediction</h3>
-                        <p>Your AI-generated future self isn't a gimmick — it's built from your actual progress data and
-                            trajectory.</p>
-                    </div>
-                </a>
-                <a href="blog/5-tips-better-progress-photos/index.html" class="blog-card scroll-reveal reveal-delay-2">
-                    <div class="blog-card-image">
-                        <img src="assets/blog-covers/5-tips-photos.webp"
-                            alt="Abstract vector illustration showing a phone grid for taking perfect progress photos">
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="post-meta">
-                            <span class="post-category">Guide</span>
-                        </div>
-                        <h3 style="margin-top:8px;">The Complete Guide to Progress Photos</h3>
-                        <p>Most progress photos are useless for tracking real change. Here's the science behind
-                            consistent lighting, timing, and poses.</p>
-                    </div>
-                </a>
-            </div>
-            <div style="text-align: center; margin-top: var(--sp-2xl);">
-                <a href="blog.html"
-                    style="font-weight: 600; font-size: 1.05rem; color: var(--color-text); text-decoration: none; border-bottom: 2px solid var(--color-text); padding-bottom: 4px; transition: opacity 0.2s ease;">Read
-                    all articles &rarr;</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FAQ ==================== -->
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <h2 class="section-title scroll-reveal">Frequently asked questions</h2>
-            <div class="faq-list">
-                <details class="faq-item scroll-reveal">
-                    <summary class="faq-question">How accurate is the AI body fat estimate?</summary>
-                    <div class="faq-answer">
-                        <p>GainFrame uses the same visual estimation method that trained coaches use — analyzing visible
-                            muscle definition, fat distribution, and body proportions. Studies show AI photo-based
-                            estimation is within 2-4% of DEXA for most users. More importantly, the <strong>trend
-                                data</strong> from consistent weekly photos is extremely reliable — even more useful than
-                            any single DEXA reading.</p>
-                    </div>
-                </details>
-                <details class="faq-item scroll-reveal">
-                    <summary class="faq-question">Are my photos private?</summary>
-                    <div class="faq-answer">
-                        <p>Yes. Your photos are sent to AI for analysis but are <strong>never stored</strong> outside
-                            your device. No account required. No cloud storage. All data lives locally on your iPhone.
-                            Face blur and background removal are built in for sharing.</p>
-                    </div>
-                </details>
-                <details class="faq-item scroll-reveal">
-                    <summary class="faq-question">How much does GainFrame cost?</summary>
-                    <div class="faq-answer">
-                        <p><strong>Free 1-month trial</strong> — no credit card required. After that, it's $4.99/month
-                            or $29.99/year. That's less than a single DEXA scan, and you can track your body composition
-                            every week instead of every few months.</p>
-                    </div>
-                </details>
-                <details class="faq-item scroll-reveal">
-                    <summary class="faq-question">Can I import old gym selfies?</summary>
-                    <div class="faq-answer">
-                        <p>Yes — Smart Import lets you batch-select months or years of photos from your camera roll. The
-                            AI classifies each by pose (front, back, side), extracts dates, and builds your full
-                            transformation timeline automatically. Most users start with 6-12 months of existing photos.
-                        </p>
-                    </div>
-                </details>
-                <details class="faq-item scroll-reveal">
-                    <summary class="faq-question">What makes GainFrame different from other progress photo apps?
-                    </summary>
-                    <div class="faq-answer">
-                        <p>Most progress photo apps just store and compare photos. GainFrame is an <strong>AI body
-                                composition tracker</strong> — it scores 12 individual muscle groups, estimates body fat
-                            and FFMI, generates future physique predictions, and tracks every metric over time. It
-                            replaces DEXA scans, spreadsheets, and guesswork with real data from your phone.</p>
-                    </div>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== CTA ==================== -->
-    <section class="hp-cta" id="download">
-        <div class="container">
-            <h2 class="hp-section-title scroll-reveal">Ready to measure.</h2>
-            <p class="hp-cta-sub scroll-reveal">Free 1-month trial. No credit card required.</p>
-            <div class="scroll-reveal" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
-                    class="hp-cta-btn" target="_blank" rel="noopener">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                    Download for iPhone
-                </a>
-                <p class="hp-trust">$4.99/mo after trial &middot; Cancel anytime</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FLOATING EMAIL BAR ==================== -->
-    <div id="hp-email-bar" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#fff;border-top:1px solid #E5E7EB;box-shadow:0 -4px 20px rgba(0,0,0,0.06);padding:12px 20px calc(12px + env(safe-area-inset-bottom, 0px)) 20px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;-webkit-transform:translateZ(0);transform:translateZ(0);">
-        <span style="font-family:'Outfit',sans-serif;font-size:0.88rem;font-weight:700;color:#111;white-space:nowrap;">Stay in the Loop</span>
-        <form id="hp-bar-form" action="https://app.us18.list-manage.com/subscribe/post?u=a0f1ce00c8f3ffe789cd7d34b&amp;id=c2f1ecc6f0&amp;f_id=00a8b3e6f0" method="post" novalidate style="display:flex;gap:6px;flex-shrink:0;">
-            <input type="hidden" name="b_a0f1ce00c8f3ffe789cd7d34b_c2f1ecc6f0" value="">
-            <input type="email" name="EMAIL" placeholder="Your email address" required autocomplete="email" aria-label="Email address" style="height:36px;padding:0 14px;border-radius:8px;border:1px solid #E5E7EB;font-size:13px;font-family:'DM Sans',sans-serif;background:#F4F5F7;color:#111;width:200px;outline:none;">
-            <button type="submit" style="height:36px;padding:0 18px;border-radius:8px;border:none;background:#6B8F71;color:#fff;font-size:13px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;white-space:nowrap;">Subscribe</button>
-        </form>
-        <span id="hp-bar-status" aria-live="polite" style="font-size:12px;font-weight:600;"></span>
+      </div>
     </div>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="features.html">Features</a>
-                <a href="blog.html">Blog</a>
-                <a href="comics.html">Comics</a>
-                <a href="tools/">Tools</a>
-                <a href="mailto:michaelrode44@gmail.com">Contact</a>
-            </div>
-            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+    <!-- HERO PHONES (offset/stacked) -->
+    <div class="hero-phones">
+      <div class="phone phone-back" aria-hidden="true">
+        <div class="phone-frame">
+          <img src="/assets/app-screens/IMG_1773.PNG" alt="" loading="eager" />
         </div>
-    </footer>
+      </div>
+      <div class="phone phone-front">
+        <div class="phone-frame">
+          <img src="/assets/app-screens/IMG_1791.PNG" alt="GainFrame home screen with check-in, throwback, and precision body fat" loading="eager" />
+        </div>
+        <div class="chip chip-1">
+          <span class="chip-k">Score</span>
+          <span class="chip-v">71</span>
+          <span class="chip-delta up">+12</span>
+        </div>
+        <div class="chip chip-2">
+          <span class="chip-k">Body Fat</span>
+          <span class="chip-v">19%</span>
+          <span class="chip-badge">Precision</span>
+        </div>
+        <div class="chip chip-3">
+          <span class="chip-k">Streak</span>
+          <span class="chip-v">11<span class="chip-u">wks</span></span>
+          <span class="chip-fire">🔥</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        /* Capture UTM params from URL and populate hidden form fields */
-        (function () {
-            const params = new URLSearchParams(window.location.search);
-            const mapping = {
-                'utm-source': params.get('utm_source'),
-                'utm-medium': params.get('utm_medium'),
-                'utm-campaign': params.get('utm_campaign')
-            };
-            Object.entries(mapping).forEach(([cls, value]) => {
-                if (value) {
-                    document.querySelectorAll('.' + cls).forEach(el => el.value = value);
-                }
-            });
-        })();
+<!-- ==================== TRUST STRIP ==================== -->
+<section class="strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <div class="strip-n">4.9 <span class="strip-s">★</span></div>
+      <div class="strip-l">App Store rating</div>
+    </div>
+    <div class="strip-div"></div>
+    <div class="strip-item">
+      <div class="strip-n">60<span class="strip-u">s</span></div>
+      <div class="strip-l">Full report time</div>
+    </div>
+    <div class="strip-div"></div>
+    <div class="strip-item">
+      <div class="strip-n">12</div>
+      <div class="strip-l">Muscles scored</div>
+    </div>
+    <div class="strip-div"></div>
+    <div class="strip-item">
+      <div class="strip-n">±3<span class="strip-u">%</span></div>
+      <div class="strip-l">vs DEXA</div>
+    </div>
+  </div>
+</section>
 
-        /* Intersection Observer — triggers .visible on scroll */
-        (function () {
-            const selectors = [
-                '.scroll-reveal',
-                '.scroll-reveal-left',
-                '.scroll-reveal-right',
-                '.parallax-float',
-                '.badge-pop',
-                '.tilt-in',
-                '.hero-text-stagger',
-                '.hero-image-stagger'
-            ];
+<!-- ==================== DEEP DIVE REPORT ==================== -->
+<section class="feat feat-report" id="report">
+  <div class="feat-head">
+    <span class="kicker">Deep Dive Report</span>
+    <h2 class="h2">
+      Every photo<br/>becomes a <span class="serif-em">full report.</span>
+    </h2>
+    <p class="feat-sub">Physique score, precision body fat, BMI, FFMI, waist-to-hip — plus an executive summary that explains what changed and why. All from a single set of photos.</p>
+  </div>
 
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.05 }
-            );
+  <div class="feat-body report-layout">
+    <div class="report-phones">
+      <div class="phone">
+        <div class="phone-frame">
+          <img src="/assets/app-screens/IMG_1787.PNG" alt="GainFrame deep dive report: before and after photos with score 48 to 79" loading="lazy" />
+        </div>
+      </div>
+      <div class="phone phone-right-shift">
+        <div class="phone-frame">
+          <img src="/assets/app-screens/IMG_1788.PNG" alt="GainFrame body metrics: Body Fat 14%, BMI 27.9, FFMI 23.2, Waist-to-Hip 0.84, Score 79" loading="lazy" />
+        </div>
+      </div>
+    </div>
 
-            document.querySelectorAll(selectors.join(',')).forEach((el) => {
-                observer.observe(el);
-            });
-        })();
+    <ul class="feat-list">
+      <li>
+        <div class="feat-list-k">GainFrame Score</div>
+        <div class="feat-list-v">1–100, weighted by visible development</div>
+      </li>
+      <li>
+        <div class="feat-list-k">Precision Body Fat</div>
+        <div class="feat-list-v">Computed from front + side + back · within ±3% of DEXA</div>
+      </li>
+      <li>
+        <div class="feat-list-k">Body Metrics</div>
+        <div class="feat-list-v">BMI · FFMI · Waist-to-Hip with zone context</div>
+      </li>
+      <li>
+        <div class="feat-list-k">Executive Summary</div>
+        <div class="feat-list-v">Plain-English read of what your transformation means</div>
+      </li>
+    </ul>
+  </div>
+</section>
 
-        /* Floating email bar — JSONP submission */
-        (function () {
-            var form = document.getElementById('hp-bar-form');
-            var status = document.getElementById('hp-bar-status');
-            if (!form) return;
+<!-- ==================== MUSCLE RADAR ==================== -->
+<section class="feat feat-muscle feat--green" id="muscle">
+  <div class="feat-head center">
+    <span class="kicker kicker--green">New · Muscle Comparison</span>
+    <h2 class="h2">See every muscle<br/><span class="serif-em">change shape.</span></h2>
+    <p class="feat-sub">A radar chart compares eight muscle regions before and after. Twelve muscle groups scored 1–100, each with a narrative on what improved.</p>
+  </div>
 
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                if (!form.reportValidity()) return;
+  <div class="feat-body muscle-layout">
+    <div class="phone phone-large">
+      <div class="phone-frame">
+        <img src="/assets/app-screens/IMG_1789.PNG" alt="Muscle comparison radar and breakdown showing front delts, side delts, upper chest developing to strong" loading="lazy" />
+      </div>
+    </div>
 
-                var cb = 'hpBarCb_' + Date.now();
-                var script = document.createElement('script');
-                var params = new URLSearchParams(new FormData(form));
-                params.set('c', cb);
+    <div class="muscle-notes">
+      <div class="note">
+        <div class="note-badge note-badge--strong">Strong</div>
+        <h3>Front Delts</h3>
+        <p class="note-delta">55 <span class="arrow">→</span> <strong>78</strong></p>
+        <p class="note-text">Transitioned from obscured by fat to showing clear separation and roundness.</p>
+      </div>
+      <div class="note">
+        <div class="note-badge note-badge--strong">Strong</div>
+        <h3>Side/Rear Delts</h3>
+        <p class="note-delta">55 <span class="arrow">→</span> <strong>78</strong></p>
+        <p class="note-text">Lateral head pronounced — the primary driver of your wider, more athletic look.</p>
+      </div>
+      <div class="note">
+        <div class="note-badge note-badge--dev">Developing → Strong</div>
+        <h3>Upper Chest</h3>
+        <p class="note-delta">30 <span class="arrow">→</span> <strong>78</strong></p>
+        <p class="note-text">Area near the collarbones filled in with dense muscle — a masculine "shelf-like" chest appearance.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-                var url = form.action.replace('/post', '/post-json');
-                script.src = url + '&' + params.toString();
-                script.async = true;
+<!-- ==================== CHECK-IN SCORE ==================== -->
+<section class="feat feat-score" id="score">
+  <div class="feat-head">
+    <span class="kicker">New · Check-In Score</span>
+    <h2 class="h2">
+      Every scan<br/>
+      <span class="serif-em">gets a score.</span>
+    </h2>
+    <p class="feat-sub">Not just a photo — a scored snapshot. 0–100 rating with a precision body fat reading and a 4-metric breakdown: Body Fat, Muscle, Proportions, Goal Fit.</p>
+  </div>
 
-                var btn = form.querySelector('button');
-                btn.disabled = true;
-                status.textContent = '';
-                status.style.color = '';
+  <div class="feat-body score-layout">
+    <div class="phone phone-large">
+      <div class="phone-frame">
+        <img src="/assets/app-screens/IMG_1793.PNG" alt="Check-in score 71/100 Impressive, precision body fat 19% high confidence, breakdown across 4 metrics" loading="lazy" />
+      </div>
+    </div>
 
-                window[cb] = function (r) {
-                    btn.disabled = false;
-                    if (script.parentNode) script.parentNode.removeChild(script);
-                    try { delete window[cb]; } catch (_) { window[cb] = undefined; }
+    <div class="score-cards">
+      <div class="score-card">
+        <div class="score-card-big">71<span class="score-card-u">/100</span></div>
+        <div class="score-card-k">Today's Score</div>
+        <div class="score-card-badge">Impressive</div>
+      </div>
+      <div class="score-card score-card--accent">
+        <div class="score-card-big">19<span class="score-card-u">%</span></div>
+        <div class="score-card-k">Precision BF</div>
+        <div class="score-card-badge score-card-badge--conf">High Confidence</div>
+      </div>
+      <div class="score-card score-card--wide">
+        <div class="score-card-k">Breakdown</div>
+        <div class="bar-row">
+          <span>Body Fat</span>
+          <div class="bar"><div class="bar-fill bar-fill--orange" style="width: 66%"></div></div>
+          <strong>66</strong>
+        </div>
+        <div class="bar-row">
+          <span>Muscle</span>
+          <div class="bar"><div class="bar-fill bar-fill--blue" style="width: 76%"></div></div>
+          <strong>76</strong>
+        </div>
+        <div class="bar-row">
+          <span>Proportions</span>
+          <div class="bar"><div class="bar-fill bar-fill--pink" style="width: 72%"></div></div>
+          <strong>72</strong>
+        </div>
+        <div class="bar-row">
+          <span>Goal Fit</span>
+          <div class="bar"><div class="bar-fill bar-fill--ink" style="width: 69%"></div></div>
+          <strong>69</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    if (r && r.result === 'success') {
-                        form.reset();
-                        status.textContent = 'Subscribed!';
-                        status.style.color = '#6B8F71';
-                    } else {
-                        var tmp = document.createElement('div');
-                        tmp.innerHTML = (r && r.msg) || 'Something went wrong.';
-                        status.textContent = tmp.textContent;
-                        status.style.color = '#E84C3D';
-                    }
-                };
+<!-- ==================== NEXT MILESTONE ==================== -->
+<section class="feat feat-milestone" id="milestone">
+  <div class="feat-body milestone-layout">
+    <div class="feat-head">
+      <span class="kicker">Next Milestone</span>
+      <h2 class="h2">Your next 3%,<br/><span class="serif-em">already planned.</span></h2>
+      <p class="feat-sub">Every check-in updates your trajectory. See where you are, what's next, and which muscles to target — with a personalized two-week training focus.</p>
 
-                script.onerror = function () {
-                    btn.disabled = false;
-                    if (script.parentNode) script.parentNode.removeChild(script);
-                    status.textContent = 'Something went wrong.';
-                    status.style.color = '#E84C3D';
-                };
+      <div class="milestone-track">
+        <div class="mt-point mt-point--now">
+          <div class="mt-dot"></div>
+          <div class="mt-k">Now</div>
+          <div class="mt-v">~17<span>%</span></div>
+        </div>
+        <div class="mt-line">
+          <div class="mt-line-fill"></div>
+          <div class="mt-caption">
+            <span class="mt-arrow">→</span>
+            Next drop in ~2&nbsp;weeks
+          </div>
+        </div>
+        <div class="mt-point mt-point--goal">
+          <div class="mt-dot"></div>
+          <div class="mt-k">Goal</div>
+          <div class="mt-v">~14<span>%</span></div>
+        </div>
+      </div>
 
-                document.body.appendChild(script);
-            });
+      <div class="target-cards">
+        <div class="target-card">
+          <div class="tc-n">01</div>
+          <div class="tc-muscle">Triceps</div>
+          <div class="tc-delta">+7 pts to 73</div>
+        </div>
+        <div class="target-card">
+          <div class="tc-n">02</div>
+          <div class="tc-muscle">Upper Chest</div>
+          <div class="tc-delta">+7 pts to 71</div>
+        </div>
+      </div>
+    </div>
 
-            /* Mobile: stack vertically */
-            if (window.innerWidth <= 600) {
-                var bar = document.getElementById('hp-email-bar');
-                bar.style.flexDirection = 'column';
-                bar.style.gap = '8px';
-                bar.style.padding = '10px 16px 14px';
-                var input = form.querySelector('input[type=email]');
-                if (input) { input.style.width = '100%'; input.style.flex = '1'; }
-                form.style.width = '100%';
-            }
-        })();
-    </script>
-    <!-- TikTok Pixel Code Start -->
-    <script>
-        !function (w, d, t) {
-            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
-                for (
-                    var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
-            }, ttq.load = function (e, n) {
-                var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
-                    ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
-            };
+    <div class="phone phone-large">
+      <div class="phone-frame">
+        <img src="/assets/app-screens/IMG_1795.PNG" alt="Next milestone: now 17% to goal 14%, target training triceps and upper chest" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
 
-            ttq.load('D6MSGGBC77U9JTU05FR0');
-            ttq.page();
-        }(window, document, 'ttq');
-    </script>
-    <!-- TikTok Pixel Code End -->
-    <!-- WebMCP — expose site tools to AI agents -->
-    <script>
-        if (navigator.modelContext && navigator.modelContext.provideContext) {
-            navigator.modelContext.provideContext({
-                tools: [
-                    {
-                        name: "get_app_info",
-                        description: "Get information about GainFrame — an AI body composition analysis app for iPhone",
-                        inputSchema: { type: "object", properties: {} },
-                        execute: function () {
-                            return {
-                                name: "GainFrame",
-                                tagline: "Body composition analysis. From a photo.",
-                                platform: "iOS (iPhone)",
-                                pricing: "Free 1-month trial, then $4.99/mo or $29.99/year",
-                                appStore: "https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082",
-                                features: ["Body fat % estimation", "12 muscle group scores", "FFMI calculation", "Future physique prediction", "Progress tracking", "Apple Health & Hevy integration", "Smart Import from camera roll", "Privacy-first (all data on device)"],
-                                website: "https://gainframe.app"
-                            };
-                        }
-                    },
-                    {
-                        name: "get_fitness_tools",
-                        description: "Get links to free fitness calculators on GainFrame",
-                        inputSchema: { type: "object", properties: {} },
-                        execute: function () {
-                            return {
-                                tools: [
-                                    { name: "Body Fat Estimator", url: "https://gainframe.app/tools/body-fat-estimator/", description: "Estimate body fat % using the U.S. Navy formula" },
-                                    { name: "Macro Calculator", url: "https://gainframe.app/tools/macro-calculator/", description: "Calculate daily protein, carb, and fat targets" },
-                                    { name: "TDEE Calculator", url: "https://gainframe.app/tools/tdee-calculator/", description: "Calculate Total Daily Energy Expenditure" }
-                                ]
-                            };
-                        }
-                    }
-                ]
-            });
-        }
-    </script>
-    <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-        data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- ==================== COMPARE ==================== -->
+<section class="feat feat-compare feat--green" id="compare">
+  <div class="feat-head center">
+    <span class="kicker kicker--green">Compare</span>
+    <h2 class="h2">Any two photos,<br/><span class="serif-em">fully analyzed.</span></h2>
+    <p class="feat-sub">Side-by-side or slider. Smart pose matching so poses line up. Every comparison yields weight delta, body-fat delta, score delta — with a one-tap View Report.</p>
+  </div>
 
-    <script defer src="/assets/email-capture-bar.js"></script>
-    <script defer src="/assets/newsletter-form.js"></script>
+  <div class="compare-feature">
+    <div class="phone phone-large">
+      <div class="phone-frame">
+        <img src="/assets/app-screens/IMG_1796.PNG" alt="Compare screen with side-by-side photos showing score 48 vs 79 and 1 year 7 month gap" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="compare-stats">
+      <div class="cmp-card cmp-card--left">
+        <div class="cmp-k">Score delta</div>
+        <div class="cmp-v">+31<span class="cmp-u">pts</span></div>
+        <div class="cmp-bar"><div class="cmp-bar-fill" style="width: 72%"></div></div>
+      </div>
+      <div class="cmp-card cmp-card--right">
+        <div class="cmp-k">Weight change</div>
+        <div class="cmp-v">−14<span class="cmp-u">lbs</span></div>
+        <div class="cmp-sub">243 → 229 lbs</div>
+      </div>
+      <div class="cmp-card cmp-card--bottom">
+        <div class="cmp-k">Body fat</div>
+        <div class="cmp-v">24% <span class="cmp-arrow">→</span> 14<span class="cmp-u">%</span></div>
+        <div class="cmp-sub">1 yr 7 mo · Scored as Lose Weight</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STREAKS + MOMENTUM ==================== -->
+<section class="feat feat-streaks" id="streaks">
+  <div class="feat-head">
+    <span class="kicker">Streaks · Momentum</span>
+    <h2 class="h2">Build the habit.<br/><span class="serif-em">See it compound.</span></h2>
+    <p class="feat-sub">Each weekly check-in earns XP, stretches your streak, and unlocks achievement tiers. Miss a week? The graph waits — your best streak never resets to zero.</p>
+  </div>
+
+  <div class="streaks-layout">
+    <div class="phone phone-large">
+      <div class="phone-frame">
+        <img src="/assets/app-screens/IMG_1792.PNG" alt="Check-in streak with momentum badge, 1 of 3 this week, 5 week best, 9 this month, 107 total" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="streak-cards">
+      <div class="streak-card streak-card--primary">
+        <div class="sc-icon">🔥</div>
+        <div class="sc-n">11<span class="sc-u">wks</span></div>
+        <div class="sc-l">Current streak</div>
+      </div>
+      <div class="streak-card">
+        <div class="sc-small">XP this week</div>
+        <div class="sc-n sc-n--mid">+15</div>
+        <div class="sc-pill">Throwback bonus</div>
+      </div>
+      <div class="streak-card streak-card--wide">
+        <div class="sc-small">Progression</div>
+        <div class="sc-grid">
+          <div>
+            <div class="sc-mini-n">5<span>wks</span></div>
+            <div class="sc-mini-l">Best</div>
+          </div>
+          <div>
+            <div class="sc-mini-n">9</div>
+            <div class="sc-mini-l">This month</div>
+          </div>
+          <div>
+            <div class="sc-mini-n">107</div>
+            <div class="sc-mini-l">All-time</div>
+          </div>
+        </div>
+      </div>
+      <div class="streak-card streak-card--wide achievement">
+        <div class="ach-row">
+          <div class="ach-medal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 22l5-3 5 3-1.21-8.12"/></svg>
+          </div>
+          <div>
+            <div class="ach-title">Iron Habit</div>
+            <div class="ach-sub">8-week achievement unlocked</div>
+          </div>
+          <div class="ach-tier">5 tiers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== NUTRITION PLAN ==================== -->
+<section class="feat feat-nutrition" id="nutrition">
+  <div class="feat-body nutrition-layout">
+    <div class="phone phone-large">
+      <div class="phone-frame">
+        <img src="/assets/app-screens/IMG_1790.PNG" alt="Nutrition plan: recommendations, daily targets, cut 2060 maintain 2560 bulk 3060, protein 236g carbs 244g fat 71g" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="feat-head">
+      <span class="kicker">Nutrition Plan</span>
+      <h2 class="h2">Macros that<br/><span class="serif-em">track your body.</span></h2>
+      <p class="feat-sub">Your Cut / Maintain / Bulk targets recompute after every scan — based on your actual body composition, not a generic BMR calculator. Precision recommendations per muscle group.</p>
+
+      <div class="macro-tabs">
+        <div class="macro-tab macro-tab--active">
+          <div class="mt-top"><span class="mt-badge">Active</span><span class="mt-delta">−500</span></div>
+          <div class="mt-head">Cut</div>
+          <div class="mt-kcal">2,060<span>kcal</span></div>
+        </div>
+        <div class="macro-tab">
+          <div class="mt-top"><span class="mt-delta mt-delta--zero">±0</span></div>
+          <div class="mt-head">Maintain</div>
+          <div class="mt-kcal">2,560<span>kcal</span></div>
+        </div>
+        <div class="macro-tab">
+          <div class="mt-top"><span class="mt-delta mt-delta--up">+500</span></div>
+          <div class="mt-head">Bulk</div>
+          <div class="mt-kcal">3,060<span>kcal</span></div>
+        </div>
+      </div>
+
+      <div class="macro-bars">
+        <div class="mb-row">
+          <span class="mb-dot" style="background: var(--green)"></span>
+          <span class="mb-k">Protein</span>
+          <div class="mb-bar"><div class="mb-fill" style="width: 68%; background: var(--green)"></div></div>
+          <strong>236g</strong>
+        </div>
+        <div class="mb-row">
+          <span class="mb-dot" style="background: var(--orange)"></span>
+          <span class="mb-k">Carbs</span>
+          <div class="mb-bar"><div class="mb-fill" style="width: 54%; background: var(--orange)"></div></div>
+          <strong>244g</strong>
+        </div>
+        <div class="mb-row">
+          <span class="mb-dot" style="background: var(--pink)"></span>
+          <span class="mb-k">Fat</span>
+          <div class="mb-bar"><div class="mb-fill" style="width: 32%; background: var(--pink)"></div></div>
+          <strong>71g</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== HOW IT WORKS ==================== -->
+<section class="how">
+  <div class="how-inner">
+    <div class="feat-head center">
+      <span class="kicker">How it works</span>
+      <h2 class="h2">Three steps.<br/><span class="serif-em">Sixty seconds.</span></h2>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+        </div>
+        <h3>Snap</h3>
+        <p>Any gym selfie — front, side, or back. A ghost overlay keeps every pose comparable to the last one.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+        </div>
+        <h3>Analyze</h3>
+        <p>Body fat, FFMI, 12 muscle scores, daily macros — returned in sixty seconds.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 3v18h18"/>
+            <path d="M7 14l4-4 4 4 5-5"/>
+          </svg>
+        </div>
+        <h3>Improve</h3>
+        <p>Weekly deltas, streaks, and a next-milestone forecast show exactly what's changing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== VS DEXA ==================== -->
+<section class="compare-tbl">
+  <div class="feat-head center">
+    <span class="kicker">How it stacks up</span>
+    <h2 class="h2">Replace expensive, infrequent<br/><span class="serif-em">body scans.</span></h2>
+    <p class="feat-sub">All the measurement a DEXA scan gives you — plus trend, predictions, and streak tracking — at 1/20th the cost.</p>
+  </div>
+
+  <div class="ct">
+    <div class="ct-col">
+      <div class="ct-head">
+        <span class="ct-mode">Scale</span>
+        <span class="ct-price">$30–50</span>
+      </div>
+      <ul class="ct-list">
+        <li><span class="ct-x">—</span> Body fat %</li>
+        <li><span class="ct-x">—</span> FFMI</li>
+        <li><span class="ct-x">—</span> Muscle scoring</li>
+        <li class="ct-row-text"><strong>Manual</strong> trend tracking</li>
+        <li><span class="ct-x">—</span> Future predictions</li>
+        <li class="ct-row-text">Daily frequency</li>
+      </ul>
+    </div>
+
+    <div class="ct-col">
+      <div class="ct-head">
+        <span class="ct-mode">DEXA</span>
+        <span class="ct-price">$100–200</span>
+      </div>
+      <ul class="ct-list">
+        <li><span class="ct-check">✓</span> Body fat %</li>
+        <li><span class="ct-x">—</span> FFMI</li>
+        <li><span class="ct-x">—</span> Muscle scoring</li>
+        <li><span class="ct-x">—</span> Automatic trend</li>
+        <li><span class="ct-x">—</span> Future predictions</li>
+        <li class="ct-row-text">Every 3–6 months</li>
+      </ul>
+    </div>
+
+    <div class="ct-col ct-col--hl">
+      <div class="ct-head">
+        <span class="ct-mode">GainFrame</span>
+        <span class="ct-price">$4.99/mo</span>
+      </div>
+      <ul class="ct-list">
+        <li><span class="ct-check">✓</span> Precision body fat</li>
+        <li><span class="ct-check">✓</span> FFMI + BMI + W/H</li>
+        <li><span class="ct-check">✓</span> 12 muscle groups</li>
+        <li><span class="ct-check">✓</span> Automatic trend</li>
+        <li><span class="ct-check">✓</span> 3 / 6 / 12 mo forecast</li>
+        <li class="ct-row-text"><strong>Weekly</strong>, on your phone</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="feat-head">
+      <span class="kicker">FAQ</span>
+      <h2 class="h2">Common questions.</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>
+          <span class="faq-q">How accurate is the AI body fat estimate?</span>
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">
+          <p>Within 2–4% of DEXA for most users — the same visual estimation method trained coaches use. The Precision Body Fat reading (from front + side + back photos together) is our highest-confidence number. The trend across consistent weekly photos is arguably more useful than any single DEXA reading.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q">Are my photos private?</span>
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">
+          <p>Yes. Photos are analyzed then stored only on your device. No account required, no cloud sync. Face blur and background removal are built in for when you want to share.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q">What does it cost?</span>
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">
+          <p>Free 30-day trial — no credit card required. After that, $4.99/month or $29.99/year. That's less than a single DEXA scan, and you can measure yourself every week.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q">Can I import old gym selfies?</span>
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">
+          <p>Yes. Smart Import batch-selects months or years of photos from your camera roll. The AI classifies each by pose (front, back, side), extracts the date, and builds your full transformation timeline automatically.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q">What makes GainFrame different from other progress photo apps?</span>
+          <span class="faq-icon"></span>
+        </summary>
+        <div class="faq-a">
+          <p>Most apps just store and compare photos. GainFrame is a full body-composition tracker — Precision BF%, FFMI, 12 individually-scored muscle groups, Future Physique predictions, streaks, and macro targets that update per scan. It replaces the scale, the DEXA scan, and the coach-in-your-head with one app.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER CTA ==================== -->
+<section class="final">
+  <div class="final-card">
+    <span class="kicker kicker--green">Start free</span>
+    <h2 class="h2">
+      One photo.<br/>
+      <span class="serif-em">Your whole body.</span>
+    </h2>
+    <p class="final-sub">Free 30-day trial, no card. Then $4.99/mo or $29.99/yr. Photos never leave your device.</p>
+    <a class="btn btn-primary btn-lg" href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank" rel="noopener">
+      <svg class="btn-apple" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09M12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25"/></svg>
+      Download on App Store
+    </a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <span>© 2026 GainFrame</span>
+    <div class="foot-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/blog.html">Journal</a>
+      <a href="/features.html">Features</a>
+      <a href="mailto:michaelrode44@gmail.com">Support</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Fade-in reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.feat-head, .feat-body, .final-card, .strip-inner, .hero-phones, .hero-inner > *, .compare-feature, .streaks-layout, .nutrition-layout, .steps, .ct, .faq-list, .milestone-track, .target-cards, .macro-tabs, .macro-bars, .streak-cards').forEach(el => {
+  el.classList.add('r'); io.observe(el);
+});
+
+// Nav background on scroll
+const nav = document.querySelector('.nav');
+const onScroll = () => nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// Mobile menu toggle
+const burger = document.querySelector('.nav-burger');
+const navLinks = document.querySelector('.nav-links');
+burger?.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+}));
+</script>
 </body>
-
 </html>
