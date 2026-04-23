@@ -35,7 +35,7 @@
             </button>
             <div class="blog-nav-links" id="navLinks">
                 <a href="${prefix}index.html"${activeClass(isHome)}>Home</a>
-                <a href="${prefix}blog.html"${activeClass(isBlog)}>Blog</a>
+                <a href="${prefix}blog/"${activeClass(isBlog)}>Blog</a>
                 <a href="${prefix}comics.html"${activeClass(isComics)}>Comics</a>
                 <a href="${prefix}tools/"${activeClass(isTools)}>Tools</a>
                 <a href="${prefix}features.html"${activeClass(isFeatures)}>Features</a>
