@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About GainFrame — The Progress Photo App Built by Someone Who Needed It | GainFrame</title>
+    <meta name="description"
+        content="Built by Michael Rode — a senior software engineer in Wilmington, NC with 20 years in the gym and 15 in code. GainFrame is the progress photo app he needed.">
+    <link rel="canonical" href="https://gainframe.app/about/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="About GainFrame — The Story Behind the App">
+    <meta property="og:description"
+        content="A one-person company in Wilmington, NC, building the progress photo app I always wanted to exist.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gainframe.app/about/">
+    <meta property="og:image" content="https://gainframe.app/assets/og-image.png">
+    <meta property="og:site_name" content="GainFrame">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About GainFrame — The Story Behind the App">
+    <meta name="twitter:description"
+        content="A one-person company in Wilmington, NC, building the progress photo app I always wanted to exist.">
+    <meta name="twitter:image" content="https://gainframe.app/assets/og-image.png">
+
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/assets/favicon-192.png">
+
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Page-scoped styles for the About finale sections -->
+    <style>
+        /* ============ Contact finale ============ */
+        .about-finale {
+            margin: var(--sp-2xl) 0 var(--sp-xl);
+        }
+
+        .about-finale__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px 6px 10px;
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--color-text-secondary);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-full);
+            margin-bottom: var(--sp-md);
+        }
+        .about-finale__eyebrow .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--color-brand-red);
+            box-shadow: 0 0 0 3px rgba(232, 76, 61, 0.18);
+        }
+
+        .about-finale h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.9rem, 3.4vw, 2.4rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.08;
+            margin: 0 0 var(--sp-sm);
+            color: var(--color-text);
+        }
+        .about-finale__lede {
+            font-family: var(--font-body);
+            color: var(--color-text-secondary);
+            font-size: 1.02rem;
+            line-height: 1.6;
+            max-width: 560px;
+            margin: 0 0 var(--sp-lg);
+        }
+        .about-finale__lede a {
+            color: var(--color-text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: var(--color-brand-red);
+            text-decoration-thickness: 2px;
+        }
+
+        /* ============ Primary chat card ============ */
+        .about-chat-card {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: var(--sp-lg);
+            align-items: center;
+            padding: var(--sp-lg) var(--sp-xl);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.22s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+        }
+        .about-chat-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 300px 180px at 88% 120%,
+                    rgba(232, 76, 61, 0.08), transparent 70%),
+                radial-gradient(ellipse 420px 220px at -10% -40%,
+                    rgba(107, 143, 113, 0.05), transparent 70%);
+            pointer-events: none;
+        }
+        .about-chat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-elevated);
+            border-color: rgba(0,0,0,0.09);
+        }
+        .about-chat-card__icon {
+            width: 56px; height: 56px;
+            display: grid; place-items: center;
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .about-chat-card__body {
+            position: relative; z-index: 1;
+            min-width: 0;
+        }
+        .about-chat-card__kicker {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-brand-red);
+            margin-bottom: 4px;
+        }
+        .about-chat-card__title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.015em;
+            color: var(--color-text);
+            margin: 0 0 2px;
+        }
+        .about-chat-card__sub {
+            font-family: var(--font-body);
+            font-size: 0.94rem;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+        .about-chat-card__arrow {
+            position: relative; z-index: 1;
+            width: 40px; height: 40px;
+            display: grid; place-items: center;
+            border-radius: 50%;
+            background: var(--color-text);
+            color: #fff;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+        .about-chat-card:hover .about-chat-card__arrow {
+            transform: translateX(4px);
+        }
+
+        /* ============ Secondary channels grid ============ */
+        .about-channels {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: var(--sp-md);
+            margin-top: var(--sp-md);
+        }
+        .about-channel {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: var(--sp-md) var(--sp-md);
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, box-shadow 0.22s ease, border-color 0.2s ease;
+        }
+        .about-channel:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-card);
+        }
+        .about-channel__icon {
+            width: 36px; height: 36px;
+            display: grid; place-items: center;
+            background: var(--color-surface);
+            border-radius: 10px;
+            color: var(--color-text);
+        }
+        .about-channel__label {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--color-text-tertiary);
+            margin: 0;
+        }
+        .about-channel__handle {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-text);
+            letter-spacing: -0.01em;
+            margin: -2px 0 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* ============ Final CTA ============ */
+        .about-cta {
+            position: relative;
+            margin-top: var(--sp-2xl);
+            padding: clamp(40px, 6vw, 72px) clamp(24px, 5vw, 64px);
+            background:
+                radial-gradient(circle at 18% 0%,
+                    rgba(107, 143, 113, 0.08), transparent 55%),
+                radial-gradient(circle at 85% 100%,
+                    rgba(232, 76, 61, 0.07), transparent 55%),
+                var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            text-align: center;
+        }
+        .about-cta::before {
+            /* subtle dot-grid texture */
+            content: "";
+            position: absolute; inset: 0;
+            background-image: radial-gradient(rgba(17, 17, 17, 0.055) 1px, transparent 1px);
+            background-size: 22px 22px;
+            background-position: 0 0;
+            mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 85%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 85%);
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        .about-cta > * { position: relative; z-index: 1; }
+
+        .about-cta__kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px 6px 10px;
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--color-text);
+            letter-spacing: 0.02em;
+            margin-bottom: var(--sp-lg);
+        }
+        .about-cta__kicker .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--color-brand-red);
+            box-shadow: 0 0 0 3px rgba(232, 76, 61, 0.18);
+        }
+
+        .about-cta__title {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            line-height: 1.02;
+            margin: 0 auto var(--sp-md);
+            color: var(--color-text);
+            max-width: 620px;
+        }
+        .about-cta__title .accent {
+            position: relative;
+            display: inline-block;
+        }
+        .about-cta__title .accent::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0; bottom: 4px;
+            height: 8px;
+            background: var(--color-brand-red);
+            border-radius: 4px;
+            opacity: 0.72;
+            z-index: -1;
+        }
+
+        .about-cta__sub {
+            font-family: var(--font-body);
+            color: var(--color-text-secondary);
+            font-size: 1.08rem;
+            line-height: 1.55;
+            margin: 0 auto var(--sp-lg);
+            max-width: 480px;
+        }
+
+        .about-cta__badge-link {
+            display: inline-block;
+            transition: transform 0.22s ease, opacity 0.2s ease;
+        }
+        .about-cta__badge-link:hover {
+            transform: translateY(-2px) scale(1.02);
+        }
+        .about-cta__badge-link img {
+            height: 52px; width: auto; display: block;
+        }
+
+        .about-cta__trust {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: var(--sp-lg);
+            font-family: var(--font-body);
+            font-size: 0.86rem;
+            color: var(--color-text-secondary);
+        }
+        .about-cta__trust .sep {
+            width: 4px; height: 4px; border-radius: 50%;
+            background: var(--color-text-tertiary);
+            opacity: 0.5;
+        }
+        .about-cta__trust strong { color: var(--color-text); font-weight: 700; }
+        .about-cta__trust .stars { color: #F59E0B; letter-spacing: 1px; }
+
+        /* ============ Responsive ============ */
+        @media (max-width: 720px) {
+            .about-channels {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .about-chat-card {
+                grid-template-columns: auto 1fr;
+                grid-template-rows: auto auto;
+                padding: var(--sp-md) var(--sp-lg);
+            }
+            .about-chat-card__arrow {
+                grid-column: 2; grid-row: 2;
+                justify-self: end;
+                margin-top: var(--sp-sm);
+            }
+        }
+        @media (max-width: 420px) {
+            .about-channels {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N6YPFBB8JE');
+    </script>
+
+    <!-- Structured Data: AboutPage with nested Organization + Person -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "url": "https://gainframe.app/about/",
+        "name": "About GainFrame",
+        "description": "The story behind GainFrame — built by a senior software engineer who got tired of expensive, infrequent body scans and decided to build a better way.",
+        "mainEntity": {
+            "@type": "Organization",
+            "@id": "https://gainframe.app/#organization",
+            "name": "GainFrame",
+            "url": "https://gainframe.app",
+            "logo": "https://gainframe.app/assets/favicon.webp",
+            "description": "AI body composition tracker that turns one gym selfie into a full physique report — precision body fat, 12 muscle scores, and your next milestone in 60 seconds.",
+            "foundingDate": "2026-03-08",
+            "founder": {
+                "@type": "Person",
+                "@id": "https://gainframe.app/about/#michael-rode"
+            },
+            "sameAs": [
+                "https://x.com/GainFrameApp",
+                "https://www.tiktok.com/@gainframe5",
+                "https://www.instagram.com/gainframe.app/"
+            ],
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "michaelrode44@gmail.com",
+                "contactType": "customer support"
+            }
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://gainframe.app/about/#michael-rode",
+        "name": "Michael Rode",
+        "alternateName": "Mike Rode",
+        "url": "https://gainframe.app/about/",
+        "image": "https://gainframe.app/assets/team/michael-rode.webp",
+        "jobTitle": "Founder & Builder",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "GainFrame",
+            "url": "https://gainframe.app"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Wilmington",
+            "addressRegion": "NC",
+            "addressCountry": "US"
+        },
+        "knowsAbout": [
+            "Body composition analysis",
+            "Progress photo tracking",
+            "AI vision models",
+            "iOS development",
+            "Backend engineering",
+            "DevOps and infrastructure",
+            "Strength training",
+            "DEXA scan analysis"
+        ],
+        "description": "Senior software engineer with 15 years of experience in backend development, DevOps, and infrastructure. Has been lifting for 20 years. Built GainFrame to finally extract real value from the hundreds of progress photos already sitting in his camera roll.",
+        "sameAs": [
+            "https://x.com/GainFrameApp",
+            "https://www.tiktok.com/@gainframe5",
+            "https://www.instagram.com/gainframe.app/"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://gainframe.app/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://gainframe.app/about/"
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <div data-site-nav></div>
+    <script src="/assets/shared-nav.js"></script>
+
+    <!-- ==================== HERO ==================== -->
+    <header class="blog-header">
+        <div class="container">
+            <h1 class="blog-header-title hero-text-stagger">
+                Built by someone <span class="accent-underline">who needed it.</span>
+            </h1>
+            <p class="blog-header-subtitle hero-text-stagger">
+                GainFrame is a one-person company in Wilmington, NC. Here's who's behind it, why it exists, and what it isn't.
+            </p>
+        </div>
+    </header>
+
+    <!-- ==================== ARTICLE ==================== -->
+    <article class="post">
+        <div class="container post-container">
+
+            <div class="post-body">
+
+                <!-- ===== Founder card ===== -->
+                <section class="founder-card" style="display: flex; gap: 2rem; align-items: flex-start; margin: 2rem 0 3rem; padding: 2rem; background: #f8f8f6; border-radius: 24px; flex-wrap: wrap;">
+                    <img src="/assets/team/michael-rode.webp"
+                         alt="Michael Rode, founder of GainFrame, headshot"
+                         style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
+                    <div style="flex: 1; min-width: 240px;">
+                        <h2 style="margin: 0 0 0.25rem;">Michael Rode</h2>
+                        <p style="margin: 0 0 1rem; color: #666; font-size: 0.95rem;">
+                            Founder &amp; Builder · Wilmington, NC
+                        </p>
+                        <p style="margin: 0 0 1rem;">
+                            Senior software engineer with 15 years in backend development, DevOps, and infrastructure. Lifting on and off for 20 years. GainFrame is a one-person side project &mdash; which means a lot of learning across disciplines I haven't touched professionally before.
+                        </p>
+                        <p style="margin: 0; font-size: 0.95rem;">
+                            <a href="https://x.com/GainFrameApp" target="_blank" rel="noopener">X</a> ·
+                            <a href="https://www.tiktok.com/@gainframe5" target="_blank" rel="noopener">TikTok</a> ·
+                            <a href="https://www.instagram.com/gainframe.app/" target="_blank" rel="noopener">Instagram</a> ·
+                            <a href="mailto:michaelrode44@gmail.com">Email</a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- ===== Why this exists ===== -->
+                <h2>Why GainFrame exists</h2>
+
+                <p>I'd been taking progress photos for years &mdash; sporadically at first, then more deliberately as my training got serious. Hundreds of them, sitting in my camera roll, going back through different phases of my fitness journey.</p>
+
+                <p>The problem wasn't taking the photos. It was getting any value out of them. They were hard to compare. There was no context attached to any of them &mdash; no notes about what I was doing, what I was eating, what my training looked like that month. I couldn't easily spot trends. I couldn't tell what was working.</p>
+
+                <p>There had to be a better way to use what I'd already been collecting. That's where GainFrame started: a simple, fast way to organize and compare progress photos over time. It's grown from there into detailed AI analysis on every photo, trend detection across weeks and months, and the daily context attached to each shot &mdash; so a photo from six months ago is more than just an image. It's a snapshot you can actually learn from.</p>
+
+                <hr class="post-divider">
+
+                <!-- ===== What we are ===== -->
+                <h2>What GainFrame is</h2>
+
+                <p>GainFrame is a progress photo app first. The AI body composition layer is what makes it powerful, but the foundation is simple: organize your photos, compare them, and pull insight out of them.</p>
+
+                <p>The app gets better the more you use it. More photos, more context, more time. Two photos from the same week tell you very little. Twelve months of weekly check-ins tells you a story.</p>
+
+                <ul>
+                    <li><strong>A progress photo app first.</strong> Capture, organize, and compare your photos. That's the core. Everything else is built on top.</li>
+                    <li><strong>An AI body composition tracker.</strong> One photo in, full report out. Physique score (1&ndash;100), precision body fat percentage, 12 individually-scored muscle groups, FFMI, BMI, waist-to-hip, and a forecast of where you're heading.</li>
+                </ul>
+
+                <hr class="post-divider">
+
+                <!-- ===== What we are NOT ===== -->
+                <h2>What GainFrame is not</h2>
+
+                <p>This part matters as much as anything above. I'm an engineer who built a measurement tool. I'm not a doctor, dietitian, or certified trainer.</p>
+
+                <ul>
+                    <li><strong>Not medical advice.</strong> The body fat, BMI, and FFMI numbers GainFrame produces are estimates from a vision model. They're useful for tracking trends. They are not a diagnostic tool. If you have a health condition, talk to your doctor.</li>
+                    <li><strong>Not a workout or nutrition tracker.</strong> GainFrame doesn't log your lifts and doesn't count your macros. There are great apps for both &mdash; use them. GainFrame does one thing: progress photos with serious analysis behind them. The goal is to do that one thing better than anyone else.</li>
+                    <li><strong>Not a coaching service.</strong> The app gives you data and surface-level training suggestions based on visible muscle imbalances. It does not write you a periodized program. For that, hire a coach.</li>
+                    <li><strong>Not a replacement for a real DEXA when one is medically indicated.</strong> If your doctor needs a clinical body composition reading, get the clinical reading. GainFrame is built for the 51 weeks a year when you're not in a clinic.</li>
+                </ul>
+
+                <p>Being clear about this is part of the trust I'm trying to build. I'd rather you trust the app for what it actually is than oversell it.</p>
+
+                <hr class="post-divider">
+
+                <!-- ===== How I find the time ===== -->
+                <h2>How (and why) I find the time</h2>
+
+                <figure style="margin: 1.5rem 0 2rem; text-align: center;">
+                    <img src="/assets/team/michael-and-daughter.webp"
+                         alt="Michael Rode, founder of GainFrame, holding his 5-month-old daughter at the airport — with a thought bubble showing the GainFrame Guy mascot wondering 'I wonder what my GainFrame score is'"
+                         loading="lazy"
+                         style="max-width: 420px; width: 100%; border-radius: 24px; display: inline-block;">
+                    <figcaption style="margin-top: 0.75rem; font-size: 0.85rem; color: #888;">
+                        Most of GainFrame gets built before this little one wakes up.
+                    </figcaption>
+                </figure>
+
+                <p>I have a 5-month-old daughter and a full-time job. The honest version of this section is that GainFrame gets built in the cracks: an hour in the morning before my daughter is up, sometimes an hour in the evening after my wife and baby are asleep.</p>
+
+                <p>Being the only person on this also means I'm doing a lot of things I haven't done professionally &mdash; design, marketing, copywriting, customer support. Most of it is new. Most of it is uncomfortable. All of it is making me a better builder, and a lot of the tradeoffs you'd see on a bigger team get made out loud, in public, on the <a href="/blog.html">blog</a>.</p>
+
+                <p>The reason it keeps shipping isn't discipline &mdash; it's that GainFrame sits at the intersection of two things I genuinely love: lifting and building software. When the work on a side project energizes you instead of draining you, the cracks in the day are enough.</p>
+
+                <p>That's also where the confidence to think I can build something really great comes from. I've spent 20 years in the gym and 15 years writing code. GainFrame is the rare project where I get to use both at the same time.</p>
+
+                <p>If you want a more tactical look at how I work, the <a href="/blog.html">founder-story posts</a> are the most honest version of it.</p>
+
+                <hr class="post-divider">
+
+                <!-- ===== Stats / proof ===== -->
+                <h2>The state of things</h2>
+
+                <ul>
+                    <li><strong>Launched:</strong> March 8, 2026 on the iOS App Store</li>
+                    <li><strong>Users:</strong> 1,000+ and growing weekly</li>
+                    <li><strong>App Store rating:</strong> 4.9 stars</li>
+                    <li><strong>Pricing:</strong> Free 30-day trial, then $4.99/month or $29.99/year</li>
+                    <li><strong>Team size:</strong> One. Just me.</li>
+                </ul>
+
+                <hr class="post-divider">
+
+                <!-- ===== Contact finale ===== -->
+                <section class="about-finale" aria-labelledby="talk-to-me">
+                    <span class="about-finale__eyebrow"><span class="dot"></span>Direct line</span>
+                    <h2 id="talk-to-me">Talk to me</h2>
+                    <p class="about-finale__lede">
+                        The fastest way to reach me is the in-app chat &mdash; you're messaging me directly, usually within a few hours. I wrote about <a href="/blog/in-app-chat/">why I added it and what I'm hoping to learn</a>.
+                    </p>
+
+                    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
+                       class="about-chat-card"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Open the GainFrame app to chat with the founder">
+                        <span class="about-chat-card__icon" aria-hidden="true">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                        </span>
+                        <div class="about-chat-card__body">
+                            <span class="about-chat-card__kicker">Fastest reply</span>
+                            <h3 class="about-chat-card__title">In-app chat with Mike</h3>
+                            <p class="about-chat-card__sub">Tap the banner on the home screen &mdash; reach me directly, no support queue.</p>
+                        </div>
+                        <span class="about-chat-card__arrow" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="13 6 19 12 13 18"/>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <div class="about-channels">
+                        <a class="about-channel" href="mailto:michaelrode44@gmail.com">
+                            <span class="about-channel__icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="5" width="18" height="14" rx="2"/>
+                                    <polyline points="3 7 12 13 21 7"/>
+                                </svg>
+                            </span>
+                            <p class="about-channel__label">Email</p>
+                            <p class="about-channel__handle">michaelrode44</p>
+                        </a>
+
+                        <a class="about-channel" href="https://x.com/GainFrameApp" target="_blank" rel="noopener">
+                            <span class="about-channel__icon" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </span>
+                            <p class="about-channel__label">X / Twitter</p>
+                            <p class="about-channel__handle">@GainFrameApp</p>
+                        </a>
+
+                        <a class="about-channel" href="https://www.tiktok.com/@gainframe5" target="_blank" rel="noopener">
+                            <span class="about-channel__icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.55a8.16 8.16 0 0 0 4.77 1.52V6.69z"/>
+                                </svg>
+                            </span>
+                            <p class="about-channel__label">TikTok</p>
+                            <p class="about-channel__handle">@gainframe5</p>
+                        </a>
+
+                        <a class="about-channel" href="https://www.instagram.com/gainframe.app/" target="_blank" rel="noopener">
+                            <span class="about-channel__icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5"/>
+                                    <path d="M16 11.37a4 4 0 1 1-7.914 1.173A4 4 0 0 1 16 11.37z"/>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                </svg>
+                            </span>
+                            <p class="about-channel__label">Instagram</p>
+                            <p class="about-channel__handle">@gainframe.app</p>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- ===== Final CTA ===== -->
+                <section class="about-cta" aria-labelledby="try-the-app">
+                    <span class="about-cta__kicker"><span class="dot"></span>Free 30-day trial &middot; no card required</span>
+                    <h2 id="try-the-app" class="about-cta__title">
+                        See the body <span class="accent">you're building.</span>
+                    </h2>
+                    <p class="about-cta__sub">
+                        One gym selfie. Sixty seconds. A full body-composition report &mdash; physique score, precision body fat, and your next milestone.
+                    </p>
+                    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
+                       class="about-cta__badge-link"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Download GainFrame on the App Store">
+                        <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png"
+                             alt="Download on the App Store">
+                    </a>
+                    <div class="about-cta__trust" aria-label="Average rating four point nine stars on the App Store">
+                        <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        <span><strong>4.9</strong> on the App Store</span>
+                        <span class="sep" aria-hidden="true"></span>
+                        <span>1,000+ users</span>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </article>
+</body>
+
+</html>
