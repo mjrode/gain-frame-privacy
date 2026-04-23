@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>GainFrame · Slot Viewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="screenshot.css" />
+<style>
+  body { background: #1a1a1a; padding: 0; margin: 0; }
+  .viewer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    gap: 20px;
+  }
+  .viewer-bar {
+    background: #fff;
+    border-radius: 100px;
+    padding: 8px;
+    display: inline-flex; gap: 4px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+  }
+  .viewer-bar a, .viewer-bar button {
+    padding: 10px 14px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #0a0a0a;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    transition: background .15s ease;
+  }
+  .viewer-bar a:hover, .viewer-bar button:hover { background: #F4F2EC; }
+  .viewer-bar .active { background: #0a0a0a; color: #fff; }
+  .viewer-bar .active:hover { background: #0a0a0a; }
+  .viewer-note {
+    color: #aaa;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    text-align: center;
+    max-width: 640px;
+    line-height: 1.6;
+  }
+  .viewer-note kbd {
+    background: #fff;
+    color: #0a0a0a;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 11px;
+    margin: 0 2px;
+  }
+  .stage {
+    background: #fff;
+    padding: 0;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+  }
+  .stage .ss { margin: 0; }
+</style>
+</head>
+<body>
+<div class="viewer">
+  <div class="viewer-bar">
+    <button data-slot="1" class="active">01</button>
+    <button data-slot="2">02</button>
+    <button data-slot="3">03</button>
+    <button data-slot="4">04</button>
+    <button data-slot="5">05</button>
+    <button data-slot="6">06</button>
+    <button data-slot="7">07</button>
+    <button data-slot="8">08</button>
+    <button data-slot="9">09</button>
+    <button data-slot="10">10</button>
+    <a href="/preview/app-screenshots/">← Gallery</a>
+  </div>
+  <div class="viewer-note">
+    <strong>To export:</strong> Right-click the screenshot → <em>Save image as…</em> won't work (it's HTML).
+    Use Chrome DevTools: <kbd>Cmd+Shift+P</kbd> → <em>"Capture node screenshot"</em> with the <code>.ss</code> element selected.
+    Each slot renders at exactly <strong>1290 × 2796 px</strong>.
+  </div>
+
+  <div class="stage" id="stage"></div>
+</div>
+
+<script>
+const btns = document.querySelectorAll('.viewer-bar [data-slot]');
+const stage = document.getElementById('stage');
+
+async function loadSlot(n) {
+  btns.forEach(b => b.classList.toggle('active', b.dataset.slot === String(n)));
+  const res = await fetch('/preview/app-screenshots/');
+  const text = await res.text();
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(text, 'text/html');
+  const items = doc.querySelectorAll('.gallery-item');
+  const item = items[n - 1];
+  if (!item) return;
+  const ss = item.querySelector('.ss').cloneNode(true);
+  stage.innerHTML = '';
+  stage.appendChild(ss);
+}
+
+btns.forEach(b => b.addEventListener('click', () => loadSlot(Number(b.dataset.slot))));
+
+// Deep link via hash
+const initial = Number(location.hash.replace('#', '')) || 1;
+loadSlot(initial);
+</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GainFrame Redesign — A/B Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700..900;1,9..144,700..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0E0B08;
+  color: #F3EDE0;
+  font-family: -apple-system, system-ui, sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 24px;
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(201,53,43,0.12), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(142,29,29,0.14), transparent 50%);
+}
+.wrap { max-width: 1100px; width: 100%; }
+.kicker {
+  font: 500 11px/1 'JetBrains Mono', monospace;
+  letter-spacing: .3em; text-transform: uppercase;
+  color: #D93025;
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+}
+.kicker::before {
+  content: ''; width: 8px; height: 8px; border-radius: 50%; background: #D93025;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(217,48,37,.6); }
+  50% { box-shadow: 0 0 0 10px rgba(217,48,37,0); }
+}
+h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+h1 em { color: #D93025; }
+.deck {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.5;
+  color: rgba(243,237,224,0.7);
+  max-width: 60ch;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.card {
+  display: block;
+  background: #F3EDE0;
+  color: #0E0B08;
+  border-radius: 8px;
+  padding: 32px 28px 28px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.card-tag {
+  position: absolute; top: 18px; right: 18px;
+  font: 500 10px/1 'JetBrains Mono', monospace;
+  letter-spacing: .25em;
+  background: #0E0B08; color: #F3EDE0;
+  padding: 5px 9px;
+  border-radius: 3px;
+}
+
+.card--a { background: #F3EEE2; }
+.card--b { background: #F3EDE0; }
+
+.card h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.card--b h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.03em;
+}
+.card-sub {
+  font: 500 10px/1 'JetBrains Mono', monospace;
+  letter-spacing: .3em;
+  color: #8A1F17;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #3D332B;
+  margin-bottom: 20px;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.chip {
+  font: 500 10px/1 'JetBrains Mono', monospace;
+  letter-spacing: .1em;
+  background: rgba(0,0,0,0.06);
+  padding: 6px 10px; border-radius: 999px;
+  text-transform: uppercase;
+}
+.card-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 500 12px/1 'JetBrains Mono', monospace;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  border-bottom: 2px solid #0E0B08;
+  padding-bottom: 4px;
+  transition: gap .2s ease;
+}
+.card:hover .card-cta { gap: 14px; }
+
+.card-preview {
+  margin: 20px -28px 20px -28px;
+  padding: 24px 28px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  background: rgba(0,0,0,0.02);
+  font-size: 0; line-height: 0;
+}
+.preview-label {
+  display: block; margin-bottom: 10px;
+  font: 500 9px/1 'JetBrains Mono', monospace;
+  letter-spacing: .3em; color: rgba(0,0,0,0.4);
+  text-transform: uppercase;
+}
+
+.card--a .preview-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.6rem; line-height: 1;
+  letter-spacing: -0.02em;
+}
+.card--a .preview-title em { font-style: italic; color: #C9352B; }
+.card--b .preview-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.7rem; line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+.card--b .preview-title em {
+  font-style: italic;
+  font-weight: 900;
+  color: #8E1D1D;
+  text-transform: none;
+  letter-spacing: -0.03em;
+}
+
+.foot {
+  margin-top: 40px;
+  text-align: center;
+  font: 500 11px/1.5 'JetBrains Mono', monospace;
+  letter-spacing: .2em;
+  color: rgba(243,237,224,0.4);
+  text-transform: uppercase;
+}
+
+@media (max-width: 740px) {
+  .cards { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">Preview · Redesign Concepts</div>
+  <h1>Pick a <em>direction.</em></h1>
+  <p class="deck">Two distinct takes on the GainFrame landing page. Both mobile-first. Both use your real app screenshots and video. Open either to preview end-to-end; resize the viewport to test mobile vs desktop.</p>
+
+  <div class="cards">
+    <a class="card card--a" href="/preview/lab-report/">
+      <span class="card-tag">OPT. A</span>
+      <div class="card-sub">Editorial · Brutalist</div>
+      <h2>The Lab Report</h2>
+      <p>A scientific instrument. Off-white paper, editorial serif, monospace data, surgical red. Feels credible next to DEXA — positions GainFrame as measurement, not lifestyle.</p>
+      <div class="chips">
+        <span class="chip">Instrument Serif</span>
+        <span class="chip">JetBrains Mono</span>
+        <span class="chip">Paper #F3EEE2</span>
+        <span class="chip">Red #C9352B</span>
+      </div>
+      <div class="card-preview">
+        <span class="preview-label">§ 01 &middot; HERO</span>
+        <div class="preview-title">Body composition,<br /><em>measured</em> from a photograph.</div>
+      </div>
+      <span class="card-cta">Open preview →</span>
+    </a>
+
+    <a class="card card--b" href="/preview/tabloid/">
+      <span class="card-tag">OPT. B</span>
+      <div class="card-sub">Magazine · Editorial</div>
+      <h2>Tabloid</h2>
+      <p>A maximalist sports magazine. Condensed italic display, cream + oxblood, scribble accents, torn tape labels. Personality-forward — lives in the same universe as your TikTok comics.</p>
+      <div class="chips">
+        <span class="chip">Fraunces Soft</span>
+        <span class="chip">Caveat Hand</span>
+        <span class="chip">Cream #F3EDE0</span>
+        <span class="chip">Oxblood #8E1D1D</span>
+      </div>
+      <div class="card-preview">
+        <span class="preview-label">No. 01 &middot; COVER</span>
+        <div class="preview-title">THE BODY<br/><em>you&rsquo;re</em> BUILDING,<br/><em>measured.</em></div>
+      </div>
+      <span class="card-cta">Open preview →</span>
+    </a>
+  </div>
+
+  <p class="foot">Local preview · localhost:8092</p>
+</div>
+</body>
+</html>
