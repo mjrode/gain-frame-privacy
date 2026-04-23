@@ -144,13 +144,15 @@
 
                 <hr class="post-divider">
 
-                <h2>Why 1,000 Users Is the Right Time to Do This</h2>
+                <h2>Why 1,000 Users Is the Right Window</h2>
 
-                <p>There is a specific window in a product's life when talking directly to users is not just useful — it is the highest-leverage thing you can do. That window is early.</p>
+                <p>There is a specific moment in a product's life when talking directly to users is not just useful — it is the highest-leverage thing you can do. That window is early, and it closes faster than you expect.</p>
 
-                <p>At 100 users, you are still figuring out if anyone wants what you built. At 10,000 users, the volume of feedback becomes noise. At 1,000 users, you have real people with real routines who have made a real decision to keep coming back. Their opinions are informed. Their frustrations are specific. Their suggestions are grounded in actual use.</p>
+                <p>At 100 users, you are still figuring out if anyone wants what you built. At 10,000, the volume becomes noise that requires infrastructure to manage. At 1,000 users you have real people with real routines who have made a real decision to keep coming back. Their opinions are informed. Their frustrations are specific.</p>
 
-                <p>I will not be able to personally reply to every message forever. I know that. But right now I can, and the things I learn in these conversations will shape every product decision I make for the next year. That is worth the time.</p>
+                <p>For GainFrame — a weekly-use consumer app — 1,000 active users is where I found the balance: enough people to spot trends, but few enough that I can read and respond to every message in about 40 minutes a day. That is when in-app chat gives you the clearest signal with the least noise.</p>
+
+                <p>This work cannot be delegated yet. A support agent can resolve tickets. Only you can recognize that the same frustration mentioned by five different people maps directly to a drop-off in your onboarding funnel.</p>
 
                 <!-- In-app banner screenshot -->
                 <img src="assets/banner.webp"
@@ -160,29 +162,45 @@
 
                 <h2>What I Actually Want to Know</h2>
 
-                <p>I am not opening this channel to collect feature requests. I am opening it to understand three things:</p>
+                <p>I am not opening this channel to collect feature requests. Feature requests are what users think they want, filtered through their assumptions about what is possible. What I actually need is three things:</p>
 
                 <ul>
-                    <li><strong>Does user sentiment align with the metrics?</strong> If my data says the Compare feature is the most-used screen, do users actually think it's the most valuable part of the app? Or are they using it because everything else is harder to find?</li>
-                    <li><strong>What is working that I am not measuring?</strong> Some of the most important value a product delivers is invisible to analytics. Motivation, accountability, the feeling of progress. I want to hear people say it in their own words.</li>
-                    <li><strong>What frustrated them enough to notice?</strong> Not every frustration becomes feedback. Most people silently stop using something. The ones who take the time to say something are giving me a signal I should take seriously.</li>
+                    <li><strong>Does sentiment match the metrics?</strong> If my data says Compare is the most-used screen, do users actually think it's the most valuable part of the app — or are they using it because everything else is harder to find?</li>
+                    <li><strong>What value am I not measuring?</strong> Motivation, accountability, the feeling of progress. These are invisible to analytics. I want to hear people say it in their own words.</li>
+                    <li><strong>What frustrated them enough to notice?</strong> Not every frustration becomes feedback. Most people silently stop using something. The ones who speak up are giving me a signal I should take seriously.</li>
                 </ul>
 
                 <hr class="post-divider">
 
-                <h2>The Problem With User Feedback: Everyone Thinks They're Priority One</h2>
+                <h2>What Feedback Actually Reveals</h2>
 
-                <p>Here is the honest risk of opening a direct feedback channel: every request will feel urgent.</p>
+                <p>I categorize every message into one of three types, because each demands a different response:</p>
 
-                <p>A user messages you that they wish they could export their photos as a PDF. It sounds easy. Another user wants a dark mode widget. Another wants workout log integration. Each message comes from a real person with a real need, and it is psychologically very hard to read those messages without wanting to build everything immediately.</p>
+                <ul>
+                    <li><strong>Confusion</strong> — users don't understand what exists. Fix copy, onboarding, or UI hierarchy.</li>
+                    <li><strong>Capability gaps</strong> — users understand but can't do what they need. Evaluate whether to build or say no.</li>
+                    <li><strong>Preference differences</strong> — users want something that conflicts with your core direction. Acknowledge and decline.</li>
+                </ul>
+
+                <p>When a user messaged "I can't figure out how to delete a bad photo," that was confusion — the delete button existed but was buried in a long-press menu. I moved it to the photo detail screen. Upload frequency increased among users who had previously gone dormant.</p>
+
+                <p>The frustration existed in my data. I just didn't know what it meant until someone told me.</p>
+
+                <hr class="post-divider">
+
+                <h2>The Urgency Trap</h2>
+
+                <p>The honest risk of opening a direct feedback channel: everything feels urgent.</p>
+
+                <p>A user messages you that they wish they could export their photos as a PDF. It sounds easy. Another wants a dark mode widget. Another wants workout log integration. Each message comes from a real person with a real need, and it is psychologically very hard to read those messages without wanting to build everything immediately.</p>
 
                 <p>That is the trap. Implementing every suggestion does not make a better product. It makes an incoherent one.</p>
 
                 <div class="post-callout">
-                    <p>One message is an anecdote. Five messages about the same thing is a pattern. A pattern is worth exploring. A pattern that also shows up in your data is worth prioritizing.</p>
+                    <p>One message is an anecdote. Three or more people raising the same issue is a pattern worth investigating. A pattern that also shows up in your behavioral data is a problem worth solving.</p>
                 </div>
 
-                <p>The framework I am using is simple: I am logging every piece of feedback, but I am not reacting to any individual request in isolation. I am looking for the same frustration or need surfacing across multiple conversations, especially when it maps to something I can already see in the behavioral data. That convergence — when what users say aligns with what the data shows — is the signal I am actually looking for.</p>
+                <p>The discipline required is counterintuitive: care deeply about every message while refusing to act on any single message in isolation. When I decide not to build something, I send a direct reply: <em>"Thanks for this suggestion. I'm not planning to add PDF export — it would pull focus from the visual comparison features most users rely on. If that changes, I'll let you know."</em> Saying no clearly is more respectful than letting a request disappear into a backlog.</p>
 
                 <!-- Mike profile card screenshot -->
                 <img src="assets/profile.webp"
@@ -192,17 +210,17 @@
 
                 <h2>What This Looks Like in Practice</h2>
 
-                <p>Starting today, there is a banner on the GainFrame home screen that lets you tap directly to chat with me. It is powered by Crisp, which means you are talking to a real person — not a bot, not a support ticket queue. If you send a message, I will read it and reply.</p>
+                <p>Starting today, there is a banner on the GainFrame home screen that lets you tap directly into a chat with me. Powered by Crisp — not a bot, not a support queue. If you send a message, I will read it and reply.</p>
 
-                <p>The banner is dismissible. I am not trying to interrupt your workout tracking. But if something is broken, something confused you, or you genuinely wish the app did something it does not do — I want to know.</p>
+                <p>I run two 20-minute chat windows a day, 10am and 4pm. Outside those windows, messages queue. Every message gets tagged immediately — bug, confusion, feature-request, praise — and after 30–50 messages I do a review to find what's surfacing across multiple conversations.</p>
+
+                <p>The banner is dismissible. I am not trying to interrupt your workout tracking. But if something is broken, something confused you, or you genuinely wish the app did something it doesn't — I want to know.</p>
 
                 <p>Real human, real reply. That is the entire pitch.</p>
 
                 <hr class="post-divider">
 
                 <h2>The Rules I'm Setting for Myself</h2>
-
-                <p>To make sure this is actually useful and does not become a reactive feature factory, I am following a few personal rules:</p>
 
                 <div class="post-feature-grid">
                     <div class="post-feature-card">
@@ -220,8 +238,8 @@
                                 <path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/>
                             </svg>
                         </span>
-                        <h3>Look for patterns, not requests</h3>
-                        <p>The same frustration mentioned by 5 people is infinitely more important than 5 different one-off ideas.</p>
+                        <h3>Wait for three</h3>
+                        <p>Three or more people raising the same issue is a pattern. That is when I investigate. One is just an anecdote.</p>
                     </div>
                     <div class="post-feature-card">
                         <span class="post-feature-icon">
@@ -238,8 +256,8 @@
                                 <path d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"/>
                             </svg>
                         </span>
-                        <h3>Be honest about what I won't build</h3>
-                        <p>Not every good idea fits GainFrame. Saying no clearly is more respectful than letting a request disappear.</p>
+                        <h3>Say no clearly</h3>
+                        <p>Not every good idea fits GainFrame. A direct "no, here's why" is more respectful than a silent backlog.</p>
                     </div>
                 </div>
 
@@ -247,19 +265,31 @@
 
                 <h2>What I'm Hoping to Learn</h2>
 
-                <p>By the end of this experiment, I want to be able to answer a question I cannot currently answer from my dashboard alone: <strong>who is GainFrame actually for?</strong></p>
+                <p>By the end of this, I want to answer a question I cannot currently answer from my dashboard alone: <strong>who is GainFrame actually for?</strong></p>
 
-                <p>I have hypotheses. People who want to see their physique change over time. People who are frustrated that the scale lies. People who need a record of their progress to stay motivated when results feel slow. But I do not know which of those is my real core user — the person who would be genuinely upset if GainFrame disappeared tomorrow.</p>
+                <p>People who want to see their physique change over time. People frustrated that the scale lies. People who need a record of progress to stay motivated when results feel slow. I have hypotheses. I don't have the answer yet.</p>
 
-                <p>Talking to users is how you find out. And then you build obsessively for that person.</p>
+                <p>Talking to users is how you find out. Then you build obsessively for that person.</p>
+
+                <hr class="post-divider">
+
+                <h2>The User Who Changed My Mind</h2>
+
+                <p>Remember that Compare tab user from the beginning?</p>
+
+                <p>I messaged them. Their reply was three sentences: <em>"I don't care about the numbers. I just want to see if I look different. The side-by-side is the whole reason I use this app."</em></p>
+
+                <p>That single exchange changed how I prioritized the next quarter. I stopped trying to make Deep Dive more discoverable and instead added a quick-compare shortcut to the home screen. Activation for new users ticked up over the following month.</p>
+
+                <p>My dashboard told me what users did. One chat message told me why. That is the difference between optimizing a feature nobody wanted and doubling down on the one screen that actually mattered.</p>
 
                 <hr class="post-divider">
 
                 <h2>If You're a GainFrame User Reading This</h2>
 
-                <p>Send me a message. Tell me what you use most. Tell me what confused you. Tell me what you wish existed. I am reading every one.</p>
+                <p>The chat banner is live on the home screen today. Tell me what you use most. Tell me what confused you. Tell me what you wish existed.</p>
 
-                <p>The chat banner is live on the home screen today. Tap it whenever you have something to say.</p>
+                <p>I am reading every one.</p>
 
                 <blockquote class="post-callout">
                     <p>The best products are built by founders who get obsessed with understanding their users — not their own ideas. I am still learning who you are. Help me get it right.</p>
@@ -273,11 +303,11 @@
                 <p>If you're building something with fewer than 10,000 users and haven't opened a direct channel yet, here is where to start:</p>
 
                 <ol class="post-steps">
-                    <li><strong>Pick one tool.</strong> Crisp, Intercom, or even a dedicated email address. Don't overthink it — the channel matters less than having one.</li>
-                    <li><strong>Surface it prominently.</strong> A buried feedback link gets no messages. Put it somewhere users actually see it, like the app home screen.</li>
-                    <li><strong>Log every message you get immediately.</strong> Notion, a spreadsheet, even a notes file. Categorize it: bug, confusion, feature request, praise.</li>
-                    <li><strong>Look for convergence.</strong> After 30–50 messages, read through everything. What comes up more than twice? That is your signal.</li>
-                    <li><strong>Cross-reference with behavioral data.</strong> If the same theme shows up in both conversations and analytics, move it to the top of your roadmap.</li>
+                    <li><strong>Pick one tool and surface it prominently.</strong> Crisp, Intercom, or a dedicated email address. A buried feedback link gets no messages — put it where users are actively engaged, not in Settings.</li>
+                    <li><strong>Log every message immediately.</strong> Tag it: bug, confusion, feature-request, praise. Don't rely on memory.</li>
+                    <li><strong>Set time boundaries.</strong> Two 20-minute windows per day. Outside those, messages queue. Protect your focus.</li>
+                    <li><strong>Wait for three.</strong> One message is an anecdote. Three mentions of the same thing is your signal to investigate.</li>
+                    <li><strong>Cross-reference with data.</strong> When what users say aligns with what your funnel shows — that is the thing you build next.</li>
                 </ol>
 
             </div><!-- /.post-body -->
