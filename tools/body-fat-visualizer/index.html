@@ -175,8 +175,8 @@
             --bfv-hairline:  rgba(255, 255, 255, 0.08);
             --bfv-hairline-strong: rgba(255, 255, 255, 0.14);
             --bfv-ink:       #F4F4F5;
-            --bfv-ink-dim:   rgba(244, 244, 245, 0.62);
-            --bfv-ink-faint: rgba(244, 244, 245, 0.32);
+            --bfv-ink-dim:   rgba(244, 244, 245, 0.78);
+            --bfv-ink-faint: rgba(244, 244, 245, 0.58);
             --bfv-accent:    #E84C3D;
             --bfv-sage:      #8FB095;
             --bfv-warn:      #E8954C;
@@ -248,11 +248,11 @@
             align-items: center;
             gap: 10px;
             font-family: var(--font-display);
-            font-size: 0.72rem;
+            font-size: 0.82rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--bfv-ink-dim);
+            letter-spacing: 0.14em;
+            color: var(--bfv-ink);
         }
 
         .bfv__dot {
@@ -277,10 +277,10 @@
         /* Gender segmented toggle */
         .bfv__gender {
             display: inline-flex;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--bfv-hairline);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--bfv-hairline-strong);
             border-radius: 999px;
-            padding: 3px;
+            padding: 4px;
             margin-left: 8px;
         }
 
@@ -290,25 +290,26 @@
             background: transparent;
             border: 0;
             cursor: pointer;
-            padding: 4px 12px;
+            padding: 8px 18px;
+            min-height: 36px;
             font-family: var(--font-display);
-            font-size: 0.66rem;
+            font-size: 0.82rem;
             font-weight: 700;
-            letter-spacing: 0.14em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--bfv-ink-faint);
+            color: var(--bfv-ink-dim);
             border-radius: 999px;
             transition: color 180ms ease, background 180ms ease, box-shadow 180ms ease;
         }
 
         .bfv__gender-btn:hover {
-            color: var(--bfv-ink-dim);
+            color: var(--bfv-ink);
         }
 
         .bfv__gender-btn[data-active="true"] {
             color: #0B0B0D;
             background: var(--bfv-ink);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
         }
 
         .bfv__gender-btn:focus-visible {
@@ -516,18 +517,19 @@
             align-items: center;
             justify-content: space-between;
             font-family: var(--font-display);
-            font-size: 0.68rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            letter-spacing: 0.24em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--bfv-ink-dim);
+            color: var(--bfv-ink);
             margin-bottom: 4px;
         }
 
         .bfv__display-label-r {
             color: var(--bfv-ink-faint);
             font-weight: 600;
-            letter-spacing: 0.18em;
+            letter-spacing: 0.14em;
+            font-size: 0.7rem;
         }
 
         .bfv__pct {
@@ -581,20 +583,20 @@
 
         .bfv__category-name {
             font-family: var(--font-display);
-            font-size: 1.05rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
             color: var(--bfv-ink);
             transition: color 240ms ease;
         }
 
         .bfv__category-sub {
             font-family: var(--font-display);
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 0.18em;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--bfv-ink-faint);
+            color: var(--bfv-ink-dim);
             margin-left: auto;
         }
 
@@ -613,18 +615,18 @@
         }
 
         .bfv__ctrl-title {
-            font-size: 0.7rem;
+            font-size: 0.82rem;
             font-weight: 700;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--bfv-ink-dim);
+            color: var(--bfv-ink);
         }
 
         .bfv__ctrl-value {
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 1.05rem;
+            font-weight: 800;
             color: var(--bfv-ink);
-            letter-spacing: 0.04em;
+            letter-spacing: 0.02em;
             font-feature-settings: "tnum" 1;
             font-variant-numeric: tabular-nums;
         }
@@ -638,7 +640,7 @@
             -webkit-appearance: none;
             appearance: none;
             width: 100%;
-            height: 40px;
+            height: 44px;
             background: transparent;
             cursor: pointer;
             padding: 0;
@@ -651,42 +653,42 @@
         .bfv__slider:focus { outline: none; }
 
         .bfv__slider::-webkit-slider-runnable-track {
-            height: 4px;
+            height: 6px;
             background: var(--bfv-rail);
             border-radius: 999px;
-            border: 1px solid var(--bfv-hairline);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--bfv-hairline-strong);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .bfv__slider::-moz-range-track {
-            height: 4px;
+            height: 6px;
             background: var(--bfv-rail);
             border-radius: 999px;
-            border: 1px solid var(--bfv-hairline);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--bfv-hairline-strong);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .bfv__slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 22px;
-            height: 22px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: #FAFAFA;
-            border: 2px solid var(--bfv-accent);
-            box-shadow: 0 0 0 4px rgba(232, 76, 61, 0.14), 0 4px 12px rgba(0, 0, 0, 0.5);
-            margin-top: -10px;
+            border: 3px solid var(--bfv-accent);
+            box-shadow: 0 0 0 5px rgba(232, 76, 61, 0.18), 0 6px 16px rgba(0, 0, 0, 0.6);
+            margin-top: -12px;
             cursor: grab;
             transition: transform 150ms ease, box-shadow 150ms ease;
         }
 
         .bfv__slider::-moz-range-thumb {
-            width: 22px;
-            height: 22px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: #FAFAFA;
-            border: 2px solid var(--bfv-accent);
-            box-shadow: 0 0 0 4px rgba(232, 76, 61, 0.14), 0 4px 12px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--bfv-accent);
+            box-shadow: 0 0 0 5px rgba(232, 76, 61, 0.18), 0 6px 16px rgba(0, 0, 0, 0.6);
             cursor: grab;
             transition: transform 150ms ease, box-shadow 150ms ease;
         }
@@ -694,12 +696,12 @@
         .bfv__slider:hover::-webkit-slider-thumb,
         .bfv__slider:focus-visible::-webkit-slider-thumb {
             transform: scale(1.08);
-            box-shadow: 0 0 0 6px rgba(232, 76, 61, 0.22), 0 4px 14px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 0 8px rgba(232, 76, 61, 0.26), 0 6px 18px rgba(0, 0, 0, 0.65);
         }
         .bfv__slider:hover::-moz-range-thumb,
         .bfv__slider:focus-visible::-moz-range-thumb {
             transform: scale(1.08);
-            box-shadow: 0 0 0 6px rgba(232, 76, 61, 0.22), 0 4px 14px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 0 8px rgba(232, 76, 61, 0.26), 0 6px 18px rgba(0, 0, 0, 0.65);
         }
         .bfv__slider:active::-webkit-slider-thumb { cursor: grabbing; }
         .bfv__slider:active::-moz-range-thumb     { cursor: grabbing; }
@@ -708,13 +710,13 @@
         .bfv__rail-fill {
             position: absolute;
             top: 50%;
-            left: 11px;
+            left: 14px;
             transform: translateY(-50%);
-            height: 4px;
+            height: 6px;
             border-radius: 999px;
             background: linear-gradient(to right, var(--bfv-accent), rgba(232, 76, 61, 0.55));
             transition: width 160ms cubic-bezier(0.22, 1, 0.36, 1), background 240ms ease;
-            box-shadow: 0 0 16px rgba(232, 76, 61, 0.28);
+            box-shadow: 0 0 16px rgba(232, 76, 61, 0.35);
             pointer-events: none;
             z-index: 1;
         }
@@ -723,9 +725,9 @@
         .bfv__ticks {
             display: flex;
             justify-content: space-between;
-            margin-top: -2px;
-            padding: 0 9px;
-            pointer-events: none;
+            margin-top: 2px;
+            padding: 0 12px;
+            pointer-events: auto;
         }
 
         .bfv__tick {
@@ -733,29 +735,36 @@
             flex-direction: column;
             align-items: center;
             gap: 6px;
+            cursor: pointer;
+            padding: 2px 4px;
         }
 
         .bfv__tick-mark {
             width: 1px;
-            height: 6px;
-            background: var(--bfv-hairline-strong);
+            height: 8px;
+            background: rgba(255, 255, 255, 0.22);
         }
 
         .bfv__tick-label {
             font-family: var(--font-display);
-            font-size: 0.68rem;
-            font-weight: 600;
-            color: var(--bfv-ink-faint);
-            letter-spacing: 0.04em;
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: var(--bfv-ink-dim);
+            letter-spacing: 0.02em;
             font-feature-settings: "tnum" 1;
             font-variant-numeric: tabular-nums;
             transition: color 160ms ease, transform 160ms ease;
             transform-origin: top center;
+            cursor: pointer;
+        }
+
+        .bfv__tick-label:hover {
+            color: var(--bfv-ink);
         }
 
         .bfv__tick-label[data-active="true"] {
             color: var(--bfv-ink);
-            transform: scale(1.08);
+            transform: scale(1.14);
         }
 
         /* Foot */
@@ -881,11 +890,18 @@
                 padding: 22px 18px;
                 border-radius: 20px;
             }
-            .bfv__bar { margin-bottom: 16px; padding-bottom: 14px; }
+            .bfv__bar {
+                margin-bottom: 16px;
+                padding-bottom: 14px;
+                flex-wrap: wrap;
+            }
             .bfv__serial { display: none; }
-            .bfv__tag { font-size: 0.66rem; }
+            .bfv__tag { font-size: 0.76rem; gap: 8px; }
+            .bfv__gender-btn { padding: 7px 14px; font-size: 0.76rem; min-height: 34px; }
             .bfv__display { padding: 14px 16px 18px; }
-            .bfv__tick-label { font-size: 0.62rem; }
+            .bfv__tick-label { font-size: 0.78rem; }
+            .bfv__ctrl-title { font-size: 0.76rem; }
+            .bfv__ctrl-value { font-size: 1rem; }
             .bfv__foot { flex-direction: column; align-items: flex-start; gap: 8px; }
             .bfv__category-sub { margin-left: 0; }
         }
