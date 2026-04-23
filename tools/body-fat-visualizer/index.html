@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Fat Percentage at Each Age — Interactive Visualizer (Male &amp; Female) | GainFrame</title>
+    <meta name="description"
+        content="See what every body fat percentage looks like at every age. Drag the sliders to compare male (8–33%) and female (18–42%) physiques across ages 20s–60s. Free, instant, no signup.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Body Fat Percentage at Each Age — Interactive Visualizer">
+    <meta property="og:description"
+        content="The most visual body fat chart on the web. Drag two sliders to see what every body fat percentage looks like on men and women, ages 20s through 60s.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gainframe.app/tools/body-fat-visualizer/">
+    <meta property="og:image" content="https://gainframe.app/tools/body-fat-visualizer/assets/physiques/male-age30s-bf13.webp">
+    <meta property="og:site_name" content="GainFrame">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Body Fat Percentage at Each Age — Interactive Visualizer">
+    <meta name="twitter:description"
+        content="Drag the sliders, watch the physique change. Male and female, ages 20s through 60s.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://gainframe.app/tools/body-fat-visualizer/">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Preload the hero frame -->
+    <link rel="preload" as="image" href="assets/physiques/male-age30s-bf13.webp">
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <!-- Structured Data: WebApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Body Fat Percentage at Each Age",
+        "description": "Interactive body fat percentage chart. Drag two sliders — age group and body fat % — to see what different body fat levels look like on male and female physiques across ages 20s through 60s.",
+        "url": "https://gainframe.app/tools/body-fat-visualizer/",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": {
+            "@type": "Organization",
+            "name": "GainFrame",
+            "url": "https://gainframe.app"
+        }
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What does each body fat percentage look like?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "At 8% body fat, men show deep ab separation, vascularity, and striated muscle — stage-lean. At 13%, they show clear six-pack definition and an athletic build. 18% is a lean, fit look with some ab outline under good light. 23% is average — softer midsection, no visible abs. 28% shows a noticeable belly and love handles. 33% and above is classified as obese range with clinical health implications."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does body fat distribution change with age?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Same body fat percentage looks different across decades. Men tend to lose muscle mass (sarcopenia) after age 40, so a 45-year-old at 18% body fat often looks softer than a 25-year-old at 18% because the underlying muscle base is smaller. Body fat also shifts toward the midsection with age due to hormonal changes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a healthy body fat percentage for men?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For men, the American Council on Exercise ranges are: athletes 6–13%, fitness 14–17%, average 18–24%, obese 25%+. Essential fat — the minimum your body needs to function — is 2–5% for men. Most health authorities recommend 10–20% for long-term health in adult men."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I measure my body fat percentage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DEXA scans are the gold standard at ±1–2% accuracy but cost $75–150 per session. The U.S. Navy tape-measure method is ±3–4% and free. Bioelectrical impedance scales are ±4–8% and heavily affected by hydration. AI photo analysis (like GainFrame) is ±2–3% trending and excels at tracking change over time from a single phone photo."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        /* =====================================================
+           TOOL PAGE — scoped page styles
+           ===================================================== */
+
+        .tool-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-main {
+            flex: 1;
+            padding: 80px 0 80px;
+        }
+
+        /* Header */
+        .tool-header {
+            text-align: center;
+            margin-bottom: 44px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tool-badge {
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--color-text);
+            color: var(--color-bg);
+            margin-bottom: 16px;
+            letter-spacing: 0.01em;
+        }
+
+        .tool-header h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -0.035em;
+            line-height: 1.06;
+            color: var(--color-text);
+            margin-bottom: 14px;
+        }
+
+        .tool-header p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.65;
+        }
+
+        /* Shell */
+        .tool-shell {
+            max-width: 900px;
+            margin: 0 auto 72px;
+        }
+
+        /* =====================================================
+           BF VISUALIZER — "Instrument"
+           A photorealistic reference widget styled like the
+           readout on a premium body-composition scanner.
+           ===================================================== */
+
+        .bfv {
+            --bfv-bg:        #0A0A0B;
+            --bfv-chamber:   #121215;
+            --bfv-rail:      #1C1C21;
+            --bfv-hairline:  rgba(255, 255, 255, 0.08);
+            --bfv-hairline-strong: rgba(255, 255, 255, 0.14);
+            --bfv-ink:       #F4F4F5;
+            --bfv-ink-dim:   rgba(244, 244, 245, 0.62);
+            --bfv-ink-faint: rgba(244, 244, 245, 0.32);
+            --bfv-accent:    #E84C3D;
+            --bfv-sage:      #8FB095;
+            --bfv-warn:      #E8954C;
+            --bfv-danger:    #B83A2D;
+            --bfv-studio:    #E8E8E6;
+
+            font-family: var(--font-body);
+            color: var(--bfv-ink);
+
+            position: relative;
+            padding: 28px;
+            background: var(--bfv-bg);
+            border-radius: 24px;
+            border: 1px solid var(--bfv-hairline);
+            box-shadow:
+                0 30px 60px -20px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        @media (min-width: 720px) {
+            .bfv {
+                padding: 36px;
+            }
+        }
+
+        /* Ambient — faint radial glow + fine grid overlay */
+        .bfv::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(1200px 420px at 50% -80px, rgba(232, 76, 61, 0.08), transparent 70%),
+                radial-gradient(900px 500px at 50% 110%, rgba(143, 176, 149, 0.06), transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bfv::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+            z-index: 0;
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+        }
+
+        /* Top bar — model tag / live chip */
+        .bfv__bar {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--bfv-hairline);
+        }
+
+        .bfv__tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--bfv-ink-dim);
+        }
+
+        .bfv__dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--bfv-accent);
+            box-shadow: 0 0 0 3px rgba(232, 76, 61, 0.18);
+            animation: bfv-pulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes bfv-pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 3px rgba(232, 76, 61, 0.18); }
+            50%      { opacity: 0.55; box-shadow: 0 0 0 6px rgba(232, 76, 61, 0.06); }
+        }
+
+        .bfv__tag-meta {
+            color: var(--bfv-ink);
+            letter-spacing: 0.12em;
+        }
+
+        /* Gender segmented toggle */
+        .bfv__gender {
+            display: inline-flex;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--bfv-hairline);
+            border-radius: 999px;
+            padding: 3px;
+            margin-left: 8px;
+        }
+
+        .bfv__gender-btn {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            padding: 4px 12px;
+            font-family: var(--font-display);
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--bfv-ink-faint);
+            border-radius: 999px;
+            transition: color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+        }
+
+        .bfv__gender-btn:hover {
+            color: var(--bfv-ink-dim);
+        }
+
+        .bfv__gender-btn[data-active="true"] {
+            color: #0B0B0D;
+            background: var(--bfv-ink);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .bfv__gender-btn:focus-visible {
+            outline: 2px solid var(--bfv-accent);
+            outline-offset: 2px;
+        }
+
+        .bfv__serial {
+            font-family: var(--font-display);
+            font-feature-settings: "tnum" 1;
+            font-variant-numeric: tabular-nums;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            color: var(--bfv-ink-faint);
+            text-transform: uppercase;
+        }
+
+        /* Grid: image pod + readout */
+        .bfv__grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 720px) {
+            .bfv__grid {
+                grid-template-columns: minmax(240px, 1fr) minmax(280px, 1.05fr);
+                gap: 36px;
+                align-items: stretch;
+            }
+        }
+
+        /* Image pod — viewfinder */
+        .bfv__pod {
+            position: relative;
+            aspect-ratio: 3 / 4;
+            border-radius: 18px;
+            overflow: hidden;
+            background:
+                linear-gradient(180deg, #F2F2F0 0%, var(--bfv-studio) 60%, #D9D9D5 100%);
+            border: 1px solid var(--bfv-hairline-strong);
+            box-shadow:
+                inset 0 0 0 1px rgba(0, 0, 0, 0.02),
+                inset 0 -80px 80px -60px rgba(0, 0, 0, 0.16);
+        }
+
+        /* Measurement grid behind physique */
+        .bfv__pod::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 10% 7.5%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Center axis line */
+        .bfv__pod::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom,
+                transparent 0%,
+                rgba(0, 0, 0, 0.08) 8%,
+                rgba(0, 0, 0, 0.08) 92%,
+                transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .bfv__img-stack {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+        }
+
+        .bfv__img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 240ms cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity;
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+
+        .bfv__img[data-active="true"] { opacity: 1; }
+
+        /* Corner marks — viewfinder */
+        .bfv__corners {
+            position: absolute;
+            inset: 10px;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .bfv__corner {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-color: rgba(20, 20, 22, 0.45);
+            border-style: solid;
+            border-width: 0;
+        }
+        .bfv__corner--tl { top: 0;    left: 0;    border-top-width: 1.5px;    border-left-width: 1.5px;   border-top-left-radius: 4px; }
+        .bfv__corner--tr { top: 0;    right: 0;   border-top-width: 1.5px;    border-right-width: 1.5px;  border-top-right-radius: 4px; }
+        .bfv__corner--bl { bottom: 0; left: 0;    border-bottom-width: 1.5px; border-left-width: 1.5px;   border-bottom-left-radius: 4px; }
+        .bfv__corner--br { bottom: 0; right: 0;   border-bottom-width: 1.5px; border-right-width: 1.5px;  border-bottom-right-radius: 4px; }
+
+        /* Side ruler */
+        .bfv__scale {
+            position: absolute;
+            top: 14px;
+            bottom: 14px;
+            right: 8px;
+            width: 14px;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .bfv__scale span {
+            display: block;
+            height: 1px;
+            width: 10px;
+            margin-left: auto;
+            background: rgba(20, 20, 22, 0.28);
+        }
+
+        .bfv__scale span:nth-child(5n + 1) {
+            width: 14px;
+            background: rgba(20, 20, 22, 0.52);
+        }
+
+        /* Age chip on pod */
+        .bfv__agechip {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 4;
+            padding: 6px 10px;
+            font-family: var(--font-display);
+            font-size: 0.64rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(20, 20, 22, 0.78);
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid rgba(20, 20, 22, 0.12);
+            border-radius: 999px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            font-feature-settings: "tnum" 1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Readout */
+        .bfv__readout {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            min-width: 0;
+        }
+
+        .bfv__display {
+            padding: 18px 20px 22px;
+            background: linear-gradient(180deg, var(--bfv-chamber), rgba(18, 18, 21, 0.6));
+            border: 1px solid var(--bfv-hairline);
+            border-radius: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bfv__display::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right,
+                transparent 0%,
+                var(--bfv-hairline-strong) 20%,
+                var(--bfv-hairline-strong) 80%,
+                transparent 100%);
+        }
+
+        .bfv__display-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-display);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--bfv-ink-dim);
+            margin-bottom: 4px;
+        }
+
+        .bfv__display-label-r {
+            color: var(--bfv-ink-faint);
+            font-weight: 600;
+            letter-spacing: 0.18em;
+        }
+
+        .bfv__pct {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(3.4rem, 9vw, 5rem);
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            color: var(--bfv-ink);
+            font-feature-settings: "tnum" 1;
+            font-variant-numeric: tabular-nums;
+            margin-top: 6px;
+        }
+
+        .bfv__pct-num {
+            display: inline-block;
+            transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+                        opacity 180ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .bfv__pct-sign {
+            font-size: 0.38em;
+            font-weight: 700;
+            color: var(--bfv-ink-dim);
+            transform: translateY(-0.22em);
+            margin-left: 2px;
+        }
+
+        .bfv__category {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--bfv-hairline);
+            flex-wrap: wrap;
+        }
+
+        .bfv__swatch {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            background: var(--bfv-sage);
+            box-shadow: 0 0 0 3px rgba(143, 176, 149, 0.14);
+            transition: background 240ms ease, box-shadow 240ms ease;
+            flex-shrink: 0;
+        }
+
+        .bfv__category-name {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--bfv-ink);
+            transition: color 240ms ease;
+        }
+
+        .bfv__category-sub {
+            font-family: var(--font-display);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--bfv-ink-faint);
+            margin-left: auto;
+        }
+
+        /* Controls */
+        .bfv__ctrl {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .bfv__ctrl-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            font-family: var(--font-display);
+        }
+
+        .bfv__ctrl-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--bfv-ink-dim);
+        }
+
+        .bfv__ctrl-value {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--bfv-ink);
+            letter-spacing: 0.04em;
+            font-feature-settings: "tnum" 1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Slider — custom */
+        .bfv__slider-wrap {
+            position: relative;
+        }
+
+        .bfv__slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 40px;
+            background: transparent;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            outline: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        .bfv__slider:focus { outline: none; }
+
+        .bfv__slider::-webkit-slider-runnable-track {
+            height: 4px;
+            background: var(--bfv-rail);
+            border-radius: 999px;
+            border: 1px solid var(--bfv-hairline);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4);
+        }
+
+        .bfv__slider::-moz-range-track {
+            height: 4px;
+            background: var(--bfv-rail);
+            border-radius: 999px;
+            border: 1px solid var(--bfv-hairline);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4);
+        }
+
+        .bfv__slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #FAFAFA;
+            border: 2px solid var(--bfv-accent);
+            box-shadow: 0 0 0 4px rgba(232, 76, 61, 0.14), 0 4px 12px rgba(0, 0, 0, 0.5);
+            margin-top: -10px;
+            cursor: grab;
+            transition: transform 150ms ease, box-shadow 150ms ease;
+        }
+
+        .bfv__slider::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #FAFAFA;
+            border: 2px solid var(--bfv-accent);
+            box-shadow: 0 0 0 4px rgba(232, 76, 61, 0.14), 0 4px 12px rgba(0, 0, 0, 0.5);
+            cursor: grab;
+            transition: transform 150ms ease, box-shadow 150ms ease;
+        }
+
+        .bfv__slider:hover::-webkit-slider-thumb,
+        .bfv__slider:focus-visible::-webkit-slider-thumb {
+            transform: scale(1.08);
+            box-shadow: 0 0 0 6px rgba(232, 76, 61, 0.22), 0 4px 14px rgba(0, 0, 0, 0.6);
+        }
+        .bfv__slider:hover::-moz-range-thumb,
+        .bfv__slider:focus-visible::-moz-range-thumb {
+            transform: scale(1.08);
+            box-shadow: 0 0 0 6px rgba(232, 76, 61, 0.22), 0 4px 14px rgba(0, 0, 0, 0.6);
+        }
+        .bfv__slider:active::-webkit-slider-thumb { cursor: grabbing; }
+        .bfv__slider:active::-moz-range-thumb     { cursor: grabbing; }
+
+        /* Live-fill overlay for the track */
+        .bfv__rail-fill {
+            position: absolute;
+            top: 50%;
+            left: 11px;
+            transform: translateY(-50%);
+            height: 4px;
+            border-radius: 999px;
+            background: linear-gradient(to right, var(--bfv-accent), rgba(232, 76, 61, 0.55));
+            transition: width 160ms cubic-bezier(0.22, 1, 0.36, 1), background 240ms ease;
+            box-shadow: 0 0 16px rgba(232, 76, 61, 0.28);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Ticks */
+        .bfv__ticks {
+            display: flex;
+            justify-content: space-between;
+            margin-top: -2px;
+            padding: 0 9px;
+            pointer-events: none;
+        }
+
+        .bfv__tick {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .bfv__tick-mark {
+            width: 1px;
+            height: 6px;
+            background: var(--bfv-hairline-strong);
+        }
+
+        .bfv__tick-label {
+            font-family: var(--font-display);
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--bfv-ink-faint);
+            letter-spacing: 0.04em;
+            font-feature-settings: "tnum" 1;
+            font-variant-numeric: tabular-nums;
+            transition: color 160ms ease, transform 160ms ease;
+            transform-origin: top center;
+        }
+
+        .bfv__tick-label[data-active="true"] {
+            color: var(--bfv-ink);
+            transform: scale(1.08);
+        }
+
+        /* Foot */
+        .bfv__foot {
+            position: relative;
+            z-index: 2;
+            margin-top: 22px;
+            padding-top: 16px;
+            border-top: 1px solid var(--bfv-hairline);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            color: var(--bfv-ink-faint);
+            text-transform: uppercase;
+        }
+
+        .bfv__foot-note {
+            color: var(--bfv-ink-faint);
+            text-transform: none;
+            letter-spacing: 0.02em;
+            font-size: 0.78rem;
+            font-weight: 400;
+            font-family: var(--font-body);
+        }
+
+        .bfv__share {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: 1px solid var(--bfv-hairline-strong);
+            color: var(--bfv-ink-dim);
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+        }
+
+        .bfv__share:hover {
+            color: var(--bfv-ink);
+            border-color: var(--bfv-ink-dim);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .bfv__share svg { width: 12px; height: 12px; }
+
+        /* Category variants — driven by data-category on .bfv */
+        .bfv[data-category="shredded"] { --bfv-active: var(--bfv-accent); }
+        .bfv[data-category="athletic"] { --bfv-active: var(--bfv-sage); }
+        .bfv[data-category="fit"]      { --bfv-active: #A9C6AE; }
+        .bfv[data-category="average"]  { --bfv-active: #C4A574; }
+        .bfv[data-category="above"]    { --bfv-active: var(--bfv-warn); }
+        .bfv[data-category="obese"]    { --bfv-active: var(--bfv-danger); }
+        .bfv[data-category="danger"]   { --bfv-active: #7A1F15; }
+
+        .bfv[data-category] .bfv__swatch {
+            background: var(--bfv-active);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06),
+                        0 0 12px color-mix(in srgb, var(--bfv-active) 50%, transparent);
+        }
+        .bfv[data-category] .bfv__rail-fill {
+            background: linear-gradient(to right,
+                var(--bfv-active),
+                color-mix(in srgb, var(--bfv-active) 55%, transparent));
+            box-shadow: 0 0 16px color-mix(in srgb, var(--bfv-active) 32%, transparent);
+        }
+        .bfv[data-category] .bfv__slider::-webkit-slider-thumb {
+            border-color: var(--bfv-active);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--bfv-active) 18%, transparent),
+                        0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        .bfv[data-category] .bfv__slider::-moz-range-thumb {
+            border-color: var(--bfv-active);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--bfv-active) 18%, transparent),
+                        0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        .bfv[data-category] .bfv__dot {
+            background: var(--bfv-active);
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--bfv-active) 22%, transparent);
+        }
+
+        /* Scan sweep when first visible */
+        .bfv__sweep {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 40%;
+            background: linear-gradient(to bottom,
+                transparent 0%,
+                rgba(232, 76, 61, 0) 50%,
+                rgba(232, 76, 61, 0.12) 85%,
+                rgba(232, 76, 61, 0) 100%);
+            pointer-events: none;
+            z-index: 3;
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        .bfv[data-revealed="true"] .bfv__sweep {
+            animation: bfv-sweep 1400ms cubic-bezier(0.4, 0, 0.2, 1) 120ms 1 both;
+        }
+
+        @keyframes bfv-sweep {
+            0%   { transform: translateY(-100%); opacity: 0; }
+            15%  { opacity: 1; }
+            85%  { opacity: 1; }
+            100% { transform: translateY(280%); opacity: 0; }
+        }
+
+        @media (max-width: 519px) {
+            .bfv {
+                padding: 22px 18px;
+                border-radius: 20px;
+            }
+            .bfv__bar { margin-bottom: 16px; padding-bottom: 14px; }
+            .bfv__serial { display: none; }
+            .bfv__tag { font-size: 0.66rem; }
+            .bfv__display { padding: 14px 16px 18px; }
+            .bfv__tick-label { font-size: 0.62rem; }
+            .bfv__foot { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .bfv__category-sub { margin-left: 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .bfv__img,
+            .bfv__pct-num,
+            .bfv__rail-fill,
+            .bfv__tick-label,
+            .bfv__slider::-webkit-slider-thumb,
+            .bfv__slider::-moz-range-thumb { transition: none !important; }
+            .bfv__dot, .bfv__sweep { animation: none !important; }
+        }
+
+        /* =====================================================
+           Inline caption beneath the widget
+           ===================================================== */
+
+        .tool-caption {
+            max-width: 640px;
+            margin: 20px auto 0;
+            text-align: center;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            color: var(--color-text-tertiary);
+        }
+
+        /* =====================================================
+           REFERENCE CHART
+           ===================================================== */
+
+        .tool-reference {
+            max-width: 900px;
+            margin: 72px auto 64px;
+        }
+
+        .tool-reference-head {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .tool-reference-head h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--color-text);
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+
+        .tool-reference-head p {
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .tool-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .tool-ref-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 520px) {
+            .tool-ref-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .tool-ref-card {
+            padding: 16px 14px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            text-align: left;
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+        }
+
+        .tool-ref-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+            border-color: rgba(0, 0, 0, 0.14);
+        }
+
+        .tool-ref-card[data-active="true"] {
+            border-color: var(--color-text);
+            box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.06);
+        }
+
+        .tool-ref-pct {
+            display: flex;
+            align-items: baseline;
+            gap: 2px;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            color: var(--color-text);
+            font-feature-settings: "tnum" 1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .tool-ref-pct sup {
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--color-text-tertiary);
+            transform: translateY(-0.3em);
+        }
+
+        .tool-ref-name {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--color-text);
+        }
+
+        .tool-ref-desc {
+            font-size: 0.82rem;
+            line-height: 1.5;
+            color: var(--color-text-secondary);
+        }
+
+        .tool-ref-bar {
+            height: 3px;
+            border-radius: 999px;
+            background: currentColor;
+            margin-top: auto;
+        }
+
+        /* Ref card accent — keyed by category (works for both genders) */
+        .tool-ref-card[data-key="shredded"] { color: #E84C3D; }
+        .tool-ref-card[data-key="athletic"] { color: #6B8F71; }
+        .tool-ref-card[data-key="fit"]      { color: #8FB095; }
+        .tool-ref-card[data-key="average"]  { color: #C4A574; }
+        .tool-ref-card[data-key="above"]    { color: #E8954C; }
+        .tool-ref-card[data-key="obese"]    { color: #B83A2D; }
+        .tool-ref-card[data-key="danger"]   { color: #7A1F15; }
+
+        .tool-ref-card .tool-ref-pct,
+        .tool-ref-card .tool-ref-name,
+        .tool-ref-card .tool-ref-desc {
+            color: inherit;
+        }
+
+        .tool-ref-card .tool-ref-name { color: currentColor; }
+        .tool-ref-card .tool-ref-pct,
+        .tool-ref-card .tool-ref-desc { color: var(--color-text); }
+        .tool-ref-card .tool-ref-desc { color: var(--color-text-secondary); }
+
+        /* =====================================================
+           USAGE + METHOD
+           ===================================================== */
+
+        .tool-usage {
+            max-width: 900px;
+            margin: 0 auto 64px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 720px) {
+            .tool-usage { grid-template-columns: 1fr; }
+        }
+
+        .tool-usage-card {
+            padding: 28px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+        }
+
+        .tool-usage-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: -0.005em;
+            color: var(--color-text);
+            margin-bottom: 10px;
+        }
+
+        .tool-usage-card p,
+        .tool-usage-card li {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+        }
+
+        .tool-usage-card ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+
+        .tool-usage-card li { margin-bottom: 4px; }
+
+        .tool-usage-card strong { color: var(--color-text); font-weight: 600; }
+
+        /* =====================================================
+           CTA
+           ===================================================== */
+
+        .tool-cta-section {
+            max-width: 620px;
+            margin: 0 auto 40px;
+            text-align: center;
+            padding: 48px 40px;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+        }
+
+        .tool-cta-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            border-radius: var(--radius-sm);
+            background: var(--color-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-cta-icon svg { width: 26px; height: 26px; color: #fff; }
+
+        .tool-cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .tool-cta-section p {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            max-width: 460px;
+            margin: 0 auto 24px;
+        }
+
+        .tool-cta-list {
+            list-style: none;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: left;
+            margin: 0 auto 28px;
+            padding: 0;
+        }
+
+        .tool-cta-list li {
+            font-size: 0.92rem;
+            color: var(--color-text-secondary);
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .tool-cta-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        /* Method note */
+        .tool-method-note {
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 24px;
+            background: transparent;
+            border: 1px dashed var(--color-border);
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .tool-method-note h3 {
+            font-family: var(--font-display);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 6px;
+            letter-spacing: 0.02em;
+        }
+
+        .tool-method-note p {
+            font-size: 0.82rem;
+            color: var(--color-text-tertiary);
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .tool-main { padding: 60px 0 80px; }
+            .tool-header { margin-bottom: 32px; }
+            .tool-header h1 { font-size: 2rem; }
+            .tool-header p { font-size: 0.95rem; }
+            .tool-reference { margin: 56px auto 48px; }
+            .tool-reference-head h2 { font-size: 1.5rem; }
+            .tool-cta-section { padding: 32px 22px; }
+            .tool-cta-section h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+
+<body class="tool-page">
+    <div data-site-nav></div>
+    <script src="/assets/shared-nav.js"></script>
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="tool-main">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="tool-header hero-text-stagger">
+                <span class="tool-badge">Free Tool</span>
+                <h1>Body Fat Percentage at Each Age</h1>
+                <p>Drag the sliders to see what every body fat percentage actually looks like — across ages 20s through 60s, for both men and women. Photorealistic references, zero guesswork.</p>
+            </div>
+
+            <!-- ===== Visualizer Shell ===== -->
+            <div class="tool-shell scroll-reveal">
+
+                <div class="bfv" id="bfv" data-category="athletic" data-gender="male">
+                    <!-- Bar -->
+                    <div class="bfv__bar">
+                        <div class="bfv__tag">
+                            <span class="bfv__dot" aria-hidden="true"></span>
+                            <span>Live Reference</span>
+                            <div class="bfv__gender" role="radiogroup" aria-label="Gender">
+                                <button class="bfv__gender-btn" type="button" data-gender="male" data-active="true" role="radio" aria-checked="true">Male</button>
+                                <button class="bfv__gender-btn" type="button" data-gender="female" data-active="false" role="radio" aria-checked="false">Female</button>
+                            </div>
+                        </div>
+                        <div class="bfv__serial" aria-hidden="true">GF-BFV · REF-<span id="bfvSerial">0000</span></div>
+                    </div>
+
+                    <!-- Grid -->
+                    <div class="bfv__grid">
+
+                        <!-- Image pod -->
+                        <div class="bfv__pod" id="bfvPod">
+                            <div class="bfv__agechip" id="bfvAgeChip">Age · 30s</div>
+
+                            <div class="bfv__img-stack" id="bfvStack" aria-live="polite">
+                                <!-- Images are injected here by JS -->
+                            </div>
+
+                            <div class="bfv__corners">
+                                <span class="bfv__corner bfv__corner--tl"></span>
+                                <span class="bfv__corner bfv__corner--tr"></span>
+                                <span class="bfv__corner bfv__corner--bl"></span>
+                                <span class="bfv__corner bfv__corner--br"></span>
+                            </div>
+
+                            <div class="bfv__scale" aria-hidden="true">
+                                <!-- 21 ticks -->
+                                <span></span><span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span><span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="bfv__sweep" aria-hidden="true"></div>
+                        </div>
+
+                        <!-- Readout -->
+                        <div class="bfv__readout">
+
+                            <div class="bfv__display">
+                                <div class="bfv__display-label">
+                                    <span>Body Fat</span>
+                                    <span class="bfv__display-label-r">Reference</span>
+                                </div>
+                                <div class="bfv__pct" aria-live="polite">
+                                    <span class="bfv__pct-num" id="bfvPctNum">13</span>
+                                    <span class="bfv__pct-sign">%</span>
+                                </div>
+                                <div class="bfv__category">
+                                    <span class="bfv__swatch" aria-hidden="true"></span>
+                                    <span class="bfv__category-name" id="bfvCatName">Athletic</span>
+                                    <span class="bfv__category-sub" id="bfvCatSub">Healthy · Lean</span>
+                                </div>
+                            </div>
+
+                            <!-- BF slider -->
+                            <div class="bfv__ctrl">
+                                <div class="bfv__ctrl-head">
+                                    <span class="bfv__ctrl-title">Body Fat %</span>
+                                    <span class="bfv__ctrl-value" id="bfvBfValue">13%</span>
+                                </div>
+                                <div class="bfv__slider-wrap">
+                                    <input class="bfv__slider" id="bfvBfSlider" type="range"
+                                        min="0" max="5" step="1" value="1"
+                                        aria-label="Body fat percentage">
+                                    <div class="bfv__rail-fill" id="bfvBfFill" style="width: 20%;"></div>
+                                </div>
+                                <div class="bfv__ticks" id="bfvBfTicks"><!-- JS injects ticks based on gender --></div>
+                            </div>
+
+                            <!-- Age slider -->
+                            <div class="bfv__ctrl">
+                                <div class="bfv__ctrl-head">
+                                    <span class="bfv__ctrl-title">Age Group</span>
+                                    <span class="bfv__ctrl-value" id="bfvAgeValue">30s</span>
+                                </div>
+                                <div class="bfv__slider-wrap">
+                                    <input class="bfv__slider" id="bfvAgeSlider" type="range"
+                                        min="0" max="4" step="1" value="1"
+                                        aria-label="Age group">
+                                    <div class="bfv__rail-fill" id="bfvAgeFill" style="width: 25%;"></div>
+                                </div>
+                                <div class="bfv__ticks" id="bfvAgeTicks">
+                                    <div class="bfv__tick"><span class="bfv__tick-mark"></span><span class="bfv__tick-label" data-index="0">20s</span></div>
+                                    <div class="bfv__tick"><span class="bfv__tick-mark"></span><span class="bfv__tick-label" data-index="1">30s</span></div>
+                                    <div class="bfv__tick"><span class="bfv__tick-mark"></span><span class="bfv__tick-label" data-index="2">40s</span></div>
+                                    <div class="bfv__tick"><span class="bfv__tick-mark"></span><span class="bfv__tick-label" data-index="3">50s</span></div>
+                                    <div class="bfv__tick"><span class="bfv__tick-mark"></span><span class="bfv__tick-label" data-index="4">60s</span></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Foot -->
+                    <div class="bfv__foot">
+                        <span class="bfv__foot-note">Photorealistic references · Studio lighting · Front-facing relaxed pose</span>
+                        <button class="bfv__share" id="bfvShare" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                <polyline points="16 6 12 2 8 6"></polyline>
+                                <line x1="12" y1="2" x2="12" y2="15"></line>
+                            </svg>
+                            <span id="bfvShareLabel">Share</span>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="tool-caption">
+                    References are photorealistic composites at the midpoint of each band. Individual results vary based on genetics, muscle mass, fat distribution, and hydration.
+                </p>
+
+            </div>
+
+            <!-- ===== Category Reference Chart ===== -->
+            <div class="tool-reference scroll-reveal">
+                <div class="tool-reference-head">
+                    <h2 id="bfvRefHeading">Every Male Body Fat Percentage, Explained</h2>
+                    <p>Tap a card to jump the visualizer to that level. Categories follow ACE/ACSM classifications.</p>
+                </div>
+
+                <div class="tool-ref-grid" id="bfvRefGrid"><!-- JS injects cards based on gender --></div>
+            </div>
+
+            <!-- ===== Usage + Age notes ===== -->
+            <div class="tool-usage scroll-reveal">
+                <div class="tool-usage-card">
+                    <h3>How to Use This Tool</h3>
+                    <ul>
+                        <li>Toggle <strong>Male</strong> or <strong>Female</strong> in the top-right of the card.</li>
+                        <li>Drag the <strong>Body Fat %</strong> slider to step through bands (8–33% male, 18–42% female).</li>
+                        <li>Drag the <strong>Age Group</strong> slider to see how the same body fat reads on different decades.</li>
+                        <li>Compare your mirror against the image that feels closest — usually within ±3%.</li>
+                    </ul>
+                </div>
+                <div class="tool-usage-card">
+                    <h3>Why Age &amp; Gender Matter</h3>
+                    <p>Same body fat percentage looks different across decades and between sexes. Men lose roughly <strong>3–8% of muscle per decade</strong> after 30 (sarcopenia). Women naturally carry <strong>10–13% more essential fat</strong> than men and store it in the hips, thighs, and buttocks. A woman at 20% is leaner relative to her gender than a man at 20%.</p>
+                </div>
+            </div>
+
+            <!-- ===== CTA ===== -->
+            <div class="tool-cta-section scroll-reveal">
+                <div class="tool-cta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                        <circle cx="12" cy="13" r="4"/>
+                    </svg>
+                </div>
+                <h2>Want Your Actual Body Fat %?</h2>
+                <p>Visual references are great for ballpark. For your real number, GainFrame analyzes a single photo and gives you body composition — no tape, no scan, no guesswork.</p>
+                <ul class="tool-cta-list">
+                    <li>AI-powered body composition from one photo</li>
+                    <li>Track body fat % changes over time</li>
+                    <li>Physique score and muscle group insights</li>
+                    <li>Free to try — results in seconds</li>
+                </ul>
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank"
+                    rel="noopener" class="appstore-link">
+                    <img src="../../appstore-badge.svg" alt="Download on the App Store" class="appstore-badge"
+                        style="margin: 0 auto;" loading="lazy">
+                </a>
+            </div>
+
+            <!-- ===== Method Note ===== -->
+            <div class="tool-method-note scroll-reveal">
+                <h3>About These References</h3>
+                <p>Images are photorealistic composites generated to represent the midpoint of each body fat band under neutral studio lighting and a relaxed front-facing pose. They are intended as visual reference only — individual appearance varies with genetics, training history, fat distribution, hydration, and recent meals.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <div data-newsletter-signup></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="../../privacy.html">Privacy Policy</a>
+                <a href="../../features.html">Features</a>
+                <a href="/blog/">Blog</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ==================== VISUALIZER LOGIC ==================== -->
+    <script>
+        /* =====================================================
+           BF VISUALIZER — dual-slider, preloading image stack
+           ===================================================== */
+
+        (function () {
+            const AGE_STEPS = ['20s', '30s', '40s', '50s', '60s'];
+
+            const GENDER_CONFIG = {
+                male: {
+                    steps: [8, 13, 18, 23, 28, 33],
+                    categories: {
+                        8:  { name: 'Shredded',      sub: 'Essential · Stage Lean', key: 'shredded', desc: 'Stage-lean. Striated muscle, vascularity, and deep ab separation. Not sustainable long-term.' },
+                        13: { name: 'Athletic',      sub: 'Healthy · Lean',         key: 'athletic', desc: 'Clean six-pack, visible separation, vascular forearms. The trained-lifter look.' },
+                        18: { name: 'Fit',           sub: 'Sustainable · Toned',    key: 'fit',      desc: 'Lean and toned. Abs visible under good lighting, sustainable and healthy.' },
+                        23: { name: 'Average',       sub: 'Typical Adult Male',     key: 'average',  desc: 'Typical range for most men. Soft midsection, no visible abs. Still within healthy range.' },
+                        28: { name: 'Above Average', sub: 'Elevated Risk',          key: 'above',    desc: 'Noticeable belly, love handles, and chest softness. Elevated metabolic risk begins here.' },
+                        33: { name: 'Obese Range',   sub: 'High Health Risk',       key: 'obese',    desc: 'Significant abdominal overhang and visceral fat. Serious health risk — time to act.' }
+                    }
+                },
+                female: {
+                    steps: [18, 22, 27, 32, 37, 42],
+                    categories: {
+                        18: { name: 'Athletic',      sub: 'Toned · Defined',          key: 'athletic', desc: 'Visible muscle tone, defined arms and legs. Typical of competitive athletes and dedicated trainers.' },
+                        22: { name: 'Fit',           sub: 'Sustainable · Healthy',    key: 'fit',      desc: 'Lean, toned, and curvy. A sustainable, healthy body fat level with clear definition.' },
+                        27: { name: 'Average',       sub: 'Typical Adult Female',     key: 'average',  desc: 'Typical range for most women. Soft curves, healthy body fat level for general wellness.' },
+                        32: { name: 'Above Average', sub: 'Class I Obesity',          key: 'above',    desc: 'Entering the obese range. Fat distribution broadens across hips, thighs, and midsection.' },
+                        37: { name: 'Obese Range',   sub: 'Class II Obesity',         key: 'obese',    desc: 'Elevated health risk. Notable abdominal and lower-body fat accumulation.' },
+                        42: { name: 'High Risk',     sub: 'Class III Obesity',        key: 'danger',   desc: 'Severe obesity. Significant chronic disease risk requiring medical guidance.' }
+                    }
+                }
+            };
+
+            const IMG_BASE = 'assets/physiques/';
+
+            // DOM
+            const root       = document.getElementById('bfv');
+            const stack      = document.getElementById('bfvStack');
+            const pod        = document.getElementById('bfvPod');
+            const pctNum     = document.getElementById('bfvPctNum');
+            const catName    = document.getElementById('bfvCatName');
+            const catSub     = document.getElementById('bfvCatSub');
+            const ageChip    = document.getElementById('bfvAgeChip');
+            const bfSlider   = document.getElementById('bfvBfSlider');
+            const ageSlider  = document.getElementById('bfvAgeSlider');
+            const bfValue    = document.getElementById('bfvBfValue');
+            const ageValue   = document.getElementById('bfvAgeValue');
+            const bfFill     = document.getElementById('bfvBfFill');
+            const ageFill    = document.getElementById('bfvAgeFill');
+            const bfTicksWrap = document.getElementById('bfvBfTicks');
+            const ageTicks   = document.querySelectorAll('#bfvAgeTicks .bfv__tick-label');
+            const refGrid    = document.getElementById('bfvRefGrid');
+            const refHeading = document.getElementById('bfvRefHeading');
+            const serialEl   = document.getElementById('bfvSerial');
+            const shareBtn   = document.getElementById('bfvShare');
+            const shareLabel = document.getElementById('bfvShareLabel');
+            const genderBtns = document.querySelectorAll('.bfv__gender-btn');
+
+            // State
+            let gender = 'male';
+            let bfIdx  = 1;   // default 13% male / 22% female
+            let ageIdx = 1;   // default 30s
+
+            // Current steps/categories derived from gender
+            function steps()      { return GENDER_CONFIG[gender].steps; }
+            function categories() { return GENDER_CONFIG[gender].categories; }
+
+            // --- image pool cache (filename → HTMLImageElement) ---
+            const pool = new Map();
+
+            function imgKey(g, aIdx, bf) {
+                return g + '-age' + AGE_STEPS[aIdx] + '-bf' + bf;
+            }
+
+            function imgSrc(g, aIdx, bf) {
+                return IMG_BASE + imgKey(g, aIdx, bf) + '.webp';
+            }
+
+            function ensureImage(g, aIdx, bfIdxLocal) {
+                const bf = GENDER_CONFIG[g].steps[bfIdxLocal];
+                const key = imgKey(g, aIdx, bf);
+                if (pool.has(key)) return pool.get(key);
+                const el = new Image();
+                el.className = 'bfv__img';
+                el.alt = (g === 'male' ? 'Male' : 'Female') + ' reference physique, age ' + AGE_STEPS[aIdx] + ', ' + bf + '% body fat';
+                el.decoding = 'async';
+                el.loading = 'eager';
+                el.src = imgSrc(g, aIdx, bf);
+                el.dataset.key = key;
+                stack.appendChild(el);
+                pool.set(key, el);
+                return el;
+            }
+
+            function preloadNeighbors(g, aIdx, bIdx) {
+                const cells = [
+                    [aIdx, bIdx],
+                    [aIdx - 1, bIdx], [aIdx + 1, bIdx],
+                    [aIdx, bIdx - 1], [aIdx, bIdx + 1]
+                ];
+                const stepsLen = GENDER_CONFIG[g].steps.length;
+                cells.forEach(([a, b]) => {
+                    if (a >= 0 && a < AGE_STEPS.length && b >= 0 && b < stepsLen) {
+                        ensureImage(g, a, b);
+                    }
+                });
+            }
+
+            // Render BF tick labels for current gender
+            function renderBfTicks() {
+                const s = steps();
+                bfTicksWrap.innerHTML = s.map((v, i) =>
+                    '<div class="bfv__tick">' +
+                        '<span class="bfv__tick-mark"></span>' +
+                        '<span class="bfv__tick-label" data-index="' + i + '">' + v + '</span>' +
+                    '</div>'
+                ).join('');
+                // Rewire tick clicks
+                bfTicksWrap.querySelectorAll('.bfv__tick-label').forEach((t) => {
+                    t.addEventListener('click', () => {
+                        const i = parseInt(t.dataset.index, 10);
+                        bfSlider.value = i;
+                        setActive(ageIdx, i);
+                    });
+                });
+                // Slider max matches step count
+                bfSlider.max = String(s.length - 1);
+            }
+
+            // Render reference card grid for current gender
+            function renderRefGrid() {
+                const s = steps();
+                const cats = categories();
+                const total = gender === 'male' ? 'Male Body Fat %' : 'Female Body Fat %';
+                refHeading.textContent = 'Every ' + (gender === 'male' ? 'Male' : 'Female') + ' Body Fat Percentage, Explained';
+
+                refGrid.innerHTML = s.map((v) => {
+                    const c = cats[v];
+                    return '<button class="tool-ref-card" data-bf="' + v + '" data-key="' + c.key + '" type="button">' +
+                            '<div class="tool-ref-pct">' + v + '<sup>%</sup></div>' +
+                            '<div class="tool-ref-name">' + c.name + '</div>' +
+                            '<p class="tool-ref-desc">' + c.desc + '</p>' +
+                            '<div class="tool-ref-bar"></div>' +
+                        '</button>';
+                }).join('');
+
+                // Rewire clicks
+                refGrid.querySelectorAll('.tool-ref-card').forEach((card) => {
+                    card.addEventListener('click', () => {
+                        const bfVal = parseInt(card.dataset.bf, 10);
+                        const i = steps().indexOf(bfVal);
+                        if (i < 0) return;
+                        bfSlider.value = i;
+                        setActive(ageIdx, i);
+                        document.getElementById('bfv').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                });
+            }
+
+            function setActive(aIdx, bIdx) {
+                const s = steps();
+                aIdx = Math.max(0, Math.min(AGE_STEPS.length - 1, aIdx));
+                bIdx = Math.max(0, Math.min(s.length - 1, bIdx));
+
+                const img = ensureImage(gender, aIdx, bIdx);
+                preloadNeighbors(gender, aIdx, bIdx);
+
+                // Swap active image
+                pool.forEach((el) => { el.dataset.active = 'false'; });
+                img.dataset.active = 'true';
+
+                // BF readout
+                const bf = s[bIdx];
+                pctNum.textContent = bf;
+                bfValue.textContent = bf + '%';
+                const cat = categories()[bf];
+                catName.textContent = cat.name;
+                catSub.textContent = cat.sub;
+                root.setAttribute('data-category', cat.key);
+
+                // Age readout
+                const age = AGE_STEPS[aIdx];
+                ageValue.textContent = age;
+                ageChip.textContent = 'Age · ' + age;
+
+                // Fills
+                bfFill.style.width = ((bIdx / (s.length - 1)) * 100).toFixed(2) + '%';
+                ageFill.style.width = ((aIdx / (AGE_STEPS.length - 1)) * 100).toFixed(2) + '%';
+
+                // Tick active
+                bfTicksWrap.querySelectorAll('.bfv__tick-label').forEach((t, i) => t.dataset.active = String(i === bIdx));
+                ageTicks.forEach((t, i) => t.dataset.active = String(i === aIdx));
+
+                // Ref card active
+                refGrid.querySelectorAll('.tool-ref-card').forEach((card) => {
+                    card.dataset.active = String(parseInt(card.dataset.bf, 10) === bf);
+                });
+
+                // Serial
+                const serial = String((aIdx + 1) * 100 + (bIdx + 1) * 7 + (gender === 'male' ? 3491 : 7382)).padStart(4, '0');
+                serialEl.textContent = serial;
+
+                // Persist in URL
+                if (history.replaceState) {
+                    const hash = '#g=' + gender + '&bf=' + bf + '&age=' + age;
+                    history.replaceState(null, '', window.location.pathname + hash);
+                }
+
+                bfIdx = bIdx;
+                ageIdx = aIdx;
+            }
+
+            function setGender(g) {
+                if (g === gender) return;
+                if (!GENDER_CONFIG[g]) return;
+
+                // Map current BF to nearest equivalent on new scale (proportional)
+                const prevSteps = GENDER_CONFIG[gender].steps;
+                const prevBf    = prevSteps[bfIdx];
+                const newSteps  = GENDER_CONFIG[g].steps;
+                const ratio     = bfIdx / (prevSteps.length - 1);
+                const newBfIdx  = Math.round(ratio * (newSteps.length - 1));
+
+                gender = g;
+                root.setAttribute('data-gender', g);
+
+                // Update toggle buttons
+                genderBtns.forEach((btn) => {
+                    const on = btn.dataset.gender === g;
+                    btn.dataset.active = String(on);
+                    btn.setAttribute('aria-checked', String(on));
+                });
+
+                // Clear image stack — new gender means new image keys
+                pool.forEach((el) => { el.remove(); });
+                pool.clear();
+
+                // Re-render ticks and reference grid
+                renderBfTicks();
+                renderRefGrid();
+
+                // Apply new index
+                bfSlider.value = newBfIdx;
+                setActive(ageIdx, newBfIdx);
+            }
+
+            // --- Event wiring ---
+
+            bfSlider.addEventListener('input', (e) => {
+                setActive(ageIdx, parseInt(e.target.value, 10));
+            });
+
+            ageSlider.addEventListener('input', (e) => {
+                setActive(parseInt(e.target.value, 10), bfIdx);
+            });
+
+            ageTicks.forEach((t) => {
+                t.addEventListener('click', () => {
+                    const i = parseInt(t.dataset.index, 10);
+                    ageSlider.value = i;
+                    setActive(i, bfIdx);
+                });
+            });
+
+            genderBtns.forEach((btn) => {
+                btn.addEventListener('click', () => setGender(btn.dataset.gender));
+            });
+
+            // Share button — copies deep link
+            shareBtn.addEventListener('click', async () => {
+                const s = steps();
+                const url = window.location.origin + window.location.pathname +
+                    '#g=' + gender + '&bf=' + s[bfIdx] + '&age=' + AGE_STEPS[ageIdx];
+                try {
+                    if (navigator.share) {
+                        await navigator.share({ title: 'Body Fat % at Each Age', text: s[bfIdx] + '% body fat · ' + AGE_STEPS[ageIdx] + ' · ' + gender, url });
+                    } else {
+                        await navigator.clipboard.writeText(url);
+                        shareLabel.textContent = 'Copied';
+                        setTimeout(() => { shareLabel.textContent = 'Share'; }, 1400);
+                    }
+                } catch (e) {
+                    // user dismissed — no-op
+                }
+            });
+
+            // Parse hash on load
+            function parseHash() {
+                const raw = window.location.hash.replace(/^#/, '');
+                if (!raw) return;
+                const parts = Object.fromEntries(raw.split('&').map(kv => kv.split('=').map(decodeURIComponent)));
+                if (parts.g && GENDER_CONFIG[parts.g]) {
+                    gender = parts.g;
+                    root.setAttribute('data-gender', gender);
+                    genderBtns.forEach((btn) => {
+                        const on = btn.dataset.gender === gender;
+                        btn.dataset.active = String(on);
+                        btn.setAttribute('aria-checked', String(on));
+                    });
+                }
+                const bfParam = parseInt(parts.bf, 10);
+                if (!isNaN(bfParam) && steps().includes(bfParam)) {
+                    bfIdx = steps().indexOf(bfParam);
+                }
+                if (parts.age && AGE_STEPS.includes(parts.age)) {
+                    ageIdx = AGE_STEPS.indexOf(parts.age);
+                }
+                bfSlider.value = bfIdx;
+                ageSlider.value = ageIdx;
+            }
+
+            // Keyboard
+            root.addEventListener('keydown', (e) => {
+                if (!['ArrowUp', 'ArrowDown'].includes(e.key)) return;
+                if (e.target.classList.contains('bfv__slider')) return;
+                e.preventDefault();
+                if (e.key === 'ArrowUp')   setActive(Math.min(AGE_STEPS.length - 1, ageIdx + 1), bfIdx);
+                if (e.key === 'ArrowDown') setActive(Math.max(0, ageIdx - 1), bfIdx);
+            });
+
+            // --- Boot ---
+            parseHash();
+            renderBfTicks();
+            renderRefGrid();
+            setActive(ageIdx, bfIdx);
+
+            // Reveal animation when widget enters view
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        root.setAttribute('data-revealed', 'true');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            io.observe(root);
+        })();
+
+        /* Scroll animations (shared pattern) */
+        (function () {
+            const selectors = ['.scroll-reveal', '.hero-text-stagger'];
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.05 }
+            );
+            document.querySelectorAll(selectors.join(',')).forEach((el) => observer.observe(el));
+        })();
+    </script>
+
+    <!-- TikTok Pixel Code Start -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+      var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+      ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+      ttq.load('D6MSGGBC77U9JTU05FR0');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script>
+
+    <!-- Floating Download Pill -->
+    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="blog-floating-pill" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download GainFrame
+    </a>
+
+    <script defer src="/assets/email-capture-bar.js"></script>
+    <script defer src="/assets/newsletter-form.js"></script>
+</body>
+
+</html>
