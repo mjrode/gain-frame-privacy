@@ -1092,12 +1092,16 @@
         }
 
         @media (max-width: 600px) {
-            .tm-grid { grid-template-columns: 1fr; }
+            .tm-grid, .tm-grid.tm-grid-hero { grid-template-columns: 1fr; }
             .tm-card.tm-featured { grid-column: span 1; grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; }
             .tm-card.tm-wide { grid-template-columns: 1fr; gap: 20px; }
-            .tm-hero h1 { font-size: clamp(3.25rem, 18vw, 6rem); }
+            .tm-hero h1 { font-size: clamp(2.75rem, 12.5vw, 3.75rem); }
+            .tm-hero h1 .word span { white-space: nowrap; }
             .tm-section-header { grid-template-columns: 1fr; gap: 8px; }
             .tm-section-count { justify-self: start; }
+            .tm-hero-top { font-size: 10px; }
+            .tm-hero-meta-line { gap: 14px; }
+            .tm-cta h2 { font-size: clamp(2rem, 10vw, 3.5rem); }
         }
     </style>
 </head>
