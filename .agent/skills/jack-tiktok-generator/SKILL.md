@@ -199,22 +199,24 @@ tik-tok-slides-jack/[slug]/slide-1-hook.png
 
 ### Phase 4: Slide 2 Finalization
 
-**Goal:** Create or confirm the app screenshot slide with the caption overlay.
+**Goal:** Add the punchline text overlay to the real app screenshot provided by the user.
 
-The slide 2 app screenshot is typically provided by the user directly. If they hand you a screenshot, you can:
+**⚠️ CRITICAL RULE:** NEVER recreate or reimagine the app screenshot. The user will provide the actual screenshot file. You MUST pass that file directly as `ImagePaths` and ONLY add the text overlay. The screenshot must remain pixel-perfect — every detail of the real GainFrame UI must be preserved exactly as-is.
 
-**Option A — Use the raw screenshot as-is:**  
-The user posts it as a plain screenshot. The caption is added in TikTok's text tool natively on device.
+Ask the user to provide the screenshot file path if they haven't already.
 
-**Option B — Generate a version with the caption baked in:**  
-Use `generate_image` with the screenshot as an `ImagePath` and ask it to add the text overlay:
-
+**generate_image call for slide 2:**
 ```
-ImagePaths: ["[PATH TO APP SCREENSHOT]"]
-Prompt: "Add a bold white text overlay with thick black stroke to this image that reads: '[CAPTION TEXT]'. The text should be center-aligned, positioned in the [upper/middle/lower] area of the image. Font: bold rounded sans-serif, white fill with heavy black outline. Keep the app screenshot content fully visible and readable beneath the text. No other changes."
-```
+ImagePaths: ["[EXACT PATH TO USER'S REAL APP SCREENSHOT]"]
+Prompt: "Take this image and reproduce it exactly — do not change ANYTHING about the image. Every pixel of the original must remain identical.
 
-Ask the user which option they prefer.
+The ONLY addition is a text overlay:
+- Text reads exactly: '[PUNCHLINE TEXT]'
+- Font: Heavy bold sans-serif, white fill with a very thick black stroke/outline all around (TikTok text tool style)
+- Size: Large — roughly 1/6 of the image height
+- Position: Center-aligned horizontally, placed in the middle of the image — over the main content area
+- Do not alter the background, colors, layout, photos, stats, or any other element of the original screenshot."
+```
 
 Save as:
 ```
