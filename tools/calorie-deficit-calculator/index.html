@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Deficit Calculator — Weight Loss Timeline | GainFrame</title>
+    <meta name="description"
+        content="Free calorie deficit calculator. See your daily calorie target, how long it takes to hit your goal weight, and exactly when you'll get there. Works for cuts and bulks.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Calorie Deficit Calculator — GainFrame">
+    <meta property="og:description"
+        content="Enter your current weight, target, and TDEE. See your daily calorie target and projected timeline with milestones — instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gainframe.app/tools/calorie-deficit-calculator/">
+    <meta property="og:image" content="https://gainframe.app/assets/gainframe-og-1200x630.png">
+    <meta property="og:site_name" content="GainFrame">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Calorie Deficit Calculator — GainFrame">
+    <meta name="twitter:description"
+        content="Enter your current weight, target, and TDEE. See your daily calorie target and projected timeline with milestones — instantly.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://gainframe.app/tools/calorie-deficit-calculator/">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Outfit:wght@700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="../../styles.css">
+
+    <!-- Structured Data: WebApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Calorie Deficit Calculator",
+        "description": "Calculate your daily calorie target, deficit or surplus, weeks to goal, and exact projected goal date. Works for weight loss (cut) and weight gain (bulk).",
+        "url": "https://gainframe.app/tools/calorie-deficit-calculator/",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": {
+            "@type": "Organization",
+            "name": "GainFrame",
+            "url": "https://gainframe.app"
+        }
+    }
+    </script>
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How many calories should I eat to lose 1 pound per week?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "One pound of fat is roughly 3,500 calories. To lose 1 lb per week you need a 500 cal/day deficit — so if your TDEE is 2,500 calories, you'd eat 2,000 per day. For 0.5 lb/week, a 250 cal/day deficit. The calculator does this math automatically and projects your goal date."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's a safe calorie deficit?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A deficit of 10–20% below your TDEE is safe and sustainable for most people. Deficits above 25% can cause muscle loss, hormonal disruption, and metabolic adaptation that stalls progress. Never eat fewer than ~1,200 cal/day as a woman or ~1,500 cal/day as a man without medical supervision."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How accurate is the 3,500 calories per pound rule?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The 3,500 cal/lb figure (7,700 cal/kg) is a useful approximation but not exact. As you lose weight your TDEE drops, so actual losses tend to slow over time and timelines stretch slightly. It's accurate enough for planning — expect small deviations and adjust every 2–4 weeks based on actual progress."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does a calorie surplus mean I'll just get fat?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A modest surplus (200–400 cal above TDEE) paired with consistent resistance training adds mostly muscle with minimal fat gain. Larger surpluses (>500 cal) produce faster scale gains but a bigger percentage ends up as fat. Beginner lifters can gain muscle on small surpluses; experienced lifters need patience — realistic max lean gain is 0.25 lb/week for men, less for women."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I change my calorie target as I lose weight?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. As your bodyweight drops, so does your TDEE. Recalculate every 10 lb lost (or ~6 weeks) and adjust your calorie target. The calculator bases its projection on a static TDEE — the actual timeline will be slightly longer, but re-running the math periodically keeps you on track."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        /* =====================================================
+           CALORIE DEFICIT CALCULATOR — scoped styles
+           ===================================================== */
+
+        :root {
+            --cdc-accent: #0d9488;
+            --cdc-accent-soft: #f0fdfa;
+            --cdc-accent-chip-bg: #ccfbf1;
+            --cdc-accent-chip-color: #115e59;
+            --cdc-cut: #0d9488;
+            --cdc-bulk: #7c3aed;
+            --cdc-maintain: #6b7280;
+            --cdc-warn-bg: #fffbeb;
+            --cdc-warn-border: #fde68a;
+            --cdc-warn-text: #92400e;
+        }
+
+        .tool-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-main {
+            flex: 1;
+            padding: 80px 0 80px;
+        }
+
+        /* Header */
+        .tool-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tool-badge {
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--color-text);
+            color: var(--color-bg);
+            margin-bottom: 16px;
+            letter-spacing: 0.01em;
+        }
+
+        .tool-header h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -0.035em;
+            line-height: 1.08;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .tool-header p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.65;
+        }
+
+        /* Calculator Card */
+        .tool-calc-card {
+            max-width: 560px;
+            margin: 0 auto 28px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
+
+        /* Unit toggle */
+        .tool-unit-toggle-standalone {
+            display: inline-flex;
+            background: var(--color-surface);
+            border-radius: var(--radius-full);
+            padding: 4px;
+            border: 1px solid var(--color-border);
+            margin-bottom: 22px;
+        }
+
+        .tool-unit-btn {
+            padding: 7px 18px;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-text-tertiary);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-unit-btn.active {
+            background: var(--color-bg);
+            color: var(--color-text);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Input row */
+        .tool-input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .tool-input-group {
+            margin-bottom: 20px;
+        }
+
+        .tool-input-group.compact { margin-bottom: 0; }
+
+        .tool-input-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 6px;
+            letter-spacing: 0.01em;
+        }
+
+        .tool-input-hint {
+            font-weight: 400;
+            color: var(--color-text-tertiary);
+            font-size: 0.8rem;
+        }
+
+        .tool-input-field {
+            width: 100%;
+            padding: 12px 16px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--color-text);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+
+        .tool-input-field::-webkit-outer-spin-button,
+        .tool-input-field::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .tool-input-field::placeholder {
+            color: var(--color-text-tertiary);
+            font-weight: 400;
+        }
+
+        .tool-input-field:focus {
+            border-color: var(--color-text);
+            box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.06);
+        }
+
+        .tdee-help {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--color-text-tertiary);
+            margin-top: 6px;
+        }
+
+        .tdee-help a {
+            color: var(--color-text-secondary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+
+        .tdee-help a:hover {
+            color: var(--color-text);
+        }
+
+        /* Rate pill grid */
+        .rate-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .rate-pill {
+            position: relative;
+            padding: 14px 14px 12px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .rate-pill:hover {
+            border-color: var(--color-text-secondary);
+            transform: translateY(-1px);
+        }
+
+        .rate-pill.active {
+            background: var(--color-bg);
+            border-color: var(--color-text);
+            box-shadow: 0 0 0 1px var(--color-text), 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .rate-pill .rate-amount {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--color-text);
+            letter-spacing: -0.015em;
+            line-height: 1;
+        }
+
+        .rate-pill .rate-unit {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            margin-left: 2px;
+            letter-spacing: -0.01em;
+        }
+
+        .rate-pill .rate-label {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .rate-pill .rate-delta {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--color-text-tertiary);
+            margin-top: 2px;
+        }
+
+        .rate-pill .rate-recommend {
+            position: absolute;
+            top: -8px;
+            right: 10px;
+            padding: 2px 8px;
+            background: var(--cdc-accent);
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border-radius: var(--radius-full);
+            white-space: nowrap;
+        }
+
+        .tool-error-msg {
+            color: #ef4444;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 12px;
+            display: none;
+            text-align: center;
+        }
+
+        .tool-error-msg.show {
+            display: block;
+        }
+
+        /* =====================================================
+           RESULT
+           ===================================================== */
+
+        .tool-result {
+            display: none;
+            max-width: 860px;
+            margin: 0 auto 48px;
+            animation: toolFadeIn 0.5s ease;
+        }
+
+        .tool-result.show {
+            display: block;
+        }
+
+        @keyframes toolFadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .tool-result-hero {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 36px 40px 32px;
+            box-shadow: var(--shadow-elevated);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .tool-result-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top, var(--cdc-accent-soft) 0%, transparent 70%);
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .tool-result-hero > * { position: relative; }
+
+        .direction-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 14px;
+        }
+
+        .direction-chip.cut      { background: #ccfbf1; color: #115e59; }
+        .direction-chip.bulk     { background: #ede9fe; color: #5b21b6; }
+        .direction-chip.maintain { background: #e5e7eb; color: #374151; }
+
+        .direction-chip svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .result-number {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: -0.045em;
+            line-height: 1;
+            color: var(--color-text);
+            margin-bottom: 2px;
+        }
+
+        .result-unit {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--color-text-secondary);
+            letter-spacing: -0.02em;
+        }
+
+        .result-caption {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        .result-context {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 5px 14px;
+            background: var(--color-surface);
+            border-radius: var(--radius-full);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+        }
+
+        .result-context strong {
+            color: var(--color-text);
+            font-family: var(--font-display);
+            font-weight: 800;
+            letter-spacing: -0.005em;
+        }
+
+        /* Key stats */
+        .result-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 26px;
+            padding-top: 24px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .result-stat {
+            text-align: center;
+        }
+
+        .result-stat-label {
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 4px;
+        }
+
+        .result-stat-value {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--color-text);
+            letter-spacing: -0.015em;
+            line-height: 1.1;
+        }
+
+        .result-stat-sub {
+            font-size: 0.72rem;
+            color: var(--color-text-tertiary);
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        /* Safety warning card */
+        .warning-card {
+            background: var(--cdc-warn-bg);
+            border: 1px solid var(--cdc-warn-border);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .warning-card svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            color: var(--cdc-warn-text);
+            margin-top: 2px;
+        }
+
+        .warning-card .warning-title {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--cdc-warn-text);
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+
+        .warning-card .warning-body {
+            font-size: 0.86rem;
+            color: var(--cdc-warn-text);
+            line-height: 1.55;
+        }
+
+        /* =====================================================
+           TIMELINE VISUALIZATION
+           ===================================================== */
+
+        .timeline-card {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 32px 40px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .timeline-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+
+        .timeline-card .subtitle {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 28px;
+        }
+
+        .timeline-wrap {
+            position: relative;
+            padding: 10px 0 6px;
+        }
+
+        .timeline-track {
+            position: relative;
+            height: 6px;
+            background: var(--color-surface);
+            border-radius: var(--radius-full);
+            margin: 36px 0 52px;
+        }
+
+        .timeline-track::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, var(--cdc-accent) 0%, rgba(13, 148, 136, 0.25) 100%);
+            border-radius: var(--radius-full);
+            opacity: 0.55;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            background: var(--color-bg);
+            border: 3px solid var(--cdc-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+        }
+
+        .timeline-marker.start .timeline-dot,
+        .timeline-marker.end .timeline-dot {
+            width: 18px;
+            height: 18px;
+            background: var(--cdc-accent);
+            border-color: var(--cdc-accent);
+        }
+
+        .timeline-marker.end .timeline-dot {
+            background: var(--color-text);
+            border-color: var(--color-text);
+        }
+
+        .timeline-label-top {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: calc(100% + 12px);
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+        }
+
+        .timeline-label-bottom {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: calc(100% + 10px);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .timeline-weight {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--color-text);
+            letter-spacing: -0.01em;
+            line-height: 1;
+        }
+
+        .timeline-date {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .timeline-today-badge {
+            background: var(--color-text);
+            color: var(--color-bg);
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .timeline-goal-badge {
+            background: var(--cdc-accent);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* =====================================================
+           TIPS STRIP
+           ===================================================== */
+
+        .tips-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 32px 36px;
+            margin-bottom: 20px;
+        }
+
+        .tips-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+
+        .tips-card > p {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 22px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+        }
+
+        .tip-number {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--color-text);
+            color: var(--color-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .tip-body {
+            font-size: 0.88rem;
+            color: var(--color-text);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* =====================================================
+           METHOD CARD
+           ===================================================== */
+
+        .tool-formula {
+            max-width: 720px;
+            margin: 0 auto 48px;
+            padding: 32px 36px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+        }
+
+        .tool-formula h2 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--color-text);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .tool-formula-block {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 16px 22px;
+            margin-bottom: 12px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--color-text);
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+            text-align: center;
+        }
+
+        .tool-formula-block .eq-label {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        .tool-formula p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-top: 18px;
+        }
+
+        /* =====================================================
+           OTHER TOOLS + CTA
+           ===================================================== */
+
+        .tool-other {
+            max-width: 620px;
+            margin: 0 auto 24px;
+            text-align: center;
+        }
+
+        .tool-other h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 14px;
+            color: var(--color-text);
+        }
+
+        .tool-other-links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tool-other-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .tool-other-links a:hover {
+            background: #ececec;
+            transform: translateY(-1px);
+        }
+
+        .tool-cta-section {
+            max-width: 620px;
+            margin: 0 auto 48px;
+            text-align: center;
+            padding: 48px 40px;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+        }
+
+        .tool-cta-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            border-radius: var(--radius-sm);
+            background: var(--color-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-cta-icon svg {
+            width: 26px;
+            height: 26px;
+            color: #fff;
+        }
+
+        .tool-cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .tool-cta-section p {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            max-width: 460px;
+            margin: 0 auto 24px;
+        }
+
+        .tool-cta-list {
+            list-style: none;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .tool-cta-list li {
+            font-size: 0.92rem;
+            color: var(--color-text-secondary);
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .tool-cta-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 640px) {
+            .tool-main {
+                padding: 56px 0 80px;
+            }
+
+            .tool-header {
+                margin-bottom: 28px;
+            }
+
+            .tool-header h1 {
+                font-size: 1.95rem;
+            }
+
+            .tool-header p {
+                font-size: 0.95rem;
+            }
+
+            .tool-calc-card {
+                padding: 22px 18px;
+            }
+
+            .tool-input-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .result-number {
+                font-size: 3.6rem;
+            }
+
+            .tool-result-hero {
+                padding: 28px 22px;
+            }
+
+            .timeline-card,
+            .tool-formula,
+            .tips-card {
+                padding: 24px 20px;
+            }
+
+            .result-stats {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .result-stat {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 14px;
+                background: var(--color-surface);
+                border-radius: var(--radius-sm);
+                text-align: left;
+            }
+
+            .result-stat-label {
+                margin-bottom: 0;
+            }
+
+            .result-stat-value {
+                font-size: 1.1rem;
+            }
+
+            .result-stat-sub {
+                margin-top: 0;
+                margin-left: 8px;
+            }
+
+            .timeline-track {
+                margin: 44px 0 62px;
+            }
+
+            .timeline-label-top { font-size: 0.65rem; }
+            .timeline-weight { font-size: 0.88rem; }
+            .timeline-date { font-size: 0.66rem; }
+
+            .rate-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tool-cta-section {
+                padding: 32px 22px;
+            }
+
+            .tool-cta-section h2 {
+                font-size: 1.35rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="tool-page">
+    <div data-site-nav></div>
+    <script src="/assets/shared-nav.js"></script>
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="tool-main">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="tool-header hero-text-stagger">
+                <span class="tool-badge">Free Tool</span>
+                <h1>Calorie Deficit Calculator</h1>
+                <p>Enter your current weight, goal weight, and TDEE. See your daily calorie target, deficit, projected timeline, and exact goal date — for cuts and bulks.</p>
+            </div>
+
+            <!-- Calculator Card -->
+            <div class="tool-calc-card scroll-reveal">
+
+                <!-- Unit toggle -->
+                <div class="section-label">Units</div>
+                <div class="tool-unit-toggle-standalone" data-unit-group="weight">
+                    <button class="tool-unit-btn active" data-unit="imperial" type="button">Imperial (lb)</button>
+                    <button class="tool-unit-btn" data-unit="metric" type="button">Metric (kg)</button>
+                </div>
+
+                <!-- Weights row -->
+                <div class="tool-input-row" style="margin-bottom: 18px;">
+                    <div class="tool-input-group compact">
+                        <label class="tool-input-label">
+                            <span>Current weight</span>
+                            <span class="tool-input-hint" id="unitLabel1">lb</span>
+                        </label>
+                        <input type="number" class="tool-input-field" id="currentWeight" placeholder="180" step="0.5" min="30" max="700" inputmode="decimal">
+                    </div>
+                    <div class="tool-input-group compact">
+                        <label class="tool-input-label">
+                            <span>Target weight</span>
+                            <span class="tool-input-hint" id="unitLabel2">lb</span>
+                        </label>
+                        <input type="number" class="tool-input-field" id="targetWeight" placeholder="165" step="0.5" min="30" max="700" inputmode="decimal">
+                    </div>
+                </div>
+
+                <!-- TDEE -->
+                <div class="tool-input-group" style="margin-bottom: 22px;">
+                    <label class="tool-input-label">
+                        <span>Your TDEE</span>
+                        <span class="tool-input-hint">daily calories</span>
+                    </label>
+                    <input type="number" class="tool-input-field" id="tdee" placeholder="2500" step="10" min="800" max="6000" inputmode="numeric">
+                    <span class="tdee-help">
+                        Don't know your TDEE? <a href="../tdee-calculator/">Calculate it here →</a>
+                    </span>
+                </div>
+
+                <!-- Weekly rate -->
+                <div class="section-label" id="rateLabel">Weekly rate of change</div>
+                <div class="rate-grid" id="rateGrid">
+                    <!-- Populated by JS -->
+                </div>
+
+                <p class="tool-error-msg" id="errorMsg"></p>
+            </div>
+
+            <!-- Result -->
+            <div class="tool-result" id="resultCard">
+
+                <!-- Warning (shown conditionally) -->
+                <div class="warning-card" id="warningCard" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+                        <path d="M12 9v4"/>
+                        <path d="M12 17h.01"/>
+                    </svg>
+                    <div>
+                        <div class="warning-title" id="warningTitle">Aggressive deficit</div>
+                        <div class="warning-body" id="warningBody">Consider a slower rate to preserve muscle and avoid metabolic slowdown.</div>
+                    </div>
+                </div>
+
+                <!-- Hero -->
+                <div class="tool-result-hero">
+                    <div class="direction-chip cut" id="directionChip">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                        <span id="directionLabel">Cut</span>
+                    </div>
+                    <div>
+                        <span class="result-number" id="resultCalories">—</span>
+                        <span class="result-unit">cal / day</span>
+                    </div>
+                    <div class="result-caption">that's your daily target</div>
+                    <div class="result-context" id="resultContext">— of your TDEE · — intensity</div>
+
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <div class="result-stat-label" id="statDeficitLabel">Daily deficit</div>
+                            <div class="result-stat-value" id="statDeficit">—</div>
+                            <div class="result-stat-sub">cal / day</div>
+                        </div>
+                        <div class="result-stat">
+                            <div class="result-stat-label">Time to goal</div>
+                            <div class="result-stat-value" id="statWeeks">—</div>
+                            <div class="result-stat-sub" id="statWeeksSub">weeks</div>
+                        </div>
+                        <div class="result-stat">
+                            <div class="result-stat-label">Goal date</div>
+                            <div class="result-stat-value" id="statDate">—</div>
+                            <div class="result-stat-sub" id="statDateSub">projected</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline visualization -->
+                <div class="timeline-card">
+                    <h3>Your Timeline</h3>
+                    <p class="subtitle" id="timelineSubtitle">Milestones from today to goal.</p>
+                    <div class="timeline-wrap">
+                        <div class="timeline-track" id="timelineTrack">
+                            <!-- Markers populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips strip -->
+                <div class="tips-card" id="tipsCard">
+                    <h3 id="tipsTitle">Tips to hit your goal</h3>
+                    <p id="tipsIntro">Evidence-based guardrails for this phase.</p>
+                    <div class="tips-grid" id="tipsGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Methodology card -->
+            <div class="tool-formula scroll-reveal">
+                <h2>How It's Calculated</h2>
+                <div class="tool-formula-block">
+                    <span class="eq-label">Step 1 · Total calories to change</span>
+                    ΔWeight × <span id="calPerUnit">3,500</span> cal per <span id="calPerUnitLabel">lb</span>
+                </div>
+                <div class="tool-formula-block">
+                    <span class="eq-label">Step 2 · Daily deficit or surplus</span>
+                    Weekly rate × <span id="calPerUnit2">3,500</span> ÷ 7
+                </div>
+                <div class="tool-formula-block">
+                    <span class="eq-label">Step 3 · Daily calorie target</span>
+                    TDEE ± Daily deficit/surplus
+                </div>
+                <p>The 3,500 calories per pound (7,700 per kilogram) rule is a useful approximation, not an exact law. Real fat loss is slightly slower over time because your TDEE drops as you lose weight — expect the actual timeline to run 5–15% longer than predicted. Re-run the math every 2–4 weeks based on how the scale actually moves.</p>
+                <p><strong>Protein matters.</strong> In a deficit, eating 0.8–1 g of protein per pound of bodyweight preserves muscle mass. In a surplus, the same protein target maximizes lean gain over fat gain.</p>
+            </div>
+
+            <!-- Other tools -->
+            <div class="tool-other scroll-reveal">
+                <h3>More Free Tools</h3>
+                <div class="tool-other-links">
+                    <a href="../tdee-calculator/">TDEE Calculator</a>
+                    <a href="../macro-calculator/">Macro Calculator</a>
+                    <a href="../body-fat-estimator/">Body Fat Calculator</a>
+                    <a href="../calories-burned-calculator/">Calories Burned</a>
+                    <a href="../ffmi-calculator/">FFMI Calculator</a>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="tool-cta-section scroll-reveal">
+                <div class="tool-cta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3v18h18"/>
+                        <path d="m19 9-5 5-4-4-3 3"/>
+                    </svg>
+                </div>
+                <h2>Is the scale actually dropping fat?</h2>
+                <p>Weight loss isn't always fat loss. GainFrame uses AI to track your body fat, FFMI, and muscle scores from a photo — so you know if your cut is working the way you think.</p>
+                <ul class="tool-cta-list">
+                    <li>Track body fat % alongside scale weight</li>
+                    <li>See if you're losing fat or muscle</li>
+                    <li>Photo-based progress across weeks</li>
+                    <li>Free to start, no signup required</li>
+                </ul>
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank"
+                    rel="noopener" class="appstore-link">
+                    <img src="../../appstore-badge.svg" alt="Download on the App Store" class="appstore-badge"
+                        style="margin: 0 auto;" loading="lazy">
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Newsletter -->
+    <div data-newsletter-signup></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="../../privacy.html">Privacy Policy</a>
+                <a href="../../features.html">Features</a>
+                <a href="/blog/">Blog</a>
+                <a href="../">Tools</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N6YPFBB8JE');
+    </script>
+
+    <script>
+        /* =====================================================
+           CALORIE DEFICIT CALCULATOR
+           Live calc, both directions, timeline milestones
+           ===================================================== */
+        (function () {
+            const CAL_PER_LB = 3500;
+            const CAL_PER_KG = 7700;
+            const LB_PER_KG = 2.20462;
+
+            // State
+            let weightUnit = 'imperial';
+            let weeklyRate = 0.5; // in lb by default (0.5 lb/week moderate)
+
+            // Rate options
+            const RATES = {
+                imperial: [
+                    { value: 0.25, label: 'Slow' },
+                    { value: 0.5,  label: 'Moderate' },
+                    { value: 0.75, label: 'Aggressive' },
+                    { value: 1.0,  label: 'Maximum' },
+                ],
+                metric: [
+                    { value: 0.1, label: 'Slow' },
+                    { value: 0.25, label: 'Moderate' },
+                    { value: 0.35, label: 'Aggressive' },
+                    { value: 0.5,  label: 'Maximum' },
+                ],
+            };
+
+            // DOM
+            const currentWeightInput = document.getElementById('currentWeight');
+            const targetWeightInput = document.getElementById('targetWeight');
+            const tdeeInput = document.getElementById('tdee');
+            const rateGridEl = document.getElementById('rateGrid');
+            const resultCard = document.getElementById('resultCard');
+            const errorMsg = document.getElementById('errorMsg');
+
+            /* ---------- Helpers ---------- */
+
+            function calPerUnit() {
+                return weightUnit === 'imperial' ? CAL_PER_LB : CAL_PER_KG;
+            }
+
+            function unitLabel() {
+                return weightUnit === 'imperial' ? 'lb' : 'kg';
+            }
+
+            function fmt(n, opts = {}) {
+                const { decimals = 0 } = opts;
+                return Math.round(n * Math.pow(10, decimals)) / Math.pow(10, decimals);
+            }
+
+            function formatInt(n) {
+                return Math.round(n).toLocaleString();
+            }
+
+            function formatDate(d) {
+                // "Jun 15, 2026"
+                const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+            }
+
+            function addDays(d, days) {
+                const r = new Date(d);
+                r.setDate(r.getDate() + Math.round(days));
+                return r;
+            }
+
+            function recommendedRateIndex(currentWeightLb) {
+                // Based on 0.5–1% of bodyweight per week for cuts
+                // 0.25 lb/week is safe up to ~140 lb
+                // 0.5 lb/week is safe up to ~220 lb
+                // 0.75 lb/week is safe up to ~300 lb
+                // 1.0 lb/week is safe above ~300 lb
+                if (weightUnit === 'imperial') {
+                    if (currentWeightLb >= 250) return 3; // Maximum
+                    if (currentWeightLb >= 180) return 2; // Aggressive
+                    if (currentWeightLb >= 130) return 1; // Moderate
+                    return 0; // Slow
+                } else {
+                    // Metric equivalent
+                    if (currentWeightLb >= 115) return 3;
+                    if (currentWeightLb >= 82)  return 2;
+                    if (currentWeightLb >= 59)  return 1;
+                    return 0;
+                }
+            }
+
+            /* ---------- Rate pills ---------- */
+
+            function renderRatePills() {
+                const rates = RATES[weightUnit];
+                const currentWeightRaw = parseFloat(currentWeightInput.value);
+                const currentInUnit = isNaN(currentWeightRaw) ? null : currentWeightRaw;
+                const recIdx = !isNaN(currentWeightRaw) ? recommendedRateIndex(currentInUnit) : -1;
+
+                rateGridEl.innerHTML = rates.map((r, i) => {
+                    const dailyDeficit = (r.value * calPerUnit()) / 7;
+                    const isActive = r.value === weeklyRate;
+                    const isRec = i === recIdx;
+                    return `
+                        <button type="button" class="rate-pill${isActive ? ' active' : ''}" data-rate="${r.value}">
+                            ${isRec ? '<span class="rate-recommend">Recommended</span>' : ''}
+                            <span class="rate-amount">${r.value}</span><span class="rate-unit">${unitLabel()}/wk</span>
+                            <div class="rate-label">${r.label}</div>
+                            <div class="rate-delta">~${Math.round(dailyDeficit)} cal/day</div>
+                        </button>
+                    `;
+                }).join('');
+            }
+
+            /* ---------- Timeline ---------- */
+
+            function renderTimeline(currentW, targetW, weeks, isCut) {
+                const track = document.getElementById('timelineTrack');
+
+                // Build 5 milestones: 0, 25, 50, 75, 100
+                const points = [
+                    { pct: 0,   label: 'Today',   badge: 'today' },
+                    { pct: 25,  label: '25%',     badge: null },
+                    { pct: 50,  label: 'Halfway', badge: null },
+                    { pct: 75,  label: '75%',     badge: null },
+                    { pct: 100, label: 'Goal',    badge: 'goal' },
+                ];
+
+                const today = new Date();
+                const delta = targetW - currentW; // signed
+
+                const html = points.map((p, i) => {
+                    const weight = currentW + (delta * p.pct / 100);
+                    const daysOut = (weeks * 7) * (p.pct / 100);
+                    const date = addDays(today, daysOut);
+                    const positionClass = i === 0 ? 'start' : (i === points.length - 1 ? 'end' : 'mid');
+                    const topBadge = p.badge === 'today'
+                        ? '<span class="timeline-today-badge">Today</span>'
+                        : p.badge === 'goal'
+                            ? '<span class="timeline-goal-badge">Goal</span>'
+                            : `<span>${p.label}</span>`;
+                    return `
+                        <div class="timeline-marker ${positionClass}" style="left: ${p.pct}%;">
+                            <div class="timeline-label-top">${topBadge}</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-label-bottom">
+                                <div class="timeline-weight">${fmt(weight, { decimals: 1 })} ${unitLabel()}</div>
+                                <div class="timeline-date">${i === 0 ? formatDate(today) : formatDate(date)}</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                track.innerHTML = html;
+            }
+
+            /* ---------- Tips ---------- */
+
+            function renderTips(direction, calories, tdee) {
+                const el = document.getElementById('tipsGrid');
+                const titleEl = document.getElementById('tipsTitle');
+                const introEl = document.getElementById('tipsIntro');
+
+                let tips = [];
+                if (direction === 'cut') {
+                    titleEl.textContent = 'Tips to hit your cut';
+                    introEl.textContent = 'Four research-backed guardrails to preserve muscle while dropping fat.';
+                    tips = [
+                        'Eat 0.8–1 g of protein per pound of bodyweight. This is the single biggest lever for keeping muscle in a deficit.',
+                        'Weigh and log your food with a scale. Eyeballing portions undercounts intake by 20–30%, which stalls cuts.',
+                        'Lift 3–4×/week with compound movements. Maintained or added strength in a deficit is the proof you\'re losing fat, not muscle.',
+                        'Expect 2–3 lb day-to-day swings from water and glycogen. Track the weekly average, not individual weigh-ins.',
+                    ];
+                } else if (direction === 'bulk') {
+                    titleEl.textContent = 'Tips to hit your bulk';
+                    introEl.textContent = 'Keep gains mostly lean with a measured surplus and smart training.';
+                    tips = [
+                        'Keep the surplus modest — 200–400 cal above TDEE. Bigger surpluses add fat faster than muscle.',
+                        'Protein target is still 0.8–1 g per pound. Carbs and fats fill the rest based on preference.',
+                        'Gain 0.25–0.5 lb per week as a trained lifter (more as a novice). Faster = more fat gain.',
+                        'Track strength progression weekly. If your lifts stall but weight climbs, reduce the surplus.',
+                    ];
+                } else {
+                    titleEl.textContent = 'Maintenance tips';
+                    introEl.textContent = 'Confirm your real maintenance and keep the scale steady.';
+                    tips = [
+                        'Weigh daily for 2–3 weeks and track the trend — TDEE estimates carry ±10–15% error.',
+                        'Daily fluctuations of 1–3 lb are normal water weight. The 7-day average is what matters.',
+                        'If you\'re drifting up or down by more than 1 lb/week, adjust intake by 100–200 cal.',
+                        'Keep protein at 0.7–0.8 g per pound of bodyweight to maintain muscle at maintenance calories.',
+                    ];
+                }
+
+                el.innerHTML = tips.map((t, i) => `
+                    <div class="tip-item">
+                        <div class="tip-number">${i + 1}</div>
+                        <div class="tip-body">${t}</div>
+                    </div>
+                `).join('');
+            }
+
+            /* ---------- Safety warnings ---------- */
+
+            function evaluateSafety(calories, tdee, deficit, isCut) {
+                const warnings = [];
+                if (!isCut) {
+                    // Bulks: warn if surplus is large (>25% of TDEE)
+                    const surplusPct = (deficit / tdee) * 100;
+                    if (surplusPct > 25) {
+                        warnings.push({
+                            title: 'Large surplus',
+                            body: `You're ${Math.round(surplusPct)}% above your TDEE. This produces faster weight gain but a larger share ends up as fat. A 10–20% surplus is ideal for most lifters.`,
+                        });
+                    }
+                    return warnings;
+                }
+                // Cuts
+                if (calories < 1200) {
+                    warnings.push({
+                        title: 'Very low calorie intake',
+                        body: `Eating under 1,200 cal/day risks nutrient deficiencies, hormonal disruption, and muscle loss. Consider a slower rate or consult a dietitian.`,
+                    });
+                } else if (calories < 1500) {
+                    warnings.push({
+                        title: 'Aggressive intake',
+                        body: `Under 1,500 cal/day is very lean for most adults. Check that the slower rate still hits your timeline — it likely will with less muscle loss.`,
+                    });
+                }
+                const deficitPct = (deficit / tdee) * 100;
+                if (deficitPct > 25) {
+                    warnings.push({
+                        title: 'Aggressive deficit',
+                        body: `You're cutting ${Math.round(deficitPct)}% below your TDEE. Deficits above 25% accelerate muscle loss and metabolic adaptation. A 15–20% deficit is the sustainable sweet spot.`,
+                    });
+                }
+                return warnings;
+            }
+
+            /* ---------- Main calc (live) ---------- */
+
+            function calculate() {
+                errorMsg.classList.remove('show');
+
+                const currentW = parseFloat(currentWeightInput.value);
+                const targetW = parseFloat(targetWeightInput.value);
+                const tdee = parseFloat(tdeeInput.value);
+
+                if (isNaN(currentW) || currentW <= 0 || isNaN(targetW) || targetW <= 0 || isNaN(tdee) || tdee <= 0) {
+                    resultCard.classList.remove('show');
+                    return;
+                }
+
+                const delta = Math.abs(currentW - targetW);
+                const isCut = currentW > targetW;
+                const isMaintain = Math.abs(currentW - targetW) < 0.1;
+                const direction = isMaintain ? 'maintain' : (isCut ? 'cut' : 'bulk');
+
+                const weeks = isMaintain ? 0 : delta / weeklyRate;
+                const dailyCalChange = (weeklyRate * calPerUnit()) / 7;
+                const dailyTarget = isCut ? (tdee - dailyCalChange) : (isMaintain ? tdee : (tdee + dailyCalChange));
+                const goalDate = isMaintain ? new Date() : addDays(new Date(), weeks * 7);
+
+                // Direction chip
+                const chip = document.getElementById('directionChip');
+                const dirLabel = document.getElementById('directionLabel');
+                chip.className = 'direction-chip ' + direction;
+                dirLabel.textContent = direction.charAt(0).toUpperCase() + direction.slice(1);
+
+                // Hero
+                document.getElementById('resultCalories').textContent = formatInt(dailyTarget);
+
+                // Context chip
+                const targetPctOfTdee = (dailyTarget / tdee) * 100;
+                const deficitPct = Math.abs(1 - targetPctOfTdee / 100) * 100;
+                let intensity = 'Mild';
+                if (deficitPct > 25) intensity = 'Aggressive';
+                else if (deficitPct > 15) intensity = 'Moderate';
+                else if (deficitPct > 5)  intensity = 'Mild';
+                else                       intensity = 'Maintenance';
+                document.getElementById('resultContext').innerHTML =
+                    isMaintain
+                        ? `<strong>${Math.round(targetPctOfTdee)}%</strong> of your TDEE · Maintenance`
+                        : `<strong>${Math.round(targetPctOfTdee)}%</strong> of your TDEE · ${intensity} ${isCut ? 'deficit' : 'surplus'}`;
+
+                // Stat labels/values
+                document.getElementById('statDeficitLabel').textContent = isCut ? 'Daily deficit' : (isMaintain ? 'Daily adjustment' : 'Daily surplus');
+                document.getElementById('statDeficit').textContent = isMaintain ? '0' : formatInt(dailyCalChange);
+
+                if (isMaintain) {
+                    document.getElementById('statWeeks').textContent = '—';
+                    document.getElementById('statWeeksSub').textContent = 'already at goal';
+                    document.getElementById('statDate').textContent = 'Today';
+                    document.getElementById('statDateSub').textContent = 'you\'re there';
+                } else {
+                    document.getElementById('statWeeks').textContent = fmt(weeks, { decimals: 1 });
+                    document.getElementById('statWeeksSub').textContent = weeks >= 52 ? `${fmt(weeks / 52, { decimals: 1 })} years` : 'weeks';
+                    document.getElementById('statDate').textContent = formatDate(goalDate);
+                    document.getElementById('statDateSub').textContent = 'projected';
+                }
+
+                // Timeline
+                if (!isMaintain) {
+                    renderTimeline(currentW, targetW, weeks, isCut);
+                    document.getElementById('timelineSubtitle').textContent =
+                        `${isCut ? 'Weight loss' : 'Weight gain'} milestones at ${weeklyRate} ${unitLabel()}/week — actual progress will vary.`;
+                    document.querySelector('.timeline-card').style.display = '';
+                } else {
+                    document.querySelector('.timeline-card').style.display = 'none';
+                }
+
+                // Tips
+                renderTips(direction, dailyTarget, tdee);
+
+                // Safety
+                const warnings = isMaintain ? [] : evaluateSafety(dailyTarget, tdee, dailyCalChange, isCut);
+                const warningCard = document.getElementById('warningCard');
+                if (warnings.length > 0) {
+                    document.getElementById('warningTitle').textContent = warnings[0].title;
+                    document.getElementById('warningBody').textContent = warnings[0].body;
+                    warningCard.style.display = 'flex';
+                } else {
+                    warningCard.style.display = 'none';
+                }
+
+                resultCard.classList.add('show');
+            }
+
+            /* ---------- Events ---------- */
+
+            // Unit toggle
+            document.querySelectorAll('.tool-unit-toggle-standalone').forEach(toggle => {
+                toggle.querySelectorAll('.tool-unit-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        toggle.querySelectorAll('.tool-unit-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+
+                        const prevUnit = weightUnit;
+                        weightUnit = btn.dataset.unit;
+
+                        // Convert existing weight inputs between units
+                        if (prevUnit !== weightUnit) {
+                            const cw = parseFloat(currentWeightInput.value);
+                            const tw = parseFloat(targetWeightInput.value);
+                            if (!isNaN(cw)) {
+                                currentWeightInput.value = weightUnit === 'metric'
+                                    ? fmt(cw / LB_PER_KG, { decimals: 1 })
+                                    : fmt(cw * LB_PER_KG, { decimals: 1 });
+                            }
+                            if (!isNaN(tw)) {
+                                targetWeightInput.value = weightUnit === 'metric'
+                                    ? fmt(tw / LB_PER_KG, { decimals: 1 })
+                                    : fmt(tw * LB_PER_KG, { decimals: 1 });
+                            }
+                        }
+
+                        // Reset weekly rate to moderate default in new unit
+                        weeklyRate = RATES[weightUnit][1].value;
+
+                        // Update labels
+                        document.getElementById('unitLabel1').textContent = unitLabel();
+                        document.getElementById('unitLabel2').textContent = unitLabel();
+                        document.getElementById('calPerUnit').textContent = (calPerUnit()).toLocaleString();
+                        document.getElementById('calPerUnit2').textContent = (calPerUnit()).toLocaleString();
+                        document.getElementById('calPerUnitLabel').textContent = unitLabel();
+
+                        renderRatePills();
+                        calculate();
+                    });
+                });
+            });
+
+            // Rate pill click (delegated)
+            rateGridEl.addEventListener('click', e => {
+                const pill = e.target.closest('.rate-pill');
+                if (!pill) return;
+                weeklyRate = parseFloat(pill.dataset.rate);
+                renderRatePills();
+                calculate();
+            });
+
+            // Live inputs
+            [currentWeightInput, targetWeightInput, tdeeInput].forEach(el => {
+                el.addEventListener('input', () => {
+                    renderRatePills(); // refresh "recommended" based on current weight
+                    calculate();
+                });
+            });
+
+            /* ---------- Init ---------- */
+            renderRatePills();
+            // Pre-fill helpful defaults so hero renders immediately
+            currentWeightInput.value = '180';
+            targetWeightInput.value = '165';
+            tdeeInput.value = '2500';
+            renderRatePills();
+            calculate();
+        })();
+
+        /* Scroll animations */
+        (function () {
+            const selectors = ['.scroll-reveal', '.hero-text-stagger'];
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.05 }
+            );
+            document.querySelectorAll(selectors.join(',')).forEach((el) => observer.observe(el));
+        })();
+    </script>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "3e9c8fd4cd004dc9b4d463ba83e403ef"}'></script>
+
+    <!-- Floating Download Pill -->
+    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="blog-floating-pill" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download GainFrame
+    </a>
+
+    <script defer src="/assets/email-capture-bar.js"></script>
+    <script defer src="/assets/newsletter-form.js"></script>
+</body>
+
+</html>
