@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Variant Preview — GainFrame Tools</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles.css">
+
+    <style>
+        :root {
+            --cl-bg: #ffffff;
+            --cl-surface: #f7f8fa;
+            --cl-border: #d1d5db;
+            --cl-border-soft: #e4e7eb;
+            --cl-text: #111827;
+            --cl-muted: #6b7280;
+            --cl-subtle: #9ca3af;
+            --cl-accent: #2563eb;
+            --cl-accent-light: #eff6ff;
+            --cl-accent-border: #93c5fd;
+            --cl-font: 'Plus Jakarta Sans', system-ui, sans-serif;
+            --cl-container: 1120px;
+            --cl-pad-x: 40px;
+        }
+
+        body { background: var(--cl-bg); color: var(--cl-text); font-family: var(--cl-font); }
+
+        .variant-label {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .variant-label .tag {
+            display: inline-block;
+            background: var(--cl-accent);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            margin-right: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        .cl-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--cl-accent-light);
+            color: var(--cl-accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            padding: 5px 13px;
+            border-radius: 100px;
+            border: 1px solid var(--cl-accent-border);
+            margin-bottom: 28px;
+        }
+
+        .cl-hero h1 {
+            font-weight: 800;
+            font-size: clamp(2.6rem, 6vw, 4.25rem);
+            letter-spacing: -0.04em;
+            line-height: 1.06;
+            color: var(--cl-text);
+            margin: 0 auto 20px;
+            max-width: 680px;
+        }
+
+        .cl-hero-sub {
+            font-size: clamp(0.975rem, 1.5vw, 1.1rem);
+            line-height: 1.65;
+            color: var(--cl-muted);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .cl-hero {
+            padding: clamp(56px, 8vw, 96px) var(--cl-pad-x) clamp(44px, 5vw, 72px);
+            text-align: center;
+            border-bottom: 1px solid var(--cl-border-soft);
+        }
+
+        .cl-hero-inner { max-width: var(--cl-container); margin: 0 auto; }
+
+        /* ===========================================
+           VARIANT 2: PREVIEW TILE GRID HERO
+           =========================================== */
+
+        .v2-tile-row {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .v2-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 10px;
+            background: var(--cl-bg);
+            border: 1.5px solid var(--cl-border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--cl-text);
+            transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+            position: relative;
+        }
+
+        .v2-tile:hover {
+            border-color: var(--cl-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.1);
+        }
+
+        .v2-tile-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .v2-tile-name {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .v2-tile-num {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            font-size: 0.58rem;
+            font-weight: 700;
+            color: var(--cl-subtle);
+            letter-spacing: 0.05em;
+        }
+
+        /* tile color tints - match main page */
+        .ic-bf   { background: #fef2f2; color: #dc2626; }
+        .ic-viz  { background: #fef2f2; color: #dc2626; }
+        .ic-ffmi { background: #f0fdf4; color: #16a34a; }
+        .ic-tdee { background: #fff7ed; color: #d97706; }
+        .ic-macro{ background: #eff6ff; color: #2563eb; }
+        .ic-cdc  { background: #f0fdf4; color: #059669; }
+        .ic-orm  { background: #fff7ed; color: #d97706; }
+        .ic-ssc  { background: #eff6ff; color: #2563eb; }
+        .ic-cbc  { background: #fef2f2; color: #dc2626; }
+        .ic-pp   { background: #ecfdf5; color: #059669; }
+
+        /* ===========================================
+           VARIANT 4: SEARCH-FIRST HERO
+           =========================================== */
+
+        .v4-search-wrap {
+            margin: 40px auto 0;
+            max-width: 560px;
+            position: relative;
+        }
+
+        .v4-search-input {
+            width: 100%;
+            padding: 18px 56px 18px 56px;
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: 500;
+            background: var(--cl-bg);
+            border: 1.5px solid var(--cl-border);
+            border-radius: 14px;
+            outline: none;
+            color: var(--cl-text);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .v4-search-input::placeholder {
+            color: var(--cl-subtle);
+            font-weight: 400;
+        }
+
+        .v4-search-input:focus {
+            border-color: var(--cl-accent);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1), 0 2px 8px rgba(15, 23, 42, 0.04);
+        }
+
+        .v4-search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--cl-subtle);
+            pointer-events: none;
+        }
+
+        .v4-search-kbd {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--cl-muted);
+            background: var(--cl-surface);
+            border: 1px solid var(--cl-border-soft);
+            border-radius: 6px;
+            padding: 4px 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .v4-meta {
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.78rem;
+            color: var(--cl-muted);
+        }
+
+        .v4-meta .dot { color: var(--cl-subtle); }
+        .v4-meta strong { color: var(--cl-accent); font-weight: 700; }
+
+        .v4-results {
+            margin-top: 44px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            text-align: left;
+        }
+
+        .v4-result {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--cl-bg);
+            border: 1.5px solid var(--cl-border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--cl-text);
+            transition: border-color 0.15s, transform 0.15s;
+        }
+
+        .v4-result:hover {
+            border-color: var(--cl-accent);
+            transform: translateY(-2px);
+        }
+
+        .v4-result-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .v4-result-name {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--cl-text);
+            margin: 0 0 2px;
+        }
+
+        .v4-result-kw {
+            font-size: 0.72rem;
+            color: var(--cl-muted);
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .v4-result-arrow {
+            margin-left: auto;
+            color: var(--cl-subtle);
+            font-size: 1.1rem;
+            transition: transform 0.18s, color 0.18s;
+        }
+
+        .v4-result:hover .v4-result-arrow {
+            color: var(--cl-accent);
+            transform: translateX(3px);
+        }
+
+        .v4-result-hidden { display: none; }
+
+        .v4-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--cl-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .v2-tile-row { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+            .v2-tile { padding: 12px 6px; }
+            .v2-tile-name { font-size: 0.65rem; }
+            .v4-results { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .v2-tile-row { grid-template-columns: repeat(3, 1fr); }
+            .v2-tile:nth-last-child(-n+2) { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <div data-site-nav></div>
+    <script src="/assets/shared-nav.js"></script>
+
+    <!-- ========== OPTION 2: PREVIEW TILE GRID ========== -->
+    <div class="variant-label"><span class="tag">Option 2</span>Preview Tile Grid Hero — see all 10 tools above the fold</div>
+
+    <section class="cl-hero">
+        <div class="cl-hero-inner">
+            <span class="cl-pill">
+                <svg width="7" height="7" viewBox="0 0 7 7"><circle cx="3.5" cy="3.5" r="3.5" fill="currentColor"/></svg>
+                Free · No signup required
+            </span>
+            <h1>Free Fitness<br>Calculators</h1>
+            <p class="cl-hero-sub">Ten evidence-based tools for body composition, nutrition, and performance. Pick one below.</p>
+
+            <div class="v2-tile-row">
+                <a href="body-fat-estimator/" class="v2-tile">
+                    <span class="v2-tile-num">01</span>
+                    <div class="v2-tile-icon ic-bf">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0Z"/><line x1="7" y1="7" x2="10" y2="7"/><line x1="9" y1="10" x2="12" y2="10"/><line x1="11" y1="13" x2="14" y2="13"/></svg>
+                    </div>
+                    <span class="v2-tile-name">Body Fat</span>
+                </a>
+                <a href="body-fat-visualizer/" class="v2-tile">
+                    <span class="v2-tile-num">02</span>
+                    <div class="v2-tile-icon ic-viz">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M3 21a9 9 0 0 1 18 0"/></svg>
+                    </div>
+                    <span class="v2-tile-name">BF at Each Age</span>
+                </a>
+                <a href="ffmi-calculator/" class="v2-tile">
+                    <span class="v2-tile-num">03</span>
+                    <div class="v2-tile-icon ic-ffmi">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11"/><path d="M21 21l-1-1"/><path d="M3 3l1 1"/><path d="M18 22l4-4"/><path d="M2 6l4-4"/></svg>
+                    </div>
+                    <span class="v2-tile-name">FFMI</span>
+                </a>
+                <a href="tdee-calculator/" class="v2-tile">
+                    <span class="v2-tile-num">04</span>
+                    <div class="v2-tile-icon ic-tdee">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4.97 0-7-3.58-7-7 0-4 3.5-7.5 3.5-7.5S10 9 10 6c0-1.5-.5-3-2-4 2.5 0 5 2.04 5 5 0 1.5-.5 3-1.5 4 1.5-1 2.5-3 2.5-5 3.5 2 5 4.5 5 7 0 3.42-2.03 7-7 7z"/></svg>
+                    </div>
+                    <span class="v2-tile-name">TDEE</span>
+                </a>
+                <a href="macro-calculator/" class="v2-tile">
+                    <span class="v2-tile-num">05</span>
+                    <div class="v2-tile-icon ic-macro">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg>
+                    </div>
+                    <span class="v2-tile-name">Macros</span>
+                </a>
+                <a href="calorie-deficit-calculator/" class="v2-tile">
+                    <span class="v2-tile-num">06</span>
+                    <div class="v2-tile-icon ic-cdc">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    </div>
+                    <span class="v2-tile-name">Calorie Deficit</span>
+                </a>
+                <a href="one-rep-max-calculator/" class="v2-tile">
+                    <span class="v2-tile-num">07</span>
+                    <div class="v2-tile-icon ic-orm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="5.5" r="2.5"/><path d="M6.5 6.5l11 11"/></svg>
+                    </div>
+                    <span class="v2-tile-name">1RM</span>
+                </a>
+                <a href="strength-standards-calculator/" class="v2-tile">
+                    <span class="v2-tile-num">08</span>
+                    <div class="v2-tile-icon ic-ssc">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10M10 21V4M17 21v-8M2 21h20"/></svg>
+                    </div>
+                    <span class="v2-tile-name">Strength Standards</span>
+                </a>
+                <a href="calories-burned-calculator/" class="v2-tile">
+                    <span class="v2-tile-num">09</span>
+                    <div class="v2-tile-icon ic-cbc">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                    </div>
+                    <span class="v2-tile-name">Calories Burned</span>
+                </a>
+                <a href="progress-photo-setup/" class="v2-tile">
+                    <span class="v2-tile-num">10</span>
+                    <div class="v2-tile-icon ic-pp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                    </div>
+                    <span class="v2-tile-name">Progress Photo</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== OPTION 4: SEARCH-FIRST ========== -->
+    <div class="variant-label"><span class="tag">Option 4</span>Search-First Hero — filter tools instantly as you type</div>
+
+    <section class="cl-hero">
+        <div class="cl-hero-inner">
+            <span class="cl-pill">
+                <svg width="7" height="7" viewBox="0 0 7 7"><circle cx="3.5" cy="3.5" r="3.5" fill="currentColor"/></svg>
+                Free · No signup required
+            </span>
+            <h1>Free Fitness<br>Calculators</h1>
+            <p class="cl-hero-sub">Ten evidence-based tools for body composition, nutrition, and performance.</p>
+
+            <div class="v4-search-wrap">
+                <span class="v4-search-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </span>
+                <input type="text" id="v4-input" class="v4-search-input" placeholder="Find a calculator — try 'body fat' or 'macros'…" autocomplete="off">
+                <span class="v4-search-kbd">⌘ K</span>
+            </div>
+
+            <div class="v4-meta">
+                <span><strong id="v4-count">10</strong> tools</span>
+                <span class="dot">·</span>
+                <span>Instant results</span>
+                <span class="dot">·</span>
+                <span>No signup</span>
+            </div>
+
+            <div class="v4-results" id="v4-results">
+                <a href="body-fat-estimator/" class="v4-result" data-name="body fat calculator navy" data-category="body composition">
+                    <div class="v4-result-icon ic-bf">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0Z"/></svg>
+                    </div>
+                    <div>
+                        <p class="v4-result-name">Body Fat Calculator</p>
+                        <p class="v4-result-kw">U.S. Navy method · Body composition</p>
+                    </div>
+                    <span class="v4-result-arrow">→</span>
+                </a>
+                <a href="body-fat-visualizer/" class="v4-result" data-name="body fat percentage each age visualizer" data-category="body composition">
+                    <div class="v4-result-icon ic-viz">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M3 21a9 9 0 0 1 18 0"/></svg>
+                    </div>
+                    <div>
+                        <p class="v4-result-name">Body Fat % at Each Age</p>
+                        <p class="v4-result-kw">Visual atlas · Body composition</p>
+                    </div>
+                    <span class="v4-result-arrow">→</span>
+                </a>
+                <a href="ffmi-calculator/" class="v4-result" data-name="ffmi fat free mass index lean" data-category="body composition">
+                    <div class="v4-result-icon ic-ffmi">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11"/></svg>
+                    </div>
+                    <div>
+                        <p class="v4-result-name">FFMI Calculator</p>
+                        <p class="v4-result-kw">Fat-Free Mass Index · Physique</p>
+                    </div>
+                    <span class="v4-result-arrow">→</span>
+                </a>
+                <a href="tdee-calculator/" class="v4-result" data-name="tdee calories daily energy expenditure maintenance" data-category="nutrition">
+                    <div class="v4-result-icon ic-tdee">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4.97 0-7-3.58-7-7 0-4 3.5-7.5 3.5-7.5S10 9 10 6c0-1.5-.5-3-2-4 2.5 0 5 2.04 5 5"/></svg>
+                    </div>
+                    <div>
+                        <p class="v4-result-name">TDEE Calculator</p>
+                        <p class="v4-result-kw">Daily calorie burn · Nutrition</p>
+                    </div>
+                    <span class="v4-result-arrow">→</span>
+                </a>
+                <a href="macro-calculator/" class="v4-result" data-name="macro calculator protein carbs fat" data-category="nutrition">
+                    <div class="v4-result-icon ic-macro">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+                    </div>
+                    <div>
+                        <p class="v4-result-name">Macro Calculator</p>
+                        <p class="v4-result-kw">Protein/carb/fat targets · Nutrition</p>
+                    </div>
+                    <span class="v4-result-arrow">→</span>
+                </a>
+                <a href="calorie-deficit-calculator/" class="v4-result" data-name="calorie deficit cut weight loss" data-category="nutrition">
+                    <div class="v4-result-icon ic-cdc">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    </div>
+                    <div>
+                        <p class="v4-result-name">Calorie Deficit Calculator</p>
+                        <p class="v4-result-kw">Cut timeline · Nutrition</p>
+                    </div>
+                    <span class="v4-result-arrow">→</span>
+                </a>
+                <a href="one-rep-max-calculator/" class="v4-result" data-name="one rep max 1rm strength lifting" data-category="performance">
+                    <div class="v4-result-icon ic-orm">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="5.5" r="2.5"/></svg>
+                    </div>
+                    <div>
+                        <p class="v4-result-name">1RM Calculator</p>
+                        <p class="v4-result-kw">One-rep max · Performance</p>
+                    </div>
+                    <span class="v4-result-arrow">→</span>
+                </a>
+                <a href="strength-standards-calculator/" class="v4-result" data-name="strength standards percentile compound lifts" data-category="performance">
+                    <div class="v4-result-icon ic-ssc">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10M10 21V4M17 21v-8M2 21h20"/></svg>
+                    </div>
+                    <div>
+                        <p class="v4-result-name">Strength Standards</p>
+                        <p class="v4-result-kw">Percentile rank · Performance</p>
+                    </div>
+                    <span class="v4-result-arrow">→</span>
+                </a>
+                <a href="calories-burned-calculator/" class="v4-result" data-name="calories burned activity exercise met" data-category="performance">
+                    <div class="v4-result-icon ic-cbc">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                    </div>
+                    <div>
+                        <p class="v4-result-name">Calories Burned</p>
+                        <p class="v4-result-kw">Activity database · Performance</p>
+                    </div>
+                    <span class="v4-result-arrow">→</span>
+                </a>
+                <a href="progress-photo-setup/" class="v4-result" data-name="progress photo setup lighting pose" data-category="documentation">
+                    <div class="v4-result-icon ic-pp">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                    </div>
+                    <div>
+                        <p class="v4-result-name">Progress Photo Setup</p>
+                        <p class="v4-result-kw">Lighting & framing · Documentation</p>
+                    </div>
+                    <span class="v4-result-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Search filter for Option 4
+        (function() {
+            var input = document.getElementById('v4-input');
+            var countEl = document.getElementById('v4-count');
+            var results = document.querySelectorAll('#v4-results .v4-result');
+            var container = document.getElementById('v4-results');
+            if (!input) return;
+
+            // Keyboard shortcut: / or ⌘K focuses search
+            document.addEventListener('keydown', function(e) {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    input.focus();
+                }
+            });
+
+            function filter() {
+                var q = input.value.trim().toLowerCase();
+                var visible = 0;
+                results.forEach(function(el) {
+                    var hay = el.getAttribute('data-name') + ' ' + (el.getAttribute('data-category') || '');
+                    var match = !q || hay.indexOf(q) !== -1;
+                    el.classList.toggle('v4-result-hidden', !match);
+                    if (match) visible++;
+                });
+                countEl.textContent = visible;
+                var existingEmpty = container.querySelector('.v4-empty');
+                if (visible === 0 && !existingEmpty) {
+                    var div = document.createElement('div');
+                    div.className = 'v4-empty';
+                    div.textContent = 'No tools match "' + q + '" — try another keyword.';
+                    container.appendChild(div);
+                } else if (visible > 0 && existingEmpty) {
+                    existingEmpty.remove();
+                }
+            }
+
+            input.addEventListener('input', filter);
+        })();
+    </script>
+</body>
+</html>
