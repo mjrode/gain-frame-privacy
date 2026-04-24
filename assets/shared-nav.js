@@ -30,7 +30,7 @@
         const navHtml = `
         <nav class="blog-nav">
             <div class="container blog-nav-inner">
-                <a href="${prefix}index.html" class="blog-nav-logo">
+                <a href="${prefix}" class="blog-nav-logo">
                     <img src="${prefix}assets/favicon.webp" alt="GainFrame" loading="lazy" class="blog-nav-icon">
                     <span class="blog-nav-wordmark">GainFrame</span>
                 </a>
@@ -38,7 +38,7 @@
                     <span></span><span></span><span></span>
                 </button>
                 <div class="blog-nav-links" id="navLinks">
-                    <a href="${prefix}index.html"${activeClass(isHome)}>Home</a>
+                    <a href="${prefix}"${activeClass(isHome)}>Home</a>
                     <a href="${prefix}blog/"${activeClass(isBlog)}>Blog</a>
                     <a href="${prefix}comics.html"${activeClass(isComics)}>Comics</a>
                     <a href="${prefix}tools/"${activeClass(isTools)}>Tools</a>

@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Outfit:wght@700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@300;400;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Shared styles -->
@@ -159,439 +159,1329 @@
 
     <style>
         /* =====================================================
-           TOOLS INDEX PAGE
+           TOOLS INDEX — THE GAINFRAME FIELD MANUAL
+           Editorial almanac aesthetic. Warm paper, monospace
+           metadata, oversized display type, numbered catalog.
            ===================================================== */
 
-        .tools-hero {
-            background: #fff;
-            padding: 48px var(--sp-md) 32px;
-            text-align: center;
+        :root {
+            --tm-ink: #0c0c0c;
+            --tm-paper: #f5f1e8;
+            --tm-paper-deep: #ece7da;
+            --tm-ivory: #fbf8f1;
+            --tm-rule: #0c0c0c;
+            --tm-rule-soft: rgba(12, 12, 12, 0.12);
+            --tm-muted: #6b6659;
+            --tm-accent: #E84C3D;
+            --tm-sage: #6B8F71;
+            --tm-mono: 'IBM Plex Mono', ui-monospace, monospace;
         }
 
-        .tools-hero h1 {
+        body.tm-body {
+            background: var(--tm-paper);
+            color: var(--tm-ink);
+            font-family: var(--font-body);
+            position: relative;
+        }
+
+        /* Subtle paper grain */
+        body.tm-body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.5;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.05  0 0 0 0 0.05  0 0 0 0 0.05  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+            mix-blend-mode: multiply;
+        }
+
+        body.tm-body > * { position: relative; z-index: 2; }
+
+        /* ===== MARQUEE MASTHEAD ===== */
+        .tm-masthead {
+            background: var(--tm-ink);
+            color: var(--tm-ivory);
+            overflow: hidden;
+            border-bottom: 1px solid var(--tm-ink);
+        }
+
+        .tm-marquee {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 11px 0;
+        }
+
+        .tm-marquee-track {
+            display: inline-flex;
+            gap: 48px;
+            animation: tm-scroll 48s linear infinite;
+            font-family: var(--tm-mono);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            flex-shrink: 0;
+            padding-right: 48px;
+        }
+
+        .tm-marquee-track span { display: inline-flex; align-items: center; gap: 48px; flex-shrink: 0; }
+        .tm-marquee-track .sep { color: var(--tm-accent); font-weight: 600; }
+
+        @keyframes tm-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(calc(-100% - 48px)); }
+        }
+
+        /* ===== HERO ===== */
+        .tm-hero {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: clamp(40px, 6vw, 88px) clamp(20px, 4vw, 48px) clamp(28px, 3vw, 48px);
+        }
+
+        .tm-hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            padding-bottom: 20px;
+            margin-bottom: clamp(40px, 6vw, 72px);
+            border-bottom: 1px solid var(--tm-ink);
+            font-family: var(--tm-mono);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            flex-wrap: wrap;
+        }
+
+        .tm-crest {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tm-crest-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--tm-accent);
+            display: inline-block;
+            box-shadow: 0 0 0 3px rgba(232, 76, 61, 0.14);
+        }
+
+        .tm-crest-label { font-weight: 600; letter-spacing: 0.2em; }
+
+        .tm-hero-meta-line {
+            display: inline-flex;
+            gap: 28px;
+            color: var(--tm-muted);
+        }
+
+        .tm-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+            gap: clamp(32px, 4vw, 64px);
+            align-items: end;
+        }
+
+        .tm-hero h1 {
             font-family: var(--font-display);
             font-weight: 900;
-            font-size: clamp(2rem, 5vw, 3rem);
-            letter-spacing: -0.03em;
-            color: var(--color-text);
-            margin-bottom: 10px;
+            font-size: clamp(3.25rem, 8vw, 8rem);
+            line-height: 0.86;
+            letter-spacing: -0.055em;
+            color: var(--tm-ink);
+            margin: 0;
         }
 
-        .tools-hero p {
-            font-size: 1.05rem;
-            color: var(--color-text-secondary);
-            max-width: 520px;
+        .tm-hero h1 .word {
+            display: block;
+            overflow: hidden;
+        }
+
+        .tm-hero h1 .word span {
+            display: inline-block;
+            animation: tm-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+
+        .tm-hero h1 .w1 span { animation-delay: 0.05s; }
+        .tm-hero h1 .w2 span { animation-delay: 0.15s; }
+        .tm-hero h1 .w3 span { animation-delay: 0.25s; }
+
+        .tm-hero h1 .dot {
+            color: var(--tm-accent);
+            display: inline-block;
+            transform-origin: bottom left;
+            animation: tm-pop 0.6s cubic-bezier(0.2, 1.2, 0.3, 1) 0.7s both;
+        }
+
+        @keyframes tm-rise {
+            from { transform: translateY(102%); opacity: 0; }
+            to   { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes tm-pop {
+            from { transform: scale(0); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
+        }
+
+        .tm-hero-aside {
+            padding-bottom: 12px;
+            border-left: 1px solid var(--tm-rule-soft);
+            padding-left: clamp(16px, 3vw, 40px);
+        }
+
+        .tm-hero-deck {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+            line-height: 1.45;
+            color: var(--tm-ink);
+            margin-bottom: 24px;
+            max-width: 360px;
+        }
+
+        .tm-hero-lede {
+            font-family: var(--tm-mono);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--tm-muted);
+            margin-bottom: 16px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .tm-hero-lede::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 16px;
+            height: 1px;
+            background: var(--tm-accent);
+        }
+
+        .tm-hero-scroll {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--tm-mono);
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--tm-ink);
+            text-decoration: none;
+            border-bottom: 1.5px solid var(--tm-ink);
+            padding-bottom: 3px;
+            transition: gap 0.3s;
+            font-weight: 500;
+        }
+
+        .tm-hero-scroll:hover { gap: 16px; }
+
+        /* ===== STATS STRIP ===== */
+        .tm-stats {
+            max-width: 1320px;
             margin: 0 auto;
-            line-height: 1.6;
+            padding: 0 clamp(20px, 4vw, 48px);
         }
 
-        /* Tool cards grid */
-        .tools-grid-section {
-            background: var(--color-surface);
-            padding: 40px var(--sp-md) 80px;
-        }
-
-        .tools-grid {
-            max-width: 860px;
-            margin: 0 auto;
+        .tm-stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1.5px solid var(--tm-ink);
+            border-bottom: 1.5px solid var(--tm-ink);
         }
 
-        .tool-index-card {
-            background: #fff;
-            border-radius: var(--radius-lg);
-            padding: 32px 28px;
+        .tm-stat {
+            padding: clamp(20px, 2.5vw, 32px) clamp(16px, 2vw, 24px);
+            border-left: 1px solid var(--tm-rule-soft);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tm-stat:first-child { border-left: none; }
+
+        .tm-stat-tag {
+            font-family: var(--tm-mono);
+            font-size: 10px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--tm-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tm-stat-tag::before {
+            content: attr(data-num);
+            color: var(--tm-ink);
+            font-weight: 600;
+        }
+
+        .tm-stat-value {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(2.25rem, 3.5vw, 3.25rem);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: var(--tm-ink);
+        }
+
+        .tm-stat-value .unit {
+            font-family: var(--tm-mono);
+            font-weight: 500;
+            font-size: 0.4em;
+            margin-left: 4px;
+            color: var(--tm-muted);
+            letter-spacing: 0.1em;
+            vertical-align: top;
+        }
+
+        /* ===== SECTION / CATEGORY ===== */
+        .tm-section {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: clamp(48px, 6vw, 88px) clamp(20px, 4vw, 48px) clamp(16px, 2vw, 24px);
+        }
+
+        .tm-section-header {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: baseline;
+            gap: 24px;
+            padding-bottom: 18px;
+            margin-bottom: clamp(24px, 3vw, 40px);
+            border-bottom: 1px solid var(--tm-ink);
+        }
+
+        .tm-section-mark {
+            font-family: var(--tm-mono);
+            font-size: 12px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--tm-accent);
+            font-weight: 600;
+        }
+
+        .tm-section-title {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .tm-section-count {
+            font-family: var(--tm-mono);
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--tm-muted);
+            white-space: nowrap;
+        }
+
+        /* ===== CARDS GRID ===== */
+        .tm-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .tm-grid.tm-grid-hero {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .tm-grid.tm-grid-hero .tm-card.tm-featured {
+            grid-column: 1 / -1;
+        }
+
+        .tm-card {
+            position: relative;
+            background: var(--tm-ivory);
+            border: 1px solid var(--tm-rule-soft);
+            padding: 28px 26px 24px;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
+            min-height: 300px;
+            transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                        box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                        border-color 0.3s;
+            overflow: hidden;
         }
 
-        .tool-index-card:hover {
+        .tm-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--tm-ink);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .tm-card:hover::before { transform: scaleX(1); }
+
+        .tm-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, .12);
+            box-shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.18);
+            border-color: rgba(12, 12, 12, 0.22);
         }
 
-        .tool-icon-circle {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
+        .tm-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 22px;
+        }
+
+        .tm-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            font-size: 1.6rem;
-            color: var(--color-text-secondary);
         }
 
-        .tool-icon-circle.bf { background: #fef2f0; }
-        .tool-icon-circle.bfv { background: #111; }
-        .tool-icon-circle.tdee { background: #fef7ed; }
-        .tool-icon-circle.macro { background: #eef6ff; }
-        .tool-icon-circle.ffmi { background: #f0fdf4; }
-        .tool-icon-circle.orm { background: #fef7ed; }
-        .tool-icon-circle.cbc { background: #fff1f2; }
-        .tool-icon-circle.ssc { background: #eff6ff; }
-        .tool-icon-circle.cdc { background: #f0fdfa; }
+        .tm-card-index {
+            font-family: var(--tm-mono);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--tm-muted);
+            font-weight: 500;
+        }
 
-        .tool-index-card h2 {
+        .tm-card h3 {
             font-family: var(--font-display);
             font-weight: 800;
-            font-size: 1.25rem;
-            letter-spacing: -0.02em;
-            color: var(--color-text);
-            margin-bottom: 8px;
+            font-size: 1.4rem;
+            letter-spacing: -0.025em;
+            line-height: 1.12;
+            color: var(--tm-ink);
+            margin: 0 0 10px;
         }
 
-        .tool-index-card p {
-            font-size: 0.92rem;
-            color: var(--color-text-secondary);
-            line-height: 1.6;
+        .tm-card-desc {
+            font-size: 0.915rem;
+            line-height: 1.55;
+            color: var(--tm-muted);
             flex: 1;
         }
 
-        .tool-card-arrow {
-            margin-top: 16px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--color-text);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .tool-card-arrow svg {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.2s;
-        }
-
-        .tool-index-card:hover .tool-card-arrow svg {
-            transform: translateX(4px);
-        }
-
-        /* FAQ Section */
-        .tools-faq {
-            background: var(--color-surface);
-            padding: 72px var(--sp-md);
-        }
-
-        .tools-faq-inner {
-            max-width: 680px;
-            margin: 0 auto;
-        }
-
-        .tools-faq h2 {
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 1.8rem;
-            letter-spacing: -0.025em;
-            text-align: center;
-            color: var(--color-text);
-            margin-bottom: 36px;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--color-border);
-            padding: 20px 0;
-        }
-
-        .faq-item:first-child { padding-top: 0; }
-        .faq-item:last-child { border-bottom: none; }
-
-        .faq-question {
-            font-family: var(--font-body);
-            font-weight: 700;
-            font-size: 1.05rem;
-            color: var(--color-text);
-            cursor: pointer;
+        .tm-card-foot {
+            margin-top: 22px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--tm-rule-soft);
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 16px;
+            font-family: var(--tm-mono);
+            font-size: 10.5px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .tm-card-method { color: var(--tm-muted); }
+
+        .tm-card-go {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--tm-ink);
+            font-weight: 600;
+        }
+
+        .tm-card-go-arrow {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .tm-card:hover .tm-card-go-arrow { transform: translateX(4px); }
+
+        /* Icon color tints */
+        .tm-icon-bf   { background: #fbe7e3; color: #c0392b; }
+        .tm-icon-bfv  { background: #0c0c0c; color: #E84C3D; }
+        .tm-icon-tdee { background: #fcebd4; color: #c46a12; }
+        .tm-icon-macro{ background: #e3ecf7; color: #2363a6; }
+        .tm-icon-ffmi { background: #dff1e2; color: #137037; }
+        .tm-icon-orm  { background: #f5e2c8; color: #a8620c; }
+        .tm-icon-cbc  { background: #fddcde; color: #c6163c; }
+        .tm-icon-ssc  { background: #dbe8fb; color: #1e4fb0; }
+        .tm-icon-cdc  { background: #d4eee8; color: #0a6c5f; }
+        .tm-icon-pp   { background: #dde8df; color: #4f7555; }
+
+        /* ===== FEATURED CARD ===== */
+        .tm-card.tm-featured {
+            grid-column: span 2;
+            background: var(--tm-ink);
+            color: var(--tm-ivory);
+            border-color: var(--tm-ink);
+            padding: 36px 40px 32px;
+            min-height: 360px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .tm-card.tm-featured::before {
+            background: var(--tm-accent);
+        }
+
+        .tm-card.tm-featured:hover { border-color: var(--tm-ink); }
+
+        .tm-featured-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 0;
+        }
+
+        .tm-featured-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--tm-mono);
+            font-size: 10.5px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--tm-accent);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .tm-featured-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--tm-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(232, 76, 61, 0.2);
+            animation: tm-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes tm-pulse {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(232, 76, 61, 0.2); }
+            50%      { box-shadow: 0 0 0 7px rgba(232, 76, 61, 0); }
+        }
+
+        .tm-card.tm-featured h3 {
+            color: var(--tm-ivory);
+            font-size: clamp(1.9rem, 3vw, 2.5rem);
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 16px;
+            max-width: 320px;
+        }
+
+        .tm-card.tm-featured .tm-card-desc {
+            color: rgba(251, 248, 241, 0.72);
+            font-size: 0.98rem;
+            line-height: 1.55;
+            max-width: 340px;
+        }
+
+        .tm-card.tm-featured .tm-card-index { color: rgba(251, 248, 241, 0.42); }
+
+        .tm-card.tm-featured .tm-card-foot {
+            border-top-color: rgba(251, 248, 241, 0.14);
+            margin-top: 24px;
+        }
+
+        .tm-card.tm-featured .tm-card-method { color: rgba(251, 248, 241, 0.5); }
+        .tm-card.tm-featured .tm-card-go { color: var(--tm-ivory); }
+
+        /* Featured visualizer demo */
+        .tm-featured-viz {
+            background: #18181b;
+            border: 1px solid rgba(251, 248, 241, 0.1);
+            border-radius: 4px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tm-featured-viz::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 18px 18px;
+            pointer-events: none;
+        }
+
+        .tm-viz-row {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tm-viz-label {
+            font-family: var(--tm-mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(251, 248, 241, 0.42);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tm-viz-label .val {
+            color: var(--tm-accent);
+            font-weight: 600;
+        }
+
+        .tm-viz-track {
+            position: relative;
+            height: 2px;
+            background: rgba(251, 248, 241, 0.14);
+        }
+
+        .tm-viz-track::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: var(--fill, 40%);
+            background: var(--tm-ivory);
+            transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .tm-viz-thumb {
+            position: absolute;
+            top: 50%;
+            left: var(--fill, 40%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--tm-accent);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 4px rgba(232, 76, 61, 0.2);
+        }
+
+        .tm-viz-figure {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: var(--tm-ivory);
+            position: relative;
+            z-index: 1;
+        }
+
+        .tm-viz-figure .small {
+            font-size: 0.45em;
+            color: rgba(251, 248, 241, 0.5);
+            font-family: var(--tm-mono);
+            font-weight: 400;
+            margin-left: 6px;
+            letter-spacing: 0.08em;
+        }
+
+        /* Single-tool (wide) variant for Progress Photo section */
+        .tm-grid-single { grid-template-columns: 1fr; }
+
+        .tm-card.tm-wide {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 32px;
+            min-height: unset;
+            padding: 28px 32px;
+        }
+
+        .tm-card.tm-wide .tm-card-head {
+            margin-bottom: 0;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .tm-card.tm-wide h3 {
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+
+        .tm-card.tm-wide .tm-card-desc {
+            flex: 0 1 auto;
+            max-width: 420px;
+        }
+
+        .tm-card.tm-wide .tm-card-foot {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ===== FAQ ===== */
+        .tm-faq {
+            max-width: 1320px;
+            margin: clamp(64px, 7vw, 96px) auto 0;
+            padding: clamp(48px, 6vw, 88px) clamp(20px, 4vw, 48px);
+            border-top: 1.5px solid var(--tm-ink);
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: clamp(32px, 5vw, 80px);
+        }
+
+        .tm-faq-head {
+            position: sticky;
+            top: 24px;
+            align-self: start;
+        }
+
+        .tm-faq-mark {
+            font-family: var(--tm-mono);
+            font-size: 12px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--tm-accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .tm-faq h2 {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(2rem, 3.4vw, 2.8rem);
+            letter-spacing: -0.03em;
+            line-height: 0.95;
+            margin: 0 0 24px;
+        }
+
+        .tm-faq-intro {
+            font-family: var(--font-body);
+            font-style: italic;
+            color: var(--tm-muted);
+            line-height: 1.55;
+            max-width: 260px;
+        }
+
+        .tm-faq-list { counter-reset: faq; }
+
+        .tm-faq-item {
+            border-top: 1px solid var(--tm-rule-soft);
+            padding: 22px 0;
+            counter-increment: faq;
+        }
+
+        .tm-faq-item:last-child { border-bottom: 1px solid var(--tm-rule-soft); }
+
+        .tm-faq-q {
             background: none;
             border: none;
             width: 100%;
             text-align: left;
             padding: 0;
+            cursor: pointer;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 20px;
+            align-items: baseline;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+            color: var(--tm-ink);
+            letter-spacing: -0.015em;
+            line-height: 1.3;
         }
 
-        .faq-question svg {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
+        .tm-faq-q::before {
+            content: counter(faq, decimal-leading-zero);
+            font-family: var(--tm-mono);
+            font-size: 11px;
+            color: var(--tm-muted);
+            letter-spacing: 0.15em;
+            font-weight: 500;
+            padding-top: 4px;
+        }
+
+        .tm-faq-toggle {
+            font-family: var(--tm-mono);
+            font-size: 14px;
+            color: var(--tm-ink);
             transition: transform 0.3s;
-            color: var(--color-text-secondary);
+            flex-shrink: 0;
         }
 
-        .faq-item.open .faq-question svg {
-            transform: rotate(180deg);
-        }
+        .tm-faq-item.open .tm-faq-toggle { transform: rotate(45deg); }
 
-        .faq-answer {
+        .tm-faq-a {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.35s ease, padding 0.35s ease;
-            padding-top: 0;
+            transition: max-height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), padding 0.4s;
+            padding-left: calc(20px + 2ch);
         }
 
-        .faq-item.open .faq-answer {
-            max-height: 300px;
-            padding-top: 12px;
+        .tm-faq-item.open .tm-faq-a {
+            max-height: 400px;
+            padding-top: 16px;
         }
 
-        .faq-answer p {
-            font-size: 0.95rem;
-            color: var(--color-text-secondary);
+        .tm-faq-a p {
+            color: var(--tm-muted);
             line-height: 1.7;
+            font-size: 0.98rem;
         }
 
-        /* CTA */
-        .tools-cta {
-            background: #fff;
-            text-align: center;
-            padding: 64px var(--sp-md);
+        /* ===== CTA (back cover) ===== */
+        .tm-cta {
+            background: var(--tm-ink);
+            color: var(--tm-ivory);
+            margin-top: 0;
+            padding: clamp(64px, 8vw, 120px) clamp(20px, 4vw, 48px);
+            position: relative;
+            overflow: hidden;
         }
 
-        .tools-cta-inner {
-            max-width: 480px;
+        .tm-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(232, 76, 61, 0.22) 0%, transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(107, 143, 113, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .tm-cta-inner {
+            max-width: 1320px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: clamp(32px, 5vw, 80px);
+            align-items: end;
+            position: relative;
+            z-index: 1;
         }
 
-        .tools-cta-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 20px;
-            border-radius: 16px;
-            background: var(--color-text);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .tools-cta-icon svg {
-            width: 30px;
-            height: 30px;
-            color: #fff;
-        }
-
-        .tools-cta h2 {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            color: var(--color-text);
-            margin-bottom: 12px;
-        }
-
-        .tools-cta p {
-            font-size: 1rem;
-            color: var(--color-text-secondary);
-            line-height: 1.7;
+        .tm-cta-mark {
+            font-family: var(--tm-mono);
+            font-size: 11px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--tm-accent);
             margin-bottom: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
         }
 
-        @media (max-width: 480px) {
-            .tools-grid { grid-template-columns: 1fr; }
+        .tm-cta-mark::before {
+            content: '';
+            width: 24px;
+            height: 1.5px;
+            background: var(--tm-accent);
+        }
+
+        .tm-cta h2 {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
+            letter-spacing: -0.045em;
+            line-height: 0.92;
+            margin: 0 0 24px;
+            color: var(--tm-ivory);
+        }
+
+        .tm-cta h2 em {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--tm-accent);
+            letter-spacing: -0.02em;
+        }
+
+        .tm-cta-deck {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            line-height: 1.55;
+            color: rgba(251, 248, 241, 0.65);
+            max-width: 440px;
+            margin-bottom: 32px;
+        }
+
+        .tm-cta-aside {
+            border-left: 1px solid rgba(251, 248, 241, 0.14);
+            padding-left: clamp(20px, 3vw, 40px);
+            padding-bottom: 8px;
+        }
+
+        .tm-cta-data {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 8px 24px;
+            font-family: var(--tm-mono);
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .tm-cta-data dt { color: rgba(251, 248, 241, 0.42); }
+        .tm-cta-data dd { margin: 0; color: var(--tm-ivory); font-weight: 500; }
+
+        .tm-cta-badge {
+            display: inline-block;
+            transition: transform 0.25s;
+        }
+
+        .tm-cta-badge:hover { transform: translateY(-2px); }
+
+        .tm-cta-badge img {
+            height: 56px;
+            width: auto;
+            display: block;
+        }
+
+        .tm-cta-footer {
+            max-width: 1320px;
+            margin: clamp(56px, 7vw, 96px) auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(251, 248, 241, 0.14);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--tm-mono);
+            font-size: 10.5px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(251, 248, 241, 0.5);
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .tm-cta-footer .accent { color: var(--tm-accent); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .tm-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+            .tm-hero-aside { border-left: none; padding-left: 0; border-top: 1px solid var(--tm-rule-soft); padding-top: 28px; }
+            .tm-grid { grid-template-columns: repeat(2, 1fr); }
+            .tm-card.tm-featured { grid-column: span 2; }
+            .tm-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .tm-stat:nth-child(3) { border-top: 1px solid var(--tm-rule-soft); border-left: none; }
+            .tm-stat:nth-child(4) { border-top: 1px solid var(--tm-rule-soft); }
+            .tm-faq { grid-template-columns: 1fr; }
+            .tm-faq-head { position: static; }
+            .tm-cta-inner { grid-template-columns: 1fr; }
+            .tm-cta-aside { border-left: none; padding-left: 0; border-top: 1px solid rgba(251, 248, 241, 0.14); padding-top: 24px; }
+        }
+
+        @media (max-width: 600px) {
+            .tm-grid { grid-template-columns: 1fr; }
+            .tm-card.tm-featured { grid-column: span 1; grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; }
+            .tm-card.tm-wide { grid-template-columns: 1fr; gap: 20px; }
+            .tm-hero h1 { font-size: clamp(3.25rem, 18vw, 6rem); }
+            .tm-section-header { grid-template-columns: 1fr; gap: 8px; }
+            .tm-section-count { justify-self: start; }
         }
     </style>
 </head>
 
-<body>    <div data-site-nav></div>
+<body class="tm-body">
+    <div data-site-nav></div>
     <script src="/assets/shared-nav.js"></script>
-<!-- HERO -->
-    <section class="tools-hero">
-        <h1>Free Fitness Calculators</h1>
-        <p>Everything you need to dial in your nutrition and track your body composition — free, instant, no signup.</p>
-    </section>
 
-    <!-- TOOL CARDS -->
-    <section class="tools-grid-section">
-        <div class="tools-grid">
-            <!-- Body Fat -->
-            <a href="body-fat-estimator/" class="tool-index-card">
-                <div class="tool-icon-circle bf"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0l12.6 12.6z"/><line x1="7" y1="7" x2="10" y2="7"/><line x1="9" y1="10" x2="12" y2="10"/><line x1="11" y1="13" x2="14" y2="13"/><line x1="13" y1="16" x2="16" y2="16"/></svg></div>
-                <h2>Body Fat Calculator</h2>
-                <p>Estimate your body fat percentage using the U.S. Navy tape-measure method. Enter a few measurements, see your result instantly.</p>
-                <div class="tool-card-arrow">
-                    Try it free
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </div>
-            </a>
+    <!-- ============ MARQUEE MASTHEAD ============ -->
+    <div class="tm-masthead" aria-hidden="true">
+        <div class="tm-marquee">
+            <div class="tm-marquee-track">
+                <span>The GainFrame Field Manual <i class="sep">◆</i> Vol. I — Ten Instruments <i class="sep">◆</i> Free Access <i class="sep">◆</i> Zero Signup <i class="sep">◆</i> Instant Results <i class="sep">◆</i> Open Methodology <i class="sep">◆</i> Measured in Reps, Grams &amp; Percentiles <i class="sep">◆</i></span>
+                <span>The GainFrame Field Manual <i class="sep">◆</i> Vol. I — Ten Instruments <i class="sep">◆</i> Free Access <i class="sep">◆</i> Zero Signup <i class="sep">◆</i> Instant Results <i class="sep">◆</i> Open Methodology <i class="sep">◆</i> Measured in Reps, Grams &amp; Percentiles <i class="sep">◆</i></span>
+            </div>
+        </div>
+    </div>
 
-            <!-- Body Fat Visualizer -->
-            <a href="body-fat-visualizer/" class="tool-index-card">
-                <div class="tool-icon-circle bfv"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E84C3D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h3"/><path d="M20 7V4h-3"/><path d="M4 17v3h3"/><path d="M20 17v3h-3"/><circle cx="12" cy="12" r="3"/><path d="M12 5v2M12 17v2M5 12h2M17 12h2"/></svg></div>
-                <h2>Body Fat % at Each Age</h2>
-                <p>Drag two sliders to see what every body fat percentage looks like — male &amp; female, ages 20s to 60s. Photorealistic reference with no guesswork.</p>
-                <div class="tool-card-arrow">
-                    Try it free
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </div>
-            </a>
+    <!-- ============ HERO ============ -->
+    <section class="tm-hero">
+        <div class="tm-hero-top">
+            <span class="tm-crest">
+                <span class="tm-crest-dot"></span>
+                <span class="tm-crest-label">The GainFrame Almanac</span>
+            </span>
+            <span class="tm-hero-meta-line">
+                <span>Vol. I · Issue 10</span>
+                <span>Est. A.D. 2026</span>
+                <span>§ Calculators</span>
+            </span>
+        </div>
 
-            <!-- TDEE -->
-            <a href="tdee-calculator/" class="tool-index-card">
-                <div class="tool-icon-circle tdee"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4.97 0-7-3.58-7-7 0-4 3.5-7.5 3.5-7.5S10 9 10 6c0-1.5-.5-3-2-4 2.5 0 5 2.04 5 5 0 1.5-.5 3-1.5 4 1.5-1 2.5-3 2.5-5 3.5 2 5 4.5 5 7 0 3.42-2.03 7-7 7z"/></svg></div>
-                <h2>TDEE Calculator</h2>
-                <p>Find out how many calories you burn per day. Uses the Mifflin-St Jeor equation with your age, weight, height, and activity level.</p>
-                <div class="tool-card-arrow">
-                    Try it free
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </div>
-            </a>
-
-            <!-- Macros -->
-            <a href="macro-calculator/" class="tool-index-card">
-                <div class="tool-icon-circle macro"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2980b9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2l7.5 7.5M15 2l-7.5 7.5"/><path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><line x1="12" y1="22" x2="12" y2="17"/></svg></div>
-                <h2>Macro Calculator</h2>
-                <p>Get personalized protein, carb, and fat targets based on your TDEE and fitness goal — cutting, maintaining, or bulking.</p>
-                <div class="tool-card-arrow">
-                    Try it free
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </div>
-            </a>
-
-            <!-- FFMI -->
-            <a href="ffmi-calculator/" class="tool-index-card">
-                <div class="tool-icon-circle ffmi"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11"/><path d="M21 21l-1-1"/><path d="M3 3l1 1"/><path d="M18 22l4-4"/><path d="M2 6l4-4"/><path d="M3 10l7-7"/><path d="M14 21l7-7"/></svg></div>
-                <h2>FFMI Calculator</h2>
-                <p>Calculate your Fat-Free Mass Index and see how close you are to the natural muscle limit (~25). Enter weight, height, and body fat %.</p>
-                <div class="tool-card-arrow">
-                    Try it free
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </div>
-            </a>
-
-            <!-- 1RM -->
-            <a href="one-rep-max-calculator/" class="tool-index-card">
-                <div class="tool-icon-circle orm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11"/><path d="M21 21l-1-1"/><path d="M3 3l1 1"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="5.5" r="2.5"/></svg></div>
-                <h2>1RM Calculator</h2>
-                <p>Estimate your one rep max with six formulas, see training percentages for every rep range, and find your strength tier from Untrained to Elite.</p>
-                <div class="tool-card-arrow">
-                    Try it free
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </div>
-            </a>
-
-            <!-- Calories Burned -->
-            <a href="calories-burned-calculator/" class="tool-index-card">
-                <div class="tool-icon-circle cbc"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
-                <h2>Calories Burned Calculator</h2>
-                <p>Search 240+ activities — from walking the dog to competitive squash. Enter your weight and duration, see calories burned with METs and food-equivalent comparisons.</p>
-                <div class="tool-card-arrow">
-                    Try it free
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </div>
-            </a>
-
-            <!-- Strength Standards -->
-            <a href="strength-standards-calculator/" class="tool-index-card">
-                <div class="tool-icon-circle ssc"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10"/><path d="M10 21V4"/><path d="M17 21v-8"/><path d="M2 21h20"/></svg></div>
-                <h2>Strength Standards</h2>
-                <p>Are you strong for your bodyweight? Compare your lifts to Untrained → Elite benchmarks across 8 exercises — plus percentile rank and next-tier targets.</p>
-                <div class="tool-card-arrow">
-                    Try it free
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </div>
-            </a>
-
-            <!-- Calorie Deficit -->
-            <a href="calorie-deficit-calculator/" class="tool-index-card">
-                <div class="tool-icon-circle cdc"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
-                <h2>Calorie Deficit Calculator</h2>
-                <p>How long to reach your goal weight? Get your daily calorie target, projected timeline, and milestone dates — works for cuts and bulks.</p>
-                <div class="tool-card-arrow">
-                    Try it free
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </div>
-            </a>
-
-            <!-- Progress Photo Setup -->
-            <a href="progress-photo-setup/" class="tool-index-card">
-                <div class="tool-icon-circle" style="background: rgba(107,143,113,0.12);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B8F71" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"/><path d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg></div>
-                <h2>Progress Photo Setup Tool</h2>
-                <p>Build your perfect progress photo setup in 5 steps. Get personalized tips, pick your poses, and score your current routine.</p>
-                <div class="tool-card-arrow">
-                    Try it free
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-                </div>
-            </a>
+        <div class="tm-hero-grid">
+            <div class="tm-hero-title">
+                <h1>
+                    <span class="word w1"><span>Free</span></span>
+                    <span class="word w2"><span>Fitness</span></span>
+                    <span class="word w3"><span>Calculators<em class="dot">.</em></span></span>
+                </h1>
+            </div>
+            <div class="tm-hero-aside">
+                <div class="tm-hero-lede">Open the index</div>
+                <p class="tm-hero-deck">Ten precise instruments for measuring, training, and transforming your physique — assembled in one place. Bring a tape measure and an honest appetite.</p>
+                <a href="#tools" class="tm-hero-scroll">
+                    Begin with No. 01
+                    <span>↓</span>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="tools-faq">
-        <div class="tools-faq-inner">
-            <h2>Frequently Asked Questions</h2>
+    <!-- ============ STATS ============ -->
+    <div class="tm-stats">
+        <div class="tm-stats-grid">
+            <div class="tm-stat">
+                <span class="tm-stat-tag" data-num="I.">Instruments</span>
+                <span class="tm-stat-value">10</span>
+            </div>
+            <div class="tm-stat">
+                <span class="tm-stat-tag" data-num="II.">Price</span>
+                <span class="tm-stat-value">$0<span class="unit">/ea</span></span>
+            </div>
+            <div class="tm-stat">
+                <span class="tm-stat-tag" data-num="III.">Signup</span>
+                <span class="tm-stat-value">None</span>
+            </div>
+            <div class="tm-stat">
+                <span class="tm-stat-tag" data-num="IV.">Output</span>
+                <span class="tm-stat-value">&lt;1<span class="unit">sec</span></span>
+            </div>
+        </div>
+    </div>
 
-            <div class="faq-item open">
-                <button class="faq-question" onclick="toggleFaq(this)">
+    <!-- ============ § I — BODY COMPOSITION ============ -->
+    <section class="tm-section" id="tools">
+        <header class="tm-section-header">
+            <span class="tm-section-mark">§ I</span>
+            <h2 class="tm-section-title">Body Composition</h2>
+            <span class="tm-section-count">Three instruments</span>
+        </header>
+        <div class="tm-grid tm-grid-hero">
+
+            <!-- No. 02 — FEATURED · Body Fat Visualizer -->
+            <a href="body-fat-visualizer/" class="tm-card tm-featured">
+                <div class="tm-featured-left">
+                    <div>
+                        <span class="tm-featured-tag">Featured · Visual Reference</span>
+                        <div class="tm-card-head" style="margin-bottom: 0;">
+                            <h3 style="margin: 0;">Body Fat %<br>at Each Age</h3>
+                            <span class="tm-card-index">No. 02</span>
+                        </div>
+                        <p class="tm-card-desc" style="margin-top: 14px;">Drag two sliders to explore every body fat percentage — male and female, 20s through 60s. A photorealistic atlas, no guesswork.</p>
+                    </div>
+                    <div class="tm-card-foot">
+                        <span class="tm-card-method">Input · Two sliders</span>
+                        <span class="tm-card-go">Explore the atlas <span class="tm-card-go-arrow">→</span></span>
+                    </div>
+                </div>
+                <div class="tm-featured-viz" aria-hidden="true">
+                    <div class="tm-viz-row">
+                        <div class="tm-viz-label"><span>Age</span> <span class="val">28y</span></div>
+                        <div class="tm-viz-track" style="--fill: 22%;">
+                            <span class="tm-viz-thumb" style="left: 22%;"></span>
+                        </div>
+                    </div>
+                    <div class="tm-viz-row">
+                        <div class="tm-viz-label"><span>Body Fat</span> <span class="val">15%</span></div>
+                        <div class="tm-viz-track" style="--fill: 38%;">
+                            <span class="tm-viz-thumb" style="left: 38%;"></span>
+                        </div>
+                    </div>
+                    <div class="tm-viz-figure">15<span style="color: var(--tm-accent)">%</span> <span class="small">BF · M · 28</span></div>
+                </div>
+            </a>
+
+            <!-- No. 01 — Body Fat Calculator -->
+            <a href="body-fat-estimator/" class="tm-card">
+                <div class="tm-card-head">
+                    <div class="tm-card-icon tm-icon-bf">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0l12.6 12.6z"/><line x1="7" y1="7" x2="10" y2="7"/><line x1="9" y1="10" x2="12" y2="10"/><line x1="11" y1="13" x2="14" y2="13"/><line x1="13" y1="16" x2="16" y2="16"/></svg>
+                    </div>
+                    <span class="tm-card-index">No. 01</span>
+                </div>
+                <h3>Body Fat Calculator</h3>
+                <p class="tm-card-desc">Estimate body fat percentage using the U.S. Navy tape-measure method. Enter a few circumferences, receive your percentage and category.</p>
+                <div class="tm-card-foot">
+                    <span class="tm-card-method">Method · U.S. Navy</span>
+                    <span class="tm-card-go">Open <span class="tm-card-go-arrow">→</span></span>
+                </div>
+            </a>
+
+            <!-- No. 03 — FFMI -->
+            <a href="ffmi-calculator/" class="tm-card">
+                <div class="tm-card-head">
+                    <div class="tm-card-icon tm-icon-ffmi">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11"/><path d="M21 21l-1-1"/><path d="M3 3l1 1"/><path d="M18 22l4-4"/><path d="M2 6l4-4"/><path d="M3 10l7-7"/><path d="M14 21l7-7"/></svg>
+                    </div>
+                    <span class="tm-card-index">No. 03</span>
+                </div>
+                <h3>FFMI Calculator</h3>
+                <p class="tm-card-desc">Calculate Fat-Free Mass Index — how close your lean mass sits to the natural ceiling (~25). Weight, height, body-fat in, physique tier out.</p>
+                <div class="tm-card-foot">
+                    <span class="tm-card-method">Formula · Kouri 1995</span>
+                    <span class="tm-card-go">Open <span class="tm-card-go-arrow">→</span></span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ============ § II — NUTRITION ============ -->
+    <section class="tm-section">
+        <header class="tm-section-header">
+            <span class="tm-section-mark">§ II</span>
+            <h2 class="tm-section-title">Nutrition &amp; Energy</h2>
+            <span class="tm-section-count">Three instruments</span>
+        </header>
+        <div class="tm-grid">
+
+            <!-- No. 04 — TDEE -->
+            <a href="tdee-calculator/" class="tm-card">
+                <div class="tm-card-head">
+                    <div class="tm-card-icon tm-icon-tdee">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4.97 0-7-3.58-7-7 0-4 3.5-7.5 3.5-7.5S10 9 10 6c0-1.5-.5-3-2-4 2.5 0 5 2.04 5 5 0 1.5-.5 3-1.5 4 1.5-1 2.5-3 2.5-5 3.5 2 5 4.5 5 7 0 3.42-2.03 7-7 7z"/></svg>
+                    </div>
+                    <span class="tm-card-index">No. 04</span>
+                </div>
+                <h3>TDEE Calculator</h3>
+                <p class="tm-card-desc">Calories burned in a day — the foundation of any diet. Uses Mifflin-St Jeor with age, weight, height and activity level to return your maintenance.</p>
+                <div class="tm-card-foot">
+                    <span class="tm-card-method">Formula · Mifflin-St Jeor</span>
+                    <span class="tm-card-go">Open <span class="tm-card-go-arrow">→</span></span>
+                </div>
+            </a>
+
+            <!-- No. 05 — Macro -->
+            <a href="macro-calculator/" class="tm-card">
+                <div class="tm-card-head">
+                    <div class="tm-card-icon tm-icon-macro">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2l7.5 7.5M15 2l-7.5 7.5"/><path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/><line x1="12" y1="22" x2="12" y2="17"/></svg>
+                    </div>
+                    <span class="tm-card-index">No. 05</span>
+                </div>
+                <h3>Macro Calculator</h3>
+                <p class="tm-card-desc">Protein, carb and fat targets — calibrated to your TDEE and your goal. Cut, maintain, or bulk. Grams per day, grams per meal.</p>
+                <div class="tm-card-foot">
+                    <span class="tm-card-method">Input · TDEE + Goal</span>
+                    <span class="tm-card-go">Open <span class="tm-card-go-arrow">→</span></span>
+                </div>
+            </a>
+
+            <!-- No. 06 — Calorie Deficit -->
+            <a href="calorie-deficit-calculator/" class="tm-card">
+                <div class="tm-card-head">
+                    <div class="tm-card-icon tm-icon-cdc">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    </div>
+                    <span class="tm-card-index">No. 06</span>
+                </div>
+                <h3>Calorie Deficit Calculator</h3>
+                <p class="tm-card-desc">How long until the goal? Daily calorie target, projected timeline, and milestone dates you can put on the calendar — works for cuts and bulks.</p>
+                <div class="tm-card-foot">
+                    <span class="tm-card-method">Model · Weekly rate</span>
+                    <span class="tm-card-go">Open <span class="tm-card-go-arrow">→</span></span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ============ § III — PERFORMANCE ============ -->
+    <section class="tm-section">
+        <header class="tm-section-header">
+            <span class="tm-section-mark">§ III</span>
+            <h2 class="tm-section-title">Performance &amp; Output</h2>
+            <span class="tm-section-count">Three instruments</span>
+        </header>
+        <div class="tm-grid">
+
+            <!-- No. 07 — 1RM -->
+            <a href="one-rep-max-calculator/" class="tm-card">
+                <div class="tm-card-head">
+                    <div class="tm-card-icon tm-icon-orm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11"/><path d="M21 21l-1-1"/><path d="M3 3l1 1"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="5.5" r="2.5"/></svg>
+                    </div>
+                    <span class="tm-card-index">No. 07</span>
+                </div>
+                <h3>1RM Calculator</h3>
+                <p class="tm-card-desc">Your one-rep max from six classical formulas, plus training percentages for every rep range. Find your tier — Untrained to Elite.</p>
+                <div class="tm-card-foot">
+                    <span class="tm-card-method">Formulas · 6 incl. Epley</span>
+                    <span class="tm-card-go">Open <span class="tm-card-go-arrow">→</span></span>
+                </div>
+            </a>
+
+            <!-- No. 08 — Strength Standards -->
+            <a href="strength-standards-calculator/" class="tm-card">
+                <div class="tm-card-head">
+                    <div class="tm-card-icon tm-icon-ssc">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10"/><path d="M10 21V4"/><path d="M17 21v-8"/><path d="M2 21h20"/></svg>
+                    </div>
+                    <span class="tm-card-index">No. 08</span>
+                </div>
+                <h3>Strength Standards</h3>
+                <p class="tm-card-desc">Strong for your bodyweight? Eight compound lifts benchmarked Untrained → Elite, plus your percentile rank and the weight that unlocks the next tier.</p>
+                <div class="tm-card-foot">
+                    <span class="tm-card-method">Lifts · 8 compound</span>
+                    <span class="tm-card-go">Open <span class="tm-card-go-arrow">→</span></span>
+                </div>
+            </a>
+
+            <!-- No. 09 — Calories Burned -->
+            <a href="calories-burned-calculator/" class="tm-card">
+                <div class="tm-card-head">
+                    <div class="tm-card-icon tm-icon-cbc">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                    </div>
+                    <span class="tm-card-index">No. 09</span>
+                </div>
+                <h3>Calories Burned</h3>
+                <p class="tm-card-desc">Search 240+ activities — from walking the dog to competitive squash. Input weight and duration, output calories burned with food-equivalent comparisons.</p>
+                <div class="tm-card-foot">
+                    <span class="tm-card-method">Data · MET tables</span>
+                    <span class="tm-card-go">Open <span class="tm-card-go-arrow">→</span></span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ============ § IV — DOCUMENTATION ============ -->
+    <section class="tm-section" style="padding-bottom: clamp(48px, 6vw, 88px);">
+        <header class="tm-section-header">
+            <span class="tm-section-mark">§ IV</span>
+            <h2 class="tm-section-title">Documentation</h2>
+            <span class="tm-section-count">One instrument</span>
+        </header>
+        <div class="tm-grid tm-grid-single">
+
+            <!-- No. 10 — Progress Photo Setup -->
+            <a href="progress-photo-setup/" class="tm-card tm-wide">
+                <div class="tm-card-head">
+                    <div class="tm-card-icon tm-icon-pp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"/><path d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg>
+                    </div>
+                    <span class="tm-card-index">No. 10</span>
+                </div>
+                <div>
+                    <h3>Progress Photo Setup Tool</h3>
+                    <p class="tm-card-desc">Build your perfect progress photo setup in five steps. Personalized lighting and framing advice, pose library, and a score for your current routine.</p>
+                </div>
+                <div class="tm-card-foot">
+                    <span class="tm-card-method">Steps · 5</span>
+                    <span class="tm-card-go">Open <span class="tm-card-go-arrow">→</span></span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="tm-faq">
+        <div class="tm-faq-head">
+            <span class="tm-faq-mark">§ V · Errata</span>
+            <h2>Frequently<br>Asked<br>Questions</h2>
+            <p class="tm-faq-intro">Questions we field most often — about the math, the methods, and what happens beyond the calculator.</p>
+        </div>
+        <div class="tm-faq-list">
+            <div class="tm-faq-item open">
+                <button class="tm-faq-q" onclick="toggleFaq(this)">
                     Are these fitness calculators really free?
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+                    <span class="tm-faq-toggle">+</span>
                 </button>
-                <div class="faq-answer">
-                    <p>Yes — all GainFrame fitness calculators are 100% free. No account, email, or signup is required. Enter your measurements, get instant results.</p>
+                <div class="tm-faq-a">
+                    <p>Yes — every calculator here is 100% free. No account, no email, no signup. Enter your measurements, get your result. If you want AI-powered photo analysis and tracking beyond the math, the GainFrame iOS app extends the set.</p>
                 </div>
             </div>
 
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
+            <div class="tm-faq-item">
+                <button class="tm-faq-q" onclick="toggleFaq(this)">
                     How accurate are online body fat calculators?
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+                    <span class="tm-faq-toggle">+</span>
                 </button>
-                <div class="faq-answer">
-                    <p>The U.S. Navy tape-measure method used in our body fat calculator has been validated to estimate body fat within ±3–4% of more expensive methods like DEXA. It is one of the most reliable self-assessment tools available. For even greater accuracy, GainFrame's AI-powered photo analysis can provide more detailed body composition estimates.</p>
+                <div class="tm-faq-a">
+                    <p>The U.S. Navy tape-measure method used here has been validated to within ±3–4% of DEXA for most people — one of the most reliable self-assessment methods available. For higher precision, GainFrame's AI photo analysis triangulates a more exact number from a single image.</p>
                 </div>
             </div>
 
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
+            <div class="tm-faq-item">
+                <button class="tm-faq-q" onclick="toggleFaq(this)">
                     What is TDEE and why does it matter?
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+                    <span class="tm-faq-toggle">+</span>
                 </button>
-                <div class="faq-answer">
-                    <p>TDEE stands for Total Daily Energy Expenditure — the total number of calories you burn per day including exercise and daily activity. It matters because knowing your TDEE is the foundation of any diet plan: eat below it to lose fat, at it to maintain, or above it to build muscle.</p>
+                <div class="tm-faq-a">
+                    <p>TDEE — Total Daily Energy Expenditure — is the calories you burn per day, resting plus moving. It's the foundation of every diet plan: eat under it to lose fat, at it to maintain, above it to build muscle. Miss the number, miss the outcome.</p>
                 </div>
             </div>
 
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
+            <div class="tm-faq-item">
+                <button class="tm-faq-q" onclick="toggleFaq(this)">
                     How do I use a macro calculator to build muscle?
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+                    <span class="tm-faq-toggle">+</span>
                 </button>
-                <div class="faq-answer">
-                    <p>Set your goal to "lean bulk" which adds roughly 300 calories above your TDEE. The calculator will prioritize protein (around 0.8 g per pound of body weight), set fat at 25% of calories, and fill the rest with carbohydrates. Combine these macros with progressive resistance training for optimal results.</p>
+                <div class="tm-faq-a">
+                    <p>Set the goal to <em>lean bulk</em> — roughly 300 calories above TDEE. The calculator prioritizes protein (~0.8g per pound of bodyweight), caps fat at ~25% of calories, and fills the rest with carbs. Pair with progressive resistance training.</p>
                 </div>
             </div>
 
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    Can GainFrame track my progress beyond these calculators?
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+            <div class="tm-faq-item">
+                <button class="tm-faq-q" onclick="toggleFaq(this)">
+                    Can GainFrame track progress beyond these calculators?
+                    <span class="tm-faq-toggle">+</span>
                 </button>
-                <div class="faq-answer">
-                    <p>Yes. GainFrame is an iOS app that uses AI to analyze your gym progress photos and estimate body fat percentage, FFMI, muscle group scores, and personalized macro recommendations — all from a single photo. It goes far beyond what manual calculators can offer.</p>
+                <div class="tm-faq-a">
+                    <p>Yes. GainFrame is an iOS app that uses AI to analyze your progress photos and return body fat %, FFMI, muscle-group scores and macro recommendations — from a single photo. It's the measurement stack these calculators approximate, done automatically.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="tools-cta">
-        <div class="tools-cta-inner">
-            <div class="tools-cta-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" /><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" /></svg>
+    <!-- ============ CTA — BACK COVER ============ -->
+    <section class="tm-cta">
+        <div class="tm-cta-inner">
+            <div>
+                <span class="tm-cta-mark">Beyond the Almanac</span>
+                <h2>One selfie.<br>A full <em>body composition</em><br>report.</h2>
+                <p class="tm-cta-deck">The calculators here approximate. The GainFrame iOS app measures — AI analysis of your progress photos returns body fat %, FFMI, twelve muscle scores and custom macros in under a minute.</p>
             </div>
-            <h2>Go beyond calculators</h2>
-            <p>GainFrame uses AI to analyze your progress photos and give you body fat, FFMI, muscle scores, and macro recommendations — all from a single photo.</p>
-            <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank" rel="noopener" style="display:inline-block">
-                <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" style="height:48px;width:auto" />
-            </a>
+            <aside class="tm-cta-aside">
+                <dl class="tm-cta-data">
+                    <dt>Platform</dt><dd>iOS · iPhone</dd>
+                    <dt>Time to result</dt><dd>~60 seconds</dd>
+                    <dt>Body fat delta</dt><dd>±2–4% vs DEXA</dd>
+                    <dt>Price</dt><dd>Free to start</dd>
+                </dl>
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank" rel="noopener" class="tm-cta-badge">
+                    <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" />
+                </a>
+            </aside>
+        </div>
+        <div class="tm-cta-footer">
+            <span><span class="accent">◆</span> GainFrame · A.D. 2026</span>
+            <span>The Field Manual · Vol. I · Calculators</span>
+            <span>End of Volume</span>
         </div>
     </section>
 
@@ -626,9 +1516,7 @@
         function toggleFaq(btn) {
             var item = btn.parentElement;
             var wasOpen = item.classList.contains('open');
-            /* Close all */
-            document.querySelectorAll('.faq-item').forEach(function (el) { el.classList.remove('open'); });
-            /* Toggle clicked */
+            document.querySelectorAll('.tm-faq-item').forEach(function (el) { el.classList.remove('open'); });
             if (!wasOpen) item.classList.add('open');
         }
     </script>
