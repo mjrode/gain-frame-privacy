@@ -1794,12 +1794,19 @@ body {
     color: var(--color-text-secondary);
 }
 
-/* Hero Image */
+/* Hero Image — restrained shadow, lets the cover breathe */
 .post-hero-image {
     margin: 0 calc(-1 * var(--sp-xl)) var(--sp-2xl);
     border-radius: var(--radius-lg);
     overflow: hidden;
     border: 1px solid var(--color-border);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* Reset any inline shadow from older posts that hard-code a heavier one */
+.post-hero-image > img,
+.post-hero-image[style*="box-shadow"] {
+    box-shadow: none !important;
 }
 
 .post-hero-image img {
@@ -1821,32 +1828,56 @@ body {
     border-radius: 32px;
 }
 
-/* Body Typography */
+/* Body Typography — editorial rhythm */
 .post-body {
     padding-bottom: var(--sp-2xl);
 }
 
 .post-body h2 {
     font-family: var(--font-display);
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.022em;
     color: var(--color-text);
-    margin: var(--sp-2xl) 0 var(--sp-md);
-    line-height: 1.2;
+    margin: 80px 0 var(--sp-md);
+    line-height: 1.18;
+}
+
+/* Slightly smaller weight for h3 sub-sections to anchor scan flow */
+.post-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    font-weight: 700;
+    letter-spacing: -0.012em;
+    color: var(--color-text);
+    margin: var(--sp-xl) 0 var(--sp-sm);
+    line-height: 1.3;
 }
 
 .post-body p {
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-size: 1.08rem;
+    line-height: 1.78;
     color: var(--color-text-secondary);
     margin-bottom: var(--sp-lg);
 }
 
+/* LEDE — the front-loaded answer paragraph (auto-applied to first <p>
+   after the first <h2> in the post body, no class required).
+   Treated as an editorial pull-paragraph: bigger, darker, sage anchor. */
+.post-body h2:first-of-type + p,
 .post-lede {
-    font-size: 1.15rem !important;
+    font-size: 1.22rem !important;
     color: var(--color-text) !important;
-    line-height: 1.75 !important;
+    line-height: 1.6 !important;
+    padding-left: var(--sp-lg);
+    border-left: 3px solid var(--color-sage);
+    margin: var(--sp-lg) 0 var(--sp-xl);
+}
+
+.post-body h2:first-of-type + p strong,
+.post-lede strong {
+    color: var(--color-text);
+    font-weight: 700;
 }
 
 .post-body strong {
@@ -1875,12 +1906,27 @@ body {
     color: var(--color-text);
 }
 
-/* Divider */
+/* Divider — editorial three-dot signature instead of a flat rule */
 .post-divider {
     border: none;
-    height: 1px;
-    background: var(--color-border);
+    background: none;
+    height: auto;
     margin: var(--sp-2xl) 0;
+    text-align: center;
+    overflow: visible;
+    color: var(--color-sage);
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.post-divider::before {
+    content: '· · ·';
+    letter-spacing: 0.6em;
+    font-size: 1.5rem;
+    color: var(--color-sage);
+    display: inline-block;
+    padding-left: 0.6em; /* compensates for trailing letter-spacing so dots look centered */
 }
 
 /* Ordered Steps */
@@ -1994,19 +2040,20 @@ body {
     margin-bottom: 0 !important;
 }
 
-/* Callout / Blockquote */
+/* Callout / Blockquote — sage anchor, refined typography */
 .post-callout {
     margin: var(--sp-xl) 0;
     padding: var(--sp-lg) var(--sp-xl);
-    background: var(--color-surface);
-    border-left: 3px solid var(--color-text);
-    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    background: var(--color-sage-light);
+    border-left: 3px solid var(--color-sage);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
 
 .post-callout p {
-    font-size: 1rem !important;
+    font-size: 1.05rem !important;
     font-style: italic;
     color: var(--color-text) !important;
+    line-height: 1.65 !important;
 }
 
 .post-callout p:last-child {
@@ -2127,44 +2174,73 @@ body {
     }
 }
 
-/* Tables */
+/* ============================================================
+   Tables — editorial / Ringer-style
+   Sits on the page, not in a card. Authority via typography +
+   strong rule lines, not via box chrome. First column anchors
+   each row. Last column (typically GainFrame) gets a sage tint
+   to make it scannable as "this column = our app".
+   ============================================================ */
 .post-table-wrapper {
-    margin: var(--sp-xl) 0;
+    margin: var(--sp-2xl) 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
+    /* No outer border — table sits on page like editorial data */
+    border: none;
+    border-radius: 0;
+    /* Top + bottom heavy rules act as visual brackets */
+    border-top: 2px solid var(--color-text);
+    border-bottom: 2px solid var(--color-text);
 }
 
 .post-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.55;
     white-space: normal;
 }
 
 .post-table thead {
-    background: var(--color-surface);
+    background: transparent;
 }
 
 .post-table th {
-    padding: 14px 20px;
+    padding: 18px 20px 14px;
     font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.82rem;
+    font-weight: 800;
+    font-size: 0.72rem;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--color-text-tertiary);
+    letter-spacing: 0.12em;
+    color: var(--color-text);
     text-align: left;
-    border-bottom: 2px solid var(--color-border);
+    border-bottom: 1px solid var(--color-text);
+    white-space: nowrap;
+}
+
+/* Highlight the GainFrame column (last) — column-level sage tint */
+.post-table th:last-child,
+.post-table td:last-child {
+    background: var(--color-sage-light);
+    border-left: 1px solid rgba(107, 143, 113, 0.16);
+}
+
+.post-table th:last-child {
+    color: var(--color-sage);
 }
 
 .post-table td {
-    padding: 14px 20px;
+    padding: 18px 20px;
     color: var(--color-text-secondary);
     border-bottom: 1px solid var(--color-border);
     vertical-align: top;
+}
+
+/* First column = anchor — bolder + darker */
+.post-table td:first-child {
+    color: var(--color-text);
+    font-weight: 600;
 }
 
 .post-table td strong {
@@ -2176,8 +2252,17 @@ body {
     border-bottom: none;
 }
 
-.post-table tbody tr:nth-child(even) {
-    background: var(--color-surface);
+/* Row hover — barely-there sage tint */
+.post-table tbody tr {
+    transition: background-color 0.12s ease;
+}
+
+.post-table tbody tr:hover td:not(:last-child) {
+    background: rgba(107, 143, 113, 0.04);
+}
+
+.post-table tbody tr:hover td:last-child {
+    background: rgba(107, 143, 113, 0.14);
 }
 
 @media (max-width: 768px) {
@@ -2185,15 +2270,91 @@ body {
         margin-left: -1rem;
         margin-right: -1rem;
         border-radius: 0;
-        border-left: none;
-        border-right: none;
     }
 
-    .post-table th,
-    .post-table td {
-        padding: 12px 14px;
-        font-size: 0.82rem;
+    .post-table th {
+        padding: 14px 14px 11px;
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
     }
+
+    .post-table td {
+        padding: 14px 14px;
+        font-size: 0.88rem;
+    }
+}
+
+/* ============================================================
+   Related Articles — chevron list
+   Extracted from inline styles used in older posts so new posts
+   can just use `<div class="post-related">` + plain markup.
+   ============================================================ */
+.post-related {
+    margin-top: var(--sp-2xl);
+    padding-top: var(--sp-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+.post-related h2,
+.post-related h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.012em;
+    color: var(--color-text);
+    margin: 0 0 var(--sp-md);
+}
+
+.post-related ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.post-related li {
+    margin: 0;
+    padding: 0;
+}
+
+.post-related a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.post-related a:hover {
+    color: var(--color-sage);
+    transform: translateX(2px);
+}
+
+.post-related a::before {
+    content: '';
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    /* Chevron-double-right SVG inline as a mask — color picks up `color` */
+    background-color: var(--color-text-tertiary);
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M13 5l7 7-7 7M5 5l7 7-7 7'/></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M13 5l7 7-7 7M5 5l7 7-7 7'/></svg>");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transition: background-color 0.15s ease;
+}
+
+.post-related a:hover::before {
+    background-color: var(--color-sage);
 }
 
 /* Footer */

@@ -26,17 +26,47 @@ When triggered, you MUST follow these steps sequentially. **Do not proceed to th
 3. **The Solution:** Ask how GainFrame specifically solves this problem better than the alternative.
 
 ### Phase 2: Asset Gathering
-1. **Identify Needs:** Based on their answers, tell the user exactly what 2-4 screenshots would best visualize this post (e.g., "A side-by-side comparison", "The Deep Dive analysis screen").
-2. **Collect:** Ask the user to drop the screenshots into the chat or provide file paths.
-3. **Note:** Tell the user you will automatically convert these to highly optimized `.webp` formats.
+
+**Step 1 — Check the curated screenshot library FIRST** (before asking the user for anything). The library lives at `/Users/michael.rode/code/project/gain-frame-privacy/app-screenshots/[version]/` — currently `1.21`. These are the canonical in-app screenshots maintained by the user. **Default to these whenever they fit.** Only ask the user for net-new screenshots if the article needs something this catalog doesn't cover.
+
+#### Screenshot Library Catalog (v1.21 — 10 screenshots)
+
+| Filename | What it shows | Recommend for articles about |
+|---|---|---|
+| `home.png` | Home screen — weekly check-in calendar (S–F days), latest check-in photo with body fat % overlay (15% BF, −1% delta), GainFrame Score badge (74, +6 delta), streak indicator (1/3 this week, "Start a new streak"), bottom nav (Home / Compare / Insights) | App overview, weekly check-ins, streak tracking, the "feed-like" daily UX, score reveals |
+| `dashboard.png` | Insights dashboard — in-app chat CTA ("Tap here to chat with Mike"), "View Transformation" record card (−8.0% Body Fat), Weight + Body Fat trend chart (183 lbs / −15%), pose timelines breakdown (Front 32 photos / Left Side 1 / Front Flexed 1) | Trend tracking, transformation history, founder access, multi-pose tracking, in-app chat / support story |
+| `photo-gallery.png` | Progress Photos grid — All / By Month / By Year tabs, 6 photo tiles each tagged with score badge + date + weight + pose type ("Front") | Progress photo organization, camera roll workflow, pose classification, browsing your timeline, Smart Import results |
+| `compare.png` | Compare view — side-by-side with two photos, BF% delta (−23%), time elapsed (2yr 11mo 17d), Smart Filters dropdown (10 new filters), Deep Dive Analysis CTA, Side by Side / Slider toggle, Adjust / Swap / Auto / Blur / Background buttons | Side-by-side comparisons, transformation deltas, the Compare feature, Smart Filters, the Deep Dive entry point, before/after content |
+| `muscle-map.png` | Muscle map — Front/Back toggle, Before/After body silhouettes color-coded by muscle development, gradient legend (Needs Work → Developing → Solid → Strong → Elite), radar chart of 8 muscle areas (Front Delts, Side/Rear Delts, Upper Chest, Mid/Lower Chest, Biceps, Abs, Obliques) | Per-muscle scoring, 12 muscle group ratings, the "Developing → Strong" progression labels, weak-point identification, training recommendations, muscle group analysis |
+| `check-ins.png` | Check-In Streak screen — "Week Secured" badge, "2 Weeks Active" headline, "This week is locked in" message, weekly calendar (M–S, today highlighted), today's log (239 lbs, 1 photo Front), overview stats (8 wks best / 3 this month / 33 total) | Consistency / streaks, weekly habit, gamification, accountability, why frequency matters, the streak protection mechanic |
+| `future-you.png` | Future You / Goal Preview — "Your movie-cover outcome" headline, NOW vs +6 MONTHS AI-projected side-by-side images (goal: Lose Fat, Build Muscle), Slider / Split toggle, **"Illustrative AI projection — not a prediction or medical advice" disclaimer**, Intensity slider with "Fantasy" mode (Stylized and dramatic, no realism constraints) | Future Physique feature, AI projections, goal visualization, motivation content. Note: the disclaimer matters — if the article frames this as a prediction, get the hedging right |
+| `post-check-in-photo-score.png` | Score card detail — "IMPRESSIVE" trend badge, GainFrame Score 68 with body fat 17.0% + weight 239 lbs, narrative feedback ("Strong shoulder width and chest fullness with visible midsection leanness"), 4-metric breakdown (Body Fat 65 / Muscle 72 / Proportions 70 / Goal Fit 68), trajectory section ("Recomp On Track") | The Deep Dive Report, score breakdown, narrative AI feedback, the 4-metric framework, "what your score means" content |
+| `throwback.png` | Throwback comparison — "1 Month Ago" THEN (Mar 31) vs NOW (Apr 25) photos, Weight delta (+10 lbs gained), GF Score delta (+16 improvement), Preview & Share button | The Throwback feature, auto-best then-vs-now comparisons, sharing milestones, the "1 month / 3 months / 1 year" memory hook |
+| `weight-chart.png` | Weight tracking screen — 239.0 lbs current (−12.0 from start), milestone tracker (1 of 3 milestones, goal 229.0 lbs, next milestone 236.3 lbs), 90-day trajectory chart with start/current/goal markers, Rate of Change section | Weight tracking, milestone goals, trajectory visualization, recomp content, Apple Health weight integration |
+
+#### Asset Gathering Workflow
+
+1. **Match article topic to library screenshots.** Recommend 2-4 by filename. Example: an article about "before and after comparisons" naturally pulls `compare.png` + `throwback.png` + maybe `photo-gallery.png`. An article about per-muscle scoring pulls `muscle-map.png` + `post-check-in-photo-score.png`.
+2. **Tell the user which ones you picked + why** before copying. They can swap or add. Example: *"I'll use compare.png (for the side-by-side feature section), muscle-map.png (for the per-muscle scoring section), and dashboard.png (for the trend overview). Sound right?"*
+3. **Copy + convert to WebP.** When the user confirms, copy each into `blog/[slug]/assets/` and convert PNG → WebP with `cwebp -q 80 source.png -o target.webp`. Suggested naming: keep the original name (e.g. `compare.webp`).
+4. **Only ask for new screenshots** if the article needs a specific screen this catalog doesn't cover. Be specific: *"The library doesn't have a screenshot of [X] — could you provide one?"* Don't ask for screenshots the library already has.
+5. **WebP conversion always happens** (whether the source is library PNG or user-provided PNG/JPG). Never link `.png` or `.jpg` in the final HTML.
+
+#### Catalog maintenance
+
+- The library is **versioned by app release** (`/app-screenshots/1.21/`, `/app-screenshots/1.22/`, ...). Always check for the latest version directory before recommending — newer versions may add or replace screens.
+- If the user adds new screenshots to the library, the catalog above should be updated. Suggest editing this skill file when you notice a screenshot in the library that isn't in the catalog.
+- If a UI redesign happens (major version bump that changes screen layouts), the catalog descriptions need updating to match. Flag this to the user when you notice catalogued descriptions don't match the current screenshots.
 
 ### Phase 3: Drafting & Implementation
 Once the interview is complete and assets are provided, execute the following implementation plan automatically:
 
 1. **Setup Directory:** Create `/blog/[slug-name]/assets/`.
 2. **Process Images:** Move the user's provided images into the `assets/` folder. Use the `run_command` tool to run `cwebp` to convert all `.png`/`.jpg` files to `.webp` format with `-q 80`. Delete the original files.
-3. **Generate Cover Image:** Use the `generate_image` tool (or `fal-generate` skill) to create a striking 4:3 cover image for the blog grid. **You MUST use this exact prompt structure (fill in the SUBJECT):**
-   > *Prompt: "A minimalist, abstract vector line-art illustration of [SUBJECT]. Thin, precise UI-style lines in dark charcoal gray (#2D3748) against a very light off-white/cream background (#F7FAFC). Subtle, muted pastel accent colors (coral red #FF6B6B, sage green #48BB78, golden yellow #ECC94B) used sparingly to highlight key elements. The style should resemble high-end SaaS product illustrations, clean, geometric, with plenty of negative space. No text, no text rendering."*
+3. **Generate Cover Image:** Invoke the `image-generate` skill (`.agent/skills/image-generate/SKILL.md`) to create a striking 4:3 cover image for the blog grid. The skill wraps Google Gemini's Nano Banana 2 model (`gemini-3.1-flash-image-preview`) and the brand prompt template is its built-in `style_template: "blog-cover"` default — you only need to provide a `subject` and a `target_path`. Cost ~$0.039 per image. Save to `blog/[slug]/assets/cover.webp` and reference at 4 places in the HTML: `og:image`, `twitter:image`, JSON-LD `image`, hero `<img src>` (relative path: `assets/cover.webp`). Plus the blog index card image.
+
+   **Prompt template (used internally by `image-generate` — shown here for reference):**
+   > *"A minimalist, abstract vector line-art illustration of [SUBJECT]. Thin, precise UI-style lines in dark charcoal gray (#2D3748) against a very light off-white/cream background (#F7FAFC). Subtle, muted pastel accent colors (coral red #FF6B6B, sage green #48BB78, golden yellow #ECC94B) used sparingly to highlight key elements. The style should resemble high-end SaaS product illustrations, clean, geometric, with plenty of negative space. No text, no text rendering."*
 4. **Draft the Content** following the **Writing Voice & Style** rules below.
    - Ensure the primary keyword is in the H1, the first paragraph, and at least one H2.
 
@@ -144,9 +174,23 @@ When a post cites scientific studies or peer-reviewed research, these additional
 - **Never write the post in one shot without the interview.** The user's specific tone and raw answers are what make the content rank and convert.
 - **Images must be WebP.** Never link a .png or .jpg in the final HTML.
 - **Mobile First CTAs:** Ensure the inline and bottom CTAs use the `<div class="blog-post-cta scroll-reveal">` class structure so they stack elegantly on mobile.
-- **Internal Linking:** Always include a "Related posts" `<ul>` at the bottom of the article linking to at least 3 other existing blog posts.
+- **Internal Linking:** Always include a "Related Articles" block at the bottom of the article linking to 3-5 other existing blog posts. Use this exact markup (the `.post-related` class supplies all styling — never use inline styles, never call it "Related posts" lowercase, always "Related Articles"):
+
+  ```html
+  <div class="post-related">
+      <h3>Related Articles</h3>
+      <ul>
+          <li><a href="/blog/[slug-1]/">Title of related post 1</a></li>
+          <li><a href="/blog/[slug-2]/">Title of related post 2</a></li>
+          <li><a href="/blog/[slug-3]/">Title of related post 3</a></li>
+      </ul>
+  </div>
+  ```
+
+  The `.post-related` class auto-generates the chevron (`»`) icon before each link via CSS pseudo-element — do NOT add `<svg>` markup inside the `<a>`. Older posts have inline-styled SVGs but new posts should use the class.
 
 ## Reference Files
+- `/product-context.md` — **READ THIS FIRST.** Authoritative source for tagline, target audience, features, differentiators, honest limitations, and brand voice. Use it to ground every post (especially the "GainFrame Integration" mention and the closing CTA). Do NOT invent product features or fabricate differentiators — only what's listed in this file is verifiable.
 - `/blog.html` (Must be updated with the new post)
 - `/sitemap.xml` (Must be updated with the new post)
 - `/TODO_SEO.md` (For topic inspiration and task tracking)
