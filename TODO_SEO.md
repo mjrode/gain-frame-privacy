@@ -44,6 +44,20 @@ Documented in source reports for future reference. Health-authority lockout make
 - [x] **Spren App Review: Accuracy, Cost & Comparison** (Med/20, comparison-article-generator) — added 2026-04-25 — Spren owns 8/10 SERP results with no independent reviews; covers "spren app review" + "how accurate is spren app" + "spren app cost"; instant trust gap opportunity for third-party review — published 2026-04-25 as /blog/spren-app-review/
 - [x] **Natty Limit: How Big Can You Get Naturally?** (Med/25, blog-post-generator) — added 2026-04-25 — Quora + T-Nation forum signal content gap; gym-native audience; builds on existing FFMI posts (what-is-ffmi + ffmi-chart); differentiates from Outlift's FFMI post with photo-based evidence angle — published 2026-04-25 as /blog/natty-limit/
 
+### From: keyword-research/2026-04-26-gsc-quick-wins.md
+
+- [x] **Body Fat % for Visible Jawline Men** (Med/5, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/body-fat-visible-jawline-men/ — TOP PICK; SERP = Quora + TikTok + personal blogs; GainFrame angle: tracks BF% AND photo progress so you literally see your face change; suggested title: "Body Fat % for a Visible Jawline (Men): Targets by Face Type + How to Track It"
+- [ ] **How to Estimate Body Fat % from a Photo** (Med/25, blog-post-generator) — added 2026-04-26 — STRONG SECOND; already ranking pos 2.8 with 45 impressions and 0 clicks; needs dedicated post with HowTo schema + visual BF% reference images at 5/10/15/20/25/30%; GainFrame CTA: "or let AI do it in 30 seconds"
+- [ ] **Best Before-and-After Transformation Apps for Women** (Med/20, blog-post-generator listicle) — added 2026-04-26 — GSC query "which app has the best before-and-after transformations for women?" at pos 7.5, 0% CTR — no women-specific post exists; mirror of best-before-after-transformations-men; suggested title: "Best Before-and-After Transformation Apps for Women (2026)"
+- [ ] **Best AI Body Composition App** (Med/35, blog-post-generator listicle) — added 2026-04-26 — autocomplete-discovered exact phrase; filter out photo-editor audience entirely; honest comparison (Spren, trackBod, Naked Labs) converts better than self-promotion; may be refresh+rename of best-ai-body-fat-apps
+- [ ] **DEXA Scan Alternative for Body Composition** (Med-High/65, blog-post-generator) — added 2026-04-26 — pursue AFTER posts 1–3 above land; GainFrame = $0 vs $100/scan; body-composition slice of SERP underserved vs bone-density slice; check if dexa-scan-vs-ai-body-composition already covers "alternative" intent first
+
+#### CTR Fixes (existing posts — no new content needed)
+
+- [ ] **[CTR] `best-ai-body-fat-apps` title fix** — add "body AI" / "AI body" phrasing; 229 impressions at pos 6.2, 4.8% CTR — biggest absolute click opportunity — added 2026-04-26
+- [ ] **[CTR] `ai-body-editor-apps-vs-real-analysis` title fix** — front-load listicle pattern: "8 Best AI Body Editor Apps 2026 (+ The Honest Alternative)"; 62 impressions at pos 3.8, 0% CTR — added 2026-04-26
+- [ ] **[CTR] `best-body-transformation-apps` title fix** — add "2026" + app count; 40 impressions at pos 10.8, 2.5% CTR — added 2026-04-26
+
 ## Published
 
 (none yet)
