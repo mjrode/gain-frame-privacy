@@ -54,9 +54,17 @@ Documented in source reports for future reference. Health-authority lockout make
 
 #### CTR Fixes (existing posts — no new content needed)
 
-- [ ] **[CTR] `best-ai-body-fat-apps` title fix** — add "body AI" / "AI body" phrasing; 229 impressions at pos 6.2, 4.8% CTR — biggest absolute click opportunity — added 2026-04-26
-- [ ] **[CTR] `ai-body-editor-apps-vs-real-analysis` title fix** — front-load listicle pattern: "8 Best AI Body Editor Apps 2026 (+ The Honest Alternative)"; 62 impressions at pos 3.8, 0% CTR — added 2026-04-26
-- [ ] **[CTR] `best-body-transformation-apps` title fix** — add "2026" + app count; 40 impressions at pos 10.8, 2.5% CTR — added 2026-04-26
+- [x] **[CTR] `best-ai-body-fat-apps` title fix** — add "body AI" / "AI body" phrasing; 229 impressions at pos 6.2, 4.8% CTR — biggest absolute click opportunity — added 2026-04-26 — done 2026-04-26
+- [x] **[CTR] `ai-body-editor-apps-vs-real-analysis` title fix** — front-load listicle pattern: "8 Best AI Body Editor Apps 2026 (+ The Honest Alternative)"; 62 impressions at pos 3.8, 0% CTR — added 2026-04-26 — done 2026-04-26
+- [x] **[CTR] `best-body-transformation-apps` title fix** — add "2026" + app count; 40 impressions at pos 10.8, 2.5% CTR — added 2026-04-26 — done 2026-04-26
+- [x] **[CTR] `how-to-read-body-fat-from-photos` title + HowTo schema** — pos 2.8, 45 impressions, 0 clicks — title rewritten to "How to Estimate Body Fat % from a Photo: Visual Markers + AI Method" + HowTo schema added — done 2026-04-26
+
+### From: keyword-research/2026-04-26-muscle-gain-tracking.md
+
+- [ ] **body transformation tracker app** (Med/20, blog-post-generator) — added 2026-04-26 — TOP PICK; SERP = Shapez/MacroFactor/Progress Body Tracker/BodyJourney; GainFrame's exact competitor set; no Healthline; title: "Best Body Transformation Tracker Apps (2026): 6 Apps for Tracking Visual Progress"
+- [ ] **best app to track muscle gain** (High/45→15 w/angle, blog-post-generator) — added 2026-04-26 — SERP dominated by workout loggers; angle: "you need both a workout logger AND a visual tracker"; recommends Hevy + GainFrame as complementary; title: "Best Apps to Track Muscle Gain (2026): Workout Logs + Visual Progress — Why You Need Both"
+- [ ] **best app to track body composition + body composition apps** (Med/30, blog-post-generator) — added 2026-04-26 — SERP = Spren/ZOZOFIT/FitTrace; broader than best-ai-body-fat-apps; title: "Best Body Composition Apps for Tracking Progress (2026): Spren, GainFrame, ZOZOFIT & More"
+- [ ] **how to track muscle gain progress + how to track muscle mass at home** (Med/35, blog-post-generator) — added 2026-04-26 — informational guide; BuiltWithScience/zing.coach rankable; featured snippet open; title: "How to Track Muscle Gain Progress: 5 Methods Ranked (Photos, Measurements, DEXA & AI)"
 
 ## Published
 
