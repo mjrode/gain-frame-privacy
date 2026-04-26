@@ -47,9 +47,9 @@ Documented in source reports for future reference. Health-authority lockout make
 ### From: keyword-research/2026-04-26-gsc-quick-wins.md
 
 - [x] **Body Fat % for Visible Jawline Men** (Med/5, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/body-fat-visible-jawline-men/ — TOP PICK; SERP = Quora + TikTok + personal blogs; GainFrame angle: tracks BF% AND photo progress so you literally see your face change; suggested title: "Body Fat % for a Visible Jawline (Men): Targets by Face Type + How to Track It"
-- [ ] **How to Estimate Body Fat % from a Photo** (Med/25, blog-post-generator) — added 2026-04-26 — STRONG SECOND; already ranking pos 2.8 with 45 impressions and 0 clicks; needs dedicated post with HowTo schema + visual BF% reference images at 5/10/15/20/25/30%; GainFrame CTA: "or let AI do it in 30 seconds"
-- [ ] **Best Before-and-After Transformation Apps for Women** (Med/20, blog-post-generator listicle) — added 2026-04-26 — GSC query "which app has the best before-and-after transformations for women?" at pos 7.5, 0% CTR — no women-specific post exists; mirror of best-before-after-transformations-men; suggested title: "Best Before-and-After Transformation Apps for Women (2026)"
-- [ ] **Best AI Body Composition App** (Med/35, blog-post-generator listicle) — added 2026-04-26 — autocomplete-discovered exact phrase; filter out photo-editor audience entirely; honest comparison (Spren, trackBod, Naked Labs) converts better than self-promotion; may be refresh+rename of best-ai-body-fat-apps
+- [x] **How to Estimate Body Fat % from a Photo** (Med/25, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/how-to-estimate-body-fat-from-photo/
+- [x] **Best Before-and-After Transformation Apps for Women** (Med/20, blog-post-generator listicle) — added 2026-04-26 — published 2026-04-26 as /blog/best-before-after-transformation-apps-women/
+- [x] **Best AI Body Composition App** (Med/35, blog-post-generator listicle) — added 2026-04-26 — published 2026-04-26 as /blog/best-ai-body-composition-app/
 - [ ] **DEXA Scan Alternative for Body Composition** (Med-High/65, blog-post-generator) — added 2026-04-26 — pursue AFTER posts 1–3 above land; GainFrame = $0 vs $100/scan; body-composition slice of SERP underserved vs bone-density slice; check if dexa-scan-vs-ai-body-composition already covers "alternative" intent first
 
 #### CTR Fixes (existing posts — no new content needed)
