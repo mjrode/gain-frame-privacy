@@ -14,7 +14,7 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 - [x] **visceral fat app** (Low-Med/70, blog-post-generator listicle) — added 2026-04-25 — only one dedicated app competitor in SERP; honest positioning post or "Best visceral fat tracking apps 2026" — published 2026-04-25 as /blog/visceral-fat-app/
 - [x] Combined visual post: visceral fat appearance + hard belly + how to tell (Med/70-95, blog-post-generator) — added 2026-04-25 — honest "you can't see visceral fat directly, here's what you CAN learn" angle — published 2026-04-25 as /blog/visceral-fat-appearance/
 - [x] visceral fat level (High/65, blog-post-generator) — added 2026-04-25 — pursue only if `visceral fat vs subcutaneous fat` lands — published 2026-04-25 as /blog/visceral-fat-level/
-- [ ] visceral fat test (Med/75, blog-post-generator) — added 2026-04-25 — pursue only after `visceral fat app` lands
+- [x] visceral fat test (Med/75, blog-post-generator) — added 2026-04-25 — pursue only after `visceral fat app` lands — published 2026-04-25 as /blog/visceral-fat-test/
 
 ### From: keyword-research/2026-04-25-body-composition-glossary.md
 
