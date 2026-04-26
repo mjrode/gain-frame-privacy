@@ -21,7 +21,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 # ── Config ─────────────────────────────────────────────────────────────────────
-SITE_URL  = "https://gainframe.app/"   # must match exactly how it appears in GSC
+SITE_URL  = "sc-domain:gainframe.app"  # domain property — auto-detected on first run
 DAYS_BACK = 90                          # rolling window; increase for longer history
 ROW_LIMIT = 25000                       # GSC API max per request
 
@@ -89,22 +89,57 @@ def get_credentials():
     return creds
 
 
+def resolve_site_url(service):
+    """Return the verified SITE_URL, auto-detecting if the configured one isn't found."""
+    result = service.sites().list().execute()
+    entries = result.get("siteEntry", [])
+
+    if not entries:
+        print("ERROR: No Search Console properties found for this Google account.")
+        print("Make sure michaelrode44@gmail.com is an owner or full user on the GSC property.")
+        sys.exit(1)
+
+    site_urls = [e["siteUrl"] for e in entries]
+
+    # Check if configured SITE_URL is in the verified list
+    if SITE_URL in site_urls:
+        return SITE_URL
+
+    # Try the domain property variant
+    domain_variant = f"sc-domain:{SITE_URL.replace('https://', '').replace('http://', '').rstrip('/')}"
+    if domain_variant in site_urls:
+        print(f"Note: '{SITE_URL}' not found — using domain property '{domain_variant}' instead.")
+        return domain_variant
+
+    # Neither matched — show what's available and exit
+    print(f"\nERROR: '{SITE_URL}' is not verified under this Google account.")
+    print("Verified properties found:\n")
+    for url in site_urls:
+        print(f"  {url}")
+    print(
+        f"\nFix: update SITE_URL on line 15 of fetch.py to one of the URLs above.\n"
+    )
+    sys.exit(1)
+
+
 def fetch_queries(creds):
     from googleapiclient.discovery import build
 
     service = build("searchconsole", "v1", credentials=creds, cache_discovery=False)
 
+    site_url = resolve_site_url(service)
+
     end_date   = datetime.today().date()
     start_date = end_date - timedelta(days=DAYS_BACK)
 
-    print(f"Site:  {SITE_URL}")
+    print(f"Site:  {site_url}")
     print(f"Range: {start_date} → {end_date}  ({DAYS_BACK} days)")
     print("Fetching...", flush=True)
 
     response = (
         service.searchanalytics()
         .query(
-            siteUrl=SITE_URL,
+            siteUrl=site_url,
             body={
                 "startDate":  start_date.isoformat(),
                 "endDate":    end_date.isoformat(),
