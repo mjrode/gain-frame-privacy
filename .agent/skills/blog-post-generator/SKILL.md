@@ -213,6 +213,21 @@ When a post cites scientific studies or peer-reviewed research, these additional
 
    **⚠️ NEVER add a custom `<style>` block** unless a specific UI component (e.g., a custom 2-column card grid) has absolutely no equivalent in `styles.css`. If you do add one, keep it to that component only — never redefine `:root` variables or global typography.
 
+   **⚠️ STRUCTURAL RULES — these mistakes break the layout and have happened before:**
+
+   1. **The outer wrapper is `<article class="post"><div class="container post-container">` — never `<div class="post-container">` alone.** The `article.post` class controls the dark background and vertical rhythm. Dropping it causes the page to render full-width and unstyled.
+   2. **The content wrapper is `<div class="post-body">` — never `<article class="post-body">`.** `post-body` is a `div`, not an `article`. Using an `<article>` tag here breaks semantic HTML and can conflict with CSS selectors.
+   3. **The CTA (`blog-post-cta`) and related articles (`post-related`) MUST be inside `<div class="post-body">` — never in a separate `<footer>` outside the article.** Any content placed outside `post-body` will render outside the centered content column.
+   4. **The hero image goes inside `post-body` as the first child — NOT inside `<header class="post-header">`.** The header contains only: `post-meta`, `h1.post-title`, `p.post-subtitle`.
+   5. **Never add a custom breadcrumb `<div class="post-breadcrumb">`.** The breadcrumb is injected automatically by `shared-nav.js`. Adding one manually creates a duplicate.
+
+   **⚠️ SCRIPTS — only these three, in this order, at the bottom of `<body>`:**
+   ```html
+   <script src="/assets/shared-footer.js"></script>
+   <script src="/assets/scroll-reveal.js"></script>
+   ```
+   **NEVER add:** `email-capture-bar.js`, TikTok pixel, Cloudflare analytics, inline `IntersectionObserver` scripts, or any other script not in this list. Those are from old post templates and must not be copied into new posts.
+
    **Required `<body>` structure:**
    ```html
    <body>
