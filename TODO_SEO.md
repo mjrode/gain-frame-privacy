@@ -61,10 +61,10 @@ Documented in source reports for future reference. Health-authority lockout make
 
 ### From: keyword-research/2026-04-26-muscle-gain-tracking.md
 
-- [ ] **body transformation tracker app** (Med/20, blog-post-generator) — added 2026-04-26 — TOP PICK; SERP = Shapez/MacroFactor/Progress Body Tracker/BodyJourney; GainFrame's exact competitor set; no Healthline; title: "Best Body Transformation Tracker Apps (2026): 6 Apps for Tracking Visual Progress"
-- [ ] **best app to track muscle gain** (High/45→15 w/angle, blog-post-generator) — added 2026-04-26 — SERP dominated by workout loggers; angle: "you need both a workout logger AND a visual tracker"; recommends Hevy + GainFrame as complementary; title: "Best Apps to Track Muscle Gain (2026): Workout Logs + Visual Progress — Why You Need Both"
-- [ ] **best app to track body composition + body composition apps** (Med/30, blog-post-generator) — added 2026-04-26 — SERP = Spren/ZOZOFIT/FitTrace; broader than best-ai-body-fat-apps; title: "Best Body Composition Apps for Tracking Progress (2026): Spren, GainFrame, ZOZOFIT & More"
-- [ ] **how to track muscle gain progress + how to track muscle mass at home** (Med/35, blog-post-generator) — added 2026-04-26 — informational guide; BuiltWithScience/zing.coach rankable; featured snippet open; title: "How to Track Muscle Gain Progress: 5 Methods Ranked (Photos, Measurements, DEXA & AI)"
+- [x] **body transformation tracker app** (Med/20, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/body-transformation-tracker-apps/
+- [x] **best app to track muscle gain** (High/45→15 w/angle, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/best-apps-track-muscle-gain/
+- [x] **best app to track body composition + body composition apps** (Med/30, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/best-body-composition-apps/
+- [x] **how to track muscle gain progress + how to track muscle mass at home** (Med/35, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/how-to-track-muscle-gain-progress/
 
 ## Published
 
