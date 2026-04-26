@@ -20,6 +20,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://gainframe.app/blog/ffmi-chart/</loc>
+        <lastmod>2026-04-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://gainframe.app/blog/what-is-ffmi/</loc>
         <lastmod>2026-04-25</lastmod>
         <changefreq>monthly</changefreq>
