@@ -20,7 +20,7 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 - [x] **what is ffmi** (Med/55, blog-post-generator) — added 2026-04-25 — TOP PICK; clean SERP (no Cleveland Clinic / WebMD / Healthline lockout); gym-native term GainFrame already uses in Deep Dive Report — published 2026-04-25 as /blog/what-is-ffmi/
 - [x] **ffmi chart** (Med/50, blog-post-generator) — added 2026-04-25 — STRONG SECOND; lowest difficulty in the cluster; pair with "what is ffmi" pillar — published 2026-04-25 as /blog/ffmi-chart/
-- [ ] **lean mass vs muscle mass** (Med/60, comparison-article-generator) — added 2026-04-25 — comparison intent, clean SERP (fitness brands not health authorities); GainFrame angle: app reports both metrics
+- [x] **lean mass vs muscle mass** (Med/60, comparison-article-generator) — added 2026-04-25 — comparison intent, clean SERP (fitness brands not health authorities); GainFrame angle: app reports both metrics — published 2026-04-25 as /blog/lean-mass-vs-muscle-mass/
 - [ ] **body fat percentage vs bmi** (Med-Hi/75, comparison-article-generator) — added 2026-04-25 — comparison intent; only Healthline as tier-1; lifter-audience angle ("BMI puts a 5'10\" 220lb lifter in 'obese' bucket")
 - [ ] **PILLAR: Body Composition for Lifters: BMI, FFMI, Lean Mass, Body Fat % Explained** (Pillar post — queue AFTER 2-3 supporting posts above land; blog-post-generator)
 
