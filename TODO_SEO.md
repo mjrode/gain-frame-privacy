@@ -11,7 +11,7 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 ### From: keyword-research/2026-04-25-visceral-fat.md
 
 - [x] **visceral fat vs subcutaneous fat** (High/65, comparison-article-generator) — added 2026-04-25 — TOP PICK; Quora ranks in SERP signaling content gap; honest "what photos can/can't tell you" angle — published 2026-04-25 as /blog/visceral-fat-vs-subcutaneous-fat/
-- [ ] **visceral fat app** (Low-Med/70, blog-post-generator listicle) — added 2026-04-25 — only one dedicated app competitor in SERP; honest positioning post or "Best visceral fat tracking apps 2026"
+- [x] **visceral fat app** (Low-Med/70, blog-post-generator listicle) — added 2026-04-25 — only one dedicated app competitor in SERP; honest positioning post or "Best visceral fat tracking apps 2026" — published 2026-04-25 as /blog/visceral-fat-app/
 - [ ] Combined visual post: visceral fat appearance + hard belly + how to tell (Med/70-95, blog-post-generator) — added 2026-04-25 — honest "you can't see visceral fat directly, here's what you CAN learn" angle
 - [ ] visceral fat level (High/65, blog-post-generator) — added 2026-04-25 — pursue only if `visceral fat vs subcutaneous fat` lands
 - [ ] visceral fat test (Med/75, blog-post-generator) — added 2026-04-25 — pursue only after `visceral fat app` lands
