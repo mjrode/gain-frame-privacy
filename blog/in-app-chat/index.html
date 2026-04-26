@@ -337,13 +337,9 @@
         </div><!-- /.post-container -->
     </article>
 
-    <script>
-        // Scroll reveal
-        const reveals = document.querySelectorAll('.scroll-reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
-        }, { threshold: 0.1 });
-        reveals.forEach(el => observer.observe(el));
-    </script>
+    <div data-site-footer></div>
+    <script src="/assets/shared-footer.js"></script>
+    <script src="/assets/email-capture-bar.js"></script>
+    <script src="/assets/scroll-reveal.js"></script>
 </body>
 </html>

@@ -221,12 +221,15 @@ When a post cites scientific studies or peer-reviewed research, these additional
    4. **The hero image goes inside `post-body` as the first child — NOT inside `<header class="post-header">`.** The header contains only: `post-meta`, `h1.post-title`, `p.post-subtitle`.
    5. **Never add a custom breadcrumb `<div class="post-breadcrumb">`.** The breadcrumb is injected automatically by `shared-nav.js`. Adding one manually creates a duplicate.
 
-   **⚠️ SCRIPTS — only these three, in this order, at the bottom of `<body>`:**
+   **⚠️ SCRIPTS — exactly these three, in this order, at the bottom of `<body>`:**
    ```html
    <script src="/assets/shared-footer.js"></script>
+   <script src="/assets/email-capture-bar.js"></script>
    <script src="/assets/scroll-reveal.js"></script>
    ```
-   **NEVER add:** `email-capture-bar.js`, TikTok pixel, Cloudflare analytics, inline `IntersectionObserver` scripts, or any other script not in this list. Those are from old post templates and must not be copied into new posts.
+   **`email-capture-bar.js` is required on every post** — it powers the email capture bar that appears at the bottom of the page. Do not omit it.
+
+   **NEVER add:** TikTok pixel, Cloudflare analytics, inline `IntersectionObserver` scripts, or any other script not in the list above. Those are from old post templates and must not be copied into new posts.
 
    **Required `<body>` structure:**
    ```html
@@ -283,6 +286,7 @@ When a post cites scientific studies or peer-reviewed research, these additional
 
        <div data-site-footer></div>
        <script src="/assets/shared-footer.js"></script>
+       <script src="/assets/email-capture-bar.js"></script>
        <script src="/assets/scroll-reveal.js"></script>
    </body>
    ```
