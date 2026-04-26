@@ -157,17 +157,137 @@ When a post cites scientific studies or peer-reviewed research, these additional
    - ✅ *"suggests"* / *"the findings offer promising evidence"* over *"proves"* / *"is definitive"*
    - ✅ *"according to the published findings"* attributing claims to the source
 5. **Always link to the original source** — preferably in both the body text and a dedicated callout blockquote.
-5. **Scaffold HTML:** Create `index.html` in the new folder. 
-   - Use the standard structure from existing blog posts (e.g., `blog/measure-muscle-gain-without-scale/index.html`).
-   - Include Twitter/OpenGraph meta cards. Set the `og:image` to one of the screenshots (not the abstract cover).
-   - Include JSON-LD structured data for `BlogPosting`.
-   - Ensure you use the standard early-access email CTA (`.blog-post-cta` container with email capture form and "Get Early Access" button).
-6. **Update Index:** Add the new blog post to the top of the grid in `blog.html`. Use the generated vector cover image. **CRITICAL:** Use the standard card structure — `blog-card-content` > `post-meta` > `post-category` + `post-date`, then `h3`, then `p`. Do NOT use `blog-card-body` / `blog-card-category` / `blog-card-title` — those are an old format that doesn't match the site's typography.
+5. **Scaffold HTML:** Create `index.html` in the new folder using **exactly** this boilerplate — do not invent custom `<style>` blocks or CSS variables. All styling comes from `../../styles.css`.
+
+   **Required `<head>` (copy verbatim, fill in placeholders):**
+   ```html
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>[POST TITLE] | GainFrame</title>
+       <meta name="robots" content="max-image-preview:large">
+       <meta name="description" content="[META DESCRIPTION — 150-160 chars]">
+       <meta name="keywords" content="[COMMA SEPARATED KEYWORDS]">
+       <meta property="og:title" content="[POST TITLE]">
+       <meta property="og:description" content="[OG DESCRIPTION]">
+       <meta property="og:type" content="article">
+       <meta property="og:image" content="https://gainframe.app/blog/[SLUG]/assets/cover.webp">
+       <meta property="og:url" content="https://gainframe.app/blog/[SLUG]/">
+       <meta name="twitter:card" content="summary_large_image">
+       <meta name="twitter:title" content="[POST TITLE]">
+       <meta name="twitter:description" content="[TWITTER DESCRIPTION]">
+       <meta name="twitter:image" content="https://gainframe.app/blog/[SLUG]/assets/cover.webp">
+       <link rel="canonical" href="https://gainframe.app/blog/[SLUG]/">
+       <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+       <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png">
+       <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+       <link rel="apple-touch-icon" sizes="192x192" href="/assets/favicon-192.png">
+       <link rel="stylesheet" href="../../styles.css">
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+       <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
+       <script>
+           window.dataLayer = window.dataLayer || [];
+           function gtag() { dataLayer.push(arguments); }
+           gtag('js', new Date());
+           gtag('config', 'G-N6YPFBB8JE');
+       </script>
+       <script type="application/ld+json">
+       {
+           "@context": "https://schema.org",
+           "@type": "BlogPosting",
+           "headline": "[POST TITLE]",
+           "description": "[META DESCRIPTION]",
+           "image": "https://gainframe.app/blog/[SLUG]/assets/cover.webp",
+           "datePublished": "[YYYY-MM-DD]",
+           "dateModified": "[YYYY-MM-DD]",
+           "author": { "@type": "Person", "name": "Michael Rode", "url": "https://gainframe.app" },
+           "publisher": { "@type": "Organization", "name": "GainFrame", "url": "https://gainframe.app", "logo": { "@type": "ImageObject", "url": "https://gainframe.app/assets/favicon.webp" } },
+           "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gainframe.app/blog/[SLUG]/" },
+           "articleSection": "[CATEGORY]"
+       }
+       </script>
+   </head>
+   ```
+
+   **⚠️ NEVER add a custom `<style>` block** unless a specific UI component (e.g., a custom 2-column card grid) has absolutely no equivalent in `styles.css`. If you do add one, keep it to that component only — never redefine `:root` variables or global typography.
+
+   **Required `<body>` structure:**
+   ```html
+   <body>
+       <div data-site-nav></div>
+       <script src="/assets/shared-nav.js"></script>
+
+       <article class="post">
+           <div class="container post-container">
+               <header class="post-header hero-text-stagger">
+                   <div class="post-meta">
+                       <span class="post-category">[CATEGORY]</span>
+                       <span class="post-date">[Mon DD, YYYY]</span>
+                       <span class="post-read-time">[N] min read</span>
+                   </div>
+                   <h1 class="post-title">[POST TITLE]</h1>
+                   <p class="post-subtitle">[SUBTITLE / LEAD]</p>
+               </header>
+
+               <div class="post-body">
+                   <!-- hero image -->
+                   <div class="post-hero-image scroll-reveal" style="margin-bottom: 3rem;">
+                       <img src="assets/cover.webp" alt="[ALT]" loading="lazy"
+                           style="border-radius: 16px; border: 1px solid var(--color-border); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                   </div>
+
+                   <!-- article content here -->
+
+                   <div class="blog-post-cta scroll-reveal">
+                       <h3>[CTA HEADLINE]</h3>
+                       <p>[CTA BODY]</p>
+                       <a href="https://apps.apple.com/us/app/gainframe/id6742498826" class="cta-button" target="_blank" rel="noopener">
+                           Download GainFrame Free
+                       </a>
+                   </div>
+
+                   <hr class="post-divider">
+
+                   <div class="post-related scroll-reveal">
+                       <h3>Related Articles</h3>
+                       <div class="post-related-grid">
+                           <a href="/blog/[slug]/" class="post-related-card">
+                               <div class="post-related-content">
+                                   <span class="post-related-category">[Category]</span>
+                                   <h4>[Title]</h4>
+                                   <p>[One-line description]</p>
+                               </div>
+                           </a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </article>
+
+       <div data-site-footer></div>
+       <script src="/assets/shared-footer.js"></script>
+       <script src="/assets/scroll-reveal.js"></script>
+   </body>
+   ```
+
+   **Available post-body component classes** (all styled in `styles.css` — use these, never custom CSS):
+   - `<hr class="post-divider">` — section divider
+   - `<div class="post-callout"><p>…</p></div>` — highlighted callout block
+   - `<div class="post-table-wrapper"><table class="post-table">…</table></div>` — data tables
+   - `<div class="post-inline-screenshot scroll-reveal">` + `<p class="post-caption">` — phone screenshots
+   - `<div class="post-steps">` — numbered step frameworks
+   - `<div class="post-feature-grid">` / `<div class="post-feature-card">` — feature comparison cards
+
+6. **Update Index:** Add the new blog post to the top of the grid in `blog/index.html`. Use the generated vector cover image. **CRITICAL:** Use the standard card structure — `blog-card-content` > `post-meta` > `post-category` + `post-date`, then `h3`, then `p`. Do NOT use `blog-card-body` / `blog-card-category` / `blog-card-title` — those are an old format that doesn't match the site's typography.
 7. **Update Sitemap:** Add the new blog post to `sitemap.xml`.
 8. **Update Backlog:** If this post was from `TODO_SEO.md`, check it off and add the publish date.
-8. **Deploy (MANDATORY — do not skip):** After all files are written and the blog index is updated, you MUST run the following commands automatically:
+8. **Deploy (MANDATORY — do not skip):** After all files are written and the blog index is updated, stage only the new/modified files (never `git add -A` — it can catch sensitive files). Then commit and push:
    ```bash
-   cd /Users/michael.rode/code/project/gain-frame-privacy && git add -A && git commit -m "feat: add '[keyword]' SEO blog post" && git push
+   git add blog/[slug]/ blog/index.html sitemap.xml TODO_SEO.md
+   git commit -m "feat: [keyword] blog post"
+   git push origin main
    ```
    The site is hosted on GitHub Pages, so pushing to `main` triggers an automatic deployment. The post is not "published" until this step completes.
 
@@ -192,7 +312,7 @@ When a post cites scientific studies or peer-reviewed research, these additional
 
 ## Reference Files
 - `/product-context.md` — **READ THIS FIRST.** Authoritative source for tagline, target audience, features, differentiators, honest limitations, and brand voice. Use it to ground every post (especially the "GainFrame Integration" mention and the closing CTA). Do NOT invent product features or fabricate differentiators — only what's listed in this file is verifiable.
-- `/blog.html` (Must be updated with the new post)
+- `/blog/index.html` (Must be updated with the new post — this is the blog index, not `blog.html`)
 - `/sitemap.xml` (Must be updated with the new post)
 - `/TODO_SEO.md` (For topic inspiration and task tracking)
 - `/styles.css` (For reference to standard typography and CTA classes)
