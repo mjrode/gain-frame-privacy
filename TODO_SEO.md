@@ -18,7 +18,7 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 ### From: keyword-research/2026-04-25-body-composition-glossary.md
 
-- [ ] **what is ffmi** (Med/55, blog-post-generator) — added 2026-04-25 — TOP PICK; clean SERP (no Cleveland Clinic / WebMD / Healthline lockout); gym-native term GainFrame already uses in Deep Dive Report
+- [x] **what is ffmi** (Med/55, blog-post-generator) — added 2026-04-25 — TOP PICK; clean SERP (no Cleveland Clinic / WebMD / Healthline lockout); gym-native term GainFrame already uses in Deep Dive Report — published 2026-04-25 as /blog/what-is-ffmi/
 - [ ] **ffmi chart** (Med/50, blog-post-generator) — added 2026-04-25 — STRONG SECOND; lowest difficulty in the cluster; pair with "what is ffmi" pillar
 - [ ] **lean mass vs muscle mass** (Med/60, comparison-article-generator) — added 2026-04-25 — comparison intent, clean SERP (fitness brands not health authorities); GainFrame angle: app reports both metrics
 - [ ] **body fat percentage vs bmi** (Med-Hi/75, comparison-article-generator) — added 2026-04-25 — comparison intent; only Healthline as tier-1; lifter-audience angle ("BMI puts a 5'10\" 220lb lifter in 'obese' bucket")
@@ -26,7 +26,7 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 ### From: comparison-article-generator (no keyword-research source — strategic pick from competitor-research)
 
-- [~] **Metamorph vs GainFrame** (anti-AI-privacy vs AI-powered comparison; uncontested SERP) — added 2026-04-25 — strategic pick; comparison-article-generator — **DRAFT READY at `/blog/metamorph-vs-gainframe/index.html`, awaiting user review + deploy. Mark `[x]` and append `published 2026-04-25 as /blog/metamorph-vs-gainframe/` after `git push` lands.**
+- [x] **Metamorph vs GainFrame** (anti-AI-privacy vs AI-powered comparison; uncontested SERP) — added 2026-04-25 — strategic pick; comparison-article-generator — published 2026-04-25 as `/blog/metamorph-vs-gainframe/`
 
 ## Skipped (do not pursue without backlinks)
 
