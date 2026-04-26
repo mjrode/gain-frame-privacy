@@ -50,7 +50,7 @@ Documented in source reports for future reference. Health-authority lockout make
 - [x] **How to Estimate Body Fat % from a Photo** (Med/25, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/how-to-estimate-body-fat-from-photo/
 - [x] **Best Before-and-After Transformation Apps for Women** (Med/20, blog-post-generator listicle) — added 2026-04-26 — published 2026-04-26 as /blog/best-before-after-transformation-apps-women/
 - [x] **Best AI Body Composition App** (Med/35, blog-post-generator listicle) — added 2026-04-26 — published 2026-04-26 as /blog/best-ai-body-composition-app/
-- [ ] **DEXA Scan Alternative for Body Composition** (Med-High/65, blog-post-generator) — added 2026-04-26 — pursue AFTER posts 1–3 above land; GainFrame = $0 vs $100/scan; body-composition slice of SERP underserved vs bone-density slice; check if dexa-scan-vs-ai-body-composition already covers "alternative" intent first
+- [x] **DEXA Scan Alternative for Body Composition** (Med-High/65, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/dexa-scan-alternative/ — distinct from dexa-scan-vs-ai-body-composition (narrative); this is buyer's guide covering all 6 alternatives with comparison table
 
 #### CTR Fixes (existing posts — no new content needed)
 
