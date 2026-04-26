@@ -1,6 +1,6 @@
 ---
 name: Keyword Discovery
-description: Discover, score, and cluster SEO keyword opportunities for GainFrame using free Google data (autocomplete + SERP analysis). Outputs a prioritized backlog that feeds blog-post-generator and comparison-article-generator.
+description: Discover, score, and cluster SEO keyword opportunities for GainFrame using free Google data (autocomplete + SERP analysis) plus Google Search Console CSV export analysis. Outputs a prioritized backlog that feeds blog-post-generator and comparison-article-generator.
 triggers:
   - "find keywords"
   - "keyword research"
@@ -14,12 +14,13 @@ triggers:
 
 ## Overview
 
-This skill replicates the keyword-research workflow of GrowGanic.io using only **free signals** (Google autocomplete, SERP analysis via `WebSearch`, optional competitor sitemap mining). It does NOT pull paid Ahrefs/SEMrush volume numbers. Instead, it gives you **comparative tiers** (high/med/low) and **difficulty heuristics** based on what dominates the SERP.
+This skill replicates the keyword-research workflow of GrowGanic.io using **free signals** (Google autocomplete, SERP analysis via `WebSearch`, optional competitor sitemap mining) plus **Google Search Console data** when a CSV export is present. It does NOT pull paid Ahrefs/SEMrush volume numbers. Instead, it gives you **comparative tiers** (high/med/low) and **difficulty heuristics** based on what dominates the SERP.
 
 Output:
 - A timestamped report at `keyword-research/[YYYY-MM-DD]-[topic-slug].md`
 - New rows appended to `TODO_SEO.md` (created if it doesn't exist)
 - Each opportunity tagged with the recommended downstream skill (`blog-post-generator` for guides/listicles/definitions, `comparison-article-generator` for X-vs-Y posts)
+- A **GSC Quick Wins** section (when CSV data is present) listing high-impression/low-CTR queries GainFrame is already ranking for
 
 **Honest limitation:** Without a paid API, monthly search volume is an *estimate* derived from Google Trends comparison + autocomplete depth + PAA box count. Treat numeric estimates as relative ranks within the analysis, not absolute monthly searches. State this explicitly in every output report.
 
@@ -35,6 +36,67 @@ Ask the user for:
 1. **Seed topic or keyword(s)** — e.g. "body fat measurement", "progress photos", or a competitor name. If the user has no seed, propose 2-3 based on recent blog posts (`ls /Users/michael.rode/code/project/gain-frame-privacy/blog/ | tail -5`).
 2. **Optional: competitor URLs or names to mine** — if provided, check `/competitor-research/[name].md` for an existing profile. If found, use its "Topics they cover but GainFrame does NOT" list as additional seeds. If not found and URLs were provided, run `competitor-scan` first to generate the profile, then use its output. Note in the report which seeds came from which competitor.
 3. **Optional: scope filter** — informational only, comparison only, all intents (default).
+
+### Phase 0.5: GSC Data Import (run automatically — no user input needed)
+
+Before seed expansion, check for a Google Search Console export at:
+
+```
+/Users/michael.rode/code/project/gain-frame-privacy/gsc-data/queries.csv
+```
+
+**How to export from GSC:** Search Console → Performance → Queries tab → Export → Download CSV. Save the file to `gsc-data/queries.csv` in this project. The skill will detect and parse it automatically on every run.
+
+**If the file exists**, parse it and produce three lists from the data:
+
+GSC exports use this column format: `Query, Clicks, Impressions, CTR, Position`
+
+#### List A: Quick-Win CTR Fixes (already ranking, not capturing clicks)
+
+Filter to rows where:
+- `Position` is between 4.0 and 20.0 (ranking but below the top-3 click zone)
+- `Impressions` ≥ 10 (enough volume to matter)
+- `CTR` < 10% (underperforming for that position)
+
+For each: check whether GainFrame already has a blog post covering that query (`grep -ri "query" /Users/michael.rode/code/project/gain-frame-privacy/blog/*/index.html`). If a post exists, this is a **CTR optimization candidate** (the post needs a better title tag or meta description, not a new post). If no post exists, this is a **ranking gap** — we rank but have no dedicated content.
+
+Surface these in the report as:
+```
+**[query]** — pos [X], [N] impressions, [Y]% CTR
+  → Status: [CTR fix needed on /blog/slug/] OR [ranking gap — no dedicated post]
+  → Action: [rewrite title/meta] OR [add to backlog]
+```
+
+#### List B: Zero-Click Rankings (ranking for queries that get impressions but no clicks)
+
+Filter to rows where:
+- `Clicks` = 0
+- `Impressions` ≥ 5
+- `Position` ≤ 30
+
+These often mean: wrong meta title, snippet not matching intent, or we rank for a SERP dominated by featured snippets/images that eat all clicks. Surface these for manual review — do not automatically add to the backlog.
+
+#### List C: Competitor-Signal Queries (unexpected queries GainFrame ranks for)
+
+Filter to rows where:
+- The query contains a competitor name (scan for: metamorph, trackbod, spren, physique ai, body.app, progress app, dexa, naked labs, fittrack, cronometer, myfitnesspal)
+- Position ≤ 50
+
+These reveal branded queries where users are comparing us — high commercial intent. Surface as comparison-article opportunities if we don't have a dedicated post.
+
+#### If the GSC file does NOT exist:
+
+Print this message in the chat (one time only):
+
+> **GSC data not found.** To unlock GSC Quick Wins in future runs, export your Search Console queries:
+> 1. Go to [Google Search Console](https://search.google.com/search-console) → Performance → Queries
+> 2. Set date range to last 3 months
+> 3. Click Export → Download CSV
+> 4. Save to `gsc-data/queries.csv` in this project
+>
+> Continuing with autocomplete + SERP analysis only.
+
+Then proceed to Phase 1 without blocking.
 
 ### Phase 1: Seed Expansion
 
@@ -144,8 +206,34 @@ Create `/Users/michael.rode/code/project/gain-frame-privacy/keyword-research/[YY
 **Seeds:** [seed1, seed2, ...]
 **Candidates analyzed:** N
 **High-opportunity targets:** M
+**GSC data:** [present — N queries analyzed] OR [not present — export instructions in report]
 
 > ⚠️ All volume figures are *estimates* derived from free Google signals (autocomplete depth, PAA presence, Trends). They are relative ranks within this analysis, not absolute monthly searches. For absolute numbers, validate in Ahrefs/SEMrush before committing to a major content investment.
+
+## GSC Quick Wins
+
+*(Only present when gsc-data/queries.csv exists. Omit this section otherwise.)*
+
+These are queries GainFrame is already ranking for where we can improve without writing new content.
+
+### CTR Fixes (ranking 4–20, impressions ≥ 10, CTR < 10%)
+
+| Query | Position | Impressions | CTR | Action |
+|---|---|---|---|---|
+| [query] | [pos] | [N] | [%] | Rewrite title on /blog/slug/ |
+| [query] | [pos] | [N] | [%] | No dedicated post — add to backlog |
+
+### Zero-Click Rankings (impressions ≥ 5, 0 clicks, position ≤ 30)
+
+| Query | Position | Impressions | Notes |
+|---|---|---|---|
+| [query] | [pos] | [N] | Featured snippet eating clicks — consider targeting snippet format |
+
+### Competitor-Signal Queries (competitor name in query, position ≤ 50)
+
+| Query | Position | Impressions | Clicks | Existing post? |
+|---|---|---|---|---|
+| [query] | [pos] | [N] | [N] | /blog/slug/ OR none |
 
 ## High-Opportunity Targets
 
@@ -282,10 +370,16 @@ Give a one-screen summary in chat:
 
 **Upstream:**
 - `competitor-scan` — produces a per-competitor profile at `competitor-research/[name].md` with a "Topics they cover but GainFrame does NOT" list. Phase 1 of this skill should check that directory first when the user mentions a competitor by name, and use those topics as additional seeds before running autocomplete expansion.
+- **GSC CSV export** — user drops `gsc-data/queries.csv` into the project; Phase 0.5 reads it automatically on every run. No OAuth, no API key. To refresh, re-export from GSC and overwrite the file.
 
 **Downstream:**
 - `blog-post-generator` — for guides, how-tos, definitions, listicles. Reads `TODO_SEO.md` to pick its next topic.
 - `comparison-article-generator` (planned) — for X-vs-Y posts. Reads `TODO_SEO.md` filtered to `comparison-article-generator` targets.
+
+**GSC-specific downstream actions:**
+- CTR fixes (List A, existing post) → edit the post's `<title>` and `<meta name="description">` — no new post needed.
+- Ranking gaps (List A, no post) → add to `TODO_SEO.md` as a new backlog item.
+- Competitor-signal queries (List C, no post) → add as `comparison-article-generator` targets.
 
 When this skill finishes, suggest the user run the appropriate downstream skill on the top opportunity. Don't run it automatically — give them the choice.
 
@@ -297,4 +391,5 @@ When this skill finishes, suggest the user run the appropriate downstream skill 
 - `/Users/michael.rode/code/project/gain-frame-privacy/blog/` — existing blog posts (check for coverage gaps)
 - `/Users/michael.rode/code/project/gain-frame-privacy/TODO_SEO.md` — keyword backlog (created on first run if absent)
 - `/Users/michael.rode/code/project/gain-frame-privacy/keyword-research/` — output directory for reports (create if absent)
+- `/Users/michael.rode/code/project/gain-frame-privacy/gsc-data/queries.csv` — **GSC export** (optional; created by user). Column format: `Query,Clicks,Impressions,CTR,Position`. Export from Search Console → Performance → Queries → Export CSV. Overwrite this file to refresh. The `gsc-data/` directory is gitignored (contains real traffic data — don't commit).
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/blog-post-generator/SKILL.md` — downstream skill for most article types
