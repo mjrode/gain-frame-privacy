@@ -6,6 +6,8 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "pre-lift-mistakes",           title: "5 Habits Wrecking Your Lift",                date: "2026-04-27", ext: "png" },
+    { slug: "building-muscle-truth",       title: "What Nobody Tells You About Building Muscle", date: "2026-04-27", ext: "png" },
     { slug: "mirror-self-perception",       title: "Why You Always Look Bad in the Mirror",     date: "2026-04-20", ext: "png" },
     { slug: "best-chest-day",               title: "The Best Chest Day Workout",                date: "2026-04-20", ext: "png" },
     { slug: "getting-lean-truth",           title: "What Nobody Tells You About Getting Lean",  date: "2026-04-20", ext: "png" },

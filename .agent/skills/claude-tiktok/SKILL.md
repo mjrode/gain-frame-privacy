@@ -254,7 +254,7 @@ TITLE TEXT (TOP 40%): The title floats as raw bare text directly on the cream ba
 - "[COVER TITLE]" with "[ACCENT WORD]" in red (#E53935), all other words near-black (#1A1A1A)
 - Bold Impact-style condensed sans-serif, ALL CAPS, very large
 
-Background: clean off-white cream (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080×1350). No watermarks except the GainFrame Guy badge.
+Background: clean off-white cream (#FFFFFF). Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080×1350). No watermarks except the GainFrame Guy badge.
 ```
 
 **Numbered slide prompt** (use with `REF2=$BANNER_STYLE_REF`, no REF3):
@@ -275,7 +275,7 @@ BANNER (TOP — match the second reference image exactly):
 
 Below the banner, center-aligned subtitle text in clean Helvetica-style sans-serif (dark charcoal #1A1A1A): "[SUBTITLE]"
 
-Background: clean off-white cream (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080×1350). No watermarks.
+Background: clean off-white cream (#FFFFFF). Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080×1350). No watermarks.
 ```
 
 #### File Naming (mandatory)
@@ -365,7 +365,7 @@ BOTTOM PANEL (lower 50%):
 - Scene: [BOTTOM SCENE DESCRIPTION]
 - At the very bottom edge, large bold white Impact-style ALL CAPS text reads "[BOTTOM TEXT]" with thick black stroke.
 
-Background for both panels: clean off-white cream (#F5F0EB). Clean cartoon style, thick outlines, flat colors. 4:5 format (1080×1350). No watermarks.
+Background for both panels: clean off-white cream (#FFFFFF). Clean cartoon style, thick outlines, flat colors. 4:5 format (1080×1350). No watermarks.
 ```
 
 For Split Panel cover, add REF3=$BADGE and include the badge in the top-left of the top panel.

@@ -1,5 +1,12 @@
 # TikTok Carousel Post Log
 
+## 2026-04-27 — WHAT NOBODY TELLS YOU ABOUT BUILDING MUSCLE
+- Slug: building-muscle-truth
+- Slides: 6 (cover + 5)
+- GainFrame mention: No (pure value post)
+- Status: Complete (Text baked in)
+
+
 ## 2026-04-10 — TOP 5 CORE EXERCISES
 - Slug: top-5-core-exercises
 - Slides: 6
@@ -76,4 +83,10 @@
 - Slug: creatine-myths-vs-facts
 - Slides: 6
 - GainFrame mention: Yes (Slide 5)
+- Status: Complete (Text baked in)
+
+## 2026-04-27 — 5 HABITS WRECKING YOUR LIFT
+- Slug: pre-lift-mistakes
+- Slides: 6
+- GainFrame mention: No (pure value)
 - Status: Complete (Text baked in)
