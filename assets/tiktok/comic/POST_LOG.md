@@ -90,3 +90,10 @@
 - Slides: 6
 - GainFrame mention: No (pure value)
 - Status: Complete (Text baked in)
+
+## 2026-04-28 — BEST EXERCISES FOR EVERY MUSCLE GROUP (Upper Body Edition)
+- Slug: best-upper-body-exercises
+- Slides: 8 (cover + 6 muscle groups + GainFrame plug)
+- GainFrame mention: Yes (Slide 7 — muscle map app promo)
+- Format: Hero Reference (Blue Bro style adapted to GainFrame)
+- Status: Complete (Text baked in)
