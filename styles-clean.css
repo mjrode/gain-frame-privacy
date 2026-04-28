@@ -710,6 +710,7 @@ button {
   box-shadow: 0 24px 70px rgba(23, 23, 23, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
   filter: grayscale(0.18) saturate(0.9);
   pointer-events: none;
+  --scan-distance: 480px;
 }
 
 .demo-phone img {
@@ -740,9 +741,26 @@ button {
 }
 
 @media (max-width: 1060px) {
-  .demo-phone-left,
+  .demo-phone {
+    width: 140px;
+    top: auto;
+    bottom: 26px;
+    padding: 5px;
+    border-radius: 24px;
+    --scan-distance: 300px;
+  }
+  .demo-phone img {
+    border-radius: 19px;
+  }
+  .demo-phone-left {
+    left: 3%;
+    transform: rotate(-11deg);
+    animation-duration: 13s;
+  }
   .demo-phone-right {
-    display: none;
+    right: 3%;
+    transform: rotate(11deg);
+    animation-duration: 15s;
   }
 }
 
@@ -1384,17 +1402,17 @@ button {
 
 @keyframes scanSweep {
   0% {
-    transform: translateY(-25%);
+    transform: translate(-50%, 0);
     opacity: 0;
   }
-  20% {
+  10% {
     opacity: 1;
   }
-  80% {
+  90% {
     opacity: 1;
   }
   100% {
-    transform: translateY(125%);
+    transform: translate(-50%, var(--scan-distance, 700px));
     opacity: 0;
   }
 }
@@ -1422,23 +1440,31 @@ button {
   transform: translateY(-6px) scale(1.012);
 }
 
-.recording-board::before {
+.demo-phone-left::after,
+.demo-phone-right::after {
   content: "";
   position: absolute;
-  left: 6%;
-  right: 6%;
+  left: 50%;
   top: 0;
-  height: 32%;
-  background: linear-gradient(180deg,
+  width: 86%;
+  height: 3px;
+  transform: translate(-50%, 0);
+  background: linear-gradient(90deg,
     rgba(52, 210, 111, 0) 0%,
-    rgba(52, 210, 111, 0.08) 45%,
-    rgba(52, 210, 111, 0.18) 50%,
-    rgba(52, 210, 111, 0.08) 55%,
+    rgba(52, 210, 111, 0.6) 20%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(52, 210, 111, 0.6) 80%,
     rgba(52, 210, 111, 0) 100%);
-  filter: blur(2px);
-  z-index: 0;
+  box-shadow: 0 0 14px rgba(52, 210, 111, 0.75),
+              0 0 4px rgba(255, 255, 255, 0.95);
+  border-radius: 99px;
+  z-index: 3;
   pointer-events: none;
-  animation: scanSweep 6.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation: scanSweep 4.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.demo-phone-right::after {
+  animation-delay: -2.3s;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1563,7 +1589,7 @@ button {
   }
 
   .hero {
-    min-height: 820px;
+    min-height: 760px;
     padding: 124px 18px 0;
   }
 
@@ -1606,19 +1632,23 @@ button {
   }
 
   .hero-stage {
-    height: 460px;
-    margin-top: 54px;
+    height: 420px;
+    margin-top: 22px;
   }
 
   .radar-map {
-    width: 620px;
-    bottom: -54px;
+    width: 700px;
+    bottom: 80px;
   }
 
   .radar-orbit {
-    width: 320px;
-    height: 320px;
-    bottom: 40px;
+    width: 360px;
+    height: 360px;
+    bottom: 60px;
+  }
+
+  .radar-glow {
+    height: 180px;
   }
 
   .phone-shell {
@@ -1636,9 +1666,18 @@ button {
   }
 
   .phone-left,
-  .float-chip,
-  .map-label {
+  .map-label,
+  .chip-right {
     display: none;
+  }
+
+  .chip-top {
+    left: auto;
+    right: calc(50% - 105px);
+    top: 58px;
+    font-size: 11px;
+    padding: 6px 11px;
+    border-radius: 9px;
   }
 
   .visit-card {
@@ -1701,9 +1740,34 @@ button {
     border-radius: 13px;
   }
 
+  .recording-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "video video"
+      "left  right";
+    gap: 14px;
+    align-items: center;
+    justify-items: center;
+    padding: 10px;
+  }
+
+  .demo-video {
+    grid-area: video;
+  }
+
   .demo-phone {
-    bottom: -92px;
-    width: 190px;
+    position: static;
+    width: 100%;
+    max-width: 150px;
+    padding: 5px;
+    border-radius: 22px;
+    transform: none;
+    --scan-distance: 320px;
+  }
+
+  .demo-phone img {
+    border-radius: 17px;
   }
 
   .demo-phone-main {
@@ -1711,12 +1775,17 @@ button {
   }
 
   .demo-phone-left {
-    left: 2%;
+    grid-area: left;
+    justify-self: end;
+    transform: rotate(-4deg);
   }
 
   .demo-phone-right {
-    right: 2%;
+    grid-area: right;
+    justify-self: start;
+    transform: rotate(4deg);
   }
+
 
   .answer-grid,
   .feature-row {
