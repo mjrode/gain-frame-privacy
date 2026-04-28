@@ -28,12 +28,13 @@ view_file assets/gf-mascot/STYLE_GUIDE.md
 
 ## Format Selection
 
-Two carousel formats — pick one before Phase 0:
+Three carousel formats — pick one before Phase 0:
 
 | Format | Best For | Look |
 |--------|----------|------|
 | **Standard (Tips)** | Lists, how-tos, numbered advice | Single scene per slide, black banner title, numbered tips |
 | **Split Panel (Reframe)** | "You're not X, you are Y" truth bombs | Each slide = 2 stacked panels, bold white text overlaid on scenes |
+| **Hero Reference** | "Best X for every Y", authoritative reference guides | 3-line stacked title + italic edition tag, muscular hero mascot, anatomy diagrams + exercise demos on numbered slides |
 
 ---
 
@@ -139,7 +140,8 @@ Pick the closest scene reference for each numbered slide:
 |------------|------|
 | Flexing / mirror | `assets/gf-mascot/mirror-mascot.jpeg` |
 | Form comparison ✅/❌ | `assets/gf-mascot/mascot-form.jpeg` |
-| Gym equipment | `assets/gf-mascot/mascot-legs.jpeg` |
+| Gym equipment / muscular build | `assets/gf-mascot/mascot-legs.jpeg` |
+| Muscular hero flex pose | `assets/gf-mascot/mascot-pictures.jpeg` (double bicep flex — best for Hero Reference covers) |
 | Phone / progress photos | `assets/gf-mascot/mascot-pictures.jpeg` |
 | Sleeping / recovery | `assets/gf-mascot/mascot-sleep.jpeg` |
 | Default / other | `assets/gf-mascot/gf-mascot-template.jpeg` |
@@ -155,48 +157,66 @@ OUTPUT_PATH="$OUT_DIR/[slide-0-cover.png OR slide-N.png]"
 REF1="$MASCOT_TEMPLATE"           # always the character template
 REF2="[scene-specific reference]" # cover: COVER_STYLE_REF | numbered: BANNER_STYLE_REF
 REF3=""                           # cover only: $BADGE | numbered: leave empty
+REF4=""                           # optional 4th ref (e.g. pose ref for Hero Reference covers)
 
-REF1_MIME="image/jpeg"
-REF2_MIME="image/png"             # discipline refs are PNG
+REF1_MIME="image/jpeg"             # .jpeg → image/jpeg
+REF2_MIME="image/png"              # discipline refs are PNG
 REF3_MIME="image/png"
+REF4_MIME="image/jpeg"
 
-# === ENCODE REFERENCES ===
-R1=$(base64 -i "$REF1" | tr -d '\n')
-R2=$(base64 -i "$REF2" | tr -d '\n')
+# === ENCODE REFERENCES TO TEMP FILES ===
+# CRITICAL: must use --rawfile from temp files, NOT --arg with $(base64 ...).
+# Inline --arg blows past ARG_MAX once you have 3+ images, causing jq to fail
+# with "argument list too long" and the API to reject the request as empty.
+echo "$PROMPT" > /tmp/prompt.txt
+base64 -i "$REF1" | tr -d '\n' > /tmp/r1.b64
+base64 -i "$REF2" | tr -d '\n' > /tmp/r2.b64
+[ -n "$REF3" ] && base64 -i "$REF3" | tr -d '\n' > /tmp/r3.b64
+[ -n "$REF4" ] && base64 -i "$REF4" | tr -d '\n' > /tmp/r4.b64
 
 # === BUILD REQUEST ===
-if [ -n "$REF3" ]; then
-  # Cover: 3 reference images
-  R3=$(base64 -i "$REF3" | tr -d '\n')
+if [ -n "$REF4" ]; then
+  # 4 reference images (Hero Reference covers w/ pose ref)
   jq -n \
-    --arg prompt "$PROMPT" \
-    --arg r1 "$R1" --arg m1 "$REF1_MIME" \
-    --arg r2 "$R2" --arg m2 "$REF2_MIME" \
-    --arg r3 "$R3" --arg m3 "$REF3_MIME" \
-    '{
-      contents: [{parts: [
-        {inlineData: {mimeType: $m1, data: $r1}},
-        {inlineData: {mimeType: $m2, data: $r2}},
-        {inlineData: {mimeType: $m3, data: $r3}},
-        {text: $prompt}
-      ]}],
-      generationConfig: {responseModalities: ["IMAGE","TEXT"]}
-    }' > /tmp/gemini-req.json
+    --rawfile prompt /tmp/prompt.txt \
+    --rawfile r1 /tmp/r1.b64 --rawfile r2 /tmp/r2.b64 \
+    --rawfile r3 /tmp/r3.b64 --rawfile r4 /tmp/r4.b64 \
+    --arg m1 "$REF1_MIME" --arg m2 "$REF2_MIME" \
+    --arg m3 "$REF3_MIME" --arg m4 "$REF4_MIME" \
+    '{contents:[{parts:[
+      {inlineData:{mimeType:$m1,data:$r1}},
+      {inlineData:{mimeType:$m2,data:$r2}},
+      {inlineData:{mimeType:$m3,data:$r3}},
+      {inlineData:{mimeType:$m4,data:$r4}},
+      {text:$prompt}
+    ]}],generationConfig:{responseModalities:["IMAGE","TEXT"]}}' > /tmp/gemini-req.json
+elif [ -n "$REF3" ]; then
+  # 3 reference images (standard cover: template + cover style + badge)
+  jq -n \
+    --rawfile prompt /tmp/prompt.txt \
+    --rawfile r1 /tmp/r1.b64 --rawfile r2 /tmp/r2.b64 --rawfile r3 /tmp/r3.b64 \
+    --arg m1 "$REF1_MIME" --arg m2 "$REF2_MIME" --arg m3 "$REF3_MIME" \
+    '{contents:[{parts:[
+      {inlineData:{mimeType:$m1,data:$r1}},
+      {inlineData:{mimeType:$m2,data:$r2}},
+      {inlineData:{mimeType:$m3,data:$r3}},
+      {text:$prompt}
+    ]}],generationConfig:{responseModalities:["IMAGE","TEXT"]}}' > /tmp/gemini-req.json
 else
-  # Numbered slide: 2 reference images
+  # 2 reference images (numbered slide: template + banner style)
   jq -n \
-    --arg prompt "$PROMPT" \
-    --arg r1 "$R1" --arg m1 "$REF1_MIME" \
-    --arg r2 "$R2" --arg m2 "$REF2_MIME" \
-    '{
-      contents: [{parts: [
-        {inlineData: {mimeType: $m1, data: $r1}},
-        {inlineData: {mimeType: $m2, data: $r2}},
-        {text: $prompt}
-      ]}],
-      generationConfig: {responseModalities: ["IMAGE","TEXT"]}
-    }' > /tmp/gemini-req.json
+    --rawfile prompt /tmp/prompt.txt \
+    --rawfile r1 /tmp/r1.b64 --rawfile r2 /tmp/r2.b64 \
+    --arg m1 "$REF1_MIME" --arg m2 "$REF2_MIME" \
+    '{contents:[{parts:[
+      {inlineData:{mimeType:$m1,data:$r1}},
+      {inlineData:{mimeType:$m2,data:$r2}},
+      {text:$prompt}
+    ]}],generationConfig:{responseModalities:["IMAGE","TEXT"]}}' > /tmp/gemini-req.json
 fi
+
+# Cleanup temp inputs (keep gemini-req.json for the curl call)
+rm -f /tmp/prompt.txt /tmp/r1.b64 /tmp/r2.b64 /tmp/r3.b64 /tmp/r4.b64
 
 # === CALL API ===
 curl -s -X POST \
@@ -248,13 +268,13 @@ Scene: [MASCOT SCENE DESCRIPTION]
 
 CRITICAL PLACEMENT: The character and all props MUST be entirely within the BOTTOM 60% of the image.
 
-TITLE TEXT (TOP 40%): The title floats as raw bare text directly on the cream background — NO banner, NO pill, NO box, NO shape behind it. See the second reference image for the exact look.
+TITLE TEXT (TOP 40%): The title floats as raw bare text directly on the white background — NO banner, NO pill, NO box, NO shape behind it. See the second reference image for the exact look.
 - Centered horizontally, 75–80% of image width
 - Stacked 2–3 short lines (max 4–5 words per line)
 - "[COVER TITLE]" with "[ACCENT WORD]" in red (#E53935), all other words near-black (#1A1A1A)
 - Bold Impact-style condensed sans-serif, ALL CAPS, very large
 
-Background: clean off-white cream (#FFFFFF). Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080×1350). No watermarks except the GainFrame Guy badge.
+Background: pure clean WHITE (#FFFFFF) — flat, no gradient, not cream, not off-white. Pure bright white. Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080×1350). No watermarks except the GainFrame Guy badge.
 ```
 
 **Numbered slide prompt** (use with `REF2=$BANNER_STYLE_REF`, no REF3):
@@ -275,7 +295,7 @@ BANNER (TOP — match the second reference image exactly):
 
 Below the banner, center-aligned subtitle text in clean Helvetica-style sans-serif (dark charcoal #1A1A1A): "[SUBTITLE]"
 
-Background: clean off-white cream (#FFFFFF). Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080×1350). No watermarks.
+Background: pure clean WHITE (#FFFFFF) — flat, no gradient, not cream. Pure bright white. Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080×1350). No watermarks.
 ```
 
 #### File Naming (mandatory)
@@ -365,7 +385,7 @@ BOTTOM PANEL (lower 50%):
 - Scene: [BOTTOM SCENE DESCRIPTION]
 - At the very bottom edge, large bold white Impact-style ALL CAPS text reads "[BOTTOM TEXT]" with thick black stroke.
 
-Background for both panels: clean off-white cream (#FFFFFF). Clean cartoon style, thick outlines, flat colors. 4:5 format (1080×1350). No watermarks.
+Background for both panels: pure clean WHITE (#FFFFFF) — flat, no gradient, not cream. Pure bright white. Clean cartoon style, thick outlines, flat colors. 4:5 format (1080×1350). No watermarks.
 ```
 
 For Split Panel cover, add REF3=$BADGE and include the badge in the top-left of the top panel.
@@ -379,6 +399,92 @@ REF3 = gary-badge.png (cover only)
 
 ---
 
+## Hero Reference Format
+
+**Use this format for "Best X for every Y" / "Top N exercises" / "The Ultimate [body part] Guide" carousels** — authoritative reference posts where the cover features a hero physique pose and the numbered slides showcase specific items (exercises, splits, foods, etc.) with anatomy diagrams + equipment demos.
+
+Inspired by the Blue Bro Fitness format. Distinct from Standard Format because:
+- Cover uses a 3-line stacked title (instead of 2-line) with italic edition tag
+- Cover features a muscular hero pose (not a comic action scene)
+- Numbered slides typically show: muscle anatomy diagram + GainFrame Guy demonstrating the exercise on equipment, with exercise names labeled below
+- Tone is authoritative reference, not humorous
+
+### Phase 0–2: Topic, Title, Slides
+
+Same as Standard Format with these tweaks:
+
+**Title format (Phase 1):** Always 3 stacked lines + italic subtitle:
+- Line 1: red accent word(s) (e.g. "BEST EXERCISES")
+- Line 2: dark, bridging text (e.g. "FOR EVERY")
+- Line 3: dark, completion (e.g. "MUSCLE GROUP")
+- Subtitle: italic edition tag in parentheses (e.g. "(Upper Body Edition)", "(Beginner Edition)", "(Push Day)")
+
+**Slide content (Phase 2):** Each numbered slide focuses on one item (one muscle group, one body part, one workout, etc.). For exercise-focused posts, every slide should have:
+- Top: anatomical name + common name (e.g. "Pectoralis Major (Chest)")
+- Middle: muscle anatomy reference showing target muscle highlighted in RED
+- Green arrow(s) pointing down
+- Bottom: GainFrame Guy demonstrating 1–2 exercises on appropriate equipment, with exercise names labeled
+
+### Phase 3: Image Generation
+
+**Cover slide — 4 references (one extra for the hero pose):**
+```
+REF1 = $MASCOT_TEMPLATE                              # character design
+REF2 = $COVER_STYLE_REF                              # bare-text-on-white style
+REF3 = $BADGE                                        # top-left badge
+REF4 = /Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/mascot-pictures.jpeg  # muscular flex pose
+```
+
+**Hero Reference cover prompt template** (proven — produced the `best-upper-body-exercises` cover):
+```
+A cartoon illustration of this exact GainFrame Guy character from the reference images in a hero physique pose.
+
+CRITICAL HEAD DESIGN: The head is NOT a solid square — it is four separate corner brackets floating in space with the background visible between them. The eyes and S-curve nose float inside the bracket frame with NO background fill.
+
+CRITICAL ANATOMY: The character has EXACTLY ONE torso, EXACTLY TWO arms, EXACTLY TWO legs, EXACTLY TWO hands. NO extra arms, NO duplicate limbs.
+
+In the top-left corner, draw the small branding badge from the third reference image: a tiny bracket-frame head icon next to bold sans-serif text reading "GAINFRAME GUY". About 10% of image width.
+
+Scene: The character has a MUSCULAR build — heavily defined chest, broad shoulders, big biceps, visible six-pack abs. He is in a classic bodybuilder hero pose: standing front-facing with his RIGHT arm raised in a bicep flex (fist near his head, bicep peaked), and his LEFT hand placed on his hip. Wearing his olive-green shorts and gray-brown sneakers. Visible muscle definition and contour lines on his chest, arms, and abs. Confident expression — eyes looking forward.
+
+CRITICAL PLACEMENT: The character occupies the BOTTOM 55% of the image, centered horizontally.
+
+TITLE TEXT (TOP 45%): The title floats as raw bare text directly on the white background — NO banner, NO pill, NO box, NO shape behind it. Match the bold-text style of the second reference image but stacked into THREE lines:
+- Line 1: "[ACCENT LINE]" in bright red (#E53935), very large bold Impact-style condensed sans-serif, ALL CAPS
+- Line 2: "[BRIDGE LINE]" in near-black (#1A1A1A), same large bold Impact ALL CAPS
+- Line 3: "[COMPLETION LINE]" in near-black (#1A1A1A), same large bold Impact ALL CAPS
+- Below line 3, smaller italic text reads "([EDITION TAG])" in dark charcoal sans-serif italic
+- All text centered horizontally with moderate margins
+
+TYPOGRAPHY: Bold Impact-style condensed sans-serif for the three main title lines (ALL CAPS). Clean italic sans-serif for the subtitle. NO handwritten, script, or decorative fonts.
+
+Background: pure clean WHITE (#FFFFFF) — flat, no gradient, not cream. Pure bright white. Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080×1350). No watermarks except the GainFrame Guy badge in the top-left corner.
+```
+
+**Numbered slide — 2 references (template + banner style ref):**
+
+For exercise-focused Hero Reference slides, use this prompt structure:
+```
+A cartoon illustration of the GainFrame Guy character from the reference images.
+
+CRITICAL HEAD DESIGN: The head is NOT a solid square — it is four separate corner brackets floating in space. Eyes and S-curve nose float inside.
+CRITICAL ANATOMY: ONE torso, TWO arms, TWO legs, TWO hands. NO duplicate limbs.
+
+LAYOUT (top to bottom):
+1. TOP CENTER: Bold dark sans-serif title in mixed case reads "[Anatomical Name (Common Name)]" — e.g. "Pectoralis Major (Chest)". Large readable text.
+2. UPPER MIDDLE: A small anatomical torso diagram (NOT the mascot — a separate clinical-style upper-body silhouette) with the [TARGET MUSCLE] highlighted in bright red (#E53935). The rest of the silhouette is mid-gray. Clean, simple, instructional.
+3. CENTER: One or two large green downward arrows pointing from the diagram to the exercise(s) below.
+4. BOTTOM: The MUSCULAR GainFrame Guy demonstrating the exercise on equipment. If two exercises, show them side-by-side with a small "&" between them. Below each demonstration, bold small text labels the exercise name (e.g. "Incline Press Machine", "Pec Dec").
+
+Background: pure clean WHITE (#FFFFFF). Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080×1350). No watermarks. No GainFrame Guy badge on numbered slides.
+```
+
+### Phase 4–5: Same as Standard Format
+
+Same review/export and iCloud sync as Standard Format.
+
+---
+
 ## Rules
 
 - **Never skip Phase 2 iteration.** Approved copy before any images.
@@ -389,6 +495,7 @@ REF3 = gary-badge.png (cover only)
 - **Cover gets 3 references (template + cover style + badge). Numbered gets 2 (template + banner style).**
 - **GainFrame mention: 1 in every 3 carousels.** Final slide only. Value-first.
 - **Base64 encode with `| tr -d '\n'`** — removes line breaks that corrupt the JSON.
+- **Use `--rawfile` from temp files, never `--arg "$BASE64"` inline.** Any cover with 3+ reference images blows past macOS ARG_MAX when you pass base64 strings via `--arg`, and jq fails with "argument list too long" — the API then receives an empty body and rejects with `INVALID_ARGUMENT`. The Core Image Generation Function above already does this correctly; never refactor it back to `--arg` for image data.
 - **MIME types:** `.jpeg` → `image/jpeg`, `.png` → `image/png`. Match the actual file extension.
 
 ## Reference Files
