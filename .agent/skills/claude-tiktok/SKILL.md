@@ -485,6 +485,69 @@ Same review/export and iCloud sync as Standard Format.
 
 ---
 
+## GainFrame Promo Slide Pattern (any format)
+
+When a carousel includes a GainFrame plug slide (typically the final slide), use this **phone-in-hand + real app screenshot** pattern. Works in any format (Standard, Hero Reference, etc.) — it's the canonical promo slide for the brand.
+
+### Why this pattern works
+
+1. **Real UI, not illustrated UI.** Passing the actual screenshot as a multimodal reference image makes Gemini render the GainFrame UI faithfully — radar chart labels, color legends, BEFORE/AFTER silhouettes, everything. An illustrated approximation would be less convincing.
+2. **Just the hand, never the body.** A single hand gripping the phone from the bottom-right is what real product shots look like. Showing the full mascot arm/torso always reads as awkward (the torso competes with the phone for attention, and the arm-with-bicep flex distracts from the app).
+3. **Brand mark beside the phone, not on the phone.** The GainFrame logo lives in the negative space to the left of the phone, not as a watermark on top of the screen.
+
+### Screenshot library (pick the one that matches the carousel topic)
+
+The library lives at `/Users/michael.rode/code/project/gain-frame-privacy/app-screenshots/[version]/` (currently `1.21`). Match the screenshot to the carousel topic:
+
+| Carousel topic | Screenshot | Why |
+|----------------|------------|-----|
+| Muscle group / training / "every muscle" | `muscle-map.png` | Shows BEFORE/AFTER muscle development + radar chart of all muscle areas |
+| Body fat / cutting / leanness | `post-check-in-photo-score.png` | GainFrame Score breakdown with Body Fat / Muscle / Proportions / Goal Fit |
+| Progress photos / before-after | `compare.png` or `throwback.png` | Side-by-side comparison view with deltas |
+| Recomp / weight tracking | `weight-chart.png` | 90-day trajectory chart, milestone markers |
+| Consistency / streaks | `check-ins.png` | Weekly streak calendar, "Week Secured" |
+| FFMI / body composition | `ffmi.png` | FFMI explainer with range bar |
+| Trend tracking / dashboard | `dashboard.png` | Trend chart, transformation history, in-app chat |
+| App overview / first look | `home.png` | Home feed with check-in calendar, score, photo |
+
+Always pick the screenshot that **directly reinforces what the carousel taught**. If the post is about overtraining, use `check-ins.png` to show streaks; if it's about jawline body fat, use `post-check-in-photo-score.png` to show the BF% number, etc.
+
+### References (2 images)
+
+```
+REF1 = $MASCOT_TEMPLATE   # for the hand/finger anatomy reference
+REF2 = /Users/michael.rode/code/project/gain-frame-privacy/app-screenshots/1.21/[chosen-screenshot].png
+```
+
+### Promo slide prompt template (proven — produced the `best-upper-body-exercises` slide-7)
+
+```
+A clean cartoon promotional illustration for the GainFrame app — a phone held in hand showing the [SCREEN NAME] screen.
+
+LAYOUT — top to bottom:
+
+1. TOP CENTER (top 18% of image): Two lines of bold dark sans-serif text in mixed case, centered:
+   - Line 1: "[HEADLINE LINE 1 — what GainFrame does for the carousel topic]"
+   - Line 2 (slightly smaller): "[HEADLINE LINE 2 — the payoff]"
+   Same title font/style as the rest of the carousel.
+
+2. CENTER + BOTTOM (~80% of image): A single large smartphone shown in portrait orientation, slightly tilted (5-10 degrees), centered horizontally. The phone is held by a single right HAND coming in from the BOTTOM-RIGHT corner of the image — ONLY THE FINGERS AND HAND are visible (NO arm, NO bicep, NO forearm, NO shoulder, NO body of the character). The hand is a solid black/dark charcoal silhouette with subtle muscle definition lines on the fingers/knuckles only.
+
+3. PHONE SCREEN: Copy the layout of the second reference image as faithfully as possible — iOS-style status bar, all UI elements, all text labels, all colors. The screen content should be readable and clearly identifiable as the GainFrame app.
+
+4. To the LEFT of the phone (in the empty space), a small bracket-frame head logo (matching the character's head design — four corner brackets with eyes and S-curve nose floating inside) next to bold sans-serif text reading "GainFrame". About 15% of image width.
+
+CRITICAL: Do NOT show the GainFrame Guy character's body, torso, bicep, full arm, or any other body part — ONLY a single hand/fingers gripping the phone from the bottom-right.
+
+Background: pure clean WHITE (#FFFFFF) — flat, no gradient. Pure bright white throughout. Clean cartoon style, thick outlines, flat colors. 4:5 TikTok format (1080×1350). No watermarks. No GainFrame Guy badge in the corners.
+```
+
+### Versioning the screenshot library
+
+The screenshot library is **versioned by app release** (`/app-screenshots/1.21/`, `/app-screenshots/1.22/`, …). Always check for the latest version directory before picking a screenshot — newer versions may have updated UI that looks better. If a UI redesign happens between versions, regenerate any old promo slides that use stale screenshots.
+
+---
+
 ## Rules
 
 - **Never skip Phase 2 iteration.** Approved copy before any images.
