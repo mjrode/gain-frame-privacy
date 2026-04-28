@@ -97,3 +97,10 @@
 - GainFrame mention: Yes (Slide 7 — muscle map app promo)
 - Format: Hero Reference (Blue Bro style adapted to GainFrame)
 - Status: Complete (Text baked in)
+
+## 2026-04-28 — RANKING EVERY CHEST EXERCISE
+- Slug: chest-tier-list
+- Slides: 7 (cover + 5 tier slides + GainFrame plug)
+- GainFrame mention: Yes (Slide 6 — muscle map app promo)
+- Format: Tier List (Blue Bro chest-tier inspired)
+- Status: Complete (Text baked in)

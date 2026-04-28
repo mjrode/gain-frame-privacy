@@ -6,6 +6,7 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "chest-tier-list",             title: "Ranking Every Chest Exercise",               date: "2026-04-28", ext: "png" },
     { slug: "best-upper-body-exercises",   title: "Best Exercises for Every Muscle Group (Upper Body Edition)", date: "2026-04-28", ext: "png" },
     { slug: "pre-lift-mistakes",           title: "5 Habits Wrecking Your Lift",                date: "2026-04-27", ext: "png" },
     { slug: "building-muscle-truth",       title: "What Nobody Tells You About Building Muscle", date: "2026-04-27", ext: "png" },
