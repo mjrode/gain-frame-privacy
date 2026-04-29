@@ -4,3 +4,6 @@ client_secret*.json
 
 # Heavy source MP4s - re-encoded web-friendly versions are committed
 app-screenshots/1.21/screen-recording-1-21.MP4
+
+# IndexNow ping log — per-machine, grows unbounded; not source
+tools/indexnow-log.csv
