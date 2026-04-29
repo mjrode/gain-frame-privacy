@@ -1,5 +1,33 @@
 # TikTok Carousel Post Log
 
+## 2026-04-29 — PAWNEE GOES TO THE GYM
+- Slug: pawnee-goes-to-the-gym
+- Slides: 6 (cover + 5)
+- GainFrame mention: No (pure value/parody post)
+- Status: Complete (Text baked in)
+
+
+## 2026-04-28 — THE GANG GOES TO THE GYM
+- Slug: the-gang-goes-to-the-gym
+- Slides: 6 (cover + 5)
+- GainFrame mention: No (pure value/parody post)
+- Status: Complete (Text baked in)
+
+
+## 2026-04-28 — THE OFFICE AT THE GYM
+- Slug: the-office-at-the-gym
+- Slides: 6 (cover + 5)
+- GainFrame mention: No (pure value/parody post)
+- Status: Complete (Text baked in)
+
+
+## 2026-04-28 — EUPHORIA AT THE GYM
+- Slug: euphoria-at-the-gym
+- Slides: 6 (cover + 5)
+- GainFrame mention: No (pure value/parody post)
+- Status: Complete (Text baked in)
+
+
 ## 2026-04-27 — WHAT NOBODY TELLS YOU ABOUT BUILDING MUSCLE
 - Slug: building-muscle-truth
 - Slides: 6 (cover + 5)

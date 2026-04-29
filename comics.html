@@ -149,6 +149,7 @@
             margin: 0 auto;
             padding-left: 24px;
             padding-right: 24px;
+            position: relative;
         }
 
         /* Section header with horizontal rule */
@@ -190,6 +191,72 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ---- GainFrame mascot peek ---- */
+        .comics-mascot-peek {
+            position: absolute;
+            top: 88px;
+            right: clamp(8px, 2.5vw, 28px);
+            width: clamp(156px, 22vw, 248px);
+            aspect-ratio: 1 / 1;
+            z-index: 1;
+            pointer-events: none;
+            transform: translateY(74px) rotate(2deg);
+            opacity: 0;
+            animation: mascotPopUp 1.05s cubic-bezier(0.2, 0.85, 0.18, 1.15) 1.15s forwards,
+                       mascotFriendlyBob 4.6s ease-in-out 2.4s infinite;
+            will-change: transform, opacity;
+        }
+
+        .comics-mascot-peek img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 10px rgba(26, 26, 24, 0.12));
+        }
+
+        .comics-mascot-arm {
+            clip-path: polygon(0 25%, 42% 24%, 50% 70%, 16% 84%, 0 58%);
+            transform-origin: 32% 66%;
+            animation: mascotWave 1.05s ease-in-out 2.05s 3;
+        }
+
+        .comic-hero {
+            position: relative;
+            z-index: 3;
+        }
+
+        @keyframes mascotPopUp {
+            0% {
+                opacity: 0;
+                transform: translateY(74px) rotate(2deg);
+            }
+            72% {
+                opacity: 1;
+                transform: translateY(-8px) rotate(-1deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes mascotFriendlyBob {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(-1deg); }
+        }
+
+        @keyframes mascotWave {
+            0%, 100% { transform: rotate(0deg); }
+            20% { transform: rotate(-10deg); }
+            42% { transform: rotate(8deg); }
+            64% { transform: rotate(-7deg); }
+            82% { transform: rotate(5deg); }
         }
 
         /* ---- Newspaper Card ---- */
@@ -546,6 +613,12 @@
                 gap: 24px;
             }
 
+            .comics-mascot-peek {
+                top: 82px;
+                right: 4px;
+                width: clamp(132px, 26vw, 188px);
+            }
+
             .comic-viewer-slide { width: min(320px, 65vw); }
             .comic-viewer-track { gap: 18px; }
         }
@@ -567,6 +640,12 @@
             }
 
             .newspaper-gallery { padding: 24px 16px 60px; }
+
+            .comics-mascot-peek {
+                top: 76px;
+                right: -8px;
+                width: 128px;
+            }
 
             /* Viewer — mobile-optimized */
             .comic-viewer-slide { width: min(300px, 82vw); }
@@ -620,6 +699,18 @@
             .comic-viewer-progress {
                 bottom: calc(50px + env(safe-area-inset-bottom, 0px));
                 width: 160px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .comics-mascot-peek,
+            .comics-mascot-arm {
+                animation: none;
+            }
+
+            .comics-mascot-peek {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
             }
         }
 
@@ -986,6 +1077,8 @@
             margin-bottom: 28px;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
+            position: relative;
+            z-index: 4;
         }
         .filter-bar::-webkit-scrollbar { display: none; }
         .filter-pill {
@@ -994,7 +1087,7 @@
             font-size: 0.7rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.1em;
             color: var(--ink-muted);
-            background: transparent;
+            background: var(--paper);
             border: 1px solid var(--rule);
             padding: 6px 16px;
             cursor: pointer;
@@ -1132,6 +1225,10 @@
             <span class="section-count" id="sectionCount"></span>
         </div>
         <div class="filter-bar" id="filterBar"></div>
+        <div class="comics-mascot-peek" aria-hidden="true">
+            <img src="assets/mascots/gainframe-guy-wave.png" alt="" loading="eager">
+            <img class="comics-mascot-arm" src="assets/mascots/gainframe-guy-wave.png" alt="" loading="eager">
+        </div>
         <div class="newspaper-grid" id="comicsGrid">
             <!-- Rendered by JS from the manifest -->
         </div>

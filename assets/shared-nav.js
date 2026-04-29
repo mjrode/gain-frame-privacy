@@ -21,6 +21,7 @@
     const isFeatures = /\/features(\.html)?$/.test(normPath);
     const isAbout = /^\/about/.test(normPath);
     const isBlogPost = /^\/blog\/.+/.test(normPath);
+    const shouldShowNavMascot = isHome || normPath === "/blog";
 
     const activeClass = (match) => match ? ' class="active"' : "";
 
@@ -37,10 +38,20 @@
                 <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
+                ${shouldShowNavMascot ? `
+                <a class="nav-mascot-link nav-mascot-link--mobile" href="${prefix}comics.html" aria-label="Read GainFrame comics">
+                    <img src="${prefix}assets/mascots/gainframe-guy-wave.png" alt="">
+                </a>` : ''}
                 <div class="blog-nav-links" id="navLinks">
                     <a href="${prefix}"${activeClass(isHome)}>Home</a>
                     <a href="${prefix}blog/"${activeClass(isBlog)}>Blog</a>
-                    <a href="${prefix}comics.html"${activeClass(isComics)}>Comics</a>
+                    <span class="nav-comics-target">
+                        <a href="${prefix}comics.html"${activeClass(isComics)}>Comics</a>
+                        ${shouldShowNavMascot ? `
+                        <a class="nav-mascot-link nav-mascot-link--desktop" href="${prefix}comics.html" aria-label="Read GainFrame comics">
+                            <img src="${prefix}assets/mascots/gainframe-guy-wave.png" alt="">
+                        </a>` : ''}
+                    </span>
                     <a href="${prefix}tools/"${activeClass(isTools)}>Tools</a>
                     <a href="${prefix}features.html"${activeClass(isFeatures)}>Features</a>
                     <a href="${prefix}about/"${activeClass(isAbout)}>About</a>

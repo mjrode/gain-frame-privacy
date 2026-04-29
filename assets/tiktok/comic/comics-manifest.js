@@ -6,6 +6,10 @@
  * Add new comics here as they are created — the gallery page reads this list.
  */
 const COMICS_MANIFEST = [
+    { slug: "pawnee-goes-to-the-gym",      title: "Pawnee Goes to the Gym",                     date: "2026-04-29", ext: "png" },
+    { slug: "the-gang-goes-to-the-gym",    title: "The Gang Goes to the Gym",                   date: "2026-04-28", ext: "png" },
+    { slug: "the-office-at-the-gym",       title: "The Office at the Gym",                      date: "2026-04-28", ext: "png" },
+    { slug: "euphoria-at-the-gym",         title: "Euphoria at the Gym",                        date: "2026-04-28", ext: "png" },
     { slug: "chest-tier-list",             title: "Ranking Every Chest Exercise",               date: "2026-04-28", ext: "png" },
     { slug: "best-upper-body-exercises",   title: "Best Exercises for Every Muscle Group (Upper Body Edition)", date: "2026-04-28", ext: "png" },
     { slug: "pre-lift-mistakes",           title: "5 Habits Wrecking Your Lift",                date: "2026-04-27", ext: "png" },

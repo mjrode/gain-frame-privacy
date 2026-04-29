@@ -36,7 +36,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="/styles-clean.css">
+  <link rel="stylesheet" href="/styles-clean.css?v=nav-mascot">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -80,7 +80,12 @@
     <div class="nav-links" id="navLinks">
       <a href="/" class="active">Home</a>
       <a href="/blog/">Blog</a>
-      <a href="/comics.html">Comics</a>
+      <span class="nav-comics-target">
+        <a href="/comics.html">Comics</a>
+        <a class="nav-mascot-link nav-mascot-link--desktop" href="/comics.html" aria-label="Read GainFrame comics">
+          <img src="/assets/mascots/gainframe-guy-wave.png" alt="">
+        </a>
+      </span>
       <a href="/tools/">Tools</a>
       <a href="/features.html">Features</a>
       <a href="/about/">About</a>
@@ -88,6 +93,9 @@
     <div class="nav-actions">
       <a class="nav-cta" href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank"
         rel="noopener">Download</a>
+      <a class="nav-mascot-link nav-mascot-link--mobile" href="/comics.html" aria-label="Read GainFrame comics">
+        <img src="/assets/mascots/gainframe-guy-wave.png" alt="">
+      </a>
       <button class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span>
       </button>
@@ -115,14 +123,14 @@
         <div class="radar-glow" aria-hidden="true"></div>
         <div class="radar-orbit" aria-hidden="true"></div>
         <div class="radar-map" aria-hidden="true">
-          <span class="map-label label-a">Chest</span>
-          <span class="map-label label-b">Delts</span>
-          <span class="map-label label-c">Body fat</span>
-          <span class="ping ping-a"></span>
-          <span class="ping ping-b"></span>
-          <span class="ping ping-c"></span>
-          <span class="ping ping-d"></span>
-          <span class="ping ping-e"></span>
+          <span class="map-label label-a">FFMI</span>
+          <span class="map-label label-b">BF%</span>
+          <span class="map-label label-c">BMI</span>
+          <span class="map-label label-d">Weight</span>
+          <span class="metric-pin pin-a"><strong>BMI</strong><em>28.1</em></span>
+          <span class="metric-pin pin-b"><strong>FFMI</strong><em>19.4</em></span>
+          <span class="metric-pin pin-c"><strong>BF%</strong><em>18.0</em></span>
+          <span class="metric-pin pin-d"><strong>Weight</strong><em>239</em></span>
         </div>
         <div class="phone-shell phone-left" aria-hidden="true">
           <img src="/assets/app-screens/IMG_1789.PNG" alt="">
