@@ -87,7 +87,7 @@
                         </a>
                     </div>
                     <p style="margin: 0; font-size: 0.9rem; color: #555; line-height: 1.5;" itemprop="description">
-                        Founder of GainFrame. Senior software engineer (15 yrs, backend &amp; infra). Lifting 20 yrs. Built GainFrame after paying for two DEXA scans and deciding there had to be a better way. <a href="${prefix}about/" style="color: #555; text-decoration: underline; text-underline-offset: 2px;">More about GainFrame &rarr;</a>
+                        Founder of GainFrame. Full-time backend engineer (15 yrs), lifter for 20, new dad squeezing workouts in around naps. Built GainFrame after two expensive DEXA scans convinced me there had to be a better way to track body comp. <a href="${prefix}about/" style="color: #555; text-decoration: underline; text-underline-offset: 2px;">More about GainFrame &rarr;</a>
                     </p>
                 </div>
             </aside>`;
