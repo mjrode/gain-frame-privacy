@@ -129,6 +129,7 @@ button {
 .nav-links {
   gap: 28px;
   justify-self: center;
+  align-items: center;
 }
 
 .nav-comics-target {
@@ -152,6 +153,9 @@ button {
 
 .nav-links a {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .nav-links a::after {
