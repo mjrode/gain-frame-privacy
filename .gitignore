@@ -6,4 +6,4 @@ client_secret*.json
 app-screenshots/1.21/screen-recording-1-21.MP4
 
 # IndexNow ping log — per-machine, grows unbounded; not source
-tools/indexnow-log.csv
+scripts/indexnow-log.csv

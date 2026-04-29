@@ -5,18 +5,18 @@ Seznam, Naver, etc.) that a list of URLs has been added or updated.
 
 Usage:
     # URLs as CLI args
-    python3 tools/indexnow-ping.py https://gainframe.app/blog/post-a/ https://gainframe.app/blog/post-b/
+    python3 scripts/indexnow-ping.py https://gainframe.app/blog/post-a/ https://gainframe.app/blog/post-b/
 
     # URLs from stdin (one per line)
-    cat /tmp/urls.txt | python3 tools/indexnow-ping.py
+    cat /tmp/urls.txt | python3 scripts/indexnow-ping.py
 
     # Both — CLI args + stdin
-    python3 tools/indexnow-ping.py https://gainframe.app/blog/post-a/ < /tmp/more.txt
+    python3 scripts/indexnow-ping.py https://gainframe.app/blog/post-a/ < /tmp/more.txt
 
 Spec: https://www.indexnow.org/documentation
 Note: Google does NOT participate in IndexNow. This pings Bing/Yandex/etc.
 
-Logs each invocation to tools/indexnow-log.csv with timestamp, URL count,
+Logs each invocation to scripts/indexnow-log.csv with timestamp, URL count,
 HTTP response code, and a short response excerpt.
 """
 

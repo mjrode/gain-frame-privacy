@@ -31,13 +31,13 @@ when the key changes and you'll see a couple days of failed pings.
 
 ```bash
 # URLs as CLI args
-python3 tools/indexnow-ping.py https://gainframe.app/blog/post-a/
+python3 scripts/indexnow-ping.py https://gainframe.app/blog/post-a/
 
 # URLs from stdin
-cat /tmp/urls.txt | python3 tools/indexnow-ping.py
+cat /tmp/urls.txt | python3 scripts/indexnow-ping.py
 
 # Mix: CLI args + stdin
-python3 tools/indexnow-ping.py https://gainframe.app/blog/featured/ < /tmp/more.txt
+python3 scripts/indexnow-ping.py https://gainframe.app/blog/featured/ < /tmp/more.txt
 ```
 
 The script:
@@ -46,7 +46,7 @@ The script:
   rejects cross-host submissions)
 - POSTs to `https://api.indexnow.org/indexnow`
 - prints status + response body
-- appends a row to `tools/indexnow-log.csv` (this file is gitignored)
+- appends a row to `scripts/indexnow-log.csv` (this file is gitignored)
 
 Successful responses: **200 OK** (URLs accepted, will be processed) or
 **202 Accepted** (URLs queued for validation; key file fetch pending).
@@ -66,14 +66,14 @@ Anything else and the script exits non-zero.
 When a new post ships, add the URL to your post-deploy step:
 
 ```bash
-python3 tools/indexnow-ping.py https://gainframe.app/blog/<new-slug>/
+python3 scripts/indexnow-ping.py https://gainframe.app/blog/<new-slug>/
 ```
 
-Or append to `tools/indexnow-batch.txt` and pipe it:
+Or append to a queue file and pipe it:
 
 ```bash
 echo "https://gainframe.app/blog/<new-slug>/" >> /tmp/indexnow-queue.txt
-cat /tmp/indexnow-queue.txt | python3 tools/indexnow-ping.py
+cat /tmp/indexnow-queue.txt | python3 scripts/indexnow-ping.py
 ```
 
 ## Why we set this up (2026-04-29 context)
