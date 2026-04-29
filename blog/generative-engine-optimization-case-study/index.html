@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Sends Us 31% of Our Users — Our Generative Engine Optimization Playbook | GainFrame</title>
+    <meta name="robots" content="max-image-preview:large">
+    <meta name="description" content="ChatGPT became our #1 user acquisition source — ahead of TikTok, App Store, and Google. Here's the 5-step generative engine optimization playbook a solo dev shipped.">
+    <meta name="keywords" content="how to rank in chatgpt, generative engine optimization, GEO, how to get cited by chatgpt, how to optimize content for chatgpt, AEO, LLM SEO, AI SEO, founder case study">
+    <meta property="og:title" content="ChatGPT Sends Us 31% of Our Users — Our GEO Playbook">
+    <meta property="og:description" content="A solo dev's real PostHog data on ChatGPT as the #1 acquisition channel — and the 5 structural changes that got us there.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://gainframe.app/blog/generative-engine-optimization-case-study/assets/cover.webp">
+    <meta property="og:url" content="https://gainframe.app/blog/generative-engine-optimization-case-study/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ChatGPT Sends Us 31% of Our Users — Our GEO Playbook">
+    <meta name="twitter:description" content="Real PostHog data + the 5 changes a solo dev shipped to make a fitness blog AI-friendly.">
+    <meta name="twitter:image" content="https://gainframe.app/blog/generative-engine-optimization-case-study/assets/cover.webp">
+    <link rel="canonical" href="https://gainframe.app/blog/generative-engine-optimization-case-study/">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/assets/favicon-192.png">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-N6YPFBB8JE');
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "ChatGPT Sends Us 31% of Our Users — Our Generative Engine Optimization Playbook",
+        "description": "ChatGPT became our #1 user acquisition source — ahead of TikTok, App Store, and Google. Here's the 5-step generative engine optimization playbook a solo dev shipped.",
+        "image": "https://gainframe.app/blog/generative-engine-optimization-case-study/assets/cover.webp",
+        "datePublished": "2026-04-29",
+        "dateModified": "2026-04-29",
+        "author": { "@type": "Person", "name": "Michael Rode", "url": "https://gainframe.app/about" },
+        "publisher": { "@type": "Organization", "name": "GainFrame", "url": "https://gainframe.app", "logo": { "@type": "ImageObject", "url": "https://gainframe.app/assets/favicon.webp" } },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gainframe.app/blog/generative-engine-optimization-case-study/" },
+        "articleSection": "Founder Story"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gainframe.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gainframe.app/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "ChatGPT Sends Us 31% of Our Users — Our GEO Playbook", "item": "https://gainframe.app/blog/generative-engine-optimization-case-study/" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do you rank in ChatGPT?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ChatGPT cites pages it can find on the open web (largely through Bing) that answer questions clearly and have authority signals attached — schema markup, a real author entity, FAQ sections, and direct answer paragraphs. You don't rank in ChatGPT the same way you rank in Google. You make your existing helpful content more extractable."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do you get cited by ChatGPT specifically?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Put a 40–60 word direct answer at the top of every post (ChatGPT pulls these almost verbatim). Use question-format H2s. Add a visible FAQ section with matching FAQPage JSON-LD. Make sure your site is indexed in Bing — ChatGPT pulls roughly 63% of citations from the top Bing result."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is generative engine optimization (GEO)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Generative engine optimization (GEO) is the practice of structuring content so AI systems like ChatGPT, Claude, Perplexity, and Google AI Overviews can extract and cite it. Related terms — answer engine optimization (AEO), LLM SEO, AI SEO — describe roughly the same work. The metric is citations in AI answers, not clicks from search results."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is GEO replacing SEO?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. GEO and SEO share a foundation — both reward clear, helpful, well-structured content with real authority signals. ChatGPT doesn't crawl the web independently; it pulls from Bing's search index. If you can't be found in traditional search, you can't be cited by AI either. GEO is a layer on top of SEO, not a replacement."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you need a big SEO budget to do GEO?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Every change in our 5-step playbook is structural — Quick Answer blocks, question H2s, FAQ sections, schema markup, IndexNow pings. None of it costs money. None of it requires backlinks or paid tools. A solo dev can ship the whole playbook in a weekend. We did."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do you measure if GEO is working?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Two ways. First, ask your own users — we use a single onboarding question (\"How did you hear about us?\") with ChatGPT as one option. PostHog tracks the response. Second, search your category in ChatGPT yourself and check whether your brand appears in the answer. Both signals are imperfect but directionally useful."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to optimize a blog for ChatGPT and other AI engines",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Add a Quick Answer block to every post",
+                "text": "Place a 40–60 word direct answer to the post's primary question immediately after the H1, before the opening hook. AI Overviews and ChatGPT extract this verbatim. Under 40 words and you don't say enough; over 60 and the answer gets truncated mid-sentence."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Phrase H2s as full grammatical questions",
+                "text": "Replace descriptive headings (\"The 15% range\") with full questions (\"What does 15% body fat look like on men and women?\"). LLMs are trained on conversational query patterns and pull preferentially from sections that mirror those patterns."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Add a visible FAQ section with matching FAQPage JSON-LD",
+                "text": "End every guide post with 4–8 question-and-answer pairs. Render them as visible H3 + paragraph and emit FAQPage structured data with the exact same wording. Mismatch between schema and visible content is a Google penalty risk."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Emit multi-schema JSON-LD with a normalized author entity",
+                "text": "Every post emits BlogPosting + BreadcrumbList, plus FAQPage and HowTo where applicable. Author is always a Person with a stable URL pointing to a real /about page. This is the E-E-A-T anchor — it tells Google and LLMs there's a verifiable human behind the content."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Ping IndexNow when you publish",
+                "text": "ChatGPT pulls roughly 63% of its citations from the top Bing result. IndexNow is a free protocol that notifies Bing (plus Yandex, Seznam, Naver) the moment you publish a new URL. Google ignores IndexNow, but for AI citation visibility, Bing is what matters."
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <div data-site-nav></div>
+    <script src="/assets/shared-nav.js"></script>
+
+    <article class="post">
+        <div class="container post-container">
+            <header class="post-header hero-text-stagger">
+                <div class="post-meta">
+                    <span class="post-category">Founder Story</span>
+                    <span class="post-date">Apr 29, 2026</span>
+                    <span class="post-read-time">10 min read</span>
+                </div>
+                <h1 class="post-title">ChatGPT Sends Us 31% of Our Users — Here's the Generative Engine Optimization Playbook We Used</h1>
+                <p class="post-subtitle">A solo dev's real PostHog data on AI as the #1 acquisition channel — and the 5 structural changes that got us cited.</p>
+            </header>
+
+            <div class="post-body">
+                <div class="post-hero-image scroll-reveal" style="margin-bottom: 3rem;">
+                    <img src="assets/cover.webp" alt="Abstract illustration of a chat bubble pulling content from cited document pages" loading="lazy"
+                        style="border-radius: 16px; border: 1px solid var(--color-border); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                </div>
+
+                <div class="post-callout post-quick-answer">
+                    <p><strong>Quick answer:</strong> ChatGPT now sends us 31% of new users — more than TikTok (16.5%), App Store (10.4%), or Google (8.7%). We didn't run a generative engine optimization campaign. We wrote helpful posts, then shipped five structural changes: Quick Answer blocks, question-format H2s, visible FAQ sections with schema, multi-schema JSON-LD with author entity, and IndexNow pings to Bing.</p>
+                </div>
+
+                <p>I was shocked.</p>
+
+                <p>For the past two months I've been putting almost all of my marketing time into three channels: TikTok carousels, Apple Search Optimization, and SEO. Those were supposed to be the main sources. So when I added a "How did you hear about us?" question to onboarding and looked at the data a week later, I had to read the chart twice.</p>
+
+                <p>ChatGPT was #1. Not third. Not "an interesting long tail." First place, by almost double the next channel.</p>
+
+                <div class="post-hero-image scroll-reveal" style="margin: 2rem 0 3rem 0;">
+                    <img src="assets/posthog-attribution.webp" alt="PostHog dashboard showing attribution source mix over the last 30 days, with ChatGPT as the largest segment" loading="lazy"
+                        style="border-radius: 12px; border: 1px solid var(--color-border); box-shadow: 0 8px 24px rgba(0,0,0,0.25);">
+                    <p class="post-caption">PostHog attribution mix, Apr 23–29, 2026. n=115 self-reported responses among onboarding completers. Caveat: this isn't installs — it's "how did you hear about us" among users who answered the question. Still, the relative shape is striking.</p>
+                </div>
+
+                <p>Then I ran the obvious sanity check. I opened ChatGPT in another window and typed the most common query a user might ask in our category: <em>"What are the best progress photo apps?"</em></p>
+
+                <div class="post-hero-image scroll-reveal" style="margin: 2rem 0 3rem 0;">
+                    <img src="assets/chatgpt-ranking.webp" alt="ChatGPT response to 'What are the best progress photo apps' showing GainFrame listed first under 'Best overall (modern / AI-driven)'" loading="lazy"
+                        style="border-radius: 12px; border: 1px solid var(--color-border); box-shadow: 0 8px 24px rgba(0,0,0,0.25);">
+                    <p class="post-caption">ChatGPT's answer to "what are the best progress photo apps" lists GainFrame first under "Best overall (modern / AI-driven)." This is what 31% of our acquisition looks like upstream — a citation, not a click.</p>
+                </div>
+
+                <p>GainFrame ranked #1. Listed under <em>"Best overall (modern / AI-driven)."</em> A solo-dev iOS app, 49 days old, beating apps with 9,000+ App Store reviews to the top of ChatGPT's answer.</p>
+
+                <p>This post is the playbook of what I actually shipped — every change is a real commit, not a speculation. If you're a founder, indie hacker, or marketer trying to figure out where AI fits in the channel mix, this is one data point with the receipts attached.</p>
+
+                <hr class="post-divider">
+
+                <h2>What is generative engine optimization (GEO)?</h2>
+
+                <p>Generative engine optimization is the practice of structuring your content so AI systems — ChatGPT, Claude, Perplexity, Google AI Overviews, Microsoft Copilot — can find it, understand it, and cite it when answering user questions. The metric isn't clicks. It's citations.</p>
+
+                <p>The terminology is messy because the practice is new. You'll see all of these used roughly interchangeably:</p>
+
+                <div class="post-table-wrapper scroll-reveal">
+                    <table class="post-table">
+                        <thead>
+                            <tr>
+                                <th>Term</th>
+                                <th>What it actually means</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GEO (Generative Engine Optimization)</td>
+                                <td>The umbrella term. Optimizing for any AI system that generates answers — chat, search overviews, voice assistants.</td>
+                            </tr>
+                            <tr>
+                                <td>AEO (Answer Engine Optimization)</td>
+                                <td>The same thing, framed around "answer engines." Slightly older term.</td>
+                            </tr>
+                            <tr>
+                                <td>LLM SEO</td>
+                                <td>The same thing, framed around large language models specifically.</td>
+                            </tr>
+                            <tr>
+                                <td>AI SEO</td>
+                                <td>The same thing, more casual phrasing.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>I'll use "GEO" for the rest of this post but you can substitute any of the others.</p>
+
+                <p>The thing every definition misses: <strong>GEO is not a replacement for SEO. It's a layer on top of it.</strong> ChatGPT doesn't crawl the web independently — it pulls from Bing. If you're not findable in traditional search, you can't be cited by AI either. The good news is the work overlaps almost entirely. Every change I shipped helps both.</p>
+
+                <hr class="post-divider">
+
+                <h2>Why did ChatGPT become our #1 channel before TikTok or App Store?</h2>
+
+                <p>Honestly, I think it's because ChatGPT is the channel where helpful content compounds the fastest right now.</p>
+
+                <p>On TikTok, every video starts at zero. The algorithm decides what gets shown that day. A carousel from three weeks ago is essentially invisible. App Store has the same dynamic — your install velocity right now is what matters; last month's traffic is gone.</p>
+
+                <p>ChatGPT works the opposite way. Once your content gets pulled into the citation pool, every relevant query in that category surfaces it again. The cited article keeps working forever — or at least until something clearly better replaces it. The compounding is invisible, then suddenly it's a third of your traffic.</p>
+
+                <p>The other reason: there's almost no competition for citations yet. Most fitness apps are not optimizing for AI surfaces at all. The ones that try are mostly running paid social. The bar for ranking #1 in ChatGPT for "best progress photo apps" turns out to be much lower than ranking #1 in Google for the same query — because Google is saturated, and ChatGPT's source pool isn't.</p>
+
+                <hr class="post-divider">
+
+                <h2>How do you rank in ChatGPT?</h2>
+
+                <p>The honest answer: you don't "rank" in ChatGPT the way you rank in Google. ChatGPT generates answers from a pool of sources it considers authoritative. Your job is to be in that pool, then to be the easiest source to extract.</p>
+
+                <p>Authority comes from the same E-E-A-T signals Google has been pushing for years — a real author, a real organization, content depth, mentions on other sites. We didn't focus on those directly. We focused on extractability — making it as easy as possible for an LLM to lift a clean answer from our content.</p>
+
+                <p>Here's what we shipped.</p>
+
+                <hr class="post-divider">
+
+                <h2>What 5 changes did we make to the blog?</h2>
+
+                <p>All five of these are real commits. They took a weekend. None of them required backlinks, paid tools, or an SEO agency.</p>
+
+                <div class="post-steps">
+                    <ol>
+                        <li>
+                            <h3>Add a Quick Answer block to every post</h3>
+                            <p>40–60 words. Right after the H1. Before the opening hook. It directly answers the post's primary question with no setup or qualifier sentence first.</p>
+                            <p>This is the single biggest change. AI Overviews, ChatGPT citations, Google featured snippets — they all extract this block almost verbatim. Under 40 words and there's not enough to lift; over 60 and it gets truncated mid-sentence. Count the words.</p>
+                        </li>
+                        <li>
+                            <h3>Phrase every H2 as a full grammatical question</h3>
+                            <p>Not "The 15% Range." Not "Accuracy Comparison." Full questions: <em>"What does 15% body fat look like on men and women?"</em> <em>"How accurate is body fat estimation from a photo compared to DEXA?"</em></p>
+                            <p>LLMs are trained on conversational query patterns. Voice assistants, chat interfaces, AI Overviews — they all preferentially extract from sections whose headings match the way users actually phrase questions. Descriptive headings get skipped.</p>
+                        </li>
+                        <li>
+                            <h3>Add a visible FAQ section, with matching FAQPage JSON-LD</h3>
+                            <p>Every guide post ends with 4–8 question-and-answer pairs as plain H3 + paragraph. The same questions and answers go into FAQPage structured data, word-for-word. Mismatch is a Google penalty risk and means LLMs can't reliably extract the answer.</p>
+                            <p>Each FAQ entry captures a long-tail follow-up query. They're free traffic. We retrofitted seven of our highest-trafficked posts with FAQ sections in a single commit.</p>
+                        </li>
+                        <li>
+                            <h3>Emit multi-schema JSON-LD with a normalized author entity</h3>
+                            <p>Every post now emits BlogPosting + BreadcrumbList, plus FAQPage and HowTo where applicable. The author block is the same canonical form on all 65 blog posts:</p>
+                            <p><code>{ "@type": "Person", "name": "Michael Rode", "url": "https://gainframe.app/about" }</code></p>
+                            <p>That stable URL is the E-E-A-T anchor. It tells Google and LLMs there's a verifiable human behind the content. Author was previously a mix of "Organization + GainFrame" and "Person + Michael Rode" with no URL — fragmented signal. Normalized in one Python script that updated 65 files.</p>
+                        </li>
+                        <li>
+                            <h3>Ping IndexNow when you publish</h3>
+                            <p>This is the one nobody talks about. ChatGPT pulls roughly 63% of its citations from the top Bing result (vs. ~45% from Google). Bing is the gateway into ChatGPT. IndexNow is a free protocol that notifies Bing the moment you publish a new URL — Yandex, Seznam, and Naver also participate. Google does not, but for AI citation visibility, Google's not the one we needed.</p>
+                            <p>We set it up as a 30-line Python script. It pings <code>api.indexnow.org</code> every time we publish. New posts now get into Bing's index in hours instead of days.</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <hr class="post-divider">
+
+                <h2>Which change moved the needle most?</h2>
+
+                <p>I don't know.</p>
+
+                <p>I shipped all five within a few days of each other and didn't run them as a controlled experiment. The PostHog attribution data started showing ChatGPT as a meaningful source about a week after the changes landed. By two weeks it was #1.</p>
+
+                <p>My honest read is that it was cumulative — and that the content was already good before the structural changes. Each post genuinely tries to help a person figure out a hard fitness question. The five changes didn't create that. They surfaced it properly so AI engines could read and cite it.</p>
+
+                <p>If I had to guess at the order of impact, I'd guess: <strong>(1) the Quick Answer blocks — the highest-leverage single change, because that's the literal text getting extracted. (2) The author entity normalization, because it suddenly told every LLM there was a real human author across all 65 posts. (3) IndexNow pings, because they got new posts into Bing fast.</strong> But those are guesses. I'd genuinely rather quote "I don't know which one worked" than fabricate a winner.</p>
+
+                <div class="post-callout">
+                    <p>If you're going to ship just one of the five — ship the Quick Answer block. It's the smallest amount of work for the largest amount of extracted text.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <h2>How do you get cited by ChatGPT specifically?</h2>
+
+                <p>Citations aren't random. From the patterns I see in pages that get cited (ours and others'), four traits show up over and over:</p>
+
+                <ul>
+                    <li><strong>A clean, extractable direct answer near the top of the page.</strong> 40–60 words is the sweet spot. AI engines will lift this almost word-for-word.</li>
+                    <li><strong>Original data or first-hand experience.</strong> If your post says something nobody else's post says, you become the canonical source for that fact. This article is one example — almost every other post on this topic is consultant speculation, so a real PostHog screenshot becomes the cited source.</li>
+                    <li><strong>Question-format structure.</strong> Headings that match how users phrase queries. Plain HTML, no important content hidden behind JavaScript or accordions — AI bots only read raw HTML.</li>
+                    <li><strong>Recency.</strong> AI citations skew heavily toward content updated in the last 90 days. The <code>dateModified</code> in your schema actually matters.</li>
+                </ul>
+
+                <p>The fitness app category isn't unique here. Every category I've checked — SaaS tools, productivity apps, even niche hardware — has the same dynamic. The pages getting cited are the ones easiest to extract, not necessarily the ones with the most backlinks.</p>
+
+                <hr class="post-divider">
+
+                <h2>What this means for founders without big SEO budgets</h2>
+
+                <p>The expensive moats in traditional SEO — domain authority, backlink profiles, paid tools, agency retainers — matter less than they used to. Not zero, but less.</p>
+
+                <p>The cheap moats — well-structured content, an honest author entity, a Quick Answer that actually answers the question, schema that mirrors visible content — matter more than they used to. A solo dev can ship the entire playbook in a weekend without spending a dollar on tools or backlinks.</p>
+
+                <p>That doesn't mean GEO is a free lunch. The hard part is still <em>writing genuinely helpful content in the first place</em>. The five changes don't make bad content rank. They make existing helpful content extractable. The order of operations matters: write the helpful thing first, then ship the structural changes.</p>
+
+                <p>If you're a fitness founder reading this and you want to compare notes on what's working in your category, my email is in <a href="/about">my about page</a>. I'm one person — this is a side project — and I'd genuinely rather trade notes than gatekeep.</p>
+
+                <hr class="post-divider">
+
+                <h2>Frequently asked questions</h2>
+
+                <h3>How do you rank in ChatGPT?</h3>
+                <p>ChatGPT cites pages it can find on the open web (largely through Bing) that answer questions clearly and have authority signals attached — schema markup, a real author entity, FAQ sections, and direct answer paragraphs. You don't rank in ChatGPT the same way you rank in Google. You make your existing helpful content more extractable.</p>
+
+                <h3>How do you get cited by ChatGPT specifically?</h3>
+                <p>Put a 40–60 word direct answer at the top of every post (ChatGPT pulls these almost verbatim). Use question-format H2s. Add a visible FAQ section with matching FAQPage JSON-LD. Make sure your site is indexed in Bing — ChatGPT pulls roughly 63% of citations from the top Bing result.</p>
+
+                <h3>What is generative engine optimization (GEO)?</h3>
+                <p>Generative engine optimization (GEO) is the practice of structuring content so AI systems like ChatGPT, Claude, Perplexity, and Google AI Overviews can extract and cite it. Related terms — answer engine optimization (AEO), LLM SEO, AI SEO — describe roughly the same work. The metric is citations in AI answers, not clicks from search results.</p>
+
+                <h3>Is GEO replacing SEO?</h3>
+                <p>No. GEO and SEO share a foundation — both reward clear, helpful, well-structured content with real authority signals. ChatGPT doesn't crawl the web independently; it pulls from Bing's search index. If you can't be found in traditional search, you can't be cited by AI either. GEO is a layer on top of SEO, not a replacement.</p>
+
+                <h3>Do you need a big SEO budget to do GEO?</h3>
+                <p>No. Every change in our 5-step playbook is structural — Quick Answer blocks, question H2s, FAQ sections, schema markup, IndexNow pings. None of it costs money. None of it requires backlinks or paid tools. A solo dev can ship the whole playbook in a weekend. We did.</p>
+
+                <h3>How do you measure if GEO is working?</h3>
+                <p>Two ways. First, ask your own users — we use a single onboarding question ("How did you hear about us?") with ChatGPT as one option. PostHog tracks the response. Second, search your category in ChatGPT yourself and check whether your brand appears in the answer. Both signals are imperfect but directionally useful.</p>
+
+                <hr class="post-divider">
+
+                <div class="blog-post-cta scroll-reveal">
+                    <h3>Curious what we're actually building?</h3>
+                    <p>GainFrame is the AI body composition app for serious gym-goers — the one ChatGPT keeps citing. AI Deep Dive scoring, side-by-side compare, future-physique prediction. Free tier, no account needed.</p>
+                    <a href="https://apps.apple.com/us/app/gainframe/id6759252082" class="cta-button" target="_blank" rel="noopener">
+                        Download GainFrame Free
+                    </a>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-related scroll-reveal">
+                    <h3>Related Articles</h3>
+                    <ul>
+                        <li><a href="/blog/gainframe-is-live/">GainFrame Is Live: A Solo Dev's Launch Story</a></li>
+                        <li><a href="/blog/two-months-launching-second-app/">Two Months In: What I Learned Launching My Second App</a></li>
+                        <li><a href="/blog/stop-building-features-start-reading-data/">Stop Building Features. Start Reading Data.</a></li>
+                        <li><a href="/blog/best-progress-photo-apps/">Best Progress Photo Apps (2026): Tested & Ranked</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <div data-site-footer></div>
+    <script src="/assets/shared-footer.js"></script>
+    <script src="/assets/email-capture-bar.js"></script>
+    <script src="/assets/scroll-reveal.js"></script>
+</body>
+</html>

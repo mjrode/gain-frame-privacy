@@ -82,6 +82,12 @@ Cluster goal: strengthen pillar `/blog/best-progress-photo-apps/` (already ranki
 - [x] **[CTR] `body-transformation-tracker-apps` title fix** — pos 10.85 with 2.5% CTR for `body transformation app`; also ranking pos 11.7 for `ai body transformation app`, pos 17.3 for `best body transformation app`. Title rewritten to "Best AI Body Transformation Apps (2026): 6 Trackers Tested & Ranked" to capture all three queries. Done 2026-04-29.
 - [ ] **[Internal links] Pillar refresh** — `/blog/best-progress-photo-apps/` should add a "More on Progress Photos" section linking to each new supporting article as they land. Each supporting article should link UP to pillar with anchor "best progress photo apps" — added 2026-04-28
 
+### From: keyword-research/2026-04-29-generative-engine-optimization.md
+
+Cluster goal: capture the founder/marketer audience with a single pillar case study. GainFrame's defensible moat = real PostHog attribution data (chatgpt = 31%) + screenshot of #1 ChatGPT ranking. SERP is dominated by SEO-consultant speculation; we have actual results.
+
+- [x] **how to rank in chatgpt** (Med/35, blog-post-generator) — added 2026-04-29 — TOP PICK for founder case study; LinkedIn-dominated SERP is winnable with original data + screenshots; bundle with `how to get cited by chatgpt` (Low-Med/15), `how to optimize content for chatgpt` (Med/25), `how to show up in chatgpt search results` (Med/30) as H2/H3s in a single pillar post. Glossary callout for `generative engine optimization` / `GEO vs SEO` / `AEO` / `LLM SEO` (do NOT compete on those head terms — Wikipedia/HBR/HubSpot/SemRush lockout). — published 2026-04-29 as /blog/generative-engine-optimization-case-study/
+
 ## Published
 
 (none yet)
