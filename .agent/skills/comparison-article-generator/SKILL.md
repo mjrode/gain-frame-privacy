@@ -133,13 +133,21 @@ Title rules:
 ```
 H1: [Competitor] vs [GainFrame]: [Full question]
 
+[MANDATORY Quick Answer block — inherited from blog-post-generator.
+ Render as <div class="post-callout post-quick-answer"> with 40–60 words
+ directly answering "Which is better for [audience]: [Competitor] or GainFrame?".
+ This is the AI-Overview / featured-snippet target — keep it tight, no setup,
+ give the verdict + the audience split in one paragraph. The H2 below
+ ELABORATES; the callout is the extractable answer.]
+
 [Optional Table of Contents — generate as <ul> with anchor links]
 
-H2: [Front-loaded answer to the comparison query]
+H2: [Front-loaded answer to the comparison query — phrased as a question]
    e.g. "Which AI Body Fat App Is More Accurate: Bodywhat or GainFrame?"
 
-   First paragraph (2-3 sentences): The verdict. State who wins for what audience.
-   This is the snippet-friendly answer — Google often pulls this for featured snippets.
+   First paragraph (2-3 sentences): Elaborate on the Quick Answer callout above —
+   the verdict with reasoning, not a duplicate of the callout. State who wins for
+   what audience and WHY.
 
    Then 2-3 short bullet/sentence "key takeaways" that summarize the differentiation.
    End with: "Let's break down each one."
@@ -171,9 +179,17 @@ H2: [Key Dimension] Showdown: [Competitor] vs [GainFrame] [Dimension] Compared
    If features: lead into the comparison table below.
 
 H2: Feature Comparison: [Competitor] vs [GainFrame] Side by Side
-   MANDATORY — must include a post-table with these columns:
-   | Feature | [Competitor] | [GainFrame] |
-   | --- | --- | --- |
+   MANDATORY — must include a post-table.
+
+   COLUMN ORDER (per blog-post-generator's "Comparison tables" rule):
+   - Single-competitor comparison (3 columns: Feature | Competitor | GainFrame)
+     → keep default column order (GainFrame last). Table fits viewport, no
+       horizontal scroll, default :last-child sage highlight is fine.
+   - Multi-competitor comparison (4+ data columns)
+     → use `<table class="post-table gainframe-first">`. Put GainFrame in
+       column 2 (first data column, immediately after the Feature label).
+       The least important competitor goes LAST so it's the one cut off
+       on narrow viewports.
 
    Include 8-12 rows covering:
    - Body fat estimate method
@@ -185,8 +201,13 @@ H2: Feature Comparison: [Competitor] vs [GainFrame] Side by Side
    - Pricing tier (free/paid)
    - Best for: (one-line audience)
 
-   Each cell should be honest. If you don't know the competitor's value, write
-   "Not published" or "Unknown" rather than guessing.
+   CELL CONTENT RULES:
+   - Use sage check <svg> for "yes/has-feature" cells, gray X <svg> for
+     "no/missing-feature" cells. NEVER ✅ or ❌ emoji.
+   - Wrap GainFrame column text values in <strong> for emphasis
+     (e.g. <strong>12 groups</strong>, <strong>Free tier</strong>).
+   - Each cell should be honest. If you don't know the competitor's value,
+     write "Not published" or "Unknown" rather than guessing.
 
 H2: Who Is Each [App/Method] Best For?
    MANDATORY. This is the trust-builder.

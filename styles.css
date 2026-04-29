@@ -2054,6 +2054,50 @@ body {
     margin-bottom: 0 !important;
 }
 
+/* Quick Answer block — AEO/featured-snippet target.
+   ALWAYS the first content block after the H1, before the prose body.
+   Visually distinct from regular .post-callout: white card, brand-red accent,
+   non-italic body, eyebrow-style "QUICK ANSWER" label, modest elevation. */
+.post-callout.post-quick-answer {
+    margin: 0 0 var(--sp-xl) 0;
+    padding: var(--sp-xl);
+    background: var(--color-bg);
+    border-left: 4px solid var(--color-brand-red);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    box-shadow: var(--shadow-card);
+}
+
+.post-callout.post-quick-answer p {
+    font-size: 1.1rem !important;
+    font-style: normal !important;
+    color: var(--color-text) !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+}
+
+.post-callout.post-quick-answer p strong {
+    display: block;
+    color: var(--color-brand-red);
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    margin-bottom: var(--sp-sm);
+}
+
+@media (max-width: 640px) {
+    .post-callout.post-quick-answer {
+        padding: var(--sp-lg);
+    }
+    .post-callout.post-quick-answer p {
+        font-size: 1rem !important;
+    }
+}
+
 /* CTA */
 .post-cta {
     display: flex;
@@ -2256,6 +2300,41 @@ body {
 }
 
 .post-table tbody tr:hover td:last-child {
+    background: rgba(107, 143, 113, 0.14);
+}
+
+/* ============================================================
+   Modifier: .post-table.gainframe-first
+   Place GainFrame in the FIRST data column (column 2 overall — after Feature label)
+   instead of the last column. Used for comparison tables wider than the viewport —
+   keeps GainFrame visible without horizontal scroll. The competitor that gets
+   pushed off-screen on narrow viewports should be the LEAST important one.
+   ============================================================ */
+.post-table.gainframe-first th:last-child,
+.post-table.gainframe-first td:last-child {
+    background: transparent;
+    border-left: none;
+}
+
+.post-table.gainframe-first th:last-child {
+    color: var(--color-text);
+}
+
+.post-table.gainframe-first th:nth-child(2),
+.post-table.gainframe-first td:nth-child(2) {
+    background: var(--color-sage-light);
+    border-left: 1px solid rgba(107, 143, 113, 0.16);
+}
+
+.post-table.gainframe-first th:nth-child(2) {
+    color: var(--color-sage);
+}
+
+.post-table.gainframe-first tbody tr:hover td {
+    background: rgba(107, 143, 113, 0.04);
+}
+
+.post-table.gainframe-first tbody tr:hover td:nth-child(2) {
     background: rgba(107, 143, 113, 0.14);
 }
 

@@ -83,14 +83,30 @@ These rules define GainFrame's editorial voice. Every blog post MUST follow them
 - Google's Helpful Content guidelines reward content that serves the reader first. Write for the reader, not the business.
 
 ### Structure Rules
-1. **Opening hook (mandatory):** Open with a frustration the reader has personally experienced. Use specific numbers. Make them nod before they scroll. Do not use a generic thesis statement or SEO keyword summary. Examples:
+1. **Quick Answer block (mandatory — AEO-critical):** Immediately after the H1, BEFORE the opening hook, emit a `post-callout` block containing a **40–60 word** direct answer to the article's primary question. This is what AI Overviews (Google AI, ChatGPT, Perplexity, Claude) extract verbatim when citing your article — and what Google often pulls for featured snippets. Every guide post MUST have one. Format:
+   ```html
+   <div class="post-callout post-quick-answer">
+       <p><strong>Quick answer:</strong> [40–60 words directly answering the article's main question — no setup, no qualifier sentence first, just the answer.]</p>
+   </div>
+   ```
+   - ✅ *"Quick answer: 15% body fat on a man looks like visible abdominal definition without prominent veins, well-defined chest separation, and arms with clear muscle outlines under the skin. On a woman, the same percentage looks substantially leaner — visible abs, defined arms, and almost no subcutaneous softness on the hips or thighs."*
+   - ❌ *"Body fat percentage is a complex topic that depends on many factors..."* (setup, not an answer)
+
+   **Word count discipline:** under 40 words and you don't say enough; over 60 and AI Overviews truncate mid-sentence. Count words before committing.
+2. **Opening hook (mandatory):** AFTER the Quick Answer block, open the prose body with a frustration the reader has personally experienced. Use specific numbers. Make them nod before they scroll. Do not use a generic thesis statement or SEO keyword summary. Examples:
    - ✅ *"You step on your bathroom scale and it tells you that you're 18% body fat. The next morning... it reads 21%."*
    - ✅ *"Someone tells you they're at 15% body fat. What does that actually look like?"*
    - ❌ *"Search intent for body fat estimation is relentless and highly visual."*
-2. **Body sections:** Use direct, specific H2s that target long-tail keywords. Prefer "What 15% body fat looks like" over "The 15% Range."
-3. **Mid-post Checklist (for guide/comparison posts):** Include a 'Quick Checklist' or 'How to Standardize' section with bullet-pointed, do-it-today advice that readers can easily copy and paste.
-4. **Actionable closing (mandatory):** End with a concrete numbered framework the reader can follow — not a GainFrame sales pitch. Example: *"First, choose a target. Second, pick a tracking method. Third, reassess every 4–8 weeks."*
-5. **Closing blockquote (optional but encouraged):** A summative callout that reinforces the core takeaway.
+3. **Body sections — H2s as full questions (mandatory — AEO-critical):** Phrase every H2 as a full grammatical question with a question mark. AI Overviews and featured snippets extract preferentially from question-format sections. The H2 should literally be a query a real user would type or speak. The Quick Answer callout is the answer to the H1; each H2 is the answer to a related sub-query.
+   - ✅ *"What does 15% body fat look like on men and women?"*
+   - ✅ *"How accurate is body fat estimation from a photo compared to DEXA?"*
+   - ❌ *"What 15% body fat looks like"* (missing question mark, missing full subject)
+   - ❌ *"The 15% Range"* (descriptive, not a query)
+   - ❌ *"Accuracy Comparison"* (descriptive, not a query)
+4. **Mid-post Checklist (for guide/comparison posts):** Include a 'Quick Checklist' or 'How to Standardize' section with bullet-pointed, do-it-today advice that readers can easily copy and paste. When this section is a numbered step framework, render it inside `<div class="post-steps">` AND emit `HowTo` JSON-LD (see HTML scaffold below).
+5. **FAQ section (mandatory for guide posts; already mandatory for comparison articles):** Every guide post should end with a 4–8 question FAQ section before the closing CTA. Each answer 40–70 words, snippet-friendly, direct, honest. The FAQ section enables `FAQPage` JSON-LD (see HTML scaffold below), which is what AI Overviews extract for follow-up answers. Use H3s for each question and `<p>` tags for each answer — no fancy markup, snippet extractors prefer plain text. Each FAQ Q/A captures a separate long-tail query — they're free traffic.
+6. **Actionable closing (mandatory):** End with a concrete numbered framework the reader can follow — not a GainFrame sales pitch. Example: *"First, choose a target. Second, pick a tracking method. Third, reassess every 4–8 weeks."*
+7. **Closing blockquote (optional but encouraged):** A summative callout that reinforces the core takeaway.
 
 ### Paragraph & Sentence Style
 - **Maximum 3–4 sentences per paragraph.** If a paragraph exceeds 4 sentences, split it.
@@ -107,11 +123,45 @@ These rules define GainFrame's editorial voice. Every blog post MUST follow them
 
 ### Visual Components Available
 - `post-callout` blockquotes for key takeaways
+- `post-callout post-quick-answer` for the mandatory Quick Answer block (see Structure Rules)
 - `post-feature-grid` / `post-feature-card` for visual marker cards (SF Symbol icon + title + description)
 - `post-inline-screenshot` for phone screenshots floated inline with text
 - `post-hero-image` for full-width wide images (comparison grids, charts)
-- `post-table-wrapper` / `post-table` for data tables
+- `post-table-wrapper` / `post-table` for data tables (see "Comparison tables" below)
 - `post-steps` ordered list for numbered frameworks
+
+### Comparison tables — column order convention
+
+Comparison tables wider than the viewport on desktop hide their rightmost column behind a horizontal scroll. **The column readers don't see should be the LEAST important one — never GainFrame.** Use the `gainframe-first` modifier to flip the sage-tinted highlight from the last column to the first data column (column 2, after the Feature label).
+
+**Default for tables with 4+ data columns (5+ total columns counting the Feature label):**
+```html
+<div class="post-table-wrapper scroll-reveal">
+    <table class="post-table gainframe-first">
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>GainFrame</th>          <!-- ← column 2, sage-tinted, always visible -->
+                <th>Competitor A</th>
+                <th>Competitor B</th>
+                <th>Competitor C</th>
+                <th>Competitor D (least important)</th>  <!-- ← gets cut off first on narrow viewports -->
+            </tr>
+        </thead>
+        ...
+    </table>
+</div>
+```
+
+**Default for tables with ≤3 data columns** (e.g. single-competitor comparison: Feature | Competitor | GainFrame): omit the modifier, keep GainFrame as the LAST column. The default `:last-child` sage highlight is fine because the table fits the viewport without scroll.
+
+**Why "least important" goes last (the column most likely to be hidden):** order competitors by relevance to the article's primary audience. For example, in an "AI body fat apps" comparison, app competitors come before non-app methods; legacy/abandoned products go last.
+
+### Comparison tables — content and accessibility
+
+- Use sage check `<svg>` for "yes/has-feature" cells, gray X `<svg>` for "no/missing-feature" cells. **Never** ✅ or ❌ emoji.
+- The GainFrame column should use `<strong>` text wrappers for any cells with text (e.g. `<strong>12 groups</strong>`, `<strong>Free tier</strong>`). The first-column label is auto-bolded by `.post-table` CSS.
+- Cell SVGs use `aria-label="Yes"` and `aria-label="No"` for screen readers.
 
 ### Icons: SF Symbols — Never Emoji
 
@@ -193,6 +243,7 @@ When a post cites scientific studies or peer-reviewed research, these additional
            gtag('js', new Date());
            gtag('config', 'G-N6YPFBB8JE');
        </script>
+       <!-- Schema 1 of 4: BlogPosting — ALWAYS emit -->
        <script type="application/ld+json">
        {
            "@context": "https://schema.org",
@@ -202,10 +253,73 @@ When a post cites scientific studies or peer-reviewed research, these additional
            "image": "https://gainframe.app/blog/[SLUG]/assets/cover.webp",
            "datePublished": "[YYYY-MM-DD]",
            "dateModified": "[YYYY-MM-DD]",
-           "author": { "@type": "Person", "name": "Michael Rode", "url": "https://gainframe.app" },
+           "author": { "@type": "Person", "name": "Michael Rode", "url": "https://gainframe.app/about" },
            "publisher": { "@type": "Organization", "name": "GainFrame", "url": "https://gainframe.app", "logo": { "@type": "ImageObject", "url": "https://gainframe.app/assets/favicon.webp" } },
            "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gainframe.app/blog/[SLUG]/" },
            "articleSection": "[CATEGORY]"
+       }
+       </script>
+       <!-- Schema 2 of 4: BreadcrumbList — ALWAYS emit -->
+       <script type="application/ld+json">
+       {
+           "@context": "https://schema.org",
+           "@type": "BreadcrumbList",
+           "itemListElement": [
+               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gainframe.app/" },
+               { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gainframe.app/blog/" },
+               { "@type": "ListItem", "position": 3, "name": "[POST TITLE]", "item": "https://gainframe.app/blog/[SLUG]/" }
+           ]
+       }
+       </script>
+       <!-- Schema 3 of 4: FAQPage — emit ONLY IF the post has a FAQ section.
+            Each Question/Answer must MIRROR the visible H3/p verbatim — Google penalizes mismatch.
+            Expand the mainEntity array to include EVERY visible FAQ entry (not just two). Delete the entire <script> block if no FAQ section. -->
+       <script type="application/ld+json">
+       {
+           "@context": "https://schema.org",
+           "@type": "FAQPage",
+           "mainEntity": [
+               {
+                   "@type": "Question",
+                   "name": "[Question 1 — exact wording as visible H3]",
+                   "acceptedAnswer": {
+                       "@type": "Answer",
+                       "text": "[Answer 1 — 40–70 words, mirror the visible answer paragraph verbatim]"
+                   }
+               },
+               {
+                   "@type": "Question",
+                   "name": "[Question 2]",
+                   "acceptedAnswer": {
+                       "@type": "Answer",
+                       "text": "[Answer 2]"
+                   }
+               }
+           ]
+       }
+       </script>
+       <!-- Schema 4 of 4: HowTo — emit ONLY IF the post contains a numbered step framework rendered as <div class="post-steps">.
+            Each HowToStep must MIRROR the visible step verbatim. Expand the step array to include EVERY visible step.
+            Delete the entire <script> block if there's no step framework. -->
+       <script type="application/ld+json">
+       {
+           "@context": "https://schema.org",
+           "@type": "HowTo",
+           "name": "How to [task — mirror the section heading]",
+           "step": [
+               {
+                   "@type": "HowToStep",
+                   "position": 1,
+                   "name": "[Step 1 short name]",
+                   "text": "[Step 1 description — mirror the visible step]"
+               },
+               {
+                   "@type": "HowToStep",
+                   "position": 2,
+                   "name": "[Step 2 short name]",
+                   "text": "[Step 2 description]"
+               }
+           ]
        }
        </script>
    </head>
