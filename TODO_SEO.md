@@ -66,6 +66,22 @@ Documented in source reports for future reference. Health-authority lockout make
 - [x] **best app to track body composition + body composition apps** (Med/30, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/best-body-composition-apps/
 - [x] **how to track muscle gain progress + how to track muscle mass at home** (Med/35, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/how-to-track-muscle-gain-progress/
 
+### From: keyword-research/2026-04-28-progress-photo-app-cluster.md
+
+Cluster goal: strengthen pillar `/blog/best-progress-photo-apps/` (already ranking #1 for "best free progress photo app") with 6 supporting articles + 1 CTR fix.
+
+- [ ] **Best Free Progress Photo App** (Med/25, blog-post-generator listicle) — added 2026-04-28 — TOP PICK; GSC shows pos 9.6 for `progress photo app free` already; honest free-options listicle (Apple Photos, SnapTrack free, Snapsie, Shapez free) with GainFrame as paid value-add; suggested title "Best Free Progress Photo Apps (2026): What Actually Works Without Paying"
+- [ ] **Best Progress Photo App for iPhone** (Med-Hi/25, blog-post-generator listicle) — added 2026-04-28 — STRONG SECOND; GainFrame is iOS-only, this is home turf; SERP is App Store + small blogs; differentiate from main pillar by going deep on iOS-specific features (HEIC, iCloud, Shortcuts); suggested title "Best Progress Photo Apps for iPhone (2026): Tested & Ranked"
+- [ ] **Best Gym Progress Photo App** (Med/25, blog-post-generator listicle) — added 2026-04-28 — STRONG THIRD; GainFrame.app already #2 here; gym-specific angle ("you need BF%/FFMI/muscle scores alongside photos, not just a photo album"); suggested title "Best Gym Progress Photo App (2026): For Lifters Who Want Real Data"
+- [ ] **How Often Should You Take Progress Photos** (Med/30, blog-post-generator informational) — added 2026-04-28 — INFORMATIONAL TOP PICK; featured-snippet target with one-line answer + comparison table; MFP forum in SERP signals weak commercial competition; suggested title "How Often Should You Take Progress Photos? (Science-Backed Answer)"
+- [ ] **How to Take Progress Photos By Yourself (No Tripod)** (Med/35, blog-post-generator how-to) — added 2026-04-28 — perfect GainFrame product fit (auto-alignment removes tripod need); HowTo schema target; suggested title "How to Take Progress Photos By Yourself: 5-Minute Setup (No Tripod Required)"; consider expanding existing `/blog/how-to-take-progress-photos-fast/` instead of new post
+- [ ] **How to Take Progress Photos for Weight Loss** (Med-Hi/40, blog-post-generator how-to) — added 2026-04-28 — highest-volume sub-niche; Hers brand ranks but rest is fitness blogs; suggested title "How to Take Progress Photos for Weight Loss (and Why They Beat the Scale)"
+
+#### CTR Fixes (existing posts — no new content)
+
+- [ ] **[CTR] `body-transformation-tracker-apps` title fix** — pos 10.85 with 2.5% CTR for `body transformation app`; also ranking pos 11.7 for `ai body transformation app`, pos 17.3 for `best body transformation app`. Test title that combines all three: e.g. "Best AI Body Transformation Apps (2026)" or similar — added 2026-04-28
+- [ ] **[Internal links] Pillar refresh** — `/blog/best-progress-photo-apps/` should add a "More on Progress Photos" section linking to each new supporting article as they land. Each supporting article should link UP to pillar with anchor "best progress photo apps" — added 2026-04-28
+
 ## Published
 
 (none yet)
