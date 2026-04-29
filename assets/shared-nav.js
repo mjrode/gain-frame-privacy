@@ -18,7 +18,6 @@
     const isBlog = /\/blog(\.html)?$/.test(normPath) || /\/blog\//.test(normPath);
     const isComics = /\/comics(\.html)?$/.test(normPath);
     const isTools = /\/tools/.test(normPath);
-    const isFeatures = /\/features(\.html)?$/.test(normPath);
     const isAbout = /^\/about/.test(normPath);
     const isBlogPost = /^\/blog\/.+/.test(normPath);
     const shouldShowNavMascot = isHome || normPath === "/blog";
@@ -53,7 +52,6 @@
                         </a>` : ''}
                     </span>
                     <a href="${prefix}tools/"${activeClass(isTools)}>Tools</a>
-                    <a href="${prefix}features.html"${activeClass(isFeatures)}>Features</a>
                     <a href="${prefix}about/"${activeClass(isAbout)}>About</a>
                     <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082"
                         class="nav-cta-btn" target="_blank" rel="noopener">Download</a>
