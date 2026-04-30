@@ -88,6 +88,18 @@ Cluster goal: capture the founder/marketer audience with a single pillar case st
 
 - [x] **how to rank in chatgpt** (Med/35, blog-post-generator) — added 2026-04-29 — TOP PICK for founder case study; LinkedIn-dominated SERP is winnable with original data + screenshots; bundle with `how to get cited by chatgpt` (Low-Med/15), `how to optimize content for chatgpt` (Med/25), `how to show up in chatgpt search results` (Med/30) as H2/H3s in a single pillar post. Glossary callout for `generative engine optimization` / `GEO vs SEO` / `AEO` / `LLM SEO` (do NOT compete on those head terms — Wikipedia/HBR/HubSpot/SemRush lockout). — published 2026-04-29 as /blog/generative-engine-optimization-case-study/
 
+### From: keyword-research/2026-04-29-ai-fitness-cluster.md
+
+Cluster goal: capture AI fitness search intent across two camps — workout planners (Fitbod/Ray category) vs body scanners (GainFrame category) — by positioning as "AI fitness apps that track the result, not the workout".
+
+- [ ] **Best AI Fitness Apps That Track Your Body** (Med-Hi/30, blog-post-generator listicle) — added 2026-04-29 — TOP PICK; "ai workout app that scans your body" SERP is near-empty (Thelo, Zing, trackBod, TrueForm AI, FitnessAI BodyScan, ZOZOFIT only); body-scan sub-niche of "best ai fitness app" is open territory; suggested title "Best AI Fitness Apps That Track Your Body in 2026 (Not Just Your Workout)"; targets `ai fitness app that scans your body`, `ai workout app that scans your body`, `ai body scan fitness app`, `ai body scanner free`
+- [ ] **How to Use ChatGPT for a Workout Plan** (Med-Hi/50, blog-post-generator how-to) — added 2026-04-29 — STRONG SECOND; emerging behavior; defensible "ChatGPT writes the routine, GainFrame tracks if it works" angle; risk: Tom's Guide + TechRadar in SERP bring DA; counter with depth on validation/body-comp feedback (which they don't cover); include copy-paste prompt template + 3-week validation rule; suggested title "How to Use ChatGPT for a Workout Plan in 2026 (and How to Tell If It's Actually Working)"
+- [ ] **Best AI Personal Trainer Apps (and the App That Tracks If They Work)** (Med/30, blog-post-generator listicle) — added 2026-04-29 — meta-listicle; honest angle since GainFrame is non-competitor in workout-planner category; covers Ray, Fitbod, Flex AI, GymStreak, BodBot, Future, Trainiac; positions GainFrame as the "and now validate it" complement; suggested title "Best AI Personal Trainer Apps in 2026 (and the App That Tracks If They're Actually Working)"
+
+#### Refresh tasks
+
+- [ ] **[Refresh] `/blog/best-ai-body-composition-app/` — capture AI body scan queries** — GSC shows pos 70–95 for `ai body scan`, `ai body scanner`, `ai body analyzer`. Add "AI Body Scan" prominently in title, H1, and an early section. Could become "Best AI Body Composition App / AI Body Scan App in 2026" — added 2026-04-29
+
 ## Published
 
 (none yet)
