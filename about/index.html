@@ -85,17 +85,19 @@
         }
 
         .about-hero {
-            padding: clamp(86px, 11vw, 138px) 0 clamp(24px, 5vw, 58px);
+            padding: clamp(58px, 7vw, 96px) 0 clamp(34px, 5vw, 64px);
             overflow: hidden;
-            text-align: center;
+            text-align: left;
             position: relative;
         }
 
         .about-hero__shell {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(340px, 430px);
             align-items: center;
-            gap: 0;
+            gap: clamp(42px, 6vw, 86px);
+            max-width: 1120px;
+            margin: 0 auto;
             padding: 0;
             border: 0;
             border-radius: 0;
@@ -107,11 +109,10 @@
         .about-hero__shell::before {
             content: "";
             position: absolute;
-            left: 50%;
-            top: 420px;
-            width: min(980px, 125vw);
+            right: -80px;
+            top: 120px;
+            width: min(640px, 56vw);
             aspect-ratio: 2 / 1;
-            transform: translateX(-50%);
             border-radius: 980px 980px 0 0;
             border: 1px solid rgba(23, 23, 23, 0.07);
             background:
@@ -153,10 +154,10 @@
         }
 
         .about-hero h1 {
-            max-width: 820px;
-            margin: 0 auto 28px;
+            max-width: 720px;
+            margin: 0 0 24px;
             font-family: var(--font-display);
-            font-size: clamp(3rem, 7.5vw, 6.25rem);
+            font-size: clamp(3.3rem, 6.2vw, 6rem);
             font-weight: 900;
             letter-spacing: -0.075em;
             line-height: 0.95;
@@ -183,7 +184,7 @@
 
         .about-hero__lede {
             max-width: 690px;
-            margin: 0 auto;
+            margin: 0;
             color: var(--color-text-secondary);
             font-size: clamp(1.05rem, 2vw, 1.35rem);
             font-weight: 600;
@@ -192,11 +193,17 @@
         }
 
         .about-hero__facts {
-            justify-content: center;
+            position: absolute;
+            left: 26px;
+            right: 26px;
+            bottom: 94px;
+            z-index: 2;
+            justify-content: space-between;
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 24px;
+            gap: 8px;
+            margin: 0;
+            pointer-events: none;
         }
 
         .about-hero__fact {
@@ -206,7 +213,10 @@
             padding: 0 12px;
             border: 1px solid var(--color-border);
             border-radius: var(--radius-full);
-            background: rgba(255, 255, 255, 0.82);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 24px rgba(17, 17, 17, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             color: var(--color-text);
             font-size: 0.9rem;
             font-weight: 700;
@@ -234,7 +244,7 @@
         }
 
         .about-hero__actions {
-            justify-content: center;
+            justify-content: flex-start;
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -265,13 +275,14 @@
 
         .about-hero__card {
             justify-self: center;
-            width: min(100%, 350px);
+            width: min(100%, 430px);
             padding: 14px;
-            margin-top: clamp(42px, 7vw, 76px);
+            margin-top: 0;
             border: 1px solid var(--color-border);
-            border-radius: 24px;
+            border-radius: 26px;
             background: #fff;
             box-shadow: 0 14px 44px rgba(17, 17, 17, 0.08);
+            position: relative;
         }
 
         .about-hero__card::before,
@@ -288,32 +299,22 @@
         }
 
         .about-hero__card::before {
-            content: "15 yrs code";
+            content: "";
             left: -74px;
             top: 36px;
-            display: grid;
-            place-items: center;
-            color: var(--color-text);
-            font-weight: 800;
-            font-size: 0.86rem;
         }
 
         .about-hero__card::after {
-            content: "20 yrs lifting";
+            content: "";
             right: -82px;
             bottom: 82px;
-            display: grid;
-            place-items: center;
-            color: var(--color-text);
-            font-weight: 800;
-            font-size: 0.86rem;
         }
 
         .about-hero__photo {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 4 / 3;
             object-fit: cover;
-            border-radius: 18px;
+            border-radius: 20px;
             display: block;
         }
 
@@ -743,17 +744,32 @@
 
             .about-hero {
                 padding-top: clamp(48px, 10vw, 78px);
+                text-align: center;
             }
 
             .about-hero__shell {
-                align-items: flex-start;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 text-align: center;
+                gap: 24px;
             }
 
             .about-hero__shell::before {
                 top: auto;
-                bottom: -26px;
+                bottom: 120px;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
                 width: 760px;
+            }
+
+            .about-hero__copy {
+                order: 2;
+            }
+
+            .about-hero__card {
+                order: 1;
             }
 
             .about-hero h1,
@@ -772,8 +788,8 @@
             }
 
             .about-hero__card {
-                width: min(100%, 320px);
-                margin-top: 38px;
+                width: min(100%, 520px);
+                margin-top: 0;
                 align-self: center;
             }
 
@@ -803,6 +819,67 @@
             }
         }
         @media (max-width: 420px) {
+            .about-hero {
+                padding-top: 34px;
+            }
+
+            .about-hero__shell {
+                gap: 22px;
+            }
+
+            .about-hero__copy {
+                display: contents;
+            }
+
+            .about-hero__eyebrow {
+                order: 1;
+                margin-bottom: 4px;
+            }
+
+            .about-hero__card {
+                order: 2;
+                width: 100%;
+                padding: 10px;
+                border-radius: 22px;
+            }
+
+            .about-hero__photo {
+                aspect-ratio: 4 / 3;
+                border-radius: 17px;
+            }
+
+            .about-hero__facts {
+                left: 18px;
+                right: 18px;
+                bottom: 84px;
+                justify-content: space-between;
+                gap: 6px;
+            }
+
+            .about-hero__fact {
+                min-height: 30px;
+                padding: 0 9px;
+                font-size: 0.78rem;
+            }
+
+            .about-hero__fact:nth-child(3) {
+                display: none;
+            }
+
+            .about-hero h1 {
+                order: 3;
+                font-size: clamp(2.65rem, 13vw, 3.4rem);
+                margin-bottom: 0;
+            }
+
+            .about-hero__lede {
+                order: 4;
+            }
+
+            .about-hero__actions {
+                order: 5;
+            }
+
             .about-hero__actions a {
                 width: 100%;
             }
@@ -965,11 +1042,6 @@
                     <p class="about-hero__lede">
                         I'm Michael Rode, a backend engineer and lifter in Wilmington, NC. GainFrame started because years of progress photos were sitting in my camera roll with almost no way to turn them into useful feedback.
                     </p>
-                    <div class="about-hero__facts" aria-label="Founder background">
-                        <span class="about-hero__fact">15 years in software</span>
-                        <span class="about-hero__fact">20 years lifting</span>
-                        <span class="about-hero__fact">Built around naps</span>
-                    </div>
                     <div class="about-hero__actions" aria-label="Contact links">
                         <a href="mailto:michaelrode44@gmail.com">Email</a>
                         <a href="https://x.com/GainFrameApp" target="_blank" rel="noopener">X</a>
@@ -982,6 +1054,11 @@
                     <img class="about-hero__photo"
                          src="/assets/team/michael-rode.webp"
                          alt="Michael Rode, founder of GainFrame, headshot">
+                    <div class="about-hero__facts" aria-label="Founder background">
+                        <span class="about-hero__fact">15 years in software</span>
+                        <span class="about-hero__fact">20 years lifting</span>
+                        <span class="about-hero__fact">Built around naps</span>
+                    </div>
                     <div class="about-hero__caption">
                         <div>
                             <p class="about-hero__name">Michael Rode</p>
