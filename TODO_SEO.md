@@ -92,13 +92,13 @@ Cluster goal: capture the founder/marketer audience with a single pillar case st
 
 Cluster goal: capture AI fitness search intent across two camps — workout planners (Fitbod/Ray category) vs body scanners (GainFrame category) — by positioning as "AI fitness apps that track the result, not the workout".
 
-- [ ] **Best AI Fitness Apps That Track Your Body** (Med-Hi/30, blog-post-generator listicle) — added 2026-04-29 — TOP PICK; "ai workout app that scans your body" SERP is near-empty (Thelo, Zing, trackBod, TrueForm AI, FitnessAI BodyScan, ZOZOFIT only); body-scan sub-niche of "best ai fitness app" is open territory; suggested title "Best AI Fitness Apps That Track Your Body in 2026 (Not Just Your Workout)"; targets `ai fitness app that scans your body`, `ai workout app that scans your body`, `ai body scan fitness app`, `ai body scanner free`
-- [ ] **How to Use ChatGPT for a Workout Plan** (Med-Hi/50, blog-post-generator how-to) — added 2026-04-29 — STRONG SECOND; emerging behavior; defensible "ChatGPT writes the routine, GainFrame tracks if it works" angle; risk: Tom's Guide + TechRadar in SERP bring DA; counter with depth on validation/body-comp feedback (which they don't cover); include copy-paste prompt template + 3-week validation rule; suggested title "How to Use ChatGPT for a Workout Plan in 2026 (and How to Tell If It's Actually Working)"
-- [ ] **Best AI Personal Trainer Apps (and the App That Tracks If They Work)** (Med/30, blog-post-generator listicle) — added 2026-04-29 — meta-listicle; honest angle since GainFrame is non-competitor in workout-planner category; covers Ray, Fitbod, Flex AI, GymStreak, BodBot, Future, Trainiac; positions GainFrame as the "and now validate it" complement; suggested title "Best AI Personal Trainer Apps in 2026 (and the App That Tracks If They're Actually Working)"
+- [x] **Best AI Fitness Apps That Track Your Body** (Med-Hi/30, blog-post-generator listicle) — added 2026-04-29 — published 2026-04-29 as /blog/best-ai-fitness-apps-track-body/
+- [x] **How to Use ChatGPT for a Workout Plan** (Med-Hi/50, blog-post-generator how-to) — added 2026-04-29 — published 2026-04-29 as /blog/chatgpt-workout-plan/
+- [x] **Best AI Personal Trainer Apps (and the App That Tracks If They Work)** (Med/30, blog-post-generator listicle) — added 2026-04-29 — published 2026-04-29 as /blog/best-ai-personal-trainer-apps/
 
 #### Refresh tasks
 
-- [ ] **[Refresh] `/blog/best-ai-body-composition-app/` — capture AI body scan queries** — GSC shows pos 70–95 for `ai body scan`, `ai body scanner`, `ai body analyzer`. Add "AI Body Scan" prominently in title, H1, and an early section. Could become "Best AI Body Composition App / AI Body Scan App in 2026" — added 2026-04-29
+- [x] **[Refresh] `/blog/best-ai-body-composition-app/` — capture AI body scan queries** — title rewritten to "Best AI Body Scan & Body Composition App in 2026: Full Comparison"; new "What is an AI body scan?" H2 section added; 23 mentions of "body scan" / 14 of "AI body scan" sprinkled naturally; dateModified bumped to 2026-04-29; 3 new related article links added — done 2026-04-29
 
 ## Published
 
