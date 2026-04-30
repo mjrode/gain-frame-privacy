@@ -104,6 +104,7 @@
             background: transparent;
             box-shadow: none;
             position: relative;
+            isolation: isolate;
         }
 
         .about-hero__shell::before {
@@ -120,6 +121,7 @@
                 linear-gradient(180deg, rgba(23, 23, 23, 0.055), rgba(23, 23, 23, 0.015));
             box-shadow: inset 0 34px 70px rgba(255, 255, 255, 0.8), 0 -10px 90px rgba(23, 23, 23, 0.06);
             pointer-events: none;
+            z-index: 0;
         }
 
         .about-hero__copy,
@@ -849,17 +851,27 @@
             }
 
             .about-hero__facts {
-                left: 18px;
-                right: 18px;
-                bottom: 84px;
+                left: 14px;
+                right: 14px;
+                bottom: 112px;
                 justify-content: space-between;
                 gap: 6px;
             }
 
             .about-hero__fact {
-                min-height: 30px;
-                padding: 0 9px;
-                font-size: 0.78rem;
+                min-height: 26px;
+                padding: 0 8px;
+                font-size: 0.68rem;
+                box-shadow: 0 6px 16px rgba(17, 17, 17, 0.08);
+            }
+
+            .about-hero__fact:nth-child(1)::before,
+            .about-hero__fact:nth-child(2)::before,
+            .about-hero__fact:nth-child(3)::before {
+                width: 7px;
+                height: 7px;
+                margin-right: 5px;
+                box-shadow: 0 0 0 4px rgba(107, 143, 113, 0.1);
             }
 
             .about-hero__fact:nth-child(3) {
@@ -868,16 +880,22 @@
 
             .about-hero h1 {
                 order: 3;
+                position: relative;
+                z-index: 2;
                 font-size: clamp(2.65rem, 13vw, 3.4rem);
                 margin-bottom: 0;
             }
 
             .about-hero__lede {
                 order: 4;
+                position: relative;
+                z-index: 2;
             }
 
             .about-hero__actions {
                 order: 5;
+                position: relative;
+                z-index: 2;
             }
 
             .about-hero__actions a {
