@@ -126,7 +126,7 @@ Note this explicitly in the `_overview` file's "Comparison-Page Mining" section.
 
 #### 4a. Per-competitor profile file
 
-Create `/Users/michael.rode/code/project/gain-frame-privacy/competitor-research/[competitor-slug].md`:
+Create `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/competitor-research/[competitor-slug].md`:
 
 ```markdown
 # Competitor Profile: [Name]
@@ -219,7 +219,7 @@ If we ever write a "[Name] vs GainFrame" article (via `comparison-article-genera
 
 #### 4b. Cross-competitor summary (if multiple competitors scanned)
 
-Create `/Users/michael.rode/code/project/gain-frame-privacy/competitor-research/_overview-[YYYY-MM-DD].md` with:
+Create `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/competitor-research/_overview-[YYYY-MM-DD].md` with:
 
 - Table of all scanned competitors (Name | URL | Pricing | Total content) — at-a-glance comparison
 - Aggregate gap list: topics covered by 2+ competitors but NOT by GainFrame (highest-priority seeds for `keyword-discovery`)
@@ -252,17 +252,17 @@ In chat, surface:
 - **Capture VERBATIM, not paraphrased.** When pulling tagline/features, quote them exactly. The downstream `comparison-article-generator` needs to make verified claims; paraphrased versions risk introducing inaccuracies.
 - **Do not commit competitor screenshots or content.** This skill writes structured markdown notes. It does NOT download images, copy long-form content, or save anything that would constitute scraping for republication.
 - **Cap blog post body fetches at 20 per competitor** to control fetch count. If a competitor has 200+ posts, just sample 20 (the most recent) and note the total in the profile.
-- **Output files go in `competitor-research/`** (parallel to `keyword-research/`). Create the directory if absent.
+- **Output files go in `seo-tools/competitor-research/`** (parallel to `seo-tools/keyword-research/`). Create the directory if absent.
 - **Refresh cadence is quarterly by default.** Add a note at the top of each profile with the scan date. If re-scanning, append `-2`, `-3` etc. or overwrite (user's call).
 
 ---
 
 ## Integration with Other Skills
 
-**Upstream:** `competitor-discovery` — identifies and classifies WHO the competitors are. Its output (`competitor-research/_identified-[date].md`) lists the top Direct competitors prioritized for scanning. If the user hasn't run it yet and isn't sure who to scan, suggest running `competitor-discovery` first.
+**Upstream:** `competitor-discovery` — identifies and classifies WHO the competitors are. Its output (`seo-tools/competitor-research/_identified-[date].md`) lists the top Direct competitors prioritized for scanning. If the user hasn't run it yet and isn't sure who to scan, suggest running `competitor-discovery` first.
 
 **Downstream:**
-- **`keyword-discovery`** — reads the "Topics they cover but GainFrame does NOT" list as additional seeds. When `keyword-discovery` is invoked with `--competitor [name]` or with competitor URLs in Phase 0, it should check `competitor-research/[name].md` first and use that topic list rather than re-fetching.
+- **`keyword-discovery`** — reads the "Topics they cover but GainFrame does NOT" list as additional seeds. When `keyword-discovery` is invoked with `--competitor [name]` or with competitor URLs in Phase 0, it should check `seo-tools/competitor-research/[name].md` first and use that topic list rather than re-fetching.
 - **`comparison-article-generator`** — reads the per-competitor profile to skip basic Phase 2 research lookups. Its tactical deep-dive still happens, but the verified pricing, features, and positioning are pre-loaded.
 
 When this skill finishes, suggest the user run `keyword-discovery` next using the extracted gap topics as seeds.
@@ -272,7 +272,7 @@ When this skill finishes, suggest the user run `keyword-discovery` next using th
 ## Reference Files
 
 - `/Users/michael.rode/code/project/gain-frame-privacy/product-context.md` — **READ THIS FIRST.** Authoritative source for what GainFrame IS (used to compute "overlap with GainFrame's existing content" and "Topics they cover but GainFrame does NOT" sections of the per-competitor profile). The differentiators + honest limitations are also useful to ground the "Notes for comparison article writing" section of each profile.
-- `/Users/michael.rode/code/project/gain-frame-privacy/competitor-research/` — output directory (created if absent)
+- `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/competitor-research/` — output directory (created if absent)
 - `/Users/michael.rode/code/project/gain-frame-privacy/blog/` — used to compute "overlap with GainFrame's existing content"
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/keyword-discovery/SKILL.md` — downstream consumer
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/comparison-article-generator/SKILL.md` — downstream consumer

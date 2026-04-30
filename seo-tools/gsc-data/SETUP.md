@@ -26,22 +26,22 @@ pip3 install google-auth google-auth-oauthlib google-auth-httplib2 google-api-py
    - **Name:** anything (e.g. `GainFrame GSC CLI`)
 4. Click **Create**
 5. Click **Download JSON** on the confirmation dialog
-6. Save the downloaded file as **`gsc-data/client_secrets.json`** in this project
+6. Save the downloaded file as **`seo-tools/gsc-data/client_secrets.json`** in this project
 
 > `client_secrets.json` is gitignored — it won't be committed.
 
 ### Step 4 — Run the fetch script
 
 ```bash
-python3 gsc-data/fetch.py
+python3 seo-tools/gsc-data/fetch.py
 ```
 
 - A browser window opens for Google OAuth consent
 - Select your Google account (the one that owns the Search Console property)
 - Click **Allow**
 - The script fetches the last 90 days of query data
-- `gsc-data/queries.csv` is written
-- `gsc-data/token.json` is saved (so you don't need to re-auth)
+- `seo-tools/gsc-data/queries.csv` is written
+- `seo-tools/gsc-data/token.json` is saved (so you don't need to re-auth)
 
 ---
 
@@ -50,7 +50,7 @@ python3 gsc-data/fetch.py
 Any time you want fresh GSC data:
 
 ```bash
-python3 gsc-data/fetch.py
+python3 seo-tools/gsc-data/fetch.py
 ```
 
 The token auto-refreshes. No browser needed after the first run.

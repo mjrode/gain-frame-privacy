@@ -152,7 +152,7 @@ Higher score = higher priority for `competitor-scan` deep-dive.
 
 #### 5a. Write the discovery report
 
-Create `/Users/michael.rode/code/project/gain-frame-privacy/competitor-research/_identified-[YYYY-MM-DD].md`:
+Create `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/competitor-research/_identified-[YYYY-MM-DD].md`:
 
 ```markdown
 # Competitor Discovery: [Category description]
@@ -250,7 +250,7 @@ In chat:
 - **Cap homepage verification fetches at 30 per run.** If Phases 1-3 surface more than 30 candidates, prioritize those with the highest relevance score (Phase 4 step 3) and verify only those.
 - **Distinguish brand mentions from random word matches.** If a Reddit snippet mentions "FitCommit" three times in one thread, that's a real signal. If a competitor name appears once in a generic listicle of 50 apps, that's noise.
 - **Don't conflate adjacent and direct.** A smart scale that mentions body composition is **adjacent**, not direct. Direct = same product type. Adjacent = different product, same SERP. The distinction matters because direct gets a comparison article; adjacent rarely does.
-- **Output goes in `competitor-research/`** alongside profile files. Use `_identified-[date].md` prefix to distinguish from per-competitor profiles.
+- **Output goes in `seo-tools/competitor-research/`** alongside profile files. Use `_identified-[date].md` prefix to distinguish from per-competitor profiles.
 - **Refresh cadence:** quarterly by default, or whenever you discover a new competitor mentioned by a user / in a review.
 
 ---
@@ -270,7 +270,7 @@ When this skill finishes, suggest running `competitor-scan` on the top direct co
 ## Reference Files
 
 - `/Users/michael.rode/code/project/gain-frame-privacy/product-context.md` — **READ THIS FIRST.** Authoritative source for product description, platform focus, target audience, and differentiators. Use it to derive Phase 0 inputs (product description, platform focus, secondary product axes) when the user doesn't supply them. The "Implementation Override" paragraph in particular tells you which competitor sub-classes matter (e.g. for GainFrame: AI body comp apps AND progress photo apps — both axes need separate keyword batches).
-- `/Users/michael.rode/code/project/gain-frame-privacy/competitor-research/` — output directory (created if absent; shared with `competitor-scan`)
+- `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/competitor-research/` — output directory (created if absent; shared with `competitor-scan`)
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/competitor-scan/SKILL.md` — downstream consumer
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/keyword-discovery/SKILL.md` — secondary consumer (Content competitor list)
 - `/Users/michael.rode/code/project/gain-frame-privacy/index.html`, `/about.html` — fallback for product description if user doesn't provide one

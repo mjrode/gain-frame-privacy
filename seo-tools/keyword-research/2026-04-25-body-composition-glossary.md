@@ -1,7 +1,7 @@
 # Keyword Research: Body Composition Glossary (Gap Topics from Competitor Scan)
 
 **Generated:** 2026-04-25
-**Seeds:** "what is BMI", "what is lean body mass", "what is muscle mass percentage", "what is waist to hip ratio", "what is body fat percentage", "what is FFMI", "what is body composition" (sourced from `competitor-research/_overview-2026-04-25.md` gap analysis)
+**Seeds:** "what is BMI", "what is lean body mass", "what is muscle mass percentage", "what is waist to hip ratio", "what is body fat percentage", "what is FFMI", "what is body composition" (sourced from `seo-tools/competitor-research/_overview-2026-04-25.md` gap analysis)
 **Candidates analyzed (SERP):** 14
 **High-opportunity targets:** 4
 

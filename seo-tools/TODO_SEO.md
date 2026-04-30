@@ -2,13 +2,13 @@
 
 This file tracks keyword targets for blog posts and comparison articles. Items are added by the `keyword-discovery` skill and consumed by `blog-post-generator` and `comparison-article-generator`.
 
-**Format:** `- [ ] keyword (volume-tier/difficulty, downstream-skill) — added YYYY-MM-DD — source: keyword-research/[file]`
+**Format:** `- [ ] keyword (volume-tier/difficulty, downstream-skill) — added YYYY-MM-DD — source: seo-tools/keyword-research/[file]`
 
 When a post is published, replace `[ ]` with `[x]` and append ` — published YYYY-MM-DD as /blog/[slug]/`.
 
 ## Backlog (priority order)
 
-### From: keyword-research/2026-04-25-visceral-fat.md
+### From: seo-tools/keyword-research/2026-04-25-visceral-fat.md
 
 - [x] **visceral fat vs subcutaneous fat** (High/65, comparison-article-generator) — added 2026-04-25 — TOP PICK; Quora ranks in SERP signaling content gap; honest "what photos can/can't tell you" angle — published 2026-04-25 as /blog/visceral-fat-vs-subcutaneous-fat/
 - [x] **visceral fat app** (Low-Med/70, blog-post-generator listicle) — added 2026-04-25 — only one dedicated app competitor in SERP; honest positioning post or "Best visceral fat tracking apps 2026" — published 2026-04-25 as /blog/visceral-fat-app/
@@ -16,7 +16,7 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 - [x] visceral fat level (High/65, blog-post-generator) — added 2026-04-25 — pursue only if `visceral fat vs subcutaneous fat` lands — published 2026-04-25 as /blog/visceral-fat-level/
 - [x] visceral fat test (Med/75, blog-post-generator) — added 2026-04-25 — pursue only after `visceral fat app` lands — published 2026-04-25 as /blog/visceral-fat-test/
 
-### From: keyword-research/2026-04-25-body-composition-glossary.md
+### From: seo-tools/keyword-research/2026-04-25-body-composition-glossary.md
 
 - [x] **what is ffmi** (Med/55, blog-post-generator) — added 2026-04-25 — TOP PICK; clean SERP (no Cleveland Clinic / WebMD / Healthline lockout); gym-native term GainFrame already uses in Deep Dive Report — published 2026-04-25 as /blog/what-is-ffmi/
 - [x] **ffmi chart** (Med/50, blog-post-generator) — added 2026-04-25 — STRONG SECOND; lowest difficulty in the cluster; pair with "what is ffmi" pillar — published 2026-04-25 as /blog/ffmi-chart/
@@ -36,7 +36,7 @@ Documented in source reports for future reference. Health-authority lockout make
 - how to reduce visceral fat
 - best visceral fat scale
 
-### From: keyword-research/2026-04-25-recomp-natty-competitors.md
+### From: seo-tools/keyword-research/2026-04-25-recomp-natty-competitors.md
 
 - [x] **Bulk vs Cut vs Recomp — decision guide** (High/30, blog-post-generator) — added 2026-04-25 — TOP PICK; covers "cut vs bulk vs recomp" + "body recomposition vs cutting"; Quora at #5 and #8-9 signal content gap; GainFrame angle: recomp tracking via photos is our differentiator; consolidates 3 related high-volume queries; links to body-composition-for-lifters + track-body-recomposition-photos — published 2026-04-25 as /blog/bulk-cut-or-recomp/
 - [x] **How long does body recomposition take** (High/40, blog-post-generator) — added 2026-04-25 — published 2026-04-25 as /blog/how-long-does-body-recomposition-take/ — STRONG SECOND; no tier-1 authorities, supplement blogs only; featured snippet open territory with a month-by-month table; unique GainFrame angle (photo-based evidence at each stage)
@@ -44,7 +44,7 @@ Documented in source reports for future reference. Health-authority lockout make
 - [x] **Spren App Review: Accuracy, Cost & Comparison** (Med/20, comparison-article-generator) — added 2026-04-25 — Spren owns 8/10 SERP results with no independent reviews; covers "spren app review" + "how accurate is spren app" + "spren app cost"; instant trust gap opportunity for third-party review — published 2026-04-25 as /blog/spren-app-review/
 - [x] **Natty Limit: How Big Can You Get Naturally?** (Med/25, blog-post-generator) — added 2026-04-25 — Quora + T-Nation forum signal content gap; gym-native audience; builds on existing FFMI posts (what-is-ffmi + ffmi-chart); differentiates from Outlift's FFMI post with photo-based evidence angle — published 2026-04-25 as /blog/natty-limit/
 
-### From: keyword-research/2026-04-26-gsc-quick-wins.md
+### From: seo-tools/keyword-research/2026-04-26-gsc-quick-wins.md
 
 - [x] **Body Fat % for Visible Jawline Men** (Med/5, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/body-fat-visible-jawline-men/ — TOP PICK; SERP = Quora + TikTok + personal blogs; GainFrame angle: tracks BF% AND photo progress so you literally see your face change; suggested title: "Body Fat % for a Visible Jawline (Men): Targets by Face Type + How to Track It"
 - [x] **How to Estimate Body Fat % from a Photo** (Med/25, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/how-to-estimate-body-fat-from-photo/
@@ -59,14 +59,14 @@ Documented in source reports for future reference. Health-authority lockout make
 - [x] **[CTR] `best-body-transformation-apps` title fix** — add "2026" + app count; 40 impressions at pos 10.8, 2.5% CTR — added 2026-04-26 — done 2026-04-26
 - [x] **[CTR] `how-to-read-body-fat-from-photos` title + HowTo schema** — pos 2.8, 45 impressions, 0 clicks — title rewritten to "How to Estimate Body Fat % from a Photo: Visual Markers + AI Method" + HowTo schema added — done 2026-04-26
 
-### From: keyword-research/2026-04-26-muscle-gain-tracking.md
+### From: seo-tools/keyword-research/2026-04-26-muscle-gain-tracking.md
 
 - [x] **body transformation tracker app** (Med/20, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/body-transformation-tracker-apps/
 - [x] **best app to track muscle gain** (High/45→15 w/angle, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/best-apps-track-muscle-gain/
 - [x] **best app to track body composition + body composition apps** (Med/30, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/best-body-composition-apps/
 - [x] **how to track muscle gain progress + how to track muscle mass at home** (Med/35, blog-post-generator) — added 2026-04-26 — published 2026-04-26 as /blog/how-to-track-muscle-gain-progress/
 
-### From: keyword-research/2026-04-28-progress-photo-app-cluster.md
+### From: seo-tools/keyword-research/2026-04-28-progress-photo-app-cluster.md
 
 Cluster goal: strengthen pillar `/blog/best-progress-photo-apps/` (already ranking #1 for "best free progress photo app") with 6 supporting articles + 1 CTR fix.
 
@@ -82,13 +82,13 @@ Cluster goal: strengthen pillar `/blog/best-progress-photo-apps/` (already ranki
 - [x] **[CTR] `body-transformation-tracker-apps` title fix** — pos 10.85 with 2.5% CTR for `body transformation app`; also ranking pos 11.7 for `ai body transformation app`, pos 17.3 for `best body transformation app`. Title rewritten to "Best AI Body Transformation Apps (2026): 6 Trackers Tested & Ranked" to capture all three queries. Done 2026-04-29.
 - [ ] **[Internal links] Pillar refresh** — `/blog/best-progress-photo-apps/` should add a "More on Progress Photos" section linking to each new supporting article as they land. Each supporting article should link UP to pillar with anchor "best progress photo apps" — added 2026-04-28
 
-### From: keyword-research/2026-04-29-generative-engine-optimization.md
+### From: seo-tools/keyword-research/2026-04-29-generative-engine-optimization.md
 
 Cluster goal: capture the founder/marketer audience with a single pillar case study. GainFrame's defensible moat = real PostHog attribution data (chatgpt = 31%) + screenshot of #1 ChatGPT ranking. SERP is dominated by SEO-consultant speculation; we have actual results.
 
 - [x] **how to rank in chatgpt** (Med/35, blog-post-generator) — added 2026-04-29 — TOP PICK for founder case study; LinkedIn-dominated SERP is winnable with original data + screenshots; bundle with `how to get cited by chatgpt` (Low-Med/15), `how to optimize content for chatgpt` (Med/25), `how to show up in chatgpt search results` (Med/30) as H2/H3s in a single pillar post. Glossary callout for `generative engine optimization` / `GEO vs SEO` / `AEO` / `LLM SEO` (do NOT compete on those head terms — Wikipedia/HBR/HubSpot/SemRush lockout). — published 2026-04-29 as /blog/generative-engine-optimization-case-study/
 
-### From: keyword-research/2026-04-29-ai-fitness-cluster.md
+### From: seo-tools/keyword-research/2026-04-29-ai-fitness-cluster.md
 
 Cluster goal: capture AI fitness search intent across two camps — workout planners (Fitbod/Ray category) vs body scanners (GainFrame category) — by positioning as "AI fitness apps that track the result, not the workout".
 
@@ -100,7 +100,7 @@ Cluster goal: capture AI fitness search intent across two camps — workout plan
 
 - [x] **[Refresh] `/blog/best-ai-body-composition-app/` — capture AI body scan queries** — title rewritten to "Best AI Body Scan & Body Composition App in 2026: Full Comparison"; new "What is an AI body scan?" H2 section added; 23 mentions of "body scan" / 14 of "AI body scan" sprinkled naturally; dateModified bumped to 2026-04-29; 3 new related article links added — done 2026-04-29
 
-### From: keyword-research/2026-04-30-glp1-cluster.md
+### From: seo-tools/keyword-research/2026-04-30-glp1-cluster.md
 
 Cluster goal: claim the gym-native + body-composition-aware sub-niche of the GLP-1 audience before SKOR locks it down. Existing pillar `/blog/glp-1-muscle-loss-tracking/` becomes the cluster hub.
 

@@ -17,7 +17,7 @@ triggers:
 This skill replicates the keyword-research workflow of GrowGanic.io using **free signals** (Google autocomplete, SERP analysis via `WebSearch`, optional competitor sitemap mining) plus **Google Search Console data** when a CSV export is present. It does NOT pull paid Ahrefs/SEMrush volume numbers. Instead, it gives you **comparative tiers** (high/med/low) and **difficulty heuristics** based on what dominates the SERP.
 
 Output:
-- A timestamped report at `keyword-research/[YYYY-MM-DD]-[topic-slug].md`
+- A timestamped report at `seo-tools/keyword-research/[YYYY-MM-DD]-[topic-slug].md`
 - New rows appended to `TODO_SEO.md` (created if it doesn't exist)
 - Each opportunity tagged with the recommended downstream skill (`blog-post-generator` for guides/listicles/definitions, `comparison-article-generator` for X-vs-Y posts)
 - A **GSC Quick Wins** section (when CSV data is present) listing high-impression/low-CTR queries GainFrame is already ranking for
@@ -34,7 +34,7 @@ When triggered, follow these phases sequentially. Do not skip phases.
 
 Ask the user for:
 1. **Seed topic or keyword(s)** — e.g. "body fat measurement", "progress photos", or a competitor name. If the user has no seed, propose 2-3 based on recent blog posts (`ls /Users/michael.rode/code/project/gain-frame-privacy/blog/ | tail -5`).
-2. **Optional: competitor URLs or names to mine** — if provided, check `/competitor-research/[name].md` for an existing profile. If found, use its "Topics they cover but GainFrame does NOT" list as additional seeds. If not found and URLs were provided, run `competitor-scan` first to generate the profile, then use its output. Note in the report which seeds came from which competitor.
+2. **Optional: competitor URLs or names to mine** — if provided, check `/seo-tools/competitor-research/[name].md` for an existing profile. If found, use its "Topics they cover but GainFrame does NOT" list as additional seeds. If not found and URLs were provided, run `competitor-scan` first to generate the profile, then use its output. Note in the report which seeds came from which competitor.
 3. **Optional: scope filter** — informational only, comparison only, all intents (default).
 
 ### Phase 0.5: GSC Data Import (run automatically — no user input needed)
@@ -42,10 +42,10 @@ Ask the user for:
 Before seed expansion, check for a Google Search Console export at:
 
 ```
-/Users/michael.rode/code/project/gain-frame-privacy/gsc-data/queries.csv
+/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/gsc-data/queries.csv
 ```
 
-**How to export from GSC:** Search Console → Performance → Queries tab → Export → Download CSV. Save the file to `gsc-data/queries.csv` in this project. The skill will detect and parse it automatically on every run.
+**How to export from GSC:** Search Console → Performance → Queries tab → Export → Download CSV. Save the file to `seo-tools/gsc-data/queries.csv` in this project. The skill will detect and parse it automatically on every run.
 
 **If the file exists**, parse it and produce three lists from the data:
 
@@ -92,7 +92,7 @@ Print this message in the chat (one time only):
 > 1. Go to [Google Search Console](https://search.google.com/search-console) → Performance → Queries
 > 2. Set date range to last 3 months
 > 3. Click Export → Download CSV
-> 4. Save to `gsc-data/queries.csv` in this project
+> 4. Save to `seo-tools/gsc-data/queries.csv` in this project
 >
 > Continuing with autocomplete + SERP analysis only.
 
@@ -197,7 +197,7 @@ For each cluster:
 
 #### 4a. Write the report
 
-Create `/Users/michael.rode/code/project/gain-frame-privacy/keyword-research/[YYYY-MM-DD]-[topic-slug].md`:
+Create `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/keyword-research/[YYYY-MM-DD]-[topic-slug].md`:
 
 ```markdown
 # Keyword Research: [Topic]
@@ -212,7 +212,7 @@ Create `/Users/michael.rode/code/project/gain-frame-privacy/keyword-research/[YY
 
 ## GSC Quick Wins
 
-*(Only present when gsc-data/queries.csv exists. Omit this section otherwise.)*
+*(Only present when seo-tools/gsc-data/queries.csv exists. Omit this section otherwise.)*
 
 These are queries GainFrame is already ranking for where we can improve without writing new content.
 
@@ -369,8 +369,8 @@ Give a one-screen summary in chat:
 ## Integration with Other Skills
 
 **Upstream:**
-- `competitor-scan` — produces a per-competitor profile at `competitor-research/[name].md` with a "Topics they cover but GainFrame does NOT" list. Phase 1 of this skill should check that directory first when the user mentions a competitor by name, and use those topics as additional seeds before running autocomplete expansion.
-- **GSC CSV export** — user drops `gsc-data/queries.csv` into the project; Phase 0.5 reads it automatically on every run. No OAuth, no API key. To refresh, re-export from GSC and overwrite the file.
+- `competitor-scan` — produces a per-competitor profile at `seo-tools/competitor-research/[name].md` with a "Topics they cover but GainFrame does NOT" list. Phase 1 of this skill should check that directory first when the user mentions a competitor by name, and use those topics as additional seeds before running autocomplete expansion.
+- **GSC CSV export** — user drops `seo-tools/gsc-data/queries.csv` into the project; Phase 0.5 reads it automatically on every run. No OAuth, no API key. To refresh, re-export from GSC and overwrite the file.
 
 **Downstream:**
 - `blog-post-generator` — for guides, how-tos, definitions, listicles. Reads `TODO_SEO.md` to pick its next topic.
@@ -390,6 +390,6 @@ When this skill finishes, suggest the user run the appropriate downstream skill 
 - `/Users/michael.rode/code/project/gain-frame-privacy/product-context.md` — **READ THIS FIRST.** Authoritative source for tagline, target audience, category, platform, differentiators, honest limitations, and brand voice. Use it to derive default seed keywords (Phase 0 input #1) when the user doesn't provide one — pull category + differentiator phrases from this file.
 - `/Users/michael.rode/code/project/gain-frame-privacy/blog/` — existing blog posts (check for coverage gaps)
 - `/Users/michael.rode/code/project/gain-frame-privacy/TODO_SEO.md` — keyword backlog (created on first run if absent)
-- `/Users/michael.rode/code/project/gain-frame-privacy/keyword-research/` — output directory for reports (create if absent)
-- `/Users/michael.rode/code/project/gain-frame-privacy/gsc-data/queries.csv` — **GSC export** (optional; created by user). Column format: `Query,Clicks,Impressions,CTR,Position`. Export from Search Console → Performance → Queries → Export CSV. Overwrite this file to refresh. The `gsc-data/` directory is gitignored (contains real traffic data — don't commit).
+- `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/keyword-research/` — output directory for reports (create if absent)
+- `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/gsc-data/queries.csv` — **GSC export** (optional; created by user). Column format: `Query,Clicks,Impressions,CTR,Position`. Export from Search Console → Performance → Queries → Export CSV. Overwrite this file to refresh. The `seo-tools/gsc-data/` directory is gitignored (contains real traffic data — don't commit).
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/blog-post-generator/SKILL.md` — downstream skill for most article types

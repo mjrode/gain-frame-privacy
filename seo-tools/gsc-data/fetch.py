@@ -3,16 +3,16 @@
 GSC data fetcher for GainFrame keyword-discovery skill.
 
 Pulls query data from Google Search Console API and writes:
-  gsc-data/queries.csv  (Query, Clicks, Impressions, CTR, Position)
+  seo-tools/gsc-data/queries.csv  (Query, Clicks, Impressions, CTR, Position)
 
 First-time setup:
   1. Follow SETUP.md to create client_secrets.json
-  2. Run:  python3 gsc-data/fetch.py
+  2. Run:  python3 seo-tools/gsc-data/fetch.py
   3. Browser opens for Google OAuth — approve it
-  4. Token saved to gsc-data/token.json (persists, auto-refreshes)
+  4. Token saved to seo-tools/gsc-data/token.json (persists, auto-refreshes)
 
 Subsequent runs (refresh data):
-  python3 gsc-data/fetch.py
+  python3 seo-tools/gsc-data/fetch.py
 """
 
 import csv
@@ -73,7 +73,7 @@ def get_credentials():
                     "  4. APIs & Services → Credentials → + Create Credentials → OAuth client ID\n"
                     "  5. Application type: Desktop app  |  Name: anything (e.g. 'GainFrame GSC')\n"
                     "  6. Click Create → Download JSON\n"
-                    "  7. Save the downloaded file as:  gsc-data/client_secrets.json\n"
+                    "  7. Save the downloaded file as:  seo-tools/gsc-data/client_secrets.json\n"
                     "  8. Run this script again\n"
                     "────────────────────────────────────────────────────────────\n"
                 )

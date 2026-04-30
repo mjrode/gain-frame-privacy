@@ -128,4 +128,4 @@ This is the move: **don't compete on the head term, compete on the strongest pos
 
 Appending to `TODO_SEO.md`:
 
-- [ ] **how to rank in chatgpt** (Med/35, blog-post-generator) — added 2026-04-29 — TOP PICK for founder case study; LinkedIn-dominated SERP is winnable; bundle with `how to get cited by chatgpt` (Low-Med/15) and 6 other AI/GEO supporting terms in a single pillar post. Source: keyword-research/2026-04-29-generative-engine-optimization.md
+- [ ] **how to rank in chatgpt** (Med/35, blog-post-generator) — added 2026-04-29 — TOP PICK for founder case study; LinkedIn-dominated SERP is winnable; bundle with `how to get cited by chatgpt` (Low-Med/15) and 6 other AI/GEO supporting terms in a single pillar post. Source: seo-tools/keyword-research/2026-04-29-generative-engine-optimization.md

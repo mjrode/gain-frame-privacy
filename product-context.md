@@ -170,7 +170,7 @@ Use this for credibility framing in posts where founder bona fides matter (e.g. 
 
 | Field | Source(s) |
 |---|---|
-| Implementation override | Synthesized from `app-marketing-context.md` + `paid_vs_free_tier.md` + `competitor-research/_identified-2026-04-25.md` |
+| Implementation override | Synthesized from `app-marketing-context.md` + `paid_vs_free_tier.md` + `seo-tools/competitor-research/_identified-2026-04-25.md` |
 | Tagline + pitch | `../gain-frame/app-marketing-context.md` (line 43-44) + `../gain-frame/docs/app_description.md` (line 11) |
 | Category + platform | `../gain-frame/app-marketing-context.md` (lines 17-19) |
 | Target audience | `../gain-frame/docs/app_description.md` (lines 18-37) |
