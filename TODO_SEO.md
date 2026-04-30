@@ -71,10 +71,10 @@ Documented in source reports for future reference. Health-authority lockout make
 Cluster goal: strengthen pillar `/blog/best-progress-photo-apps/` (already ranking #1 for "best free progress photo app") with 6 supporting articles + 1 CTR fix.
 
 - [x] **Best Free Progress Photo App** (Med/25, blog-post-generator listicle) — added 2026-04-28 — published 2026-04-29 as /blog/best-free-progress-photo-apps/
-- [ ] **Best Progress Photo App for iPhone** (Med-Hi/25, blog-post-generator listicle) — added 2026-04-28 — STRONG SECOND; GainFrame is iOS-only, this is home turf; SERP is App Store + small blogs; differentiate from main pillar by going deep on iOS-specific features (HEIC, iCloud, Shortcuts); suggested title "Best Progress Photo Apps for iPhone (2026): Tested & Ranked"
+- [x] **Best Progress Photo App for iPhone** (Med-Hi/25, blog-post-generator listicle) — added 2026-04-28 — published 2026-04-29 as /blog/best-progress-photo-app-iphone/
 - [x] **Best Gym Progress Photo App** (Med/25, blog-post-generator listicle) — added 2026-04-28 — published 2026-04-29 as /blog/best-gym-progress-photo-app/
 - [x] **How Often Should You Take Progress Photos** (Med/30, blog-post-generator informational) — added 2026-04-28 — published 2026-04-29 as /blog/how-often-progress-photos/
-- [ ] **How to Take Progress Photos By Yourself (No Tripod)** (Med/35, blog-post-generator how-to) — added 2026-04-28 — perfect GainFrame product fit (auto-alignment removes tripod need); HowTo schema target; suggested title "How to Take Progress Photos By Yourself: 5-Minute Setup (No Tripod Required)"; consider expanding existing `/blog/how-to-take-progress-photos-fast/` instead of new post
+- [x] **How to Take Progress Photos By Yourself (No Tripod)** (Med/35, blog-post-generator how-to) — added 2026-04-28 — published 2026-04-29 as /blog/take-progress-photos-by-yourself/ — wrote new post (not refresh) since existing how-to-take-progress-photos-fast is GainFrame product-promo focused; new post is generic 4-option workflow with GainFrame as Option 4
 - [x] **How to Take Progress Photos for Weight Loss** (Med-Hi/40, blog-post-generator how-to) — added 2026-04-28 — published 2026-04-29 as /blog/how-to-take-progress-photos-weight-loss/
 
 #### CTR Fixes (existing posts — no new content)
