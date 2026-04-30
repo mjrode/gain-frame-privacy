@@ -10,3 +10,6 @@ scripts/indexnow-log.csv
 
 # Audit scanner output — temporary working files
 _audit/
+
+# Promo video source files — large, not used by live site, kept locally
+promo-source/
