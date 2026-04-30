@@ -103,7 +103,7 @@ If `comparison-article-generator` ever writes "Metamorph vs GainFrame" or "Priva
   - Apple ecosystem reach (iPad, Mac, Vision, Watch) exceeds GainFrame
   - Cleaner, more focused product (one job: track photos)
 - **Honest framing:** Metamorph and GainFrame solve different problems for different users. **Metamorph is right for users who:** (a) trust their own eyes more than AI estimates, (b) prioritize photos-never-leave-device privacy, (c) want a one-time-purchase option, (d) use multiple Apple devices. **GainFrame is right for users who:** (a) want measurable physique data alongside photos, (b) want AI feedback on muscle group development, (c) want Future Physique prediction, (d) want workout context auto-attached.
-- **Critical:** Don't pretend GainFrame's privacy posture matches Metamorph's. **It doesn't.** GainFrame sends photos to Google Gemini for inference (then never persists them). That's a meaningful difference. Acknowledge it honestly — your `product-context.md` already lists this as an honest limitation. Use that hedging.
+- **Critical:** Don't pretend GainFrame's privacy posture matches Metamorph's. **It doesn't.** GainFrame sends photos to Google Gemini for inference (then never persists them). That's a meaningful difference. Acknowledge it honestly — your `seo-tools/product-context.md` already lists this as an honest limitation. Use that hedging.
 
 ---
 

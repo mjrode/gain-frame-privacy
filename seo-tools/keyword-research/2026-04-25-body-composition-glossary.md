@@ -45,7 +45,7 @@ The most-searched definitional queries are **HEAVILY LOCKED by hospital/health a
 - **Intent:** Informational — definitional + practical (most users want to know "what is it AND how do I calculate mine")
 - **Recommended skill:** `blog-post-generator` (definitional + how-to-calculate post)
 - **Suggested title:** "What Is FFMI? The Gym-Native Body Composition Metric BMI Gets Wrong"
-- **Why opportunity:** Clean SERP. GainFrame already uses FFMI in the app (it's in the Deep Dive Report per `product-context.md`). Writing about it is a natural fit AND it surfaces a unique GainFrame feature. The article should explicitly contrast FFMI vs BMI for the lifter audience (since BMI is the generic standard everyone knows).
+- **Why opportunity:** Clean SERP. GainFrame already uses FFMI in the app (it's in the Deep Dive Report per `seo-tools/product-context.md`). Writing about it is a natural fit AND it surfaces a unique GainFrame feature. The article should explicitly contrast FFMI vs BMI for the lifter audience (since BMI is the generic standard everyone knows).
 - **Existing GainFrame coverage:** None. Closest: `every-way-to-measure-body-fat` (different topic).
 
 ### 2. ffmi chart ⭐ STRONG SECOND PICK (supporting)

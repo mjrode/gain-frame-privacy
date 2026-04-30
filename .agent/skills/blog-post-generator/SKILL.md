@@ -501,7 +501,7 @@ When a post cites scientific studies or peer-reviewed research, these additional
   The `.post-related` class auto-generates the chevron (`»`) icon before each link via CSS pseudo-element — do NOT add `<svg>` markup inside the `<a>`. Older posts have inline-styled SVGs but new posts should use the class.
 
 ## Reference Files
-- `/product-context.md` — **READ THIS FIRST.** Authoritative source for tagline, target audience, features, differentiators, honest limitations, and brand voice. Use it to ground every post (especially the "GainFrame Integration" mention and the closing CTA). Do NOT invent product features or fabricate differentiators — only what's listed in this file is verifiable.
+- `/seo-tools/product-context.md` — **READ THIS FIRST.** Authoritative source for tagline, target audience, features, differentiators, honest limitations, and brand voice. Use it to ground every post (especially the "GainFrame Integration" mention and the closing CTA). Do NOT invent product features or fabricate differentiators — only what's listed in this file is verifiable.
 - `/docs/about/index.html` — **The E-E-A-T anchor page** (sister-document to this skill). Holds the canonical `Person` (Michael Rode) and `Organization` (GainFrame) JSON-LD blocks that every blog post's `author` and `publisher` fields reference. If you change `author.name`, `author.url`, `publisher.name`, `publisher.url`, or `publisher.logo.url` in a blog post, you MUST update `/docs/about/index.html` in the same commit so the entity stays consistent across the site. See "Author & Publisher Entity (E-E-A-T anchor)" section above.
 - `/docs/blog/index.html` (Must be updated with the new post — this is the blog index, not `blog.html`)
 - `/docs/sitemap.xml` (Must be updated with the new post)

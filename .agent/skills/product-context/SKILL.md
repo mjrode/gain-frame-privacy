@@ -1,6 +1,6 @@
 ---
 name: Product Context
-description: Synthesize a tight, SEO/content-focused product context snapshot at gain-frame-privacy/product-context.md. Single source of truth for what the product IS, who it's for, what makes it different, and what its honest limitations are. All other content skills (keyword-discovery, competitor-discovery, blog-post-generator, comparison-article-generator) reference this file.
+description: Synthesize a tight, SEO/content-focused product context snapshot at gain-frame-privacy/seo-tools/product-context.md. Single source of truth for what the product IS, who it's for, what makes it different, and what its honest limitations are. All other content skills (keyword-discovery, competitor-discovery, blog-post-generator, comparison-article-generator) reference this file.
 triggers:
   - "product context"
   - "update product context"
@@ -13,9 +13,9 @@ triggers:
 
 ## Overview
 
-Replicates GrowGanic's "Product Facts" panel as a single canonical file (`product-context.md`) that downstream content skills consume. This is the **stable** product snapshot — what the product IS — separated from operational/ASO data (App Store metrics, ASA performance, MRR goals) which lives in `../gain-frame/app-marketing-context.md` and changes weekly.
+Replicates GrowGanic's "Product Facts" panel as a single canonical file (`seo-tools/product-context.md`) that downstream content skills consume. This is the **stable** product snapshot — what the product IS — separated from operational/ASO data (App Store metrics, ASA performance, MRR goals) which lives in `../gain-frame/app-marketing-context.md` and changes weekly.
 
-**What goes in `product-context.md`:**
+**What goes in `seo-tools/product-context.md`:**
 - Tagline + one-line elevator pitch
 - Category + platform
 - Features (3-8 specific capabilities, verbatim from app description)
@@ -42,7 +42,7 @@ The existing `app-marketing-context.md` (in the sibling app repo) is the compreh
 
 Content skills don't need the operational data. They need a **fast, stable** reference. Forcing them to parse a 200-line marketing-ops doc to find the tagline wastes context and risks them latching onto stale operational claims.
 
-So `product-context.md` is the **stable subset** that content skills load on every run. `app-marketing-context.md` remains the marketing-ops source of truth and is refreshed on a different cadence.
+So `seo-tools/product-context.md` is the **stable subset** that content skills load on every run. `app-marketing-context.md` remains the marketing-ops source of truth and is refreshed on a different cadence.
 
 ---
 
@@ -146,7 +146,7 @@ If everything is well-sourced (likely the case for GainFrame given the rich docs
 
 ### Phase 4: Synthesis & Output
 
-Write `/Users/michael.rode/code/project/gain-frame-privacy/product-context.md` with this structure:
+Write `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/product-context.md` with this structure:
 
 ```markdown
 # GainFrame — Product Context
@@ -261,7 +261,7 @@ For traceability, here's where each field was sourced from:
 
 ### Phase 5: Update Sister Skills
 
-After writing the file, update the **Reference Files** section of each downstream skill SKILL.md to point to `product-context.md` as the FIRST source to read:
+After writing the file, update the **Reference Files** section of each downstream skill SKILL.md to point to `seo-tools/product-context.md` as the FIRST source to read:
 
 - `.agent/skills/keyword-discovery/SKILL.md`
 - `.agent/skills/competitor-discovery/SKILL.md`
@@ -269,7 +269,7 @@ After writing the file, update the **Reference Files** section of each downstrea
 - `.agent/skills/blog-post-generator/SKILL.md`
 - `.agent/skills/comparison-article-generator/SKILL.md`
 
-The downstream skills should treat `product-context.md` as authoritative — if they need to know the tagline, the platform, the differentiators, or the honest limitations, they read this file first.
+The downstream skills should treat `seo-tools/product-context.md` as authoritative — if they need to know the tagline, the platform, the differentiators, or the honest limitations, they read this file first.
 
 ---
 
@@ -303,7 +303,7 @@ When this skill finishes, suggest re-running upstream skills (keyword-discovery,
 
 ## Reference Files
 
-- **Output:** `/Users/michael.rode/code/project/gain-frame-privacy/product-context.md`
+- **Output:** `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/product-context.md`
 - **Primary source:** `/Users/michael.rode/code/project/gain-frame/app-marketing-context.md`
 - **Secondary sources:** `/Users/michael.rode/code/project/gain-frame/docs/app_description.md`, `paid_vs_free_tier.md`, `aso-metadata.md`, `competitive_analysis_modern.md`
 - **Marketing operations doc** (sibling, not consumed by this skill): `/Users/michael.rode/code/project/gain-frame/app-marketing-context.md`

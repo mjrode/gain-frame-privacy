@@ -271,7 +271,7 @@ When this skill finishes, suggest the user run `keyword-discovery` next using th
 
 ## Reference Files
 
-- `/Users/michael.rode/code/project/gain-frame-privacy/product-context.md` — **READ THIS FIRST.** Authoritative source for what GainFrame IS (used to compute "overlap with GainFrame's existing content" and "Topics they cover but GainFrame does NOT" sections of the per-competitor profile). The differentiators + honest limitations are also useful to ground the "Notes for comparison article writing" section of each profile.
+- `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/product-context.md` — **READ THIS FIRST.** Authoritative source for what GainFrame IS (used to compute "overlap with GainFrame's existing content" and "Topics they cover but GainFrame does NOT" sections of the per-competitor profile). The differentiators + honest limitations are also useful to ground the "Notes for comparison article writing" section of each profile.
 - `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/competitor-research/` — output directory (created if absent)
 - `/Users/michael.rode/code/project/gain-frame-privacy/docs/blog/` — used to compute "overlap with GainFrame's existing content"
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/keyword-discovery/SKILL.md` — downstream consumer
