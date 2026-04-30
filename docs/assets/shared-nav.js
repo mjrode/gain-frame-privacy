@@ -31,7 +31,7 @@
         <nav class="blog-nav">
             <div class="container blog-nav-inner">
                 <a href="${prefix}" class="blog-nav-logo">
-                    <img src="${prefix}assets/favicon.webp" alt="GainFrame" loading="lazy" class="blog-nav-icon">
+                    <img src="${prefix}assets/favicons/favicon.webp" alt="GainFrame" loading="lazy" class="blog-nav-icon">
                     <span class="blog-nav-wordmark">GainFrame</span>
                 </a>
                 <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
