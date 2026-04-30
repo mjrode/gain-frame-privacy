@@ -25,7 +25,7 @@ Every post uses the same mascot character, visual style, and layout — ensuring
 
 Before doing ANYTHING in this workflow, you MUST read the mascot style guide:
 ```
-view_file /Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/STYLE_GUIDE.md
+view_file /Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/STYLE_GUIDE.md
 ```
 
 This file contains:
@@ -50,11 +50,11 @@ curl -sS -X POST "https://api.openai.com/v1/images/edits" \
   -F "size=1024x1280" \
   -F "quality=medium" \
   -F "output_format=png" \
-  -F "image[]=@/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg" \
-  -F "image[]=@/Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/discipline-not-motivation/slide-1.png" \
+  -F "image[]=@/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg" \
+  -F "image[]=@/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/discipline-not-motivation/slide-1.png" \
   -F "prompt=${PROMPT_TEXT}" \
   | jq -r '.data[0].b64_json' \
-  | base64 --decode > "/Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/[slug]/slide-[N].png"
+  | base64 --decode > "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/[slug]/slide-[N].png"
 ```
 
 For cover slides, use `slide-0-cover.png` as the style reference and include `gary-badge.png`. For numbered slides, use `slide-1.png` as the banner style reference and do not include `gary-badge.png`.
@@ -149,8 +149,8 @@ In the top-left corner of the TOP PANEL ONLY, draw a small branding badge: a tin
 ```
 image[] inputs:
 [
-  "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg",
-  "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/[closest-scene-ref].jpeg"
+  "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg",
+  "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/[closest-scene-ref].jpeg"
 ]
 ```
 For the cover (3 references), also include `gary-badge.png`.
@@ -264,13 +264,13 @@ Still read `STYLE_GUIDE.md > Prompt Engineering Notes` for character and layout 
 #### Setup
 1. **Create output directory:**
    ```bash
-   mkdir -p /Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/[slug]
+   mkdir -p /Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/[slug]
    ```
    Use a short kebab-case slug based on the topic (e.g., `gym-advice-must-know`, `perfect-leg-day`).
 
 2. **Read the style guide** to get the base prompt prefix, typography rules, and badge specs:
    ```
-   view_file assets/gf-mascot/STYLE_GUIDE.md
+   view_file docs/assets/gainframe-guy/illustrations/STYLE_GUIDE.md
    ```
 
 #### Generate Each Image
@@ -288,8 +288,8 @@ Example for Numbered Slides:
 ```
 image[] inputs:
 [
-  "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg",
-  "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/[closest-scene-ref].jpeg"
+  "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg",
+  "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/[closest-scene-ref].jpeg"
 ]
 ```
 
@@ -351,16 +351,16 @@ Clean off-white background (#F5F0EB) below the banner. Clean cartoon style, thic
 
 **Required reference image inputs for Cover Slides (3 images):**
 ```
-["/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg",
- "/Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png",
- "/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gary-badge.png"]
+["/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg",
+ "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png",
+ "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gary-badge.png"]
 ```
 The `discipline-not-motivation/slide-0-cover.png` is the **cover style reference** — it shows exactly how the title text should look (bare Impact text on cream, red accent word, GAINFRAME GUY badge top-left). Always include it.
 
 **Required reference image inputs for Numbered Slides (2 images):**
 ```
-["/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg",
- "/Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/discipline-not-motivation/slide-1.png"]
+["/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg",
+ "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/discipline-not-motivation/slide-1.png"]
 ```
 The `discipline-not-motivation/slide-1.png` is the **numbered slide banner style reference** — solid black full-width bar, red #N, white Impact title, no rounded corners, no subtitle in the bar. Always include it for numbered slides.
 
@@ -435,11 +435,11 @@ Do NOT name them `cover.png` or `slide1.png` or `slide_1.png`. You MUST use HYPH
 
 4. **Save the text content** to a `content.md` file in the output directory — this is a **copy-paste ready** file for TikTok posting:
    ```
-   assets/tiktok/comic/[slug]/content.md
+   docs/assets/tiktok/comic/[slug]/content.md
    ```
    Include ONLY: the caption and hashtags. Do NOT include slide text, prompts, or other metadata. The file should be minimal — just what gets pasted into TikTok.
 
-5. **Update the post log.** Append to `assets/tiktok/comic/POST_LOG.md` (create if doesn't exist):
+5. **Update the post log.** Append to `docs/assets/tiktok/comic/POST_LOG.md` (create if doesn't exist):
    ```
    ## [Date] — [Title]
    - Slug: [slug]
@@ -448,7 +448,7 @@ Do NOT name them `cover.png` or `slide1.png` or `slide_1.png`. You MUST use HYPH
    - Status: Done
    ```
 
-6. **Register in the comics gallery.** Add a new entry to the top of the `COMICS_MANIFEST` array in `assets/tiktok/comic/comics-manifest.js` so the comic automatically appears on the website gallery page. Insert it as the **first entry** (newest first) with today's date. Use `"png"` for ext unless the images were saved as `.jpeg`.
+6. **Register in the comics gallery.** Add a new entry to the top of the `COMICS_MANIFEST` array in `docs/assets/tiktok/comic/comics-manifest.js` so the comic automatically appears on the website gallery page. Insert it as the **first entry** (newest first) with today's date. Use `"png"` for ext unless the images were saved as `.jpeg`.
    ```js
    { slug: "[slug]", title: "[Cover Title]", date: "[YYYY-MM-DD]", ext: "png" },
    ```
@@ -470,8 +470,8 @@ This step copies the finished slides and `content.md` to a dedicated folder insi
    mkdir -p "$DEST"
    
    # COPY ONLY FILES WITH HYPHENS (e.g., slide-1.png NEVER slide_1.png)
-   cp assets/tiktok/comic/$SLUG/slide-*.png "$DEST/"
-   cp assets/tiktok/comic/$SLUG/content.md "$DEST/"
+   cp docs/assets/tiktok/comic/$SLUG/slide-*.png "$DEST/"
+   cp docs/assets/tiktok/comic/$SLUG/content.md "$DEST/"
    ```
 
 2. **Confirm to user:** Let them know the files are syncing and where to find them:
@@ -480,7 +480,7 @@ This step copies the finished slides and `content.md` to a dedicated folder insi
    - All 6-7 slides + caption/hashtags are there
    - Open TikTok → New Post → Select photos from Files app
 
-3. **Cleanup (optional):** Old drafts can be deleted from the TikTok-Drafts folder after posting. The canonical copies always live in `assets/tiktok/comic/[slug]/`.
+3. **Cleanup (optional):** Old drafts can be deleted from the TikTok-Drafts folder after posting. The canonical copies always live in `docs/assets/tiktok/comic/[slug]/`.
 
 ---
 
@@ -492,18 +492,18 @@ This step copies the finished slides and `content.md` to a dedicated folder insi
 - **GainFrame Gary badge.** Only the COVER slide gets the top-left branding badge. Do not include it on numbered slides.
 - **Always specify fonts.** Every prompt must explicitly request Impact-style condensed sans-serif for titles and clean sans-serif for subtitles. Never let the AI choose fonts freely.
 - **No Text Overlay Script.** You do NOT use any Python script to overlay text. GPT Image 2 generates the text directly in the image. If the text fails, adjust your prompt and regenerate the slide. Save the final output using the strict `slide-0-cover.png` and `slide-[N].png` formats.
-- **Save everything.** Every carousel must have its own directory under `assets/tiktok/comic/[slug]/` with all images AND a `content.md` with the text + prompts used.
+- **Save everything.** Every carousel must have its own directory under `docs/assets/tiktok/comic/[slug]/` with all images AND a `content.md` with the text + prompts used.
 - **Prompt reproducibility.** Always save the exact prompt used for each image in `content.md`. If a style works well, it becomes the new reference.
 - **GainFrame mention: 1 in every 3 carousels, not every one.** When included, place it on the final slide only. Never in the first 3 slides. Pure value first — product mention is earned, not forced. Most carousels should end with a strong tip, not a plug.
 
 ## Reference Files
-- `assets/gf-mascot/STYLE_GUIDE.md` — **MUST READ FIRST** — Character design, visual constants, typography, badge specs, title patterns, prompt templates
-- `assets/gf-mascot/gf-mascot-template.jpeg` — Mascot character sheet (neutral standing pose)
-- `assets/gf-mascot/gary-badge.png` — **Head-only badge icon** for top-left branding (include ONLY when generating the cover slide)
-- `assets/gf-mascot/mirror-mascot.jpeg` — Example: mirror reflection scene
-- `assets/gf-mascot/mascot-form.jpeg` — Example: good vs. bad form (✅/❌ comparison)
-- `assets/gf-mascot/mascot-legs.jpeg` — Example: gym equipment interaction
-- `assets/gf-mascot/mascot-pictures.jpeg` — Example: progress photos with phone tripod
-- `assets/gf-mascot/mascot-sleep.jpeg` — Example: recovery/sleeping scene
-- `assets/tiktok/comic/POST_LOG.md` — Running log of all generated carousels
-- `assets/tiktok/comic/comics-manifest.js` — Gallery manifest (add new comics here for them to appear on the website)
+- `docs/assets/gainframe-guy/illustrations/STYLE_GUIDE.md` — **MUST READ FIRST** — Character design, visual constants, typography, badge specs, title patterns, prompt templates
+- `docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg` — Mascot character sheet (neutral standing pose)
+- `docs/assets/gainframe-guy/illustrations/gary-badge.png` — **Head-only badge icon** for top-left branding (include ONLY when generating the cover slide)
+- `docs/assets/gainframe-guy/illustrations/mirror-mascot.jpeg` — Example: mirror reflection scene
+- `docs/assets/gainframe-guy/illustrations/mascot-form.jpeg` — Example: good vs. bad form (✅/❌ comparison)
+- `docs/assets/gainframe-guy/illustrations/mascot-legs.jpeg` — Example: gym equipment interaction
+- `docs/assets/gainframe-guy/illustrations/mascot-pictures.jpeg` — Example: progress photos with phone tripod
+- `docs/assets/gainframe-guy/illustrations/mascot-sleep.jpeg` — Example: recovery/sleeping scene
+- `docs/assets/tiktok/comic/POST_LOG.md` — Running log of all generated carousels
+- `docs/assets/tiktok/comic/comics-manifest.js` — Gallery manifest (add new comics here for them to appear on the website)

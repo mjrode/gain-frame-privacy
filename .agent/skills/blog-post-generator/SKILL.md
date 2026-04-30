@@ -17,7 +17,7 @@ This skill orchestrates the end-to-end creation of SEO-optimized marketing blog 
 When triggered, you MUST follow these steps sequentially. **Do not proceed to the next step until the user has fully answered the current one.**
 
 ### Phase 0: Duplicate Check
-1. **Search Existing:** Before asking for a topic, use `list_dir` on `/blog/` to see what already exists.
+1. **Search Existing:** Before asking for a topic, use `list_dir` on `/docs/blog/` to see what already exists.
 2. **Warn User:** If the requested topic is very similar to an existing slug (e.g. they ask for "how to take progress photos" but `5-tips-better-progress-photos` exists), warn them. Ask if they want to update the existing post or spin up a new, specific angle.
 
 ### Phase 1: Topic & Angle Interview
@@ -27,7 +27,7 @@ When triggered, you MUST follow these steps sequentially. **Do not proceed to th
 
 ### Phase 2: Asset Gathering
 
-**Step 1 — Check the curated screenshot library FIRST** (before asking the user for anything). The library lives at `/Users/michael.rode/code/project/gain-frame-privacy/app-screenshots/[version]/` — currently `1.21`. These are the canonical in-app screenshots maintained by the user. **Default to these whenever they fit.** Only ask the user for net-new screenshots if the article needs something this catalog doesn't cover.
+**Step 1 — Check the curated screenshot library FIRST** (before asking the user for anything). The library lives at `/Users/michael.rode/code/project/gain-frame-privacy/docs/app-screenshots/[version]/` — currently `1.21`. These are the canonical in-app screenshots maintained by the user. **Default to these whenever they fit.** Only ask the user for net-new screenshots if the article needs something this catalog doesn't cover.
 
 #### Screenshot Library Catalog (v1.21 — 10 screenshots)
 
@@ -49,22 +49,22 @@ When triggered, you MUST follow these steps sequentially. **Do not proceed to th
 
 1. **Match article topic to library screenshots.** Recommend 2-4 by filename. Example: an article about "before and after comparisons" naturally pulls `compare.png` + `throwback.png` + maybe `photo-gallery.png`. An article about per-muscle scoring pulls `muscle-map.png` + `post-check-in-photo-score.png`.
 2. **Tell the user which ones you picked + why** before copying. They can swap or add. Example: *"I'll use compare.png (for the side-by-side feature section), muscle-map.png (for the per-muscle scoring section), and dashboard.png (for the trend overview). Sound right?"*
-3. **Copy + convert to WebP.** When the user confirms, copy each into `blog/[slug]/assets/` and convert PNG → WebP with `cwebp -q 80 source.png -o target.webp`. Suggested naming: keep the original name (e.g. `compare.webp`).
+3. **Copy + convert to WebP.** When the user confirms, copy each into `docs/blog/[slug]/assets/` and convert PNG → WebP with `cwebp -q 80 source.png -o target.webp`. Suggested naming: keep the original name (e.g. `compare.webp`).
 4. **Only ask for new screenshots** if the article needs a specific screen this catalog doesn't cover. Be specific: *"The library doesn't have a screenshot of [X] — could you provide one?"* Don't ask for screenshots the library already has.
 5. **WebP conversion always happens** (whether the source is library PNG or user-provided PNG/JPG). Never link `.png` or `.jpg` in the final HTML.
 
 #### Catalog maintenance
 
-- The library is **versioned by app release** (`/app-screenshots/1.21/`, `/app-screenshots/1.22/`, ...). Always check for the latest version directory before recommending — newer versions may add or replace screens.
+- The library is **versioned by app release** (`/docs/app-screenshots/1.21/`, `/docs/app-screenshots/1.22/`, ...). Always check for the latest version directory before recommending — newer versions may add or replace screens.
 - If the user adds new screenshots to the library, the catalog above should be updated. Suggest editing this skill file when you notice a screenshot in the library that isn't in the catalog.
 - If a UI redesign happens (major version bump that changes screen layouts), the catalog descriptions need updating to match. Flag this to the user when you notice catalogued descriptions don't match the current screenshots.
 
 ### Phase 3: Drafting & Implementation
 Once the interview is complete and assets are provided, execute the following implementation plan automatically:
 
-1. **Setup Directory:** Create `/blog/[slug-name]/assets/`.
+1. **Setup Directory:** Create `/docs/blog/[slug-name]/assets/`.
 2. **Process Images:** Move the user's provided images into the `assets/` folder. Use the `run_command` tool to run `cwebp` to convert all `.png`/`.jpg` files to `.webp` format with `-q 80`. Delete the original files.
-3. **Generate Cover Image:** Invoke the `image-generate` skill (`.agent/skills/image-generate/SKILL.md`) to create a striking 4:3 cover image for the blog grid. The skill wraps Google Gemini's Nano Banana 2 model (`gemini-3.1-flash-image-preview`) and the brand prompt template is its built-in `style_template: "blog-cover"` default — you only need to provide a `subject` and a `target_path`. Cost ~$0.039 per image. Save to `blog/[slug]/assets/cover.webp` and reference at 4 places in the HTML: `og:image`, `twitter:image`, JSON-LD `image`, hero `<img src>` (relative path: `assets/cover.webp`). Plus the blog index card image.
+3. **Generate Cover Image:** Invoke the `image-generate` skill (`.agent/skills/image-generate/SKILL.md`) to create a striking 4:3 cover image for the blog grid. The skill wraps Google Gemini's Nano Banana 2 model (`gemini-3.1-flash-image-preview`) and the brand prompt template is its built-in `style_template: "blog-cover"` default — you only need to provide a `subject` and a `target_path`. Cost ~$0.039 per image. Save to `docs/blog/[slug]/assets/cover.webp` and reference at 4 places in the HTML: `og:image`, `twitter:image`, JSON-LD `image`, hero `<img src>` (relative path: `assets/cover.webp`). Plus the blog index card image.
 
    **Prompt template (used internally by `image-generate` — shown here for reference):**
    > *"A minimalist, abstract vector line-art illustration of [SUBJECT]. Thin, precise UI-style lines in dark charcoal gray (#2D3748) against a very light off-white/cream background (#F7FAFC). Subtle, muted pastel accent colors (coral red #FF6B6B, sage green #48BB78, golden yellow #ECC94B) used sparingly to highlight key elements. The style should resemble high-end SaaS product illustrations, clean, geometric, with plenty of negative space. No text, no text rendering."*
@@ -149,26 +149,26 @@ Every blog post emits two entity declarations inside its `BlogPosting` JSON-LD: 
 
 **Hard rules:**
 1. **Never change `author.name`.** It is `"Michael Rode"` on every post — not "GainFrame Team", not "The GainFrame Team", not "Mike Rode". Consistency across all 67+ posts is what builds the entity in Google's Knowledge Graph.
-2. **Never change `author.url`.** It points at `https://gainframe.app/about` — and `/about/index.html` MUST exist there with a matching `Person` schema (see "The /about contract" below). If you ever move `/about`, both pages and every blog post's `author.url` must move together.
+2. **Never change `author.url`.** It points at `https://gainframe.app/about` — and `docs/about/index.html` MUST exist there with a matching `Person` schema (see "The /about contract" below). If you ever move `/about`, both pages and every blog post's `author.url` must move together.
 3. **Never change `publisher.name`, `publisher.url`, or `publisher.logo.url`.** These three together identify the GainFrame Organization entity. If the favicon path ever changes, the publisher logo URL must update across every blog post in lockstep.
 4. **`Person` and `Organization` `sameAs` arrays must NEVER share URLs.** Person `sameAs` is for Michael's *personal* profiles (LinkedIn, GitHub, personal X, App Store developer page). Organization `sameAs` is for GainFrame's *brand* profiles (the @gainframe X / TikTok / Instagram accounts). Putting brand accounts on the Person object collapses the two entities — Google treats them as the same thing and the entity distinction disappears.
 5. **The author URL must resolve to a real page**, not a 404. If you ever delete `/about`, you have hundreds of broken Knowledge-Graph references to chase down.
 
 **The /about contract:**
 
-`/about/index.html` is the single canonical entity-anchor page. It must always emit, in JSON-LD:
+`docs/about/index.html` is the single canonical entity-anchor page. It must always emit, in JSON-LD:
 - One `Organization` block whose `@id` is `https://gainframe.app/#organization` and whose `name`, `url`, `logo` exactly match the publisher block above
 - One `Person` block whose `@id` is `https://gainframe.app/about/#michael-rode` and whose `name` is "Michael Rode"
 - One `AboutPage` block referencing both
 - One `BreadcrumbList` block
 
-Treat `/about` as a sister-document to this skill. Whenever the author or publisher block changes here, `/about` changes in the same commit. Never split them.
+Treat `docs/about/` as a sister-document to this skill. Whenever the author or publisher block changes here, `docs/about/index.html` changes in the same commit. Never split them.
 
 **On `sameAs` (the Knowledge Graph multiplier):**
 
 `sameAs` is the schema.org property that disambiguates an entity by linking it to its identifiers on other authoritative sites. Without `sameAs`, Google sees `"name": "Michael Rode"` and can't tell which Michael Rode you are. With `sameAs` pointing at LinkedIn / GitHub / App Store developer / etc., Google cross-references those URLs and builds a single Knowledge Graph node that accumulates authority across every page that names you as author. **It is the single highest-leverage E-E-A-T signal** after having a real `/about` page.
 
-Maintain `sameAs` arrays on `/about/index.html`:
+Maintain `sameAs` arrays on `docs/about/index.html`:
 - **Person.sameAs** — Michael's personal profiles only. LinkedIn is the highest-value entry; GitHub is high value for an engineer. Pick profiles you actually maintain — a stale or empty profile hurts more than no link.
 - **Organization.sameAs** — GainFrame's brand profiles only. Add the App Store developer page when known (high authority signal).
 
@@ -470,12 +470,12 @@ When a post cites scientific studies or peer-reviewed research, these additional
    - `<div class="post-steps">` — numbered step frameworks
    - `<div class="post-feature-grid">` / `<div class="post-feature-card">` — feature comparison cards
 
-6. **Update Index:** Add the new blog post to the top of the grid in `blog/index.html`. Use the generated vector cover image. **CRITICAL:** Use the standard card structure — `blog-card-content` > `post-meta` > `post-category` + `post-date`, then `h3`, then `p`. Do NOT use `blog-card-body` / `blog-card-category` / `blog-card-title` — those are an old format that doesn't match the site's typography.
-7. **Update Sitemap:** Add the new blog post to `sitemap.xml`.
-8. **Update Backlog:** If this post was from `TODO_SEO.md`, check it off and add the publish date.
+6. **Update Index:** Add the new blog post to the top of the grid in `docs/blog/index.html`. Use the generated vector cover image. **CRITICAL:** Use the standard card structure — `blog-card-content` > `post-meta` > `post-category` + `post-date`, then `h3`, then `p`. Do NOT use `blog-card-body` / `blog-card-category` / `blog-card-title` — those are an old format that doesn't match the site's typography.
+7. **Update Sitemap:** Add the new blog post to `docs/sitemap.xml`.
+8. **Update Backlog:** If this post was from `seo-tools/TODO_SEO.md`, check it off and add the publish date.
 8. **Deploy (MANDATORY — do not skip):** After all files are written and the blog index is updated, stage only the new/modified files (never `git add -A` — it can catch sensitive files). Then commit and push:
    ```bash
-   git add blog/[slug]/ blog/index.html sitemap.xml TODO_SEO.md
+   git add docs/blog/[slug]/ docs/blog/index.html docs/sitemap.xml seo-tools/TODO_SEO.md
    git commit -m "feat: [keyword] blog post"
    git push origin main
    ```
@@ -502,11 +502,11 @@ When a post cites scientific studies or peer-reviewed research, these additional
 
 ## Reference Files
 - `/product-context.md` — **READ THIS FIRST.** Authoritative source for tagline, target audience, features, differentiators, honest limitations, and brand voice. Use it to ground every post (especially the "GainFrame Integration" mention and the closing CTA). Do NOT invent product features or fabricate differentiators — only what's listed in this file is verifiable.
-- `/about/index.html` — **The E-E-A-T anchor page** (sister-document to this skill). Holds the canonical `Person` (Michael Rode) and `Organization` (GainFrame) JSON-LD blocks that every blog post's `author` and `publisher` fields reference. If you change `author.name`, `author.url`, `publisher.name`, `publisher.url`, or `publisher.logo.url` in a blog post, you MUST update `/about/index.html` in the same commit so the entity stays consistent across the site. See "Author & Publisher Entity (E-E-A-T anchor)" section above.
-- `/blog/index.html` (Must be updated with the new post — this is the blog index, not `blog.html`)
-- `/sitemap.xml` (Must be updated with the new post)
-- `/TODO_SEO.md` (For topic inspiration and task tracking)
-- `/styles.css` (For reference to standard typography and CTA classes)
+- `/docs/about/index.html` — **The E-E-A-T anchor page** (sister-document to this skill). Holds the canonical `Person` (Michael Rode) and `Organization` (GainFrame) JSON-LD blocks that every blog post's `author` and `publisher` fields reference. If you change `author.name`, `author.url`, `publisher.name`, `publisher.url`, or `publisher.logo.url` in a blog post, you MUST update `/docs/about/index.html` in the same commit so the entity stays consistent across the site. See "Author & Publisher Entity (E-E-A-T anchor)" section above.
+- `/docs/blog/index.html` (Must be updated with the new post — this is the blog index, not `blog.html`)
+- `/docs/sitemap.xml` (Must be updated with the new post)
+- `/seo-tools/TODO_SEO.md` (For topic inspiration and task tracking)
+- `/docs/styles.css` (For reference to standard typography and CTA classes)
 
 ---
 

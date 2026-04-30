@@ -46,7 +46,7 @@ When triggered, follow these phases sequentially. Do not skip phases.
 
 ### Phase 0: Duplicate Check
 
-Same as `blog-post-generator` Phase 0 — `ls /blog/` for existing comparison-themed slugs (e.g. `vs`, `compare`, `alternative`). Warn if a similar comparison already exists.
+Same as `blog-post-generator` Phase 0 — `ls /docs/blog/` for existing comparison-themed slugs (e.g. `vs`, `compare`, `alternative`). Warn if a similar comparison already exists.
 
 ### Phase 1: Inputs
 
@@ -309,10 +309,10 @@ Same flow as `blog-post-generator` Phases 3.1-3.8 (Setup Directory → Process I
 - `/Users/michael.rode/code/project/gain-frame-privacy/product-context.md` — **READ THIS FIRST (before everything).** Authoritative source for tagline, target audience, differentiators, honest limitations, and brand voice. Use the "Differentiators" section to know what GainFrame's verifiable advantages are (do NOT invent new ones). Use the "Honest limitations" section for hedging language and credibility. Use the "Implementation Override" to avoid common article-writer mistakes (e.g. claiming GainFrame is on Android — it's not).
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/blog-post-generator/SKILL.md` — **READ THIS SECOND.** All voice, styling, HTML, image, and deploy rules are inherited from there.
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/keyword-discovery/SKILL.md` — upstream skill that surfaces comparison opportunities.
-- `/Users/michael.rode/code/project/gain-frame-privacy/TODO_SEO.md` — backlog. Items tagged `comparison-article-generator` are this skill's input.
-- `/Users/michael.rode/code/project/gain-frame-privacy/blog/` — existing posts. Check for similar comparisons before drafting (Phase 0).
-- `/Users/michael.rode/code/project/gain-frame-privacy/blog/dexa-scan-vs-ai-body-composition/index.html` — closest existing comparison-style post; read for HTML structure reference.
-- `/Users/michael.rode/code/project/gain-frame-privacy/blog/ai-body-editor-apps-vs-real-analysis/index.html` — another comparison-style reference.
+- `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/TODO_SEO.md` — backlog. Items tagged `comparison-article-generator` are this skill's input.
+- `/Users/michael.rode/code/project/gain-frame-privacy/docs/blog/` — existing posts. Check for similar comparisons before drafting (Phase 0).
+- `/Users/michael.rode/code/project/gain-frame-privacy/docs/blog/dexa-scan-vs-ai-body-composition/index.html` — closest existing comparison-style post; read for HTML structure reference.
+- `/Users/michael.rode/code/project/gain-frame-privacy/docs/blog/ai-body-editor-apps-vs-real-analysis/index.html` — another comparison-style reference.
 
 ---
 

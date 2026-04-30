@@ -10,16 +10,16 @@ triggers:
 # Feature Page Generator Skill
 
 ## Overview
-This skill orchestrates the creation of individual feature subpages for GainFrame. Each subpage lives at `/features/[slug]/index.html` and provides a detailed, visual walkthrough of a single app feature — similar to how Hevy structures their feature/use-case pages. It enforces a conversational workflow: interview the user, gather screenshots, draft the page, link it from the features hub, and deploy.
+This skill orchestrates the creation of individual feature subpages for GainFrame. Each subpage lives at `/docs/features/[slug]/index.html` and provides a detailed, visual walkthrough of a single app feature — similar to how Hevy structures their feature/use-case pages. It enforces a conversational workflow: interview the user, gather screenshots, draft the page, link it from the features hub, and deploy.
 
 ## The Workflow
 
 When triggered, follow these steps sequentially. **Do not proceed to the next step until the user has fully answered the current one.**
 
 ### Phase 0: Feature Selection
-1. **Check Existing:** Use `list_dir` on `/features/` to see what subpages already exist.
-2. **Check Hub:** Open `features.html` to see the full list of feature cards. Present the user with the features that do NOT yet have subpages — these are the easiest to spin up since the card already exists.
-3. **Confirm Selection:** Ask the user which feature they want to create a page for. If it's a net-new feature not on the hub, note that you'll also add a card to `features.html`.
+1. **Check Existing:** Use `list_dir` on `/docs/features/` to see what subpages already exist.
+2. **Check Hub:** Open `docs/features.html` to see the full list of feature cards. Present the user with the features that do NOT yet have subpages — these are the easiest to spin up since the card already exists.
+3. **Confirm Selection:** Ask the user which feature they want to create a page for. If it's a net-new feature not on the hub, note that you'll also add a card to `docs/features.html`.
 
 ### Phase 1: Feature Interview (3 Questions)
 Ask these one at a time:
@@ -36,14 +36,14 @@ Ask these one at a time:
 ### Phase 3: Drafting & Implementation
 Once the interview is complete and assets are provided, execute the following implementation plan automatically:
 
-1. **Setup Directory:** Create `/features/[slug]/assets/`.
+1. **Setup Directory:** Create `/docs/features/[slug]/assets/`.
 2. **Process Images:** Move the user's provided images into the `assets/` folder. Use the `run_command` tool to run `cwebp` to convert all `.png`/`.jpg` files to `.webp` format with `-q 80`. Delete the originals.
 3. **Generate Hero Image:** Use the `generate_image` tool to create a wide hero-style image for the page. **Use this exact prompt structure (fill in the SUBJECT):**
    > *Prompt: "A minimalist, abstract vector line-art illustration of [SUBJECT]. Thin, precise UI-style lines in dark charcoal gray (#2D3748) against a very light off-white/cream background (#F7FAFC). Subtle, muted pastel accent colors (coral red #FF6B6B, sage green #48BB78, golden yellow #ECC94B) used sparingly to highlight key elements. The style should resemble high-end SaaS product illustrations, clean, geometric, with plenty of negative space. No text, no text rendering."*
 4. **Draft the Content** following the **Writing Voice & Style** rules below.
 5. **Scaffold HTML:** Create `index.html` in the new folder using the **HTML Template** below.
-6. **Link from Hub:** Update the corresponding card in `features.html` to wrap it in an `<a>` tag linking to the new subpage.
-7. **Update Sitemap:** Add the new feature page to `sitemap.xml`.
+6. **Link from Hub:** Update the corresponding card in `docs/features.html` to wrap it in an `<a>` tag linking to the new subpage.
+7. **Update Sitemap:** Add the new feature page to `docs/sitemap.xml`.
 8. **Deploy (MANDATORY — do not skip):**
    ```bash
    cd /Users/michael.rode/code/project/gain-frame-privacy && git add -A && git commit -m "feat: add '[feature-name]' feature page" && git push
@@ -195,7 +195,7 @@ Use the exact same site footer and analytics scripts as blog posts (TikTok pixel
 
 ## Linking from Features Hub
 
-When the feature subpage is created, update the corresponding card in `features.html` to link to it. Wrap the entire `.feature-link-card` content in an anchor tag:
+When the feature subpage is created, update the corresponding card in `docs/features.html` to link to it. Wrap the entire `.feature-link-card` content in an anchor tag:
 
 ```html
 <a href="features/[slug]/index.html" class="feature-link-card scroll-reveal reveal-delay-N" style="text-decoration: none; color: inherit;">
@@ -213,7 +213,7 @@ If the card is a `<div>`, change it to an `<a>` tag. Keep all existing classes a
 - **Internal Linking:** Always include a "Related Features" section linking to at least 2 other feature subpages or relevant blog posts.
 
 ## Reference Files
-- `/features.html` (Hub page — must link the new card)
-- `/sitemap.xml` (Must be updated)
-- `/styles.css` (For existing component classes)
-- `/blog/deep-dive-compare/index.html` (Reference for HTML structure, metadata, nav, footer)
+- `/docs/features.html` (Hub page — must link the new card)
+- `/docs/sitemap.xml` (Must be updated)
+- `/docs/styles.css` (For existing component classes)
+- `/docs/blog/deep-dive-compare/index.html` (Reference for HTML structure, metadata, nav, footer)

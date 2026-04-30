@@ -28,7 +28,7 @@ Single canonical image-generation surface for the GainFrame content pipeline. Wr
 
 Required:
 - `subject` — what the image is OF (e.g. `"a side-by-side comparison of two app interfaces"` or `"dumbbells on a clean background"`)
-- `target_path` — absolute path to write the final `.webp` file (e.g. `/Users/michael.rode/code/project/gain-frame-privacy/blog/metamorph-vs-gainframe/assets/cover.webp`)
+- `target_path` — absolute path to write the final `.webp` file (e.g. `/Users/michael.rode/code/project/gain-frame-privacy/docs/blog/metamorph-vs-gainframe/assets/cover.webp`)
 
 Optional (with defaults):
 - `aspect_ratio` — `"4:3"` (default, blog covers), `"16:9"` (wide hero), `"9:16"` (TikTok), `"1:1"` (square)

@@ -42,7 +42,7 @@ The skill also classifies **out-of-scope** results (Wikipedia, government sites,
 
 Ask the user for the minimum context needed:
 
-1. **Product / category description** — one sentence. e.g. `AI body composition app for lifters` or `body fat estimation from a photo`. If not provided, default to the GainFrame description from `index.html` or `about.html`.
+1. **Product / category description** — one sentence. e.g. `AI body composition app for lifters` or `body fat estimation from a photo`. If not provided, default to the GainFrame description from `docs/index.html` or `docs/about/index.html`.
 2. **Optional: 1-2 known competitor names** to seed alternative-search discovery (e.g. `bodywhat`). Skip if user has none.
 3. **Optional: 3-5 target keywords per feature axis** to seed SERP-based discovery. If not provided, derive from the product description AND its secondary feature axes (see Phase 1 below).
 4. **Platform focus** — default `all` (web + iOS + Android). Alternatives: `ios-only`, `android-only`, `web-only`. **This significantly affects classification:** under `ios-only` (e.g. for iOS-first apps like GainFrame), web-only browser tools that rank for the same keywords get demoted from "Direct" to a separate "Web-only direct (SERP competitors, not App Store competitors)" bucket — they compete for SEO but NOT for the user's App Store choice.
@@ -273,4 +273,4 @@ When this skill finishes, suggest running `competitor-scan` on the top direct co
 - `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/competitor-research/` — output directory (created if absent; shared with `competitor-scan`)
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/competitor-scan/SKILL.md` — downstream consumer
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/keyword-discovery/SKILL.md` — secondary consumer (Content competitor list)
-- `/Users/michael.rode/code/project/gain-frame-privacy/index.html`, `/about.html` — fallback for product description if user doesn't provide one
+- `/Users/michael.rode/code/project/gain-frame-privacy/docs/index.html`, `/Users/michael.rode/code/project/gain-frame-privacy/docs/about/index.html` — fallback for product description if user doesn't provide one

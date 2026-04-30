@@ -21,7 +21,7 @@ Every phase is the same. Only the image generation bash block in Phase 3 changes
 
 Read the style guide before starting:
 ```
-view_file assets/gf-mascot/STYLE_GUIDE.md
+view_file docs/assets/gainframe-guy/illustrations/STYLE_GUIDE.md
 ```
 
 ---
@@ -120,14 +120,14 @@ Iterate until approved before generating any images.
 source ~/.zshrc  # loads GEMINI_API_KEY
 
 SLUG="[kebab-case-topic-slug]"
-OUT_DIR="/Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/$SLUG"
+OUT_DIR="/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/$SLUG"
 mkdir -p "$OUT_DIR"
 
 # Absolute paths to reference files
-MASCOT_TEMPLATE="/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gf-mascot-template.jpeg"
-BADGE="/Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/gary-badge.png"
-COVER_STYLE_REF="/Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png"
-BANNER_STYLE_REF="/Users/michael.rode/code/project/gain-frame-privacy/assets/tiktok/comic/discipline-not-motivation/slide-1.png"
+MASCOT_TEMPLATE="/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg"
+BADGE="/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gary-badge.png"
+COVER_STYLE_REF="/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png"
+BANNER_STYLE_REF="/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/discipline-not-motivation/slide-1.png"
 
 MODEL="gemini-3.1-flash-image-preview"
 ```
@@ -138,13 +138,13 @@ Pick the closest scene reference for each numbered slide:
 
 | Scene type | File |
 |------------|------|
-| Flexing / mirror | `assets/gf-mascot/mirror-mascot.jpeg` |
-| Form comparison ✅/❌ | `assets/gf-mascot/mascot-form.jpeg` |
-| Gym equipment / muscular build | `assets/gf-mascot/mascot-legs.jpeg` |
-| Muscular hero flex pose | `assets/gf-mascot/mascot-pictures.jpeg` (double bicep flex — best for Hero Reference covers) |
-| Phone / progress photos | `assets/gf-mascot/mascot-pictures.jpeg` |
-| Sleeping / recovery | `assets/gf-mascot/mascot-sleep.jpeg` |
-| Default / other | `assets/gf-mascot/gf-mascot-template.jpeg` |
+| Flexing / mirror | `docs/assets/gainframe-guy/illustrations/mirror-mascot.jpeg` |
+| Form comparison ✅/❌ | `docs/assets/gainframe-guy/illustrations/mascot-form.jpeg` |
+| Gym equipment / muscular build | `docs/assets/gainframe-guy/illustrations/mascot-legs.jpeg` |
+| Muscular hero flex pose | `docs/assets/gainframe-guy/illustrations/mascot-pictures.jpeg` (double bicep flex — best for Hero Reference covers) |
+| Phone / progress photos | `docs/assets/gainframe-guy/illustrations/mascot-pictures.jpeg` |
+| Sleeping / recovery | `docs/assets/gainframe-guy/illustrations/mascot-sleep.jpeg` |
+| Default / other | `docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg` |
 
 #### Core Image Generation Function
 
@@ -328,14 +328,14 @@ Hyphens only. Never underscores. Never `cover.png` or `slide1.png`. The gallery 
 3. Draft caption + hashtags:
    - **Caption:** 2–3 sentences, hook-first, CTA ("Save this 💪")
    - **Hashtags:** 5–10 mixing broad (#gymtok #fitness) and niche (#gymmistakes #gainframe)
-4. Save `content.md` to `assets/tiktok/comic/[slug]/content.md`:
+4. Save `content.md` to `docs/assets/tiktok/comic/[slug]/content.md`:
    ```
    [Caption text]
 
    [Hashtags]
    ```
    Caption and hashtags only — no prompts, no slide text.
-5. Append to `assets/tiktok/comic/POST_LOG.md`:
+5. Append to `docs/assets/tiktok/comic/POST_LOG.md`:
    ```
    ## [Date] — [Title]
    - Slug: [slug]
@@ -343,7 +343,7 @@ Hyphens only. Never underscores. Never `cover.png` or `slide1.png`. The gallery 
    - GainFrame mention: Yes/No (Slide #)
    - Status: Done
    ```
-6. Add to top of `COMICS_MANIFEST` array in `assets/tiktok/comic/comics-manifest.js`:
+6. Add to top of `COMICS_MANIFEST` array in `docs/assets/tiktok/comic/comics-manifest.js`:
    ```js
    { slug: "[slug]", title: "[Cover Title]", date: "[YYYY-MM-DD]", ext: "png" },
    ```
@@ -356,8 +356,8 @@ Hyphens only. Never underscores. Never `cover.png` or `slide1.png`. The gallery 
 SLUG="[slug]"
 DEST="/Users/michael.rode/Library/Mobile Documents/com~apple~CloudDocs/TikTok-Drafts/$SLUG"
 mkdir -p "$DEST"
-cp assets/tiktok/comic/$SLUG/slide-*.png "$DEST/"
-cp assets/tiktok/comic/$SLUG/content.md "$DEST/"
+cp docs/assets/tiktok/comic/$SLUG/slide-*.png "$DEST/"
+cp docs/assets/tiktok/comic/$SLUG/content.md "$DEST/"
 echo "✅ Syncing to iCloud → TikTok-Drafts/$SLUG"
 ```
 
@@ -432,7 +432,7 @@ Same as Standard Format with these tweaks:
 REF1 = $MASCOT_TEMPLATE                              # character design
 REF2 = $COVER_STYLE_REF                              # bare-text-on-white style
 REF3 = $BADGE                                        # top-left badge
-REF4 = /Users/michael.rode/code/project/gain-frame-privacy/assets/gf-mascot/mascot-pictures.jpeg  # muscular flex pose
+REF4 = /Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/mascot-pictures.jpeg  # muscular flex pose
 ```
 
 **Hero Reference cover prompt template** (proven — produced the `best-upper-body-exercises` cover):
@@ -497,7 +497,7 @@ When a carousel includes a GainFrame plug slide (typically the final slide), use
 
 ### Screenshot library (pick the one that matches the carousel topic)
 
-The library lives at `/Users/michael.rode/code/project/gain-frame-privacy/app-screenshots/[version]/` (currently `1.21`). Match the screenshot to the carousel topic:
+The library lives at `/Users/michael.rode/code/project/gain-frame-privacy/docs/app-screenshots/[version]/` (currently `1.21`). Match the screenshot to the carousel topic:
 
 | Carousel topic | Screenshot | Why |
 |----------------|------------|-----|
@@ -516,7 +516,7 @@ Always pick the screenshot that **directly reinforces what the carousel taught**
 
 ```
 REF1 = $MASCOT_TEMPLATE   # for the hand/finger anatomy reference
-REF2 = /Users/michael.rode/code/project/gain-frame-privacy/app-screenshots/1.21/[chosen-screenshot].png
+REF2 = /Users/michael.rode/code/project/gain-frame-privacy/docs/app-screenshots/1.21/[chosen-screenshot].png
 ```
 
 ### Promo slide prompt template (proven — produced the `best-upper-body-exercises` slide-7)
@@ -544,7 +544,7 @@ Background: pure clean WHITE (#FFFFFF) — flat, no gradient. Pure bright white 
 
 ### Versioning the screenshot library
 
-The screenshot library is **versioned by app release** (`/app-screenshots/1.21/`, `/app-screenshots/1.22/`, …). Always check for the latest version directory before picking a screenshot — newer versions may have updated UI that looks better. If a UI redesign happens between versions, regenerate any old promo slides that use stale screenshots.
+The screenshot library is **versioned by app release** (`/docs/app-screenshots/1.21/`, `/docs/app-screenshots/1.22/`, …). Always check for the latest version directory before picking a screenshot — newer versions may have updated UI that looks better. If a UI redesign happens between versions, regenerate any old promo slides that use stale screenshots.
 
 ---
 
@@ -565,15 +565,15 @@ The screenshot library is **versioned by app release** (`/app-screenshots/1.21/`
 
 | File | Purpose |
 |------|---------|
-| `assets/gf-mascot/STYLE_GUIDE.md` | Character design, visual constants, typography |
-| `assets/gf-mascot/gf-mascot-template.jpeg` | Character template — include in every generation |
-| `assets/gf-mascot/gary-badge.png` | Badge icon — cover slides only |
-| `assets/gf-mascot/mirror-mascot.jpeg` | Scene ref: flexing/mirror |
-| `assets/gf-mascot/mascot-form.jpeg` | Scene ref: do/don't form comparison |
-| `assets/gf-mascot/mascot-legs.jpeg` | Scene ref: gym equipment |
-| `assets/gf-mascot/mascot-pictures.jpeg` | Scene ref: phone/progress photos |
-| `assets/gf-mascot/mascot-sleep.jpeg` | Scene ref: sleeping/recovery |
-| `assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png` | Cover style reference — bare text on cream |
-| `assets/tiktok/comic/discipline-not-motivation/slide-1.png` | Banner style reference — solid black full-width bar |
-| `assets/tiktok/comic/POST_LOG.md` | Running log of all carousels |
-| `assets/tiktok/comic/comics-manifest.js` | Gallery manifest — add new entries here |
+| `docs/assets/gainframe-guy/illustrations/STYLE_GUIDE.md` | Character design, visual constants, typography |
+| `docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg` | Character template — include in every generation |
+| `docs/assets/gainframe-guy/illustrations/gary-badge.png` | Badge icon — cover slides only |
+| `docs/assets/gainframe-guy/illustrations/mirror-mascot.jpeg` | Scene ref: flexing/mirror |
+| `docs/assets/gainframe-guy/illustrations/mascot-form.jpeg` | Scene ref: do/don't form comparison |
+| `docs/assets/gainframe-guy/illustrations/mascot-legs.jpeg` | Scene ref: gym equipment |
+| `docs/assets/gainframe-guy/illustrations/mascot-pictures.jpeg` | Scene ref: phone/progress photos |
+| `docs/assets/gainframe-guy/illustrations/mascot-sleep.jpeg` | Scene ref: sleeping/recovery |
+| `docs/assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png` | Cover style reference — bare text on cream |
+| `docs/assets/tiktok/comic/discipline-not-motivation/slide-1.png` | Banner style reference — solid black full-width bar |
+| `docs/assets/tiktok/comic/POST_LOG.md` | Running log of all carousels |
+| `docs/assets/tiktok/comic/comics-manifest.js` | Gallery manifest — add new entries here |

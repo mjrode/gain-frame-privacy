@@ -35,7 +35,7 @@ Before starting, read the canonical claude-tiktok skill and the mascot style gui
 
 ```
 view_file .agent/skills/claude-tiktok/SKILL.md
-view_file assets/gf-mascot/STYLE_GUIDE.md
+view_file docs/assets/gainframe-guy/illustrations/STYLE_GUIDE.md
 ```
 
 The base image-generation function, prompt templates, file naming, manifest update, and iCloud sync from `claude-tiktok` apply here unchanged. This skill only diverges in **Phase 0 (cast selection)**, **Phase 1 (cover title format)**, **Phase 2 (slide structure)**, and **Phase 3 prompt overrides** for character consistency.
@@ -239,7 +239,7 @@ Show-specific hashtag examples:
 - The Office → `#theoffice #dundermifflin`
 - Stranger Things → `#strangerthings #hawkinsindiana`
 
-Save to `assets/tiktok/comic/[slug]/content.md` — caption + hashtags only, no metadata.
+Save to `docs/assets/tiktok/comic/[slug]/content.md` — caption + hashtags only, no metadata.
 
 ---
 
@@ -247,8 +247,8 @@ Save to `assets/tiktok/comic/[slug]/content.md` — caption + hashtags only, no 
 
 Same as `claude-tiktok` Phase 4 + Phase 5 (no overrides):
 
-1. Add to top of `COMICS_MANIFEST` in `assets/tiktok/comic/comics-manifest.js`
-2. Prepend entry to `assets/tiktok/comic/POST_LOG.md`
+1. Add to top of `COMICS_MANIFEST` in `docs/assets/tiktok/comic/comics-manifest.js`
+2. Prepend entry to `docs/assets/tiktok/comic/POST_LOG.md`
 3. Copy slides + content.md to `~/Library/Mobile Documents/com~apple~CloudDocs/TikTok-Drafts/[slug]/`
 
 ---
@@ -268,7 +268,7 @@ For non-gym variants (if extending to other settings later):
 
 ## Reference Output
 
-The first carousel produced with this workflow: `assets/tiktok/comic/euphoria-at-the-gym/` — use as a visual quality baseline for all future cast posts. Cover lineup, solo character slides with costume continuity, banner style, subtitle pattern, and caption tone are all dialed in there.
+The first carousel produced with this workflow: `docs/assets/tiktok/comic/euphoria-at-the-gym/` — use as a visual quality baseline for all future cast posts. Cover lineup, solo character slides with costume continuity, banner style, subtitle pattern, and caption tone are all dialed in there.
 
 ---
 

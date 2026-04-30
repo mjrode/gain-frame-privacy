@@ -59,9 +59,9 @@ Default sources to scan, in priority order:
 | 3 | `../gain-frame/docs/paid_vs_free_tier.md` | Pricing tier truth (free vs Pro feature splits) |
 | 4 | `../gain-frame/docs/aso-metadata.md` | App Store name/subtitle/description (current live copy) |
 | 5 | `../gain-frame/docs/competitive_analysis_modern.md` | Differentiator language + competitor framing |
-| 6 | `gain-frame-privacy/index.html` | Live web tagline + hero copy |
-| 7 | `gain-frame-privacy/features.html` | Public-facing feature framing |
-| 8 | `gain-frame-privacy/blog.html` + recent posts | Brand voice signals (recurring themes, vocabulary) |
+| 6 | `gain-frame-privacy/docs/index.html` | Live web tagline + hero copy |
+| 7 | `gain-frame-privacy/docs/features.html` | Public-facing feature framing |
+| 8 | `gain-frame-privacy/docs/blog.html` + recent posts | Brand voice signals (recurring themes, vocabulary) |
 | 9 | `../gain-frame/GAINFRAME_PRD.md` | Product requirements (only if higher sources are silent) |
 | 10 | `../gain-frame/CLAUDE.md` / `AGENTS.md` | AI agent instructions (brand voice, tone signals) |
 
@@ -79,7 +79,7 @@ Extract each field from the highest-priority source that has it:
 
 #### Tagline
 - One short phrase that captures the product's promise
-- Look for "Tagline:" in app-marketing-context, or `<title>` / hero `<h1>` of index.html
+- Look for "Tagline:" in app-marketing-context, or `<title>` / hero `<h1>` of docs/index.html
 - Example for GainFrame: "See your gains, frame by frame."
 
 #### Elevator pitch (one-liner)
