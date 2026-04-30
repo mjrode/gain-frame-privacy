@@ -3,7 +3,10 @@ client_secret*.json
 .DS_Store
 
 # Heavy source MP4s - re-encoded web-friendly versions are committed
-app-screenshots/1.21/screen-recording-1-21.MP4
+docs/app-screenshots/1.21/screen-recording-1-21.MP4
 
 # IndexNow ping log — per-machine, grows unbounded; not source
 scripts/indexnow-log.csv
+
+# Audit scanner output — temporary working files
+_audit/
