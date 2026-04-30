@@ -899,27 +899,33 @@
         ],
         "description": "Founder of GainFrame. Full-time backend engineer with 15 years of experience, lifter for 20 years, and new dad squeezing workouts in around naps. Built GainFrame after two expensive DEXA scans convinced him there had to be a better way to track body composition.",
         "sameAs": [
-            "https://github.com/mjrode"
+            "https://www.linkedin.com/in/michael-rode/",
+            "https://github.com/mjrode",
+            "https://apps.apple.com/us/developer/michael-rode/id1869450871",
+            "https://www.crunchbase.com/person/michael-rode-b23f",
+            "https://www.instagram.com/mjrode442/"
         ]
     }
     </script>
     <!--
-      Person.sameAs above contains ONLY verified personal profiles for Michael
-      Rode (the human author). The GainFrame brand social accounts
-      (@GainFrameApp, @gainframe5, @gainframe.app) belong on the Organization
-      sameAs only — putting them on Person collapses the two entities and
-      Google treats them as the same node, which destroys the E-E-A-T entity
-      distinction we're building.
+      Person.sameAs above contains Michael Rode's PERSONAL profiles, ordered
+      by E-E-A-T weight (highest signal first):
+        1. LinkedIn       — strongest professional/employment signal
+        2. GitHub         — engineering authority
+        3. App Store dev  — verified software publisher (Michael is the
+                            developer of record for GainFrame)
+        4. Crunchbase     — founder / business credibility
+        5. Instagram      — personal account (mjrode442), distinct from
+                            the GainFrame brand IG (gainframe.app)
 
-      To strengthen the Person Knowledge Graph entity, add when available:
-        - https://www.linkedin.com/in/[handle]/                (highest E-E-A-T signal)
-        - https://x.com/[personal-handle]                       (if separate from brand)
-        - https://apps.apple.com/us/developer/[name]/id[id]     (App Store dev page)
-        - Personal site, Substack, dev.to, Wikipedia, ORCID, etc.
+      These URLs MUST stay on Person only. The GainFrame brand social
+      accounts (@GainFrameApp, @gainframe5, @gainframe.app) belong on the
+      Organization sameAs above — putting them on Person collapses the two
+      entities and Google treats them as the same node.
 
-      Each entry MUST be a profile Michael actually maintains. A stale or
-      empty profile hurts more than no link — Google factors the linked-page
-      content into the entity's authority calculation.
+      Don't add stale/empty profiles to this list. Google factors the
+      linked-page content into the entity's authority calculation, so a
+      neglected profile hurts more than no link.
     -->
 
     <script type="application/ld+json">
