@@ -41,7 +41,7 @@ Example: Strength Progress muscle map (Start → Now, all orange → all purple)
 
 Jack is the photorealistic young athletic male character in the base reference image:
 
-- **Base image:** `/Users/michael.rode/code/project/gain-frame-privacy/tik-tok-slides-jack/base-image.png`
+- **Base image:** `/Users/michael.rode/code/project/gain-frame-privacy/promo-source/tik-tok-slides-jack/base-image.png`
 - He should look like a real 22-25 year old gym guy — athletic build, dark curly/wavy hair, natural good looks
 - **NOT a cartoon** — this is a realistic photo style, not illustrated
 - He can be placed in gyms, cars, outdoor locations, in mirrors, etc.
@@ -155,11 +155,11 @@ Suggest **3 punchline variations** if the user wants options, then wait for appr
 source ~/.zshrc  # loads GEMINI_API_KEY
 
 SLUG="[kebab-case-slug-from-hook]"   # e.g. body-says-stop, strength-score-12-months
-OUT_DIR="/Users/michael.rode/code/project/gain-frame-privacy/tik-tok-slides-jack/$SLUG"
+OUT_DIR="/Users/michael.rode/code/project/gain-frame-privacy/promo-source/tik-tok-slides-jack/$SLUG"
 mkdir -p "$OUT_DIR"
 
 # Absolute path to Jack reference image — ALWAYS include this
-JACK_BASE="/Users/michael.rode/code/project/gain-frame-privacy/tik-tok-slides-jack/base-image.png"
+JACK_BASE="/Users/michael.rode/code/project/gain-frame-privacy/promo-source/tik-tok-slides-jack/base-image.png"
 
 MODEL="gemini-3.1-flash-image-preview"
 ```
@@ -259,7 +259,7 @@ Show the image to the user. Ask:
 Iterate if needed. Final approved file lives at:
 
 ```
-tik-tok-slides-jack/[slug]/slide-1-hook.png
+promo-source/tik-tok-slides-jack/[slug]/slide-1-hook.png
 ```
 
 ---
@@ -358,7 +358,7 @@ After generation, compare side-by-side with the original screenshot. Every UI el
 Final file:
 
 ```
-tik-tok-slides-jack/[slug]/slide-2-app.png
+promo-source/tik-tok-slides-jack/[slug]/slide-2-app.png
 ```
 
 ---
@@ -389,7 +389,7 @@ recovery tracking in the app genuinely changed how i train. link in bio
 Save the caption + hashtags to:
 
 ```
-tik-tok-slides-jack/[slug]/content.md
+promo-source/tik-tok-slides-jack/[slug]/content.md
 ```
 
 ---
@@ -422,7 +422,7 @@ Confirm to user:
 - **The app screenshot is the punchline.** Slide 2 creates the "aha" moment. The text on slide 2 should land the joke or reveal, not just describe the feature.
 - **2-slide format.** This is not a carousel with 5-7 slides — it's always exactly 2 slides.
 - **No GainFrame Guy mascot.** This format uses the photorealistic character Jack, not the cartoon bracket-head mascot. Do not mix formats.
-- **Save everything.** Each post gets its own directory under `tik-tok-slides-jack/[slug]/` with both slides + `content.md`.
+- **Save everything.** Each post gets its own directory under `promo-source/tik-tok-slides-jack/[slug]/` with both slides + `content.md`.
 - **Always `source ~/.zshrc`** — `GEMINI_API_KEY` lives there, not in Claude Code's shell environment.
 - **Always check for `.error` in the API response** — Gemini returns errors as JSON on HTTP 200.
 - **Use `--rawfile` from temp files, never `--arg "$BASE64"` inline** — this matches the discipline of `claude-tiktok`. Even with one image, keep the pattern consistent.
@@ -432,8 +432,8 @@ Confirm to user:
 
 | File | Purpose |
 |------|---------|
-| `tik-tok-slides-jack/base-image.png` | **Jack reference image** — ALWAYS pass as REF1 for slide 1 |
+| `promo-source/tik-tok-slides-jack/base-image.png` | **Jack reference image** — ALWAYS pass as REF1 for slide 1 |
 | User-provided app screenshot | REF1 for slide 2 — passed as the actual screenshot file |
-| `tik-tok-slides-jack/[slug]/slide-1-hook.png` | Slide 1 output |
-| `tik-tok-slides-jack/[slug]/slide-2-app.png` | Slide 2 output |
-| `tik-tok-slides-jack/[slug]/content.md` | Caption + hashtags |
+| `promo-source/tik-tok-slides-jack/[slug]/slide-1-hook.png` | Slide 1 output |
+| `promo-source/tik-tok-slides-jack/[slug]/slide-2-app.png` | Slide 2 output |
+| `promo-source/tik-tok-slides-jack/[slug]/content.md` | Caption + hashtags |

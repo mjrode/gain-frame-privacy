@@ -37,7 +37,7 @@ Example: Strength Progress muscle map (Start → Now, all orange → all purple)
 ## The Character: Jack
 
 Jack is the photorealistic young athletic male character in the base reference image:
-- **Base image:** `/Users/michael.rode/code/project/gain-frame-privacy/tik-tok-slides-jack/base-image.png`
+- **Base image:** `/Users/michael.rode/code/project/gain-frame-privacy/promo-source/tik-tok-slides-jack/base-image.png`
 - He should look like a real 22-25 year old gym guy — athletic build, dark curly/wavy hair, natural good looks
 - **NOT a cartoon** — this is a realistic photo style, not illustrated
 - He can be placed in gyms, cars, outdoor locations, in mirrors, etc.
@@ -145,7 +145,7 @@ Suggest **3 punchline variations** if the user wants options, then wait for appr
 #### Output Directory
 
 ```bash
-mkdir -p /Users/michael.rode/code/project/gain-frame-privacy/tik-tok-slides-jack/[slug]
+mkdir -p /Users/michael.rode/code/project/gain-frame-privacy/promo-source/tik-tok-slides-jack/[slug]
 ```
 
 Use a kebab-case slug from the hook text (e.g., `body-says-stop`, `strength-score-12-months`).
@@ -154,7 +154,7 @@ Use a kebab-case slug from the hook text (e.g., `body-says-stop`, `strength-scor
 
 **ImagePaths (REQUIRED):**
 ```
-["/Users/michael.rode/code/project/gain-frame-privacy/tik-tok-slides-jack/base-image.png"]
+["/Users/michael.rode/code/project/gain-frame-privacy/promo-source/tik-tok-slides-jack/base-image.png"]
 ```
 
 **Prompt:**
@@ -192,7 +192,7 @@ Show the image to the user. Ask:
 
 Iterate if needed. Save the approved image as:
 ```
-tik-tok-slides-jack/[slug]/slide-1-hook.png
+promo-source/tik-tok-slides-jack/[slug]/slide-1-hook.png
 ```
 
 ---
@@ -220,7 +220,7 @@ The ONLY addition is a text overlay:
 
 Save as:
 ```
-tik-tok-slides-jack/[slug]/slide-2-app.png
+promo-source/tik-tok-slides-jack/[slug]/slide-2-app.png
 ```
 
 ---
@@ -248,7 +248,7 @@ recovery tracking in the app genuinely changed how i train. link in bio
 
 Save the caption + hashtags to:
 ```
-tik-tok-slides-jack/[slug]/content.md
+promo-source/tik-tok-slides-jack/[slug]/content.md
 ```
 
 ---
@@ -261,8 +261,8 @@ Copy assets to iCloud for posting from iPhone:
 SLUG="[slug]"
 DEST="/Users/michael.rode/Library/Mobile Documents/com~apple~CloudDocs/TikTok-Drafts/$SLUG"
 mkdir -p "$DEST"
-cp /Users/michael.rode/code/project/gain-frame-privacy/tik-tok-slides-jack/$SLUG/slide-*.png "$DEST/"
-cp /Users/michael.rode/code/project/gain-frame-privacy/tik-tok-slides-jack/$SLUG/content.md "$DEST/"
+cp /Users/michael.rode/code/project/gain-frame-privacy/promo-source/tik-tok-slides-jack/$SLUG/slide-*.png "$DEST/"
+cp /Users/michael.rode/code/project/gain-frame-privacy/promo-source/tik-tok-slides-jack/$SLUG/content.md "$DEST/"
 ```
 
 Confirm to user:
@@ -280,9 +280,9 @@ Confirm to user:
 - **The app screenshot is the punchline.** Slide 2 creates the "aha" moment. The caption on slide 2 should land the joke or reveal, not just describe the feature.
 - **2-slide format.** This is not a carousel with 5-7 slides — it's always exactly 2 slides.
 - **No GainFrame Guy mascot.** This format uses the photorealistic character Jack, not the cartoon bracket-head mascot. Do not mix formats.
-- **Save everything.** Each post gets its own directory under `tik-tok-slides-jack/[slug]/` with both slides + `content.md`.
+- **Save everything.** Each post gets its own directory under `promo-source/tik-tok-slides-jack/[slug]/` with both slides + `content.md`.
 
 ## Reference Files
 
-- `/Users/michael.rode/code/project/gain-frame-privacy/tik-tok-slides-jack/base-image.png` — **Jack reference image** — ALWAYS include in ImagePaths for slide 1 generation
+- `/Users/michael.rode/code/project/gain-frame-privacy/promo-source/tik-tok-slides-jack/base-image.png` — **Jack reference image** — ALWAYS include in ImagePaths for slide 1 generation
 - App screenshots are provided by the user at runtime for slide 2
