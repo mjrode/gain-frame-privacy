@@ -789,14 +789,25 @@ button {
   display: none;
 }
 
-.demo-video {
+.demo-video-crop {
   position: relative;
   z-index: 2;
   width: min(420px, 100%);
-  max-height: 720px;
+  height: min(720px, 112vw);
+  --demo-crop-top: 118px;
+  overflow: hidden;
   border-radius: 24px;
   background: #f2f2f0;
   box-shadow: 0 24px 70px rgba(23, 23, 23, 0.13);
+}
+
+.demo-video {
+  width: 100%;
+  height: calc(100% + var(--demo-crop-top));
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  transform: translateY(calc(-1 * var(--demo-crop-top)));
 }
 
 .demo-phone {
@@ -1909,9 +1920,10 @@ button {
     min-height: auto;
   }
 
-  .demo-video {
+  .demo-video-crop {
     width: min(330px, 100%);
-    max-height: 650px;
+    height: min(650px, 118vw);
+    --demo-crop-top: 96px;
     border-radius: 18px;
   }
 
@@ -1931,7 +1943,7 @@ button {
     padding: 10px;
   }
 
-  .demo-video {
+  .demo-video-crop {
     grid-area: video;
   }
 
