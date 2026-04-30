@@ -100,6 +100,19 @@ Cluster goal: capture AI fitness search intent across two camps — workout plan
 
 - [x] **[Refresh] `/blog/best-ai-body-composition-app/` — capture AI body scan queries** — title rewritten to "Best AI Body Scan & Body Composition App in 2026: Full Comparison"; new "What is an AI body scan?" H2 section added; 23 mentions of "body scan" / 14 of "AI body scan" sprinkled naturally; dateModified bumped to 2026-04-29; 3 new related article links added — done 2026-04-29
 
+### From: keyword-research/2026-04-30-glp1-cluster.md
+
+Cluster goal: claim the gym-native + body-composition-aware sub-niche of the GLP-1 audience before SKOR locks it down. Existing pillar `/blog/glp-1-muscle-loss-tracking/` becomes the cluster hub.
+
+- [ ] **Ozempic Before-and-After Photos for Men** (High/50, blog-post-generator how-to) — added 2026-04-30 — TOP PICK; SERP is mixed (TikTok/Pinterest/Bored Panda + telehealth + cosmetic surgeons) — none cover the "how to take a real progress photo of your transformation" angle; bridges existing progress-photo authority (5 cluster articles shipped) into GLP-1 audience; suggested title "Ozempic Before-and-After Photos for Men: How to Take Them So Yours Actually Show Progress"; targets `ozempic before and after men`, `ozempic before and after 1 month`, `mounjaro before after men`, `wegovy before and after`
+- [ ] **Ozempic and Bodybuilding: How to Cut Without Losing Muscle** (Med-Hi/55, blog-post-generator) — added 2026-04-30 — STRONG SECOND; gym-native sub-audience (lifters using GLP-1 off-label for cuts); SERP heavy on safety warnings, light on practical tracking protocol; GainFrame's FFMI / lean mass / muscle group authority dovetails perfectly; suggested title "Ozempic and Bodybuilding: How to Cut Without Losing Muscle (and How to Tell If You Are)"; do NOT promote off-label use, focus on tracking
+- [ ] **How to Track Body Composition on Ozempic (Beyond Just Weight)** (Med/60, blog-post-generator) — added 2026-04-30 — STRONG THIRD; counter Cleveland Clinic dominance with body-comp-specific framing; comparison table of DEXA, BodPod, hydrostatic, smart scales, AI photo with cost/cadence; cross-link to existing `/blog/dexa-scan-alternative/` and `/blog/glp-1-muscle-loss-tracking/`; suggested title "How to Track Body Composition on Ozempic (Beyond Just Weight on the Scale)"
+- [ ] **Best Apps to Track Weight Loss on Ozempic (2026)** (Med/45, blog-post-generator listicle) — added 2026-04-30 — claim the GLP-1 listicle space SKOR is positioning for; honest 4-input stack (Apple Health, MacroFactor, Hevy, GainFrame); include SKOR mention; suggested title "Best Apps to Track Weight Loss on Ozempic in 2026 (Beyond Just the Scale)"
+
+#### Refresh tasks
+
+- [ ] **[Refresh] `/blog/glp-1-muscle-loss-tracking/` — add "More on GLP-1" cluster hub section** — link DOWN to all 4 new GLP-1 posts when shipped (mirror of progress-photo cluster pattern); each new post links UP to the muscle-loss pillar — added 2026-04-30
+
 ## Published
 
 (none yet)
