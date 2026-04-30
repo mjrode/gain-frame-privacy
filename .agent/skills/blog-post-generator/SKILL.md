@@ -121,6 +121,63 @@ These rules define GainFrame's editorial voice. Every blog post MUST follow them
 - Never use `.post-hero-image` for phone screenshots — those are for wide comparison images only.
 - Mention GainFrame as one option among several, not the only solution. Credibility > conversion.
 
+### Author & Publisher Entity (E-E-A-T anchor — DO NOT DRIFT)
+
+Every blog post emits two entity declarations inside its `BlogPosting` JSON-LD: an `author` (Person) and a `publisher` (Organization). Together they form the **E-E-A-T anchor** — the machine-readable layer of Google's "Experience, Expertise, Authoritativeness, Trustworthiness" content quality framework. Drift across posts fragments the entity and discards the compounding signal. Hold these invariants:
+
+**The exact author block, never modified:**
+```json
+"author": {
+    "@type": "Person",
+    "name": "Michael Rode",
+    "url": "https://gainframe.app/about"
+}
+```
+
+**The exact publisher block, never modified:**
+```json
+"publisher": {
+    "@type": "Organization",
+    "name": "GainFrame",
+    "url": "https://gainframe.app",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://gainframe.app/assets/favicon.webp"
+    }
+}
+```
+
+**Hard rules:**
+1. **Never change `author.name`.** It is `"Michael Rode"` on every post — not "GainFrame Team", not "The GainFrame Team", not "Mike Rode". Consistency across all 67+ posts is what builds the entity in Google's Knowledge Graph.
+2. **Never change `author.url`.** It points at `https://gainframe.app/about` — and `/about/index.html` MUST exist there with a matching `Person` schema (see "The /about contract" below). If you ever move `/about`, both pages and every blog post's `author.url` must move together.
+3. **Never change `publisher.name`, `publisher.url`, or `publisher.logo.url`.** These three together identify the GainFrame Organization entity. If the favicon path ever changes, the publisher logo URL must update across every blog post in lockstep.
+4. **`Person` and `Organization` `sameAs` arrays must NEVER share URLs.** Person `sameAs` is for Michael's *personal* profiles (LinkedIn, GitHub, personal X, App Store developer page). Organization `sameAs` is for GainFrame's *brand* profiles (the @gainframe X / TikTok / Instagram accounts). Putting brand accounts on the Person object collapses the two entities — Google treats them as the same thing and the entity distinction disappears.
+5. **The author URL must resolve to a real page**, not a 404. If you ever delete `/about`, you have hundreds of broken Knowledge-Graph references to chase down.
+
+**The /about contract:**
+
+`/about/index.html` is the single canonical entity-anchor page. It must always emit, in JSON-LD:
+- One `Organization` block whose `@id` is `https://gainframe.app/#organization` and whose `name`, `url`, `logo` exactly match the publisher block above
+- One `Person` block whose `@id` is `https://gainframe.app/about/#michael-rode` and whose `name` is "Michael Rode"
+- One `AboutPage` block referencing both
+- One `BreadcrumbList` block
+
+Treat `/about` as a sister-document to this skill. Whenever the author or publisher block changes here, `/about` changes in the same commit. Never split them.
+
+**On `sameAs` (the Knowledge Graph multiplier):**
+
+`sameAs` is the schema.org property that disambiguates an entity by linking it to its identifiers on other authoritative sites. Without `sameAs`, Google sees `"name": "Michael Rode"` and can't tell which Michael Rode you are. With `sameAs` pointing at LinkedIn / GitHub / App Store developer / etc., Google cross-references those URLs and builds a single Knowledge Graph node that accumulates authority across every page that names you as author. **It is the single highest-leverage E-E-A-T signal** after having a real `/about` page.
+
+Maintain `sameAs` arrays on `/about/index.html`:
+- **Person.sameAs** — Michael's personal profiles only. LinkedIn is the highest-value entry; GitHub is high value for an engineer. Pick profiles you actually maintain — a stale or empty profile hurts more than no link.
+- **Organization.sameAs** — GainFrame's brand profiles only. Add the App Store developer page when known (high authority signal).
+
+**Pre-flight before writing or modifying a blog post:**
+
+1. Confirm `author` and `publisher` blocks in your scaffold are the verbatim canonical versions above.
+2. If you're tempted to add a co-author, second author, or "team" attribution, STOP — open a chat about it instead of drifting silently.
+3. If a post needs a different author for any reason (guest post, etc.), flag it explicitly to the user and discuss before introducing variation.
+
 ### Visual Components Available
 - `post-callout` blockquotes for key takeaways
 - `post-callout post-quick-answer` for the mandatory Quick Answer block (see Structure Rules)
@@ -445,6 +502,7 @@ When a post cites scientific studies or peer-reviewed research, these additional
 
 ## Reference Files
 - `/product-context.md` — **READ THIS FIRST.** Authoritative source for tagline, target audience, features, differentiators, honest limitations, and brand voice. Use it to ground every post (especially the "GainFrame Integration" mention and the closing CTA). Do NOT invent product features or fabricate differentiators — only what's listed in this file is verifiable.
+- `/about/index.html` — **The E-E-A-T anchor page** (sister-document to this skill). Holds the canonical `Person` (Michael Rode) and `Organization` (GainFrame) JSON-LD blocks that every blog post's `author` and `publisher` fields reference. If you change `author.name`, `author.url`, `publisher.name`, `publisher.url`, or `publisher.logo.url` in a blog post, you MUST update `/about/index.html` in the same commit so the entity stays consistent across the site. See "Author & Publisher Entity (E-E-A-T anchor)" section above.
 - `/blog/index.html` (Must be updated with the new post — this is the blog index, not `blog.html`)
 - `/sitemap.xml` (Must be updated with the new post)
 - `/TODO_SEO.md` (For topic inspiration and task tracking)

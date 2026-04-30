@@ -855,6 +855,17 @@
         }
     }
     </script>
+    <!--
+      Organization.sameAs above is for GainFrame's BRAND profiles only.
+      To strengthen the Organization Knowledge Graph entity, add when available:
+        - https://apps.apple.com/us/developer/[name]/id[id]   (App Store dev page — highest signal)
+        - LinkedIn company page if one exists
+        - YouTube / Threads / Facebook brand accounts if active
+
+      Personal profiles for Michael Rode go on Person.sameAs (the next script
+      block), never on Organization. Mixing the two collapses the entities
+      into one node and breaks the E-E-A-T entity distinction.
+    -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -888,12 +899,29 @@
         ],
         "description": "Founder of GainFrame. Full-time backend engineer with 15 years of experience, lifter for 20 years, and new dad squeezing workouts in around naps. Built GainFrame after two expensive DEXA scans convinced him there had to be a better way to track body composition.",
         "sameAs": [
-            "https://x.com/GainFrameApp",
-            "https://www.tiktok.com/@gainframe5",
-            "https://www.instagram.com/gainframe.app/"
+            "https://github.com/mjrode"
         ]
     }
     </script>
+    <!--
+      Person.sameAs above contains ONLY verified personal profiles for Michael
+      Rode (the human author). The GainFrame brand social accounts
+      (@GainFrameApp, @gainframe5, @gainframe.app) belong on the Organization
+      sameAs only — putting them on Person collapses the two entities and
+      Google treats them as the same node, which destroys the E-E-A-T entity
+      distinction we're building.
+
+      To strengthen the Person Knowledge Graph entity, add when available:
+        - https://www.linkedin.com/in/[handle]/                (highest E-E-A-T signal)
+        - https://x.com/[personal-handle]                       (if separate from brand)
+        - https://apps.apple.com/us/developer/[name]/id[id]     (App Store dev page)
+        - Personal site, Substack, dev.to, Wikipedia, ORCID, etc.
+
+      Each entry MUST be a profile Michael actually maintains. A stale or
+      empty profile hurts more than no link — Google factors the linked-page
+      content into the entity's authority calculation.
+    -->
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
