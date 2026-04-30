@@ -435,6 +435,71 @@
             text-align: center;
         }
 
+        .about-revenue {
+            margin: var(--sp-xl) 0;
+        }
+
+        .about-revenue__header {
+            display: grid;
+            gap: 10px;
+            margin-bottom: var(--sp-md);
+        }
+
+        .about-revenue__header .about-finale__eyebrow {
+            justify-self: start;
+            margin-bottom: 0;
+        }
+
+        .about-revenue__header h2 {
+            margin: 0;
+        }
+
+        .about-revenue__header p {
+            margin: 0;
+            max-width: 640px;
+            padding-left: 0;
+            border-left: 0;
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .about-page .post-body .about-revenue__header p {
+            margin: 0;
+            padding-left: 0;
+            border-left: 0;
+        }
+
+        .about-revenue__frame {
+            position: relative;
+            overflow: hidden;
+            min-height: 620px;
+            border: 1px solid var(--color-border);
+            border-radius: 28px;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(46, 192, 232, 0.12), transparent 42%),
+                #fff;
+            box-shadow: var(--shadow-card);
+        }
+
+        .about-revenue__frame iframe {
+            width: 100%;
+            height: 620px;
+            border: 0;
+            display: block;
+            background: #fff;
+        }
+
+        .about-revenue__fallback {
+            margin: 12px 0 0;
+            color: var(--color-text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        .about-state-list {
+            margin-top: var(--sp-md);
+        }
+
         /* ============ Contact finale ============ */
         .about-finale {
             margin: var(--sp-2xl) 0 var(--sp-xl);
@@ -803,6 +868,12 @@
             .about-intro-grid {
                 grid-template-columns: 1fr;
             }
+
+            .about-revenue__frame,
+            .about-revenue__frame iframe {
+                min-height: 860px;
+                height: 860px;
+            }
         }
 
         @media (max-width: 720px) {
@@ -904,6 +975,13 @@
 
             .about-channels {
                 grid-template-columns: 1fr;
+            }
+
+            .about-revenue__frame,
+            .about-revenue__frame iframe {
+                min-height: 1080px;
+                height: 1080px;
+                border-radius: 22px;
             }
         }
     </style>
@@ -1175,15 +1253,34 @@
                 <hr class="post-divider">
 
                 <!-- ===== Stats / proof ===== -->
-                <h2>The state of things</h2>
+                <section class="about-revenue" aria-labelledby="state-of-things">
+                    <div class="about-revenue__header">
+                        <span class="about-finale__eyebrow"><span class="dot"></span>Live proof</span>
+                        <h2 id="state-of-things">The state of things</h2>
+                        <p>RevenueCat verifies the live subscription numbers, so the business side is as public as the build notes.</p>
+                    </div>
 
-                <ul>
-                    <li><strong>Launched:</strong> March 8, 2026 on the iOS App Store</li>
-                    <li><strong>Users:</strong> 1,000+ and growing weekly</li>
-                    <li><strong>App Store rating:</strong> 4.9 stars</li>
-                    <li><strong>Pricing:</strong> Free 30-day trial, then $4.99/month or $29.99/year</li>
-                    <li><strong>Team size:</strong> One. Just me.</li>
-                </ul>
+                    <div class="about-revenue__frame">
+                        <iframe
+                            src="https://verified.revenuecat.com/gainframe"
+                            title="GainFrame verified RevenueCat metrics"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+                        </iframe>
+                    </div>
+
+                    <p class="about-revenue__fallback">
+                        <a href="https://verified.revenuecat.com/gainframe" target="_blank" rel="noopener">Open the verified RevenueCat page</a>
+                    </p>
+
+                    <ul class="about-state-list">
+                        <li><strong>Launched:</strong> March 8, 2026 on the iOS App Store</li>
+                        <li><strong>App Store rating:</strong> 4.9 stars</li>
+                        <li><strong>Pricing:</strong> Free 30-day trial, then $4.99/month or $29.99/year</li>
+                        <li><strong>Team size:</strong> One. Just me.</li>
+                    </ul>
+                </section>
 
                 <hr class="post-divider">
 
