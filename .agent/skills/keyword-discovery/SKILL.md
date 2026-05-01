@@ -33,7 +33,7 @@ When triggered, follow these phases sequentially. Do not skip phases.
 ### Phase 0: Inputs
 
 Ask the user for:
-1. **Seed topic or keyword(s)** — e.g. "body fat measurement", "progress photos", or a competitor name. If the user has no seed, propose 2-3 based on recent blog posts (`ls /Users/michael.rode/code/project/gain-frame-privacy/docs/blog/ | tail -5`).
+1. **Seed topic or keyword(s)** — e.g. "body fat measurement", "progress photos", or a competitor name. If the user has no seed, propose 2-3 based on recent blog posts (`ls /Users/michael.rode/code/project/gain-frame-privacy/web/content/blog/ | tail -5`).
 2. **Optional: competitor URLs or names to mine** — if provided, check `/seo-tools/competitor-research/[name].md` for an existing profile. If found, use its "Topics they cover but GainFrame does NOT" list as additional seeds. If not found and URLs were provided, run `competitor-scan` first to generate the profile, then use its output. Note in the report which seeds came from which competitor.
 3. **Optional: scope filter** — informational only, comparison only, all intents (default).
 
@@ -58,7 +58,7 @@ Filter to rows where:
 - `Impressions` ≥ 10 (enough volume to matter)
 - `CTR` < 10% (underperforming for that position)
 
-For each: check whether GainFrame already has a blog post covering that query (`grep -ri "query" /Users/michael.rode/code/project/gain-frame-privacy/docs/blog/*/index.html`). If a post exists, this is a **CTR optimization candidate** (the post needs a better title tag or meta description, not a new post). If no post exists, this is a **ranking gap** — we rank but have no dedicated content.
+For each: check whether GainFrame already has a blog post covering that query (`grep -ri "query" /Users/michael.rode/code/project/gain-frame-privacy/web/content/blog/*.mdx`). If a post exists, this is a **CTR optimization candidate** (the post needs a better title tag or meta description, not a new post). If no post exists, this is a **ranking gap** — we rank but have no dedicated content.
 
 Surface these in the report as:
 ```
@@ -179,7 +179,7 @@ Group the analyzed keywords into 3-7 semantic clusters. Use intuitive groupings 
 
 For each cluster:
 - Total volume tier (sum across keywords)
-- Existing coverage (count keywords already covered by an existing post in `/docs/blog/`)
+- Existing coverage (count keywords already covered by an existing post in `web/content/blog/`)
 - Gap count (how many high/med-volume keywords have no article)
 - Pillar candidate (the highest-volume informational keyword in the cluster)
 - Supporting candidates (long-tail keywords that link to the pillar)
@@ -357,7 +357,7 @@ Give a one-screen summary in chat:
 ## Rules & Constraints
 
 - **Never invent volume numbers.** If you can't get a signal, say "unknown — needs paid validation". GrowGanic shows real numbers because it pays for an API; we don't, so we use tiers.
-- **Always check existing coverage** before recommending a keyword. Use `ls /Users/michael.rode/code/project/gain-frame-privacy/docs/blog/` and `grep -l "keyword" docs/blog/*/index.html`. A keyword already covered by an existing post is NOT an opportunity — it's a candidate for refresh, which is a different workflow.
+- **Always check existing coverage** before recommending a keyword. Use `ls /Users/michael.rode/code/project/gain-frame-privacy/web/content/blog/` and `grep -rl "keyword" web/content/blog/*.mdx`. A keyword already covered by an existing post is NOT an opportunity — it's a candidate for refresh, which is a different workflow.
 - **Cap analysis at 80 candidates per run** to avoid runaway WebSearch calls. If the seed expansion produces more, prune to the most promising 80 before Phase 2.
 - **Batch SERP analysis** — run WebSearch in parallel batches of 5-10 keywords at a time, not sequentially.
 - **Always include the "Honest limitation" callout** in every report explaining that volume is an estimate, not a paid-API number.
@@ -388,7 +388,7 @@ When this skill finishes, suggest the user run the appropriate downstream skill 
 ## Reference Files
 
 - `/Users/michael.rode/code/project/gain-frame-privacy/product-context.md` — **READ THIS FIRST.** Authoritative source for tagline, target audience, category, platform, differentiators, honest limitations, and brand voice. Use it to derive default seed keywords (Phase 0 input #1) when the user doesn't provide one — pull category + differentiator phrases from this file.
-- `/Users/michael.rode/code/project/gain-frame-privacy/docs/blog/` — existing blog posts (check for coverage gaps)
+- `/Users/michael.rode/code/project/gain-frame-privacy/web/content/blog/` — existing blog posts as `.mdx` files (check for coverage gaps)
 - `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/TODO_SEO.md` — keyword backlog (created on first run if absent)
 - `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/keyword-research/` — output directory for reports (create if absent)
 - `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/gsc-data/queries.csv` — **GSC export** (optional; created by user). Column format: `Query,Clicks,Impressions,CTR,Position`. Export from Search Console → Performance → Queries → Export CSV. Overwrite this file to refresh. The `seo-tools/gsc-data/` directory is gitignored (contains real traffic data — don't commit).
