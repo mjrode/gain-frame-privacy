@@ -1871,6 +1871,16 @@ body {
     margin: 0 auto;
 }
 
+/* Side gutter on narrow viewports — without this, body text runs to the edge
+   on phones because .post-container has no padding and the viewport equals
+   container width. */
+@media (max-width: 800px) {
+    .post-container {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+}
+
 .post-header {
     padding: var(--sp-2xl) 0 var(--sp-xl);
 }
@@ -2241,6 +2251,30 @@ body {
     text-align: center;
     background: var(--color-surface);
     border-top: 1px solid var(--color-border);
+}
+
+/* Full-width inline figure (screenshots, dashboards, charts shown in flow).
+   Replaces the inline style="width:100%; border-radius:12px;..." that the
+   static site set on every <img> inside <figure class="post-figure">. The
+   MDX converter strips inline styles for JSX safety, so the rule lives here. */
+.post-figure {
+    margin: var(--sp-lg) 0;
+}
+
+.post-figure img,
+.post-figure video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.post-figure figcaption {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
 }
 
 /* Clear the float after inline screenshots */
