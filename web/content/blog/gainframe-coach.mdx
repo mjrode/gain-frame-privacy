@@ -1,0 +1,266 @@
+---
+title: "Meet Coach: The AI Fitness Coach That Already Knows Your Numbers"
+description: "GainFrame Coach is the AI body composition analyst that already knows your check-ins, score, workouts, and goals — no setup, no number soup, no generic advice."
+slug: gainframe-coach
+canonical: "https://gainframe.app/blog/gainframe-coach/"
+ogTitle: "Meet Coach: The AI Fitness Coach That Already Knows Your Numbers"
+ogDescription: "Coach already knows your check-ins, GainFrame Score, recent workouts, sleep, and goal — so it answers questions a generic AI fitness chat can't."
+ogImage: "https://gainframe.app/blog/gainframe-coach/assets/cover.webp"
+ogType: article
+twitterTitle: "Meet Coach: The AI Fitness Coach That Already Knows Your Numbers"
+twitterDescription: "Coach already knows your check-ins, GainFrame Score, recent workouts, sleep, and goal — so it answers questions a generic AI fitness chat can't."
+twitterImage: "https://gainframe.app/blog/gainframe-coach/assets/cover.webp"
+breadcrumbCategory: Product Update
+displayCategory: Product Update
+displayDate: May 1, 2026
+readTime: 6 min read
+subtitle: "Generic AI fitness chats give you generic answers because they have no idea who you are. Coach starts every conversation already loaded with your data."
+schemas:
+  - {"@context":"https://schema.org","@type":"BlogPosting","headline":"Meet Coach: The AI Fitness Coach That Already Knows Your Numbers","description":"GainFrame Coach is the AI body composition analyst that already knows your check-ins, score, workouts, and goals — no setup, no number soup, no generic advice.","image":"https://gainframe.app/blog/gainframe-coach/assets/cover.webp","datePublished":"2026-05-01","dateModified":"2026-05-01","author":{"@type":"Person","name":"Michael Rode","url":"https://gainframe.app/about"},"publisher":{"@type":"Organization","name":"GainFrame","url":"https://gainframe.app","logo":{"@type":"ImageObject","url":"https://gainframe.app/assets/favicons/favicon.webp"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gainframe.app/blog/gainframe-coach/"},"articleSection":"Product Update","keywords":"AI fitness coach, AI body composition coach, GainFrame Coach, AI personal trainer app, ai chat fitness, body fat AI assistant"}
+  - {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gainframe.app/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://gainframe.app/blog/"},{"@type":"ListItem","position":3,"name":"Meet Coach","item":"https://gainframe.app/blog/gainframe-coach/"}]}
+  - {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is GainFrame Coach included in the free tier?","acceptedAnswer":{"@type":"Answer","text":"No. Coach is a Pro feature, available on the $5.99/month or $39.99/year subscription. The free tier hard-caps at 25 photos lifetime regardless of Coach usage. Free users can preview Coach by upgrading; there is no free message allowance."}},{"@type":"Question","name":"Does Coach replace a real coach or trainer?","acceptedAnswer":{"@type":"Answer","text":"No. Coach is an AI analyst for the data GainFrame already has on you — your check-ins, score components, trends, and HealthKit metrics. It is not a substitute for a real coach who has watched you lift, programmed for your specific weak points, or knows your injury history. Use it alongside professional coaching, not instead of it."}},{"@type":"Question","name":"Where does my conversation data go when I chat with Coach?","acceptedAnswer":{"@type":"Answer","text":"Coach messages are sent to Google's Gemini API for inference, the same way GainFrame analyzes your photos. After processing, conversations are stored on-device only. There is no cloud account, no syncable conversation history across devices, and your messages are not used to train models."}},{"@type":"Question","name":"Can I switch coaching personalities mid-conversation?","acceptedAnswer":{"@type":"Answer","text":"Yes. The persona toggle (Supportive, Analytical, or Direct) is a global setting in Coach — switch it at any time and the next response uses the new style. You can also independently set response length to Brief, Balanced, or Detailed without changing the persona."}},{"@type":"Question","name":"What does it mean that Coach remembers facts across conversations?","acceptedAnswer":{"@type":"Answer","text":"Coach extracts a small set of stable facts from past chats — your stated goal, dietary constraints you've mentioned, recent injuries — and keeps them on-device so it does not ask you the same question on every visit. You can review and clear this memory from Coach settings at any time."}},{"@type":"Question","name":"Can Coach answer questions about specific muscle groups or Target Training?","acceptedAnswer":{"@type":"Answer","text":"Yes, but only if you have completed a deep-dive muscle assessment. When that data exists, Coach has access to your 12 muscle group scores plus Target Training baseline-to-current movement. Ask about specific groups by name (\"how are my lats progressing?\") and it will quote the actual numbers rather than guess."}}]}
+---
+
+<div className="post-hero-image scroll-reveal" style={{marginBottom: '3rem'}}>
+  <img src="assets/cover.webp" alt="Abstract illustration of a phone displaying an AI chat conversation with data lines flowing into the chat from charts, body composition rings, and graph nodes" loading="lazy" style={{borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)'}} />
+</div>
+
+<div className="post-callout post-quick-answer">
+  <p><strong>Quick answer:</strong> GainFrame Coach is an AI body composition analyst built into the app that already knows your latest check-in, GainFrame Score, 30 days of trends, recent workouts, sleep, height, age, and stated goal — so you can ask "why did my body fat go up this week?" and get an answer grounded in your actual data, not generic fitness advice.</p>
+</div>
+
+<figure className="post-inline-screenshot" style={{maxWidth: '200px'}}>
+  <img src="assets/gainframe-coach.svg" alt="GainFrame Guy mascot in fitness coach pose" loading="lazy" />
+</figure>
+
+You open ChatGPT and type *"why did my body fat go up this week?"*. It gives you the same five reasons it would give anyone — water retention, sodium, muscle gain, measurement variance, training stress — none of which it can verify against your data. You scroll, you nod, you close the tab no smarter than you opened it.
+
+That is not an AI problem. It is a context problem.
+
+Coach is the fix. Open it inside GainFrame and the first message lands with your file already open: this week's body fat number, your GainFrame Score components, the workouts you logged through HealthKit, your sleep last night, and the goal you set when you signed up. No setup. No "what's your routine?" warm-up question. Just answers.
+
+<hr className="post-divider" />
+
+## What does Coach already know about you?
+
+<figure className="post-inline-screenshot">
+  <img src="assets/ai-coach.webp" alt="GainFrame Coach chat screen showing an AI conversation about body composition data" loading="lazy" />
+  <figcaption>Coach loads with your data already attached — every message is grounded in your actual numbers.</figcaption>
+</figure>
+
+Every time you open Coach, it is preloaded with the context a human coach would need a 20-minute intake call to get. Specifically:
+
+- Your **latest check-in**: body fat percentage, GainFrame Score, and the four score components — Body Fat, Muscle, Proportions, and Goal Fit
+- **30 days of check-in history** and trend direction across your weight, body fat, and score
+- Your **stated fitness goal** — so it knows whether weight going up is progress (recomp, bulk) or a setback (cut)
+- **Workout history from the last 14 days**, pulled from HealthKit
+- **Sleep duration, daily steps, active calories, and resting heart rate** — so it can connect recovery to physique changes, not just training
+- Your **height and age**, used to ground "healthy range" interpretations in something specific to you instead of population averages
+- Your **deep-dive muscle assessment** results, when you have run one — all 12 muscle group scores
+- **Stable facts you have told it before** — Coach extracts goals, dietary constraints, and injury notes from past conversations and keeps them on-device so you do not repeat yourself
+
+That last point is the one most generic AI chats cannot replicate at all. ChatGPT does not remember last Tuesday's check-in unless you paste it back in. Coach does — because the data lives in the same app.
+
+<hr className="post-divider" />
+
+## What can you actually ask Coach?
+
+The questions that work best are the ones a real analyst could only answer with your file open. A few examples that come up constantly:
+
+- **"Why did my body fat go up this week?"** — Coach checks your workouts, scale weight, sleep, and consistency before answering. If you missed two leg days and slept under 6 hours, it will say so. If the data is genuinely ambiguous, it will say that too.
+- **"What does my GainFrame Score actually mean?"** — Breaks down all four components by name and tells you which one is dragging the overall number down right now.
+- **"Compare this check-in to last month."** — Leads with the deltas (body fat, weight, score, FFMI), then interprets them through your goal. The same +3 lbs reads differently for "lose fat" than for "build muscle."
+- **"Am I on track?"** — Answers relative to *your* goal, not to a textbook. If your goal is recomp and the scale is flat but body fat is dropping, that is a yes.
+- **"How long until I hit 12% body fat?"** — Extrapolates from your recent rate of change. The answer always comes with honest caveats: your trend is not a guarantee, plateaus happen, and re-feeds shift the line.
+- **"How are my lats progressing?"** — If you have Target Training active, Coach pulls your baseline score for that group and shows the movement to current.
+
+<figure className="post-inline-screenshot">
+  <img src="assets/score-card.webp" alt="GainFrame score card showing AI Physique Score 68, body fat 17%, weight 239 lbs, with breakdown of Body Fat 65, Muscle 72, Proportions 70, Goal Fit 68 and a Recomp On Track trajectory" loading="lazy" />
+  <figcaption>When you ask Coach what your score means, this is the data it is reading from. You get the breakdown by component, not a single mystery number.</figcaption>
+</figure>
+
+Notice what is missing from that list: workout *programming*. Coach is an analyst for your data, not a programmer for your training. It will tell you that your upper chest is lagging your front delts by eight points. It will not write your next eight weeks of push days. That is a deliberate boundary, and it is the right one — programming requires knowing how you actually lift, not just how your physique looks.
+
+<hr className="post-divider" />
+
+## What are the three coaching personalities?
+
+You can pick how Coach talks to you. The persona setting changes tone, length, and how directly it delivers bad news — not what it knows or what it can do.
+
+<div className="post-feature-grid">
+
+<div className="post-feature-card">
+<span className="post-feature-icon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+</span>
+<strong>Supportive</strong>
+<p>Leads with encouragement before diving into numbers. Celebrates progress, frames setbacks constructively, closes on an actionable next step. Best for motivation and accountability when you actually want to feel good about opening the app.</p>
+</div>
+
+<div className="post-feature-card">
+<span className="post-feature-icon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+</span>
+<strong>Analytical</strong>
+<p>Straight to the numbers. Exact deltas, component scores by name, no pleasantries. When the data is ambiguous it says so and explains why rather than guessing. Best for people who want precision over warmth.</p>
+</div>
+
+<div className="post-feature-card">
+<span className="post-feature-icon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+</span>
+<strong>Direct</strong>
+<p>One or two sentences. Maximum. Says the fact, says the implication, done. If the trend is unfavorable, it tells you plainly. Best for quick gut-checks when you do not want to read a paragraph to find out you missed a leg day.</p>
+</div>
+
+</div>
+
+You can switch persona any time from Coach settings, and you can set response length (Brief, Balanced, or Detailed) independently of the persona. Pairing **Direct + Brief** gets you a single-sentence verdict; **Supportive + Detailed** gets you a full breakdown that ends with a pep talk. Mix to taste.
+
+<hr className="post-divider" />
+
+## How is this different from asking ChatGPT a fitness question?
+
+The shortest answer: ChatGPT does not know your body fat percentage. Coach does. That distinction sounds small but it changes what kind of question is worth asking in the first place.
+
+<div className="post-table-wrapper scroll-reveal">
+<table className="post-table gainframe-first">
+<thead>
+<tr>
+<th>Capability</th>
+<th>GainFrame Coach</th>
+<th>ChatGPT / generic AI chat</th>
+<th>Stand-alone "AI trainer" apps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Knows your current body fat % and score</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#48BB78" aria-label="Yes"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#999" aria-label="No"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></td>
+<td>Sometimes</td>
+</tr>
+<tr>
+<td>Reads your last 14 days of workouts (HealthKit)</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#48BB78" aria-label="Yes"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#999" aria-label="No"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></td>
+<td>Rarely</td>
+</tr>
+<tr>
+<td>Connects sleep and resting HR to physique changes</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#48BB78" aria-label="Yes"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#999" aria-label="No"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></td>
+<td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#999" aria-label="No"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></td>
+</tr>
+<tr>
+<td>Remembers facts across conversations</td>
+<td><strong>On-device</strong></td>
+<td>Cloud, opt-in</td>
+<td>Cloud, account required</td>
+</tr>
+<tr>
+<td>Interprets answers through *your* goal</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#48BB78" aria-label="Yes"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></td>
+<td>Only if you paste it</td>
+<td>Sometimes</td>
+</tr>
+<tr>
+<td>Writes you a workout program</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#999" aria-label="No"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></td>
+<td>Yes (generic)</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#48BB78" aria-label="Yes"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+The honest read: Coach is not trying to be your full coaching stack. If you want a programmed routine, use Hevy or a real coach. If you want a chatbot that will write you a generic 5-day split with zero context, ChatGPT is free. Coach fills the slot in between — *interpreting the data you already have*, which neither of those tools does well.
+
+<figure className="post-inline-screenshot">
+  <img src="assets/dashboard.webp" alt="GainFrame Insights dashboard showing weight and body fat trend chart with -8% body fat record card and pose timeline breakdown" loading="lazy" />
+  <figcaption>The trend data Coach pulls from is the same data the Insights dashboard shows — Coach just reads it for you and answers questions about it.</figcaption>
+</figure>
+
+<hr className="post-divider" />
+
+## Where does my data go when I chat with Coach?
+
+The honest version, because the answer matters more than the marketing line.
+
+When you send a message to Coach, the message *and* the relevant slice of your context (recent check-ins, score, HealthKit summary) are sent to **Google's Gemini API** for inference — the same AI engine GainFrame already uses to score your photos. The response is generated server-side and sent back. After that, the conversation is stored **on-device** in your phone's local database. There is no cloud account, no cross-device sync, and your messages are not used to train models.
+
+If you have used a body composition Deep Dive in GainFrame before, this is the same data path. If you have not, the short version is: **photos and chat content leave the device temporarily for inference, and never persist on any server**. We surface that explicitly in the in-app privacy disclosure rather than burying it.
+
+This matters for one practical reason: if you would not paste a piece of personal medical history into ChatGPT, do not paste it into Coach either. Treat every AI chat — ours included — as a place where what you write travels to a third-party model. The on-device storage is yours; the inference call is not.
+
+<hr className="post-divider" />
+
+## Frequently asked questions
+
+### Is GainFrame Coach included in the free tier?
+
+No. Coach is a Pro feature, available on the **$5.99/month** or **$39.99/year** subscription. The free tier hard-caps at 25 photos lifetime regardless of Coach usage, and Coach is not exposed at all on free. Free users can preview Coach by upgrading; there is no free message allowance.
+
+### Does Coach replace a real coach or trainer?
+
+No. Coach is an AI analyst for the data GainFrame already has on you — your check-ins, score components, trends, and HealthKit metrics. It is not a substitute for a real coach who has watched you lift, programmed for your specific weak points, or knows your injury history. Use it alongside professional coaching, not instead of it.
+
+### Where does my conversation data go when I chat with Coach?
+
+Coach messages are sent to Google's Gemini API for inference, the same way GainFrame analyzes your photos. After processing, conversations are stored on-device only. There is no cloud account, no syncable conversation history across devices, and your messages are not used to train models.
+
+### Can I switch coaching personalities mid-conversation?
+
+Yes. The persona toggle (Supportive, Analytical, or Direct) is a global setting in Coach — switch it at any time and the next response uses the new style. You can also independently set response length to Brief, Balanced, or Detailed without changing the persona.
+
+### What does it mean that Coach remembers facts across conversations?
+
+Coach extracts a small set of stable facts from past chats — your stated goal, dietary constraints you've mentioned, recent injuries — and keeps them on-device so it does not ask you the same question on every visit. You can review and clear this memory from Coach settings at any time.
+
+### Can Coach answer questions about specific muscle groups or Target Training?
+
+Yes, but only if you have completed a deep-dive muscle assessment. When that data exists, Coach has access to your 12 muscle group scores plus Target Training baseline-to-current movement. Ask about specific groups by name ("how are my lats progressing?") and it will quote the actual numbers rather than guess.
+
+<figure className="post-inline-screenshot">
+  <img src="assets/muscle-map.webp" alt="GainFrame muscle map showing front and back body silhouettes color-coded by development level with a radar chart of 8 muscle areas" loading="lazy" />
+  <figcaption>When you ask Coach about a specific muscle group, this is the data it has open in front of it.</figcaption>
+</figure>
+
+<hr className="post-divider" />
+
+## Three questions to ask Coach today
+
+If you have Pro and have not opened Coach yet, the fastest way to find out whether it earns its keep is to run these three queries in order:
+
+<div className="post-steps">
+
+1. **"What's my body fat trend over the last 30 days?"** — establishes a baseline read. You should already roughly know the answer, so this is a sanity check on whether Coach's interpretation matches yours.
+
+2. **"What is currently driving my GainFrame Score?"** — surfaces which component (Body Fat, Muscle, Proportions, or Goal Fit) is the bottleneck right now. This is the single most useful thing to know before your next training block.
+
+3. **"Am I on track for my stated goal, or do I need to change something?"** — forces Coach to interpret everything through your specific goal rather than against generic recomp benchmarks. The answer is what to act on.
+
+</div>
+
+If those three answers feel sharper than what you would have gotten by typing the same questions into ChatGPT, Coach is doing its job.
+
+<div className="post-callout"><p>Coach does not replace your coach, your program, or your judgment. It replaces the part of an AI fitness chat that has to ask you twenty questions before it can say anything useful — because GainFrame already knows the answers.</p></div>
+
+<div className="blog-post-cta scroll-reveal">
+  <h3>Try Coach with your own data</h3>
+  <p>GainFrame is iOS-only. Free tier covers your first 25 photos. Coach is included on Pro at $5.99/mo or $39.99/yr — same Pro tier that unlocks AI Deep Dive, Future Physique, and unlimited photos.</p>
+  <a href="https://apps.apple.com/us/app/gainframe/id6742498826" className="cta-button" target="_blank" rel="noopener">Download GainFrame Free</a>
+</div>
+
+<hr className="post-divider" />
+
+<div className="post-related scroll-reveal">
+  <h3>Related Articles</h3>
+  <ul>
+    <li><a href="/blog/from-score-to-action-target-training/">Your Score Says Your Chest Needs Work — Now What?</a></li>
+    <li><a href="/blog/understanding-ai-physique-score/">Understanding Your AI Physique Score</a></li>
+    <li><a href="/blog/best-ai-personal-trainer-apps/">Best AI Personal Trainer Apps</a></li>
+    <li><a href="/blog/in-app-chat/">Why I Added In-App Chat to GainFrame</a></li>
+    <li><a href="/blog/chatgpt-workout-plan/">Why ChatGPT Workout Plans Fall Short</a></li>
+  </ul>
+</div>
