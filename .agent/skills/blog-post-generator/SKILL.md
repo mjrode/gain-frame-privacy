@@ -17,8 +17,8 @@ This skill orchestrates the end-to-end creation of SEO-optimized marketing blog 
 When triggered, you MUST follow these steps sequentially. **Do not proceed to the next step until the user has fully answered the current one.**
 
 ### Phase 0: Duplicate Check
-1. **Search Existing:** Before asking for a topic, use `list_dir` on `/docs/blog/` to see what already exists.
-2. **Warn User:** If the requested topic is very similar to an existing slug (e.g. they ask for "how to take progress photos" but `5-tips-better-progress-photos` exists), warn them. Ask if they want to update the existing post or spin up a new, specific angle.
+1. **Search Existing:** Before asking for a topic, list the files in `web/content/blog/` — each `.mdx` file is a published post. Strip the `.mdx` extension to get the slug.
+2. **Warn User:** If the requested topic is very similar to an existing slug (e.g. they ask for "how to take progress photos" but `5-tips-better-progress-photos.mdx` exists), warn them. Ask if they want to update the existing post or spin up a new, specific angle.
 
 ### Phase 1: Topic & Angle Interview
 1. **Topic Selection:** Ask the user for the target SEO keyword/topic. If they don't have one, check `TODO_SEO.md` backlog and suggest the highest ROI option.
@@ -62,7 +62,7 @@ When triggered, you MUST follow these steps sequentially. **Do not proceed to th
 ### Phase 3: Drafting & Implementation
 Once the interview is complete and assets are provided, execute the following implementation plan automatically:
 
-1. **Setup Directory:** Create `/docs/blog/[slug-name]/assets/`.
+1. **Setup Directory:** Create `docs/blog/[slug-name]/assets/`. This is where all images live — `web/public/blog` is a symlink to `docs/blog`, so Next.js serves them automatically.
 2. **Process Images:** Move the user's provided images into the `assets/` folder. Use the `run_command` tool to run `cwebp` to convert all `.png`/`.jpg` files to `.webp` format with `-q 80`. Delete the original files.
 3. **Generate Cover Image:** Invoke the `image-generate` skill (`.agent/skills/image-generate/SKILL.md`) to create a striking 4:3 cover image for the blog grid. The skill wraps Google Gemini's Nano Banana 2 model (`gemini-3.1-flash-image-preview`) and the brand prompt template is its built-in `style_template: "blog-cover"` default — you only need to provide a `subject` and a `target_path`. Cost ~$0.039 per image. Save to `docs/blog/[slug]/assets/cover.webp` and reference at 4 places in the HTML: `og:image`, `twitter:image`, JSON-LD `image`, hero `<img src>` (relative path: `assets/cover.webp`). Plus the blog index card image.
 
@@ -264,222 +264,90 @@ When a post cites scientific studies or peer-reviewed research, these additional
    - ✅ *"suggests"* / *"the findings offer promising evidence"* over *"proves"* / *"is definitive"*
    - ✅ *"according to the published findings"* attributing claims to the source
 5. **Always link to the original source** — preferably in both the body text and a dedicated callout blockquote.
-5. **Scaffold HTML:** Create `index.html` in the new folder using **exactly** this boilerplate — do not invent custom `<style>` blocks or CSS variables. All styling comes from `../../styles.css`.
+5. **Create the MDX file:** Create `web/content/blog/[slug].mdx`. The site is now Next.js on Cloudflare Pages — there is no `index.html` to write. The page template, nav, footer, scripts, and layout wrapper are all handled automatically by `app/blog/[slug]/page.tsx`. You only write the frontmatter + article body.
 
-   **Required `<head>` (copy verbatim, fill in placeholders):**
-   ```html
-   <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>[POST TITLE] | GainFrame</title>
-       <meta name="robots" content="max-image-preview:large">
-       <meta name="description" content="[META DESCRIPTION — 150-160 chars]">
-       <meta name="keywords" content="[COMMA SEPARATED KEYWORDS]">
-       <meta property="og:title" content="[POST TITLE]">
-       <meta property="og:description" content="[OG DESCRIPTION]">
-       <meta property="og:type" content="article">
-       <meta property="og:image" content="https://gainframe.app/blog/[SLUG]/assets/cover.webp">
-       <meta property="og:url" content="https://gainframe.app/blog/[SLUG]/">
-       <meta name="twitter:card" content="summary_large_image">
-       <meta name="twitter:title" content="[POST TITLE]">
-       <meta name="twitter:description" content="[TWITTER DESCRIPTION]">
-       <meta name="twitter:image" content="https://gainframe.app/blog/[SLUG]/assets/cover.webp">
-       <link rel="canonical" href="https://gainframe.app/blog/[SLUG]/">
-       <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
-       <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png">
-       <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
-       <link rel="apple-touch-icon" sizes="192x192" href="/assets/favicon-192.png">
-       <link rel="stylesheet" href="../../styles.css">
-       <link rel="preconnect" href="https://fonts.googleapis.com">
-       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-       <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6YPFBB8JE"></script>
-       <script>
-           window.dataLayer = window.dataLayer || [];
-           function gtag() { dataLayer.push(arguments); }
-           gtag('js', new Date());
-           gtag('config', 'G-N6YPFBB8JE');
-       </script>
-       <!-- Schema 1 of 4: BlogPosting — ALWAYS emit -->
-       <script type="application/ld+json">
-       {
-           "@context": "https://schema.org",
-           "@type": "BlogPosting",
-           "headline": "[POST TITLE]",
-           "description": "[META DESCRIPTION]",
-           "image": "https://gainframe.app/blog/[SLUG]/assets/cover.webp",
-           "datePublished": "[YYYY-MM-DD]",
-           "dateModified": "[YYYY-MM-DD]",
-           "author": { "@type": "Person", "name": "Michael Rode", "url": "https://gainframe.app/about" },
-           "publisher": { "@type": "Organization", "name": "GainFrame", "url": "https://gainframe.app", "logo": { "@type": "ImageObject", "url": "https://gainframe.app/assets/favicon.webp" } },
-           "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gainframe.app/blog/[SLUG]/" },
-           "articleSection": "[CATEGORY]"
-       }
-       </script>
-       <!-- Schema 2 of 4: BreadcrumbList — ALWAYS emit -->
-       <script type="application/ld+json">
-       {
-           "@context": "https://schema.org",
-           "@type": "BreadcrumbList",
-           "itemListElement": [
-               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gainframe.app/" },
-               { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gainframe.app/blog/" },
-               { "@type": "ListItem", "position": 3, "name": "[POST TITLE]", "item": "https://gainframe.app/blog/[SLUG]/" }
-           ]
-       }
-       </script>
-       <!-- Schema 3 of 4: FAQPage — emit ONLY IF the post has a FAQ section.
-            Each Question/Answer must MIRROR the visible H3/p verbatim — Google penalizes mismatch.
-            Expand the mainEntity array to include EVERY visible FAQ entry (not just two). Delete the entire <script> block if no FAQ section. -->
-       <script type="application/ld+json">
-       {
-           "@context": "https://schema.org",
-           "@type": "FAQPage",
-           "mainEntity": [
-               {
-                   "@type": "Question",
-                   "name": "[Question 1 — exact wording as visible H3]",
-                   "acceptedAnswer": {
-                       "@type": "Answer",
-                       "text": "[Answer 1 — 40–70 words, mirror the visible answer paragraph verbatim]"
-                   }
-               },
-               {
-                   "@type": "Question",
-                   "name": "[Question 2]",
-                   "acceptedAnswer": {
-                       "@type": "Answer",
-                       "text": "[Answer 2]"
-                   }
-               }
-           ]
-       }
-       </script>
-       <!-- Schema 4 of 4: HowTo — emit ONLY IF the post contains a numbered step framework rendered as <div class="post-steps">.
-            Each HowToStep must MIRROR the visible step verbatim. Expand the step array to include EVERY visible step.
-            Delete the entire <script> block if there's no step framework. -->
-       <script type="application/ld+json">
-       {
-           "@context": "https://schema.org",
-           "@type": "HowTo",
-           "name": "How to [task — mirror the section heading]",
-           "step": [
-               {
-                   "@type": "HowToStep",
-                   "position": 1,
-                   "name": "[Step 1 short name]",
-                   "text": "[Step 1 description — mirror the visible step]"
-               },
-               {
-                   "@type": "HowToStep",
-                   "position": 2,
-                   "name": "[Step 2 short name]",
-                   "text": "[Step 2 description]"
-               }
-           ]
-       }
-       </script>
-   </head>
+   **⚠️ JSX syntax rules for the body (MDX is not HTML):**
+   - Use `className=` not `class=`
+   - Use JSX style objects: `style={{borderRadius: '12px', maxWidth: '100%'}}` not `style="border-radius: 12px"`
+   - Self-close void elements: `<img />`, `<hr />`
+   - Curly braces `{` and `}` inside `<code>` text must be escaped as `&#123;` and `&#125;`
+   - Do NOT include `<html>`, `<head>`, `<body>`, nav, footer, or `<script>` tags — the layout provides all of those
+
+   **MDX frontmatter template (copy verbatim, fill placeholders):**
+   ```
+   ---
+   title: [POST TITLE]
+   description: [META DESCRIPTION — 150-160 chars]
+   slug: [slug-name]
+   canonical: "https://gainframe.app/blog/[slug-name]/"
+   ogTitle: [POST TITLE]
+   ogDescription: [OG DESCRIPTION]
+   ogImage: "https://gainframe.app/blog/[slug-name]/assets/cover.webp"
+   ogType: article
+   twitterTitle: [POST TITLE]
+   twitterDescription: [TWITTER DESCRIPTION]
+   twitterImage: "https://gainframe.app/blog/[slug-name]/assets/cover.webp"
+   breadcrumbCategory: [CATEGORY]
+   displayCategory: [CATEGORY]
+   displayDate: [Mon DD, YYYY]
+   readTime: [N] min read
+   subtitle: "[SUBTITLE / LEAD — 1-2 sentences]"
+   schemas:
+     - {"@context":"https://schema.org","@type":"BlogPosting","headline":"[POST TITLE]","description":"[META DESCRIPTION]","image":"https://gainframe.app/blog/[SLUG]/assets/cover.webp","datePublished":"[YYYY-MM-DD]","dateModified":"[YYYY-MM-DD]","author":{"@type":"Person","name":"Michael Rode","url":"https://gainframe.app/about"},"publisher":{"@type":"Organization","name":"GainFrame","url":"https://gainframe.app","logo":{"@type":"ImageObject","url":"https://gainframe.app/assets/favicons/favicon.webp"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gainframe.app/blog/[SLUG]/"},"articleSection":"[CATEGORY]","keywords":"[comma-separated keywords]"}
+     - {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gainframe.app/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://gainframe.app/blog/"},{"@type":"ListItem","position":3,"name":"[POST TITLE SHORT]","item":"https://gainframe.app/blog/[SLUG]/"}]}
+   ---
    ```
 
-   **⚠️ NEVER add a custom `<style>` block** unless a specific UI component (e.g., a custom 2-column card grid) has absolutely no equivalent in `styles.css`. If you do add one, keep it to that component only — never redefine `:root` variables or global typography.
+   Add a third schema entry **only if the post has a FAQ section** (FAQPage JSON-LD), and a fourth **only if it has a numbered step framework** (HowTo JSON-LD). These are identical in structure to the old HTML `<script type="application/ld+json">` blocks — same content, just as a YAML array entry on a single line.
 
-   **⚠️ STRUCTURAL RULES — these mistakes break the layout and have happened before:**
+   **publisher.logo.url is always:** `https://gainframe.app/assets/favicons/favicon.webp`
 
-   1. **The outer wrapper is `<article class="post"><div class="container post-container">` — never `<div class="post-container">` alone.** The `article.post` class controls the dark background and vertical rhythm. Dropping it causes the page to render full-width and unstyled.
-   2. **The content wrapper is `<div class="post-body">` — never `<article class="post-body">`.** `post-body` is a `div`, not an `article`. Using an `<article>` tag here breaks semantic HTML and can conflict with CSS selectors.
-   3. **The CTA (`blog-post-cta`) and related articles (`post-related`) MUST be inside `<div class="post-body">` — never in a separate `<footer>` outside the article.** Any content placed outside `post-body` will render outside the centered content column.
-   4. **The hero image goes inside `post-body` as the first child — NOT inside `<header class="post-header">`.** The header contains only: `post-meta`, `h1.post-title`, `p.post-subtitle`.
-   5. **Never add a custom breadcrumb `<div class="post-breadcrumb">`.** The breadcrumb is injected automatically by `shared-nav.js`. Adding one manually creates a duplicate.
+   **MDX body template (goes after the closing `---`):**
+   ```mdx
+   <div className="post-hero-image scroll-reveal" style={{marginBottom: '3rem'}}>
+     <img src="assets/cover.webp" alt="[ALT]" loading="lazy" style={{borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)'}} />
+   </div>
 
-   **⚠️ SCRIPTS — exactly these three, in this order, at the bottom of `<body>`:**
-   ```html
-   <script src="/assets/shared-footer.js"></script>
-   <script src="/assets/email-capture-bar.js"></script>
-   <script src="/assets/scroll-reveal.js"></script>
-   ```
-   **`email-capture-bar.js` is required on every post** — it powers the email capture bar that appears at the bottom of the page. Do not omit it.
+   [article content here — same CSS classes as before, JSX syntax]
 
-   **NEVER add:** TikTok pixel, Cloudflare analytics, inline `IntersectionObserver` scripts, or any other script not in the list above. Those are from old post templates and must not be copied into new posts.
+   <div className="blog-post-cta scroll-reveal">
+     <h3>[CTA HEADLINE]</h3>
+     <p>[CTA BODY]</p>
+     <a href="https://apps.apple.com/us/app/gainframe/id6742498826" className="cta-button" target="_blank" rel="noopener">Download GainFrame Free</a>
+   </div>
 
-   **Required `<body>` structure:**
-   ```html
-   <body>
-       <div data-site-nav></div>
-       <script src="/assets/shared-nav.js"></script>
+   <hr className="post-divider" />
 
-       <article class="post">
-           <div class="container post-container">
-               <header class="post-header hero-text-stagger">
-                   <div class="post-meta">
-                       <span class="post-category">[CATEGORY]</span>
-                       <span class="post-date">[Mon DD, YYYY]</span>
-                       <span class="post-read-time">[N] min read</span>
-                   </div>
-                   <h1 class="post-title">[POST TITLE]</h1>
-                   <p class="post-subtitle">[SUBTITLE / LEAD]</p>
-               </header>
-
-               <div class="post-body">
-                   <!-- hero image -->
-                   <div class="post-hero-image scroll-reveal" style="margin-bottom: 3rem;">
-                       <img src="assets/cover.webp" alt="[ALT]" loading="lazy"
-                           style="border-radius: 16px; border: 1px solid var(--color-border); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                   </div>
-
-                   <!-- article content here -->
-
-                   <div class="blog-post-cta scroll-reveal">
-                       <h3>[CTA HEADLINE]</h3>
-                       <p>[CTA BODY]</p>
-                       <a href="https://apps.apple.com/us/app/gainframe/id6742498826" class="cta-button" target="_blank" rel="noopener">
-                           Download GainFrame Free
-                       </a>
-                   </div>
-
-                   <hr class="post-divider">
-
-                   <div class="post-related scroll-reveal">
-                       <h3>Related Articles</h3>
-                       <div class="post-related-grid">
-                           <a href="/blog/[slug]/" class="post-related-card">
-                               <div class="post-related-content">
-                                   <span class="post-related-category">[Category]</span>
-                                   <h4>[Title]</h4>
-                                   <p>[One-line description]</p>
-                               </div>
-                           </a>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </article>
-
-       <div data-site-footer></div>
-       <script src="/assets/shared-footer.js"></script>
-       <script src="/assets/email-capture-bar.js"></script>
-       <script src="/assets/scroll-reveal.js"></script>
-   </body>
+   <div className="post-related scroll-reveal">
+     <h3>Related Articles</h3>
+     <ul>
+       <li><a href="/blog/[slug-1]/">[Title of related post 1]</a></li>
+       <li><a href="/blog/[slug-2]/">[Title of related post 2]</a></li>
+       <li><a href="/blog/[slug-3]/">[Title of related post 3]</a></li>
+     </ul>
+   </div>
    ```
 
-   **Available post-body component classes** (all styled in `styles.css` — use these, never custom CSS):
-   - `<hr class="post-divider">` — section divider
-   - `<div class="post-callout"><p>…</p></div>` — highlighted callout block
-   - `<div class="post-table-wrapper"><table class="post-table">…</table></div>` — data tables
-   - `<div class="post-inline-screenshot scroll-reveal">` + `<p class="post-caption">` — phone screenshots
-   - `<div class="post-steps">` — numbered step frameworks
-   - `<div class="post-feature-grid">` / `<div class="post-feature-card">` — feature comparison cards
+   **Available component classes** (same as before, JSX syntax):
+   - `<hr className="post-divider" />` — section divider
+   - `<div className="post-callout"><p>…</p></div>` — highlighted callout block
+   - `<div className="post-table-wrapper"><table className="post-table">…</table></div>` — data tables
+   - `<div className="post-inline-screenshot scroll-reveal">` + `<p className="post-caption">` — phone screenshots
+   - `<div className="post-steps">` — numbered step frameworks
+   - `<div className="post-feature-grid">` / `<div className="post-feature-card">` — feature comparison cards
 
-6. **Update Index:** Add the new blog post to the top of the grid in `docs/blog/index.html`. Use the generated vector cover image. **CRITICAL:** Use the standard card structure — `blog-card-content` > `post-meta` > `post-category` + `post-date`, then `h3`, then `p`. Do NOT use `blog-card-body` / `blog-card-category` / `blog-card-title` — those are an old format that doesn't match the site's typography.
-7. **Update Sitemap:** Add the new blog post to `docs/sitemap.xml`.
+   **Custom styles:** If a component needs CSS not in `styles.css`, add a `customStyles: |` YAML literal block in the frontmatter (before the closing `---`). The page template injects it as a scoped `<style>` tag. Never add a `<style>` tag in the MDX body.
+
+6. **Update Index:** No manual update needed — the blog index page is auto-generated by Next.js from all `.mdx` files in `web/content/blog/`. Adding the new `.mdx` file is sufficient.
+7. **Update Sitemap:** No manual update needed — `web/app/sitemap.ts` auto-generates the sitemap from all `.mdx` files in `web/content/blog/`.
 8. **Update Backlog:** If this post was from `seo-tools/TODO_SEO.md`, check it off and add the publish date.
-8. **Deploy (MANDATORY — do not skip):** After all files are written and the blog index is updated, stage only the new/modified files (never `git add -A` — it can catch sensitive files). Then commit and push:
+9. **Deploy (MANDATORY — do not skip):** Stage only the new/modified files (never `git add -A`), then commit and push:
    ```bash
-   git add docs/blog/[slug]/ docs/blog/index.html docs/sitemap.xml seo-tools/TODO_SEO.md
+   git add docs/blog/[slug]/assets/ web/content/blog/[slug].mdx seo-tools/TODO_SEO.md
    git commit -m "feat: [keyword] blog post"
    git push origin main
    ```
-   The site is hosted on GitHub Pages, so pushing to `main` triggers an automatic deployment. The post is not "published" until this step completes.
+   The site is hosted on Cloudflare Pages — pushing to `main` triggers an automatic deployment. For an immediate deploy without waiting for CI, run `cd web && npm run deploy` instead.
 
 ## Rules & Constraints
 - **Never write the post in one shot without the interview.** The user's specific tone and raw answers are what make the content rank and convert.
@@ -613,7 +481,7 @@ When generating the email HTML, use this base template. Replace the `<!-- CONTEN
 All links in emails MUST include UTM parameters for Google Analytics attribution. Use this format:
 
 ```
-https://gainframe.app/blog/[slug]/index.html?utm_source=mailchimp&utm_medium=email&utm_campaign=[campaign-name]
+https://gainframe.app/blog/[slug]/?utm_source=mailchimp&utm_medium=email&utm_campaign=[campaign-name]
 ```
 
 - `utm_source` — always `mailchimp`

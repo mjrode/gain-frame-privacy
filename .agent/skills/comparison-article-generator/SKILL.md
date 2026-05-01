@@ -31,10 +31,9 @@ This skill **inherits without restating** the following sections of `.agent/skil
 - **Visual Components Available** (`post-callout`, `post-feature-grid`, `post-table-wrapper`, `post-steps`, etc.)
 - **Image processing** (move to `assets/`, `cwebp -q 80`, delete originals)
 - **Cover image generation prompt** (the abstract vector-line illustration template)
-- **HTML scaffolding base** (Twitter/OG meta cards, JSON-LD structured data, email CTA)
-- **Blog index update** (`blog.html` standard card structure)
-- **Sitemap update** (`sitemap.xml`)
-- **Deploy commands** (git add → commit → push)
+- **MDX scaffolding** (frontmatter, JSON-LD schemas, JSX body template)
+- **Blog index + sitemap** (both auto-generated — no manual update)
+- **Deploy commands** (git add → commit → push → Cloudflare Pages auto-deploys)
 
 If you change voice/styling/scaffolding rules, change them in `blog-post-generator/SKILL.md` — they apply here automatically. **Do not duplicate them in this file.**
 
@@ -46,7 +45,7 @@ When triggered, follow these phases sequentially. Do not skip phases.
 
 ### Phase 0: Duplicate Check
 
-Same as `blog-post-generator` Phase 0 — `ls /docs/blog/` for existing comparison-themed slugs (e.g. `vs`, `compare`, `alternative`). Warn if a similar comparison already exists.
+Same as `blog-post-generator` Phase 0 — list files in `web/content/blog/` for existing comparison-themed slugs (e.g. `vs`, `compare`, `alternative`). Warn if a similar comparison already exists.
 
 ### Phase 1: Inputs
 
