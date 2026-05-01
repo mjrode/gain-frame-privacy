@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/generate-blog-grid.mjs",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build && npx wrangler pages deploy out --project-name gain-frame-privacy"
+    "deploy": "next build && npx wrangler pages deploy out --project-name gain-frame-privacy",
+    "build:blog-grid": "node scripts/generate-blog-grid.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
