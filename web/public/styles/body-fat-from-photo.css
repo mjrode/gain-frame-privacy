@@ -1,0 +1,1084 @@
+/* ================================================================
+   BODY FAT FROM PHOTO — matches the GainFrame home aesthetic
+   Geist + Geist Mono, cream paper, soft cards, green accent.
+   ================================================================ */
+
+:root {
+  --bff-bg:        #fbfbfa;
+  --bff-paper:     #ffffff;
+  --bff-paper-2:   #f6f6f4;
+  --bff-ink:       #171717;
+  --bff-muted:     #777774;
+  --bff-faint:     #a6a6a2;
+  --bff-line:      rgba(23, 23, 23, 0.09);
+  --bff-line-2:    rgba(23, 23, 23, 0.16);
+  --bff-green:     #34d26f;
+  --bff-green-50:  rgba(52, 210, 111, 0.10);
+  --bff-yellow:    #ffd23f;
+  --bff-red:       #ff5d6c;
+  --bff-teal:      #1cc4b1;
+
+  --bff-shadow:    0 22px 70px rgba(23, 23, 23, 0.10);
+  --bff-shadow-2:  0 10px 34px rgba(23, 23, 23, 0.08);
+  --bff-radius:    22px;
+  --bff-radius-sm: 14px;
+
+  --bff-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --bff-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --bff-container: 920px;
+  --bff-pad-x: 24px;
+}
+
+/* ================================================================
+   Page shell — match homepage cream + grid background
+   ================================================================ */
+
+.bff-body {
+  background:
+    linear-gradient(rgba(23, 23, 23, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 23, 23, 0.035) 1px, transparent 1px),
+    var(--bff-bg);
+  background-size: 98px 98px;
+  color: var(--bff-ink);
+  font-family: var(--bff-sans);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+.bff-body::before {
+  content: "";
+  position: fixed; inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.96), transparent 36rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(251, 251, 250, 0.94) 42rem, var(--bff-bg));
+  pointer-events: none;
+}
+
+/* ================================================================
+   Hero
+   ================================================================ */
+
+.bff-hero {
+  position: relative;
+  padding: clamp(110px, 14vw, 156px) var(--bff-pad-x) clamp(36px, 5vw, 56px);
+}
+.bff-hero-inner {
+  position: relative;
+  max-width: var(--bff-container);
+  margin: 0 auto;
+  text-align: center;
+}
+.bff-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--bff-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--bff-ink);
+  background: var(--bff-paper);
+  border: 1px solid var(--bff-line);
+  padding: 8px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 4px 14px rgba(23,23,23,0.04);
+}
+.bff-eyebrow .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--bff-green);
+  box-shadow: 0 0 0 3px rgba(52, 210, 111, 0.18);
+}
+
+.bff-hero h1 {
+  font-weight: 800;
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  margin: 0 auto 20px;
+  max-width: 780px;
+  color: var(--bff-ink);
+}
+.bff-hero h1 .accent {
+  display: inline;
+  background: linear-gradient(180deg, var(--bff-ink) 50%, transparent 51%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  /* Default: just black text. Use class for underline-style highlight if needed. */
+}
+
+.bff-hero-sub {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--bff-muted);
+  max-width: 580px;
+  margin: 0 auto 24px;
+}
+
+.bff-hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--bff-mono);
+  font-size: 0.8rem;
+  color: var(--bff-faint);
+}
+.bff-hero-meta .sep {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--bff-line-2);
+}
+
+/* Hero mascot — peeks from bottom-right of hero on desktop */
+.bff-hero-mascot {
+  display: none;
+  position: absolute;
+  bottom: -24px;
+  right: clamp(12px, 4vw, 60px);
+  width: 130px;
+  height: auto; /* preserve natural aspect ratio (see .bff-target-mascot note) */
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 16px 28px rgba(23,23,23,0.10));
+  transform: rotate(-4deg);
+  animation: bff-bob 3.4s ease-in-out infinite;
+}
+@keyframes bff-bob {
+  0%, 100% { transform: rotate(-4deg) translateY(0); }
+  50%      { transform: rotate(-4deg) translateY(-6px); }
+}
+@media (min-width: 880px) { .bff-hero-mascot { display: block; } }
+
+/* ================================================================
+   Main rail
+   ================================================================ */
+
+.bff-main {
+  position: relative;
+  max-width: var(--bff-container);
+  margin: 0 auto;
+  padding: clamp(20px, 3vw, 32px) var(--bff-pad-x) clamp(36px, 5vw, 56px);
+}
+
+/* ================================================================
+   Scan card — white paper card on cream background
+   ================================================================ */
+
+.bff-card {
+  position: relative;
+  background: var(--bff-paper);
+  border: 1px solid var(--bff-line);
+  border-radius: var(--bff-radius);
+  padding: clamp(22px, 4vw, 36px);
+  box-shadow: var(--bff-shadow);
+}
+
+.bff-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: clamp(16px, 2.5vw, 22px);
+}
+.bff-card-head-label {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--bff-ink);
+  letter-spacing: -0.005em;
+}
+.bff-card-head-meta {
+  font-family: var(--bff-mono);
+  font-size: 0.75rem;
+  color: var(--bff-faint);
+}
+
+/* ================================================================
+   Drop target — bright, friendly, mascot peeks inside
+   ================================================================ */
+
+.bff-target {
+  position: relative;
+  background: var(--bff-paper-2);
+  border: 1.5px dashed var(--bff-line-2);
+  border-radius: var(--bff-radius-sm);
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 200ms ease, background 200ms ease, transform 200ms ease;
+}
+.bff-target:hover {
+  border-color: var(--bff-ink);
+  background: #f0f0ec;
+}
+.bff-target.is-active {
+  border-color: var(--bff-green);
+  background: var(--bff-green-50);
+  transform: scale(1.005);
+}
+.bff-target input[type="file"] {
+  position: absolute; inset: 0;
+  opacity: 0;
+  width: 100%; height: 100%;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* Mascot peeks from a corner of the drop zone — decorative.
+   Desktop: bottom-right (clear of the centered camera icon + sub text).
+   Mobile: top-right, because the drop zone narrows and the bottom-right
+   ends up overlapping the wrapped "JPEG · PNG · HEIC — up to 10 MB" line. */
+.bff-target-mascot {
+  position: absolute;
+  right: 14px;
+  bottom: 8px;
+  width: clamp(64px, 10vw, 88px);
+  /* `height: auto` is critical: the JSX sets <img width={N} height={N}>
+     for layout-shift prevention, which forces a 1:1 aspect ratio.
+     The actual mascot is taller than wide — without auto height the
+     image gets squished into a square. */
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 8px 16px rgba(23,23,23,0.10));
+  transform: rotate(6deg);
+  z-index: 1;
+  opacity: 0.92;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+.bff-target:hover .bff-target-mascot {
+  transform: rotate(6deg) translateY(-3px);
+  opacity: 1;
+}
+@media (max-width: 720px) {
+  /* Reposition to top-right on mobile so the mascot doesn't sit on top
+     of the centered "Drop a photo…" / format hint text. */
+  .bff-target-mascot {
+    top: 12px;
+    right: 12px;
+    bottom: auto;
+    transform: rotate(-6deg);
+  }
+  .bff-target:hover .bff-target-mascot {
+    transform: rotate(-6deg) translateY(-3px);
+  }
+}
+@media (max-width: 460px) {
+  .bff-target-mascot { width: 56px; top: 10px; right: 10px; }
+}
+
+.bff-target-content {
+  position: relative;
+  text-align: center;
+  padding: clamp(28px, 4vw, 40px) 24px;
+  z-index: 2;
+}
+.bff-target-icon {
+  display: block;
+  margin: 0 auto 14px;
+  color: var(--bff-ink);
+}
+.bff-target-title {
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--bff-ink);
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+.bff-target-sub {
+  font-family: var(--bff-mono);
+  font-size: 0.78rem;
+  color: var(--bff-muted);
+  margin: 0;
+}
+
+/* When a file is selected — show the photo, framed cleanly. Use `contain`
+   so the whole body stays visible (gym mirror selfies are typically
+   portrait — `cover` cropped the head off). Letterbox fills with the
+   dark surface, which reads as a clean photo frame. */
+.bff-target.has-file {
+  cursor: default;
+  border: 1px solid var(--bff-line);
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 30%, #2a2a26, #14140f 80%);
+  padding: 0;
+  overflow: hidden;
+  min-height: 420px;
+}
+.bff-target.has-file:hover {
+  border-color: var(--bff-line);
+}
+.bff-target.has-file input[type="file"] { display: none; }
+.bff-target-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  /* Drop a soft contact shadow under the photo so the contained image
+     reads as a deliberately framed shot, not letterboxed video. */
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
+}
+.bff-target-photo-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,0.8) 100%);
+  pointer-events: none;
+}
+@media (max-width: 560px) {
+  .bff-target.has-file { min-height: 360px; }
+}
+.bff-target-meta {
+  position: absolute;
+  left: 16px; right: 16px; bottom: 14px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--bff-mono);
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.85);
+}
+.bff-target-replace {
+  font: inherit;
+  font-family: var(--bff-mono);
+  font-size: 0.74rem;
+  color: white;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+.bff-target-replace:hover { background: rgba(255,255,255,0.22); }
+
+/* ================================================================
+   Reference picker
+   ================================================================ */
+
+.bff-field {
+  margin-top: clamp(20px, 3vw, 26px);
+}
+.bff-field-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--bff-ink);
+  margin: 0 0 12px;
+  letter-spacing: -0.005em;
+}
+.bff-field-hint {
+  font-family: var(--bff-mono);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--bff-muted);
+}
+
+.bff-pills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.bff-pill-btn {
+  background: var(--bff-paper);
+  border: 1px solid var(--bff-line-2);
+  color: var(--bff-ink);
+  font-family: var(--bff-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+.bff-pill-btn:hover {
+  border-color: var(--bff-ink);
+  background: var(--bff-paper-2);
+}
+.bff-pill-btn.is-selected {
+  background: var(--bff-ink);
+  color: var(--bff-paper);
+  border-color: var(--bff-ink);
+  box-shadow: 0 6px 18px rgba(23,23,23,0.18);
+}
+
+/* ================================================================
+   Submit — matches homepage btn-dark
+   ================================================================ */
+
+.bff-submit {
+  display: block;
+  width: 100%;
+  margin-top: clamp(20px, 3vw, 26px);
+  background: var(--bff-ink);
+  color: var(--bff-paper);
+  font-family: var(--bff-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 16px 22px;
+  border-radius: 12px;
+  border: 1px solid var(--bff-ink);
+  cursor: pointer;
+  transition: transform 100ms ease, box-shadow 200ms ease, background 200ms ease;
+  box-shadow: 0 12px 28px rgba(23,23,23,0.14);
+  letter-spacing: -0.005em;
+}
+.bff-submit:hover:not(:disabled) {
+  background: #000;
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(23,23,23,0.18);
+}
+.bff-submit:active:not(:disabled) { transform: translateY(0); }
+.bff-submit:disabled {
+  background: var(--bff-paper-2);
+  color: var(--bff-faint);
+  border-color: var(--bff-line);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.bff-submit .arrow {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 200ms ease;
+}
+.bff-submit:hover:not(:disabled) .arrow {
+  transform: translateX(3px);
+}
+
+.bff-privacy {
+  margin: 16px 0 0;
+  font-family: var(--bff-mono);
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: var(--bff-muted);
+  text-align: center;
+}
+.bff-privacy strong { color: var(--bff-ink); font-weight: 600; }
+
+/* ================================================================
+   Processing — clean spinner + status, mascot "scanning"
+   ================================================================ */
+
+.bff-target.is-processing {
+  cursor: default;
+  border: 1px solid var(--bff-line);
+}
+.bff-target.is-processing.has-file {
+  background: #1a1a18;
+}
+.bff-scan-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--bff-green), transparent);
+  box-shadow: 0 0 18px rgba(52,210,111,0.7);
+  z-index: 4;
+  animation: bff-scan 2.2s cubic-bezier(0.55, 0, 0.45, 1) infinite;
+  pointer-events: none;
+}
+@keyframes bff-scan {
+  0%   { top: 0%; opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { top: 100%; opacity: 1; }
+  60%  { opacity: 0; }
+  100% { top: 0%; opacity: 0; }
+}
+
+.bff-status-block {
+  margin-top: 22px;
+  text-align: center;
+}
+.bff-status-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--bff-mono);
+  font-size: 0.92rem;
+  color: var(--bff-ink);
+  font-weight: 500;
+}
+.bff-status-line .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--bff-green);
+  box-shadow: 0 0 0 4px rgba(52,210,111,0.18);
+  animation: bff-pulse 1.6s ease-in-out infinite;
+}
+@keyframes bff-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(52,210,111,0.18); }
+  50%      { box-shadow: 0 0 0 8px rgba(52,210,111,0.04); }
+}
+
+.bff-status-track {
+  margin: 16px auto 0;
+  max-width: 280px;
+  height: 3px;
+  background: var(--bff-line);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+.bff-status-track::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -40%;
+  width: 40%; height: 100%;
+  background: linear-gradient(90deg, transparent, var(--bff-ink), transparent);
+  animation: bff-track 1.6s ease-in-out infinite;
+}
+@keyframes bff-track {
+  0%   { left: -40%; }
+  100% { left: 100%; }
+}
+
+/* ================================================================
+   Result — the reveal moment, clean and bold
+   ================================================================ */
+
+.bff-result {
+  position: relative;
+  text-align: center;
+  padding: clamp(8px, 2vw, 16px) 0 clamp(8px, 2vw, 16px);
+  animation: bff-reveal 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes bff-reveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bff-result-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--bff-mono);
+  font-size: 0.8rem;
+  color: var(--bff-ink);
+  background: var(--bff-paper-2);
+  border: 1px solid var(--bff-line);
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 22px;
+}
+.bff-result-tag .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--bff-green);
+  box-shadow: 0 0 0 3px rgba(52,210,111,0.18);
+}
+
+.bff-result-figure {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bff-result-num {
+  font-weight: 800;
+  font-size: clamp(5.2rem, 16vw, 9.5rem);
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+  color: var(--bff-ink);
+  margin: 0;
+  font-feature-settings: "tnum" 1;
+}
+.bff-result-num .pre {
+  font-size: 0.36em;
+  color: var(--bff-muted);
+  font-weight: 600;
+  margin-right: 2px;
+  vertical-align: 24%;
+}
+.bff-result-num .pct {
+  font-size: 0.42em;
+  color: var(--bff-ink);
+  margin-left: 2px;
+  vertical-align: 18%;
+  font-weight: 700;
+}
+.bff-result-label {
+  font-family: var(--bff-mono);
+  font-size: 0.85rem;
+  color: var(--bff-muted);
+  margin: 8px 0 24px;
+}
+
+/* Result mascot — peeks from the top-right of the card so it doesn't
+   crowd the centered number on small viewports. */
+.bff-card--result { position: relative; }
+.bff-result-mascot {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: clamp(56px, 9vw, 84px);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 10px 18px rgba(23,23,23,0.12));
+  transform: rotate(8deg);
+  animation: bff-celebrate 600ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  animation-delay: 600ms;
+  z-index: 2;
+}
+@keyframes bff-celebrate {
+  from { opacity: 0; transform: rotate(8deg) scale(0.7); }
+  to   { opacity: 1; transform: rotate(8deg) scale(1); }
+}
+@media (max-width: 460px) {
+  .bff-result-mascot { width: 52px; top: 10px; right: 10px; }
+}
+
+/* Confidence — homepage-style metric chip */
+.bff-conf {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bff-paper-2);
+  border: 1px solid var(--bff-line);
+  border-radius: 100px;
+  padding: 8px 18px;
+  margin-bottom: 22px;
+}
+.bff-conf-dots {
+  display: flex; gap: 4px;
+}
+.bff-conf-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--bff-line-2);
+}
+.bff-conf-dot.is-on { background: currentColor; }
+.bff-conf[data-level="low"]    { color: var(--bff-red); }
+.bff-conf[data-level="medium"] { color: var(--bff-yellow); }
+.bff-conf[data-level="high"]   { color: var(--bff-green); }
+.bff-conf-label {
+  font-family: var(--bff-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--bff-ink);
+}
+.bff-conf-label em {
+  font-style: normal;
+  color: currentColor;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.bff-result-obs {
+  display: block;
+  max-width: 540px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--bff-ink);
+  padding: 18px 20px;
+  background: var(--bff-paper-2);
+  border: 1px solid var(--bff-line);
+  border-radius: var(--bff-radius-sm);
+  position: relative;
+}
+.bff-result-obs::before {
+  content: "Observation";
+  position: absolute;
+  top: -10px; left: 18px;
+  font-family: var(--bff-mono);
+  font-size: 0.7rem;
+  color: var(--bff-muted);
+  background: var(--bff-paper);
+  padding: 2px 8px;
+  border: 1px solid var(--bff-line);
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.bff-result-foot {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+  font-family: var(--bff-mono);
+  font-size: 0.74rem;
+  color: var(--bff-faint);
+  flex-wrap: wrap;
+}
+.bff-result-foot strong {
+  color: var(--bff-ink);
+  font-weight: 600;
+}
+
+/* ================================================================
+   Disclaimer
+   ================================================================ */
+
+.bff-disclaimer {
+  display: flex;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 16px 18px;
+  background: var(--bff-paper);
+  border: 1px solid var(--bff-line);
+  border-radius: var(--bff-radius-sm);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--bff-muted);
+}
+.bff-disclaimer-mark {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  font-family: var(--bff-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: grid; place-items: center;
+  background: var(--bff-ink);
+  color: var(--bff-paper);
+  border-radius: 6px;
+}
+.bff-disclaimer strong { color: var(--bff-ink); font-weight: 700; }
+
+/* ================================================================
+   Primary CTA — bold black button after the result, drives to app
+   ================================================================ */
+
+.bff-primary-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 22px 26px;
+  background: var(--bff-ink);
+  color: var(--bff-paper);
+  border: 1px solid var(--bff-ink);
+  border-radius: var(--bff-radius);
+  text-decoration: none;
+  box-shadow: 0 18px 40px rgba(23,23,23,0.20);
+  transition: transform 100ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+.bff-primary-cta:hover {
+  background: #000;
+  transform: translateY(-1px);
+  box-shadow: 0 22px 48px rgba(23,23,23,0.26);
+}
+.bff-primary-cta:active { transform: translateY(0); }
+.bff-primary-cta-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.bff-primary-cta-eyebrow {
+  font-family: var(--bff-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--bff-green);
+  margin-bottom: 4px;
+}
+.bff-primary-cta-title {
+  font-weight: 800;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--bff-paper);
+}
+.bff-primary-cta-sub {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.72);
+  margin-top: 4px;
+}
+.bff-primary-cta-arrow {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  background: var(--bff-paper);
+  color: var(--bff-ink);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: transform 200ms ease;
+}
+.bff-primary-cta:hover .bff-primary-cta-arrow {
+  transform: translateX(4px);
+}
+@media (max-width: 460px) {
+  .bff-primary-cta { padding: 18px 20px; gap: 12px; }
+  .bff-primary-cta-arrow { width: 36px; height: 36px; font-size: 1rem; }
+}
+
+/* ================================================================
+   CTA section — homepage product-panel style
+   ================================================================ */
+
+.bff-cta-section { margin-top: clamp(40px, 6vw, 64px); }
+.bff-cta-eyebrow {
+  font-family: var(--bff-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--bff-muted);
+  margin: 0 0 8px;
+}
+.bff-cta-title {
+  font-weight: 800;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 24px;
+}
+.bff-cta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.bff-cta {
+  display: flex;
+  flex-direction: column;
+  background: var(--bff-paper);
+  border: 1px solid var(--bff-line);
+  border-radius: var(--bff-radius-sm);
+  padding: 0;
+  text-decoration: none;
+  color: var(--bff-ink);
+  overflow: hidden;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+.bff-cta:hover {
+  border-color: var(--bff-ink);
+  transform: translateY(-2px);
+  box-shadow: var(--bff-shadow-2);
+}
+.bff-cta-preview {
+  position: relative;
+  height: 124px;
+  background: var(--bff-paper-2);
+  overflow: hidden;
+  border-bottom: 1px solid var(--bff-line);
+}
+.bff-cta-preview::after {
+  /* Subtle ambient lighting */
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,255,255,0.6), transparent 70%);
+  pointer-events: none;
+}
+.bff-cta-preview svg {
+  position: absolute; inset: 0;
+  margin: auto;
+  width: 100%; height: 100%;
+}
+.bff-cta-body {
+  padding: 16px 18px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.bff-cta-h {
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: -0.015em;
+  margin: 0 0 4px;
+}
+.bff-cta-p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--bff-muted);
+  margin: 0 0 12px;
+  flex: 1;
+}
+.bff-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--bff-ink);
+  transition: gap 180ms ease;
+}
+.bff-cta:hover .bff-cta-link { gap: 10px; }
+
+/* Result-only retry note */
+.bff-retry-note {
+  text-align: center;
+  font-family: var(--bff-mono);
+  font-size: 0.82rem;
+  color: var(--bff-muted);
+  margin: 28px 0 0;
+}
+
+/* ================================================================
+   Other states — unusable / rate_limited / error (white card)
+   ================================================================ */
+
+.bff-msg {
+  text-align: center;
+  padding: 36px 24px;
+}
+.bff-msg-icon {
+  width: 52px; height: 52px;
+  margin: 0 auto 14px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--bff-paper-2);
+  border: 1px solid var(--bff-line);
+  color: var(--bff-yellow);
+}
+.bff-msg-icon.is-info {
+  color: var(--bff-teal);
+}
+.bff-msg-icon.is-error {
+  color: var(--bff-red);
+}
+.bff-msg-title {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.025em;
+  color: var(--bff-ink);
+  margin: 0 0 8px;
+}
+.bff-msg-sub {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--bff-muted);
+  margin: 0 auto 22px;
+  max-width: 460px;
+}
+.bff-msg-mascot {
+  display: block;
+  width: 96px;
+  height: auto; /* preserve natural aspect ratio (see .bff-target-mascot note) */
+  margin: 0 auto 8px;
+  filter: drop-shadow(0 8px 16px rgba(23,23,23,0.08));
+}
+
+/* ================================================================
+   How it works
+   ================================================================ */
+
+.bff-section {
+  padding: clamp(48px, 6vw, 80px) var(--bff-pad-x);
+  border-top: 1px solid var(--bff-line);
+}
+.bff-section-inner {
+  max-width: var(--bff-container);
+  margin: 0 auto;
+}
+.bff-section-eyebrow {
+  font-family: var(--bff-mono);
+  font-size: 0.78rem;
+  color: var(--bff-muted);
+  margin: 0 0 8px;
+}
+.bff-section h2 {
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 28px;
+}
+
+.bff-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.bff-step {
+  background: var(--bff-paper);
+  border: 1px solid var(--bff-line);
+  border-radius: var(--bff-radius-sm);
+  padding: 22px;
+  position: relative;
+}
+.bff-step-num {
+  font-family: var(--bff-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--bff-muted);
+  margin: 0 0 10px;
+}
+.bff-step h3 {
+  font-weight: 700;
+  font-size: 1.08rem;
+  letter-spacing: -0.015em;
+  margin: 0 0 8px;
+}
+.bff-step p {
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--bff-muted);
+  margin: 0;
+}
+
+/* ================================================================
+   Cross-link card
+   ================================================================ */
+
+.bff-crosslink-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  background: var(--bff-paper);
+  border: 1px solid var(--bff-line);
+  border-radius: var(--bff-radius-sm);
+  text-decoration: none;
+  color: var(--bff-ink);
+  transition: border-color 200ms ease, transform 100ms ease;
+}
+.bff-crosslink-card:hover {
+  border-color: var(--bff-ink);
+  transform: translateY(-1px);
+}
+.bff-crosslink-text strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+  letter-spacing: -0.015em;
+}
+.bff-crosslink-text span {
+  font-size: 0.93rem;
+  color: var(--bff-muted);
+  line-height: 1.5;
+}
+.bff-crosslink-arrow {
+  flex-shrink: 0;
+  font-family: var(--bff-mono);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+/* ================================================================
+   Responsive
+   ================================================================ */
+
+@media (max-width: 720px) {
+  .bff-cta-grid { grid-template-columns: 1fr; }
+  .bff-steps    { grid-template-columns: 1fr; }
+  .bff-target   { min-height: 240px; }
+  .bff-result-foot { gap: 10px; font-size: 0.7rem; }
+}
+
+@media (max-width: 460px) {
+  .bff-pills    { grid-template-columns: 1fr 1fr; }
+  .bff-pills .bff-pill-btn:nth-child(3) { grid-column: 1 / -1; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bff-scan-line,
+  .bff-status-track::after,
+  .bff-status-line .dot,
+  .bff-eyebrow .dot,
+  .bff-result-tag .dot,
+  .bff-hero-mascot,
+  .bff-result-mascot,
+  .bff-result {
+    animation: none !important;
+  }
+}
