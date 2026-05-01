@@ -1,0 +1,86 @@
+{
+  "slug": "ffmi-calculator",
+  "title": "FFMI Calculator — Fat-Free Mass Index &amp; Natural Limit | GainFrame",
+  "description": "Free FFMI calculator. Calculate your Fat-Free Mass Index, see where you rank against the natural muscle limit (~25 normalized), and find out how much more muscle is realistically possible.",
+  "canonical": "https://gainframe.app/tools/ffmi-calculator/",
+  "ogTitle": "FFMI Calculator — GainFrame",
+  "ogDescription": "Calculate your Fat-Free Mass Index and compare to the natural limit. Enter weight, height, and body fat % — get your FFMI instantly.",
+  "ogImage": "https://gainframe.app/assets/gainframe-og-1200x630.png",
+  "twitterTitle": "FFMI Calculator — GainFrame",
+  "twitterDescription": "Calculate your Fat-Free Mass Index and compare to the natural limit. Enter weight, height, and body fat % — get your FFMI instantly.",
+  "schemas": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "FFMI Calculator",
+      "description": "Calculate your Fat-Free Mass Index (FFMI) and see where you fall against the natural muscle limit. Free, instant, no signup required.",
+      "url": "https://gainframe.app/tools/ffmi-calculator/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GainFrame",
+        "url": "https://gainframe.app"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is FFMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FFMI stands for Fat-Free Mass Index. It measures how much lean muscle you carry for your height — similar to BMI, but only counting muscle, bone, and organs (not fat). It is one of the most reliable ways to objectively judge how muscular someone is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is FFMI calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FFMI = Lean Body Mass (kg) ÷ Height (m)². Lean body mass is your total weight minus fat mass, calculated from your body fat percentage. The normalized FFMI adds an adjustment for height: Normalized FFMI = FFMI + 6.1 × (1.8 − height in meters). Normalizing makes FFMI fair to compare across people of different heights."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good FFMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For men: 18–20 is average, 20–22 is above average, 22–23 is athletic, 23–25 is very muscular and close to the natural ceiling, and above 25 is considered beyond what most drug-free lifters can achieve. For women, the equivalent ranges run about 3 points lower. These numbers are based on Kouri et al. 1995, which remains the most widely cited reference."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is FFMI 25 the natural limit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A normalized FFMI of about 25 is widely referenced as the upper limit for drug-free lifters based on a 1995 study by Kouri et al., which found that drug-free bodybuilders rarely exceeded this value while users frequently did. It is not a hard physiological ceiling — some naturally gifted athletes exceed it — but it is a strong statistical boundary that holds up across decades of data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Am I natty? Can FFMI tell me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FFMI cannot definitively prove or disprove natural status — it is a probability indicator, not a test. Exceptionally tall lifters, lifetime trainers, and genetically gifted athletes can legitimately reach FFMI 24 or even 25. The higher your FFMI, the statistically less likely it is you reached it drug-free, but rare natural outliers do exist."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is FFMI different from BMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BMI treats all weight the same — so a muscular lifter and an overweight sedentary person can have identical BMIs. FFMI strips fat out of the equation and only counts lean mass, so it actually measures muscularity. For anyone who lifts, FFMI is far more useful than BMI."
+          }
+        }
+      ]
+    }
+  ]
+}

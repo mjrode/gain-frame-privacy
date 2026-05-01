@@ -1,0 +1,638 @@
+
+        /* =====================================================
+           TOOL PAGE — scoped styles
+           ===================================================== */
+
+        .tool-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-main {
+            flex: 1;
+            padding: 80px 0 80px;
+        }
+
+        /* Header */
+        .tool-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .tool-badge {
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--color-text);
+            color: var(--color-bg);
+            margin-bottom: 16px;
+            letter-spacing: 0.01em;
+        }
+
+        .tool-header h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -0.035em;
+            line-height: 1.08;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .tool-header p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.65;
+        }
+
+        /* Calculator Card */
+        .tool-calc-card {
+            max-width: 520px;
+            margin: 0 auto 64px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-elevated);
+        }
+
+        /* Gender Toggle */
+        .tool-gender-toggle {
+            display: flex;
+            background: var(--color-surface);
+            border-radius: var(--radius-full);
+            padding: 4px;
+            margin-bottom: 32px;
+            border: 1px solid var(--color-border);
+        }
+
+        .tool-gender-btn {
+            flex: 1;
+            padding: 10px 0;
+            text-align: center;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .tool-gender-btn.active {
+            background: var(--color-text);
+            color: var(--color-bg);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Input groups */
+        .tool-input-group {
+            margin-bottom: 20px;
+        }
+
+        .tool-input-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 6px;
+            letter-spacing: 0.01em;
+        }
+
+        .tool-input-hint {
+            font-weight: 400;
+            color: var(--color-text-tertiary);
+            font-size: 0.8rem;
+        }
+
+        .tool-input-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tool-input-row .tool-input-field {
+            flex: 1;
+        }
+
+        .tool-input-field {
+            width: 100%;
+            padding: 12px 16px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--color-text);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+
+        .tool-input-field::-webkit-outer-spin-button,
+        .tool-input-field::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .tool-input-field::placeholder {
+            color: var(--color-text-tertiary);
+            font-weight: 400;
+        }
+
+        .tool-input-field:focus {
+            border-color: var(--color-text);
+            box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.06);
+        }
+
+        /* Unit toggle (sits next to inputs) */
+        .tool-unit-toggle {
+            display: inline-flex;
+            background: var(--color-surface);
+            border-radius: var(--radius-full);
+            padding: 2px;
+            border: 1px solid var(--color-border);
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .tool-unit-btn {
+            padding: 3px 10px;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--color-text-tertiary);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-unit-btn.active {
+            background: var(--color-bg);
+            color: var(--color-text);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Calculate button */
+        .tool-calc-btn {
+            width: 100%;
+            padding: 14px 0;
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--color-bg);
+            background: var(--color-text);
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            margin-top: 12px;
+        }
+
+        .tool-calc-btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+
+        .tool-calc-btn:active {
+            transform: translateY(0);
+        }
+
+        /* --- Result Card --- */
+        .tool-result {
+            display: none;
+            text-align: center;
+            margin-top: 28px;
+            padding-top: 28px;
+            border-top: 1px solid var(--color-border);
+            animation: toolFadeIn 0.5s ease;
+        }
+
+        .tool-result.show {
+            display: block;
+        }
+
+        @keyframes toolFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tool-result-number {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+
+        .tool-result-unit {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+        }
+
+        .tool-result-category {
+            display: inline-block;
+            padding: 5px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 8px;
+            margin-bottom: 16px;
+        }
+
+        /* Category colors */
+        .cat-essential {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .cat-athletic {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .cat-fitness {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .cat-average {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .cat-above-average {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Gauge bar */
+        .tool-gauge {
+            height: 10px;
+            background: var(--color-surface);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .tool-gauge-fill {
+            height: 100%;
+            border-radius: var(--radius-full);
+            transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            background: linear-gradient(90deg, #10b981, #3b82f6, #f59e0b, #ef4444);
+        }
+
+        .tool-gauge-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--color-text-tertiary);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .tool-result-detail {
+            font-size: 0.92rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        /* Lean mass stat */
+        .tool-result-stats {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tool-stat {
+            text-align: center;
+        }
+
+        .tool-stat-value {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--color-text);
+        }
+
+        .tool-stat-label {
+            font-size: 0.75rem;
+            color: var(--color-text-tertiary);
+            font-weight: 500;
+        }
+
+        /* =====================================================
+           REFERENCE CHART
+           ===================================================== */
+
+        .tool-reference {
+            max-width: 720px;
+            margin: 0 auto 64px;
+        }
+
+        .tool-reference h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--color-text);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .tool-reference > p {
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+        }
+
+        .tool-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .tool-ref-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 20px;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tool-ref-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .tool-ref-dot {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 800;
+            font-family: var(--font-display);
+            color: #fff;
+        }
+
+        .tool-ref-info h4 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 2px;
+        }
+
+        .tool-ref-range {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+        }
+
+        .tool-ref-desc {
+            font-size: 0.78rem;
+            color: var(--color-text-tertiary);
+            line-height: 1.45;
+            margin-top: 2px;
+        }
+
+        /* Dot colors */
+        .dot-essential { background: #f59e0b; }
+        .dot-athletic  { background: #10b981; }
+        .dot-fitness   { background: #3b82f6; }
+        .dot-average   { background: #6b7280; }
+        .dot-above     { background: #ef4444; }
+
+        /* =====================================================
+           CTA SECTION
+           ===================================================== */
+
+        .tool-cta-section {
+            max-width: 620px;
+            margin: 0 auto 0;
+            text-align: center;
+            padding: 48px 40px;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+        }
+
+        .tool-cta-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            border-radius: var(--radius-sm);
+            background: var(--color-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-cta-icon svg {
+            width: 26px;
+            height: 26px;
+            color: #fff;
+        }
+
+        .tool-cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .tool-cta-section p {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            max-width: 460px;
+            margin: 0 auto 24px;
+        }
+
+        .tool-cta-list {
+            list-style: none;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .tool-cta-list li {
+            font-size: 0.92rem;
+            color: var(--color-text-secondary);
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .tool-cta-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        /* Method note */
+        .tool-method-note {
+            max-width: 520px;
+            margin: 40px auto 0;
+            padding: 24px;
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .tool-method-note h3 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 6px;
+        }
+
+        .tool-method-note p {
+            font-size: 0.82rem;
+            color: var(--color-text-tertiary);
+            line-height: 1.6;
+        }
+
+        /* Error state */
+        .tool-input-error {
+            border-color: #ef4444 !important;
+        }
+
+        .tool-error-msg {
+            color: #ef4444;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .tool-error-msg.show {
+            display: block;
+        }
+
+        /* Hip field toggle */
+        .tool-hip-group {
+            display: none;
+        }
+
+        .tool-hip-group.show {
+            display: block;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 640px) {
+            .tool-main {
+                padding: 80px 0 80px; /* extra bottom for floating CTA */
+            }
+
+            .tool-header {
+                margin-bottom: 32px;
+            }
+
+            .tool-header h1 {
+                font-size: 1.85rem;
+            }
+
+            .tool-header p {
+                font-size: 0.95rem;
+            }
+
+            .tool-calc-card {
+                padding: 24px 18px;
+                margin: 0 auto 40px;
+            }
+
+            .tool-ref-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tool-result-number {
+                font-size: 3rem;
+            }
+
+            .tool-result-label {
+                font-size: 1rem;
+            }
+
+            .tool-cta-section {
+                padding: 28px 20px;
+            }
+
+            .tool-cta-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .tool-cta-section p {
+                font-size: 0.92rem;
+            }
+
+            .tool-result-stats {
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .tool-result-stat {
+                min-width: 80px;
+            }
+
+            .tool-about {
+                margin-bottom: 24px;
+                padding-bottom: 80px; /* clear floating CTA */
+            }
+
+            .tool-ref-section {
+                margin-bottom: 32px;
+            }
+
+            .tool-ref-card {
+                padding: 20px;
+            }
+
+            /* Make gauge labels smaller on mobile */
+            .tool-gauge-labels {
+                font-size: 0.7rem;
+            }
+        }
+    

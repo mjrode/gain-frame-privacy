@@ -1,0 +1,256 @@
+
+    
+    
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="tool-main">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="tool-header hero-text-stagger">
+                <span class="tool-badge">Free Tool</span>
+                <h1>1RM Calculator</h1>
+                <p>Estimate your one rep max with six proven formulas, see training percentages for every rep range, and find out where you rank on the strength-standards scale.</p>
+            </div>
+
+            <!-- Calculator Card -->
+            <div class="tool-calc-card scroll-reveal">
+
+                <!-- Exercise picker -->
+                <div class="tool-exercise-picker" role="tablist" aria-label="Exercise">
+                    <button class="tool-exercise-btn active" data-exercise="squat" type="button">Squat</button>
+                    <button class="tool-exercise-btn" data-exercise="bench" type="button">Bench</button>
+                    <button class="tool-exercise-btn" data-exercise="deadlift" type="button">Deadlift</button>
+                    <button class="tool-exercise-btn" data-exercise="ohp" type="button">OHP</button>
+                </div>
+
+                <!-- Weight + Reps row -->
+                <div class="tool-input-row">
+                    <div class="tool-input-group" style="margin-bottom:0">
+                        <label class="tool-input-label">
+                            Weight lifted
+                            <div class="tool-unit-toggle" data-unit-group="weight">
+                                <button class="tool-unit-btn active" data-unit="imperial" type="button">lb</button>
+                                <button class="tool-unit-btn" data-unit="metric" type="button">kg</button>
+                            </div>
+                        </label>
+                        <input type="number" class="tool-input-field" id="weight" placeholder="225" step="0.5" min="0" inputmode="decimal">
+                    </div>
+                    <div class="tool-input-group" style="margin-bottom:0">
+                        <label class="tool-input-label">
+                            Reps completed
+                            <span class="tool-input-hint">1–12</span>
+                        </label>
+                        <input type="number" class="tool-input-field" id="reps" placeholder="5" min="1" max="12" step="1" inputmode="numeric">
+                    </div>
+                </div>
+
+                <!-- Optional section -->
+                <div class="tool-optional">
+                    <div class="tool-optional-label">Optional — for strength tier</div>
+
+                    <div class="tool-gender-toggle">
+                        <button class="tool-gender-btn active" data-gender="male" type="button">Male</button>
+                        <button class="tool-gender-btn" data-gender="female" type="button">Female</button>
+                    </div>
+
+                    <div class="tool-input-group" style="margin-bottom:0">
+                        <label class="tool-input-label">
+                            Bodyweight
+                            <span class="tool-input-hint">(for strength tier)</span>
+                        </label>
+                        <input type="number" class="tool-input-field" id="bodyweight" placeholder="180" step="0.5" min="0" inputmode="decimal">
+                    </div>
+                </div>
+
+                <!-- Calculate -->
+                <button class="tool-calc-btn" id="calcBtn" type="button">Calculate 1RM</button>
+                <p class="tool-error-msg" id="errorMsg"></p>
+            </div>
+
+            <!-- Result -->
+            <div class="tool-result" id="resultCard">
+
+                <!-- Hero result -->
+                <div class="tool-result-hero">
+                    <div class="tool-result-exercise" id="resultExercise">Back Squat · Estimated</div>
+                    <div>
+                        <span class="tool-result-number" id="resultMax">—</span>
+                        <span class="tool-result-unit" id="resultUnit">lb</span>
+                    </div>
+                    <div class="tool-result-sub">One rep max · average of 6 formulas</div>
+
+                    <span class="tool-result-category cat-untrained" id="resultCat" style="display:none;">—</span>
+
+                    <div class="tool-gauge">
+                        <div class="tool-gauge-fill" id="resultGauge" style="width: 0%"></div>
+                    </div>
+                    <div class="tool-gauge-labels">
+                        <span>Untrained</span>
+                        <span>Novice</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Elite</span>
+                    </div>
+
+                    <div class="tool-standards-hint" id="standardsHint">Add bodyweight + sex above to see your strength tier</div>
+                </div>
+
+                <!-- Formula comparison grid -->
+                <div class="tool-formula-grid">
+                    <h3>Formula Comparison</h3>
+                    <p class="subtitle">Each formula gives a slightly different estimate. Our headline number is the average.</p>
+                    <div class="formula-grid" id="formulaGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Training % table -->
+                <div class="tool-rep-table">
+                    <h3>Training Percentages</h3>
+                    <p class="subtitle">What to load for common rep targets, based on your estimated 1RM.</p>
+                    <table class="rep-table">
+                        <thead>
+                            <tr>
+                                <th>Target</th>
+                                <th>Weight</th>
+                                <th>% of 1RM</th>
+                            </tr>
+                        </thead>
+                        <tbody id="repTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Strength Standards Reference -->
+            <div class="tool-reference scroll-reveal">
+                <h2>Strength Standards</h2>
+                <p>Based on a percentage of bodyweight. Values approximate widely-cited ExRx and Symmetric Strength ranges.</p>
+
+                <div class="standards-filter">
+                    <select id="standardsExercise">
+                        <option value="squat">Squat</option>
+                        <option value="bench">Bench Press</option>
+                        <option value="deadlift">Deadlift</option>
+                        <option value="ohp">Overhead Press</option>
+                    </select>
+                    <select id="standardsSex">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="tool-ref-grid" id="standardsGrid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Formula Card -->
+            <div class="tool-formula scroll-reveal">
+                <h2>The Six Formulas</h2>
+                <div class="formulas-list">
+                    <div class="formula-item">
+                        <div class="formula-item-name">Epley</div>
+                        <div class="formula-item-eq">W × (1 + <em>r</em>/30)</div>
+                    </div>
+                    <div class="formula-item">
+                        <div class="formula-item-name">Brzycki</div>
+                        <div class="formula-item-eq">W × 36 / (37 − <em>r</em>)</div>
+                    </div>
+                    <div class="formula-item">
+                        <div class="formula-item-name">Lombardi</div>
+                        <div class="formula-item-eq">W × <em>r</em><sup>0.10</sup></div>
+                    </div>
+                    <div class="formula-item">
+                        <div class="formula-item-name">O'Conner</div>
+                        <div class="formula-item-eq">W × (1 + 0.025<em>r</em>)</div>
+                    </div>
+                    <div class="formula-item">
+                        <div class="formula-item-name">Mayhew</div>
+                        <div class="formula-item-eq">100W / (52.2 + 41.9·e<sup>−0.055<em>r</em></sup>)</div>
+                    </div>
+                    <div class="formula-item">
+                        <div class="formula-item-name">Wathan</div>
+                        <div class="formula-item-eq">100W / (48.8 + 53.8·e<sup>−0.075<em>r</em></sup>)</div>
+                    </div>
+                </div>
+                <p>All six formulas estimate 1RM from a submaximal set. They were developed independently from different populations, so each gives a slightly different number. Averaging them reduces the bias of any single formula. Accuracy is best when reps are low — typically within 2–3% of true 1RM at 3–5 reps.</p>
+            </div>
+
+            <!-- Other tools ribbon -->
+            <div class="tool-other scroll-reveal">
+                <h3>More Free Tools</h3>
+                <div class="tool-other-links">
+                    <a href="/tools/ffmi-calculator/">FFMI Calculator</a>
+                    <a href="/tools/body-fat-estimator/">Body Fat Calculator</a>
+                    <a href="/tools/tdee-calculator/">TDEE Calculator</a>
+                    <a href="/tools/macro-calculator/">Macro Calculator</a>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="tool-cta-section scroll-reveal">
+                <div class="tool-cta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6.5 6.5 17.5 17.5"/>
+                        <path d="M21 21l-1-1"/>
+                        <path d="M3 3l1 1"/>
+                        <path d="M18 22l4-4"/>
+                        <path d="M2 6l4-4"/>
+                        <path d="M3 10l7-7"/>
+                        <path d="M14 21l7-7"/>
+                    </svg>
+                </div>
+                <h2>Track strength and physique together</h2>
+                <p>GainFrame ties your lifting progress to your body composition so you know if you're actually building muscle — not just adding weight to the bar.</p>
+                <ul class="tool-cta-list">
+                    <li>Body fat, FFMI, and muscle scores from a photo</li>
+                    <li>Spot muscle groups that aren't keeping up</li>
+                    <li>Track physique changes across weeks and months</li>
+                    <li>Free to start, no signup required to try</li>
+                </ul>
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank"
+                    rel="noopener" class="appstore-link">
+                    <img src="/appstore-badge.svg" alt="Download on the App Store" class="appstore-badge"
+                        style="margin: 0 auto;" loading="lazy">
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ==================== NEWSLETTER ==================== -->
+    
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/blog/">Blog</a>
+                <a href="/tools/">Tools</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    
+    
+
+    
+
+    <!-- Cloudflare Web Analytics -->
+    
+
+    <!-- Floating Download Pill -->
+    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="blog-floating-pill" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download GainFrame
+    </a>
+
+    
+    

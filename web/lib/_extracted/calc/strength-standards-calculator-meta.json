@@ -1,0 +1,78 @@
+{
+  "slug": "strength-standards-calculator",
+  "title": "Strength Standards Calculator — Am I Strong? | GainFrame",
+  "description": "Free strength standards calculator. Find out if you",
+  "canonical": "https://gainframe.app/tools/strength-standards-calculator/",
+  "ogTitle": "Strength Standards Calculator — GainFrame",
+  "ogDescription": "Are you strong for your bodyweight? Compare your lifts to Untrained → Elite standards across 8 exercises.",
+  "ogImage": "https://gainframe.app/assets/gainframe-og-1200x630.png",
+  "twitterTitle": "Strength Standards Calculator — GainFrame",
+  "twitterDescription": "Are you strong for your bodyweight? Compare your lifts to Untrained → Elite standards across 8 exercises.",
+  "schemas": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Strength Standards Calculator",
+      "description": "Calculate your strength tier (Untrained, Novice, Intermediate, Advanced, Elite) for 8 major lifts relative to your bodyweight. Free, instant, no signup.",
+      "url": "https://gainframe.app/tools/strength-standards-calculator/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GainFrame",
+        "url": "https://gainframe.app"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are strength standards?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Strength standards are benchmarks that compare your lifts to the broader lifting population, scaled to your bodyweight. They're typically split into five tiers — Untrained, Novice, Intermediate, Advanced, and Elite — and differ by lift and sex. A 1.5× bodyweight bench press is strong Intermediate territory for most men; a 2× bodyweight deadlift puts you around Intermediate-to-Advanced."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Intermediate strength level mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Intermediate lifters have typically trained consistently for 1–3 years and have clearly committed to proper programming. Their lifts sit well above the general population but below specialized strength-focused athletes. Most lifters who take training seriously reach Intermediate within a couple of years."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a 2× bodyweight squat impressive?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 2× bodyweight squat is at the Intermediate threshold for men (Advanced for women) and represents several years of focused training. It's considered a respected milestone in strength culture. Elite male lifters routinely exceed 2.75× bodyweight, and world-class powerlifters push past 3× bodyweight."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does this calculator's data come from?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The standards are synthesized from widely-cited sources including ExRx strength standards tables, Symmetric Strength, and published powerlifting data. Values shown are bodyweight multipliers for each tier per lift per sex. They represent typical ranges and are not a formal percentile ranking — individual outliers exist in every tier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I use this if I don't know my 1RM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Switch to the 'Estimate from reps' input mode. Enter the weight you lifted and how many reps you completed — the calculator averages the Epley and Brzycki formulas to estimate your one rep max, then classifies you. For more precision, use the full 1RM Calculator which averages six formulas."
+          }
+        }
+      ]
+    }
+  ]
+}

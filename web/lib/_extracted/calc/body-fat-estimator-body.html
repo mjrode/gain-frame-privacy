@@ -1,0 +1,265 @@
+    
+    
+<!-- ==================== MAIN ==================== -->
+    <main class="tool-main">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="tool-header hero-text-stagger">
+                <span class="tool-badge">Free Tool</span>
+                <h1>Body Fat % Calculator</h1>
+                <p>Estimate your body fat percentage using the U.S. Navy method. Enter a few measurements — get your result instantly.</p>
+            </div>
+
+            <!-- Calculator Card -->
+            <div class="tool-calc-card scroll-reveal" id="calcCard">
+
+                <!-- Gender toggle -->
+                <div class="tool-gender-toggle">
+                    <button class="tool-gender-btn active" data-gender="male" type="button">Male</button>
+                    <button class="tool-gender-btn" data-gender="female" type="button">Female</button>
+                </div>
+
+                <!-- Height -->
+                <div class="tool-input-group">
+                    <label class="tool-input-label">
+                        Height
+                        <div class="tool-unit-toggle" data-unit-group="height">
+                            <button class="tool-unit-btn active" data-unit="imperial" type="button">ft / in</button>
+                            <button class="tool-unit-btn" data-unit="metric" type="button">cm</button>
+                        </div>
+                    </label>
+                    <div class="tool-input-row" id="heightImperial">
+                        <input type="number" class="tool-input-field" id="heightFt" placeholder="5" min="3" max="8" inputmode="numeric">
+                        <input type="number" class="tool-input-field" id="heightIn" placeholder="10" min="0" max="11" inputmode="numeric">
+                    </div>
+                    <div class="tool-input-row" id="heightMetric" style="display: none;">
+                        <input type="number" class="tool-input-field" id="heightCm" placeholder="178" min="100" max="250" inputmode="numeric">
+                    </div>
+                </div>
+
+                <!-- Neck -->
+                <div class="tool-input-group">
+                    <label class="tool-input-label">
+                        Neck circumference
+                        <span class="tool-input-hint" id="neckHint">inches</span>
+                    </label>
+                    <input type="number" class="tool-input-field" id="neck" placeholder="15" step="0.1" inputmode="decimal">
+                </div>
+
+                <!-- Waist -->
+                <div class="tool-input-group">
+                    <label class="tool-input-label">
+                        Waist circumference
+                        <span class="tool-input-hint" id="waistHint">inches — at navel</span>
+                    </label>
+                    <input type="number" class="tool-input-field" id="waist" placeholder="33" step="0.1" inputmode="decimal">
+                </div>
+
+                <!-- Hip (female only) -->
+                <div class="tool-input-group tool-hip-group" id="hipGroup">
+                    <label class="tool-input-label">
+                        Hip circumference
+                        <span class="tool-input-hint" id="hipHint">inches — widest point</span>
+                    </label>
+                    <input type="number" class="tool-input-field" id="hip" placeholder="37" step="0.1" inputmode="decimal">
+                </div>
+
+                <!-- Weight (for lean mass calc) -->
+                <div class="tool-input-group">
+                    <label class="tool-input-label">
+                        Weight
+                        <span class="tool-input-hint">(optional — for lean mass estimate)</span>
+                        <div class="tool-unit-toggle" data-unit-group="weight">
+                            <button class="tool-unit-btn active" data-unit="imperial" type="button">lbs</button>
+                            <button class="tool-unit-btn" data-unit="metric" type="button">kg</button>
+                        </div>
+                    </label>
+                    <input type="number" class="tool-input-field" id="weight" placeholder="175" step="0.1" inputmode="decimal">
+                </div>
+
+                <!-- Calculate -->
+                <button class="tool-calc-btn" id="calcBtn" type="button">Calculate Body Fat %</button>
+                <p class="tool-error-msg" id="errorMsg"></p>
+
+                <!-- Result -->
+                <div class="tool-result" id="resultCard">
+                    <div class="tool-result-number" id="resultBf">—</div>
+                    <span class="tool-result-unit">% body fat</span>
+                    <div>
+                        <span class="tool-result-category" id="resultCat">—</span>
+                    </div>
+
+                    <div class="tool-gauge">
+                        <div class="tool-gauge-fill" id="resultGauge" style="width: 0%"></div>
+                    </div>
+                    <div class="tool-gauge-labels">
+                        <span>5%</span>
+                        <span>15%</span>
+                        <span>25%</span>
+                        <span>35%</span>
+                        <span>45%</span>
+                    </div>
+
+                    <p class="tool-result-detail" id="resultDetail"></p>
+
+                    <div class="tool-result-stats" id="resultStats" style="display: none;">
+                        <div class="tool-stat">
+                            <div class="tool-stat-value" id="statFatMass">—</div>
+                            <div class="tool-stat-label">fat mass</div>
+                        </div>
+                        <div class="tool-stat">
+                            <div class="tool-stat-value" id="statLeanMass">—</div>
+                            <div class="tool-stat-label">lean mass</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Reference Chart -->
+            <div class="tool-reference scroll-reveal">
+                <h2>Body Fat % Categories</h2>
+                <p>Where does your result fall? Here's what each range typically looks like.</p>
+
+                <!-- Male ranges shown by default, female swapped via JS -->
+                <div class="tool-ref-grid" id="refGridMale">
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-essential">2–5</div>
+                        <div class="tool-ref-info">
+                            <h4>Essential Fat</h4>
+                            <p class="tool-ref-desc">Minimum for physiological function. Competition bodybuilders on stage. Not sustainable.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-athletic">6–13</div>
+                        <div class="tool-ref-info">
+                            <h4>Athletic</h4>
+                            <p class="tool-ref-desc">Visible abs and muscle separation. Typical of competitive athletes and dedicated lifters.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-fitness">14–17</div>
+                        <div class="tool-ref-info">
+                            <h4>Fitness</h4>
+                            <p class="tool-ref-desc">Lean and toned. Some ab definition, clear muscle shape. Healthy and sustainable.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-average">18–24</div>
+                        <div class="tool-ref-info">
+                            <h4>Average</h4>
+                            <p class="tool-ref-desc">Typical range for most men. Soft midsection, limited muscle definition. Healthy range.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-above">25+</div>
+                        <div class="tool-ref-info">
+                            <h4>Above Average</h4>
+                            <p class="tool-ref-desc">Excess body fat, visible around waist and chest. Increased health risk at higher ends.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-ref-grid" id="refGridFemale" style="display: none;">
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-essential">10–13</div>
+                        <div class="tool-ref-info">
+                            <h4>Essential Fat</h4>
+                            <p class="tool-ref-desc">Minimum for hormonal function. Stage-lean competitors only. Not sustainable long term.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-athletic">14–20</div>
+                        <div class="tool-ref-info">
+                            <h4>Athletic</h4>
+                            <p class="tool-ref-desc">Visible muscle tone and definition. Typical of competitive athletes and dedicated trainers.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-fitness">21–24</div>
+                        <div class="tool-ref-info">
+                            <h4>Fitness</h4>
+                            <p class="tool-ref-desc">Lean and healthy. Some definition in arms and legs. Sustainable and strong.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-average">25–31</div>
+                        <div class="tool-ref-info">
+                            <h4>Average</h4>
+                            <p class="tool-ref-desc">Typical range for most women. Soft shape, healthy body fat level for general wellness.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-above">32+</div>
+                        <div class="tool-ref-info">
+                            <h4>Above Average</h4>
+                            <p class="tool-ref-desc">Excess body fat. Increased health risk at higher ends. Good starting point for improvement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="tool-cta-section scroll-reveal">
+                <div class="tool-cta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                        <circle cx="12" cy="13" r="4"/>
+                    </svg>
+                </div>
+                <h2>Want a More Accurate Estimate?</h2>
+                <p>Tape measurements give you a rough number. GainFrame uses AI to analyze your actual physique from a photo — no measuring tape needed.</p>
+                <ul class="tool-cta-list">
+                    <li>AI-powered body composition analysis</li>
+                    <li>Track body fat % changes over time</li>
+                    <li>See muscle group development visually</li>
+                    <li>Just take a photo — results in seconds</li>
+                </ul>
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank"
+                    rel="noopener" class="appstore-link">
+                    <img src="/appstore-badge.svg" alt="Download on the App Store" class="appstore-badge"
+                        style="margin: 0 auto;" loading="lazy">
+                </a>
+            </div>
+
+            <!-- Method Note -->
+            <div class="tool-method-note scroll-reveal">
+                <h3>About This Calculator</h3>
+                <p>This calculator uses the <strong>U.S. Navy body fat formula</strong>, which estimates body fat percentage from circumference measurements. It's widely used and reasonably accurate for most people, but all estimation methods have a margin of error (typically ±3–4%). For the most accurate results, measure in the morning before eating.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    
+    <!-- ==================== NEWSLETTER ==================== -->
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/blog/">Blog</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2025 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+
+    <!-- TikTok Pixel Code Start -->
+    
+    <!-- TikTok Pixel Code End -->
+    <!-- Cloudflare Web Analytics -->
+    <!-- End Cloudflare Web Analytics -->
+
+    <!-- Floating Download Pill -->
+    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="blog-floating-pill" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download GainFrame
+    </a>
+    
+    

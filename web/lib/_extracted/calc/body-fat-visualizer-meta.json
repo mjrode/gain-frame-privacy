@@ -1,0 +1,70 @@
+{
+  "slug": "body-fat-visualizer",
+  "title": "Body Fat Percentage at Each Age — Interactive Visualizer (Male &amp; Female) | GainFrame",
+  "description": "See what every body fat percentage looks like at every age. Drag the sliders to compare male (8–33%) and female (18–42%) physiques across ages 20s–60s. Free, instant, no signup.",
+  "canonical": "https://gainframe.app/tools/body-fat-visualizer/",
+  "ogTitle": "Body Fat Percentage at Each Age — Interactive Visualizer",
+  "ogDescription": "The most visual body fat chart on the web. Drag two sliders to see what every body fat percentage looks like on men and women, ages 20s through 60s.",
+  "ogImage": "https://gainframe.app/tools/body-fat-visualizer/assets/physiques/male-age30s-bf13.webp",
+  "twitterTitle": "Body Fat Percentage at Each Age — Interactive Visualizer",
+  "twitterDescription": "Drag the sliders, watch the physique change. Male and female, ages 20s through 60s.",
+  "schemas": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Body Fat Percentage at Each Age",
+      "description": "Interactive body fat percentage chart. Drag two sliders — age group and body fat % — to see what different body fat levels look like on male and female physiques across ages 20s through 60s.",
+      "url": "https://gainframe.app/tools/body-fat-visualizer/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GainFrame",
+        "url": "https://gainframe.app"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does each body fat percentage look like?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At 8% body fat, men show deep ab separation, vascularity, and striated muscle — stage-lean. At 13%, they show clear six-pack definition and an athletic build. 18% is a lean, fit look with some ab outline under good light. 23% is average — softer midsection, no visible abs. 28% shows a noticeable belly and love handles. 33% and above is classified as obese range with clinical health implications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does body fat distribution change with age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Same body fat percentage looks different across decades. Men tend to lose muscle mass (sarcopenia) after age 40, so a 45-year-old at 18% body fat often looks softer than a 25-year-old at 18% because the underlying muscle base is smaller. Body fat also shifts toward the midsection with age due to hormonal changes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a healthy body fat percentage for men?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For men, the American Council on Exercise ranges are: athletes 6–13%, fitness 14–17%, average 18–24%, obese 25%+. Essential fat — the minimum your body needs to function — is 2–5% for men. Most health authorities recommend 10–20% for long-term health in adult men."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I measure my body fat percentage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DEXA scans are the gold standard at ±1–2% accuracy but cost $75–150 per session. The U.S. Navy tape-measure method is ±3–4% and free. Bioelectrical impedance scales are ±4–8% and heavily affected by hydration. AI photo analysis (like GainFrame) is ±2–3% trending and excels at tracking change over time from a single phone photo."
+          }
+        }
+      ]
+    }
+  ]
+}

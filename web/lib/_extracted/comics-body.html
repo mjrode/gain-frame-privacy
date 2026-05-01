@@ -1,0 +1,91 @@
+    
+    
+
+    <!-- ==================== NEWSPAPER MASTHEAD ==================== -->
+    <header class="newspaper-masthead">
+        <div class="container" style="max-width: 960px;">
+            <div class="masthead-rule"></div>
+            <div class="masthead-rule-thin"></div>
+            <h1 class="masthead-title">The GainFrame Gazette</h1>
+            <p class="masthead-subtitle">"All the gains that are fit to print."</p>
+            <div class="masthead-dateline">
+                <span>Science-Backed</span>
+                <span class="dateline-diamond"></span>
+                <span id="comicsCountLabel">11 Issues</span>
+                <span class="dateline-diamond"></span>
+                <span>Est. 2026</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== COMICS GRID ==================== -->
+    <section class="newspaper-gallery">
+        <div class="section-headline">
+            <h2>Latest Issues</h2>
+            <span class="section-count" id="sectionCount"></span>
+        </div>
+        <div class="filter-bar" id="filterBar"></div>
+        <div class="comics-mascot-peek" aria-hidden="true">
+            <img src="/assets/gainframe-guy/poses/gainframe-guy-wave.png" alt="" loading="eager">
+        </div>
+        <div class="newspaper-grid" id="comicsGrid">
+            <!-- Rendered by JS from the manifest -->
+        </div>
+        <div class="newspaper-endmark">
+            <div class="endmark-rule"></div>
+            <div class="endmark-symbol">— ◆ —</div>
+        </div>
+    </section>
+
+    <!-- ==================== PEEK CAROUSEL VIEWER ==================== -->
+    <div class="comic-viewer" id="comicViewer">
+        <div class="comic-viewer-header">
+            <span class="comic-viewer-title" id="viewerTitle"></span>
+            <span class="comic-viewer-counter" id="viewerCounter"></span>
+        </div>
+        <button class="viewer-share-btn" id="viewerShare" aria-label="Share comic"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></button>
+        <button class="comic-viewer-close" id="viewerClose" aria-label="Close viewer">&times;</button>
+        <div class="comic-viewer-stage">
+            <button class="comic-viewer-nav prev" id="viewerPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <div class="comic-viewer-track" id="viewerTrack">
+                <!-- Slides rendered by JS -->
+            </div>
+            <button class="comic-viewer-nav next" id="viewerNext" aria-label="Next slide"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+        </div>
+        <div class="comic-viewer-progress" id="viewerProgress"><div class="comic-viewer-progress-fill" id="viewerProgressFill"></div></div>
+        <div class="comic-viewer-dots" id="viewerDots"></div>
+    </div>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta" id="download" style="background: var(--paper-light);">
+        <div class="container">
+            <h2 class="section-title scroll-reveal" style="font-family: var(--font-serif); color: var(--ink);">Stop guessing. Start tracking.</h2>
+            <p class="cta-subtitle scroll-reveal">AI-powered physique tracking that keeps your photos private. See your progress like never before.</p>
+            <div class="scroll-reveal" style="margin-top: var(--sp-lg); display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="app-store-badge-link" target="_blank" rel="noopener">
+                    <img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="Download on the App Store" style="height: 52px; width: auto;" />
+                </a>
+                <p class="hero-trust-copy">No credit card required · Cancel anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <div data-newsletter-signup></div>
+
+    <footer class="footer" style="background: var(--paper-light);">
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="/blog/">Blog</a>
+                <a href="comics.html">Comics</a>
+                <a href="tools/">Tools</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="share-toast" id="shareToast">Link copied!</div>
+
+    <!-- ==================== SCRIPTS ==================== -->

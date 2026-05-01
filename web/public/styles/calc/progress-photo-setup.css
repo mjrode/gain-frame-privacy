@@ -1,0 +1,154 @@
+
+        /* PAGE-SPECIFIC STYLES */
+        .tool-page-header { background: #fff; padding: 48px var(--sp-md) 32px; text-align: center; }
+        .tool-page-header .tool-badge { display: inline-block; padding: 5px 14px; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 600; background: var(--color-text); color: #fff; margin-bottom: var(--sp-md); letter-spacing: 0.02em; }
+        .tool-page-header h1 { font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.03em; color: var(--color-text); margin-bottom: 10px; }
+        .tool-page-header p { font-size: 1.05rem; color: var(--color-text-secondary); max-width: 560px; margin: 0 auto; line-height: 1.65; }
+
+        /* SECTION SHARED */
+        .tool-section { padding: 72px var(--sp-md); }
+        .tool-section.alt-bg { background: var(--color-surface); }
+        .tool-section-inner { max-width: 800px; margin: 0 auto; }
+        .tool-section h2 { font-family: var(--font-display); font-weight: 800; font-size: 1.8rem; letter-spacing: -0.025em; color: var(--color-text); text-align: center; margin-bottom: 12px; }
+        .tool-section .section-lead { text-align: center; color: var(--color-text-secondary); font-size: 1rem; max-width: 520px; margin: 0 auto 36px; line-height: 1.65; }
+
+        /* SECTION 1: COMPARISON SLIDER */
+        .comparison-wrap { position: relative; max-width: 600px; margin: 0 auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-elevated); user-select: none; -webkit-user-select: none; touch-action: none; aspect-ratio: 1/1; background: #eee; }
+        .comparison-wrap img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+        .comparison-overlay { position: absolute; inset: 0; overflow: hidden; width: 50%; z-index: 2; }
+        .comparison-overlay img { display: block; width: 100%; height: 100%; object-fit: cover; /* DO NOT scale — this img fills the full container width so it doesn't shift */ min-width: 100%; /* fallback for older browsers */ }
+        /* The overlay img must match the base image dimensions exactly.
+           We achieve this by making the overlay img width = container width (not overlay width).
+           This means the img is wider than its parent and gets clipped at the overlay's right edge. */
+        .comparison-overlay img { width: 600px; max-width: none; }
+        @media (max-width: 632px) { .comparison-overlay img { width: 100vw; } }
+        .comparison-handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: #fff; cursor: ew-resize; z-index: 10; transform: translateX(-50%); box-shadow: 0 0 8px rgba(0,0,0,0.3); }
+        .comparison-handle::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+        .comparison-handle svg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; width: 20px; height: 20px; color: var(--color-text); }
+        .comparison-label { position: absolute; bottom: 16px; padding: 6px 14px; border-radius: var(--radius-full); font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; z-index: 5; pointer-events: none; }
+        .comparison-label.bad { left: 16px; background: rgba(232,76,61,0.9); color: #fff; z-index: 3; }
+        .comparison-label.good { right: 16px; background: rgba(107,143,113,0.9); color: #fff; }
+
+        /* SECTION 2: SETUP BUILDER */
+        .builder-progress { display: flex; justify-content: center; gap: 8px; margin-bottom: 32px; }
+        .builder-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--color-border); transition: background 0.3s, box-shadow 0.3s; }
+        .builder-dot.active { background: var(--color-text); box-shadow: 0 0 0 3px rgba(0,0,0,0.08); }
+        .builder-dot.done { background: var(--color-sage); }
+        .builder-step-label { text-align: center; font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 8px; }
+        .builder-step-title { text-align: center; font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; color: var(--color-text); margin-bottom: 24px; letter-spacing: -0.02em; }
+        .builder-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 520px; margin: 0 auto 24px; }
+        .builder-option { background: #fff; border: 2px solid var(--color-border); border-radius: var(--radius-md); padding: 20px 16px; text-align: center; cursor: pointer; transition: all 0.25s ease; }
+        .builder-option:hover { border-color: var(--color-text-tertiary); transform: translateY(-2px); box-shadow: var(--shadow-card); }
+        .builder-option.selected { border-color: var(--color-text); background: var(--color-surface); }
+        .builder-option-icon { font-size: 1.8rem; margin-bottom: 8px; display: block; }
+        .builder-option-name { font-family: var(--font-display); font-weight: 700; font-size: 0.92rem; color: var(--color-text); margin-bottom: 4px; }
+        .builder-option-desc { font-size: 0.78rem; color: var(--color-text-tertiary); line-height: 1.45; }
+        .builder-tip { background: var(--color-sage-light); border-radius: var(--radius-sm); padding: 14px 18px; margin: 0 auto 24px; max-width: 520px; display: flex; align-items: flex-start; gap: 10px; }
+        .builder-tip svg { flex-shrink: 0; width: 18px; height: 18px; color: var(--color-sage); margin-top: 1px; }
+        .builder-tip p { font-size: 0.85rem; color: var(--color-sage); line-height: 1.55; }
+        .builder-nav { display: flex; justify-content: center; gap: 12px; }
+        .builder-nav button { font-family: var(--font-display); font-weight: 700; font-size: 0.88rem; padding: 10px 28px; border-radius: var(--radius-full); border: none; cursor: pointer; transition: all 0.2s; }
+        .btn-back { background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border) !important; }
+        .btn-back:hover { background: #eee; }
+        .btn-next { background: var(--color-text); color: #fff; }
+        .btn-next:hover { opacity: 0.85; }
+        .btn-next:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* Summary Card */
+        .summary-card { background: #fff; border-radius: var(--radius-lg); padding: 32px 28px; box-shadow: var(--shadow-elevated); max-width: 520px; margin: 0 auto; }
+        .summary-card h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; color: var(--color-text); margin-bottom: 20px; text-align: center; }
+        .summary-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--color-border); }
+        .summary-row:last-of-type { border-bottom: none; }
+        .summary-label { font-size: 0.85rem; color: var(--color-text-tertiary); font-weight: 500; }
+        .summary-value { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; color: var(--color-text); }
+        .summary-tips { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--color-border); }
+        .summary-tips h4 { font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; margin-bottom: 12px; color: var(--color-text); }
+        .summary-tips li { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.55; margin-bottom: 6px; padding-left: 20px; position: relative; list-style: none; }
+        .summary-tips li::before { content: '✓'; position: absolute; left: 0; color: var(--color-sage); font-weight: 700; }
+
+        /* SECTION 3: POSE PICKER */
+        .pose-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 640px; margin: 0 auto 24px; }
+        @media (max-width: 600px) { .pose-grid { grid-template-columns: repeat(2, 1fr); } }
+        .pose-card { background: #fff; border: 2px solid var(--color-border); border-radius: var(--radius-md); padding: 20px 12px 16px; text-align: center; cursor: pointer; transition: all 0.25s ease; }
+        .pose-card:hover { border-color: var(--color-text-tertiary); transform: translateY(-2px); }
+        .pose-card.active { border-color: var(--color-text); background: var(--color-surface); }
+        .pose-card svg { width: 64px; height: 100px; margin-bottom: 10px; }
+        .pose-card-name { font-family: var(--font-display); font-weight: 700; font-size: 0.82rem; color: var(--color-text); }
+        .pose-detail { background: #fff; border-radius: var(--radius-lg); padding: 28px 24px; box-shadow: var(--shadow-card); max-width: 640px; margin: 0 auto; display: none; animation: hiwFadeIn 0.35s ease forwards; }
+        .pose-detail.visible { display: block; }
+        .pose-detail h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--color-text); margin-bottom: 8px; }
+        .pose-detail .pose-purpose { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.65; margin-bottom: 16px; }
+        .pose-detail .pose-reveals { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+        .pose-detail .pose-pill { padding: 4px 12px; border-radius: var(--radius-full); background: var(--color-surface); font-size: 0.78rem; font-weight: 600; color: var(--color-text-secondary); }
+        .pose-detail .pose-tip { font-size: 0.85rem; color: var(--color-sage); font-weight: 500; font-style: italic; }
+
+        /* SECTION 4: QUIZ */
+        .quiz-questions { max-width: 520px; margin: 0 auto 32px; }
+        .quiz-q { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--color-border); }
+        .quiz-q-text { font-size: 0.92rem; color: var(--color-text); flex: 1; padding-right: 16px; line-height: 1.5; }
+        .quiz-toggle { display: flex; gap: 6px; flex-shrink: 0; }
+        .quiz-btn { width: 44px; height: 32px; border-radius: var(--radius-full); border: 1.5px solid var(--color-border); background: #fff; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: all 0.2s; color: var(--color-text-tertiary); font-family: var(--font-display); }
+        .quiz-btn.yes.on { background: var(--color-sage); border-color: var(--color-sage); color: #fff; }
+        .quiz-btn.no.on { background: var(--color-brand-red); border-color: var(--color-brand-red); color: #fff; }
+
+        /* Score Gauge */
+        .score-wrap { text-align: center; margin: 0 auto; max-width: 300px; }
+        .score-ring { width: 180px; height: 180px; margin: 0 auto 20px; }
+        .score-ring-bg { fill: none; stroke: var(--color-border); stroke-width: 10; }
+        .score-ring-fill { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 1s cubic-bezier(0.4,0,0.2,1), stroke 0.5s; transform: rotate(-90deg); transform-origin: center; }
+        .score-number { font-family: var(--font-display); font-size: 2.8rem; font-weight: 900; color: var(--color-text); }
+        .score-label { font-family: var(--font-display); font-weight: 700; font-size: 1rem; margin-top: 4px; }
+        .score-tips { max-width: 520px; margin: 28px auto 0; text-align: left; }
+        .score-tips h4 { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; color: var(--color-text); }
+        .score-tip-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; }
+        .score-tip-item svg { flex-shrink: 0; width: 16px; height: 16px; color: var(--color-brand-red); margin-top: 2px; }
+        .score-tip-item span { font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.55; }
+
+        /* CTA */
+        .tool-cta { padding: 72px var(--sp-md); text-align: center; background: var(--color-surface); }
+        .tool-cta-inner { max-width: 480px; margin: 0 auto; }
+        .tool-cta-icon { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 16px; background: var(--color-text); display: flex; align-items: center; justify-content: center; }
+        .tool-cta-icon svg { width: 30px; height: 30px; color: #fff; }
+        .tool-cta h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; letter-spacing: -0.025em; color: var(--color-text); margin-bottom: 12px; }
+        .tool-cta p { font-size: 1rem; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 24px; }
+
+        /* BLOG LINKS */
+        .related-posts { padding: 56px var(--sp-md); }
+        .related-posts-inner { max-width: 800px; margin: 0 auto; }
+        .related-posts h2 { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; text-align: center; margin-bottom: 24px; color: var(--color-text); }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+        .related-card { background: var(--color-surface); border-radius: var(--radius-md); padding: 20px; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; }
+        .related-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+        .related-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 0.92rem; color: var(--color-text); margin-bottom: 6px; line-height: 1.35; }
+        .related-card p { font-size: 0.8rem; color: var(--color-text-tertiary); line-height: 1.5; }
+
+        /* FAQ */
+        .tool-faq { background: var(--color-surface); padding: 72px var(--sp-md); }
+        .tool-faq-inner { max-width: 680px; margin: 0 auto; }
+        .tool-faq h2 { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; text-align: center; margin-bottom: 32px; color: var(--color-text); }
+        .faq-item { border-bottom: 1px solid var(--color-border); }
+        .faq-item:first-child { border-top: 1px solid var(--color-border); }
+        .faq-question { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--color-text); padding: 20px 0; cursor: pointer; background: none; border: none; width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color 0.2s ease; }
+        .faq-question:hover { color: var(--color-sage); }
+        .faq-question::after { content: '+'; font-size: 1.4rem; font-weight: 300; flex-shrink: 0; transition: transform 0.25s ease; color: var(--color-text-tertiary); }
+        .faq-item.open .faq-question::after { content: '\2212'; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0; }
+        .faq-item.open .faq-answer { max-height: 300px; padding: 0 0 20px 0; }
+        .faq-answer p { color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.65; margin: 0; }
+
+        /* Quiz CTA */
+        .quiz-cta-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em; padding: 18px 48px; border-radius: var(--radius-full); border: none; background: var(--color-text); color: #fff; cursor: pointer; transition: all 0.25s ease; min-width: 260px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+        .quiz-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(0,0,0,0.22); }
+        .quiz-cta-btn:disabled { opacity: 0.25; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        /* App Store badge inline */
+        .tool-cta .appstore-link { display: inline-block; transition: transform 0.3s ease; }
+        .tool-cta .appstore-link:hover { transform: scale(1.05); }
+        .tool-cta .appstore-badge { height: 52px; width: auto; display: block; }
+
+        @media (max-width: 600px) {
+            .builder-options { grid-template-columns: 1fr; }
+            .comparison-label { font-size: 0.7rem; padding: 5px 10px; }
+            .quiz-cta-btn { min-width: unset; width: 100%; padding: 16px 32px; }
+        }
+    

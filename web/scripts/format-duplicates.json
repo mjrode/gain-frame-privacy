@@ -1,0 +1,370 @@
+{
+  "count": 91,
+  "totalBytes": 184875064,
+  "files": [
+    {
+      "path": "/blog/before-after-comparing-progress-photos/assets/after.PNG",
+      "size": 7965182
+    },
+    {
+      "path": "/blog/before-after-comparing-progress-photos/assets/before.PNG",
+      "size": 7337798
+    },
+    {
+      "path": "/blog/before-after-comparing-progress-photos/assets/slider.PNG",
+      "size": 7201906
+    },
+    {
+      "path": "/assets/deep-dive-single-updated/summary.PNG",
+      "size": 6025351
+    },
+    {
+      "path": "/blog/how-ai-body-composition-analysis-works/assets/summary.PNG",
+      "size": 6025351
+    },
+    {
+      "path": "/blog/understanding-ai-physique-score/assets/deep-diver.PNG",
+      "size": 5899298
+    },
+    {
+      "path": "/assets/deep-dive-compare/summary.PNG",
+      "size": 5665291
+    },
+    {
+      "path": "/blog/deep-dive-compare/assets/summary.PNG",
+      "size": 5665291
+    },
+    {
+      "path": "/assets/GF-Promo/time-line-video.PNG",
+      "size": 5181955
+    },
+    {
+      "path": "/blog/timeline-tracking-guide/assets/time-line-video.PNG",
+      "size": 5181955
+    },
+    {
+      "path": "/assets/GF-Promo/single-picture-hevy-integration.PNG",
+      "size": 4941727
+    },
+    {
+      "path": "/blog/before-after-comparing-progress-photos/assets/single-picture-hevy-integration.PNG",
+      "size": 4941727
+    },
+    {
+      "path": "/blog/hevy-app-gainframe-integration/assets/single-picture-hevy-integration.PNG",
+      "size": 4941727
+    },
+    {
+      "path": "/blog/smart-integrations-hevy/assets/single-picture-hevy-integration.PNG",
+      "size": 4941727
+    },
+    {
+      "path": "/blog/behind-the-prediction-future-physique/assets/future1.PNG",
+      "size": 4444885
+    },
+    {
+      "path": "/blog/before-after-comparing-progress-photos/assets/compare.PNG",
+      "size": 4196817
+    },
+    {
+      "path": "/assets/GF-Promo/timeline-day.PNG",
+      "size": 2975292
+    },
+    {
+      "path": "/blog/hevy-app-gainframe-integration/assets/timeline-day.PNG",
+      "size": 2975292
+    },
+    {
+      "path": "/blog/timeline-tracking-guide/assets/timeline-day.PNG",
+      "size": 2975292
+    },
+    {
+      "path": "/assets/deep-dive-single-updated/macros-progress.PNG",
+      "size": 2828734
+    },
+    {
+      "path": "/blog/how-ai-body-composition-analysis-works/assets/macros-progress.PNG",
+      "size": 2828734
+    },
+    {
+      "path": "/assets/deep-dive-compare/metrics-body-comp.PNG",
+      "size": 2737360
+    },
+    {
+      "path": "/blog/deep-dive-compare/assets/metrics-body-comp.PNG",
+      "size": 2737360
+    },
+    {
+      "path": "/assets/GF-Promo/timeline-quarter.PNG",
+      "size": 2718205
+    },
+    {
+      "path": "/blog/timeline-tracking-guide/assets/timeline-quarter.PNG",
+      "size": 2718205
+    },
+    {
+      "path": "/assets/deep-dive-compare/muscle-compare.PNG",
+      "size": 2607991
+    },
+    {
+      "path": "/blog/deep-dive-compare/assets/muscle-compare.PNG",
+      "size": 2607991
+    },
+    {
+      "path": "/assets/deep-dive-single-updated/recs.PNG",
+      "size": 2530667
+    },
+    {
+      "path": "/blog/how-ai-body-composition-analysis-works/assets/recs.PNG",
+      "size": 2530667
+    },
+    {
+      "path": "/assets/deep-dive-compare/recs.PNG",
+      "size": 2476420
+    },
+    {
+      "path": "/assets/deep-dive-single-updated/posture-symetry.PNG",
+      "size": 2414367
+    },
+    {
+      "path": "/blog/how-ai-body-composition-analysis-works/assets/posture-symetry.PNG",
+      "size": 2414367
+    },
+    {
+      "path": "/assets/deep-dive-compare/macros-progress.PNG",
+      "size": 2373653
+    },
+    {
+      "path": "/blog/deep-dive-compare/assets/macros-progress.PNG",
+      "size": 2373653
+    },
+    {
+      "path": "/assets/deep-dive-compare/improvements.PNG",
+      "size": 2360414
+    },
+    {
+      "path": "/blog/deep-dive-compare/assets/improvements.PNG",
+      "size": 2360414
+    },
+    {
+      "path": "/assets/deep-dive-single-updated/muscle-groups.PNG",
+      "size": 2244429
+    },
+    {
+      "path": "/blog/how-ai-body-composition-analysis-works/assets/muscle-groups.PNG",
+      "size": 2244429
+    },
+    {
+      "path": "/assets/team/michael-rode.png",
+      "size": 2239276
+    },
+    {
+      "path": "/assets/deep-dive-compare/watch-area-posture.PNG",
+      "size": 2223929
+    },
+    {
+      "path": "/blog/deep-dive-compare/assets/watch-area-posture.PNG",
+      "size": 2223929
+    },
+    {
+      "path": "/assets/team/michael-and-daughter.png",
+      "size": 2202067
+    },
+    {
+      "path": "/blog/body-fat-from-photo-app/assets/progress-trend.png",
+      "size": 1889662
+    },
+    {
+      "path": "/blog/behind-the-prediction-future-physique/assets/future3.PNG",
+      "size": 1545482
+    },
+    {
+      "path": "/blog/behind-the-prediction-future-physique/assets/future2.PNG",
+      "size": 1502233
+    },
+    {
+      "path": "/blog/body-fat-from-photo-app/assets/body-fat-scan.png",
+      "size": 1424493
+    },
+    {
+      "path": "/assets/GF-Promo/album-sync.PNG",
+      "size": 1421931
+    },
+    {
+      "path": "/blog/smart-integrations-hevy/assets/album-sync.PNG",
+      "size": 1421931
+    },
+    {
+      "path": "/blog/5-tips-better-progress-photos/assets/deep-dive-compare.PNG",
+      "size": 1267884
+    },
+    {
+      "path": "/assets/favicons/favicon.png",
+      "size": 735597
+    },
+    {
+      "path": "/assets/tiktok/comic/the-gang-goes-to-the-gym/slide-3.png",
+      "size": 700131
+    },
+    {
+      "path": "/assets/tiktok/comic/the-gang-goes-to-the-gym/slide-1.png",
+      "size": 697439
+    },
+    {
+      "path": "/assets/tiktok/comic/pawnee-goes-to-the-gym/slide-1.png",
+      "size": 677527
+    },
+    {
+      "path": "/assets/tiktok/comic/pawnee-goes-to-the-gym/slide-2.png",
+      "size": 677240
+    },
+    {
+      "path": "/assets/tiktok/comic/the-gang-goes-to-the-gym/slide-2.png",
+      "size": 671300
+    },
+    {
+      "path": "/assets/tiktok/comic/the-gang-goes-to-the-gym/slide-4.png",
+      "size": 665282
+    },
+    {
+      "path": "/assets/tiktok/comic/the-office-at-the-gym/slide-4.png",
+      "size": 644454
+    },
+    {
+      "path": "/assets/tiktok/comic/the-office-at-the-gym/slide-5.png",
+      "size": 643415
+    },
+    {
+      "path": "/assets/tiktok/comic/the-gang-goes-to-the-gym/slide-5.png",
+      "size": 642791
+    },
+    {
+      "path": "/assets/tiktok/comic/pawnee-goes-to-the-gym/slide-4.png",
+      "size": 634323
+    },
+    {
+      "path": "/assets/tiktok/comic/pawnee-goes-to-the-gym/slide-0-cover.png",
+      "size": 630156
+    },
+    {
+      "path": "/assets/tiktok/comic/pawnee-goes-to-the-gym/slide-5.png",
+      "size": 629237
+    },
+    {
+      "path": "/assets/tiktok/comic/the-gang-goes-to-the-gym/slide-0-cover.png",
+      "size": 589219
+    },
+    {
+      "path": "/assets/tiktok/comic/the-office-at-the-gym/slide-0-cover.png",
+      "size": 582017
+    },
+    {
+      "path": "/blog/body-fat-from-photo-app/assets/hero-body-fat.png",
+      "size": 578327
+    },
+    {
+      "path": "/assets/tiktok/comic/euphoria-at-the-gym/slide-1.png",
+      "size": 556700
+    },
+    {
+      "path": "/assets/tiktok/comic/euphoria-at-the-gym/slide-2.png",
+      "size": 556554
+    },
+    {
+      "path": "/assets/tiktok/comic/the-office-at-the-gym/slide-3.png",
+      "size": 537297
+    },
+    {
+      "path": "/assets/tiktok/comic/euphoria-at-the-gym/slide-0-cover.png",
+      "size": 534401
+    },
+    {
+      "path": "/assets/tiktok/comic/the-office-at-the-gym/slide-2.png",
+      "size": 530794
+    },
+    {
+      "path": "/assets/tiktok/comic/euphoria-at-the-gym/slide-4.png",
+      "size": 527356
+    },
+    {
+      "path": "/blog/body-fat-from-photo-app/assets/body-fat-trophy.png",
+      "size": 526037
+    },
+    {
+      "path": "/assets/tiktok/comic/euphoria-at-the-gym/slide-3.png",
+      "size": 517092
+    },
+    {
+      "path": "/assets/tiktok/comic/the-office-at-the-gym/slide-1.png",
+      "size": 517066
+    },
+    {
+      "path": "/assets/tiktok/comic/pawnee-goes-to-the-gym/slide-3.png",
+      "size": 516437
+    },
+    {
+      "path": "/assets/tiktok/comic/euphoria-at-the-gym/slide-5.png",
+      "size": 476472
+    },
+    {
+      "path": "/assets/GF-Promo/smart-compare-options.PNG",
+      "size": 398282
+    },
+    {
+      "path": "/blog/5-tips-better-progress-photos/assets/smart-compare-options.PNG",
+      "size": 398282
+    },
+    {
+      "path": "/blog/5-tips-better-progress-photos/assets/smart-import.PNG",
+      "size": 358248
+    },
+    {
+      "path": "/blog/behind-the-prediction-future-physique/assets/loading.PNG",
+      "size": 293805
+    },
+    {
+      "path": "/assets/blog-covers/understanding-score.png",
+      "size": 47363
+    },
+    {
+      "path": "/assets/favicons/favicon-192.png",
+      "size": 29697
+    },
+    {
+      "path": "/assets/blog-covers/smart-integrations.png",
+      "size": 28969
+    },
+    {
+      "path": "/assets/blog-covers/hevy-integration.png",
+      "size": 25876
+    },
+    {
+      "path": "/assets/blog-covers/how-ai-works.png",
+      "size": 25655
+    },
+    {
+      "path": "/assets/blog-covers/5-tips-photos.png",
+      "size": 24347
+    },
+    {
+      "path": "/assets/blog-covers/deep-dive-compare.png",
+      "size": 24089
+    },
+    {
+      "path": "/assets/blog-covers/before-after.png",
+      "size": 23850
+    },
+    {
+      "path": "/assets/blog-covers/timeline-tracking.png",
+      "size": 22340
+    },
+    {
+      "path": "/assets/blog-covers/behind-prediction.png",
+      "size": 21690
+    },
+    {
+      "path": "/assets/favicons/favicon-48.png",
+      "size": 3169
+    }
+  ]
+}

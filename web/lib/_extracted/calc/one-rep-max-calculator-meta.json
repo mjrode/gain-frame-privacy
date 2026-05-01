@@ -1,0 +1,78 @@
+{
+  "slug": "one-rep-max-calculator",
+  "title": "1RM Calculator — One Rep Max &amp; Strength Standards | GainFrame",
+  "description": "Free one rep max calculator using 6 proven formulas (Epley, Brzycki, Lombardi, Mayhew, O",
+  "canonical": "https://gainframe.app/tools/one-rep-max-calculator/",
+  "ogTitle": "1RM Calculator — GainFrame",
+  "ogDescription": "Calculate your one rep max with 6 formulas and see where you rank on the strength-standards scale from Untrained to Elite.",
+  "ogImage": "https://gainframe.app/assets/gainframe-og-1200x630.png",
+  "twitterTitle": "1RM Calculator — GainFrame",
+  "twitterDescription": "Calculate your one rep max with 6 formulas and see where you rank on the strength-standards scale from Untrained to Elite.",
+  "schemas": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "1RM Calculator",
+      "description": "Calculate your one rep max using 6 validated formulas. See training percentages and your strength standard tier for squat, bench, deadlift, and overhead press. Free, no signup required.",
+      "url": "https://gainframe.app/tools/one-rep-max-calculator/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GainFrame",
+        "url": "https://gainframe.app"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a 1RM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1RM stands for one rep max — the heaviest weight you can lift for a single repetition with good form. Knowing your 1RM is essential for setting training weights, tracking strength progress, and comparing yourself to strength standards."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate are 1RM calculators?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1RM calculators are most accurate when reps are low — typically within 2–3% of your true max at 3–5 reps. Accuracy decreases at higher rep counts because muscular endurance becomes the limiting factor rather than pure strength. For the most reliable estimate, use a set taken close to failure at 3–6 reps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which 1RM formula is most accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No single formula is universally the most accurate — each was derived from different populations and lift types. Epley and Brzycki are the most cited and tend to agree closely at low rep ranges (1–5). Mayhew and Wathan use exponential curves and can be more accurate at higher reps. Averaging several formulas typically gives the most reliable estimate, which is why this calculator shows all six."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are strength standards?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Strength standards are benchmarks that compare your lifts to the general lifting population, scaled to your bodyweight. They are typically split into five tiers — Untrained, Novice, Intermediate, Advanced, and Elite — and differ by lift and sex. A 1.5× bodyweight bench press is considered Intermediate-to-Advanced for most men, while 1× bodyweight is solid Novice-to-Intermediate territory."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I use the training percentage table?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Once you know your 1RM, you can target specific percentages to train different qualities: 85–100% for pure strength, 75–85% for hypertrophy (muscle growth), and 60–75% for endurance or technique work. The table shows the weight you should load for common rep targets — for example, 85% of your 1RM for a set of 6 reps is a classic hypertrophy scheme."
+          }
+        }
+      ]
+    }
+  ]
+}

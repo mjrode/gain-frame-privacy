@@ -1,0 +1,78 @@
+{
+  "slug": "progress-photo-setup",
+  "title": "Progress Photo Setup Tool — Perfect Your Gym Photos | GainFrame",
+  "description": "Build your perfect progress photo setup in 5 steps. Get personalized tips, pick your poses, and score your routine — free, instant, no signup.",
+  "canonical": "https://gainframe.app/tools/progress-photo-setup/",
+  "ogTitle": "Progress Photo Setup Tool — GainFrame",
+  "ogDescription": "Build your perfect progress photo setup. Personalized tips, pose guide, and setup scoring — all free.",
+  "ogImage": "https://gainframe.app/assets/gainframe-og-1200x630.png",
+  "twitterTitle": "Progress Photo Setup Tool — GainFrame",
+  "twitterDescription": "Build your perfect progress photo setup. Personalized tips, pose guide, and setup scoring — all free.",
+  "schemas": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Progress Photo Setup Tool",
+      "description": "Build your perfect progress photo setup. Get personalized tips, pick your poses, and score your current routine.",
+      "url": "https://gainframe.app/tools/progress-photo-setup/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "GainFrame",
+        "url": "https://gainframe.app"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How often should I take progress photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every 1–2 weeks is ideal. Changes happen slowly, so less than weekly avoids frustration, while more than monthly ensures you don't miss trends. Always shoot at the same time of day for consistency."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use a mirror or a timer for progress photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A timer is strongly recommended. Mirror selfies introduce angle distortion, hide one arm behind the phone, and often include flash glare. A phone on a tripod or shelf with a 3–10 second timer produces far more consistent, comparable results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What poses should I use for gym progress photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with 3-4 key poses: front relaxed, side relaxed, back relaxed, and optionally a front double bicep. These cover all major muscle groups and provide consistent comparison points over time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does lighting matter for progress photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lighting is one of the most important factors. Harsh overhead lighting creates misleading shadows that fake definition, while dim lighting hides real progress. Consistent, even lighting — ideally natural window light — produces the most honest, comparable results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI analyze my progress photos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Apps like GainFrame use AI to estimate body fat percentage, FFMI, muscle group scores, and overall physique development from a single photo. Consistent photo setup dramatically improves the accuracy of AI analysis."
+          }
+        }
+      ]
+    }
+  ]
+}

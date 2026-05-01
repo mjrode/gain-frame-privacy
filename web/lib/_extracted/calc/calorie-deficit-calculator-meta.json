@@ -1,0 +1,78 @@
+{
+  "slug": "calorie-deficit-calculator",
+  "title": "Calorie Deficit Calculator — Weight Loss Timeline | GainFrame",
+  "description": "Free calorie deficit calculator. See your daily calorie target, how long it takes to hit your goal weight, and exactly when you",
+  "canonical": "https://gainframe.app/tools/calorie-deficit-calculator/",
+  "ogTitle": "Calorie Deficit Calculator — GainFrame",
+  "ogDescription": "Enter your current weight, target, and TDEE. See your daily calorie target and projected timeline with milestones — instantly.",
+  "ogImage": "https://gainframe.app/assets/gainframe-og-1200x630.png",
+  "twitterTitle": "Calorie Deficit Calculator — GainFrame",
+  "twitterDescription": "Enter your current weight, target, and TDEE. See your daily calorie target and projected timeline with milestones — instantly.",
+  "schemas": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calorie Deficit Calculator",
+      "description": "Calculate your daily calorie target, deficit or surplus, weeks to goal, and exact projected goal date. Works for weight loss (cut) and weight gain (bulk).",
+      "url": "https://gainframe.app/tools/calorie-deficit-calculator/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GainFrame",
+        "url": "https://gainframe.app"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many calories should I eat to lose 1 pound per week?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One pound of fat is roughly 3,500 calories. To lose 1 lb per week you need a 500 cal/day deficit — so if your TDEE is 2,500 calories, you'd eat 2,000 per day. For 0.5 lb/week, a 250 cal/day deficit. The calculator does this math automatically and projects your goal date."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's a safe calorie deficit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A deficit of 10–20% below your TDEE is safe and sustainable for most people. Deficits above 25% can cause muscle loss, hormonal disruption, and metabolic adaptation that stalls progress. Never eat fewer than ~1,200 cal/day as a woman or ~1,500 cal/day as a man without medical supervision."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the 3,500 calories per pound rule?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 3,500 cal/lb figure (7,700 cal/kg) is a useful approximation but not exact. As you lose weight your TDEE drops, so actual losses tend to slow over time and timelines stretch slightly. It's accurate enough for planning — expect small deviations and adjust every 2–4 weeks based on actual progress."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a calorie surplus mean I'll just get fat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A modest surplus (200–400 cal above TDEE) paired with consistent resistance training adds mostly muscle with minimal fat gain. Larger surpluses (>500 cal) produce faster scale gains but a bigger percentage ends up as fat. Beginner lifters can gain muscle on small surpluses; experienced lifters need patience — realistic max lean gain is 0.25 lb/week for men, less for women."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I change my calorie target as I lose weight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. As your bodyweight drops, so does your TDEE. Recalculate every 10 lb lost (or ~6 weeks) and adjust your calorie target. The calculator bases its projection on a static TDEE — the actual timeline will be slightly longer, but re-running the math periodically keeps you on track."
+          }
+        }
+      ]
+    }
+  ]
+}

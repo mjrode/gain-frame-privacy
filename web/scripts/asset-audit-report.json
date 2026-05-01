@@ -1,0 +1,720 @@
+{
+  "summary": {
+    "scannedSourceFiles": 201,
+    "uniqueReferences": 248,
+    "assetFiles": 1285,
+    "totalSize": 941686264,
+    "referencedCount": 187,
+    "referencedSize": 79411036,
+    "orphanCount": 1098,
+    "orphanSize": 862275228,
+    "brokenRefs": 61
+  },
+  "orphansByCategory": [
+    {
+      "category": "/assets/tiktok",
+      "count": 580,
+      "size": 235850292
+    },
+    {
+      "category": "/app-screenshots/1.21",
+      "count": 6,
+      "size": 92081664
+    },
+    {
+      "category": "/assets/misc-images",
+      "count": 36,
+      "size": 61143141
+    },
+    {
+      "category": "/blog/every-way-to-measure-body-fat",
+      "count": 2,
+      "size": 50994135
+    },
+    {
+      "category": "/assets/before-after",
+      "count": 8,
+      "size": 34625425
+    },
+    {
+      "category": "/blog/before-after-comparing-progress-photos",
+      "count": 7,
+      "size": 31802716
+    },
+    {
+      "category": "/app-screenshots/1.2",
+      "count": 21,
+      "size": 30078295
+    },
+    {
+      "category": "/app-screenshots/1.0.20",
+      "count": 21,
+      "size": 28590058
+    },
+    {
+      "category": "/assets/GF-Promo",
+      "count": 14,
+      "size": 26367534
+    },
+    {
+      "category": "/assets/bf-precision",
+      "count": 8,
+      "size": 24529164
+    },
+    {
+      "category": "/app-screenshots/1.2-black-red",
+      "count": 16,
+      "size": 22580167
+    },
+    {
+      "category": "/assets/deep-dive-compare",
+      "count": 17,
+      "size": 21717626
+    },
+    {
+      "category": "/assets/gainframe-guy",
+      "count": 18,
+      "size": 19393266
+    },
+    {
+      "category": "/blog/deep-dive-compare",
+      "count": 9,
+      "size": 18411866
+    },
+    {
+      "category": "/app-screenshots/1.19",
+      "count": 11,
+      "size": 17256271
+    },
+    {
+      "category": "/assets/deep-dive-single-updated",
+      "count": 10,
+      "size": 16683166
+    },
+    {
+      "category": "/blog/how-ai-body-composition-analysis-works",
+      "count": 7,
+      "size": 16193924
+    },
+    {
+      "category": "/app-screenshots/1.3",
+      "count": 12,
+      "size": 12789820
+    },
+    {
+      "category": "/app-screenshots/misc",
+      "count": 8,
+      "size": 12448985
+    },
+    {
+      "category": "/blog/timeline-tracking-guide",
+      "count": 4,
+      "size": 10897720
+    },
+    {
+      "category": "/app-screenshots/1.22-ios",
+      "count": 12,
+      "size": 10884736
+    },
+    {
+      "category": "/app-screenshots/1.1",
+      "count": 10,
+      "size": 9754543
+    },
+    {
+      "category": "/blog/hevy-app-gainframe-integration",
+      "count": 5,
+      "size": 8190295
+    },
+    {
+      "category": "/blog/behind-the-prediction-future-physique",
+      "count": 7,
+      "size": 8059076
+    },
+    {
+      "category": "/blog/body-fat-percentage-chart",
+      "count": 63,
+      "size": 7418675
+    },
+    {
+      "category": "/blog/smart-integrations-hevy",
+      "count": 4,
+      "size": 6519281
+    },
+    {
+      "category": "/blog/understanding-ai-physique-score",
+      "count": 2,
+      "size": 5920515
+    },
+    {
+      "category": "/blog/body-fat-from-photo-app",
+      "count": 6,
+      "size": 4551942
+    },
+    {
+      "category": "/app-screenshots/listing-slots",
+      "count": 10,
+      "size": 4411997
+    },
+    {
+      "category": "/blog/dexa-scan-vs-ai-body-composition",
+      "count": 10,
+      "size": 2468841
+    },
+    {
+      "category": "/blog/5-tips-better-progress-photos",
+      "count": 6,
+      "size": 2212822
+    },
+    {
+      "category": "/assets/team",
+      "count": 5,
+      "size": 1180306
+    },
+    {
+      "category": "/assets/favicons",
+      "count": 4,
+      "size": 1160161
+    },
+    {
+      "category": "/assets/blog-covers",
+      "count": 30,
+      "size": 868455
+    },
+    {
+      "category": "/blog/future-physique-ai-prediction",
+      "count": 3,
+      "size": 700190
+    },
+    {
+      "category": "/blog/ai-body-fat-photo-accuracy-study",
+      "count": 6,
+      "size": 460565
+    },
+    {
+      "category": "/assets/shared",
+      "count": 5,
+      "size": 380928
+    },
+    {
+      "category": "/blog/best-body-transformation-apps",
+      "count": 7,
+      "size": 224485
+    },
+    {
+      "category": "/blog/measure-muscle-gain-without-scale",
+      "count": 2,
+      "size": 195412
+    },
+    {
+      "category": "/blog/stop-building-features-start-reading-data",
+      "count": 2,
+      "size": 126064
+    },
+    {
+      "category": "/blog/glp-1-muscle-loss-tracking",
+      "count": 3,
+      "size": 91071
+    },
+    {
+      "category": "/blog/index.html",
+      "count": 1,
+      "size": 89101
+    },
+    {
+      "category": "/blog/the-velocity-advantage",
+      "count": 2,
+      "size": 67519
+    },
+    {
+      "category": "/blog/ai-body-editor-apps-vs-real-analysis",
+      "count": 2,
+      "size": 61449
+    },
+    {
+      "category": "/blog/best-body-fat-calculator-from-photo",
+      "count": 3,
+      "size": 61098
+    },
+    {
+      "category": "/blog/best-progress-photo-apps",
+      "count": 2,
+      "size": 58609
+    },
+    {
+      "category": "/blog/resistance-training-guidelines",
+      "count": 2,
+      "size": 58327
+    },
+    {
+      "category": "/blog/two-months-launching-second-app",
+      "count": 2,
+      "size": 52139
+    },
+    {
+      "category": "/blog/why-body-fat-score-wrong",
+      "count": 2,
+      "size": 51246
+    },
+    {
+      "category": "/blog/how-to-take-progress-photos-fast",
+      "count": 2,
+      "size": 48653
+    },
+    {
+      "category": "/blog/stop-weighing-yourself-daily",
+      "count": 2,
+      "size": 44706
+    },
+    {
+      "category": "/blog/best-apps-track-weight-loss-ozempic",
+      "count": 1,
+      "size": 43028
+    },
+    {
+      "category": "/blog/best-ai-body-fat-apps",
+      "count": 1,
+      "size": 40619
+    },
+    {
+      "category": "/blog/generative-engine-optimization-case-study",
+      "count": 2,
+      "size": 39891
+    },
+    {
+      "category": "/blog/track-body-composition-ozempic",
+      "count": 1,
+      "size": 39144
+    },
+    {
+      "category": "/blog/best-ai-personal-trainer-apps",
+      "count": 1,
+      "size": 37815
+    },
+    {
+      "category": "/blog/body-composition-for-lifters",
+      "count": 1,
+      "size": 34918
+    },
+    {
+      "category": "/blog/dexa-scan-alternative",
+      "count": 1,
+      "size": 34906
+    },
+    {
+      "category": "/assets/.DS_Store",
+      "count": 1,
+      "size": 34820
+    },
+    {
+      "category": "/blog/best-progress-photo-app-iphone",
+      "count": 1,
+      "size": 34029
+    },
+    {
+      "category": "/blog/gainframe-is-live",
+      "count": 2,
+      "size": 33820
+    },
+    {
+      "category": "/blog/natty-limit",
+      "count": 1,
+      "size": 33434
+    },
+    {
+      "category": "/blog/best-ai-fitness-apps-track-body",
+      "count": 1,
+      "size": 33309
+    },
+    {
+      "category": "/blog/gainframe-widgets",
+      "count": 2,
+      "size": 33228
+    },
+    {
+      "category": "/blog/trackbod-vs-gainframe",
+      "count": 1,
+      "size": 32837
+    },
+    {
+      "category": "/blog/best-ai-body-composition-app",
+      "count": 1,
+      "size": 32461
+    },
+    {
+      "category": "/blog/ozempic-bodybuilding-cut-without-losing-muscle",
+      "count": 1,
+      "size": 32362
+    },
+    {
+      "category": "/blog/spren-app-review",
+      "count": 1,
+      "size": 32253
+    },
+    {
+      "category": "/blog/metamorph-vs-gainframe",
+      "count": 1,
+      "size": 32220
+    },
+    {
+      "category": "/blog/in-app-chat",
+      "count": 2,
+      "size": 31196
+    },
+    {
+      "category": "/blog/how-to-read-body-fat-from-photos",
+      "count": 1,
+      "size": 30815
+    },
+    {
+      "category": "/blog/best-gym-progress-photo-app",
+      "count": 1,
+      "size": 29765
+    },
+    {
+      "category": "/blog/ozempic-before-and-after-photos-men",
+      "count": 1,
+      "size": 28851
+    },
+    {
+      "category": "/blog/chatgpt-workout-plan",
+      "count": 1,
+      "size": 28796
+    },
+    {
+      "category": "/blog/how-to-take-progress-photos-weight-loss",
+      "count": 1,
+      "size": 28727
+    },
+    {
+      "category": "/blog/how-to-estimate-body-fat-from-photo",
+      "count": 1,
+      "size": 27470
+    },
+    {
+      "category": "/blog/best-body-composition-apps",
+      "count": 1,
+      "size": 27155
+    },
+    {
+      "category": "/blog/take-progress-photos-by-yourself",
+      "count": 1,
+      "size": 26828
+    },
+    {
+      "category": "/blog/how-often-progress-photos",
+      "count": 1,
+      "size": 26470
+    },
+    {
+      "category": "/blog/bulk-cut-or-recomp",
+      "count": 1,
+      "size": 26269
+    },
+    {
+      "category": "/blog/body-transformation-tracker-apps",
+      "count": 1,
+      "size": 26040
+    },
+    {
+      "category": "/blog/how-to-track-muscle-gain-progress",
+      "count": 1,
+      "size": 25521
+    },
+    {
+      "category": "/blog/visceral-fat-appearance",
+      "count": 1,
+      "size": 25402
+    },
+    {
+      "category": "/blog/visceral-fat-vs-subcutaneous-fat",
+      "count": 1,
+      "size": 24780
+    },
+    {
+      "category": "/blog/how-long-does-body-recomposition-take",
+      "count": 1,
+      "size": 24517
+    },
+    {
+      "category": "/blog/from-score-to-action-target-training",
+      "count": 1,
+      "size": 24006
+    },
+    {
+      "category": "/blog/body-fat-visible-jawline-men",
+      "count": 1,
+      "size": 23867
+    },
+    {
+      "category": "/blog/best-apps-track-muscle-gain",
+      "count": 1,
+      "size": 23847
+    },
+    {
+      "category": "/blog/best-free-progress-photo-apps",
+      "count": 1,
+      "size": 23124
+    },
+    {
+      "category": "/blog/visceral-fat-test",
+      "count": 1,
+      "size": 23011
+    },
+    {
+      "category": "/blog/body-fat-percentage-vs-bmi",
+      "count": 1,
+      "size": 22569
+    },
+    {
+      "category": "/blog/visceral-fat-level",
+      "count": 1,
+      "size": 22377
+    },
+    {
+      "category": "/blog/ffmi-chart",
+      "count": 1,
+      "size": 22118
+    },
+    {
+      "category": "/blog/meet-gainframe-guy",
+      "count": 1,
+      "size": 21868
+    },
+    {
+      "category": "/blog/best-fitness-app-stack-2026",
+      "count": 1,
+      "size": 21370
+    },
+    {
+      "category": "/blog/visceral-fat-app",
+      "count": 1,
+      "size": 20527
+    },
+    {
+      "category": "/blog/what-is-ffmi",
+      "count": 1,
+      "size": 20515
+    },
+    {
+      "category": "/blog/lean-mass-vs-muscle-mass",
+      "count": 1,
+      "size": 20505
+    },
+    {
+      "category": "/blog/track-body-recomposition-photos",
+      "count": 1,
+      "size": 19741
+    },
+    {
+      "category": "/blog/best-before-after-transformation-apps-women",
+      "count": 1,
+      "size": 19739
+    },
+    {
+      "category": "/blog/best-before-after-transformations-men",
+      "count": 1,
+      "size": 17210
+    },
+    {
+      "category": "/assets/email-capture-bar.js",
+      "count": 1,
+      "size": 12957
+    },
+    {
+      "category": "/blog/.DS_Store",
+      "count": 1,
+      "size": 10244
+    },
+    {
+      "category": "/app-screenshots/.DS_Store",
+      "count": 1,
+      "size": 8196
+    },
+    {
+      "category": "/assets/newsletter-form.js",
+      "count": 1,
+      "size": 6979
+    },
+    {
+      "category": "/assets/shared-nav.js",
+      "count": 1,
+      "size": 6646
+    },
+    {
+      "category": "/assets/scroll-reveal.js",
+      "count": 1,
+      "size": 947
+    },
+    {
+      "category": "/site.webmanifest",
+      "count": 1,
+      "size": 727
+    }
+  ],
+  "largestOrphans": [
+    {
+      "path": "/app-screenshots/1.21/screen-recording-1-21.MP4",
+      "size": 85547257
+    },
+    {
+      "path": "/blog/every-way-to-measure-body-fat/assets/precision-bf-demo.mov",
+      "size": 50950527
+    },
+    {
+      "path": "/assets/GF-Promo/deep-dive-single-picture.mp4",
+      "size": 8191522
+    },
+    {
+      "path": "/assets/before-after/after.PNG",
+      "size": 7965182
+    },
+    {
+      "path": "/blog/before-after-comparing-progress-photos/assets/after.PNG",
+      "size": 7965182
+    },
+    {
+      "path": "/assets/before-after/before.PNG",
+      "size": 7337798
+    },
+    {
+      "path": "/blog/before-after-comparing-progress-photos/assets/before.PNG",
+      "size": 7337798
+    },
+    {
+      "path": "/assets/before-after/slider.PNG",
+      "size": 7201906
+    },
+    {
+      "path": "/blog/before-after-comparing-progress-photos/assets/slider.PNG",
+      "size": 7201906
+    },
+    {
+      "path": "/assets/deep-dive-single-updated/summary.PNG",
+      "size": 6025351
+    },
+    {
+      "path": "/blog/how-ai-body-composition-analysis-works/assets/summary.PNG",
+      "size": 6025351
+    },
+    {
+      "path": "/assets/before-after/deep-diver.PNG",
+      "size": 5899298
+    },
+    {
+      "path": "/blog/understanding-ai-physique-score/assets/deep-diver.PNG",
+      "size": 5899298
+    },
+    {
+      "path": "/assets/deep-dive-compare/summary.PNG",
+      "size": 5665291
+    },
+    {
+      "path": "/blog/deep-dive-compare/assets/summary.PNG",
+      "size": 5665291
+    },
+    {
+      "path": "/assets/bf-precision/deep-dive-single.PNG",
+      "size": 5640989
+    },
+    {
+      "path": "/assets/GF-Promo/time-line-video.PNG",
+      "size": 5181955
+    },
+    {
+      "path": "/blog/timeline-tracking-guide/assets/time-line-video.PNG",
+      "size": 5181955
+    },
+    {
+      "path": "/assets/GF-Promo/single-picture-hevy-integration.PNG",
+      "size": 4941727
+    },
+    {
+      "path": "/blog/before-after-comparing-progress-photos/assets/single-picture-hevy-integration.PNG",
+      "size": 4941727
+    },
+    {
+      "path": "/blog/hevy-app-gainframe-integration/assets/single-picture-hevy-integration.PNG",
+      "size": 4941727
+    },
+    {
+      "path": "/blog/smart-integrations-hevy/assets/single-picture-hevy-integration.PNG",
+      "size": 4941727
+    },
+    {
+      "path": "/assets/bf-precision/deep-dive-compare.PNG",
+      "size": 4933635
+    },
+    {
+      "path": "/assets/misc-images/future/future1.PNG",
+      "size": 4444885
+    },
+    {
+      "path": "/blog/behind-the-prediction-future-physique/assets/future1.PNG",
+      "size": 4444885
+    }
+  ],
+  "brokenReferences": [
+    "/assets/gainframe-og-1200x630.png",
+    "/blog/5-tips-better-progress-photos/assets/shared/deep-dive-compare.webp",
+    "/blog/5-tips-better-progress-photos/assets/shared/smart-import.webp",
+    "/blog/before-after-comparing-progress-photos/assets/shared/single-picture-hevy-integration.webp",
+    "/blog/best-ai-body-composition-app/assets/cover.webp",
+    "/blog/best-ai-body-composition-app/assets/score.webp",
+    "/blog/best-ai-body-composition-app/assets/compare.webp",
+    "/blog/best-ai-fitness-apps-track-body/assets/cover.webp",
+    "/blog/best-ai-fitness-apps-track-body/assets/score.png",
+    "/blog/best-ai-fitness-apps-track-body/assets/muscle-map.png",
+    "/blog/best-ai-personal-trainer-apps/assets/cover.webp",
+    "/blog/best-ai-personal-trainer-apps/assets/muscle-map.png",
+    "/blog/best-ai-personal-trainer-apps/assets/compare.png",
+    "/blog/best-apps-track-weight-loss-ozempic/assets/cover.webp",
+    "/blog/best-apps-track-weight-loss-ozempic/assets/weight-chart.png",
+    "/blog/best-apps-track-weight-loss-ozempic/assets/dashboard.png",
+    "/blog/best-before-after-transformation-apps-women/assets/cover.webp",
+    "/blog/best-before-after-transformation-apps-women/assets/timeline.webp",
+    "/blog/best-before-after-transformation-apps-women/assets/recomp.webp",
+    "/blog/best-free-progress-photo-apps/assets/cover.webp",
+    "/blog/best-free-progress-photo-apps/assets/gallery.png",
+    "/blog/best-free-progress-photo-apps/assets/compare.png",
+    "/blog/best-gym-progress-photo-app/assets/cover.webp",
+    "/blog/best-gym-progress-photo-app/assets/muscle-map.png",
+    "/blog/best-gym-progress-photo-app/assets/dashboard.png",
+    "/blog/best-progress-photo-app-iphone/assets/cover.webp",
+    "/blog/best-progress-photo-app-iphone/assets/home.png",
+    "/blog/best-progress-photo-app-iphone/assets/gallery.png",
+    "/blog/chatgpt-workout-plan/assets/cover.webp",
+    "/blog/chatgpt-workout-plan/assets/dashboard.png",
+    "/blog/chatgpt-workout-plan/assets/weight-chart.png",
+    "/blog/dexa-scan-alternative/assets/cover.webp",
+    "/blog/dexa-scan-alternative/assets/methods.webp",
+    "/blog/dexa-scan-alternative/assets/accuracy.webp",
+    "/blog/future-physique-ai-prediction/assets/shared/ai-predict.webp",
+    "/blog/future-physique-ai-prediction/assets/your-future-physique.webp",
+    "/blog/hevy-app-gainframe-integration/assets/shared/single-picture-hevy-integration.webp",
+    "/blog/how-often-progress-photos/assets/cover.webp",
+    "/blog/how-often-progress-photos/assets/check-ins.png",
+    "/blog/how-often-progress-photos/assets/throwback.png",
+    "/blog/how-to-estimate-body-fat-from-photo/assets/cover.webp",
+    "/blog/how-to-estimate-body-fat-from-photo/assets/visual-guide.webp",
+    "/blog/how-to-estimate-body-fat-from-photo/assets/ai-method.webp",
+    "/blog/how-to-take-progress-photos-weight-loss/assets/cover.webp",
+    "/blog/how-to-take-progress-photos-weight-loss/assets/throwback.png",
+    "/blog/how-to-take-progress-photos-weight-loss/assets/weight-chart.png",
+    "/blog/ozempic-before-and-after-photos-men/assets/cover.webp",
+    "/blog/ozempic-before-and-after-photos-men/assets/compare.png",
+    "/blog/ozempic-before-and-after-photos-men/assets/muscle-map.png",
+    "/blog/ozempic-before-and-after-photos-men/assets/weight-chart.png",
+    "/blog/ozempic-bodybuilding-cut-without-losing-muscle/assets/cover.webp",
+    "/blog/ozempic-bodybuilding-cut-without-losing-muscle/assets/muscle-map.png",
+    "/blog/ozempic-bodybuilding-cut-without-losing-muscle/assets/ffmi.png",
+    "/blog/ozempic-bodybuilding-cut-without-losing-muscle/assets/score.png",
+    "/blog/smart-integrations-hevy/assets/shared/single-picture-hevy-integration.webp",
+    "/blog/take-progress-photos-by-yourself/assets/cover.webp",
+    "/blog/take-progress-photos-by-yourself/assets/gallery.png",
+    "/blog/take-progress-photos-by-yourself/assets/score.png",
+    "/blog/track-body-composition-ozempic/assets/cover.webp",
+    "/blog/track-body-composition-ozempic/assets/muscle-map.png",
+    "/blog/track-body-composition-ozempic/assets/dashboard.png"
+  ]
+}

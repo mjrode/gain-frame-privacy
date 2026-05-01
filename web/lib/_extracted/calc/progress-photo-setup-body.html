@@ -1,0 +1,137 @@
+
+    
+    
+
+    <!-- HEADER -->
+    <section class="tool-page-header">
+        <span class="tool-badge">FREE INTERACTIVE TOOL</span>
+        <h1>Progress Photo Setup Tool</h1>
+        <p>Build your perfect photo setup, pick your poses, and score your current routine — so every progress pic is consistent, comparable, and AI-ready.</p>
+    </section>
+
+    <!-- SECTION 1: COMPARISON SLIDER -->
+    <section class="tool-section alt-bg" id="comparison">
+        <div class="tool-section-inner">
+            <h2 class="scroll-reveal">See the Difference</h2>
+            <p class="section-lead scroll-reveal">Drag the slider to compare a bad setup vs a good one. Same physique — wildly different photos.</p>
+            <div class="comparison-wrap scroll-reveal" id="comparisonSlider">
+                <!-- Base layer: GOOD setup (revealed as slider moves left) -->
+                <img src="/tools/progress-photo-setup/assets/good-setup.png" alt="Good progress photo setup — tripod, plain wall, natural light" draggable="false">
+                <!-- Overlay layer: BAD setup (clipped from left) -->
+                <div class="comparison-overlay" id="compOverlay">
+                    <img src="/tools/progress-photo-setup/assets/bad-setup.png" alt="Bad progress photo setup — mirror selfie, cluttered background, flash" draggable="false">
+                </div>
+                <div class="comparison-handle" id="compHandle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"/></svg>
+                </div>
+                <span class="comparison-label bad">Bad Setup</span>
+                <span class="comparison-label good">Good Setup</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: SETUP BUILDER -->
+    <section class="tool-section" id="builder">
+        <div class="tool-section-inner">
+            <h2 class="scroll-reveal">Build Your Setup</h2>
+            <p class="section-lead scroll-reveal">Answer 5 quick questions and get a personalized photo setup plan.</p>
+            <div id="builderApp">
+                <div class="builder-progress" id="builderDots"></div>
+                <div id="builderContent"></div>
+                <div class="builder-nav" id="builderNav"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: POSE PICKER -->
+    <section class="tool-section alt-bg" id="poses">
+        <div class="tool-section-inner">
+            <h2 class="scroll-reveal">Pick Your Poses</h2>
+            <p class="section-lead scroll-reveal">Tap a pose to see what it reveals and how to nail it every time.</p>
+            <div class="pose-grid scroll-reveal" id="poseGrid"></div>
+            <div class="pose-detail" id="poseDetail"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: RATE MY SETUP -->
+    <section class="tool-section" id="quiz">
+        <div class="tool-section-inner">
+            <h2 class="scroll-reveal">Rate My Setup</h2>
+            <p class="section-lead scroll-reveal">Answer 8 quick questions about your current routine and get a score.</p>
+            <div class="quiz-questions scroll-reveal" id="quizQuestions"></div>
+            <div class="score-wrap" id="scoreWrap" style="display:none;"></div>
+            <div style="text-align:center; margin-top:32px;" id="quizSubmitWrap">
+                <button class="quiz-cta-btn" id="quizSubmit" disabled onclick="scoreQuiz()">Score My Setup →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="tool-cta">
+        <div class="tool-cta-inner scroll-reveal">
+            <div class="tool-cta-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg>
+            </div>
+            <h2>Ready to Put Your Setup to Work?</h2>
+            <p>GainFrame's AI analyzes your progress photos to track body fat, muscle development, and physique changes over time — for free.</p>
+            <a href="https://apps.apple.com/app/gainframe-ai-gym-photos/id6739431812" class="appstore-link" aria-label="Download GainFrame on the App Store">
+                <img src="/appstore-badge.svg" alt="Download on the App Store" class="appstore-badge">
+            </a>
+        </div>
+    </section>
+
+    <!-- RELATED POSTS -->
+    <section class="related-posts">
+        <div class="related-posts-inner">
+            <h2>Related Articles</h2>
+            <div class="related-grid">
+                <a href="/blog/5-tips-better-progress-photos/" class="related-card">
+                    <h3>5 Tips for Better Progress Photos</h3>
+                    <p>Simple tweaks that make your gym photos actually useful for tracking change.</p>
+                </a>
+                <a href="/blog/how-to-take-progress-photos-fast/" class="related-card">
+                    <h3>How to Take Progress Photos Fast</h3>
+                    <p>A quick routine that takes under 60 seconds — no excuses.</p>
+                </a>
+                <a href="/blog/before-after-comparing-progress-photos/" class="related-card">
+                    <h3>Comparing Before &amp; After Photos</h3>
+                    <p>How to actually compare progress photos side-by-side for real insights.</p>
+                </a>
+                <a href="/blog/best-progress-photo-apps/" class="related-card">
+                    <h3>Best Progress Photo Apps</h3>
+                    <p>The top apps for tracking your physique over time — ranked and reviewed.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="tool-faq">
+        <div class="tool-faq-inner">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item open">
+                <button class="faq-question" onclick="toggleFaq(this)">How often should I take progress photos?</button>
+                <div class="faq-answer"><p>Every 1–2 weeks is ideal. Changes happen slowly, so less than weekly avoids frustration, while more than monthly ensures you don't miss trends. Always shoot at the same time of day for consistency.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">Should I use a mirror or a timer?</button>
+                <div class="faq-answer"><p>A timer is strongly recommended. Mirror selfies introduce angle distortion, hide one arm behind the phone, and often include flash glare. A phone on a tripod or shelf with a 3–10 second timer produces far more consistent, comparable results.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">What poses should I use?</button>
+                <div class="faq-answer"><p>Start with 3–4 key poses: front relaxed, side relaxed, back relaxed, and optionally a front double bicep. These cover all major muscle groups and provide consistent comparison points over time.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">Does lighting really matter that much?</button>
+                <div class="faq-answer"><p>Lighting is one of the most important factors. Harsh overhead lighting creates misleading shadows that fake definition, while dim lighting hides real progress. Consistent, even lighting — ideally natural window light — produces the most honest, comparable results.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">Can AI analyze my progress photos?</button>
+                <div class="faq-answer"><p>Yes. Apps like GainFrame use AI to estimate body fat percentage, FFMI, muscle group scores, and overall physique development from a single photo. Consistent photo setup dramatically improves the accuracy of AI analysis.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <div data-site-footer></div>
+
+    

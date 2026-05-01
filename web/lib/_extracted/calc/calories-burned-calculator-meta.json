@@ -1,0 +1,78 @@
+{
+  "slug": "calories-burned-calculator",
+  "title": "Calories Burned Calculator — 240+ Activities | GainFrame",
+  "description": "Free calories burned calculator for 240+ activities — from walking the dog to competitive squash. Enter your weight and duration, get instant results with METs and food-equivalent comparisons.",
+  "canonical": "https://gainframe.app/tools/calories-burned-calculator/",
+  "ogTitle": "Calories Burned Calculator — GainFrame",
+  "ogDescription": "Search 240+ activities, enter weight and duration, see calories burned with METs, rate, and food-equivalent comparisons.",
+  "ogImage": "https://gainframe.app/assets/gainframe-og-1200x630.png",
+  "twitterTitle": "Calories Burned Calculator — GainFrame",
+  "twitterDescription": "Search 240+ activities, enter weight and duration, see calories burned with METs, rate, and food-equivalent comparisons.",
+  "schemas": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calories Burned Calculator",
+      "description": "Search 240+ activities to find out how many calories you burn. Enter your weight and duration for instant results with MET values and food-equivalent comparisons.",
+      "url": "https://gainframe.app/tools/calories-burned-calculator/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GainFrame",
+        "url": "https://gainframe.app"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How are calories burned calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Calories burned are calculated from the activity's MET value (Metabolic Equivalent of Task), your bodyweight, and the duration. The formula is: calories = MET × bodyweight in kg × time in hours. This tool uses published MET values across 240+ activities, scaled exactly to your bodyweight."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a MET value?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MET stands for Metabolic Equivalent of Task. 1 MET equals the energy used when you're sitting still. A 3 MET activity burns three times as many calories per minute as resting — so slow walking (~3 MET) burns 3× resting, while running a 7-minute mile (~14 MET) burns 14× resting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the calories burned calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MET-based estimates are accurate to within about 10-15% for most people at average fitness levels. Very fit or very unfit people will burn slightly different amounts. Wearable devices that use heart rate can be more personalized, but MET tables are still the standard reference for exercise calorie estimation and are used in clinical research."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do heavier people burn more calories during the same activity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Calorie burn scales directly with bodyweight because it takes more energy to move a larger mass. Walking a mile at 200 lbs burns roughly 50% more calories than walking the same mile at 130 lbs. That's why this calculator asks for your bodyweight — it matters a lot."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which activities burn the most calories?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a 180 lb adult burning calories per hour: running at 10.9 mph (1,471), running stairs (1,226), rock climbing (899), cross-country skiing uphill (1,348), boxing in ring (981), and swimming fast freestyle (817). Generally, running, vigorous cycling, high-intensity swimming, and racket sports like squash top the list."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# Redirects for Cloudflare Pages.
+# Format: <from> <to> <status>
+# Cloudflare matches in order; first hit wins.
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# ── Old GitHub-Pages .html URLs → clean Next.js routes ──────────────────────
+/index.html              /                301
+/blog.html               /blog/           301
+/comics.html             /comics/         301
+/privacy.html            /privacy/        301
+
+# Pages that no longer exist — send to home rather than 404.
+/features.html           /                301
+/analytics-post.html     /                301

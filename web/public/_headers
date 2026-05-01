@@ -1,0 +1,28 @@
+# Cache-Control headers for Cloudflare Pages.
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# Next.js fingerprinted assets — safe to cache forever.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static media imported from /public — long cache (paths change rarely; tools
+# like CDN purge handle the edge cases).
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/blog/*/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/app-screenshots/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts (referenced from styles.css and the Google Fonts <link> in layouts).
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML — short cache so content updates propagate quickly.
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN

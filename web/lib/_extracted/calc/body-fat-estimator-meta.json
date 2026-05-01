@@ -1,0 +1,70 @@
+{
+  "slug": "body-fat-estimator",
+  "title": "Body Fat Percentage Calculator — Free Estimate | GainFrame",
+  "description": "Estimate your body fat percentage for free using the proven U.S. Navy method. Simple, accurate, and mobile-friendly. Compare your result to reference ranges.",
+  "canonical": "https://gainframe.app/tools/body-fat-estimator/",
+  "ogTitle": "Body Fat Percentage Calculator — GainFrame",
+  "ogDescription": "Free body fat % estimator using the U.S. Navy method. Enter a few measurements, get your result instantly.",
+  "ogImage": "https://gainframe.app/assets/gainframe-og-1200x630.png",
+  "twitterTitle": "Body Fat Percentage Calculator — GainFrame",
+  "twitterDescription": "Free body fat % estimator using the U.S. Navy method. Enter a few measurements, get your result instantly.",
+  "schemas": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Body Fat Percentage Calculator",
+      "description": "Estimate your body fat percentage using the U.S. Navy method. Free, instant, no signup required.",
+      "url": "https://gainframe.app/tools/body-fat-estimator/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GainFrame",
+        "url": "https://gainframe.app"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How accurate is the U.S. Navy body fat formula?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The U.S. Navy body fat formula is accurate to within ±3–4% of DEXA scan results for most people. It uses circumference measurements of the neck, waist, and hips (for women) along with height. It is most reliable for people in the normal to moderately overweight range and is one of the most widely validated field methods."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What measurements do I need for this body fat calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You need your height, neck circumference (measured just below the larynx), and waist circumference (measured at the narrowest point, typically at the navel). Women also need a hip circumference measurement at the widest point. You can use either imperial (inches) or metric (centimeters) units."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a healthy body fat percentage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Healthy body fat ranges vary by sex. For men: athletes 6–13%, fitness 14–17%, average 18–24%. For women: athletes 14–20%, fitness 21–24%, average 25–31%. Essential body fat — the minimum needed for organ function — is 2–5% for men and 10–13% for women."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is body fat percentage different from BMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BMI uses only height and weight, so it cannot distinguish between muscle and fat. A muscular person can have a high BMI but low body fat. Body fat percentage directly estimates the proportion of your body that is fat tissue, making it a much more useful metric for people who strength-train."
+          }
+        }
+      ]
+    }
+  ]
+}

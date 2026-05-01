@@ -1,0 +1,308 @@
+
+    
+    
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="tool-main">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="tool-header hero-text-stagger">
+                <span class="tool-badge">Free Tool</span>
+                <h1>FFMI Calculator</h1>
+                <p>Find out how much muscle you carry for your height — and see how close you are to the natural limit. Enter your stats, get your Fat-Free Mass Index instantly.</p>
+            </div>
+
+            <!-- Calculator Card -->
+            <div class="tool-calc-card scroll-reveal">
+
+                <!-- Gender toggle -->
+                <div class="tool-gender-toggle">
+                    <button class="tool-gender-btn active" data-gender="male" type="button">Male</button>
+                    <button class="tool-gender-btn" data-gender="female" type="button">Female</button>
+                </div>
+
+                <!-- Height -->
+                <div class="tool-input-group">
+                    <label class="tool-input-label">
+                        Height
+                        <div class="tool-unit-toggle" data-unit-group="height">
+                            <button class="tool-unit-btn active" data-unit="imperial" type="button">ft / in</button>
+                            <button class="tool-unit-btn" data-unit="metric" type="button">cm</button>
+                        </div>
+                    </label>
+                    <div class="tool-input-row" id="heightImperial">
+                        <input type="number" class="tool-input-field" id="heightFt" placeholder="5" min="3" max="8" inputmode="numeric">
+                        <input type="number" class="tool-input-field" id="heightIn" placeholder="10" min="0" max="11" inputmode="numeric">
+                    </div>
+                    <div class="tool-input-row" id="heightMetric" style="display: none;">
+                        <input type="number" class="tool-input-field" id="heightCm" placeholder="178" min="100" max="250" inputmode="numeric">
+                    </div>
+                </div>
+
+                <!-- Weight -->
+                <div class="tool-input-group">
+                    <label class="tool-input-label">
+                        Weight
+                        <div class="tool-unit-toggle" data-unit-group="weight">
+                            <button class="tool-unit-btn active" data-unit="imperial" type="button">lbs</button>
+                            <button class="tool-unit-btn" data-unit="metric" type="button">kg</button>
+                        </div>
+                    </label>
+                    <input type="number" class="tool-input-field" id="weight" placeholder="180" step="0.1" inputmode="decimal">
+                </div>
+
+                <!-- Body fat -->
+                <div class="tool-input-group">
+                    <label class="tool-input-label">
+                        Body fat
+                        <span class="tool-input-hint">%</span>
+                    </label>
+                    <input type="number" class="tool-input-field" id="bodyFat" placeholder="15" step="0.1" min="2" max="60" inputmode="decimal">
+                    <span class="tool-bf-help">
+                        Don't know your body fat? <a href="/tools/body-fat-estimator/">Estimate it in 60 seconds →</a>
+                    </span>
+                </div>
+
+                <!-- Calculate -->
+                <button class="tool-calc-btn" id="calcBtn" type="button">Calculate FFMI</button>
+                <p class="tool-error-msg" id="errorMsg"></p>
+
+                <!-- Result -->
+                <div class="tool-result" id="resultCard">
+                    <div class="tool-result-number" id="resultFfmi">—</div>
+                    <span class="tool-result-unit">normalized FFMI</span>
+                    <div>
+                        <span class="tool-result-category cat-average" id="resultCat">—</span>
+                    </div>
+
+                    <div class="tool-gauge">
+                        <div class="tool-gauge-fill" id="resultGauge" style="width: 0%"></div>
+                        <div class="tool-gauge-marker" id="limitMarker" data-label="Natural ~25" style="left: 66.7%;"></div>
+                    </div>
+                    <div class="tool-gauge-labels">
+                        <span>15</span>
+                        <span>18</span>
+                        <span>21</span>
+                        <span>24</span>
+                        <span>27</span>
+                        <span>30</span>
+                    </div>
+
+                    <p class="tool-result-detail" id="resultDetail"></p>
+
+                    <div class="tool-result-stats">
+                        <div class="tool-stat">
+                            <div class="tool-stat-value" id="statRawFfmi">—</div>
+                            <div class="tool-stat-label">raw FFMI</div>
+                        </div>
+                        <div class="tool-stat">
+                            <div class="tool-stat-value" id="statLeanMass">—</div>
+                            <div class="tool-stat-label">lean mass</div>
+                        </div>
+                        <div class="tool-stat">
+                            <div class="tool-stat-value" id="statFatMass">—</div>
+                            <div class="tool-stat-label">fat mass</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reference Chart -->
+            <div class="tool-reference scroll-reveal">
+                <h2>FFMI Classification</h2>
+                <p>Where you fall on the muscularity spectrum, based on Kouri et al. 1995 — the most widely cited reference for natural vs. enhanced lifters.</p>
+
+                <!-- Male ranges shown by default -->
+                <div class="tool-ref-grid" id="refGridMale">
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-below">&lt;18</div>
+                        <div class="tool-ref-info">
+                            <h4>Below Average</h4>
+                            <p class="tool-ref-desc">Little muscle for your frame. Consistent training will move this up quickly in the first year.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-average">18–20</div>
+                        <div class="tool-ref-info">
+                            <h4>Average</h4>
+                            <p class="tool-ref-desc">Typical for untrained or lightly-active men. Room for substantial natural growth.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-above">20–22</div>
+                        <div class="tool-ref-info">
+                            <h4>Above Average</h4>
+                            <p class="tool-ref-desc">Visibly in shape. A few years of consistent lifting usually land people here.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-athletic">22–23</div>
+                        <div class="tool-ref-info">
+                            <h4>Athletic</h4>
+                            <p class="tool-ref-desc">Clearly muscular. Dedicated lifters with good programming and diet reach this range.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-elite">23–24</div>
+                        <div class="tool-ref-info">
+                            <h4>Very Muscular</h4>
+                            <p class="tool-ref-desc">Years of serious training. Uncommon in the general lifting population.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card ceiling">
+                        <div class="tool-ref-dot dot-limit">24–25</div>
+                        <div class="tool-ref-info">
+                            <h4>Near Natural Limit</h4>
+                            <p class="tool-ref-desc">The upper edge of what drug-free lifters typically achieve. Rare without exceptional genetics.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card ceiling">
+                        <div class="tool-ref-dot dot-beyond">25+</div>
+                        <div class="tool-ref-info">
+                            <h4>Beyond Natural Limit</h4>
+                            <p class="tool-ref-desc">Kouri 1995 found FFMI &gt; 25 extremely rare in drug-free lifters. Possible but statistically uncommon.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Female ranges -->
+                <div class="tool-ref-grid" id="refGridFemale" style="display: none;">
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-below">&lt;15</div>
+                        <div class="tool-ref-info">
+                            <h4>Below Average</h4>
+                            <p class="tool-ref-desc">Low muscle for your frame. Resistance training can shift this quickly.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-average">15–17</div>
+                        <div class="tool-ref-info">
+                            <h4>Average</h4>
+                            <p class="tool-ref-desc">Typical for untrained or lightly-active women. Lots of room for natural growth.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-above">17–19</div>
+                        <div class="tool-ref-info">
+                            <h4>Above Average</h4>
+                            <p class="tool-ref-desc">Visibly fit and toned. Consistent lifting typically gets you here.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card">
+                        <div class="tool-ref-dot dot-athletic">19–20</div>
+                        <div class="tool-ref-info">
+                            <h4>Athletic</h4>
+                            <p class="tool-ref-desc">Clearly muscular. Serious training, good programming, and time under the bar.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card ceiling">
+                        <div class="tool-ref-dot dot-limit">20–22</div>
+                        <div class="tool-ref-info">
+                            <h4>Near Natural Limit</h4>
+                            <p class="tool-ref-desc">The upper edge of drug-free female muscularity. Years of work and favorable genetics.</p>
+                        </div>
+                    </div>
+                    <div class="tool-ref-card ceiling">
+                        <div class="tool-ref-dot dot-beyond">22+</div>
+                        <div class="tool-ref-info">
+                            <h4>Beyond Natural Limit</h4>
+                            <p class="tool-ref-desc">Rare in drug-free female lifters based on available data. Possible but uncommon.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formula Card -->
+            <div class="tool-formula scroll-reveal">
+                <h2>How FFMI is Calculated</h2>
+                <div class="tool-formula-block">
+                    <span class="eq-label">Step 1 · Lean Body Mass</span>
+                    LBM<em>(kg)</em> = Weight<em>(kg)</em> × (1 − Body Fat %)
+                </div>
+                <div class="tool-formula-block">
+                    <span class="eq-label">Step 2 · Raw FFMI</span>
+                    FFMI = LBM<em>(kg)</em> ÷ Height<em>(m)</em>²
+                </div>
+                <div class="tool-formula-block">
+                    <span class="eq-label">Step 3 · Normalize for height</span>
+                    Normalized FFMI = FFMI + 6.1 × (1.8 − Height<em>(m)</em>)
+                </div>
+                <p>Normalizing accounts for the fact that taller lifters naturally accumulate a bit less muscle per unit of squared height. Compare FFMI fairly across heights by using the normalized number — it's the version Kouri used when defining the ~25 natural ceiling.</p>
+            </div>
+
+            <!-- Other tools ribbon -->
+            <div class="tool-other scroll-reveal">
+                <h3>More Free Tools</h3>
+                <div class="tool-other-links">
+                    <a href="/tools/body-fat-estimator/">Body Fat Calculator</a>
+                    <a href="/tools/body-fat-visualizer/">Body Fat Visualizer</a>
+                    <a href="/tools/tdee-calculator/">TDEE Calculator</a>
+                    <a href="/tools/macro-calculator/">Macro Calculator</a>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="tool-cta-section scroll-reveal">
+                <div class="tool-cta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6.5 6.5 17.5 17.5"/>
+                        <path d="M21 21l-1-1"/>
+                        <path d="M3 3l1 1"/>
+                        <path d="M18 22l4-4"/>
+                        <path d="M2 6l4-4"/>
+                        <path d="M3 10l7-7"/>
+                        <path d="M14 21l7-7"/>
+                    </svg>
+                </div>
+                <h2>Track FFMI from a photo</h2>
+                <p>GainFrame's AI reads your body fat, lean mass, and FFMI from a single progress photo — no measurements, no guesswork.</p>
+                <ul class="tool-cta-list">
+                    <li>FFMI computed automatically on every photo</li>
+                    <li>See muscle group scores and weak points</li>
+                    <li>Track changes across weeks and months</li>
+                    <li>Free to start, no signup required to try</li>
+                </ul>
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank"
+                    rel="noopener" class="appstore-link">
+                    <img src="/appstore-badge.svg" alt="Download on the App Store" class="appstore-badge"
+                        style="margin: 0 auto;" loading="lazy">
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ==================== NEWSLETTER ==================== -->
+    
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/blog/">Blog</a>
+                <a href="/tools/">Tools</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    
+    
+
+    
+
+    <!-- Cloudflare Web Analytics -->
+    
+
+    <!-- Floating Download Pill -->
+    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="blog-floating-pill" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download GainFrame
+    </a>
+
+    
+    

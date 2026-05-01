@@ -1,0 +1,70 @@
+{
+  "slug": "tdee-calculator",
+  "title": "TDEE Calculator — Free Daily Calorie Estimate | GainFrame",
+  "description": "Calculate your Total Daily Energy Expenditure (TDEE) for free using the Mifflin-St Jeor equation. Find out how many calories you burn per day based on your age, weight, height, and activity level.",
+  "canonical": "https://gainframe.app/tools/tdee-calculator/",
+  "ogTitle": "TDEE Calculator — GainFrame",
+  "ogDescription": "Free TDEE calculator. Enter your stats, pick your activity level, and get your total daily calorie expenditure instantly.",
+  "ogImage": "https://gainframe.app/assets/gainframe-og-1200x630.png",
+  "twitterTitle": "TDEE Calculator — GainFrame",
+  "twitterDescription": "Free TDEE calculator. Enter your stats, pick your activity level, and get your total daily calorie expenditure instantly.",
+  "schemas": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "TDEE Calculator",
+      "description": "Calculate your Total Daily Energy Expenditure using the Mifflin-St Jeor equation. Free, instant, no signup required.",
+      "url": "https://gainframe.app/tools/tdee-calculator/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GainFrame",
+        "url": "https://gainframe.app"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is TDEE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TDEE stands for Total Daily Energy Expenditure. It is the total number of calories your body burns in a day, combining your Basal Metabolic Rate (BMR) with energy used during daily activities and exercise. Knowing your TDEE helps you set calorie targets for weight loss, maintenance, or muscle gain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is TDEE calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This calculator uses the Mifflin-St Jeor equation to estimate your BMR, then multiplies it by an activity factor. For men: BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) + 5. For women: BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) − 161. The BMR is then multiplied by an activity multiplier ranging from 1.2 (sedentary) to 1.9 (very active)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many calories should I eat to lose weight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A safe and sustainable approach is to eat 300–500 calories below your TDEE (a moderate deficit). This typically results in 0.5–1 lb of fat loss per week. Aggressive deficits above 750 calories below TDEE can cause muscle loss and metabolic adaptation, especially for active individuals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between BMR and TDEE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BMR (Basal Metabolic Rate) is the number of calories your body needs at complete rest — just to keep organs functioning. TDEE includes BMR plus all additional energy from daily movement, exercise, and the thermic effect of food. TDEE is always higher than BMR."
+          }
+        }
+      ]
+    }
+  ]
+}

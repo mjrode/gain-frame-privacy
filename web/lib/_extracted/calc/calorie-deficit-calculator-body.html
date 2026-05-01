@@ -1,0 +1,225 @@
+
+    
+    
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="tool-main">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="tool-header hero-text-stagger">
+                <span class="tool-badge">Free Tool</span>
+                <h1>Calorie Deficit Calculator</h1>
+                <p>Enter your current weight, goal weight, and TDEE. See your daily calorie target, deficit, projected timeline, and exact goal date — for cuts and bulks.</p>
+            </div>
+
+            <!-- Calculator Card -->
+            <div class="tool-calc-card scroll-reveal">
+
+                <!-- Unit toggle -->
+                <div class="section-label">Units</div>
+                <div class="tool-unit-toggle-standalone" data-unit-group="weight">
+                    <button class="tool-unit-btn active" data-unit="imperial" type="button">Imperial (lb)</button>
+                    <button class="tool-unit-btn" data-unit="metric" type="button">Metric (kg)</button>
+                </div>
+
+                <!-- Weights row -->
+                <div class="tool-input-row" style="margin-bottom: 18px;">
+                    <div class="tool-input-group compact">
+                        <label class="tool-input-label">
+                            <span>Current weight</span>
+                            <span class="tool-input-hint" id="unitLabel1">lb</span>
+                        </label>
+                        <input type="number" class="tool-input-field" id="currentWeight" placeholder="180" step="0.5" min="30" max="700" inputmode="decimal">
+                    </div>
+                    <div class="tool-input-group compact">
+                        <label class="tool-input-label">
+                            <span>Target weight</span>
+                            <span class="tool-input-hint" id="unitLabel2">lb</span>
+                        </label>
+                        <input type="number" class="tool-input-field" id="targetWeight" placeholder="165" step="0.5" min="30" max="700" inputmode="decimal">
+                    </div>
+                </div>
+
+                <!-- TDEE -->
+                <div class="tool-input-group" style="margin-bottom: 22px;">
+                    <label class="tool-input-label">
+                        <span>Your TDEE</span>
+                        <span class="tool-input-hint">daily calories</span>
+                    </label>
+                    <input type="number" class="tool-input-field" id="tdee" placeholder="2500" step="10" min="800" max="6000" inputmode="numeric">
+                    <span class="tdee-help">
+                        Don't know your TDEE? <a href="/tools/tdee-calculator/">Calculate it here →</a>
+                    </span>
+                </div>
+
+                <!-- Weekly rate -->
+                <div class="section-label" id="rateLabel">Weekly rate of change</div>
+                <div class="rate-grid" id="rateGrid">
+                    <!-- Populated by JS -->
+                </div>
+
+                <p class="tool-error-msg" id="errorMsg"></p>
+            </div>
+
+            <!-- Result -->
+            <div class="tool-result" id="resultCard">
+
+                <!-- Warning (shown conditionally) -->
+                <div class="warning-card" id="warningCard" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+                        <path d="M12 9v4"/>
+                        <path d="M12 17h.01"/>
+                    </svg>
+                    <div>
+                        <div class="warning-title" id="warningTitle">Aggressive deficit</div>
+                        <div class="warning-body" id="warningBody">Consider a slower rate to preserve muscle and avoid metabolic slowdown.</div>
+                    </div>
+                </div>
+
+                <!-- Hero -->
+                <div class="tool-result-hero">
+                    <div class="direction-chip cut" id="directionChip">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                        <span id="directionLabel">Cut</span>
+                    </div>
+                    <div>
+                        <span class="result-number" id="resultCalories">—</span>
+                        <span class="result-unit">cal / day</span>
+                    </div>
+                    <div class="result-caption">that's your daily target</div>
+                    <div class="result-context" id="resultContext">— of your TDEE · — intensity</div>
+
+                    <div class="result-stats">
+                        <div class="result-stat">
+                            <div class="result-stat-label" id="statDeficitLabel">Daily deficit</div>
+                            <div class="result-stat-value" id="statDeficit">—</div>
+                            <div class="result-stat-sub">cal / day</div>
+                        </div>
+                        <div class="result-stat">
+                            <div class="result-stat-label">Time to goal</div>
+                            <div class="result-stat-value" id="statWeeks">—</div>
+                            <div class="result-stat-sub" id="statWeeksSub">weeks</div>
+                        </div>
+                        <div class="result-stat">
+                            <div class="result-stat-label">Goal date</div>
+                            <div class="result-stat-value" id="statDate">—</div>
+                            <div class="result-stat-sub" id="statDateSub">projected</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline visualization -->
+                <div class="timeline-card">
+                    <h3>Your Timeline</h3>
+                    <p class="subtitle" id="timelineSubtitle">Milestones from today to goal.</p>
+                    <div class="timeline-wrap">
+                        <div class="timeline-track" id="timelineTrack">
+                            <!-- Markers populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips strip -->
+                <div class="tips-card" id="tipsCard">
+                    <h3 id="tipsTitle">Tips to hit your goal</h3>
+                    <p id="tipsIntro">Evidence-based guardrails for this phase.</p>
+                    <div class="tips-grid" id="tipsGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Methodology card -->
+            <div class="tool-formula scroll-reveal">
+                <h2>How It's Calculated</h2>
+                <div class="tool-formula-block">
+                    <span class="eq-label">Step 1 · Total calories to change</span>
+                    ΔWeight × <span id="calPerUnit">3,500</span> cal per <span id="calPerUnitLabel">lb</span>
+                </div>
+                <div class="tool-formula-block">
+                    <span class="eq-label">Step 2 · Daily deficit or surplus</span>
+                    Weekly rate × <span id="calPerUnit2">3,500</span> ÷ 7
+                </div>
+                <div class="tool-formula-block">
+                    <span class="eq-label">Step 3 · Daily calorie target</span>
+                    TDEE ± Daily deficit/surplus
+                </div>
+                <p>The 3,500 calories per pound (7,700 per kilogram) rule is a useful approximation, not an exact law. Real fat loss is slightly slower over time because your TDEE drops as you lose weight — expect the actual timeline to run 5–15% longer than predicted. Re-run the math every 2–4 weeks based on how the scale actually moves.</p>
+                <p><strong>Protein matters.</strong> In a deficit, eating 0.8–1 g of protein per pound of bodyweight preserves muscle mass. In a surplus, the same protein target maximizes lean gain over fat gain.</p>
+            </div>
+
+            <!-- Other tools -->
+            <div class="tool-other scroll-reveal">
+                <h3>More Free Tools</h3>
+                <div class="tool-other-links">
+                    <a href="/tools/tdee-calculator/">TDEE Calculator</a>
+                    <a href="/tools/macro-calculator/">Macro Calculator</a>
+                    <a href="/tools/body-fat-estimator/">Body Fat Calculator</a>
+                    <a href="/tools/calories-burned-calculator/">Calories Burned</a>
+                    <a href="/tools/ffmi-calculator/">FFMI Calculator</a>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="tool-cta-section scroll-reveal">
+                <div class="tool-cta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3v18h18"/>
+                        <path d="m19 9-5 5-4-4-3 3"/>
+                    </svg>
+                </div>
+                <h2>Is the scale actually dropping fat?</h2>
+                <p>Weight loss isn't always fat loss. GainFrame uses AI to track your body fat, FFMI, and muscle scores from a photo — so you know if your cut is working the way you think.</p>
+                <ul class="tool-cta-list">
+                    <li>Track body fat % alongside scale weight</li>
+                    <li>See if you're losing fat or muscle</li>
+                    <li>Photo-based progress across weeks</li>
+                    <li>Free to start, no signup required</li>
+                </ul>
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank"
+                    rel="noopener" class="appstore-link">
+                    <img src="/appstore-badge.svg" alt="Download on the App Store" class="appstore-badge"
+                        style="margin: 0 auto;" loading="lazy">
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Newsletter -->
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/blog/">Blog</a>
+                <a href="/tools/">Tools</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    
+    
+
+    
+
+    <!-- Cloudflare Web Analytics -->
+    
+
+    <!-- Floating Download Pill -->
+    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="blog-floating-pill" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download GainFrame
+    </a>
+
+    
+    

@@ -1,0 +1,70 @@
+{
+  "slug": "macro-calculator",
+  "title": "Macro Calculator — Free Protein, Carb &amp; Fat Targets | GainFrame",
+  "description": "Calculate your ideal macronutrient split for free. Get protein, carb, and fat targets based on your TDEE, body weight, and fitness goal — cutting, maintaining, or bulking.",
+  "canonical": "https://gainframe.app/tools/macro-calculator/",
+  "ogTitle": "Macro Calculator — GainFrame",
+  "ogDescription": "Free macro calculator. Get personalized protein, carb, and fat targets based on your body and goals.",
+  "ogImage": "https://gainframe.app/assets/gainframe-og-1200x630.png",
+  "twitterTitle": "Macro Calculator — GainFrame",
+  "twitterDescription": "Free macro calculator. Get personalized protein, carb, and fat targets based on your body and goals.",
+  "schemas": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Macro Calculator",
+      "description": "Calculate your ideal macronutrient targets (protein, carbs, fat) based on your weight, TDEE, and fitness goal. Free, instant, no signup required.",
+      "url": "https://gainframe.app/tools/macro-calculator/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GainFrame",
+        "url": "https://gainframe.app"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much protein do I need per day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For people who strength-train, research supports 0.7–1.0 grams of protein per pound of body weight (1.6–2.2 g/kg) for muscle building and retention. During a calorie deficit (cutting), aiming for the higher end (1.0 g/lb) helps preserve lean mass. During a surplus (bulking), 0.8 g/lb is generally sufficient."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are macros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Macros is short for macronutrients — the three main categories of nutrients that provide calories: protein (4 cal/g), carbohydrates (4 cal/g), and fat (9 cal/g). Tracking macros rather than just total calories helps ensure you get enough protein for muscle growth while balancing energy from carbs and fats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate my macros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with your Total Daily Energy Expenditure (TDEE), then adjust calories up or down based on your goal. Set protein first (typically 0.8–1.0 g per pound of body weight), then fat (around 25–30% of total calories), and fill the remainder with carbohydrates. This calculator handles all of that math for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I eat the same macros on rest days?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For most people, keeping macros consistent every day is simpler and just as effective. Advanced athletes sometimes use carb cycling — eating more carbs on training days and fewer on rest days — but the total weekly intake matters more than daily fluctuations. Consistency beats complexity."
+          }
+        }
+      ]
+    }
+  ]
+}

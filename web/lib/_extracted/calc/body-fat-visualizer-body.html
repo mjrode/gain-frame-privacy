@@ -1,0 +1,236 @@
+
+    
+    
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="tool-main">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="tool-header hero-text-stagger">
+                <span class="tool-badge">Free Tool</span>
+                <h1>Body Fat Percentage at Each Age</h1>
+                <p>Drag the sliders to see what every body fat percentage actually looks like — across ages 20s through 60s, for both men and women. Photorealistic references, zero guesswork.</p>
+            </div>
+
+            <!-- ===== Visualizer Shell ===== -->
+            <div class="tool-shell scroll-reveal">
+
+                <div class="bfv" id="bfv" data-category="athletic" data-gender="male">
+                    <!-- Bar -->
+                    <div class="bfv__bar">
+                        <div class="bfv__tag">
+                            <span class="bfv__dot" aria-hidden="true"></span>
+                            <span>Live Reference</span>
+                            <div class="bfv__gender" role="radiogroup" aria-label="Gender">
+                                <button class="bfv__gender-btn" type="button" data-gender="male" data-active="true" role="radio" aria-checked="true">Male</button>
+                                <button class="bfv__gender-btn" type="button" data-gender="female" data-active="false" role="radio" aria-checked="false">Female</button>
+                            </div>
+                        </div>
+                        <div class="bfv__serial" aria-hidden="true">GF-BFV · REF-<span id="bfvSerial">0000</span></div>
+                    </div>
+
+                    <!-- Grid -->
+                    <div class="bfv__grid">
+
+                        <!-- Image pod -->
+                        <div class="bfv__pod" id="bfvPod">
+                            <div class="bfv__agechip">
+                                <span class="bfv__agechip-label">Age</span>
+                                <span class="bfv__agechip-value">
+                                    <span class="bfv__agechip-num" id="bfvAgeChipNum">30</span><span class="bfv__agechip-suffix">s</span>
+                                </span>
+                            </div>
+
+                            <div class="bfv__img-stack" id="bfvStack" aria-live="polite">
+                                <!-- Images are injected here by JS -->
+                            </div>
+
+                            <div class="bfv__corners">
+                                <span class="bfv__corner bfv__corner--tl"></span>
+                                <span class="bfv__corner bfv__corner--tr"></span>
+                                <span class="bfv__corner bfv__corner--bl"></span>
+                                <span class="bfv__corner bfv__corner--br"></span>
+                            </div>
+
+                            <div class="bfv__scale" aria-hidden="true">
+                                <!-- 21 ticks -->
+                                <span></span><span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span><span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="bfv__sweep" aria-hidden="true"></div>
+                        </div>
+
+                        <!-- Readout -->
+                        <div class="bfv__readout">
+
+                            <div class="bfv__display">
+                                <div class="bfv__display-label">
+                                    <span>Body Fat</span>
+                                    <span class="bfv__display-label-r">Reference</span>
+                                </div>
+                                <div class="bfv__pct" aria-live="polite">
+                                    <span class="bfv__pct-num" id="bfvPctNum">13</span>
+                                    <span class="bfv__pct-sign">%</span>
+                                </div>
+                                <div class="bfv__category">
+                                    <span class="bfv__swatch" aria-hidden="true"></span>
+                                    <span class="bfv__category-name" id="bfvCatName">Athletic</span>
+                                    <span class="bfv__category-sub" id="bfvCatSub">Healthy · Lean</span>
+                                </div>
+                            </div>
+
+                            <!-- BF slider -->
+                            <div class="bfv__ctrl">
+                                <div class="bfv__ctrl-head">
+                                    <span class="bfv__ctrl-title">Body Fat %</span>
+                                    <span class="bfv__ctrl-value" id="bfvBfValue">13%</span>
+                                </div>
+                                <div class="bfv__slider-wrap">
+                                    <input class="bfv__slider" id="bfvBfSlider" type="range"
+                                        min="0" max="5" step="1" value="1"
+                                        aria-label="Body fat percentage">
+                                    <div class="bfv__rail-fill" id="bfvBfFill" style="width: 20%;"></div>
+                                </div>
+                                <div class="bfv__ticks" id="bfvBfTicks"><!-- JS injects ticks based on gender --></div>
+                            </div>
+
+                            <!-- Age slider -->
+                            <div class="bfv__ctrl">
+                                <div class="bfv__ctrl-head">
+                                    <span class="bfv__ctrl-title">Age Group</span>
+                                    <span class="bfv__ctrl-value" id="bfvAgeValue">30s</span>
+                                </div>
+                                <div class="bfv__slider-wrap">
+                                    <input class="bfv__slider" id="bfvAgeSlider" type="range"
+                                        min="0" max="4" step="1" value="1"
+                                        aria-label="Age group">
+                                    <div class="bfv__rail-fill" id="bfvAgeFill" style="width: 25%;"></div>
+                                </div>
+                                <div class="bfv__ticks" id="bfvAgeTicks">
+                                    <div class="bfv__tick"><span class="bfv__tick-mark"></span><span class="bfv__tick-label" data-index="0">20s</span></div>
+                                    <div class="bfv__tick"><span class="bfv__tick-mark"></span><span class="bfv__tick-label" data-index="1">30s</span></div>
+                                    <div class="bfv__tick"><span class="bfv__tick-mark"></span><span class="bfv__tick-label" data-index="2">40s</span></div>
+                                    <div class="bfv__tick"><span class="bfv__tick-mark"></span><span class="bfv__tick-label" data-index="3">50s</span></div>
+                                    <div class="bfv__tick"><span class="bfv__tick-mark"></span><span class="bfv__tick-label" data-index="4">60s</span></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Foot -->
+                    <div class="bfv__foot">
+                        <span class="bfv__foot-note">Photorealistic references · Studio lighting · Front-facing relaxed pose</span>
+                        <button class="bfv__share" id="bfvShare" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                <polyline points="16 6 12 2 8 6"></polyline>
+                                <line x1="12" y1="2" x2="12" y2="15"></line>
+                            </svg>
+                            <span id="bfvShareLabel">Share</span>
+                        </button>
+                    </div>
+                </div>
+
+                <p class="tool-caption">
+                    References are photorealistic composites at the midpoint of each band. Individual results vary based on genetics, muscle mass, fat distribution, and hydration.
+                </p>
+
+            </div>
+
+            <!-- ===== Category Reference Chart ===== -->
+            <div class="tool-reference scroll-reveal">
+                <div class="tool-reference-head">
+                    <h2 id="bfvRefHeading">Every Male Body Fat Percentage, Explained</h2>
+                    <p>Tap a card to jump the visualizer to that level. Categories follow ACE/ACSM classifications.</p>
+                </div>
+
+                <div class="tool-ref-grid" id="bfvRefGrid"><!-- JS injects cards based on gender --></div>
+            </div>
+
+            <!-- ===== Usage + Age notes ===== -->
+            <div class="tool-usage scroll-reveal">
+                <div class="tool-usage-card">
+                    <h3>How to Use This Tool</h3>
+                    <ul>
+                        <li>Toggle <strong>Male</strong> or <strong>Female</strong> in the top-right of the card.</li>
+                        <li>Drag the <strong>Body Fat %</strong> slider to step through bands (8–33% male, 18–42% female).</li>
+                        <li>Drag the <strong>Age Group</strong> slider to see how the same body fat reads on different decades.</li>
+                        <li>Compare your mirror against the image that feels closest — usually within ±3%.</li>
+                    </ul>
+                </div>
+                <div class="tool-usage-card">
+                    <h3>Why Age &amp; Gender Matter</h3>
+                    <p>Same body fat percentage looks different across decades and between sexes. Men lose roughly <strong>3–8% of muscle per decade</strong> after 30 (sarcopenia). Women naturally carry <strong>10–13% more essential fat</strong> than men and store it in the hips, thighs, and buttocks. A woman at 20% is leaner relative to her gender than a man at 20%.</p>
+                </div>
+            </div>
+
+            <!-- ===== CTA ===== -->
+            <div class="tool-cta-section scroll-reveal">
+                <div class="tool-cta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                        <circle cx="12" cy="13" r="4"/>
+                    </svg>
+                </div>
+                <h2>Want Your Actual Body Fat %?</h2>
+                <p>Visual references are great for ballpark. For your real number, GainFrame analyzes a single photo and gives you body composition — no tape, no scan, no guesswork.</p>
+                <ul class="tool-cta-list">
+                    <li>AI-powered body composition from one photo</li>
+                    <li>Track body fat % changes over time</li>
+                    <li>Physique score and muscle group insights</li>
+                    <li>Free to try — results in seconds</li>
+                </ul>
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank"
+                    rel="noopener" class="appstore-link">
+                    <img src="/appstore-badge.svg" alt="Download on the App Store" class="appstore-badge"
+                        style="margin: 0 auto;" loading="lazy">
+                </a>
+            </div>
+
+            <!-- ===== Method Note ===== -->
+            <div class="tool-method-note scroll-reveal">
+                <h3>About These References</h3>
+                <p>Images are photorealistic composites generated to represent the midpoint of each body fat band under neutral studio lighting and a relaxed front-facing pose. They are intended as visual reference only — individual appearance varies with genetics, training history, fat distribution, hydration, and recent meals.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/blog/">Blog</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ==================== VISUALIZER LOGIC ==================== -->
+    
+
+    <!-- TikTok Pixel Code Start -->
+    
+    <!-- TikTok Pixel Code End -->
+
+    <!-- Cloudflare Web Analytics -->
+    
+
+    <!-- Floating Download Pill -->
+    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="blog-floating-pill" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download GainFrame
+    </a>
+
+    
+    

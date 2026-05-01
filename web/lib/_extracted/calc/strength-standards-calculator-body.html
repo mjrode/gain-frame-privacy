@@ -1,0 +1,231 @@
+
+    
+    
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="tool-main">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="tool-header hero-text-stagger">
+                <span class="tool-badge">Free Tool</span>
+                <h1>Am I Strong?</h1>
+                <p>Strength standards for 8 major lifts. Enter your max, see where you rank against the lifting population — Untrained, Novice, Intermediate, Advanced, or Elite.</p>
+            </div>
+
+            <!-- Calculator Card -->
+            <div class="tool-calc-card scroll-reveal">
+
+                <!-- Exercise picker -->
+                <div class="section-label">Exercise</div>
+                <div class="exercise-scroll" id="exerciseScroll">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Gender -->
+                <div class="tool-gender-toggle">
+                    <button class="tool-gender-btn active" data-gender="male" type="button">Male</button>
+                    <button class="tool-gender-btn" data-gender="female" type="button">Female</button>
+                </div>
+
+                <!-- Bodyweight -->
+                <div class="tool-input-group">
+                    <label class="tool-input-label">
+                        <span>Your bodyweight</span>
+                        <div class="tool-unit-toggle" data-unit-group="weight">
+                            <button class="tool-unit-btn active" data-unit="imperial" type="button">lb</button>
+                            <button class="tool-unit-btn" data-unit="metric" type="button">kg</button>
+                        </div>
+                    </label>
+                    <input type="number" class="tool-input-field" id="bodyweight" placeholder="180" step="0.5" min="30" max="500" inputmode="decimal">
+                </div>
+
+                <!-- Mode tabs -->
+                <div class="mode-tabs">
+                    <button class="mode-tab active" data-mode="direct" type="button">I know my 1RM</button>
+                    <button class="mode-tab" data-mode="reps" type="button">Estimate from reps</button>
+                </div>
+
+                <!-- Direct mode -->
+                <div class="tool-input-group" id="directInputs">
+                    <label class="tool-input-label">
+                        <span>Your one rep max</span>
+                        <span class="tool-input-hint" id="directUnitHint">lb</span>
+                    </label>
+                    <input type="number" class="tool-input-field" id="directMax" placeholder="315" step="0.5" min="0" inputmode="decimal">
+                </div>
+
+                <!-- Reps mode -->
+                <div class="tool-input-row" id="repsInputs" style="display: none;">
+                    <div class="tool-input-group" style="margin-bottom:0">
+                        <label class="tool-input-label">
+                            <span>Weight lifted</span>
+                            <span class="tool-input-hint" id="repsUnitHint">lb</span>
+                        </label>
+                        <input type="number" class="tool-input-field" id="repsWeight" placeholder="275" step="0.5" min="0" inputmode="decimal">
+                    </div>
+                    <div class="tool-input-group" style="margin-bottom:0">
+                        <label class="tool-input-label">
+                            <span>Reps</span>
+                            <span class="tool-input-hint">1–12</span>
+                        </label>
+                        <input type="number" class="tool-input-field" id="repsCount" placeholder="5" step="1" min="1" max="12" inputmode="numeric">
+                    </div>
+                </div>
+
+                <!-- Calculate -->
+                <button class="tool-calc-btn" id="calcBtn" type="button">Calculate My Tier</button>
+                <p class="tool-error-msg" id="errorMsg"></p>
+                <span class="orm-hint">
+                    Need more precision? <a href="/tools/one-rep-max-calculator/">Use the 1RM Calculator (6 formulas) →</a>
+                </span>
+            </div>
+
+            <!-- Result -->
+            <div class="tool-result" id="resultCard">
+                <div class="tool-result-hero">
+                    <div class="result-exercise-label" id="resultExerciseLabel">Back Squat · Male · 180 lb</div>
+                    <div class="result-tier-label tier-intermediate" id="resultTierLabel">—</div>
+                    <div class="result-ratio-badge" id="resultRatio">— × BW</div>
+                    <div class="result-1rm-secondary" id="resultMaxLine">Your 1RM: <strong>—</strong></div>
+
+                    <div class="tool-gauge">
+                        <div class="tool-gauge-fill" id="resultGauge" style="width: 0%"></div>
+                    </div>
+                    <div class="tool-gauge-labels">
+                        <span>Untrained</span>
+                        <span>Novice</span>
+                        <span>Intermediate</span>
+                        <span>Advanced</span>
+                        <span>Elite</span>
+                    </div>
+
+                    <div class="result-insights">
+                        <div class="insight-card">
+                            <div class="insight-label">Percentile</div>
+                            <div class="insight-value" id="insightPercentile">—</div>
+                            <div class="insight-sub" id="insightPercentileSub">among all lifters at your bodyweight</div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-label">Next tier</div>
+                            <div class="insight-value" id="insightNextTier">—</div>
+                            <div class="insight-sub" id="insightNextTierSub">—</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise comparison table -->
+            <div class="comparison-card" id="comparisonCard" style="display: none;">
+                <h3>All 8 Lifts at Your Bodyweight</h3>
+                <p class="subtitle">What each tier looks like for every major lift — scaled exactly to your bodyweight and sex.</p>
+                <div class="comparison-scroll">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Lift</th>
+                                <th>Untrained</th>
+                                <th>Novice</th>
+                                <th>Intermediate</th>
+                                <th>Advanced</th>
+                                <th>Elite</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparisonBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+                <p class="comparison-unit-hint" id="comparisonUnitHint">weights in lb</p>
+            </div>
+
+            <!-- Standards reference grid -->
+            <div class="tool-reference scroll-reveal" id="referenceSection" style="display: none;">
+                <h2>Your Exercise's Standards</h2>
+                <p id="referenceCopy">Bodyweight multipliers for each tier.</p>
+                <div class="ref-current-filter" id="referenceFilter"></div>
+                <div class="tool-ref-grid" id="referenceGrid"></div>
+            </div>
+
+            <!-- Methodology -->
+            <div class="tool-formula scroll-reveal">
+                <h2>About The Standards</h2>
+                <p><strong>Strength standards are bodyweight multipliers.</strong> A 1.5× bodyweight bench for a 180 lb man means a 270 lb bench. The tiers — Untrained, Novice, Intermediate, Advanced, Elite — describe where that lift sits relative to the general lifting population.</p>
+                <p>The values here are synthesized from widely-cited sources including ExRx's strength standards tables, Symmetric Strength, and published powerlifting data. They represent typical ranges; individual outliers exist in every tier. Your tier for one lift doesn't predict your tier for another — most people are stronger or weaker on specific lifts based on their training history and body proportions.</p>
+                <p><strong>Percentile estimates</strong> are derived by mapping your bodyweight ratio to the tier scale — the Intermediate threshold lines up with roughly the 50th percentile, Advanced with ~75th, Elite with ~95th. These are approximate; they're not from a formal survey.</p>
+            </div>
+
+            <!-- Other tools ribbon -->
+            <div class="tool-other scroll-reveal">
+                <h3>More Free Tools</h3>
+                <div class="tool-other-links">
+                    <a href="/tools/one-rep-max-calculator/">1RM Calculator</a>
+                    <a href="/tools/ffmi-calculator/">FFMI Calculator</a>
+                    <a href="/tools/body-fat-estimator/">Body Fat Calculator</a>
+                    <a href="/tools/tdee-calculator/">TDEE Calculator</a>
+                    <a href="/tools/macro-calculator/">Macro Calculator</a>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="tool-cta-section scroll-reveal">
+                <div class="tool-cta-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6.5 6.5 17.5 17.5"/>
+                        <path d="M21 21l-1-1"/>
+                        <path d="M3 3l1 1"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/>
+                        <circle cx="18.5" cy="5.5" r="2.5"/>
+                    </svg>
+                </div>
+                <h2>Getting stronger changes your shape</h2>
+                <p>Strength numbers tell you how hard you can push. GainFrame uses AI to show what that effort is doing to your physique — body fat, FFMI, and muscle scores from a photo.</p>
+                <ul class="tool-cta-list">
+                    <li>Track body fat % as you gain or lose strength</li>
+                    <li>See which muscle groups aren't keeping up</li>
+                    <li>Photo-based progress across weeks and months</li>
+                    <li>Free to start, no signup required</li>
+                </ul>
+                <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" target="_blank"
+                    rel="noopener" class="appstore-link">
+                    <img src="/appstore-badge.svg" alt="Download on the App Store" class="appstore-badge"
+                        style="margin: 0 auto;" loading="lazy">
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ==================== NEWSLETTER ==================== -->
+    
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/blog/">Blog</a>
+                <a href="/tools/">Tools</a>
+                <a href="mailto:michaelrode44@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 GainFrame. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    
+    
+
+    
+
+    <!-- Cloudflare Web Analytics -->
+    
+
+    <!-- Floating Download Pill -->
+    <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" class="blog-floating-pill" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        Download GainFrame
+    </a>
+
+    
+    

@@ -1,0 +1,464 @@
+
+        /* =====================================================
+           TOOL PAGE — scoped styles
+           ===================================================== */
+
+        .tool-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-hero {
+            background: var(--color-dark);
+            padding: 80px var(--sp-md) 48px;
+            text-align: center;
+        }
+
+        .tool-hero h1 {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .tool-hero p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .tool-body {
+            flex: 1;
+            background: var(--color-dark);
+            padding: 0 var(--sp-md) 80px;
+        }
+
+        .tool-container {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Card */
+        .tool-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, .12);
+        }
+
+        /* Form elements */
+        .tool-sex-toggle {
+            display: flex;
+            gap: 0;
+            margin-bottom: 24px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 2px solid var(--color-border);
+        }
+
+        .tool-sex-toggle button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: transparent;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tool-sex-toggle button.active {
+            background: var(--color-text);
+            color: #fff;
+        }
+
+        .tool-unit-toggle {
+            display: flex;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .tool-unit-toggle button {
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1.5px solid var(--color-border);
+            background: transparent;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tool-unit-toggle button.active {
+            background: var(--color-text);
+            color: #fff;
+            border-color: var(--color-text);
+        }
+
+        .tool-field {
+            margin-bottom: 16px;
+        }
+
+        .tool-field label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .tool-field input,
+        .tool-field select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-text);
+            background: #fafafa;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+        }
+
+        .tool-field input:focus,
+        .tool-field select:focus {
+            outline: none;
+            border-color: var(--color-text);
+        }
+
+        .tool-field select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .tool-inline-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .tool-calculate-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: var(--radius-sm);
+            background: var(--color-text);
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 8px;
+        }
+
+        .tool-calculate-btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Result */
+        .tool-result {
+            display: none;
+            margin-top: 28px;
+        }
+
+        .tool-result.show {
+            display: block;
+        }
+
+        .tool-result-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tool-result-number {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 3.2rem;
+            letter-spacing: -0.03em;
+            color: var(--color-text);
+            line-height: 1;
+        }
+
+        .tool-result-unit {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-left: 4px;
+        }
+
+        .tool-result-label {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* Macro bars */
+        .macro-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .macro-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .macro-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .macro-dot.protein { background: #e06c53; }
+        .macro-dot.carbs { background: #4a90d9; }
+        .macro-dot.fat { background: #f5b041; }
+
+        .macro-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--color-text);
+            width: 60px;
+            flex-shrink: 0;
+        }
+
+        .macro-bar-track {
+            flex: 1;
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .macro-bar-fill {
+            height: 100%;
+            border-radius: 999px;
+            transition: width 0.6s ease;
+        }
+
+        .macro-bar-fill.protein { background: #e06c53; }
+        .macro-bar-fill.carbs { background: #4a90d9; }
+        .macro-bar-fill.fat { background: #f5b041; }
+
+        .macro-detail {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            width: 100px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        /* Summary pills */
+        .macro-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .macro-pill {
+            text-align: center;
+            background: #f6f6f6;
+            border-radius: var(--radius-sm);
+            padding: 14px 8px;
+        }
+
+        .macro-pill .pill-value {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--color-text);
+            letter-spacing: -0.02em;
+        }
+
+        .macro-pill .pill-unit {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+
+        .macro-pill .pill-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-secondary);
+            margin-top: 2px;
+        }
+
+        .macro-pill.protein { border-top: 3px solid #e06c53; }
+        .macro-pill.carbs { border-top: 3px solid #4a90d9; }
+        .macro-pill.fat { border-top: 3px solid #f5b041; }
+
+        /* Calorie breakdown */
+        .calorie-breakdown {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .calorie-item {
+            text-align: center;
+        }
+
+        .calorie-item .cal-val {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--color-text);
+        }
+
+        .calorie-item .cal-label {
+            font-size: 0.72rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Info section */
+        .tool-info {
+            margin-top: 28px;
+        }
+
+        .tool-info-card {
+            background: #f6f6f6;
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            margin-bottom: 12px;
+        }
+
+        .tool-info-card h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+
+        .tool-info-card p,
+        .tool-info-card li {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+        }
+
+        .tool-info-card ul {
+            padding-left: 18px;
+            margin-top: 8px;
+        }
+
+        .tool-info-card li {
+            margin-bottom: 4px;
+        }
+
+        /* Other tools */
+        .tool-other {
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .tool-other h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .tool-other-links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tool-other-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            background: #f6f6f6;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .tool-other-links a:hover { background: #ececec; }
+
+        /* CTA */
+        .tool-cta-section {
+            background: var(--color-surface);
+            text-align: center;
+            padding: 56px var(--sp-md);
+        }
+
+        .tool-cta-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            border-radius: var(--radius-sm);
+            background: var(--color-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-cta-icon svg {
+            width: 26px;
+            height: 26px;
+            color: #fff;
+        }
+
+        .tool-cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: var(--color-text);
+            margin-bottom: 12px;
+        }
+
+        .tool-cta-section p {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            max-width: 460px;
+            margin: 0 auto 24px;
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .tool-card { padding: 24px 18px; }
+            .macro-summary { grid-template-columns: 1fr; gap: 8px; }
+            .macro-pill { display: flex; align-items: center; justify-content: space-between; text-align: left; padding: 12px 16px; }
+            .macro-pill .pill-label { margin-top: 0; }
+            .macro-detail { width: 80px; font-size: 0.78rem; }
+        }
+    
