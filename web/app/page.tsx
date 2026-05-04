@@ -27,7 +27,7 @@ export default function Home() {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap"
       />
-      <link rel="stylesheet" href="/styles-clean.css?v=trailer-crop" />
+      <link rel="stylesheet" href="/styles-clean.css?v=mascot-menu-fix" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}

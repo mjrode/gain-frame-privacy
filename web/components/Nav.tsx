@@ -25,7 +25,7 @@ export default function Nav() {
 
   return (
     <nav
-      className={`nav${scrolled ? " nav--scrolled" : ""}`}
+      className={`nav${scrolled ? " nav--scrolled" : ""}${open ? " nav--menu-open" : ""}`}
       aria-label="Primary navigation"
     >
       <Link className="nav-brand" href="/">

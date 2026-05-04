@@ -1634,6 +1634,11 @@ button {
       navMascotMobileBob 4.4s ease-in-out 2s infinite;
   }
 
+  .nav--menu-open .nav-mascot-link--mobile,
+  .nav--menu-open .nav-mascot-link--desktop {
+    display: none;
+  }
+
   .nav-mascot-link--mobile img {
     width: 64px;
     height: 64px;
@@ -1664,6 +1669,7 @@ button {
     opacity: 1;
     pointer-events: auto;
     transform: none;
+    z-index: 10;
   }
 
   .nav-links a {

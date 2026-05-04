@@ -20,7 +20,7 @@ export default function BlogNav() {
   const cls = (active: boolean) => (active ? "active" : undefined);
 
   return (
-    <nav className="blog-nav">
+    <nav className={`blog-nav${open ? " blog-nav--menu-open" : ""}`}>
       <div className="container blog-nav-inner">
         <Link href="/" className="blog-nav-logo">
           <img
