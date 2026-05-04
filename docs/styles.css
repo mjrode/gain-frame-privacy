@@ -1458,6 +1458,10 @@ body {
             navMascotMobileBob 4.4s ease-in-out 2s infinite;
     }
 
+    .nav--open .nav-mascot-link--mobile {
+        display: none;
+    }
+
     .nav-mascot-link--mobile img {
         width: 62px;
         height: 62px;
