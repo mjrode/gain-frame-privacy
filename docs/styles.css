@@ -1458,6 +1458,15 @@ body {
             navMascotMobileBob 4.4s ease-in-out 2s infinite;
     }
 
+    .blog-nav--menu-open .nav-mascot-link--mobile,
+    .blog-nav--menu-open .nav-mascot-link--desktop {
+        display: none;
+    }
+
+    .blog-nav-links.nav-open {
+        z-index: 105;
+    }
+
     .nav-mascot-link--mobile img {
         width: 62px;
         height: 62px;
