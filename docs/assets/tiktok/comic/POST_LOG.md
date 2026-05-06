@@ -1,5 +1,17 @@
 # TikTok Carousel Post Log
 
+## 2026-05-01 — 5 "HEALTHY" FOODS KILLING YOUR CUT
+- Slug: healthy-foods-cut
+- Slides: 6 (cover + 5)
+- GainFrame mention: No (pure value)
+- Status: Done
+
+## 2026-05-01 — 5 HABITS OF GUYS WITH NO GAINS
+- Slug: no-gains-habits
+- Slides: 6 (cover + 5)
+- GainFrame mention: Yes (Slide 5 — dashboard trends)
+- Status: Done
+
 ## 2026-04-29 — PAWNEE GOES TO THE GYM
 - Slug: pawnee-goes-to-the-gym
 - Slides: 6 (cover + 5)
@@ -131,4 +143,11 @@
 - Slides: 7 (cover + 5 tier slides + GainFrame plug)
 - GainFrame mention: Yes (Slide 6 — muscle map app promo)
 - Format: Tier List (Blue Bro chest-tier inspired)
+- Status: Complete (Text baked in)
+
+## 2026-05-02 — YOUR NUMBERS CAN TALK NOW
+- Slug: numbers-can-talk
+- Slides: 6 (cover + 5 reframes)
+- Format: Split Panel (Reframe)
+- GainFrame mention: Yes — entire carousel is GainFrame 2.0 + Coach launch (1-in-3 slot)
 - Status: Complete (Text baked in)
