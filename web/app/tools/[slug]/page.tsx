@@ -97,10 +97,6 @@ export default async function CalculatorPage({
 
   return (
     <>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700;800;900&display=swap"
-      />
       <link rel="stylesheet" href="/styles.css" />
       <link rel="stylesheet" href={`/styles/calc/${slug}.css`} />
       {meta.schemas.map((schema, i) => (

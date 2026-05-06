@@ -58,7 +58,7 @@ export default function Nav() {
             onClick={closeMenu}
           >
             <img
-              src="/assets/gainframe-guy/poses/gainframe-guy-wave.png"
+              src="/assets/gainframe-guy/poses/gainframe-guy-wave.webp"
               alt=""
             />
           </Link>
@@ -85,7 +85,7 @@ export default function Nav() {
           aria-label="Read GainFrame comics"
           onClick={closeMenu}
         >
-          <img src="/assets/gainframe-guy/poses/gainframe-guy-wave.png" alt="" />
+          <img src="/assets/gainframe-guy/poses/gainframe-guy-wave.webp" alt="" />
         </Link>
         <button
           className="nav-burger"

@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import BlogNav from "@/components/BlogNav";
 import ToolsInteractions from "@/components/ToolsInteractions";
 import { SITE } from "@/lib/site";
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -60,11 +68,7 @@ const faqSchema = {
 
 export default function ToolsPage() {
   return (
-    <>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
-      />
+    <div className={plusJakarta.className}>
       <link rel="stylesheet" href="/styles.css" />
       <link rel="stylesheet" href="/styles/tools-page.css" />
       <script
@@ -190,7 +194,7 @@ export default function ToolsPage() {
               {/* Mascot peeks from bottom-left */}
               <img
                 className="cl-tool-hero-mascot"
-                src="/assets/gainframe-guy/poses/gainframe-guy-wave.png"
+                src="/assets/gainframe-guy/poses/gainframe-guy-wave.webp"
                 alt=""
                 aria-hidden
                 width={140}
@@ -686,6 +690,6 @@ export default function ToolsPage() {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }

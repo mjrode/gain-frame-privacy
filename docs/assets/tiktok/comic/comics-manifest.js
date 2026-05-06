@@ -1,88 +1,496 @@
-/**
- * comics-manifest.js
- * Auto-generated manifest for the comics gallery page.
- * Each entry maps a folder slug to its display title.
- * ext: file extension for cover & slides ("png" or "jpeg").
- * Add new comics here as they are created — the gallery page reads this list.
- */
+// Auto-generated from web/lib/comics-manifest.mjs — do not edit directly.
+// To change comics, edit the .mjs file and run `npm run build:comics-manifest`.
 const COMICS_MANIFEST = [
-    { slug: "pawnee-goes-to-the-gym",      title: "Pawnee Goes to the Gym",                     date: "2026-04-29", ext: "webp" },
-    { slug: "the-gang-goes-to-the-gym",    title: "The Gang Goes to the Gym",                   date: "2026-04-28", ext: "webp" },
-    { slug: "the-office-at-the-gym",       title: "The Office at the Gym",                      date: "2026-04-28", ext: "webp" },
-    { slug: "euphoria-at-the-gym",         title: "Euphoria at the Gym",                        date: "2026-04-28", ext: "webp" },
-    { slug: "chest-tier-list",             title: "Ranking Every Chest Exercise",               date: "2026-04-28", ext: "png" },
-    { slug: "best-upper-body-exercises",   title: "Best Exercises for Every Muscle Group (Upper Body Edition)", date: "2026-04-28", ext: "png" },
-    { slug: "pre-lift-mistakes",           title: "5 Habits Wrecking Your Lift",                date: "2026-04-27", ext: "png" },
-    { slug: "building-muscle-truth",       title: "What Nobody Tells You About Building Muscle", date: "2026-04-27", ext: "png" },
-    { slug: "mirror-self-perception",       title: "Why You Always Look Bad in the Mirror",     date: "2026-04-20", ext: "png" },
-    { slug: "best-chest-day",               title: "The Best Chest Day Workout",                date: "2026-04-20", ext: "png" },
-    { slug: "getting-lean-truth",           title: "What Nobody Tells You About Getting Lean",  date: "2026-04-20", ext: "png" },
-    { slug: "year-1-vs-year-5",            title: "Stop Comparing Your Year 1 to Their Year 5", date: "2026-04-20", ext: "png" },
-    { slug: "what-3000-calories-looks-like", title: "What 3,000 Calories Actually Looks Like",   date: "2026-04-20", ext: "png" },
-    { slug: "gym-unwritten-rules",         title: "The Unwritten Rules",              date: "2026-04-19", ext: "png" },
-    { slug: "skip-day-spiral",             title: "The Skip Day Spiral",              date: "2026-04-17", ext: "png" },
-    { slug: "gym-person-signs",            title: "Signs You've Become a Gym Person", date: "2026-04-17", ext: "png" },
-    { slug: "squat-rack-standoff",         title: "The Squat Rack Standoff",          date: "2026-04-17", ext: "png" },
-    { slug: "gym-crush-secrets",           title: "Your Gym Crush's Secrets",         date: "2026-04-15", ext: "png" },
-    { slug: "1000-days-lifting",           title: "1000 Days of Lifting",             date: "2026-04-15", ext: "png" },
-    { slug: "body-lying-to-you",           title: "Your Body is Lying to You",        date: "2026-04-15", ext: "png" },
-    { slug: "stages-bad-workout",          title: "Stages of a Bad Workout",          date: "2026-04-15", ext: "png" },
-    { slug: "4am-gym-guy",                 title: "The 4AM Gym Guy",                  date: "2026-04-15", ext: "png" },
-    { slug: "gym-lied-to-you",             title: "The Gym Lied to You",              date: "2026-04-15", ext: "png" },
-    { slug: "cant-feel-glutes",            title: "Can't Feel Your Glutes?",          date: "2026-04-15", ext: "png" },
-    { slug: "dont-need-supplements",       title: "The Truth About Supplements",      date: "2026-04-15", ext: "png" },
-    { slug: "real-reason-leg-day",         title: "The Real Reason You Need to Hit Legs", date: "2026-04-15", ext: "png" },
-    { slug: "no-form-excuses",             title: "I'll Fix My Form Later",           date: "2026-04-15", ext: "png" },
-    { slug: "heavy-vs-high-reps",          title: "You're Asking the Wrong Question",  date: "2026-04-15", ext: "png" },
-    { slug: "gym-selfie-truth",             title: "You're Taking Progress Photos Wrong", date: "2026-04-15", ext: "png" },
-    { slug: "muscle-memory-reality",        title: "Your Gains Aren't Gone",        date: "2026-04-15", ext: "png" },
-    { slug: "five-stages-gym",             title: "Which Stage Are You?",          date: "2026-04-14", ext: "png" },
-    { slug: "bicep-curl-mistake",          title: "The Bicep Curl Mistake",        date: "2026-04-14", ext: "png" },
-    { slug: "discipline-not-motivation",    title: "Discipline Beats Motivation",   date: "2026-04-14", ext: "png" },
-    { slug: "thats-not-a-bulk",            title: "That's Not a Bulk",             date: "2026-04-14", ext: "png" },
-    { slug: "cardio-vs-weights",           title: "Cardio vs. Weights",            date: "2026-04-14", ext: "png" },
-    { slug: "truth-about-rest-days",       title: "The Truth About Rest Days",     date: "2026-04-14", ext: "png" },
-    { slug: "not-your-metabolism",         title: "It's Not Your Metabolism",      date: "2026-04-14", ext: "png" },
-    { slug: "its-not-your-body",            title: "It's Not Your Body",            date: "2026-04-13", ext: "png" },
-    { slug: "plateau-breaker",             title: "Do This If You're Stalled",     date: "2026-04-13", ext: "png" },
-    { slug: "mind-muscle",                 title: "Do This If You Can't Feel It",  date: "2026-04-13", ext: "png" },
-    { slug: "ego-lifting",                 title: "The #1 Mistake Killing Your Gains", date: "2026-04-13", ext: "png" },
-    { slug: "protein-truth",               title: "The Truth About Protein",       date: "2026-04-13", ext: "png" },
-    { slug: "stop-ignoring-sleep",        title: "Stop Ignoring Your Sleep",      date: "2026-04-13", ext: "png" },
-    { slug: "not-getting-bigger",         title: "Why You're Not Getting Bigger", date: "2026-04-11", ext: "png" },
-    { slug: "perfect-push-day",           title: "Build the Perfect Push Day",   date: "2026-04-11", ext: "png" },
-    { slug: "skinny-guy-eating",          title: "The Skinny Guy's Guide to Eating", date: "2026-04-11", ext: "png" },
-    { slug: "mental-game",                title: "The Mental Game of Lifting", date: "2026-04-10", ext: "png" },
-    { slug: "nobody-trains",              title: "5 Muscles Nobody Trains", date: "2026-04-10", ext: "png" },
-    { slug: "split-tier-list",            title: "The Workout Split Tier List", date: "2026-04-10", ext: "png" },
-    { slug: "day1-self",                  title: "Things I'd Tell My Day-1 Self", date: "2026-04-10", ext: "png" },
-    { slug: "gym-bro-pipeline",           title: "The Gym Bro Pipeline",     date: "2026-04-10", ext: "png" },
-    { slug: "skinny-fat-trap",            title: "The Skinny-Fat Trap",      date: "2026-04-10", ext: "png" },
-    { slug: "fix-progress-photos",        title: "Fix Your Progress Photos", date: "2026-04-10", ext: "png" },
-    { slug: "optimal-training-truth",     title: "The Truth About Optimal Training", date: "2026-04-10", ext: "png" },
-    { slug: "bulk-cut-maintain",          title: "Bulk, Cut, or Maintain?",  date: "2026-04-10", ext: "png" },
-    { slug: "chest-wont-grow",            title: "Why Your Chest Won't Grow", date: "2026-04-10", ext: "png" },
-    { slug: "beginner-gym-split",         title: "The Perfect Gym Split For Beginners", date: "2026-04-10", ext: "png" },
-    { slug: "supplements-that-work",      title: "5 Supplements That Actually Work", date: "2026-04-10", ext: "png" },
-    { slug: "one-year-lifting",           title: "What 1 Year of Lifting Looks Like", date: "2026-04-10", ext: "png" },
-    { slug: "exercises-doing-wrong",      title: "5 Exercises You're Doing Wrong",   date: "2026-04-10", ext: "png" },
-    { slug: "cheap-muscle-foods",         title: "5 Cheap Foods That Build Muscle",  date: "2026-04-10", ext: "png" },
-    { slug: "progressive-overload",       title: "Progressive Overload Explained",   date: "2026-04-10", ext: "png" },
-    { slug: "first-cut-tips",             title: "Your First Cut: 5 Tips",           date: "2026-04-10", ext: "png" },
-    { slug: "overtraining-signs",         title: "5 Signs You're Overtraining",      date: "2026-04-10", ext: "png" },
-    { slug: "stop-working-out",           title: "What Happens When You Stop Lifting", date: "2026-04-10", ext: "png" },
-    { slug: "bulk-vs-cut",               title: "Bulk vs Cut: Which One?",           date: "2026-04-10", ext: "png" },
-    { slug: "top-5-core-exercises",       title: "Top 5 Core Exercises",            date: "2026-04-10", ext: "png" },
-    { slug: "your-first-gym-week",        title: "Your First Gym Week",             date: "2026-04-09", ext: "png" },
-    { slug: "creatine-myths-vs-facts",   title: "Creatine: Myths vs Facts",       date: "2026-04-09", ext: "png" },
-    { slug: "not-drinking-enough-water",  title: "You're Not Drinking Enough Water", date: "2026-04-09", ext: "png" },
-    { slug: "alcohol-stealing-gains",     title: "Alcohol Is Stealing Your Gains",  date: "2026-04-09", ext: "png" },
-    { slug: "sleep-killing-gains",        title: "Your Sleep Is Killing Your Gains", date: "2026-04-09", ext: "png" },
-    { slug: "30g-of-protein",             title: "How Much Is 30g of Protein?",     date: "2026-04-08", ext: "png" },
-    { slug: "dont-be-that-guy",           title: "Don't Be That Guy at the Gym",    date: "2026-04-08", ext: "png" },
-    { slug: "stop-guessing-body-fat",     title: "Stop Guessing Your Body Fat",     date: "2026-04-07", ext: "png" },
-    { slug: "tracking-progress-wrong",    title: "You're Tracking Progress Wrong",  date: "2026-04-06", ext: "png" },
-    { slug: "1month-vs-3months",          title: "1 Month vs 3 Months",             date: "2026-04-03", ext: "jpeg" },
-    { slug: "stuck-in-plateau",           title: "Do This If You're Stuck",         date: "2026-04-02", ext: "jpeg" },
-    { slug: "signs-making-gains",         title: "5 Signs You're Making Gains",     date: "2026-04-02", ext: "jpeg" },
+  {
+    "slug": "numbers-can-talk",
+    "title": "Your Numbers Can Talk Now",
+    "date": "2026-05-02",
+    "ext": "webp"
+  },
+  {
+    "slug": "no-gains-habits",
+    "title": "5 Habits of Guys with No Gains",
+    "date": "2026-05-01",
+    "ext": "webp"
+  },
+  {
+    "slug": "healthy-foods-cut",
+    "title": "5 'Healthy' Foods Killing Your Cut",
+    "date": "2026-05-01",
+    "ext": "webp"
+  },
+  {
+    "slug": "pawnee-goes-to-the-gym",
+    "title": "Pawnee Goes to the Gym",
+    "date": "2026-04-29",
+    "ext": "webp"
+  },
+  {
+    "slug": "the-gang-goes-to-the-gym",
+    "title": "The Gang Goes to the Gym",
+    "date": "2026-04-28",
+    "ext": "webp"
+  },
+  {
+    "slug": "the-office-at-the-gym",
+    "title": "The Office at the Gym",
+    "date": "2026-04-28",
+    "ext": "webp"
+  },
+  {
+    "slug": "euphoria-at-the-gym",
+    "title": "Euphoria at the Gym",
+    "date": "2026-04-28",
+    "ext": "webp"
+  },
+  {
+    "slug": "chest-tier-list",
+    "title": "Ranking Every Chest Exercise",
+    "date": "2026-04-28",
+    "ext": "webp"
+  },
+  {
+    "slug": "best-upper-body-exercises",
+    "title": "Best Exercises for Every Muscle Group (Upper Body Edition)",
+    "date": "2026-04-28",
+    "ext": "webp"
+  },
+  {
+    "slug": "pre-lift-mistakes",
+    "title": "5 Habits Wrecking Your Lift",
+    "date": "2026-04-27",
+    "ext": "webp"
+  },
+  {
+    "slug": "building-muscle-truth",
+    "title": "What Nobody Tells You About Building Muscle",
+    "date": "2026-04-27",
+    "ext": "webp"
+  },
+  {
+    "slug": "mirror-self-perception",
+    "title": "Why You Always Look Bad in the Mirror",
+    "date": "2026-04-20",
+    "ext": "webp"
+  },
+  {
+    "slug": "best-chest-day",
+    "title": "The Best Chest Day Workout",
+    "date": "2026-04-20",
+    "ext": "webp"
+  },
+  {
+    "slug": "getting-lean-truth",
+    "title": "What Nobody Tells You About Getting Lean",
+    "date": "2026-04-20",
+    "ext": "webp"
+  },
+  {
+    "slug": "year-1-vs-year-5",
+    "title": "Stop Comparing Your Year 1 to Their Year 5",
+    "date": "2026-04-20",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-3000-calories-looks-like",
+    "title": "What 3,000 Calories Actually Looks Like",
+    "date": "2026-04-20",
+    "ext": "webp"
+  },
+  {
+    "slug": "gym-unwritten-rules",
+    "title": "The Unwritten Rules",
+    "date": "2026-04-19",
+    "ext": "webp"
+  },
+  {
+    "slug": "skip-day-spiral",
+    "title": "The Skip Day Spiral",
+    "date": "2026-04-17",
+    "ext": "webp"
+  },
+  {
+    "slug": "gym-person-signs",
+    "title": "Signs You've Become a Gym Person",
+    "date": "2026-04-17",
+    "ext": "webp"
+  },
+  {
+    "slug": "squat-rack-standoff",
+    "title": "The Squat Rack Standoff",
+    "date": "2026-04-17",
+    "ext": "webp"
+  },
+  {
+    "slug": "gym-crush-secrets",
+    "title": "Your Gym Crush's Secrets",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "1000-days-lifting",
+    "title": "1000 Days of Lifting",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "body-lying-to-you",
+    "title": "Your Body is Lying to You",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "stages-bad-workout",
+    "title": "Stages of a Bad Workout",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "4am-gym-guy",
+    "title": "The 4AM Gym Guy",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "gym-lied-to-you",
+    "title": "The Gym Lied to You",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "cant-feel-glutes",
+    "title": "Can't Feel Your Glutes?",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "dont-need-supplements",
+    "title": "The Truth About Supplements",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "real-reason-leg-day",
+    "title": "The Real Reason You Need to Hit Legs",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "no-form-excuses",
+    "title": "I'll Fix My Form Later",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "heavy-vs-high-reps",
+    "title": "You're Asking the Wrong Question",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "gym-selfie-truth",
+    "title": "You're Taking Progress Photos Wrong",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "muscle-memory-reality",
+    "title": "Your Gains Aren't Gone",
+    "date": "2026-04-15",
+    "ext": "webp"
+  },
+  {
+    "slug": "five-stages-gym",
+    "title": "Which Stage Are You?",
+    "date": "2026-04-14",
+    "ext": "webp"
+  },
+  {
+    "slug": "bicep-curl-mistake",
+    "title": "The Bicep Curl Mistake",
+    "date": "2026-04-14",
+    "ext": "webp"
+  },
+  {
+    "slug": "discipline-not-motivation",
+    "title": "Discipline Beats Motivation",
+    "date": "2026-04-14",
+    "ext": "webp"
+  },
+  {
+    "slug": "thats-not-a-bulk",
+    "title": "That's Not a Bulk",
+    "date": "2026-04-14",
+    "ext": "webp"
+  },
+  {
+    "slug": "cardio-vs-weights",
+    "title": "Cardio vs. Weights",
+    "date": "2026-04-14",
+    "ext": "webp"
+  },
+  {
+    "slug": "truth-about-rest-days",
+    "title": "The Truth About Rest Days",
+    "date": "2026-04-14",
+    "ext": "webp"
+  },
+  {
+    "slug": "not-your-metabolism",
+    "title": "It's Not Your Metabolism",
+    "date": "2026-04-14",
+    "ext": "webp"
+  },
+  {
+    "slug": "its-not-your-body",
+    "title": "It's Not Your Body",
+    "date": "2026-04-13",
+    "ext": "webp"
+  },
+  {
+    "slug": "plateau-breaker",
+    "title": "Do This If You're Stalled",
+    "date": "2026-04-13",
+    "ext": "webp"
+  },
+  {
+    "slug": "mind-muscle",
+    "title": "Do This If You Can't Feel It",
+    "date": "2026-04-13",
+    "ext": "webp"
+  },
+  {
+    "slug": "ego-lifting",
+    "title": "The #1 Mistake Killing Your Gains",
+    "date": "2026-04-13",
+    "ext": "webp"
+  },
+  {
+    "slug": "protein-truth",
+    "title": "The Truth About Protein",
+    "date": "2026-04-13",
+    "ext": "webp"
+  },
+  {
+    "slug": "stop-ignoring-sleep",
+    "title": "Stop Ignoring Your Sleep",
+    "date": "2026-04-13",
+    "ext": "webp"
+  },
+  {
+    "slug": "not-getting-bigger",
+    "title": "Why You're Not Getting Bigger",
+    "date": "2026-04-11",
+    "ext": "webp"
+  },
+  {
+    "slug": "perfect-push-day",
+    "title": "Build the Perfect Push Day",
+    "date": "2026-04-11",
+    "ext": "webp"
+  },
+  {
+    "slug": "skinny-guy-eating",
+    "title": "The Skinny Guy's Guide to Eating",
+    "date": "2026-04-11",
+    "ext": "webp"
+  },
+  {
+    "slug": "mental-game",
+    "title": "The Mental Game of Lifting",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "nobody-trains",
+    "title": "5 Muscles Nobody Trains",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "split-tier-list",
+    "title": "The Workout Split Tier List",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "day1-self",
+    "title": "Things I'd Tell My Day-1 Self",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "gym-bro-pipeline",
+    "title": "The Gym Bro Pipeline",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "skinny-fat-trap",
+    "title": "The Skinny-Fat Trap",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "fix-progress-photos",
+    "title": "Fix Your Progress Photos",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "optimal-training-truth",
+    "title": "The Truth About Optimal Training",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "bulk-cut-maintain",
+    "title": "Bulk, Cut, or Maintain?",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "chest-wont-grow",
+    "title": "Why Your Chest Won't Grow",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "beginner-gym-split",
+    "title": "The Perfect Gym Split For Beginners",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "supplements-that-work",
+    "title": "5 Supplements That Actually Work",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "one-year-lifting",
+    "title": "What 1 Year of Lifting Looks Like",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "exercises-doing-wrong",
+    "title": "5 Exercises You're Doing Wrong",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "cheap-muscle-foods",
+    "title": "5 Cheap Foods That Build Muscle",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "progressive-overload",
+    "title": "Progressive Overload Explained",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "first-cut-tips",
+    "title": "Your First Cut: 5 Tips",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "overtraining-signs",
+    "title": "5 Signs You're Overtraining",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "stop-working-out",
+    "title": "What Happens When You Stop Lifting",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "bulk-vs-cut",
+    "title": "Bulk vs Cut: Which One?",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "top-5-core-exercises",
+    "title": "Top 5 Core Exercises",
+    "date": "2026-04-10",
+    "ext": "webp"
+  },
+  {
+    "slug": "your-first-gym-week",
+    "title": "Your First Gym Week",
+    "date": "2026-04-09",
+    "ext": "webp"
+  },
+  {
+    "slug": "creatine-myths-vs-facts",
+    "title": "Creatine: Myths vs Facts",
+    "date": "2026-04-09",
+    "ext": "webp"
+  },
+  {
+    "slug": "not-drinking-enough-water",
+    "title": "You're Not Drinking Enough Water",
+    "date": "2026-04-09",
+    "ext": "webp"
+  },
+  {
+    "slug": "alcohol-stealing-gains",
+    "title": "Alcohol Is Stealing Your Gains",
+    "date": "2026-04-09",
+    "ext": "webp"
+  },
+  {
+    "slug": "sleep-killing-gains",
+    "title": "Your Sleep Is Killing Your Gains",
+    "date": "2026-04-09",
+    "ext": "webp"
+  },
+  {
+    "slug": "30g-of-protein",
+    "title": "How Much Is 30g of Protein?",
+    "date": "2026-04-08",
+    "ext": "webp"
+  },
+  {
+    "slug": "dont-be-that-guy",
+    "title": "Don't Be That Guy at the Gym",
+    "date": "2026-04-08",
+    "ext": "webp"
+  },
+  {
+    "slug": "stop-guessing-body-fat",
+    "title": "Stop Guessing Your Body Fat",
+    "date": "2026-04-07",
+    "ext": "webp"
+  },
+  {
+    "slug": "tracking-progress-wrong",
+    "title": "You're Tracking Progress Wrong",
+    "date": "2026-04-06",
+    "ext": "webp"
+  },
+  {
+    "slug": "1month-vs-3months",
+    "title": "1 Month vs 3 Months",
+    "date": "2026-04-03",
+    "ext": "webp"
+  },
+  {
+    "slug": "stuck-in-plateau",
+    "title": "Do This If You're Stuck",
+    "date": "2026-04-02",
+    "ext": "webp"
+  },
+  {
+    "slug": "signs-making-gains",
+    "title": "5 Signs You're Making Gains",
+    "date": "2026-04-02",
+    "ext": "webp"
+  }
 ];

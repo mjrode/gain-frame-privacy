@@ -31,155 +31,52 @@
             }
         }
 
-        /* ---- Render Gallery Grid ---- */
+        /* ---- Wire up server-rendered grid ----
+           The grid (hero + cards + pull-quotes + filter pills) is server-rendered
+           in app/comics/page.tsx via components/ComicsGrid.tsx. This block only
+           attaches behaviour:
+             - filter pill click → toggle .filter-hidden on cards by data-tag
+             - apply .comic-card-read badge to cards the user has already opened
+             - share buttons read data-share-slug / data-share-title
+        */
         (() => {
             const grid = document.getElementById('comicsGrid');
             const filterBar = document.getElementById('filterBar');
-            const countLabel = document.getElementById('comicsCountLabel');
-            const sectionCount = document.getElementById('sectionCount');
-            if (!grid || typeof COMICS_MANIFEST === 'undefined') return;
+            if (!grid || !filterBar) return;
 
-            countLabel.textContent = `${COMICS_MANIFEST.length} Issue${COMICS_MANIFEST.length !== 1 ? 's' : ''}`;
-            sectionCount.textContent = `${COMICS_MANIFEST.length} comic${COMICS_MANIFEST.length !== 1 ? 's' : ''} published`;
-
-            // Read tracking
-            const readComics = JSON.parse(localStorage.getItem('gf-read-comics') || '[]');
-
-            // "New" threshold — 7 days
-            // "New" ribbon on the 3 newest comics only
-            const NEW_COUNT = 3;
-            function isNew(index) {
-                return index < NEW_COUNT;
-            }
-
-            const TAG_MAP = {
-                Training: /exercise|split|overload|core|gym|workout|lifting|working-out|doing-wrong|that-guy|beginner/,
-                Nutrition: /protein|food|bulk|cut|alcohol|water|creatine|cheap|muscle-foods|supplements/,
-                Recovery: /sleep|overtraining|plateau|stuck|deload|signs-making/,
-                'Body Comp': /body-fat|tracking|progress|1month|gains|first-cut|skinny-fat|one-year/,
-            };
-            function getTag(slug) {
-                for (const [tag, re] of Object.entries(TAG_MAP)) {
-                    if (re.test(slug)) return tag;
-                }
-                return 'Mindset';
-            }
-
-            // Comic series collections
-            const SERIES = {
-                "Beginner's Guide": ['beginner-gym-split', 'your-first-gym-week', 'progressive-overload', 'first-cut-tips'],
-                'Nutrition Essentials': ['30g-of-protein', 'cheap-muscle-foods', 'supplements-that-work', 'creatine-myths-vs-facts'],
-                'Body Recomp': ['skinny-fat-trap', 'bulk-vs-cut', 'bulk-cut-maintain', 'stop-guessing-body-fat'],
-            };
-            function getSeriesName(slug) {
-                for (const [name, slugs] of Object.entries(SERIES)) {
-                    if (slugs.includes(slug)) return name;
-                }
-                return null;
-            }
-
-            const PULL_QUOTES = [
-                { text: '"The last three reps are what makes the muscle grow."', cite: '— Arnold Schwarzenegger' },
-                { text: '"What gets measured, gets managed."', cite: '— Peter Drucker' },
-                { text: '"Discipline is choosing between what you want now and what you want most."', cite: '— Abraham Lincoln' },
-            ];
-
-            // Filter bar
-            const allTags = ['All', 'Training', 'Nutrition', 'Recovery', 'Body Comp', 'Mindset'];
-            let activeFilter = 'All';
-            allTags.forEach(tag => {
-                const pill = document.createElement('button');
-                pill.className = 'filter-pill' + (tag === 'All' ? ' active' : '');
-                pill.textContent = tag;
+            // Filter pills
+            filterBar.querySelectorAll('.filter-pill').forEach(pill => {
                 pill.addEventListener('click', () => {
-                    activeFilter = tag;
-                    filterBar.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.textContent === tag));
+                    const tag = pill.getAttribute('data-filter') || pill.textContent;
+                    filterBar.querySelectorAll('.filter-pill').forEach(p =>
+                        p.classList.toggle('active', p === pill)
+                    );
                     grid.querySelectorAll('.comic-card').forEach(card => {
                         const cardTag = card.getAttribute('data-tag');
                         card.classList.toggle('filter-hidden', tag !== 'All' && cardTag !== tag);
                     });
-                    // Show/hide pull-quotes when filtering
                     grid.querySelectorAll('.newspaper-pullquote').forEach(pq => {
                         pq.classList.toggle('filter-hidden', tag !== 'All');
                     });
                 });
-                filterBar.appendChild(pill);
             });
 
-            // Hero card — first comic
-            const hero = COMICS_MANIFEST[0];
-            const heroRead = readComics.includes(hero.slug);
-            const heroNew = isNew(0);
-            const heroSeries = getSeriesName(hero.slug);
-            const heroEl = document.createElement('div');
-            heroEl.className = 'comic-hero scroll-reveal';
-            heroEl.setAttribute('data-slug', hero.slug);
-            heroEl.setAttribute('role', 'button');
-            heroEl.setAttribute('tabindex', '0');
-            heroEl.innerHTML = `
-                <div class="comic-hero-cover">
-                    <img src="/assets/tiktok/comic/${hero.slug}/slide-0-cover.${hero.ext}" alt="${hero.title}" loading="eager">
-                    ${heroRead ? '<span class="comic-card-read"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Read</span>' : ''}
-                    ${heroNew ? '<div class="comic-new-ribbon"><span>New</span></div>' : ''}
-                </div>
-                <div class="comic-hero-info">
-                    <span class="hero-label">Latest Issue — No. ${String(COMICS_MANIFEST.length).padStart(2, '0')}</span>
-                    <h3>${hero.title}</h3>
-                    <span class="comic-tag">${getTag(hero.slug)}</span>
-                    ${heroSeries ? `<span class="comic-series-badge"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M4 4.5A2.5 2.5 0 016.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15z"/></svg>${heroSeries}</span>` : ''}
-                    <span class="hero-date">${formatNewspaperDate(hero.date)}</span>
-                    <span class="hero-cta">Read Now &#8594;</span>
-                </div>
-                <button class="comic-share-btn" style="top:auto;bottom:12px;right:12px" onclick="event.stopPropagation();shareComic('${hero.slug}','${hero.title.replace(/'/g, "\\'")}');" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></button>
-            `;
-            grid.parentNode.insertBefore(heroEl, grid);
-
-            // Grid cards — skip first (hero)
-            let pqIdx = 0;
-            COMICS_MANIFEST.slice(1).forEach((comic, i) => {
-                // Pull-quote after every 6 cards
-                if (i > 0 && i % 6 === 0 && pqIdx < PULL_QUOTES.length) {
-                    const pq = PULL_QUOTES[pqIdx++];
-                    const quoteEl = document.createElement('div');
-                    quoteEl.className = 'newspaper-pullquote scroll-reveal';
-                    quoteEl.innerHTML = `<blockquote>${pq.text}</blockquote><cite>${pq.cite}</cite>`;
-                    grid.appendChild(quoteEl);
+            // Apply "read" badges from localStorage
+            const READ_BADGE_HTML = '<span class="comic-card-read"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Read</span>';
+            const readComics = JSON.parse(localStorage.getItem('gf-read-comics') || '[]');
+            readComics.forEach(slug => {
+                const cover = document.querySelector(`[data-slug="${slug}"] .comic-card-cover, [data-slug="${slug}"] .comic-hero-cover`);
+                if (cover && !cover.querySelector('.comic-card-read')) {
+                    cover.insertAdjacentHTML('beforeend', READ_BADGE_HTML);
                 }
+            });
 
-                const tag = getTag(comic.slug);
-                const isRead = readComics.includes(comic.slug);
-                const comicIsNew = isNew(i + 1);
-                const series = getSeriesName(comic.slug);
-                const card = document.createElement('div');
-                card.className = `comic-card scroll-reveal-card card-delay-${(i % 3) + 1}`;
-                card.setAttribute('data-slug', comic.slug);
-                card.setAttribute('data-tag', tag);
-                card.setAttribute('role', 'button');
-                card.setAttribute('tabindex', '0');
-                card.innerHTML = `
-                    <div class="comic-card-cover">
-                        <img src="/assets/tiktok/comic/${comic.slug}/slide-0-cover.${comic.ext}"
-                             alt="${comic.title}" loading="lazy">
-                        <span class="comic-issue-num">No. ${String(COMICS_MANIFEST.length - (i + 1)).padStart(2, '0')}</span>
-                        <span class="comic-slide-count">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                                <path d="M3 9h18M9 3v18"/>
-                            </svg>
-                            6 slides
-                        </span>
-                        ${isRead ? '<span class="comic-card-read"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Read</span>' : ''}
-                        ${comicIsNew ? '<div class="comic-new-ribbon"><span>New</span></div>' : ''}
-                    </div>
-                    <div class="comic-card-info">
-                        <h3>${comic.title}</h3>
-                        <div class="comic-card-date">${formatNewspaperDate(comic.date)}</div>
-                        <span class="comic-tag">${tag}</span>
-                        ${series ? `<span class="comic-series-badge"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M4 4.5A2.5 2.5 0 016.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15z"/></svg>${series}</span>` : ''}
-                        <button class="comic-share-btn" onclick="event.stopPropagation();shareComic('${comic.slug}','${comic.title.replace(/'/g, "\\'")}');" aria-label="Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></button>
-                    </div>
-                `;
-                grid.appendChild(card);
+            // Share buttons
+            document.querySelectorAll('.comic-share-btn[data-share-slug]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    shareComic(btn.getAttribute('data-share-slug'), btn.getAttribute('data-share-title'));
+                });
             });
         })();
 
@@ -331,8 +228,8 @@
                 if (!read.includes(slug)) {
                     read.push(slug);
                     localStorage.setItem('gf-read-comics', JSON.stringify(read));
-                    // Add read badge to the card in the grid
-                    const card = document.querySelector(`[data-slug="${slug}"] .comic-card-cover`);
+                    // Add read badge to the card in the grid (or hero)
+                    const card = document.querySelector(`[data-slug="${slug}"] .comic-card-cover, [data-slug="${slug}"] .comic-hero-cover`);
                     if (card && !card.querySelector('.comic-card-read')) {
                         card.insertAdjacentHTML('beforeend', '<span class="comic-card-read"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Read</span>');
                     }

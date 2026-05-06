@@ -48,7 +48,7 @@ export default function BlogNav() {
             aria-label="Read GainFrame comics"
           >
             <img
-              src="/assets/gainframe-guy/poses/gainframe-guy-wave.png"
+              src="/assets/gainframe-guy/poses/gainframe-guy-wave.webp"
               alt=""
             />
           </Link>
@@ -79,7 +79,7 @@ export default function BlogNav() {
                 aria-label="Read GainFrame comics"
               >
                 <img
-                  src="/assets/gainframe-guy/poses/gainframe-guy-wave.png"
+                  src="/assets/gainframe-guy/poses/gainframe-guy-wave.webp"
                   alt=""
                 />
               </Link>

@@ -1,7 +1,19 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import BlogNav from "@/components/BlogNav";
 import { SITE } from "@/lib/site";
 import BFEstimatorClient from "./BFEstimatorClient";
+
+const geist = Geist({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 const PAGE_PATH = "/tools/body-fat-from-photo/";
 const PAGE_URL = `${SITE.url}${PAGE_PATH}`;
@@ -93,11 +105,7 @@ const faqSchema = {
 
 export default function BodyFatFromPhotoPage() {
   return (
-    <>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap"
-      />
+    <div className={`${geist.className} ${geistMono.className}`}>
       <link rel="stylesheet" href="/styles.css" />
       <link rel="stylesheet" href="/styles/body-fat-from-photo.css" />
       <script
@@ -135,7 +143,7 @@ export default function BodyFatFromPhotoPage() {
             {/* Mascot peeks in from the right */}
             <img
               className="bff-hero-mascot"
-              src="/assets/gainframe-guy/poses/gainframe-guy-wave.png"
+              src="/assets/gainframe-guy/poses/gainframe-guy-wave.webp"
               alt=""
               aria-hidden
               width={130}
@@ -198,6 +206,6 @@ export default function BodyFatFromPhotoPage() {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }

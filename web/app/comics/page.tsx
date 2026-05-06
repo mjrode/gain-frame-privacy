@@ -4,6 +4,7 @@ import path from "path";
 import Script from "next/script";
 import BlogNav from "@/components/BlogNav";
 import BlogScrollReveal from "@/components/BlogScrollReveal";
+import ComicsGrid from "@/components/ComicsGrid";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -51,10 +52,6 @@ export default async function ComicsPage() {
 
   return (
     <>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=UnifrakturCook:wght@700&display=swap"
-      />
       <link rel="stylesheet" href="/styles.css" />
       <link rel="stylesheet" href="/styles/comics-page.css" />
       <script
@@ -63,12 +60,13 @@ export default async function ComicsPage() {
       />
       <BlogNav />
       <BlogScrollReveal />
+
+      <ComicsGrid />
+
       <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
-      {/* Comics manifest defines COMICS_MANIFEST and must load before
-          the render script. afterInteractive runs both as soon as React
-          hydration finishes — no flash of empty grid for users on a fast
-          connection, and the static structure (masthead, mascot, filter
-          bar) renders immediately while the cards populate. */}
+
+      {/* The grid above is server-rendered; this script only powers the
+          viewer modal, filter pills, share buttons, and read-tracking. */}
       <Script
         src="/assets/tiktok/comic/comics-manifest.js"
         strategy="afterInteractive"

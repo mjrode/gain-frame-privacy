@@ -1,6 +1,44 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import {
+  DM_Sans,
+  Outfit,
+  Playfair_Display,
+  UnifrakturCook,
+} from "next/font/google";
 import { SITE } from "@/lib/site";
+
+// Self-hosted fonts via next/font — emits @font-face declarations using these
+// family names so existing CSS that references 'DM Sans' / 'Outfit' / etc.
+// resolves to locally-hosted woff2. No fonts.googleapis.com requests.
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+const unifraktur = UnifrakturCook({
+  subsets: ["latin"],
+  weight: ["700"],
+  display: "swap",
+});
+
+const fontClassName = [
+  dmSans.className,
+  outfit.className,
+  playfair.className,
+  unifraktur.className,
+].join(" ");
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -80,14 +118,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={fontClassName}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
         <link rel="api-catalog" href="/.well-known/api-catalog.json" />
         <link
           rel="service-doc"

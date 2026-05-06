@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { SITE } from "@/lib/site";
+
+const geist = Geist({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+const homeFontClass = `${geist.className} ${geistMono.className}`;
 
 export const metadata: Metadata = {
   alternates: {
@@ -22,11 +35,7 @@ const websiteSchema = {
 
 export default function Home() {
   return (
-    <>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap"
-      />
+    <div className={homeFontClass}>
       <link rel="stylesheet" href="/styles-clean.css?v=trailer-crop" />
       <script
         type="application/ld+json"
@@ -87,11 +96,11 @@ export default function Home() {
             </span>
           </div>
           <div className="phone-shell phone-left" aria-hidden="true">
-            <img src="/app-screenshots/misc/IMG_1789.PNG" alt="" />
+            <img src="/app-screenshots/misc/IMG_1789.webp" alt="" />
           </div>
           <div className="phone-shell phone-main">
             <img
-              src="/app-screenshots/1.21/day-checkin-score.png"
+              src="/app-screenshots/1.21/day-checkin-score.webp"
               alt="GainFrame check-in score screen showing physique score and precision body fat."
             />
           </div>
@@ -130,7 +139,7 @@ export default function Home() {
         <div className="video-shell demo-board recording-board">
           <div className="demo-phone demo-phone-left" aria-hidden="true">
             <img
-              src="/app-screenshots/1.21/muscle-compare.png"
+              src="/app-screenshots/1.21/muscle-compare.webp"
               alt=""
               loading="lazy"
             />
@@ -154,7 +163,7 @@ export default function Home() {
           </div>
           <div className="demo-phone demo-phone-right" aria-hidden="true">
             <img
-              src="/app-screenshots/1.21/macros.png"
+              src="/app-screenshots/1.21/macros.webp"
               alt=""
               loading="lazy"
             />
@@ -216,7 +225,7 @@ export default function Home() {
               <div className="tooltip-card">Weekly scans found the trend</div>
             </div>
             <img
-              src="/app-screenshots/1.21/muscle-compare.png"
+              src="/app-screenshots/1.21/muscle-compare.webp"
               alt="Muscle comparison and body map in GainFrame"
               loading="lazy"
             />
@@ -241,7 +250,7 @@ export default function Home() {
               </div>
             </div>
             <img
-              src="/app-screenshots/misc/IMG_1788.PNG"
+              src="/app-screenshots/misc/IMG_1788.webp"
               alt="Body metrics report in GainFrame"
               loading="lazy"
             />
@@ -273,12 +282,12 @@ export default function Home() {
           <article className="feature-card reveal">
             <div className="feature-stack deep-dive-stack">
               <img
-                src="/app-screenshots/misc/IMG_1787.PNG"
+                src="/app-screenshots/misc/IMG_1787.webp"
                 alt="Deep dive report before and after comparison"
                 loading="lazy"
               />
               <img
-                src="/app-screenshots/1.21/compare.png"
+                src="/app-screenshots/1.21/compare.webp"
                 alt="GainFrame comparison screen with before and after photos"
                 loading="lazy"
               />
@@ -291,7 +300,7 @@ export default function Home() {
           </article>
           <article className="feature-card reveal">
             <img
-              src="/app-screenshots/misc/IMG_1795.PNG"
+              src="/app-screenshots/misc/IMG_1795.webp"
               alt="Next milestone screen with body fat goal"
               loading="lazy"
             />
@@ -303,7 +312,7 @@ export default function Home() {
           </article>
           <article className="feature-card reveal">
             <img
-              src="/app-screenshots/1.21/macros.png"
+              src="/app-screenshots/1.21/macros.webp"
               alt="GainFrame nutrition and macro targets screen"
               loading="lazy"
             />
@@ -329,7 +338,7 @@ export default function Home() {
         </div>
         <div className="showcase-phone reveal">
           <img
-            src="/app-screenshots/1.21/future-you.png"
+            src="/app-screenshots/1.21/future-you.webp"
             alt="Future You projection comparing now and 6 months"
             loading="lazy"
           />
@@ -349,17 +358,17 @@ export default function Home() {
         </div>
         <div className="checkin-gallery reveal">
           <img
-            src="/app-screenshots/1.21/home.png"
+            src="/app-screenshots/1.21/home.webp"
             alt="GainFrame home screen with last check-in"
             loading="lazy"
           />
           <img
-            src="/app-screenshots/1.21/post-check-in-photo-score.png"
+            src="/app-screenshots/1.21/post-check-in-photo-score.webp"
             alt="GainFrame post check-in score screen"
             loading="lazy"
           />
           <img
-            src="/app-screenshots/1.21/check-ins.png"
+            src="/app-screenshots/1.21/check-ins.webp"
             alt="GainFrame check-in history screen"
             loading="lazy"
           />
@@ -379,7 +388,7 @@ export default function Home() {
         </div>
         <div className="showcase-phone reveal">
           <img
-            src="/app-screenshots/1.21/throwback.png"
+            src="/app-screenshots/1.21/throwback.webp"
             alt="GainFrame throwback comparison screen"
             loading="lazy"
           />
@@ -399,7 +408,7 @@ export default function Home() {
         </div>
         <div className="showcase-phone reveal">
           <img
-            src="/app-screenshots/1.21/weight-chart.png"
+            src="/app-screenshots/1.21/weight-chart.webp"
             alt="GainFrame weight tracker and trajectory chart"
             loading="lazy"
           />
@@ -487,6 +496,6 @@ export default function Home() {
       </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
