@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+// REMOVE WHEN 2.1 SHIPS
+import StatusBanner from "@/components/StatusBanner";
 import { SITE } from "@/lib/site";
 
 const geist = Geist({
@@ -42,6 +44,8 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <ScrollReveal />
+      {/* REMOVE WHEN 2.1 SHIPS */}
+      <StatusBanner />
       <Nav />
       <main>
         <section className="hero">
