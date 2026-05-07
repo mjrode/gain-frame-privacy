@@ -43,12 +43,15 @@ async function loadPosts() {
   return posts;
 }
 
-function renderCard(post) {
-  return `                <a href="${post.slug}/" class="blog-card scroll-reveal">
+function renderCard(post, index) {
+  const loadingAttr = index < 3 ? "eager" : "lazy";
+  return `                <a href="/blog/${post.slug}/" class="blog-card scroll-reveal">
                     <div class="blog-card-image">
-                        <img src="${post.slug}/assets/cover.webp"
+                        <img src="/blog/${post.slug}/assets/cover.webp"
                             alt="${escapeHtml(post.coverAlt)}"
-                            loading="lazy">
+                            width="800" height="500"
+                            loading="${loadingAttr}"
+                            decoding="async">
                     </div>
                     <div class="blog-card-content">
                         <div class="post-meta">
@@ -63,7 +66,7 @@ function renderCard(post) {
 
 async function main() {
   const posts = await loadPosts();
-  const cards = posts.map(renderCard).join("\n\n");
+  const cards = posts.map((post, i) => renderCard(post, i)).join("\n\n");
   const block = `${START_MARKER}\n${cards}\n                ${END_MARKER}`;
 
   const html = await fs.readFile(TARGET, "utf8");
