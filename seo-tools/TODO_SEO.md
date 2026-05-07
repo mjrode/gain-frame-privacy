@@ -113,6 +113,30 @@ Cluster goal: claim the gym-native + body-composition-aware sub-niche of the GLP
 
 - [x] **[Refresh] `/blog/glp-1-muscle-loss-tracking/` — add "More on GLP-1" cluster hub section** — done 2026-04-30; renamed "Related Articles" → "More on GLP-1"; links DOWN to all 4 new GLP-1 posts at top; existing 4 related articles preserved below; dateModified bumped to 2026-04-30
 
+### From: seo-tools/keyword-research/2026-05-06-ai-coach-trends-cluster.md
+
+Cluster goal: capture the search audience evaluating "AI fitness coach" tools — lifters who could otherwise default to ChatGPT/Claude or generic AI fitness apps. Defensible angle is GainFrame's structural moat (Coach already knows your check-ins, sleep, HRV, Hevy, goal, persistent memory). Sleep + training-volume head terms are academic-locked and cannot be ranked head-to-head; they live as H2/H3 sub-topics inside cluster posts.
+
+- [x] **AI Fitness Coach vs ChatGPT: When a Dedicated App Beats a General LLM (2026)** (Med/30, comparison-article-generator) — PILLAR — drafted 2026-05-06 as `/blog/ai-fitness-coach-vs-chatgpt/` (awaiting deploy). 3 screenshots from library v1.21 + Gemini-generated cover. 22.8K body chars, 3 JSON-LD schemas (BlogPosting + BreadcrumbList + FAQPage). Cites Time mag, Sport Fitness Apps benchmark (1/5 long-term tracking), GEO case study (31% PostHog stat). Honest framing on Correlation Insights: "Coach can answer the question in chat today, auto-card on the roadmap."
+- [ ] **Do AI Fitness Trainers Actually Work? An Honest Answer After Building One** (Med/55, blog-post-generator) — added 2026-05-06 — skeptical-intent informational; SERP has 2 high-authority outliers (Scripps, MIT Tech Review) but no NIH/Healthline lockout; we can win with original PostHog retention data + balanced "honest assessment" angle.
+- [ ] **Body Recomposition Tracker: How to Know Your Recomp Is Actually Working** (Med/30, blog-post-generator) — added 2026-05-06 — SERP dominated by small product sites (W8buddy, BodyRecomp, Recomp.app, MacroTrackingAI, Fitia, Bodymapp), no tier-1 authorities; recomp-aware audience is GainFrame's exact ICP; surfaced NEW competitor `getrecomp.app` (AI insights + progress photos) — add to next competitor-discovery refresh.
+- [ ] **Personalized AI Fitness Coach: What 'Personalized' Should Actually Mean** (Med/40, blog-post-generator) — added 2026-05-06 — Microsoft Copilot at #8 and Everfit at #2 are the heavyweights, otherwise small products; this is the *exact phrase* that names the moat — own it to define the category on our terms.
+- [ ] **AI Fitness Analysis: What It Is and What It Should Tell You** (Low-Med/10, blog-post-generator) — added 2026-05-06 — BONUS, ship only after pillar + 3 supporting are in flight; SERP is entirely small products and dev-shop blogs, no major brands, easy quick-win.
+
+#### Refresh tasks (after cluster ships — DO NOT START until pillar + 3 supporting are live)
+
+- [ ] **[Refresh] `/blog/gainframe-coach/` — add "More on AI Coach" cluster hub section** — link DOWN to all 4 new cluster posts at top; bump dateModified
+- [ ] **[Refresh] `/blog/chatgpt-workout-plan/` — add link to new pillar** — related comparison content; bump dateModified
+- [ ] **[Refresh] `/blog/how-to-track-muscle-gain-progress/` — add link to body recomposition tracker post** — bump dateModified
+- [ ] **[Refresh] `/blog/best-apps-track-muscle-gain/` — add link to body recomposition tracker post** — bump dateModified
+- [ ] **[Refresh] `/blog/bulk-cut-or-recomp/` — add link to body recomposition tracker post** — concept post → tool post hand-off
+- [ ] **[Refresh] `/blog/generative-engine-optimization-case-study/` — add link to pillar** — the GEO case study is what gives the pillar its credibility; connect them
+
+#### Deferred follow-ups (also save for after cluster + refresh tasks ship)
+
+- [ ] **Add `getrecomp.app` to next `/competitor-discovery` refresh** — surfaced 2026-05-06 during AI Coach cluster keyword research; positions as "Recomp - Body Recomposition Tracker | Progress Photos & AI Insights" — direct competitor with very close GainFrame positioning (AI insights + progress photos for body recomp). Run `/competitor-scan getrecomp.app` to generate full profile, then update `_identified-2026-04-30.md` baseline.
+- [ ] **GSC progress-photo ranking gap audit + internal-linking refresh** — surfaced 2026-05-06 during AI Coach cluster keyword research. Several queries rank position 25–46 with zero clicks despite impressions: `how to take progress photos` (pos 46.5, 10 impressions), `progress photo app free` (pos 9.57, 7 impressions), `progress photo app` (pos 25.25, 4 impressions). Existing posts (`best-progress-photo-app-iphone.mdx`, `best-free-progress-photo-apps.mdx`, `best-progress-photo-apps.mdx`, `5-tips-better-progress-photos.mdx`, `how-to-take-progress-photos-fast.mdx`) target overlapping phrases — likely need clearer internal linking + meta description tightening. Audit which post should own each query and tighten title/description + add cross-links. Not in AI Coach cluster scope.
+
 ## Published
 
 (none yet)
