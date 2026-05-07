@@ -1,6 +1,6 @@
 ---
 name: Cast as Gym Types TikTok
-description: Generate a TikTok carousel mapping TV show or movie characters to gym archetypes. Pass in a show (Euphoria, The Office, Stranger Things, Marvel, etc.) and produce a 6-slide carousel with the GainFrame Guy mascot costumed as each character. Format-specific extension of claude-tiktok with parody framing and stricter character-consistency rules.
+description: Generate a TikTok carousel mapping TV show or movie characters to gym archetypes. Pass in a show (Euphoria, The Office, Stranger Things, Marvel, etc.) and produce a 6-slide carousel with the GainFrame Guy mascot costumed as each character. Format-specific extension of tiktok with parody framing and stricter character-consistency rules.
 triggers:
   - "cast at the gym"
   - "cast as gym types"
@@ -15,7 +15,7 @@ triggers:
 
 ## Overview
 
-Parody carousel format that maps a TV show / movie / video game cast to gym archetypes (Bench Hog, Crying Cardio Bunny, etc.). Built on top of `claude-tiktok` (Gemini API + curl image gen). The workflow output is a 6-slide carousel: cover lineup of all characters + 5 solo numbered slides.
+Parody carousel format that maps a TV show / movie / video game cast to gym archetypes (Bench Hog, Crying Cardio Bunny, etc.). Built on top of `tiktok` (Gemini API + curl image gen). The workflow output is a 6-slide carousel: cover lineup of all characters + 5 solo numbered slides.
 
 **Why a separate skill:** parody cast posts have unique constraints — visual character recognition through costume only (mascot has bracket head, no real face), high risk of Gemini drawing multiple characters per solo slide, and the cover must serve as the costume reference for every numbered slide.
 
@@ -31,14 +31,14 @@ If the user just says "make a cast-as-gym-types post" without a source, ask whic
 
 ## Read first
 
-Before starting, read the canonical claude-tiktok skill and the mascot style guide:
+Before starting, read the canonical tiktok skill and the mascot style guide:
 
 ```
-view_file .agent/skills/claude-tiktok/SKILL.md
+view_file .agent/skills/tiktok/SKILL.md
 view_file docs/assets/gainframe-guy/illustrations/STYLE_GUIDE.md
 ```
 
-The base image-generation function, prompt templates, file naming, manifest update, and iCloud sync from `claude-tiktok` apply here unchanged. This skill only diverges in **Phase 0 (cast selection)**, **Phase 1 (cover title format)**, **Phase 2 (slide structure)**, and **Phase 3 prompt overrides** for character consistency.
+The base image-generation function, prompt templates, file naming, manifest update, and iCloud sync from `tiktok` apply here unchanged. This skill only diverges in **Phase 0 (cast selection)**, **Phase 1 (cover title format)**, **Phase 2 (slide structure)**, and **Phase 3 prompt overrides** for character consistency.
 
 ---
 
@@ -96,7 +96,7 @@ Alternatives to offer:
 - WHICH **[SOURCE]** / CHARACTER / ARE YOU AT THE GYM?
 - [SOURCE] CAST / AS **GYM PEOPLE**
 
-Follow the standard cover title rules from `claude-tiktok` Phase 1 (max 8 words, 2-3 lines, grid-safe crop).
+Follow the standard cover title rules from `tiktok` Phase 1 (max 8 words, 2-3 lines, grid-safe crop).
 
 ---
 
@@ -120,7 +120,7 @@ Example slide draft table:
 
 ## Phase 3: Image Generation — Critical Overrides
 
-Use the standard `claude-tiktok` image generation bash function. Two important overrides:
+Use the standard `tiktok` image generation bash function. Two important overrides:
 
 ### Override 1: Cover lineup with explicit per-character costumes
 
@@ -152,12 +152,12 @@ CRITICAL DIFFERENTIATION: [explicit list of how each character differs from the 
 
 CRITICAL PLACEMENT: All five characters fit within the BOTTOM 55% of the image, evenly spaced left-to-right.
 
-TITLE TEXT (TOP 40%): [follow claude-tiktok cover title spec — bare text on white, bold Impact ALL CAPS, accent word in red]
+TITLE TEXT (TOP 40%): [follow tiktok cover title spec — bare text on white, bold Impact ALL CAPS, accent word in red]
 
 Background: pure clean WHITE (#FFFFFF), flat. Clean cartoon style, thick black outlines, flat colors. 4:5 TikTok format (1080x1350). No watermarks except the GainFrame Guy badge.
 ```
 
-**Cover ImagePaths (3 refs — same as claude-tiktok cover):**
+**Cover ImagePaths (3 refs — same as tiktok cover):**
 ```
 REF1 = $MASCOT_TEMPLATE
 REF2 = $COVER_STYLE_REF (discipline-not-motivation/slide-0-cover.png)
@@ -168,7 +168,7 @@ REF3 = $BADGE
 
 This is the critical trick: numbered slides MUST reference the cover slide as `REF3` so Gemini sees the established costume and copies it. Without this, Gemini reverts to the default mascot template (olive shorts, black tank) and ignores the costume description.
 
-**Numbered slide ImagePaths (3 refs — different from base claude-tiktok 2-ref pattern):**
+**Numbered slide ImagePaths (3 refs — different from base tiktok 2-ref pattern):**
 ```
 REF1 = $MASCOT_TEMPLATE
 REF2 = $BANNER_STYLE_REF (discipline-not-motivation/slide-1.png)
@@ -216,7 +216,7 @@ Background: pure clean WHITE (#FFFFFF), flat. Clean cartoon style, thick black o
 
 ### Update the base function for 3-ref numbered slides
 
-The `claude-tiktok` core image generation function defaults to 2 refs for numbered slides. For this skill, use the 3-ref branch (the same one used for standard covers) — set `REF3="$OUT_DIR/slide-0-cover.png"` and `REF3_MIME="image/png"` for every numbered slide.
+The `tiktok` core image generation function defaults to 2 refs for numbered slides. For this skill, use the 3-ref branch (the same one used for standard covers) — set `REF3="$OUT_DIR/slide-0-cover.png"` and `REF3_MIME="image/png"` for every numbered slide.
 
 ---
 
@@ -245,7 +245,7 @@ Save to `docs/assets/tiktok/comic/[slug]/content.md` — caption + hashtags only
 
 ## Phase 5: Manifest, Post Log, iCloud Sync
 
-Same as `claude-tiktok` Phase 4 + Phase 5 (no overrides):
+Same as `tiktok` Phase 4 + Phase 5 (no overrides):
 
 1. Add to top of `COMICS_MANIFEST` in `docs/assets/tiktok/comic/comics-manifest.js`
 2. Prepend entry to `docs/assets/tiktok/comic/POST_LOG.md`

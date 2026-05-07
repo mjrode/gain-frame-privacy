@@ -1,20 +1,20 @@
 ---
-name: Claude Jack TikTok Generator
-description: Claude Code version of the Jack TikTok generator. Same workflow as jack-tiktok-generator (photorealistic 2-slide hook + punchline format) but uses the Gemini API directly via curl with base64-encoded reference images — no Antigravity generate_image tool required.
+name: Jack TikTok Generator
+description: Generates photorealistic Jack TikTok 2-slide posts (hook photo + app punchline). Uses the Gemini API directly via curl with base64-encoded reference images for image generation.
 triggers:
-  - "claude jack tiktok"
-  - "claude jack post"
-  - "claude jack slide"
-  - "claude gym guy post"
-  - "claude hook slide"
-  - "claude real photo tiktok"
+  - "jack tiktok"
+  - "jack post"
+  - "jack slide"
+  - "gym guy post"
+  - "hook slide"
+  - "real photo tiktok"
 ---
 
-# Claude Jack TikTok Generator
+# Jack TikTok Generator
 
 ## Overview
 
-Generates photorealistic Jack TikTok 2-slide posts (hook photo + app punchline). Identical workflow to `jack-tiktok-generator` with one difference: **image generation uses the Gemini API directly via curl with base64-encoded reference images** instead of Antigravity's `generate_image` tool.
+Generates photorealistic Jack TikTok 2-slide posts (hook photo + app punchline). Image generation uses the Gemini API directly via curl with base64-encoded reference images.
 
 Phases 1, 2, 5, and 6 are unchanged. Only the image generation bash blocks in Phase 3 and Phase 4 differ.
 
@@ -189,7 +189,7 @@ TEXT OVERLAY: At the [top/bottom] of the image, add bold white text with a very 
 
 #### Core Image Generation Function — Slide 1 (1 reference image)
 
-This bash block generates slide 1 using `JACK_BASE` as the only reference. Same `--rawfile` discipline as `claude-tiktok` (never use `--arg` for base64 — blows past ARG_MAX).
+This bash block generates slide 1 using `JACK_BASE` as the only reference. Same `--rawfile` discipline as the `tiktok` skill (never use `--arg` for base64 — blows past ARG_MAX).
 
 ```bash
 # === INPUTS FOR THIS SLIDE ===
@@ -425,7 +425,7 @@ Confirm to user:
 - **Save everything.** Each post gets its own directory under `promo-source/tik-tok-slides-jack/[slug]/` with both slides + `content.md`.
 - **Always `source ~/.zshrc`** — `GEMINI_API_KEY` lives there, not in Claude Code's shell environment.
 - **Always check for `.error` in the API response** — Gemini returns errors as JSON on HTTP 200.
-- **Use `--rawfile` from temp files, never `--arg "$BASE64"` inline** — this matches the discipline of `claude-tiktok`. Even with one image, keep the pattern consistent.
+- **Use `--rawfile` from temp files, never `--arg "$BASE64"` inline** — this matches the discipline of the `tiktok` skill. Even with one image, keep the pattern consistent.
 - **MIME types match the actual file extension** — `.png` → `image/png`, `.jpg/.jpeg` → `image/jpeg`.
 
 ## Reference Files

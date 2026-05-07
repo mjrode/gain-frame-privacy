@@ -17,7 +17,7 @@ triggers:
 ## Overview
 This is a Codex-specific copy of the GainFrame TikTok carousel workflow. It orchestrates TikTok carousel comic posts featuring **GainFrame Guy** — the GainFrame mascot character. It follows the same phased conversational workflow as the original skill: brainstorm or select a topic, draft the slide text (cover + 4-5 numbered slides), iterate until the copy is sharp, then generate each **complete slide image** (illustration + text) with **OpenAI GPT Image 2** (`gpt-image-2`) using reference-image inputs for mascot and style consistency.
 
-Do not edit the original `.agent/skills/tiktok-carousel-generator/SKILL.md` when this skill is triggered. Treat it as source material only.
+Do not edit the canonical `.agent/skills/tiktok/SKILL.md` when this skill is triggered. Treat it as source material only.
 
 Every post uses the same mascot character, visual style, and layout — ensuring brand consistency across all content. The GainFrame Guy branding badge ONLY appears on the cover slide. Text banners and subtitles are baked directly into the generated images by GPT Image 2 — no CapCut/Canva compositing or programmatic text overlays needed.
 

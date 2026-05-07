@@ -1,8 +1,8 @@
 ---
-name: Claude TikTok Carousel Generator
-description: Claude Code version of the TikTok carousel generator. Same workflow as tiktok-carousel-generator but uses the Gemini API directly via curl with base64-encoded reference images — no Antigravity generate_image tool required.
+name: TikTok Carousel Generator
+description: Generates GainFrame Guy TikTok carousel posts. Uses the Gemini API directly via curl with base64-encoded reference images for image generation.
 triggers:
-  - "claude tiktok"
+  - "tiktok"
   - "tiktok post"
   - "tiktok carousel"
   - "new tiktok"
@@ -11,11 +11,11 @@ triggers:
   - "gainframe guy"
 ---
 
-# Claude TikTok Carousel Generator
+# TikTok Carousel Generator
 
 ## Overview
 
-Generates GainFrame Guy TikTok carousel posts. Identical workflow to `tiktok-carousel-generator` with one difference: **image generation uses the Gemini API directly via curl with base64-encoded reference images** instead of Antigravity's `generate_image` tool.
+Generates GainFrame Guy TikTok carousel posts. Image generation uses the Gemini API directly via curl with base64-encoded reference images.
 
 Every phase is the same. Only the image generation bash block in Phase 3 changes.
 
@@ -367,7 +367,7 @@ Files appear in **Files app → iCloud Drive → TikTok-Drafts → [slug]**.
 
 ## Split Panel Format
 
-Same as `tiktok-carousel-generator` Split Panel Format — all phases identical. Only Phase 3 image generation changes.
+Split Panel Format — phases identical to the standard carousel. Only Phase 3 image generation differs.
 
 For Split Panel slides, use the same core generation function above with this modified prompt structure:
 

@@ -1,6 +1,6 @@
 ---
 name: Image Generate
-description: Generate brand-aligned images via Google Gemini's Nano Banana model (gemini-3.1-flash-image-preview). Wraps the Gemini API call + base64 decode + WebP conversion into one workflow. Used by blog-post-generator, comparison-article-generator, and tiktok-carousel-generator for cover images and inline illustrations.
+description: Generate brand-aligned images via Google Gemini's Nano Banana model (gemini-3.1-flash-image-preview). Wraps the Gemini API call + base64 decode + WebP conversion into one workflow. Used by blog-post-generator, comparison-article-generator, and tiktok for cover images and inline illustrations.
 triggers:
   - "generate image"
   - "generate cover"
@@ -222,7 +222,7 @@ echo "   Model: $MODEL | WebP size: $SIZE bytes | Cost: ~\$0.039"
 **Downstream:**
 - `blog-post-generator` — Phase 3.3 cover image generation. Replace the existing reference to `generate_image` / `fal-generate` with `image-generate`.
 - `comparison-article-generator` — same Phase 3.3 inheritance from blog-post-generator.
-- `tiktok-carousel-generator` — for carousel slide images. Use `aspect_ratio: "9:16"` and `style_template: "raw"` (TikTok carousels need their own prompt style, not the SaaS-illustration template).
+- `tiktok` — for carousel slide images. Use `aspect_ratio: "9:16"` and `style_template: "raw"` (TikTok carousels need their own prompt style, not the SaaS-illustration template).
 - `feature-page-generator` — for feature page heroes if needed.
 
 ---
