@@ -7,6 +7,7 @@
 // `ext` is the file extension for cover & slides — generated webp by default;
 // the original png/jpeg files remain on disk as the source of truth.
 export const COMICS_MANIFEST = [
+  { slug: "gym-myths-still-believe",     title: "6 Gym Myths You Still Believe",              date: "2026-05-06", ext: "webp" },
   { slug: "numbers-can-talk",            title: "Your Numbers Can Talk Now",                  date: "2026-05-02", ext: "webp" },
   { slug: "no-gains-habits",             title: "5 Habits of Guys with No Gains",             date: "2026-05-01", ext: "webp" },
   { slug: "healthy-foods-cut",           title: "5 'Healthy' Foods Killing Your Cut",         date: "2026-05-01", ext: "webp" },

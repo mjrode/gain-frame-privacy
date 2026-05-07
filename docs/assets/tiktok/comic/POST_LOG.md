@@ -151,3 +151,10 @@
 - Format: Split Panel (Reframe)
 - GainFrame mention: Yes — entire carousel is GainFrame 2.0 + Coach launch (1-in-3 slot)
 - Status: Complete (Text baked in)
+
+## 2026-05-02 — 6 GYM MYTHS YOU STILL BELIEVE
+- Slug: gym-myths-still-believe
+- Slides: 7 (cover + 6 myth slides)
+- Format: Standard (numbered banner + subtitle)
+- GainFrame mention: No (pure value — last post was the 2.0/Coach launch)
+- Status: Complete (Text baked in)

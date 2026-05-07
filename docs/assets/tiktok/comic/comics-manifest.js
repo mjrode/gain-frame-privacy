@@ -2,6 +2,12 @@
 // To change comics, edit the .mjs file and run `npm run build:comics-manifest`.
 const COMICS_MANIFEST = [
   {
+    "slug": "gym-myths-still-believe",
+    "title": "6 Gym Myths You Still Believe",
+    "date": "2026-05-06",
+    "ext": "webp"
+  },
+  {
     "slug": "numbers-can-talk",
     "title": "Your Numbers Can Talk Now",
     "date": "2026-05-02",
