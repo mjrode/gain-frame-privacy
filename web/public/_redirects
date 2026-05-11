@@ -12,3 +12,7 @@
 # Pages that no longer exist — send to home rather than 404.
 /features.html           /                301
 /analytics-post.html     /                301
+
+# Legacy Jekyll URLs still indexed by Google (/blog/<slug>/index.html).
+# Consolidate to the canonical Next.js route so duplicate URLs stop splitting CTR.
+/blog/*/index.html       /blog/:splat/    301
