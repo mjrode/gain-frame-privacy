@@ -55,9 +55,9 @@ Documented in source reports for future reference. Health-authority lockout make
 #### CTR Fixes (existing posts — no new content needed)
 
 - [x] **[CTR] `best-ai-body-fat-apps` title fix** — add "body AI" / "AI body" phrasing; 229 impressions at pos 6.2, 4.8% CTR — biggest absolute click opportunity — added 2026-04-26 — done 2026-04-26
-- [x] **[CTR] `ai-body-editor-apps-vs-real-analysis` title fix** — front-load listicle pattern: "8 Best AI Body Editor Apps 2026 (+ The Honest Alternative)"; 62 impressions at pos 3.8, 0% CTR — added 2026-04-26 — done 2026-04-26
+- [x] **[CTR] `ai-body-editor-apps-vs-real-analysis` title fix** — front-load listicle pattern: "8 Best AI Body Editor Apps 2026 (+ The Honest Alternative)"; 62 impressions at pos 3.8, 0% CTR — added 2026-04-26 — done 2026-04-26 — 🔁 re-shipped 2026-05-11 with the missing count: "5 Best AI Body Editor Apps 2026 (+ the Honest Alternative)" (May GSC showed 6,322 imp at 0.74% CTR — original rewrite dropped the number)
 - [x] **[CTR] `best-body-transformation-apps` title fix** — add "2026" + app count; 40 impressions at pos 10.8, 2.5% CTR — added 2026-04-26 — done 2026-04-26
-- [x] **[CTR] `how-to-read-body-fat-from-photos` title + HowTo schema** — pos 2.8, 45 impressions, 0 clicks — title rewritten to "How to Estimate Body Fat % from a Photo: Visual Markers + AI Method" + HowTo schema added — done 2026-04-26
+- [x] **[CTR] `how-to-read-body-fat-from-photos` title + HowTo schema** — pos 2.8, 45 impressions, 0 clicks — title rewritten to "How to Estimate Body Fat % from a Photo: Visual Markers + AI Method" + HowTo schema added — done 2026-04-26 — 🗑️ post deleted 2026-05-11: title-rewrite created a duplicate `<title>` against the newer /blog/how-to-estimate-body-fat-from-photo/ post; 301-redirected old slug to newer canonical to stop SERP cannibalization
 
 ### From: seo-tools/keyword-research/2026-04-26-muscle-gain-tracking.md
 

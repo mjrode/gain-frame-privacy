@@ -16,3 +16,7 @@
 # Legacy Jekyll URLs still indexed by Google (/blog/<slug>/index.html).
 # Consolidate to the canonical Next.js route so duplicate URLs stop splitting CTR.
 /blog/*/index.html       /blog/:splat/    301
+
+# Duplicate-content consolidation: identical <title> on two posts targeting the
+# same query; older post 301s to the newer, better-ranking canonical.
+/blog/how-to-read-body-fat-from-photos/   /blog/how-to-estimate-body-fat-from-photo/   301
