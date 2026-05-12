@@ -20,3 +20,10 @@
 # Duplicate-content consolidation: identical <title> on two posts targeting the
 # same query; older post 301s to the newer, better-ranking canonical.
 /blog/how-to-read-body-fat-from-photos/   /blog/how-to-estimate-body-fat-from-photo/   301
+
+# Progress-photo cluster consolidation (2026-05-11): two weak niche posts
+# folded into the pillar. /best-gym-progress-photo-app/ was only catching
+# accidental brand traffic; /best-progress-photo-app-iphone/ had zero search
+# data in 90 days. Authority consolidates into the pillar.
+/blog/best-gym-progress-photo-app/        /blog/best-progress-photo-apps/   301
+/blog/best-progress-photo-app-iphone/     /blog/best-progress-photo-apps/   301
