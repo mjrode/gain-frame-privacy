@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     template: "%s | GainFrame",
   },
   description:
-    "The AI body composition app. Take one gym selfie, get your physique score, precision body fat, 12 muscle ratings, and your next milestone in 60 seconds.",
+    "The AI progress photo app with body analysis and a private Coach. Estimate body fat, physique scores, and muscle groups, then ask what changed.",
   keywords: [
     "progress photo app",
     "body transformation app",
@@ -81,14 +81,14 @@ export const metadata: Metadata = {
     url: SITE.url,
     title: "GainFrame - The AI Body Composition App",
     description:
-      "See the body you're building. One gym selfie, full report in 60 seconds: precision BF%, 12 muscle scores, and your next milestone.",
+      "Take a gym progress photo, get AI body analysis, then ask Coach what changed and why.",
     images: [{ url: SITE.ogImage }],
   },
   twitter: {
     card: "summary_large_image",
     title: "GainFrame - The AI Body Composition App",
     description:
-      "See the body you're building. One gym selfie, full report in 60 seconds: precision BF%, 12 muscle scores, and your next milestone.",
+      "Take a gym progress photo, get AI body analysis, then ask Coach what changed and why.",
     images: [SITE.ogImage],
   },
 };
@@ -106,7 +106,7 @@ const organizationSchema = {
   url: SITE.url,
   logo: SITE.logo,
   description:
-    "The AI body composition app for gym-goers. Take one photo, get your score, body fat, muscle breakdown, and next milestone.",
+    "The AI body composition app for gym-goers. Turn progress photos into body fat, muscle scores, and private Coach conversations about what changed.",
   contactPoint: {
     "@type": "ContactPoint",
     email: SITE.contactEmail,

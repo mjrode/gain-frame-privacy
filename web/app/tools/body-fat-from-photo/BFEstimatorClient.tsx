@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SITE } from "@/lib/site";
 import { track } from "@/lib/analytics";
+import MascotPlayer from "@/components/MascotPlayer";
 
 const FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/bf-estimate";
@@ -574,6 +575,10 @@ export default function BFEstimatorClient() {
           </div>
           <div className="bff-status-track" aria-hidden />
         </div>
+
+        <div className="bff-thinking-mascot" aria-hidden>
+          <MascotPlayer variant="think" size={96} tone="bare" bob={false} />
+        </div>
       </div>
     );
   }
@@ -584,16 +589,9 @@ export default function BFEstimatorClient() {
     return (
       <>
         <div className="bff-card bff-card--result">
-          {/* Mascot celebrates from the top-right of the card,
-              clear of the centered number on every viewport. */}
-          <img
-            className="bff-result-mascot"
-            src={MASCOT_SRC}
-            alt=""
-            aria-hidden
-            width={84}
-            height={84}
-          />
+          <div className="bff-result-mascot bff-result-mascot--animated">
+            <MascotPlayer variant="lifting" size={104} tone="bare" bob={false} />
+          </div>
 
           <div className="bff-result">
             <span className="bff-result-tag">

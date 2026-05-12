@@ -158,3 +158,39 @@
 - Format: Standard (numbered banner + subtitle)
 - GainFrame mention: No (pure value — last post was the 2.0/Coach launch)
 - Status: Complete (Text baked in)
+
+## 2026-05-07 — 5 GUYS YOU SEE AT EVERY GYM
+- Slug: 5-guys-at-every-gym
+- Slides: 6 (cover + 5 archetypes)
+- Format: Standard, character/observation humor
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-05-07 — 5 'RECOVERY' HABITS WRECKING YOUR GAINS
+- Slug: recovery-habits-wrecking-gains
+- Slides: 6 (cover + 5 myths)
+- Format: Standard, quote-mark reveal (mirrors winning "Healthy Foods" formula)
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-05-07 — EVERY GYM RANKED S TO F
+- Slug: gym-rankings-s-to-f
+- Slides: 6 (cover + 5 gym verdicts)
+- Format: Standard, hot-take tier list
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-05-07 — 1 YEAR OF PROGRESSIVE OVERLOAD
+- Slug: 1-year-progressive-overload
+- Slides: 6 (cover + 5 lifts)
+- Format: Standard, journey/before-after with inset
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-05-07 — MOMS ARE BUILT DIFFERENT (Mother's Day special)
+- Slug: moms-built-different
+- Slides: 6 (cover + 5 mom feats)
+- Format: Standard, tribute + fitness humor
+- Special: Mother's Day 2026-05-10. Debut of GAINFRAME MOM mascot variant (ponytail, pink bow, sports bra + leggings).
+- GainFrame mention: No (pure tribute)
+- Status: Complete

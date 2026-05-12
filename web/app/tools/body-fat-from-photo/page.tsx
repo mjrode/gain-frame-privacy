@@ -140,6 +140,7 @@ export default function BodyFatFromPhotoPage() {
     <div className={`${geist.className} ${geistMono.className}`}>
       <link rel="stylesheet" href="/styles.css" />
       <link rel="stylesheet" href="/styles/body-fat-from-photo.css" />
+      <link rel="stylesheet" href="/styles/mascot-player.css" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}

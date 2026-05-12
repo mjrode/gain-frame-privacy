@@ -1,0 +1,30 @@
+{
+  "characterName": "GainFrame Gary",
+  "exportedAt": "2026-05-12T01:39:01.091Z",
+  "animations": [
+    {
+      "name": "Coach",
+      "url": "https://v3b.fal.media/files/b/0a99d86f/M3QlNxkNoHBR8P9RMEI9x_output.webm",
+      "speed": 1,
+      "loop": true
+    },
+    {
+      "name": "Lifting",
+      "url": "https://v3b.fal.media/files/b/0a99d864/IA1CistItcRCDG12YYDiR_output.webm",
+      "speed": 1,
+      "loop": true
+    },
+    {
+      "name": "think",
+      "url": "https://v3b.fal.media/files/b/0a99d861/00N0W1-p1H1cXNfruiyQb_output.webm",
+      "speed": 1,
+      "loop": true
+    },
+    {
+      "name": "idle",
+      "url": "https://v3b.fal.media/files/b/0a99d854/djsu9P5cfpCv_AM-fDoQQ_output.webm",
+      "speed": 1,
+      "loop": true
+    }
+  ]
+}

@@ -30,7 +30,7 @@ const websiteSchema = {
   alternateName: ["Gain Frame", "GainFrame App"],
   url: SITE.url,
   description:
-    "The AI body composition app. Take one gym selfie, get your physique score, precision body fat, 12 muscle ratings, and your next milestone in 60 seconds.",
+    "GainFrame is an AI progress photo app with body analysis and a private Coach. Estimate body fat, physique scores, and muscle groups, then ask what changed.",
 };
 
 export default function Home() {
@@ -48,13 +48,19 @@ export default function Home() {
         <div className="page-grid" aria-hidden="true"></div>
         <div className="hero-copy reveal">
           <span className="eyebrow">
-            <span></span>AI physique tracking
+            <span></span>AI body analysis + Coach
           </span>
-          <h1>Track the physique your training is building</h1>
+          <h1>Progress photos that explain what changed</h1>
           <p>
-            GainFrame turns progress photos into body fat, FFMI, muscle scores,
-            macros, and your next milestone in one clean report.
+            Take or import a gym selfie. GainFrame estimates body fat,
+            physique score, FFMI, and muscle groups, then Coach explains the
+            trend using your photos, weight, workouts, and nutrition data.
           </p>
+          <div className="hero-proof" aria-label="GainFrame report highlights">
+            <span>Body fat %</span>
+            <span>Muscle breakdowns</span>
+            <span>Ask Coach why</span>
+          </div>
           <div className="hero-actions">
             <a
               className="btn btn-dark"
@@ -62,7 +68,7 @@ export default function Home() {
               target="_blank"
               rel="noopener"
             >
-              Download free trial <span aria-hidden="true">-&gt;</span>
+              Download free <span aria-hidden="true">-&gt;</span>
             </a>
             <a className="btn btn-light" href="#trailer">
               Watch demo
@@ -106,34 +112,34 @@ export default function Home() {
           </div>
           <div className="visit-card">
             <div className="visit-copy">
-              <strong>Scan complete</strong>
-              <span>Updated from today&apos;s photo</span>
+              <strong>Coach context loaded</strong>
+              <span>Photos, weight, lifts, and nutrition ready</span>
             </div>
             <div className="visit-metrics">
               <span className="visit-metric">
                 <span className="status-dot"></span>
-                <strong>68 Score</strong>
+                <strong>BF 19%</strong>
               </span>
               <span className="visit-metric">
                 <span className="status-dot"></span>
-                <strong>BF 19%</strong>
+                <strong>Bench 90d trend</strong>
               </span>
             </div>
-            <a href="#features">See report</a>
+            <a href="#coach">Ask Coach</a>
           </div>
-          <div className="float-chip chip-top">+12 score</div>
-          <div className="float-chip chip-right">High confidence</div>
+          <div className="float-chip chip-top">Ask why it changed</div>
+          <div className="float-chip chip-right">Sources visible</div>
         </div>
       </section>
 
       <section className="trailer reveal" id="trailer">
         <div className="section-head">
           <h2>
-            The most complete progress photo app, designed for people who lift.
+            See the analysis and Coach in action.
           </h2>
           <p>
-            GainFrame goes beyond photo storage by connecting what you see, what
-            changed, and what to do next.
+            Import progress photos, get AI body analysis, compare check-ins,
+            then ask Coach what changed and why.
           </p>
         </div>
         <div className="video-shell demo-board recording-board">
@@ -188,20 +194,55 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="showcase reverse coach-section" id="coach">
+        <div className="showcase-copy reveal">
+          <span className="eyebrow">
+            <span></span>Coach
+          </span>
+          <h2>Ask Coach what changed and what to do next.</h2>
+          <p>
+            Coach reads your photos, body metrics, Health data, lifts, and
+            nutrition logs, then turns the trend into a concrete explanation or
+            training adjustment.
+          </p>
+          <div className="coach-points" aria-label="Coach capabilities">
+            <span>Compare photos</span>
+            <span>Open data sources</span>
+            <span>Get lift advice</span>
+          </div>
+        </div>
+        <div className="coach-panel reveal" aria-label="GainFrame Coach preview">
+          <div className="coach-screen coach-screen-primary">
+            <img
+              src="/assets/shared/coach-goal-progress.webp"
+              alt="GainFrame Coach explaining body fat and goal progress with body fat, score, weight, and a projected weight trend."
+              loading="lazy"
+            />
+          </div>
+          <div className="coach-screen coach-screen-secondary">
+            <img
+              src="/assets/shared/coach-targeted-advice.webp"
+              alt="GainFrame Coach recommending incline dumbbell presses to improve upper chest development based on muscle analysis."
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="answers" id="features">
         <div className="section-head reveal">
-          <h2>Finally answer the questions that matter.</h2>
+          <h2>What GainFrame helps you answer.</h2>
         </div>
 
         <div className="answer-grid">
           <article className="answer-copy reveal">
-            <h3>Which muscles actually grew?</h3>
+            <h3>Am I gaining muscle or just weight?</h3>
             <p>
-              See muscle changes, body-fat movement, and measurement trends from
-              one check-in to the next.
+              Each check-in estimates body fat, FFMI, lean mass, and
+              muscle-group scores from your photo history.
             </p>
             <strong>
-              Know what is working before the mirror makes it obvious.
+              See the signal behind the selfie.
             </strong>
           </article>
 
@@ -257,12 +298,12 @@ export default function Home() {
           </article>
 
           <article className="answer-copy reveal">
-            <h3>What changed since the last check-in?</h3>
+            <h3>What should I change next?</h3>
             <p>
-              Connect photos, body-fat deltas, macros, and muscle ratings so
-              each scan gives you the next adjustment.
+              Deep Dive reports explain what changed, which muscles moved, and
+              how your macro targets should shift for a bulk, cut, or recomp.
             </p>
-            <strong>Turn a weekly photo into a specific plan.</strong>
+            <strong>Turn a weekly photo into a training decision.</strong>
           </article>
         </div>
       </section>
@@ -272,10 +313,10 @@ export default function Home() {
           <span className="eyebrow">
             <span></span>Precision body composition
           </span>
-          <h2>One scan creates a report you can act on.</h2>
+          <h2>Every check-in becomes a measurable report.</h2>
           <p>
-            Each screen is purpose-built for repeat check-ins, not vanity
-            metrics.
+            Snap one photo for a quick scan, or add multiple angles for a more
+            precise body-fat estimate.
           </p>
         </div>
         <div className="feature-row">
@@ -294,8 +335,8 @@ export default function Home() {
             </div>
             <h3>Deep dive reports</h3>
             <p>
-              Before and after scores, body metrics, and a plain-English summary
-              of what changed.
+              Before and after photos, body fat, FFMI, lean mass, and a
+              plain-English summary of what changed.
             </p>
           </article>
           <article className="feature-card reveal">
@@ -306,8 +347,8 @@ export default function Home() {
             />
             <h3>Trends over time</h3>
             <p>
-              Track body-fat movement, weight changes, and muscle momentum
-              across every check-in.
+              Track body fat, weight, FFMI, and muscle momentum across every
+              check-in.
             </p>
           </article>
           <article className="feature-card reveal">
@@ -318,7 +359,7 @@ export default function Home() {
             />
             <h3>Adaptive macros</h3>
             <p>
-              Cut, maintain, and bulk targets update from your actual body
+              Get calorie and macro targets that update from your actual body
               composition.
             </p>
           </article>
@@ -332,8 +373,8 @@ export default function Home() {
           </span>
           <h2>See your future physique.</h2>
           <p>
-            Use your check-ins and current trend to preview where your body
-            could be headed in the next 6 to 12 months.
+            Choose 3, 6, or 12 months and preview where your current trend
+            could take your body.
           </p>
         </div>
         <div className="showcase-phone reveal">
@@ -352,8 +393,8 @@ export default function Home() {
           </span>
           <h2>A weekly loop that keeps the trend clean.</h2>
           <p>
-            Start from home, capture a new photo, then review the score and
-            body-composition readout without losing context.
+            Use guided photos so each scan is comparable, then review your
+            score and body-composition readout without losing context.
           </p>
         </div>
         <div className="checkin-gallery reveal">
@@ -421,9 +462,10 @@ export default function Home() {
             <span className="eyebrow">
               <span></span>60 second workflow
             </span>
-            <h2>Snap. Analyze. Adjust.</h2>
+            <h2>Snap. Analyze. Ask Coach.</h2>
             <p>
-              Use the same loop every week and GainFrame keeps the trend clean.
+              Use the same loop every week and GainFrame keeps the trend clean
+              enough for Coach to explain.
             </p>
           </div>
           <div className="steps">
@@ -435,12 +477,18 @@ export default function Home() {
             <div className="step">
               <span>02</span>
               <strong>Get the report</strong>
-              <p>Score, body fat, FFMI, muscles, and executive summary.</p>
+              <p>
+                Body fat, FFMI, lean mass, 12 muscle scores, and a clear
+                summary.
+              </p>
             </div>
             <div className="step">
               <span>03</span>
-              <strong>Follow the next move</strong>
-              <p>Training focus and macros adapt as your scan changes.</p>
+              <strong>Ask Coach what changed</strong>
+              <p>
+                Coach explains data sources, photo comparisons, lift trends,
+                and next moves.
+              </p>
             </div>
           </div>
         </div>
@@ -458,8 +506,16 @@ export default function Home() {
             <details open>
               <summary>How accurate is the AI body fat estimate?</summary>
               <p>
-                Within 2-4% of DEXA for most users. The trend across consistent
-                weekly photos is the most useful signal.
+                AI estimates are approximations, not medical measurements. The
+                most useful signal is the trend across consistent weekly photos.
+              </p>
+            </details>
+            <details>
+              <summary>What does Coach know?</summary>
+              <p>
+                Coach can use your check-ins, AI scores, body metrics, Health
+                data, workout history, nutrition logs, and selected photo
+                comparisons when those sources are available.
               </p>
             </details>
             <details>
@@ -481,9 +537,10 @@ export default function Home() {
       </section>
 
       <section className="final-cta reveal">
-        <h2>Make your next check-in measurable.</h2>
+        <h2>Take a photo. Ask Coach what changed.</h2>
         <p>
-          Free 30-day trial. No credit card. Then $4.99/month or $29.99/year.
+          Download free. Start with one progress photo, get your AI analysis,
+          and chat with Coach when you want the story behind the numbers.
         </p>
         <a
           className="btn btn-dark"

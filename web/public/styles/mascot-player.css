@@ -1,0 +1,67 @@
+/* Reusable GainFrame mascot player.
+   Lives in the margins, never blocks content. */
+
+.gfm {
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
+    transition: opacity 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, opacity;
+}
+.gfm.gfm--ready {
+    opacity: 1;
+}
+.gfm__media {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* Default — drop shadow only, lets the character read against any background. */
+.gfm--default .gfm__media {
+    filter: drop-shadow(0 14px 24px rgba(17, 24, 39, 0.18));
+}
+
+/* Soft — slight halo, sits well on light cards. */
+.gfm--soft .gfm__media {
+    filter: drop-shadow(0 10px 18px rgba(17, 24, 39, 0.12));
+}
+
+/* Framed — boxed inside a soft pill, for use in compact panels and result cards. */
+.gfm--framed {
+    background: #fafaf7;
+    border: 1px solid rgba(17, 24, 39, 0.08);
+    border-radius: 18px;
+    overflow: hidden;
+    line-height: 0;
+}
+.gfm--framed .gfm__media {
+    filter: none;
+}
+
+/* Bare — no effects, for tight integrations where the surrounding UI handles framing. */
+.gfm--bare .gfm__media {
+    filter: none;
+}
+
+/* Gentle idle bob — applied to the inner media so it composes with the wrapper's tilt. */
+@keyframes gfm-bob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-4px); }
+}
+.gfm--bob .gfm__media {
+    animation: gfm-bob 3.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gfm--bob .gfm__media {
+        animation: none;
+    }
+    .gfm {
+        transition: none;
+    }
+}
