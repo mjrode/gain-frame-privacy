@@ -194,3 +194,45 @@
 - Special: Mother's Day 2026-05-10. Debut of GAINFRAME MOM mascot variant (ponytail, pink bow, sports bra + leggings).
 - GainFrame mention: No (pure tribute)
 - Status: Complete
+
+## 2026-05-07 — 5 EXERCISES KILLING YOUR BICEPS
+- Slug: exercises-killing-your-biceps
+- Slides: 6 (cover + 5 mistakes)
+- Format: Standard, body-part-specific
+- GainFrame mention: No
+- Status: Complete
+
+## 2026-05-07 — WHY YOU LOOK SMALL IN PHOTOS
+- Slug: why-you-look-small-in-photos
+- Slides: 6 (cover + 5 reveal slides with bad/good comparisons)
+- Format: Standard, aesthetic reveal
+- GainFrame mention: No
+- Status: Complete
+
+## 2026-05-07 — GYM SPLITS RANKED S TO F
+- Slug: gym-splits-ranked
+- Slides: 6 (cover + 5 splits ranked)
+- Format: Standard, tier list (Full Body S, Upper/Lower A, PPL B, Arnold C, Bro Split F)
+- GainFrame mention: No
+- Status: Complete
+
+## 2026-05-07 — 5 'EFFICIENT' WORKOUTS WASTING YOUR TIME
+- Slug: efficient-workouts-wasting-time
+- Slides: 6 (cover + 5 workouts called out)
+- Format: Standard, quote-mark contrarian
+- GainFrame mention: No
+- Status: Complete
+
+## 2026-05-07 — 5 GYM RED FLAGS
+- Slug: gym-red-flags
+- Slides: 6 (cover + 5 red flags)
+- Format: Standard, observational humor (dating-app vibe)
+- GainFrame mention: No
+- Status: Complete
+
+## 2026-05-07 — 5 EXCUSES YOU'VE ALL USED
+- Slug: excuses-youve-all-used
+- Slides: 6 (cover + 5 excuses)
+- Format: Standard, relatable humor
+- GainFrame mention: No
+- Status: Complete

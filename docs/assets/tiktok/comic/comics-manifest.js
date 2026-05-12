@@ -2,6 +2,42 @@
 // To change comics, edit the .mjs file and run `npm run build:comics-manifest`.
 const COMICS_MANIFEST = [
   {
+    "slug": "excuses-youve-all-used",
+    "title": "5 Excuses You've All Used",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
+    "slug": "gym-red-flags",
+    "title": "5 Gym Red Flags",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
+    "slug": "efficient-workouts-wasting-time",
+    "title": "5 'Efficient' Workouts Wasting Your Time",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
+    "slug": "gym-splits-ranked",
+    "title": "Gym Splits Ranked S to F",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
+    "slug": "why-you-look-small-in-photos",
+    "title": "Why You Look Small in Photos",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
+    "slug": "exercises-killing-your-biceps",
+    "title": "5 Exercises Killing Your Biceps",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
     "slug": "moms-built-different",
     "title": "Moms Are Built Different",
     "date": "2026-05-07",
