@@ -19,6 +19,40 @@ const CALC_SLUGS = [
   "tdee-calculator",
 ] as const;
 
+type RelatedTool = { slug: string; title: string; blurb: string };
+
+// Curated cross-link set surfaced at the bottom of every calculator page,
+// excluding self. Body-fat-from-photo always present (no CSS class needed —
+// the page-level styles cover the .bff-section/.bff-crosslink-card classes
+// for the body-fat-from-photo route; for the [slug] route we render simple
+// links inside the standard prose container).
+const ALL_TOOLS: RelatedTool[] = [
+  {
+    slug: "body-fat-from-photo",
+    title: "AI Body Fat from a Photo",
+    blurb:
+      "Free single-photo AI estimator. One scan per day, no signup. The fastest way to get a directional body-fat number.",
+  },
+  {
+    slug: "body-fat-estimator",
+    title: "U.S. Navy Tape-Measure Calculator",
+    blurb:
+      "Neck, waist, hip measurements → body fat %. No AI, ±3% accuracy, repeatable.",
+  },
+  {
+    slug: "body-fat-visualizer",
+    title: "Body Fat Visualizer",
+    blurb:
+      "Drag two sliders to see photorealistic references at every body fat % (men 8–33%, women 18–42%).",
+  },
+  {
+    slug: "ffmi-calculator",
+    title: "FFMI Calculator",
+    blurb:
+      "Fat-Free Mass Index — the natty-limit metric for evaluating muscle relative to height.",
+  },
+];
+
 type CalcMeta = {
   slug: string;
   title: string;
@@ -109,6 +143,68 @@ export default async function CalculatorPage({
       <BlogNav />
       <BlogScrollReveal />
       <CalcEmbed html={bodyHtml} script={scriptJs} />
+      <RelatedToolsFooter currentSlug={slug} />
     </>
+  );
+}
+
+function RelatedToolsFooter({ currentSlug }: { currentSlug: string }) {
+  const related = ALL_TOOLS.filter((t) => t.slug !== currentSlug);
+  return (
+    <section
+      style={{
+        maxWidth: "780px",
+        margin: "3rem auto 4rem",
+        padding: "0 1.25rem",
+      }}
+    >
+      <h2
+        style={{
+          fontSize: "1.4rem",
+          fontWeight: 700,
+          letterSpacing: "-0.01em",
+          marginBottom: "0.5rem",
+        }}
+      >
+        Related tools
+      </h2>
+      <p
+        style={{
+          fontSize: "0.95rem",
+          color: "rgba(0,0,0,0.6)",
+          marginBottom: "1.25rem",
+        }}
+      >
+        Pair this calculator with one of the body-composition tools below for a
+        fuller picture.
+      </p>
+      <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+        {related.map((t) => (
+          <li
+            key={t.slug}
+            style={{
+              padding: "0.85rem 0",
+              borderTop: "1px solid rgba(0,0,0,0.08)",
+            }}
+          >
+            <a
+              href={`/tools/${t.slug}/`}
+              style={{
+                display: "block",
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              <strong style={{ display: "block", fontWeight: 700 }}>
+                {t.title} →
+              </strong>
+              <span style={{ fontSize: "0.92rem", color: "rgba(0,0,0,0.65)" }}>
+                {t.blurb}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

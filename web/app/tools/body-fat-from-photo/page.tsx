@@ -56,6 +56,38 @@ const webAppSchema = {
   publisher: { "@type": "Organization", name: "GainFrame", url: SITE.url },
 };
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to estimate body fat percentage from a photo with AI",
+  description:
+    "Three-step process for getting an AI body fat estimate from a single smartphone photo using GainFrame's free web tool.",
+  totalTime: "PT1M",
+  estimatedCost: { "@type": "MonetaryAmount", currency: "USD", value: "0" },
+  supply: [{ "@type": "HowToSupply", name: "One clear front-facing photo" }],
+  tool: [{ "@type": "HowToTool", name: "Smartphone camera or webcam" }],
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Upload one clear photo",
+      text: "Front-facing, with your torso and limbs visible. Tight clothing or shirtless gives the AI more visual information to read.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Pick a reference",
+      text: "Body fat ranges differ meaningfully between male and female physiques. Selecting yours improves the estimate.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Get a number plus a confidence read",
+      text: "A single percentage with confidence band. Single-photo carries ±4–5% error — directional, not week-to-week.",
+    },
+  ],
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -114,6 +146,10 @@ export default function BodyFatFromPhotoPage() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
@@ -127,7 +163,7 @@ export default function BodyFatFromPhotoPage() {
               AI body fat scan · Free · 1/day
             </span>
             <h1>
-              Find out your body fat from one photo.
+              Free AI Body Fat Estimator from a Photo
             </h1>
             <p className="bff-hero-sub">
               Upload one gym pic. AI reads the visual cues and returns a
@@ -191,14 +227,50 @@ export default function BodyFatFromPhotoPage() {
 
         <section className="bff-section">
           <div className="bff-section-inner">
-            <p className="bff-section-eyebrow">Other methods</p>
-            <h2>Want a more precise number?</h2>
+            <p className="bff-section-eyebrow">Accuracy &amp; Methodology</p>
+            <h2>How accurate is body fat from a photo?</h2>
+            <p>
+              A 2025 peer-reviewed study in <a href="https://www.nature.com/articles/s41746-024-01380-6" rel="noopener" target="_blank"><em>npj Digital Medicine</em></a> tested AI-2D photo body fat estimation against DEXA across 1,273 adults. The AI method produced a Concordance Correlation Coefficient of 0.98 with DEXA — higher agreement than bioelectrical impedance smart scales (which typically score 0.91–0.92) and within the range of clinical imaging methods.
+            </p>
+            <p>
+              That said, photo-based estimation has real limits. A single photo carries ±4–5% absolute error vs. DEXA; lighting, posture, and clothing all affect the read. The technique is best used <em>for trend tracking</em> (same setup, same time of day, same wardrobe) rather than as a one-shot diagnostic. For tighter accuracy, the <a href="../body-fat-estimator/">U.S. Navy tape-measure method</a> uses neck/waist/hip circumference and lands around ±3% — more effort, no AI involved. For the gold standard, see our <a href="../../blog/dexa-scan-alternative/">DEXA alternatives breakdown</a>.
+            </p>
+            <p>
+              The GainFrame iOS app uses a multi-angle Precision BF model that combines front and side photos, cutting single-photo error roughly in half. The web tool you just used is the single-photo version — fast, free, and a good directional read.
+            </p>
+          </div>
+        </section>
+
+        <section className="bff-section">
+          <div className="bff-section-inner">
+            <p className="bff-section-eyebrow">Related tools</p>
+            <h2>More ways to measure.</h2>
             <a className="bff-crosslink-card" href="/tools/body-fat-estimator/">
               <div className="bff-crosslink-text">
                 <strong>U.S. Navy tape-measure calculator</strong>
                 <span>
                   Slightly more effort — neck, waist, hip — but tighter ±3%
                   accuracy and zero AI involved.
+                </span>
+              </div>
+              <span className="bff-crosslink-arrow">Open →</span>
+            </a>
+            <a className="bff-crosslink-card" href="/tools/body-fat-visualizer/">
+              <div className="bff-crosslink-text">
+                <strong>Body Fat Visualizer</strong>
+                <span>
+                  Drag two sliders to see photorealistic references for every
+                  body fat percentage (men 8–33%, women 18–42%).
+                </span>
+              </div>
+              <span className="bff-crosslink-arrow">Open →</span>
+            </a>
+            <a className="bff-crosslink-card" href="/tools/ffmi-calculator/">
+              <div className="bff-crosslink-text">
+                <strong>FFMI Calculator</strong>
+                <span>
+                  Once you have your body fat %, plug it in here for a
+                  fat-free mass index — the natty-limit metric.
                 </span>
               </div>
               <span className="bff-crosslink-arrow">Open →</span>
