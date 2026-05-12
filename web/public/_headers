@@ -20,6 +20,13 @@
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
 
+# Apple App Site Association — Apple's CDN fetches this on first universal-link
+# tap. Must be served as application/json (or text/plain) with no redirect and
+# no extension. Short cache so a misconfiguration can be corrected fast.
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+  Cache-Control: public, max-age=3600
+
 # HTML — short cache so content updates propagate quickly.
 /*
   Cache-Control: public, max-age=0, must-revalidate

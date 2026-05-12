@@ -1,0 +1,22 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["7N7T4JP4RL.com.gainframe.GainFrame"],
+        "components": [
+          {
+            "/": "/event/*",
+            "comment": "App Store In-App Event deep links — opens the Coach surface in the app"
+          },
+          {
+            "/": "/open/*",
+            "comment": "Generic universal-link namespace for future in-app routing"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["7N7T4JP4RL.com.gainframe.GainFrame"]
+  }
+}
