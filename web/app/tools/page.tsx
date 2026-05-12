@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import BlogNav from "@/components/BlogNav";
-import MascotPlayer from "@/components/MascotPlayer";
 import ToolsInteractions from "@/components/ToolsInteractions";
 import { SITE } from "@/lib/site";
 
@@ -72,7 +71,6 @@ export default function ToolsPage() {
     <div className={plusJakarta.className}>
       <link rel="stylesheet" href="/styles.css" />
       <link rel="stylesheet" href="/styles/tools-page.css" />
-      <link rel="stylesheet" href="/styles/mascot-player.css" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
@@ -193,9 +191,15 @@ export default function ToolsPage() {
                 Privacy-first
               </span>
 
-              <div className="cl-tool-hero-mascot cl-tool-hero-mascot--animated">
-                <MascotPlayer variant="coach" fill tone="bare" bob={false} />
-              </div>
+              {/* Mascot peeks from bottom-left */}
+              <img
+                className="cl-tool-hero-mascot"
+                src="/assets/gainframe-guy/poses/gainframe-guy-wave.webp"
+                alt=""
+                aria-hidden
+                width={140}
+                height={140}
+              />
             </div>
           </div>
         </section>
