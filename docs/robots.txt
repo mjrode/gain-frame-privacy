@@ -2,4 +2,88 @@ User-agent: *
 Allow: /
 Disallow: /v2/
 
+User-agent: GPTBot
+Allow: /
+Disallow: /v2/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /v2/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /v2/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /v2/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /v2/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /v2/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /v2/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /v2/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /v2/
+
+User-agent: GoogleOther
+Allow: /
+Disallow: /v2/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /v2/
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /v2/
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+Disallow: /v2/
+
+User-agent: FacebookBot
+Allow: /
+Disallow: /v2/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /v2/
+
+User-agent: CCBot
+Allow: /
+Disallow: /v2/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /v2/
+
+User-agent: Diffbot
+Allow: /
+Disallow: /v2/
+
+User-agent: GrokBot
+Allow: /
+Disallow: /v2/
+
+User-agent: ImagesiftBot
+Allow: /
+Disallow: /v2/
+
+User-agent: Omgilibot
+Allow: /
+Disallow: /v2/
+
 Sitemap: https://gainframe.app/sitemap.xml
