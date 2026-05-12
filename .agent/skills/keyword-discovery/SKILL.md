@@ -1,6 +1,6 @@
 ---
 name: Keyword Discovery
-description: Discover, score, and cluster SEO keyword opportunities for GainFrame using free Google data (autocomplete + SERP analysis) plus Google Search Console CSV export analysis. Outputs a prioritized backlog that feeds blog-post-generator and comparison-article-generator.
+description: Discover, score, and cluster SEO keyword opportunities for GainFrame using free Google data (autocomplete + SERP analysis) plus Google Search Console data (live via MCP, or CSV export as fallback). Outputs a prioritized backlog that feeds blog-post-generator and comparison-article-generator.
 triggers:
   - "find keywords"
   - "keyword research"
@@ -14,7 +14,7 @@ triggers:
 
 ## Overview
 
-This skill replicates the keyword-research workflow of GrowGanic.io using **free signals** (Google autocomplete, SERP analysis via `WebSearch`, optional competitor sitemap mining) plus **Google Search Console data** when a CSV export is present. It does NOT pull paid Ahrefs/SEMrush volume numbers. Instead, it gives you **comparative tiers** (high/med/low) and **difficulty heuristics** based on what dominates the SERP.
+This skill replicates the keyword-research workflow of GrowGanic.io using **free signals** (Google autocomplete, SERP analysis via `WebSearch`, optional competitor sitemap mining) plus **Google Search Console data** (live via the `mcp__gsc__*` tools when configured, or a CSV export as fallback). It does NOT pull paid Ahrefs/SEMrush volume numbers. Instead, it gives you **comparative tiers** (high/med/low) and **difficulty heuristics** based on what dominates the SERP.
 
 Output:
 - A timestamped report at `seo-tools/keyword-research/[YYYY-MM-DD]-[topic-slug].md`
@@ -39,13 +39,35 @@ Ask the user for:
 
 ### Phase 0.5: GSC Data Import (run automatically — no user input needed)
 
-Before seed expansion, check for a Google Search Console export at:
+Two data paths in priority order. **Always try the MCP first** — it returns fresher data and skips the manual export step.
+
+#### Path A (preferred): Google Search Console MCP
+
+If the `mcp__gsc__*` tools are available in the current session, pull data live:
+
+1. Confirm property is reachable: `mcp__gsc__list_properties` — expect `sc-domain:gainframe.app (siteFullUser)`. If the call errors, skip to Path B.
+2. Pull last 90 days of queries (matches what the CSV export would contain):
+   ```
+   mcp__gsc__get_search_analytics(
+     site_url="sc-domain:gainframe.app",
+     days=90,
+     dimensions="query"
+   )
+   ```
+3. Optionally also pull `dimensions="page"` for List C cross-referencing, and use `mcp__gsc__compare_search_periods` (28d vs prior 28d) to spot trending queries.
+4. Feed the returned rows into the same Lists A/B/C logic below (Query / Clicks / Impressions / CTR / Position columns map directly).
+
+The MCP always reflects the GSC Performance report's current state with the standard ~2-day lag. No manual export step required.
+
+#### Path B (fallback): CSV export
+
+If the MCP isn't available (e.g. credentials not yet configured, or running in a non-MCP context), check for a Google Search Console export at:
 
 ```
 /Users/michael.rode/code/project/gain-frame-privacy/seo-tools/gsc-data/queries.csv
 ```
 
-**How to export from GSC:** Search Console → Performance → Queries tab → Export → Download CSV. Save the file to `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/gsc-data/queries.csv` in this project. The skill will detect and parse it automatically on every run.
+**How to export from GSC:** Search Console → Performance → Queries tab → Export → Download CSV. Save the file to that path (or symlink the latest dated export folder's `Queries.csv` to it).
 
 **If the file exists**, parse it and produce three lists from the data:
 
@@ -84,15 +106,23 @@ Filter to rows where:
 
 These reveal branded queries where users are comparing us — high commercial intent. Surface as comparison-article opportunities if we don't have a dedicated post.
 
-#### If the GSC file does NOT exist:
+#### If both the MCP AND the CSV are unavailable:
 
 Print this message in the chat (one time only):
 
-> **GSC data not found.** To unlock GSC Quick Wins in future runs, export your Search Console queries:
+> **GSC data not found.** Two ways to unlock GSC Quick Wins:
+>
+> **A. Recommended — wire up the GSC MCP** (one-time, ~10 min):
+> 1. Set `GSC_CREDENTIALS_PATH` in `~/.claude.json` to a service-account JSON
+> 2. Add that service-account email as a user in GSC → Settings → Users and permissions
+> 3. Restart Claude Code
+> 4. See `seo-tools/gsc-data/SETUP.md` for full steps
+>
+> **B. CSV fallback:**
 > 1. Go to [Google Search Console](https://search.google.com/search-console) → Performance → Queries
 > 2. Set date range to last 3 months
 > 3. Click Export → Download CSV
-> 4. Save to `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/gsc-data/queries.csv` in this project
+> 4. Save to `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/gsc-data/queries.csv`
 >
 > Continuing with autocomplete + SERP analysis only.
 
@@ -212,7 +242,7 @@ Create `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/keyword-re
 
 ## GSC Quick Wins
 
-*(Only present when seo-tools/gsc-data/queries.csv exists. Omit this section otherwise.)*
+*(Only present when GSC data is available — either via the `mcp__gsc__*` tools or `seo-tools/gsc-data/queries.csv`. Omit this section otherwise.)*
 
 These are queries GainFrame is already ranking for where we can improve without writing new content.
 
@@ -370,7 +400,9 @@ Give a one-screen summary in chat:
 
 **Upstream:**
 - `competitor-scan` — produces a per-competitor profile at `seo-tools/competitor-research/[name].md` with a "Topics they cover but GainFrame does NOT" list. Phase 1 of this skill should check that directory first when the user mentions a competitor by name, and use those topics as additional seeds before running autocomplete expansion.
-- **GSC CSV export** — user drops `seo-tools/gsc-data/queries.csv` into the project; Phase 0.5 reads it automatically on every run. No OAuth, no API key. To refresh, re-export from GSC and overwrite the file.
+- **GSC data** — Phase 0.5 reads it automatically on every run. Two paths:
+  - **Preferred (live):** `mcp__gsc__*` tools (`list_properties`, `get_search_analytics`, `compare_search_periods`, `batch_url_inspection`). Property is `sc-domain:gainframe.app`. No CSVs to manage. See `seo-tools/gsc-data/SETUP.md` for one-time setup.
+  - **Fallback (CSV):** user drops `seo-tools/gsc-data/queries.csv` into the project. No OAuth, no API key. To refresh, re-export from GSC and overwrite the file.
 
 **Downstream:**
 - `blog-post-generator` — for guides, how-tos, definitions, listicles. Reads `TODO_SEO.md` to pick its next topic.
@@ -391,5 +423,7 @@ When this skill finishes, suggest the user run the appropriate downstream skill 
 - `/Users/michael.rode/code/project/gain-frame-privacy/web/content/blog/` — existing blog posts as `.mdx` files (check for coverage gaps)
 - `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/TODO_SEO.md` — keyword backlog (created on first run if absent)
 - `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/keyword-research/` — output directory for reports (create if absent)
-- `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/gsc-data/queries.csv` — **GSC export** (optional; created by user). Column format: `Query,Clicks,Impressions,CTR,Position`. Export from Search Console → Performance → Queries → Export CSV. Overwrite this file to refresh. The `seo-tools/gsc-data/` directory is gitignored (contains real traffic data — don't commit).
+- **GSC data sources** — Phase 0.5 tries these in order:
+  - `mcp__gsc__*` tools (preferred — live, no exports). Property: `sc-domain:gainframe.app`. Setup via `~/.claude.json` `GSC_CREDENTIALS_PATH` env. See `seo-tools/gsc-data/SETUP.md`.
+  - `/Users/michael.rode/code/project/gain-frame-privacy/seo-tools/gsc-data/queries.csv` — CSV fallback (optional). Column format: `Query,Clicks,Impressions,CTR,Position`. Export from Search Console → Performance → Queries → Export CSV. The `seo-tools/gsc-data/` directory is gitignored.
 - `/Users/michael.rode/code/project/gain-frame-privacy/.agent/skills/blog-post-generator/SKILL.md` — downstream skill for most article types
