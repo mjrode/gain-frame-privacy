@@ -2,6 +2,42 @@
 // To change comics, edit the .mjs file and run `npm run build:comics-manifest`.
 const COMICS_MANIFEST = [
   {
+    "slug": "when-to-add-weight",
+    "title": "When to Actually Add Weight",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
+    "slug": "exercise-order",
+    "title": "What Order to Do Your Exercises",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
+    "slug": "why-your-abs-dont-show",
+    "title": "Why Your Abs Don't Show",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
+    "slug": "mistakes-killing-your-glutes",
+    "title": "5 Mistakes Killing Your Glutes",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
+    "slug": "mistakes-killing-your-shoulders",
+    "title": "5 Mistakes Killing Your Shoulders",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
+    "slug": "mistakes-killing-your-back",
+    "title": "5 Mistakes Killing Your Back",
+    "date": "2026-05-07",
+    "ext": "webp"
+  },
+  {
     "slug": "excuses-youve-all-used",
     "title": "5 Excuses You've All Used",
     "date": "2026-05-07",

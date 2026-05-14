@@ -236,3 +236,45 @@
 - Format: Standard, relatable humor
 - GainFrame mention: No
 - Status: Complete
+
+## 2026-05-07 — 5 MISTAKES KILLING YOUR BACK
+- Slug: mistakes-killing-your-back
+- Slides: 6 (cover + 5 mistakes)
+- Format: Standard, body-part educational ("helpful and authentic" lane)
+- GainFrame mention: No
+- Status: Complete (slide-1, slide-4 regenerated for banner/text errors)
+
+## 2026-05-07 — 5 MISTAKES KILLING YOUR SHOULDERS
+- Slug: mistakes-killing-your-shoulders
+- Slides: 6 (cover + 5 mistakes)
+- Format: Standard, body-part educational
+- GainFrame mention: No
+- Status: Complete (slide-3, slide-5 regenerated for label/composition errors)
+
+## 2026-05-07 — 5 MISTAKES KILLING YOUR GLUTES
+- Slug: mistakes-killing-your-glutes
+- Slides: 6 (cover + 5 mistakes)
+- Format: Standard, body-part educational
+- GainFrame mention: No
+- Status: Complete (slide-4 regenerated for banner error)
+
+## 2026-05-07 — WHY YOUR ABS DON'T SHOW
+- Slug: why-your-abs-dont-show
+- Slides: 6 (cover + 5 diagnostic reasons)
+- Format: Standard, diagnostic educational
+- GainFrame mention: No
+- Status: Complete (slide-1 regenerated for banner error)
+
+## 2026-05-07 — WHAT ORDER TO DO YOUR EXERCISES
+- Slug: exercise-order
+- Slides: 6 (cover + 5 ordering rules)
+- Format: Standard, programming education
+- GainFrame mention: No
+- Status: Complete (slide-1 regenerated after 503; slide-3 regenerated for colored-bg violation)
+
+## 2026-05-07 — WHEN TO ACTUALLY ADD WEIGHT
+- Slug: when-to-add-weight
+- Slides: 6 (cover + 5 progression rules)
+- Format: Standard, progression education
+- GainFrame mention: No
+- Status: Complete
