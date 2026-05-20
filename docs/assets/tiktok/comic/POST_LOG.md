@@ -278,3 +278,38 @@
 - Format: Standard, progression education
 - GainFrame mention: No
 - Status: Complete
+
+## 2026-05-15 — POV: YOU JUST HIT 225 BENCH
+- Slug: pov-225-bench
+- Slides: 6 (cover + 5 emotional beats)
+- Format: POV narrative (new format — single moment across 5 slides)
+- GainFrame mention: No
+- Status: Complete
+
+## 2026-05-15 — WHAT 365 DAYS OF TRAINING DOES
+- Slug: what-happens-365-days
+- Slides: 6 (cover + 5 timeline beats)
+- Format: Hypothetical / science (new format)
+- GainFrame mention: No
+- Status: Complete
+
+## 2026-05-15 — WHAT YOUR LIFT SAYS ABOUT YOU
+- Slug: favorite-lift-personality
+- Slides: 6 (cover + 5 lift personalities)
+- Format: Personality quiz (new format)
+- GainFrame mention: No
+- Status: Complete
+
+## 2026-05-15 — 5 GIRLS YOU SEE AT EVERY GYM
+- Slug: 5-girls-at-every-gym
+- Slides: 6 (cover + 5 archetypes)
+- Format: Character humor — female mirror of 5 Guys
+- GainFrame mention: No
+- Status: Complete (cover regenerated twice: first for orientation, second for label removal)
+
+## 2026-05-15 — 5 INFLUENCER LIES YOU FELL FOR
+- Slug: influencer-lies-you-fell-for
+- Slides: 6 (cover + 5 lies)
+- Format: Anti-influencer hot take (new format)
+- GainFrame mention: No
+- Status: Complete
