@@ -7,8 +7,8 @@ export const SITE = {
   contactEmail: "michaelrode44@gmail.com",
   ogImage: "https://gainframe.app/assets/og-images/og-image.png",
   logo: "https://gainframe.app/assets/favicons/favicon.webp",
-  // Trainer waitlist deposit — replace with the live Stripe Payment Link
-  // once created (see docs/trainers-landing.md). $50 deposit applied to first
-  // month at the $5/client founding rate.
-  trainerDepositUrl: "https://buy.stripe.com/REPLACE_WITH_PAYMENT_LINK",
+  // Trainer waitlist deposit — Stripe Payment Link for the $50 founding-
+  // member deposit (applied to first month at the $5/client/mo founding
+  // rate). See docs/trainers-landing.md for setup + refund flow.
+  trainerDepositUrl: "https://buy.stripe.com/6oUfZh6By3lpbwLbNEg7e00",
 } as const;
