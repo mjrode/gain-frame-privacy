@@ -1,0 +1,58 @@
+{
+  "format": "ranked",
+  "slug": "5-progress-photo-apps-ranked",
+  "cover": {
+    "kicker": "Ranked 2026",
+    "title": "5 Progress Photo Apps",
+    "accent_word": "Photo",
+    "subtitle": "I ranked 5 — but #3 is the only one that actually reads the photo."
+  },
+  "apps": [
+    {
+      "query": "id:1537250336",
+      "screenshots": [0],
+      "rank": 1,
+      "tagline": "Cleanest before & after",
+      "callouts": ["Side-by-side compare", "Photo overlays", "No clutter"],
+      "cons": ["Only compares", "No body data"],
+      "description": "Does one thing well: clean before-and-after comparisons. But it only lines your pixels up — it never reads them."
+    },
+    {
+      "query": "id:877133105",
+      "screenshots": [0],
+      "rank": 2,
+      "tagline": "Build a daily habit",
+      "callouts": ["One selfie a day", "Auto time-lapse", "Alignment guide"],
+      "cons": ["No analysis", "Manual upkeep"],
+      "description": "Turns daily selfies into a time-lapse of your change. A great habit-builder, but it leaves the interpreting to you."
+    },
+    {
+      "query": "id:6759252082",
+      "local_screenshots": ["post-check-in-photo-score"],
+      "rank": 3,
+      "tagline": "It reads the photo",
+      "callouts": ["Body fat from a photo", "Scores 12 muscles", "Auto-aligns & compares"],
+      "cons": ["iOS only (for now)"],
+      "description": "Everyone else stores your photos — GainFrame reads them, pulling body-fat % and muscle scores from a single progress pic."
+    },
+    {
+      "query": "id:583840813",
+      "name": "Progress",
+      "rank": 4,
+      "tagline": "The OG photo journal",
+      "callouts": ["Weight + measurements", "Photo timeline", "Free to start"],
+      "cons": ["Dated design", "All manual entry"],
+      "description": "A long-time favorite for logging photos, weight, and tape measurements. Reliable, but every number is one you enter yourself."
+    },
+    {
+      "query": "id:341232718",
+      "rank": 5,
+      "tagline": "Photos are a side feature",
+      "callouts": ["Huge food database", "Logs weight", "Stores photos"],
+      "cons": ["Mainly a food app", "Photos buried"],
+      "description": "A calorie-tracking giant that happens to store progress photos. Fine if you're already there, but the photos are an afterthought."
+    }
+  ],
+  "caption": "I ranked 5 progress-photo apps 📸 Four of them just store and line up your pics — but #3 is the only one that actually reads the photo, pulling your body-fat % and muscle scores from a single shot. That's why it's the one I open every week. GainFrame is free on iOS. Which do you use? #progresspics #fitnessapps #gymtok #bodycomposition #transformation",
+  "hashtags": ["progresspics", "fitnessapps", "gymtok", "bodycomposition", "transformation", "fittok"]
+}

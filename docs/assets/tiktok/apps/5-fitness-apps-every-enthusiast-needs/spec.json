@@ -1,0 +1,53 @@
+{
+  "format": "editorial",
+  "slug": "5-fitness-apps-every-enthusiast-needs",
+  "cover": {
+    "title": "5 Fitness Apps Every Enthusiast Needs",
+    "accent_word": "Needs",
+    "subtitle": "The 2026 starter pack"
+  },
+  "apps": [
+    {
+      "query": "Strava: Run, Bike, Hike",
+      "screenshots": [0, 1],
+      "tagline": "The social network for athletes",
+      "callouts": ["Track every run & ride", "Segments & leaderboards", "Kudos from your crew"],
+      "description": "Strava turns every run, ride, and hike into a shareable map with deep stats. Chase segment records and stay motivated by your friends' activity feed.",
+      "rank": 1
+    },
+    {
+      "query": "Hevy - Workout Tracker Gym Log",
+      "screenshots": [0, 1],
+      "tagline": "Log lifts in seconds",
+      "callouts": ["Clean workout logger", "Track PRs & volume", "Copy friends' routines"],
+      "description": "Hevy is the fastest way to log a lifting session. Build routines, watch your volume and PRs climb, and follow other lifters for programming ideas.",
+      "rank": 2
+    },
+    {
+      "query": "MyFitnessPal: Calorie Counter",
+      "screenshots": [0, 1],
+      "tagline": "Know exactly what you eat",
+      "callouts": ["19M+ food database", "Barcode scanner", "Dial in your macros"],
+      "description": "MyFitnessPal makes nutrition tracking effortless with a huge food database and barcode scanning. Hit your calorie and macro targets without guessing.",
+      "rank": 3
+    },
+    {
+      "query": "id:6759252082",
+      "local_screenshots": ["docs/assets/tiktok-screenshots/dashboard.png", "docs/assets/tiktok-screenshots/deep-dive-compare.png"],
+      "tagline": "See your body actually change",
+      "callouts": ["AI scores your progress photos", "Track body composition", "Side-by-side compare"],
+      "description": "GainFrame grades your progress photos with AI and tracks body composition over time, so you can see real change the scale can't show. The missing piece in your fitness stack.",
+      "rank": 4
+    },
+    {
+      "query": "Nike Run Club: Running Coach",
+      "screenshots": [0, 1],
+      "tagline": "Your pocket running coach",
+      "callouts": ["Guided audio runs", "Adaptive training plans", "Coaching for any level"],
+      "description": "Nike Run Club pairs guided runs and adaptive training plans with audio coaching, making it the easiest way to go from first mile to race day.",
+      "rank": 5
+    }
+  ],
+  "caption": "The 5 apps living on every serious lifter's home screen in 2026 👀 Which one are you missing? #fitnessapps #gymtok #fitnesstech #progresspics #gymmotivation",
+  "hashtags": ["fitnessapps", "gymtok", "fitnesstech", "progresspics", "gymmotivation", "fittok"]
+}

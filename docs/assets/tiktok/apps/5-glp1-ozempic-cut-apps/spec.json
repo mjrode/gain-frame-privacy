@@ -1,0 +1,48 @@
+{
+  "format": "editorial",
+  "slug": "5-glp1-ozempic-cut-apps",
+  "cover": {
+    "kicker": "GLP-1 Toolkit",
+    "title": "5 Apps for a GLP-1 Cut",
+    "accent_word": "GLP-1",
+    "subtitle": "The scale can't tell fat from muscle. These can."
+  },
+  "apps": [
+    {
+      "query": "id:6499510249",
+      "name": "Shotsy",
+      "tagline": "Track every dose",
+      "callouts": ["Log shots & sites", "Dose reminders", "Side-effect notes"],
+      "description": "Keeps your GLP-1 schedule on track — doses, injection sites, and how each week makes you feel. The med side, handled."
+    },
+    {
+      "query": "id:6480417616",
+      "screenshots": [0],
+      "tagline": "Protein made easy",
+      "callouts": ["Photo meal logging", "Protein & macros", "Calorie targets"],
+      "description": "Appetite gone on a GLP-1? Cal AI makes it effortless to log meals and hit protein, so you lose fat, not muscle."
+    },
+    {
+      "query": "id:6759252082",
+      "local_screenshots": ["docs/assets/tiktok-screenshots/dashboard.png", "docs/assets/tiktok-screenshots/deep-dive-compare.png"],
+      "tagline": "Fat loss, not muscle",
+      "callouts": ["Body fat from a photo", "Scores 12 muscles", "Fat-vs-muscle trend"],
+      "description": "The scale drops on a GLP-1 — but is it fat or muscle? GainFrame reads both from a photo, so you know what you're losing."
+    },
+    {
+      "query": "id:1458862350",
+      "screenshots": [0],
+      "tagline": "Lift to keep muscle",
+      "callouts": ["Fast set logging", "Progressive overload", "Huge exercise library"],
+      "description": "Muscle is what you protect on a cut. Hevy makes resistance training easy to log and progress, so you hold onto it."
+    },
+    {
+      "query": "id:1553503471",
+      "tagline": "Macros that adapt",
+      "callouts": ["Adaptive targets", "Adjusts weekly", "Fast food logging"],
+      "description": "As appetite and weight fall, MacroFactor recalculates your targets each week — so your plan keeps pace with a shrinking intake."
+    }
+  ],
+  "caption": "5 apps for losing weight on a GLP-1 without losing muscle 💉 The scale can't tell fat from muscle — but #3 can. GainFrame reads your body-fat % and muscle from a single photo, so you know the weight you're dropping is fat, not the muscle you worked for. Track the shot, the protein, and the result. GainFrame is free on iOS. #glp1 #ozempic #weightloss #bodycomposition #fitnessapps",
+  "hashtags": ["glp1", "ozempic", "weightloss", "bodycomposition", "fitnessapps", "musclepreservation"]
+}

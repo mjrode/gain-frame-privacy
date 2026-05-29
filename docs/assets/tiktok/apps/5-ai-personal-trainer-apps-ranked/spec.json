@@ -1,0 +1,58 @@
+{
+  "format": "ranked",
+  "slug": "5-ai-personal-trainer-apps-ranked",
+  "cover": {
+    "kicker": "Ranked 2026",
+    "title": "5 AI Trainer Apps",
+    "accent_word": "AI",
+    "subtitle": "I ranked 5 — but #3 is the only one that knows if it's working."
+  },
+  "apps": [
+    {
+      "query": "id:6474633735",
+      "rank": 1,
+      "tagline": "The most adaptive coach",
+      "callouts": ["Voice-guided coaching", "Adapts each session", "Real-time form cues"],
+      "cons": ["Pricey subscription", "Very talk-heavy"],
+      "description": "A talkative AI coach that adjusts every set in real time. The most hands-on guidance here — for a price."
+    },
+    {
+      "query": "id:1041517543",
+      "screenshots": [0],
+      "rank": 2,
+      "tagline": "Smartest workout builder",
+      "callouts": ["Auto-builds workouts", "Muscle recovery tracking", "Huge exercise library"],
+      "cons": ["Subscription required", "Lots of logging"],
+      "description": "Generates and adjusts workouts around the muscles you've recovered. Great programming — but you still log every set."
+    },
+    {
+      "query": "id:6759252082",
+      "local_screenshots": ["ai-coach"],
+      "rank": 3,
+      "tagline": "Knows if it's working",
+      "callouts": ["Reads your physique", "Body fat from a photo", "Scores 12 muscles"],
+      "cons": ["Doesn't program lifts", "iOS only"],
+      "description": "The others tell you what to do. GainFrame tells you if it's working — reading body fat and muscle from a progress photo."
+    },
+    {
+      "query": "id:1371187280",
+      "screenshots": [0],
+      "rank": 4,
+      "tagline": "AI workouts + nutrition",
+      "callouts": ["Auto-generated plans", "Built-in nutrition", "Clean tracking UI"],
+      "cons": ["Busy interface", "Generic coaching"],
+      "description": "Bundles AI workout plans with nutrition tracking. A capable all-rounder, though the coaching can feel one-size-fits-all."
+    },
+    {
+      "query": "id:1446224156",
+      "name": "FitnessAI",
+      "rank": 5,
+      "tagline": "AI sets and reps",
+      "callouts": ["Optimizes sets & reps", "Dead-simple logging"],
+      "cons": ["Strength-only focus", "Few extras"],
+      "description": "Uses AI to pick your weights and reps each session. Laser-focused on lifting, but light on everything else."
+    }
+  ],
+  "caption": "I ranked 5 AI personal trainers 🤖 They'll all program your workouts — but #3 is the only one that actually tells you if it's working, reading your body fat and muscle from a single progress photo. It's the one I check every week. GainFrame is free on iOS. Which trainer are you on? #aitrainer #fitnessapps #gymtok #fitnesscoach #bodycomposition",
+  "hashtags": ["aitrainer", "fitnessapps", "gymtok", "fitnesscoach", "bodycomposition", "fittok"]
+}

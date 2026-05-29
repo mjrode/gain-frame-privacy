@@ -1,0 +1,140 @@
+{
+  "format": "editorial",
+  "slug": "5-ai-fitness-apps-whole-body",
+  "cover": {
+    "kicker": "AI Stack 2026",
+    "title": "5 AI Apps for Your Whole Body",
+    "accent_word": "AI",
+    "subtitle": "One app for every signal your body sends."
+  },
+  "caption": "The 5 AI fitness apps I actually run in 2026 \ud83e\udd16 Each one owns a different signal \u2014 Whoop your recovery, Cal AI your nutrition, Runna your cardio, Fitbod your lifting \u2014 and #3, GainFrame, owns your physique, reading body fat and muscle from a single photo. The habit apps tell you what you did; GainFrame tells you if it's working. Free on iOS. #aifitness #fitnessapps #gymtok #bodycomposition #fitnessstack",
+  "hashtags": [
+    "aifitness",
+    "fitnessapps",
+    "gymtok",
+    "bodycomposition",
+    "fitnessstack",
+    "fittok"
+  ],
+  "apps": [
+    {
+      "query": "id:933944389",
+      "name": "WHOOP",
+      "short_name": "WHOOP",
+      "id": 933944389,
+      "genre": "Health & Fitness",
+      "rating": 4.5,
+      "rating_count": 13346,
+      "store_desc": "WHOOP is the leading wearable that turns comprehensive health insights into daily action. By capturing dozens of data points every second, WHOOP delivers personalized Sleep, Strain, Recovery, Stress, and health insights\u201424/7. WHOOP uses those insights to provide coaching based on your body\u2019s unique physiology and recommends everything from when to go to bed to new daily behaviors that will help you reach your goals.\n\nIf you\u2019re new to WHOOP, you can try both the wearable and app free for 1 month.",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-ai-fitness-apps-whole-body/assets/whoop/logo.png",
+      "screenshots": [],
+      "tagline": "Owns your recovery",
+      "callouts": [
+        "Strain & recovery",
+        "Sleep coaching",
+        "HRV tracking"
+      ],
+      "cons": [],
+      "description": "A screen-free band that scores your recovery and strain around the clock, telling you when to push and when to rest.",
+      "bullets": [],
+      "rank": null
+    },
+    {
+      "query": "id:6480417616",
+      "name": "Cal AI - Calorie Tracker",
+      "short_name": "Cal AI",
+      "id": 6480417616,
+      "genre": "Health & Fitness",
+      "rating": 4.8,
+      "rating_count": 320055,
+      "store_desc": "HOW TO USE CAL AI:\n\n1) Answer lifestyle questions to build your plan\n\n2) Snap a photo of your meal*\n\n3) Get your nutritional breakdown*\n\nIf you want to get your dream body, Cal AI will help you get there with less time spent than anyone else.\n\nWe aren't another complicated diet app. We want to empower everyone to be confident in their bodies with minimal time spent, but you have to work hard. We will support you and give you the tools and information you need.\n\nIf you have any ideas or questions",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-ai-fitness-apps-whole-body/assets/cal-ai/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-ai-fitness-apps-whole-body/assets/cal-ai/shot-0.png"
+      ],
+      "tagline": "Owns your nutrition",
+      "callouts": [
+        "Photo calorie logging",
+        "Macro breakdowns",
+        "Daily targets"
+      ],
+      "cons": [],
+      "description": "Point your camera at a meal and it estimates calories and macros instantly \u2014 the fastest way to keep nutrition honest.",
+      "bullets": [],
+      "rank": null
+    },
+    {
+      "query": "id:6759252082",
+      "name": "GainFrame: Gym Progress Photos",
+      "short_name": "GainFrame",
+      "id": 6759252082,
+      "genre": "Health & Fitness",
+      "rating": 5,
+      "rating_count": 25,
+      "store_desc": "The only progress photo app with AI body analysis AND an AI coach that explains it. Take a photo, get instant body fat estimates, physique scores, and muscle-group breakdowns -- then chat with Coach about what changed and why.\n\nWHAT MAKES GAINFRAME DIFFERENT\n\nMost apps just store your photos. GainFrame actually analyzes them \u2014 and now talks to you about them. Our AI examines each check-in to estimate body fat, score your physique, and identify which muscle groups are developing. Then Coach \u2014 a p",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-ai-fitness-apps-whole-body/assets/gainframe/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-ai-fitness-apps-whole-body/assets/gainframe/shot-0.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-ai-fitness-apps-whole-body/assets/gainframe/shot-1.png"
+      ],
+      "tagline": "Owns your physique",
+      "callouts": [
+        "Body fat from a photo",
+        "Scores 12 muscles",
+        "Tracks the trend"
+      ],
+      "cons": [],
+      "description": "While the others watch your habits, GainFrame watches the result \u2014 reading body-fat % and muscle from a single progress photo.",
+      "bullets": [],
+      "rank": null
+    },
+    {
+      "query": "id:1594204443",
+      "name": "Runna: Running Plans & Coach",
+      "short_name": "Runna",
+      "id": 1594204443,
+      "genre": "Health & Fitness",
+      "rating": 4.86,
+      "rating_count": 29736,
+      "store_desc": "Reach your pinnacle as a runner with Runna: Running Training Plans, your quintessential guide to the world of running. With tailored training plans built by world-class coaches to help you achieve your goals. \n\nEmbark on an unparalleled running journey with Runna. More than just a pocket-sized running coach, Runna is your comprehensive running companion. From beginners embarking on their first park run to seasoned athletes gearing up for challenging marathons, our app is crafted to cater to all.",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-ai-fitness-apps-whole-body/assets/runna/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-ai-fitness-apps-whole-body/assets/runna/shot-0.png"
+      ],
+      "tagline": "Owns your cardio",
+      "callouts": [
+        "AI running plans",
+        "Adapts to your pace",
+        "Watch integration"
+      ],
+      "cons": [],
+      "description": "Personalized run and 5K-to-marathon plans that adjust to how your training is actually going. Your AI cardio coach.",
+      "bullets": [],
+      "rank": null
+    },
+    {
+      "query": "id:1041517543",
+      "name": "Fitbod: Gym & Fitness Planner",
+      "short_name": "Fitbod",
+      "id": 1041517543,
+      "genre": "Health & Fitness",
+      "rating": 4.81,
+      "rating_count": 271370,
+      "store_desc": "*Apple Editor\u2019s Choice Award Winner*\n\n\nBuild muscle, gain strength and lose weight with a customized workout plan just for you. Fitbod is the ultimate fitness platform made to help enhance your strength training and endurance through personalized AI workouts. You won\u2019t just get stronger\u2014you\u2019ll do it on your terms. Get optimized weight lifting routines with a workout planner made to help you reach your fitness goals. No gym? No problem. Fitbod adapts to you with home training with no equipment ne",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-ai-fitness-apps-whole-body/assets/fitbod/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-ai-fitness-apps-whole-body/assets/fitbod/shot-0.png"
+      ],
+      "tagline": "Owns your lifting",
+      "callouts": [
+        "Auto-builds workouts",
+        "Muscle recovery",
+        "Huge library"
+      ],
+      "cons": [],
+      "description": "Generates each strength session around the muscles you've recovered and the gear you have. Your AI lifting partner.",
+      "bullets": [],
+      "rank": null
+    }
+  ]
+}

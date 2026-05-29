@@ -1,0 +1,155 @@
+{
+  "format": "ranked",
+  "slug": "5-muscle-gain-apps-ranked",
+  "cover": {
+    "kicker": "Ranked 2026",
+    "title": "5 Muscle Growth Apps",
+    "accent_word": "Muscle",
+    "subtitle": "Loggers track your lifts \u2014 but #3 tracks the muscle itself."
+  },
+  "caption": "I ranked 5 apps for tracking muscle gain \ud83d\udcaa Four are brilliant at logging your lifts \u2014 the inputs \u2014 but #3 is the only one that tracks the actual output: your muscle, scored across 12 groups from a single progress photo. Log your lifts in the others, then check the result in #3. GainFrame is free on iOS. #musclegain #gymtok #fitnessapps #bodybuilding #bodycomposition",
+  "hashtags": [
+    "musclegain",
+    "gymtok",
+    "fitnessapps",
+    "bodybuilding",
+    "bodycomposition",
+    "fittok"
+  ],
+  "apps": [
+    {
+      "query": "id:1458862350",
+      "name": "Hevy - Workout Tracker Gym Log",
+      "short_name": "Hevy",
+      "id": 1458862350,
+      "genre": "Health & Fitness",
+      "rating": 4.92,
+      "rating_count": 71482,
+      "store_desc": "** Featured by Apple ** Join +10 million users!\nHevy is the most intuitive workout tracker & planner in the world. No ads and free. Plan your weight lifting routines, log your workouts and track your exercise progress. Join a growing community and get started today - for free!\n\nWHAT USERS ARE SAYING\n\u2022  \"Seriously the best workout tracker I've ever used. Simple. Free. Tons of graphs. Amazing quality videos\" - Sam Ilelaboye\n\u2022  \"Seeing what my friends and other athletes are working out at the gym h",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-muscle-gain-apps-ranked/assets/hevy/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-muscle-gain-apps-ranked/assets/hevy/shot-0.png"
+      ],
+      "tagline": "Best workout logger",
+      "callouts": [
+        "Fast set logging",
+        "Huge exercise library",
+        "Volume & PR charts"
+      ],
+      "cons": [
+        "Tracks lifts only",
+        "No body metrics"
+      ],
+      "description": "The cleanest gym logger out there \u2014 every set, rep, and PR. But it tracks what you lift, not what your body does with it.",
+      "bullets": [],
+      "rank": 1
+    },
+    {
+      "query": "id:449810000",
+      "name": "JEFIT Workout Plan Gym Tracker",
+      "short_name": "JEFIT",
+      "id": 449810000,
+      "genre": "Health & Fitness",
+      "rating": 4.76,
+      "rating_count": 46614,
+      "store_desc": "Get Fit and Strong with JEFIT: Your Reliable Gym Planner and Workout Organizer\n\nJEFIT is a trusted workout tracker for iPhone, designed to help you achieve your fitness goals with precision and ease. Whether you're a beginner or a seasoned athlete, JEFIT is a versatile fitness plan for the gym or home workouts. With detailed workout programs, HD video instructions, and powerful tracking tools, JEFIT empowers you to log, plan, and optimize your fitness journey.\n\nWhy Choose JEFIT\n\n- Gym Planner & ",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-muscle-gain-apps-ranked/assets/jefit/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-muscle-gain-apps-ranked/assets/jefit/shot-0.png"
+      ],
+      "tagline": "Logger + workout plans",
+      "callouts": [
+        "Structured routines",
+        "Exercise database",
+        "Strength analytics"
+      ],
+      "cons": [
+        "Cluttered UI",
+        "Still lifts only"
+      ],
+      "description": "Pairs solid logging with ready-made routines and strength stats. Powerful, but it still measures the work, not the muscle.",
+      "bullets": [],
+      "rank": 2
+    },
+    {
+      "query": "id:6759252082",
+      "name": "GainFrame: Gym Progress Photos",
+      "short_name": "GainFrame",
+      "id": 6759252082,
+      "genre": "Health & Fitness",
+      "rating": 5,
+      "rating_count": 25,
+      "store_desc": "The only progress photo app with AI body analysis AND an AI coach that explains it. Take a photo, get instant body fat estimates, physique scores, and muscle-group breakdowns -- then chat with Coach about what changed and why.\n\nWHAT MAKES GAINFRAME DIFFERENT\n\nMost apps just store your photos. GainFrame actually analyzes them \u2014 and now talks to you about them. Our AI examines each check-in to estimate body fat, score your physique, and identify which muscle groups are developing. Then Coach \u2014 a p",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-muscle-gain-apps-ranked/assets/gainframe/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-muscle-gain-apps-ranked/assets/gainframe/shot-0.png"
+      ],
+      "tagline": "Tracks the muscle itself",
+      "callouts": [
+        "Scores 12 muscles",
+        "Flags lagging groups",
+        "From one photo"
+      ],
+      "cons": [
+        "Doesn't log lifts"
+      ],
+      "description": "Loggers track the lifts you put in; GainFrame tracks the muscle that comes out \u2014 scoring 12 groups from a single photo.",
+      "bullets": [],
+      "rank": 3
+    },
+    {
+      "query": "id:464254577",
+      "name": "Strong Workout Tracker Gym Log",
+      "short_name": "Strong",
+      "id": 464254577,
+      "genre": "Health & Fitness",
+      "rating": 4.86,
+      "rating_count": 108387,
+      "store_desc": "The most intuitive workout and exercise tracker for any fitness routine.\n\nStrong is the simplest and most intuitive workout tracker, designed to help you get better results from your workouts. Whether you want to gain strength or just stay healthy, join over 1.2 million people who have downloaded Strong to stay on track in the gym.\n\n\u201cI\u2019d suggest downloading the \u201cStrong\u201d app before you return to the gym. It\u2019s that good\u201d - CNBC\n\u201cwith apps like Strong, working out feels more like a game\u201d - The Verg",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-muscle-gain-apps-ranked/assets/strong/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-muscle-gain-apps-ranked/assets/strong/shot-0.png"
+      ],
+      "tagline": "Simple, fast logging",
+      "callouts": [
+        "Dead-simple logging",
+        "Plate calculator",
+        "Apple Watch app"
+      ],
+      "cons": [
+        "Limited free tier",
+        "Lifts only"
+      ],
+      "description": "Beloved for its no-friction logging and Watch support. Excellent at tracking sets \u2014 but that's all it tracks.",
+      "bullets": [],
+      "rank": 4
+    },
+    {
+      "query": "id:1369905597",
+      "name": "Shapez - Body Progress Tracker",
+      "short_name": "Shapez",
+      "id": 1369905597,
+      "genre": "Health & Fitness",
+      "rating": 4.46,
+      "rating_count": 206,
+      "store_desc": "Body progress and measurement tracker with lot of great features. Get fit and feel great with Shapez - Body Progress Tracker!\n\nReach your health and weight goals through regular progress tracking. If you want to track weight loss or muscle growth, our app is here to help you.  \nYou can take a photo right in the app or upload a picture from the gallery. You can also track your body measurements (up to 25 types) and your weight.\n\nWhat you can do as a free user:\n\n- Set a weight goal and watch your ",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-muscle-gain-apps-ranked/assets/shapez/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-muscle-gain-apps-ranked/assets/shapez/shot-0.png"
+      ],
+      "tagline": "Measurements + photos",
+      "callouts": [
+        "Tape measurements",
+        "Photo tracking",
+        "Trend charts"
+      ],
+      "cons": [
+        "All manual",
+        "No AI read"
+      ],
+      "description": "Tracks body measurements and photos over time. Closer to the goal than a lift logger, but you do all the measuring by hand.",
+      "bullets": [],
+      "rank": 5
+    }
+  ]
+}

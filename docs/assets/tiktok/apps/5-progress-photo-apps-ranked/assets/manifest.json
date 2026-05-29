@@ -1,0 +1,151 @@
+{
+  "format": "ranked",
+  "slug": "5-progress-photo-apps-ranked",
+  "cover": {
+    "kicker": "Ranked 2026",
+    "title": "5 Progress Photo Apps",
+    "accent_word": "Photo",
+    "subtitle": "I ranked 5 \u2014 but #3 is the only one that actually reads the photo."
+  },
+  "caption": "I ranked 5 progress-photo apps \ud83d\udcf8 Four of them just store and line up your pics \u2014 but #3 is the only one that actually reads the photo, pulling your body-fat % and muscle scores from a single shot. That's why it's the one I open every week. GainFrame is free on iOS. Which do you use? #progresspics #fitnessapps #gymtok #bodycomposition #transformation",
+  "hashtags": [
+    "progresspics",
+    "fitnessapps",
+    "gymtok",
+    "bodycomposition",
+    "transformation",
+    "fittok"
+  ],
+  "apps": [
+    {
+      "query": "id:1537250336",
+      "name": "Photo Compare - Before & After",
+      "short_name": "Photo Compare",
+      "id": 1537250336,
+      "genre": "Photo & Video",
+      "rating": 4.48,
+      "rating_count": 2548,
+      "store_desc": "Experience the Best Photo Compare App on the App Store!\n\nWHY YOU\u2019LL LOVE PHOTO COMPARE - BEFORE & AFTER:\n\n\u2022 Effortless Comparison: Quickly and easily compare your photos side by side.\n\u2022 Intuitive Design: Enjoy a clean, user-friendly interface designed for smooth navigation.\n\u2022 All-in-One Solution: Everything you need for detailed photo comparisons, all in one app.\n\u2022 Customizable Tools: Enhance your comparisons with a variety of customization options.\n\u2022 Seamless Sharing: Instantly share your photo",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-progress-photo-apps-ranked/assets/photo-compare/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-progress-photo-apps-ranked/assets/photo-compare/shot-0.png"
+      ],
+      "tagline": "Cleanest before & after",
+      "callouts": [
+        "Side-by-side compare",
+        "Photo overlays",
+        "No clutter"
+      ],
+      "cons": [
+        "Only compares",
+        "No body data"
+      ],
+      "description": "Does one thing well: clean before-and-after comparisons. But it only lines your pixels up \u2014 it never reads them.",
+      "bullets": [],
+      "rank": 1
+    },
+    {
+      "query": "id:877133105",
+      "name": "Selfie A Day - Everyday Photo",
+      "short_name": "Selfie A Day",
+      "id": 877133105,
+      "genre": "Photo & Video",
+      "rating": 4.66,
+      "rating_count": 3958,
+      "store_desc": "Selfie-A-Day is a history of you. Take a selfie every day and play them back in fun, life capturing movies.\n\nInstantly play your selfie movies inside the app and save them directly to your Camera Roll or share to Instagram, Facebook, Twitter and Tik Tok.\n\nAlready have a bunch of selfies? Easily import them into the app from your Camera Roll. \n\nThe Backup feature saves all of your photos to your Camera Roll for safe keeping. \n\nUse our built-in camera grid or ghost image view to line up your face ",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-progress-photo-apps-ranked/assets/selfie-a-day/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-progress-photo-apps-ranked/assets/selfie-a-day/shot-0.png"
+      ],
+      "tagline": "Build a daily habit",
+      "callouts": [
+        "One selfie a day",
+        "Auto time-lapse",
+        "Alignment guide"
+      ],
+      "cons": [
+        "No analysis",
+        "Manual upkeep"
+      ],
+      "description": "Turns daily selfies into a time-lapse of your change. A great habit-builder, but it leaves the interpreting to you.",
+      "bullets": [],
+      "rank": 2
+    },
+    {
+      "query": "id:6759252082",
+      "name": "GainFrame: Gym Progress Photos",
+      "short_name": "GainFrame",
+      "id": 6759252082,
+      "genre": "Health & Fitness",
+      "rating": 5,
+      "rating_count": 25,
+      "store_desc": "The only progress photo app with AI body analysis AND an AI coach that explains it. Take a photo, get instant body fat estimates, physique scores, and muscle-group breakdowns -- then chat with Coach about what changed and why.\n\nWHAT MAKES GAINFRAME DIFFERENT\n\nMost apps just store your photos. GainFrame actually analyzes them \u2014 and now talks to you about them. Our AI examines each check-in to estimate body fat, score your physique, and identify which muscle groups are developing. Then Coach \u2014 a p",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-progress-photo-apps-ranked/assets/gainframe/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-progress-photo-apps-ranked/assets/gainframe/shot-0.png"
+      ],
+      "tagline": "It reads the photo",
+      "callouts": [
+        "Body fat from a photo",
+        "Scores 12 muscles",
+        "Auto-aligns & compares"
+      ],
+      "cons": [
+        "iOS only (for now)"
+      ],
+      "description": "Everyone else stores your photos \u2014 GainFrame reads them, pulling body-fat % and muscle scores from a single progress pic.",
+      "bullets": [],
+      "rank": 3
+    },
+    {
+      "query": "id:583840813",
+      "name": "Progress Body Tracker: My BMI",
+      "short_name": "Progress",
+      "id": 583840813,
+      "genre": "Health & Fitness",
+      "rating": 4.63,
+      "rating_count": 9183,
+      "store_desc": "Track the measurements and photos that matter. Stay motivated on your weight-loss journey.\n\nYou want to make a positive change, and you want to actually see it happening. Progress tracks your body measurements, weight, BMI, body fat, and progress photos in one place, so you can watch your real story unfold week by week. No judgement, no pressure, no aggressive fitness talk. Just a clear picture of how far you've come.\n\nSince 2012, tens of thousands people have reached their weight-loss goals wit",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-progress-photo-apps-ranked/assets/progress/logo.png",
+      "screenshots": [],
+      "tagline": "The OG photo journal",
+      "callouts": [
+        "Weight + measurements",
+        "Photo timeline",
+        "Free to start"
+      ],
+      "cons": [
+        "Dated design",
+        "All manual entry"
+      ],
+      "description": "A long-time favorite for logging photos, weight, and tape measurements. Reliable, but every number is one you enter yourself.",
+      "bullets": [],
+      "rank": 4
+    },
+    {
+      "query": "id:341232718",
+      "name": "MyFitnessPal: Calorie Counter",
+      "short_name": "MyFitnessPal",
+      "id": 341232718,
+      "genre": "Health & Fitness",
+      "rating": 4.71,
+      "rating_count": 2331460,
+      "store_desc": "Achieve your nutrition, calorie, macro & fitness goals with MyFitnessPal \u2013 the AI-powered food & fitness tracker with everything you need. Calories, macros, food, workouts \u2013 track it all in one place with one of the most comprehensive health, nutrition & fitness tracking apps available. Now with a built-in AI nutrition Coach for personalized guidance based on your goals and history. Plus GLP-1 journey support - log doses and set reminders in the app.\n\nCreate personalized fitness & nutrition goal",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-progress-photo-apps-ranked/assets/myfitnesspal/logo.png",
+      "screenshots": [],
+      "tagline": "Photos are a side feature",
+      "callouts": [
+        "Huge food database",
+        "Logs weight",
+        "Stores photos"
+      ],
+      "cons": [
+        "Mainly a food app",
+        "Photos buried"
+      ],
+      "description": "A calorie-tracking giant that happens to store progress photos. Fine if you're already there, but the photos are an afterthought.",
+      "bullets": [],
+      "rank": 5
+    }
+  ]
+}

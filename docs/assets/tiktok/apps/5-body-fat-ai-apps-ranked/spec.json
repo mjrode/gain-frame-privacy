@@ -1,0 +1,57 @@
+{
+  "format": "ranked",
+  "slug": "5-body-fat-ai-apps-ranked",
+  "cover": {
+    "kicker": "Ranked 2026",
+    "title": "5 AI Body-Fat Apps",
+    "accent_word": "Body-Fat",
+    "subtitle": "I ranked 5 — but I kept #3."
+  },
+  "apps": [
+    {
+      "query": "id:1664503999",
+      "screenshots": [0],
+      "rank": 1,
+      "tagline": "Most complete — if you'll pay",
+      "callouts": ["Camera-based body composition", "Also tracks HRV & recovery", "Backed by validation studies"],
+      "cons": ["Pricey subscription", "Light on progress photos"],
+      "description": "Body composition from a quick camera scan, plus recovery metrics. The most data-rich pick — for a price."
+    },
+    {
+      "query": "id:1636398776",
+      "rank": 2,
+      "tagline": "A real 3D body scan",
+      "callouts": ["Genuine full 3D scan", "Visualizes change over time", "Circumference measurements"],
+      "cons": ["Fiddly suit-and-setup ritual", "Subscription required"],
+      "description": "A genuine rotating 3D scan with slick visuals — if you'll stick with the suit-and-setup routine."
+    },
+    {
+      "query": "id:6759252082",
+      "local_screenshots": ["post-check-in-photo-score"],
+      "rank": 3,
+      "tagline": "Body fat from one progress photo",
+      "callouts": ["Within 0.4% of a real DEXA scan", "Scores 12 muscle groups", "Tracks trends + compares photos"],
+      "cons": ["iOS only (for now)"],
+      "description": "Reads a normal progress photo — no hardware. Its estimate came within 0.4% of a clinical DEXA scan."
+    },
+    {
+      "query": "id:6752960004",
+      "rank": 4,
+      "tagline": "Built for body recomposition",
+      "callouts": ["Estimates body fat + lean mass", "Recomp-focused scanning", "Nutrition tracking support"],
+      "cons": ["No progress timeline", "No side-by-side comparison"],
+      "description": "Body fat and lean mass with a recomp focus — but it's scan-by-scan, with no real timeline or compare."
+    },
+    {
+      "query": "id:1493493642",
+      "screenshots": [0],
+      "rank": 5,
+      "tagline": "Quick AI photo scan",
+      "callouts": ["Fast photo-based estimate", "Simple, clean UI"],
+      "cons": ["Small user base", "Estimates can drift"],
+      "description": "Keeps it simple with a fast photo estimate. A fine starter, but accuracy and polish trail the leaders."
+    }
+  ],
+  "caption": "I ranked 5 AI body-fat apps 👀 They all scan — but #3 is the only one that's been checked against a real DEXA scan (came within 0.4%), and it's the one I actually use daily. Which are you on? Full breakdown on the blog. #bodyfat #fitnessapps #gymtok #bodycomposition #fittok",
+  "hashtags": ["bodyfat", "fitnessapps", "gymtok", "bodycomposition", "fittok", "progresspics"]
+}

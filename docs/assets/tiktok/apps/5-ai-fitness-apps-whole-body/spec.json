@@ -1,0 +1,48 @@
+{
+  "format": "editorial",
+  "slug": "5-ai-fitness-apps-whole-body",
+  "cover": {
+    "kicker": "AI Stack 2026",
+    "title": "5 AI Apps for Your Whole Body",
+    "accent_word": "AI",
+    "subtitle": "One app for every signal your body sends."
+  },
+  "apps": [
+    {
+      "query": "id:933944389",
+      "tagline": "Owns your recovery",
+      "callouts": ["Strain & recovery", "Sleep coaching", "HRV tracking"],
+      "description": "A screen-free band that scores your recovery and strain around the clock, telling you when to push and when to rest."
+    },
+    {
+      "query": "id:6480417616",
+      "screenshots": [0],
+      "tagline": "Owns your nutrition",
+      "callouts": ["Photo calorie logging", "Macro breakdowns", "Daily targets"],
+      "description": "Point your camera at a meal and it estimates calories and macros instantly — the fastest way to keep nutrition honest."
+    },
+    {
+      "query": "id:6759252082",
+      "local_screenshots": ["docs/assets/tiktok-screenshots/dashboard.png", "docs/assets/tiktok-screenshots/deep-dive-compare.png"],
+      "tagline": "Owns your physique",
+      "callouts": ["Body fat from a photo", "Scores 12 muscles", "Tracks the trend"],
+      "description": "While the others watch your habits, GainFrame watches the result — reading body-fat % and muscle from a single progress photo."
+    },
+    {
+      "query": "id:1594204443",
+      "screenshots": [0],
+      "tagline": "Owns your cardio",
+      "callouts": ["AI running plans", "Adapts to your pace", "Watch integration"],
+      "description": "Personalized run and 5K-to-marathon plans that adjust to how your training is actually going. Your AI cardio coach."
+    },
+    {
+      "query": "id:1041517543",
+      "screenshots": [0],
+      "tagline": "Owns your lifting",
+      "callouts": ["Auto-builds workouts", "Muscle recovery", "Huge library"],
+      "description": "Generates each strength session around the muscles you've recovered and the gear you have. Your AI lifting partner."
+    }
+  ],
+  "caption": "The 5 AI fitness apps I actually run in 2026 🤖 Each one owns a different signal — Whoop your recovery, Cal AI your nutrition, Runna your cardio, Fitbod your lifting — and #3, GainFrame, owns your physique, reading body fat and muscle from a single photo. The habit apps tell you what you did; GainFrame tells you if it's working. Free on iOS. #aifitness #fitnessapps #gymtok #bodycomposition #fitnessstack",
+  "hashtags": ["aifitness", "fitnessapps", "gymtok", "bodycomposition", "fitnessstack", "fittok"]
+}
