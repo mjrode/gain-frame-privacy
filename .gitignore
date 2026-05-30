@@ -2,6 +2,10 @@
 client_secret*.json
 .DS_Store
 
+# Python bytecode (e.g. .agent/skills/*/__pycache__)
+__pycache__/
+*.pyc
+
 # Heavy source MP4s - re-encoded web-friendly versions are committed
 docs/app-screenshots/1.21/screen-recording-1-21.MP4
 
