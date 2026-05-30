@@ -1,0 +1,15 @@
+week	TikTok$	Reddit$	ASA$	PaidTotal$	ASC_downloads	StoreConv%	RC_newcust	MRR	MRR_wow%
+2026-03-08	170	0	0	170	138	11.8		0	
+2026-03-15	0	0	0	0	120	26.6		0	
+2026-03-22	52	447	9	508	117	16.4	122	88	
+2026-03-29	150	848	33	1031	158	12.8	163	131	50.0
+2026-04-05	100	0	69	169	128	12.9	117	180	36.8
+2026-04-12	140	0	66	206	141	45.6	135	227	26.2
+2026-04-19	164	0	153	317	134	37.2	145	277	22.1
+2026-04-26	110	0	32	142	185	31.6	177	358	29.1
+2026-05-03	987	0	383	1370	397	42.6	387	475	32.8
+2026-05-10	0	0	1185	1185	353	47.3	366	579	21.8
+2026-05-17	0	0	0	0	144	56.5	157	603	4.3
+2026-05-24	0	0	0	0	82	52.2	104	634	5.1
+# AUTHORITATIVE TOTALS: TikTok $1,881 + ASA $2,498 (campaign-level Feb1-May29, ON_HOLD) + Reddit $1,295 (correct by-date file; old file's $117 was incomplete) = $5,674 grand total paid 3mo.
+# Reddit = late-March Traffic campaign ($447 wk 3/22 + $848 wk 3/29), ~0 tracked app conversions. ASA search-terms file (detailed-apple-ads.csv) inflated ~2.3x; do not sum.

@@ -1,0 +1,500 @@
+{
+  "category": "conversion",
+  "description": "The Trial Conversion Rate chart measures the number of trials that started in a given period, and the portion of them that converted to paying customers.\n\nTrial Conversion Rate is important to track so that you can understand how likelihood to pay changes over time and by various dimensions.\n\nPlease note that the number of Trial Starts reported in each period in this chart will differ from the same period of the Trial Conversion Funnel, since the funnel is cohorted by a customer's first seen date, not by trial start date.",
+  "display_name": "Trial Conversion Rate",
+  "display_type": "default",
+  "documentation_link": "dashboard-and-metrics/charts/trial-conversion-rate-chart",
+  "end_date": 1779580800,
+  "filtering_allowed": true,
+  "last_computed_at": null,
+  "measures": [
+    {
+      "chartable": false,
+      "decimal_precision": 0,
+      "description": "The number of trials started in the period",
+      "display_name": "Trial Starts",
+      "tabulable": true,
+      "unit": "#"
+    },
+    {
+      "chartable": false,
+      "decimal_precision": 0,
+      "description": "The number of trials from the period that have converted to paid, minus those conversions that were later refunded",
+      "display_name": "Conversions",
+      "tabulable": true,
+      "unit": "#"
+    },
+    {
+      "chartable": false,
+      "decimal_precision": 0,
+      "description": "The number of trials from the period that have expired without converting",
+      "display_name": "Expirations",
+      "tabulable": true,
+      "unit": "#"
+    },
+    {
+      "chartable": false,
+      "decimal_precision": 0,
+      "description": "The number of trials from the period that have not yet converted or expired",
+      "display_name": "Pending",
+      "tabulable": true,
+      "unit": "#"
+    },
+    {
+      "chartable": true,
+      "decimal_precision": 1,
+      "description": "The portion of trials that converted to paid",
+      "display_name": "Conversion Rate",
+      "tabulable": true,
+      "unit": "%"
+    }
+  ],
+  "object": "chart_data",
+  "resolution": "week",
+  "segmenting_allowed": true,
+  "segments": null,
+  "segments_limit": null,
+  "start_date": 1771718400,
+  "summary": {
+    "average": {
+      "Conversion Rate": 20.69,
+      "Conversions": 3.43,
+      "Expirations": 11.79,
+      "Pending": 1.36,
+      "Trial Starts": 16.57
+    },
+    "total": {
+      "Conversion Rate": 20.69,
+      "Conversions": 48.0,
+      "Expirations": 165.0,
+      "Pending": 19.0,
+      "Trial Starts": 232.0
+    }
+  },
+  "unsupported_params": null,
+  "user_selectors": {},
+  "values": [
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 4,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 4,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 13.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 5.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 2,
+      "value": 8.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 4,
+      "value": 38.46
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 18.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 1,
+      "value": 5.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 2,
+      "value": 13.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 4,
+      "value": 27.78
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 14.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 1,
+      "value": 5.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 2,
+      "value": 9.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 4,
+      "value": 35.71
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 23.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 10.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 2,
+      "value": 13.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 4,
+      "value": 43.48
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 15.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 3.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 2,
+      "value": 12.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 4,
+      "value": 20.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 22.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 3.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 2,
+      "value": 19.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 4,
+      "value": 13.64
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 18.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 1,
+      "value": 4.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 2,
+      "value": 14.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 4,
+      "value": 22.22
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 13.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 1,
+      "value": 1.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 2,
+      "value": 12.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 4,
+      "value": 7.69
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 37.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 4.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 2,
+      "value": 33.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 4,
+      "value": 10.81
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 24.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 6.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 2,
+      "value": 18.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 4,
+      "value": 25.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": true,
+      "measure": 0,
+      "value": 16.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": true,
+      "measure": 1,
+      "value": 2.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": true,
+      "measure": 2,
+      "value": 14.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": true,
+      "measure": 3,
+      "value": 0.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": true,
+      "measure": 4,
+      "value": 12.5
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 0,
+      "value": 19.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 3,
+      "value": 19.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 4,
+      "value": 0.0
+    }
+  ],
+  "yaxis": "%",
+  "yaxis_currency": "USD"
+}

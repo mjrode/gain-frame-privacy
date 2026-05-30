@@ -1,0 +1,220 @@
+{
+  "category": "revenue",
+  "description": "Revenue displays the revenue generated during a period. This number will usually be a little higher than MRR as it is un-normalized and all the revenue from an annual subscription is charted the period it starts or is renewed. This chart also displays all revenue from non-consumable and consumable purchases, non-renewing subscriptions, and ads. You can select between Revenue, Revenue (net of taxes), or Proceeds as the revenue definition to visualize in the chart.",
+  "display_name": "Revenue",
+  "display_type": "default",
+  "documentation_link": "dashboard-and-metrics/charts/revenue-chart",
+  "end_date": 1779580800,
+  "filtering_allowed": true,
+  "last_computed_at": null,
+  "measures": [
+    {
+      "chartable": true,
+      "decimal_precision": 0,
+      "description": "The total revenue generated in a given period, minus refunds from transactions that occurred in that period, rounded to the nearest whole number.",
+      "display_name": "Revenue",
+      "tabulable": true,
+      "unit": "$"
+    },
+    {
+      "chartable": false,
+      "decimal_precision": 0,
+      "description": "The count of revenue generating transactions for the period, minus those that have since been refunded.",
+      "display_name": "Transactions",
+      "tabulable": true,
+      "unit": "#"
+    }
+  ],
+  "object": "chart_data",
+  "resolution": "week",
+  "segmenting_allowed": true,
+  "segments": null,
+  "segments_limit": null,
+  "start_date": 1771718400,
+  "summary": {
+    "average": {
+      "Revenue": 189.45,
+      "Transactions": 11.86
+    },
+    "total": {
+      "Revenue": 2652.36,
+      "Transactions": 166.0
+    }
+  },
+  "unsupported_params": null,
+  "user_selectors": {
+    "revenue_type": "revenue"
+  },
+  "values": [
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 296.12
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 12.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 104.11
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 1,
+      "value": 6.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 129.94
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 1,
+      "value": 6.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 107.34
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 9.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 253.1
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 15.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 153.78
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 8.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 182.87
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 1,
+      "value": 12.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 254.5
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 1,
+      "value": 19.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 258.92
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 27.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 335.97
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 21.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 429.49
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 21.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 0,
+      "value": 146.22
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 1,
+      "value": 10.0
+    }
+  ],
+  "yaxis": "$",
+  "yaxis_currency": "USD"
+}

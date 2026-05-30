@@ -1,0 +1,121 @@
+{
+  "category": "trials",
+  "description": "Active Trials shows the number of active trials at the end of the period. Included in this number is all trials, regardless of whether they are set to auto-convert on completion or not.\n\nThe volume of Active Trials is a good leading indicator to growth of Active Subscriptions and therefore MRR. If the volume of active trials is increasing or decreasing it indicates that your business may be accelerating or decelerating respectively. The Active Trials Movement chart can help you understand these movements.",
+  "display_name": "Active Trials",
+  "display_type": "default",
+  "documentation_link": "dashboard-and-metrics/charts/active-trials-chart",
+  "end_date": 1779580800,
+  "filtering_allowed": true,
+  "last_computed_at": null,
+  "measures": [
+    {
+      "chartable": true,
+      "decimal_precision": 0,
+      "description": null,
+      "display_name": "Active Trials",
+      "tabulable": true,
+      "unit": "#"
+    }
+  ],
+  "object": "chart_data",
+  "resolution": "week",
+  "segmenting_allowed": true,
+  "segments": null,
+  "segments_limit": null,
+  "start_date": 1771718400,
+  "summary": {
+    "average": {
+      "Active Trials": 16.57
+    }
+  },
+  "unsupported_params": null,
+  "user_selectors": {},
+  "values": [
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 13.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 18.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 14.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 23.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 15.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 22.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 18.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 13.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 37.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 24.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 16.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 0,
+      "value": 19.0
+    }
+  ],
+  "yaxis": "#",
+  "yaxis_currency": "USD"
+}

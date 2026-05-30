@@ -1,0 +1,15 @@
+week_ending,impressions,product_page_views,downloads,conversion_rate_pct,notes
+# App Store Connect > Analytics. Weekly, last ~12 weeks. conversion_rate_pct = downloads / product_page_views (or App Store's "Conversion Rate").
+# Fill from the ASC dashboard export. Leaving blank rows as a guide.
+2026-03-08,,,,,
+2026-03-15,,,,,
+2026-03-22,,,,,
+2026-03-29,,,,,
+2026-04-05,,,,,
+2026-04-12,,,,,
+2026-04-19,,,,,
+2026-04-26,,,,,
+2026-05-03,,,,,
+2026-05-10,,,,,
+2026-05-17,,,,,
+2026-05-24,,,,,

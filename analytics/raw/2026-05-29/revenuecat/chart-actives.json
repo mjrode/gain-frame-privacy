@@ -1,0 +1,121 @@
+{
+  "category": "actives",
+  "description": "Active Subscriptions shows the number of unexpired, paid subscriptions at the end of each period charted.\n\nFor the current period, the number indicated is the current active subscriptions. Subscriptions that have auto-renew disabled are still counted in Active Subscriptions. Refunded subscriptions are counted as active between their start date and their refund date.\n\nActive subscriptions is important as a measure of the number of individual, recurring relationships you are currently serving and is a proxy for the size of the business.",
+  "display_name": "Active Subscriptions",
+  "display_type": "default",
+  "documentation_link": "dashboard-and-metrics/charts/active-subscriptions-chart",
+  "end_date": 1779580800,
+  "filtering_allowed": true,
+  "last_computed_at": null,
+  "measures": [
+    {
+      "chartable": true,
+      "decimal_precision": 0,
+      "description": "The number of un-expired subscriptions at the end of the period.",
+      "display_name": "Actives",
+      "tabulable": true,
+      "unit": "#"
+    }
+  ],
+  "object": "chart_data",
+  "resolution": "week",
+  "segmenting_allowed": true,
+  "segments": null,
+  "segments_limit": null,
+  "start_date": 1771718400,
+  "summary": {
+    "average": {
+      "Actives": 54.0
+    }
+  },
+  "unsupported_params": null,
+  "user_selectors": {},
+  "values": [
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 12.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 18.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 24.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 33.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 44.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 52.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 60.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 74.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 91.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 109.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 117.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 0,
+      "value": 122.0
+    }
+  ],
+  "yaxis": "#",
+  "yaxis_currency": "USD"
+}

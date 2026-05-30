@@ -1,0 +1,488 @@
+{
+  "category": "cohorts",
+  "description": "Subscription Retention measures how paying subscriptions renew and retain over time by cohorts.\n\nWhen segmenting by subscription start date, cohorts are segmented by the start of a paid subscription. Subsequent periods along the horizontal table indicate how many subscriptions continued renewing through those periods. When segmenting by other fields, cohorts are segmented by the values within that field, and include all paid subscriptions started within the specified date range. Subsequent periods along the horizontal table indicate the portion of subscriptions that successfully renewed out of all those that had the opportunity to renew in a given period.\n\nThe final, incomplete period is indicated with a hashed background and shows how many subscriptions are set to renew by the end of the period, taking into account the auto-renewal preference of the subscriptions.",
+  "display_name": "Subscription Retention",
+  "display_type": "cohort",
+  "documentation_link": "dashboard-and-metrics/charts/subscription-retention-chart",
+  "end_date": null,
+  "filtering_allowed": true,
+  "last_computed_at": null,
+  "measures": null,
+  "object": "chart_data",
+  "resolution": "week",
+  "segmenting_allowed": true,
+  "segments": null,
+  "segments_limit": null,
+  "start_date": null,
+  "summary": null,
+  "unsupported_params": null,
+  "user_selectors": null,
+  "values": [
+    {
+      "cohort": "Total",
+      "period": 0,
+      "value": 94
+    },
+    {
+      "cohort": "Total",
+      "period": 1,
+      "scale": "absolute",
+      "value": 47
+    },
+    {
+      "cohort": "Total",
+      "period": 2,
+      "scale": "relative",
+      "value": 50.0
+    },
+    {
+      "cohort": "Total",
+      "period": 3,
+      "scale": "absolute",
+      "value": 12
+    },
+    {
+      "cohort": "Total",
+      "period": 4,
+      "scale": "relative",
+      "value": 22.22
+    },
+    {
+      "cohort": "Total",
+      "incomplete": true,
+      "period": 5,
+      "scale": "absolute",
+      "value": 2
+    },
+    {
+      "cohort": "Total",
+      "incomplete": true,
+      "period": 6,
+      "scale": "relative",
+      "value": "Incomplete"
+    },
+    {
+      "cohort": 1771718400,
+      "period": 0,
+      "value": 0
+    },
+    {
+      "cohort": 1771718400,
+      "period": 1,
+      "scale": "absolute",
+      "value": 0
+    },
+    {
+      "cohort": 1771718400,
+      "period": 2,
+      "scale": "relative",
+      "value": 0
+    },
+    {
+      "cohort": 1771718400,
+      "period": 3,
+      "scale": "absolute",
+      "value": 0
+    },
+    {
+      "cohort": 1771718400,
+      "period": 4,
+      "scale": "relative",
+      "value": 0
+    },
+    {
+      "cohort": 1771718400,
+      "incomplete": true,
+      "period": 5,
+      "scale": "absolute",
+      "value": 0
+    },
+    {
+      "cohort": 1771718400,
+      "incomplete": true,
+      "period": 6,
+      "scale": "relative",
+      "value": 0
+    },
+    {
+      "cohort": 1772323200,
+      "period": 0,
+      "value": 0
+    },
+    {
+      "cohort": 1772323200,
+      "period": 1,
+      "scale": "absolute",
+      "value": 0
+    },
+    {
+      "cohort": 1772323200,
+      "period": 2,
+      "scale": "relative",
+      "value": 0
+    },
+    {
+      "cohort": 1772323200,
+      "period": 3,
+      "scale": "absolute",
+      "value": 0
+    },
+    {
+      "cohort": 1772323200,
+      "period": 4,
+      "scale": "relative",
+      "value": 0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": true,
+      "period": 5,
+      "scale": "absolute",
+      "value": 0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": true,
+      "period": 6,
+      "scale": "relative",
+      "value": 0
+    },
+    {
+      "cohort": 1772928000,
+      "period": 0,
+      "value": 4
+    },
+    {
+      "cohort": 1772928000,
+      "period": 1,
+      "scale": "absolute",
+      "value": 0
+    },
+    {
+      "cohort": 1772928000,
+      "period": 2,
+      "scale": "relative",
+      "value": 0.0
+    },
+    {
+      "cohort": 1772928000,
+      "period": 3,
+      "scale": "absolute",
+      "value": 0
+    },
+    {
+      "cohort": 1772928000,
+      "period": 4,
+      "scale": "relative",
+      "value": 0.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": true,
+      "period": 5,
+      "scale": "absolute",
+      "value": 0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": true,
+      "period": 6,
+      "scale": "relative",
+      "value": 0.0
+    },
+    {
+      "cohort": 1773532800,
+      "period": 0,
+      "value": 3
+    },
+    {
+      "cohort": 1773532800,
+      "period": 1,
+      "scale": "absolute",
+      "value": 2
+    },
+    {
+      "cohort": 1773532800,
+      "period": 2,
+      "scale": "relative",
+      "value": 66.67
+    },
+    {
+      "cohort": 1773532800,
+      "period": 3,
+      "scale": "absolute",
+      "value": 2
+    },
+    {
+      "cohort": 1773532800,
+      "period": 4,
+      "scale": "relative",
+      "value": 66.67
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": true,
+      "period": 5,
+      "scale": "absolute",
+      "value": 2
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": true,
+      "period": 6,
+      "scale": "relative",
+      "value": 66.67
+    },
+    {
+      "cohort": 1774137600,
+      "period": 0,
+      "value": 2
+    },
+    {
+      "cohort": 1774137600,
+      "period": 1,
+      "scale": "absolute",
+      "value": 2
+    },
+    {
+      "cohort": 1774137600,
+      "period": 2,
+      "scale": "relative",
+      "value": 100.0
+    },
+    {
+      "cohort": 1774137600,
+      "period": 3,
+      "scale": "absolute",
+      "value": 0
+    },
+    {
+      "cohort": 1774137600,
+      "period": 4,
+      "scale": "relative",
+      "value": 0.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": true,
+      "period": 5,
+      "scale": "absolute",
+      "value": 0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": true,
+      "period": 6,
+      "scale": "relative",
+      "value": 0.0
+    },
+    {
+      "cohort": 1774742400,
+      "period": 0,
+      "value": 7
+    },
+    {
+      "cohort": 1774742400,
+      "period": 1,
+      "scale": "absolute",
+      "value": 3
+    },
+    {
+      "cohort": 1774742400,
+      "period": 2,
+      "scale": "relative",
+      "value": 42.86
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": true,
+      "period": 3,
+      "scale": "absolute",
+      "value": 3
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": true,
+      "period": 4,
+      "scale": "relative",
+      "value": 42.86
+    },
+    {
+      "cohort": 1775347200,
+      "period": 0,
+      "value": 9
+    },
+    {
+      "cohort": 1775347200,
+      "period": 1,
+      "scale": "absolute",
+      "value": 5
+    },
+    {
+      "cohort": 1775347200,
+      "period": 2,
+      "scale": "relative",
+      "value": 55.56
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": true,
+      "period": 3,
+      "scale": "absolute",
+      "value": 3
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": true,
+      "period": 4,
+      "scale": "relative",
+      "value": 33.33
+    },
+    {
+      "cohort": 1775952000,
+      "period": 0,
+      "value": 5
+    },
+    {
+      "cohort": 1775952000,
+      "period": 1,
+      "scale": "absolute",
+      "value": 3
+    },
+    {
+      "cohort": 1775952000,
+      "period": 2,
+      "scale": "relative",
+      "value": 60.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": true,
+      "period": 3,
+      "scale": "absolute",
+      "value": 1
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": true,
+      "period": 4,
+      "scale": "relative",
+      "value": 20.0
+    },
+    {
+      "cohort": 1776556800,
+      "period": 0,
+      "value": 6
+    },
+    {
+      "cohort": 1776556800,
+      "period": 1,
+      "scale": "absolute",
+      "value": 3
+    },
+    {
+      "cohort": 1776556800,
+      "period": 2,
+      "scale": "relative",
+      "value": 50.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": true,
+      "period": 3,
+      "scale": "absolute",
+      "value": 3
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": true,
+      "period": 4,
+      "scale": "relative",
+      "value": 50.0
+    },
+    {
+      "cohort": 1777161600,
+      "period": 0,
+      "value": 12
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": true,
+      "period": 1,
+      "scale": "absolute",
+      "value": 7
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": true,
+      "period": 2,
+      "scale": "relative",
+      "value": 58.33
+    },
+    {
+      "cohort": 1777766400,
+      "period": 0,
+      "value": 21
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": true,
+      "period": 1,
+      "scale": "absolute",
+      "value": 8
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": true,
+      "period": 2,
+      "scale": "relative",
+      "value": 38.1
+    },
+    {
+      "cohort": 1778371200,
+      "period": 0,
+      "value": 14
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": true,
+      "period": 1,
+      "scale": "absolute",
+      "value": 11
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": true,
+      "period": 2,
+      "scale": "relative",
+      "value": 78.57
+    },
+    {
+      "cohort": 1778976000,
+      "period": 0,
+      "value": 5
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": true,
+      "period": 1,
+      "scale": "absolute",
+      "value": 3
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": true,
+      "period": 2,
+      "scale": "relative",
+      "value": 60.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "period": 0,
+      "value": 6
+    }
+  ],
+  "yaxis": "%",
+  "yaxis_currency": "USD"
+}

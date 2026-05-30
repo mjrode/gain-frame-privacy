@@ -1,0 +1,123 @@
+{
+  "category": "revenue",
+  "description": "Monthly Recurring Revenue, or MRR, is a way of normalizing the scale of your business to better understand your velocity or size. It doesn't map directly to revenue, but it is a useful standardization.\n\nMRR is computed by \"normalizing\" subscriptions to a 1-month period. For example, a subscription that is $8 per month, will contribute $8 to MRR while it is active. An annual subscription that costs $120 per year will contribute $10 dollars per month to MRR for 12 months. This normalizing of all durations to a 1 month period makes it easier to compare different subscriptions of different durations together.\n\nMRR is an important measure because it not only captures the size of your subscriber base, but translates that into a real velocity metric for your business. MRR and ARR are considered the standard velocity metrics for subscription software companies.",
+  "display_name": "MRR",
+  "display_type": "default",
+  "documentation_link": "dashboard-and-metrics/charts/monthly-recurring-revenue-mrr-chart",
+  "end_date": 1779580800,
+  "filtering_allowed": true,
+  "last_computed_at": null,
+  "measures": [
+    {
+      "chartable": true,
+      "decimal_precision": 0,
+      "description": "Monthly Recurring Revenue",
+      "display_name": "MRR",
+      "tabulable": true,
+      "unit": "$"
+    }
+  ],
+  "object": "chart_data",
+  "resolution": "week",
+  "segmenting_allowed": true,
+  "segments": null,
+  "segments_limit": null,
+  "start_date": 1771718400,
+  "summary": {
+    "average": {
+      "MRR": 261.73
+    }
+  },
+  "unsupported_params": null,
+  "user_selectors": {
+    "revenue_type": "revenue"
+  },
+  "values": [
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 45.25
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 67.64
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 87.61
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 131.45
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 179.83
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 226.92
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 277.15
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 357.67
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 474.82
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 578.55
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 603.16
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 0,
+      "value": 634.17
+    }
+  ],
+  "yaxis": "$",
+  "yaxis_currency": "USD"
+}

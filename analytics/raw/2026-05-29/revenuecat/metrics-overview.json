@@ -1,0 +1,71 @@
+{
+  "metrics": [
+    {
+      "description": "In total",
+      "id": "active_trials",
+      "last_updated_at": null,
+      "last_updated_at_iso8601": null,
+      "name": "Active Trials",
+      "object": "overview_metric",
+      "period": "P0D",
+      "unit": "#",
+      "value": 19
+    },
+    {
+      "description": "In total",
+      "id": "active_subscriptions",
+      "last_updated_at": null,
+      "last_updated_at_iso8601": null,
+      "name": "Active Subscriptions",
+      "object": "overview_metric",
+      "period": "P0D",
+      "unit": "#",
+      "value": 122
+    },
+    {
+      "description": "Monthly Recurring Revenue",
+      "id": "mrr",
+      "last_updated_at": null,
+      "last_updated_at_iso8601": null,
+      "name": "MRR",
+      "object": "overview_metric",
+      "period": "P28D",
+      "unit": "$",
+      "value": 634
+    },
+    {
+      "description": "Last 28 days",
+      "id": "revenue",
+      "last_updated_at": null,
+      "last_updated_at_iso8601": null,
+      "name": "Revenue",
+      "object": "overview_metric",
+      "period": "P28D",
+      "unit": "$",
+      "value": 1224
+    },
+    {
+      "description": "Last 28 days",
+      "id": "new_customers",
+      "last_updated_at": null,
+      "last_updated_at_iso8601": null,
+      "name": "New Customers",
+      "object": "overview_metric",
+      "period": "P28D",
+      "unit": "#",
+      "value": 977
+    },
+    {
+      "description": "Last 28 days",
+      "id": "active_users",
+      "last_updated_at": null,
+      "last_updated_at_iso8601": null,
+      "name": "Active Users",
+      "object": "overview_metric",
+      "period": "P28D",
+      "unit": "#",
+      "value": 1217
+    }
+  ],
+  "object": "overview_metrics"
+}

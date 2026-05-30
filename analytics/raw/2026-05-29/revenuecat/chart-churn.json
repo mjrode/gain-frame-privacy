@@ -1,0 +1,307 @@
+{
+  "category": "actives",
+  "description": "Churn is the percentage of paid subscriptions that were lost during a given period.\n\nActives measures the number of paid subscriptions at the beginning of a a given period, while Churned Actives measures the paid subscriptions that have expired within the period.\n\nA stable or declining churn rate indicates a healthy, growing business. However, keep in mind that churn can be relatively high for mobile apps when compared to web SaaS products.",
+  "display_name": "Churn",
+  "display_type": "default",
+  "documentation_link": "dashboard-and-metrics/charts/churn-chart",
+  "end_date": 1779580800,
+  "filtering_allowed": true,
+  "last_computed_at": null,
+  "measures": [
+    {
+      "chartable": false,
+      "decimal_precision": 0,
+      "description": "The number of un-expired subscriptions at the beginning of the period.",
+      "display_name": "Actives",
+      "tabulable": true,
+      "unit": "#"
+    },
+    {
+      "chartable": false,
+      "decimal_precision": 0,
+      "description": "The number of subscriptions that expired in the period and did not renew.",
+      "display_name": "Churned Actives",
+      "tabulable": true,
+      "unit": "#"
+    },
+    {
+      "chartable": true,
+      "decimal_precision": 1,
+      "description": "The proportion of subscriptions active at the beginning of the period that expired in the period and did not renew.",
+      "display_name": "Churn Rate",
+      "tabulable": true,
+      "unit": "%"
+    }
+  ],
+  "object": "chart_data",
+  "resolution": "week",
+  "segmenting_allowed": true,
+  "segments": null,
+  "segments_limit": null,
+  "start_date": 1771718400,
+  "summary": {
+    "average": {
+      "Actives": 45.29,
+      "Churn Rate": 3.47,
+      "Churned Actives": 1.57
+    }
+  },
+  "unsupported_params": null,
+  "user_selectors": {},
+  "values": [
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 12.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 18.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 24.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 33.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 4.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 2,
+      "value": 12.12
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 44.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 52.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 1,
+      "value": 1.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 2,
+      "value": 1.92
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 60.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 1,
+      "value": 2.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 2,
+      "value": 3.33
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 74.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 6.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 2,
+      "value": 8.11
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 91.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 1.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 2,
+      "value": 1.1
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 109.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 5.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": false,
+      "measure": 2,
+      "value": 4.59
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 0,
+      "value": 117.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 1,
+      "value": 3.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 2,
+      "value": 2.56
+    }
+  ],
+  "yaxis": "%",
+  "yaxis_currency": "USD"
+}

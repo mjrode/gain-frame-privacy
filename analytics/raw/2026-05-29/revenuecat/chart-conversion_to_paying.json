@@ -1,0 +1,316 @@
+{
+  "category": "conversion",
+  "description": "Conversion to Paying measures what proportion of new customers make any payment.\n\nSince this chart is cohorted by the earliest date that a customer was first seen by RevenueCat (e.g. when they first opened the app, or when they first made a purchase outside of the app), each period measures the number of New Customers first seen in that period, and the number of those customers that are now Paying Customers.\n\nThe conversion timeframe selector sets the maximum amount of time each period's cohort has to convert within for accurate historical comparisons.",
+  "display_name": "Conversion to Paying",
+  "display_type": "default",
+  "documentation_link": "dashboard-and-metrics/charts/conversion-to-paying-chart",
+  "end_date": 1779580800,
+  "filtering_allowed": true,
+  "last_computed_at": null,
+  "measures": [
+    {
+      "chartable": false,
+      "decimal_precision": 0,
+      "description": "The number of new customers that were first seen during the cohort period.",
+      "display_name": "New Customers",
+      "tabulable": true,
+      "unit": "#"
+    },
+    {
+      "chartable": false,
+      "decimal_precision": 0,
+      "description": "The number of customers that converted to a paid purchase (including subscriptions not in their trial period as well as non-renewing IAPs) within 7 days of when they were first seen.",
+      "display_name": "Paying Customers (7 days)",
+      "tabulable": true,
+      "timeframe": "7 days",
+      "unit": "#"
+    },
+    {
+      "chartable": true,
+      "decimal_precision": 1,
+      "description": "The percentage of customers that have converted to a paid purchase within 7 days of when they were first seen.",
+      "display_name": "Conversion Rate (7 days)",
+      "tabulable": true,
+      "timeframe": "7 days",
+      "unit": "%"
+    }
+  ],
+  "object": "chart_data",
+  "resolution": "week",
+  "segmenting_allowed": true,
+  "segments": null,
+  "segments_limit": null,
+  "start_date": 1771718400,
+  "summary": {
+    "average": {
+      "Conversion Rate (7 days)": 5.35,
+      "New Customers": 159.0,
+      "Paying Customers (7 days)": 8.5
+    },
+    "total": {
+      "Conversion Rate (7 days)": 5.35,
+      "New Customers": 2226.0,
+      "Paying Customers (7 days)": 119.0
+    }
+  },
+  "unsupported_params": null,
+  "user_selectors": {
+    "conversion_timeframe": "7_days"
+  },
+  "values": [
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 13.0
+    },
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 0.0
+    },
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 88.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 7.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 2,
+      "value": 7.95
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 128.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 10.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 2,
+      "value": 7.81
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 124.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 1,
+      "value": 5.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 2,
+      "value": 4.03
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 122.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 1,
+      "value": 5.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 2,
+      "value": 4.1
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 163.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 10.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 2,
+      "value": 6.13
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 117.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 8.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 2,
+      "value": 6.84
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 135.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 6.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 2,
+      "value": 4.44
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 145.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 1,
+      "value": 8.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 2,
+      "value": 5.52
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 177.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 1,
+      "value": 11.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 2,
+      "value": 6.21
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 387.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 23.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 2,
+      "value": 5.94
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 366.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 16.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 2,
+      "value": 4.37
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 157.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": true,
+      "measure": 1,
+      "value": 5.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": true,
+      "measure": 2,
+      "value": 3.18
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 0,
+      "value": 104.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 1,
+      "value": 5.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 2,
+      "value": 4.81
+    }
+  ],
+  "yaxis": "%",
+  "yaxis_currency": "USD"
+}

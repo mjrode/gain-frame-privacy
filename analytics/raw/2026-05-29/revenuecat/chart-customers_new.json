@@ -1,0 +1,124 @@
+{
+  "category": "conversion",
+  "description": "New Customers are customers first seen in the period being measured. In RevenueCat, the term \"customer\" refers to the person using an app, regardless of whether they have yet made a purchase. You can use our conversion charts to measure the portion of these customers that then start trials, convert to paid, etc. Any customers who are aliased to another customer will be excluded from this chart.",
+  "display_name": "New Customers",
+  "display_type": "default",
+  "documentation_link": "dashboard-and-metrics/charts/new-customers-chart",
+  "end_date": 1779580800,
+  "filtering_allowed": true,
+  "last_computed_at": null,
+  "measures": [
+    {
+      "chartable": true,
+      "decimal_precision": 0,
+      "description": "The number of new customers that were seen for the first time in the period.",
+      "display_name": "New Customers",
+      "tabulable": true,
+      "unit": "#"
+    }
+  ],
+  "object": "chart_data",
+  "resolution": "week",
+  "segmenting_allowed": true,
+  "segments": null,
+  "segments_limit": null,
+  "start_date": 1771718400,
+  "summary": {
+    "average": {
+      "New Customers": 159.0
+    },
+    "total": {
+      "New Customers": 2226.0
+    }
+  },
+  "unsupported_params": null,
+  "user_selectors": {},
+  "values": [
+    {
+      "cohort": 1771718400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 13.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 88.0
+    },
+    {
+      "cohort": 1772928000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 128.0
+    },
+    {
+      "cohort": 1773532800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 124.0
+    },
+    {
+      "cohort": 1774137600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 122.0
+    },
+    {
+      "cohort": 1774742400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 163.0
+    },
+    {
+      "cohort": 1775347200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 117.0
+    },
+    {
+      "cohort": 1775952000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 135.0
+    },
+    {
+      "cohort": 1776556800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 145.0
+    },
+    {
+      "cohort": 1777161600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 177.0
+    },
+    {
+      "cohort": 1777766400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 387.0
+    },
+    {
+      "cohort": 1778371200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 366.0
+    },
+    {
+      "cohort": 1778976000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 157.0
+    },
+    {
+      "cohort": 1779580800,
+      "incomplete": true,
+      "measure": 0,
+      "value": 104.0
+    }
+  ],
+  "yaxis": "#",
+  "yaxis_currency": "USD"
+}

@@ -1,0 +1,21 @@
+week_ending,channel,spend_usd,impressions,clicks,installs_or_skan_conv,notes
+# Fill weekly, last ~12 weeks (Mar -> May). One row per channel per week. channel = tiktok | reddit | apple_search_ads.
+# Seeded from mrr-audit/config/manual-data.json (week ending 2026-05-10). Replace/extend with your dashboard exports.
+2026-05-10,tiktok,1038.33,229337,6500,15,"May 1-8 burst; tapered by 5/9; daily budget $175; gainframe-2.0 campaign"
+2026-05-10,apple_search_ads,183.76,72599,1312,,"AppsFlyer 30d rolling ending 5/12; installs N/A (SDK attribution gap)"
+2026-05-10,reddit,,,,,
+# --- add rows below (examples of the dates to fill) ---
+2026-03-08,tiktok,,,,,
+2026-03-08,reddit,,,,,
+2026-03-08,apple_search_ads,,,,,
+2026-03-15,tiktok,,,,,
+2026-03-22,tiktok,,,,,
+2026-03-29,tiktok,,,,,
+2026-04-05,tiktok,,,,,
+2026-04-12,tiktok,,,,,
+2026-04-19,tiktok,,,,,
+2026-04-26,tiktok,,,,,
+2026-05-03,tiktok,,,,,
+2026-05-03,apple_search_ads,,,,,
+2026-05-17,tiktok,,,,,
+2026-05-24,tiktok,,,,,
