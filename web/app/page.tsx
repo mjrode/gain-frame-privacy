@@ -30,7 +30,62 @@ const websiteSchema = {
   alternateName: ["Gain Frame", "GainFrame App"],
   url: SITE.url,
   description:
-    "GainFrame is an AI progress photo app with body analysis and a private Coach. Estimate body fat, physique scores, and muscle groups, then ask what changed.",
+    "GainFrame is an AI body composition app that estimates body fat from photos, scores 12 muscle groups, and pairs the analysis with a private AI Coach. In a published head-to-head against a clinical DEXA scan, GainFrame's estimate agreed within 0.4 percentage points.",
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How accurate is GainFrame's AI body fat estimation?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "In one head-to-head comparison against a clinical DEXA scan, GainFrame's body fat estimate agreed within 0.4 percentage points — the DEXA measured 18.6% and GainFrame estimated 19%. That is one user's documented test, not a peer-reviewed validation. Separately, a 2025 peer-reviewed study in npj Digital Medicine found AI photo-based body fat estimation in general achieved 0.98 Concordance Correlation Coefficient with DEXA across 1,273 adults — higher than smart scales at 0.91-0.92. The honest read: AI photo analysis under consistent conditions is the most accurate widely-available consumer method, with the trend across weekly check-ins doing the real work over time.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does GainFrame compare to a DEXA scan?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "DEXA scans cost $75-150 per visit and require an in-person appointment. GainFrame runs on your phone and is free at the base tier. In a documented head-to-head, the two methods agreed within 0.4 percentage points on body fat (DEXA: 18.6%, GainFrame: 19%) — one comparison, not a multi-person validation study. DEXA still wins for bone density and absolute visceral fat measurement. For the weekly body fat tracking most lifters actually do, GainFrame is a credible at-home alternative at $0 versus $100+ per scan.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is GainFrame more accurate than smart scales?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "AI photo-based body fat estimation scored 0.98 Concordance Correlation Coefficient with DEXA in a 2025 peer-reviewed study (npj Digital Medicine, 1,273 adults), while smart scales using bioelectrical impedance analysis (BIA) scored 0.91-0.92. Smart scales are also heavily affected by hydration — readings can swing 3-5% based on a glass of water. AI photo analysis of standardized progress photos does not have that vulnerability. GainFrame uses the AI photo approach.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What does Coach know about me?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "GainFrame Coach can use your check-ins, GainFrame Score, body metrics (body fat, FFMI, lean mass, 12 muscle group scores), Apple Health data (sleep, HRV, steps, exercise), workout history from Hevy, Strava cardio activity, nutrition logs, and selected photo comparisons when those sources are available. All context loads automatically — you do not paste any data into the chat.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are my photos private?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Your photos are sent securely for AI analysis and are never stored outside your device by GainFrame. There is no cloud account required to use the app, and your conversation history with Coach is stored on-device only.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I import old gym selfies?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Smart Import classifies old photos by pose and builds your transformation timeline automatically, so a year of gym selfies on your camera roll becomes a continuous body composition history without manual sorting.",
+      },
+    },
+  ],
 };
 
 export default function Home() {
@@ -40,6 +95,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <ScrollReveal />
       <Nav />
@@ -504,32 +563,84 @@ export default function Home() {
           </div>
           <div className="faq-list reveal">
             <details open>
-              <summary>How accurate is the AI body fat estimate?</summary>
+              <summary>How accurate is GainFrame's AI body fat estimation?</summary>
               <p>
-                AI estimates are approximations, not medical measurements. The
-                most useful signal is the trend across consistent weekly photos.
+                In one{" "}
+                <a href="/blog/dexa-scan-vs-ai-body-composition/">
+                  head-to-head comparison against a clinical DEXA scan
+                </a>
+                , GainFrame&rsquo;s body fat estimate agreed within 0.4
+                percentage points — the DEXA measured 18.6% and GainFrame
+                estimated 19%. That is one user&rsquo;s documented test, not a
+                peer-reviewed validation. Separately, a{" "}
+                <a href="/blog/ai-body-fat-photo-accuracy-study/">
+                  2025 peer-reviewed study in npj Digital Medicine
+                </a>{" "}
+                found AI photo-based body fat estimation in general achieved
+                0.98 Concordance Correlation Coefficient with DEXA across
+                1,273 adults — higher than smart scales at 0.91&ndash;0.92.
+                The honest read: AI photo analysis under consistent conditions
+                is the most accurate widely-available consumer method, with
+                the trend across weekly check-ins doing the real work over
+                time.
               </p>
             </details>
             <details>
-              <summary>What does Coach know?</summary>
+              <summary>How does GainFrame compare to a DEXA scan?</summary>
               <p>
-                Coach can use your check-ins, AI scores, body metrics, Health
-                data, workout history, nutrition logs, and selected photo
-                comparisons when those sources are available.
+                DEXA scans cost $75&ndash;150 per visit and require an
+                in-person appointment. GainFrame runs on your phone and is
+                free at the base tier. In a documented head-to-head, the two
+                methods agreed within 0.4 percentage points on body fat (DEXA:
+                18.6%, GainFrame: 19%) — one comparison, not a multi-person
+                validation study. DEXA still wins for bone density and
+                absolute visceral fat measurement. For the weekly body fat
+                tracking most lifters actually do, GainFrame is a credible
+                at-home alternative at $0 versus $100+ per scan.
+              </p>
+            </details>
+            <details>
+              <summary>Is GainFrame more accurate than smart scales?</summary>
+              <p>
+                AI photo-based body fat estimation scored 0.98 Concordance
+                Correlation Coefficient with DEXA in a 2025 peer-reviewed
+                study (npj Digital Medicine, 1,273 adults), while smart scales
+                using bioelectrical impedance analysis (BIA) scored
+                0.91&ndash;0.92. Smart scales are also heavily affected by
+                hydration — readings can swing 3&ndash;5% based on a glass of
+                water. AI photo analysis of standardized progress photos does
+                not have that vulnerability. GainFrame uses the AI photo
+                approach.
+              </p>
+            </details>
+            <details>
+              <summary>What does Coach know about me?</summary>
+              <p>
+                Coach can use your check-ins, GainFrame Score, body metrics
+                (body fat, FFMI, lean mass, 12 muscle group scores), Apple
+                Health data (sleep, HRV, steps, exercise), workout history
+                from Hevy, Strava cardio activity, nutrition logs, and
+                selected photo comparisons when those sources are available.
+                All context loads automatically — you do not paste any data
+                into the chat.
               </p>
             </details>
             <details>
               <summary>Are my photos private?</summary>
               <p>
                 Your photos are sent securely for AI analysis and are never
-                stored outside your device by GainFrame.
+                stored outside your device by GainFrame. There is no cloud
+                account required to use the app, and your conversation history
+                with Coach is stored on-device only.
               </p>
             </details>
             <details>
               <summary>Can I import old gym selfies?</summary>
               <p>
-                Yes. Smart Import classifies old photos by pose and builds your
-                transformation timeline automatically.
+                Yes. Smart Import classifies old photos by pose and builds
+                your transformation timeline automatically, so a year of gym
+                selfies on your camera roll becomes a continuous body
+                composition history without manual sorting.
               </p>
             </details>
           </div>
