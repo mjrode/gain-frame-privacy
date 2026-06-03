@@ -11,6 +11,7 @@ export default function Footer() {
         <Link href="/comics">Comics</Link>
         <Link href="/tools/">Tools</Link>
         <Link href="/about/">About</Link>
+        <a href="/feedback/">Feedback</a>
         <Link href="/privacy">Privacy</Link>
         <a href={`mailto:${SITE.contactEmail}`}>Support</a>
       </div>

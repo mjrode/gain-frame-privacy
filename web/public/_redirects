@@ -27,3 +27,11 @@
 # data in 90 days. Authority consolidates into the pillar.
 /blog/best-gym-progress-photo-app/        /blog/best-progress-photo-apps/   301
 /blog/best-progress-photo-app-iphone/     /blog/best-progress-photo-apps/   301
+
+# ── Feature requests / feedback board (Featurebase) ─────────────────────────
+# Branded short URL that fronts the public Featurebase board. The same board is
+# embedded in-app (FeaturebaseBoardView). 302 (not 301) because it's an external
+# SaaS surface whose URL may change. Keep both slash variants (site is
+# trailingSlash: true, but inbound links may omit it).
+/feedback         https://gainframe.featurebase.app/   302
+/feedback/        https://gainframe.featurebase.app/   302

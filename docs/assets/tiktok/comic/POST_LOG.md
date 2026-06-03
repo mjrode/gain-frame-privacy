@@ -1,5 +1,40 @@
 # TikTok Carousel Post Log
 
+## 2026-06-02 — HOW MUCH I SPENT TO GET FIT
+- Slug: cost-to-get-fit
+- Slides: 6 (cover + 5)
+- Format: Standard, "receipt" money breakdown (new lane — economics, running total)
+- GainFrame mention: Yes (Slide 5 — dashboard.png phone-in-hand plug)
+- Status: Complete
+
+## 2026-06-02 — WHAT I EAT IN A DAY (200g PROTEIN)
+- Slug: eat-in-a-day-200g
+- Slides: 6 (cover + 5)
+- Format: Standard, WIEIAD meal-by-meal walkthrough (new lane — full day of eating, protein tally)
+- GainFrame mention: No (pure value)
+- Status: Complete (slide-5 banner regenerated for flush-top)
+
+## 2026-06-02 — NO GYM? NO PROBLEM.
+- Slug: no-gym-no-problem
+- Slides: 6 (cover + 4 bodyweight moves + plug)
+- Format: Standard, train-anywhere bodyweight circuit (new lane — situational/no-gym)
+- GainFrame mention: Yes (Slide 5 — compare.png phone-in-hand plug)
+- Status: Complete
+
+## 2026-06-02 — LIFTING IN YOUR 30s HITS DIFFERENT
+- Slug: lifting-in-your-30s
+- Slides: 6 (cover + 5)
+- Format: Standard, 20s-vs-30s demographic reality; mindset payoff close (new lane — age/demographic)
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-02 — GIFT GUIDE FOR THE GUY WHO LIFTS
+- Slug: gift-guide-lifter
+- Slides: 6 (cover + 4 gifts + plug)
+- Format: Standard, gift-guide content type (new lane); GainFrame as the final "gift"
+- GainFrame mention: Yes (Slide 5 — home.png phone-in-hand with gift bow)
+- Status: Complete
+
 ## 2026-05-01 — 5 "HEALTHY" FOODS KILLING YOUR CUT
 - Slug: healthy-foods-cut
 - Slides: 6 (cover + 5)

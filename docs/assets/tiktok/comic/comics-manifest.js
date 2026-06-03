@@ -2,6 +2,36 @@
 // To change comics, edit the .mjs file and run `npm run build:comics-manifest`.
 const COMICS_MANIFEST = [
   {
+    "slug": "gift-guide-lifter",
+    "title": "Gift Guide for the Guy Who Lifts",
+    "date": "2026-06-02",
+    "ext": "webp"
+  },
+  {
+    "slug": "lifting-in-your-30s",
+    "title": "Lifting in Your 30s Hits Different",
+    "date": "2026-06-02",
+    "ext": "webp"
+  },
+  {
+    "slug": "no-gym-no-problem",
+    "title": "No Gym? No Problem.",
+    "date": "2026-06-02",
+    "ext": "webp"
+  },
+  {
+    "slug": "eat-in-a-day-200g",
+    "title": "What I Eat in a Day (200g Protein)",
+    "date": "2026-06-02",
+    "ext": "webp"
+  },
+  {
+    "slug": "cost-to-get-fit",
+    "title": "How Much I Spent to Get Fit",
+    "date": "2026-06-02",
+    "ext": "webp"
+  },
+  {
     "slug": "influencer-lies-you-fell-for",
     "title": "5 Influencer Lies You Fell For",
     "date": "2026-05-15",
