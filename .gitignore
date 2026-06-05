@@ -17,3 +17,9 @@ _audit/
 
 # Promo video source files — large, not used by live site, kept locally
 promo-source/
+
+# Raw progress photos — not used by either site build, kept locally
+progress-photos/
+
+# Archived docs assets — not in prebuild TARGETS, not served; kept locally
+docs/_archive/
