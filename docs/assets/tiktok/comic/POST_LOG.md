@@ -1,5 +1,40 @@
 # TikTok Carousel Post Log
 
+## 2026-06-08 — DATING A GUY WHO LIFTS
+- Slug: dating-a-guy-who-lifts
+- Slides: 6 (cover + 5)
+- Format: Relationship humor, partner POV (new lane). Reuses the female mascot variant (ponytail, pink bow, sports bra + leggings).
+- GainFrame mention: No (pure value/humor)
+- Status: Complete (slide-5 regenerated to fix male outfit)
+
+## 2026-06-08 — SHOULD YOU BULK OR CUT?
+- Slug: bulk-or-cut
+- Slides: 6 (cover fork-in-road + 4 decision rules + plug)
+- Format: Decision-tree / flowchart flavor (new format)
+- GainFrame mention: Yes (Slide 5 — post-check-in-photo-score.png body fat plug)
+- Status: Complete (slide-4 regenerated for on-model body; slide-5 regenerated twice for single logo + pure white)
+
+## 2026-06-08 — WILL CARDIO KILL YOUR GAINS?
+- Slug: cardio-kill-gains
+- Slides: 6 (cover + 5)
+- Format: Cardio-for-lifters myth-bust (new topic lane)
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-08 — SUMMER SHRED CHECKLIST
+- Slug: summer-shred-checklist
+- Slides: 6 (cover + 4 tactical + plug)
+- Format: Seasonal tactical how-to
+- GainFrame mention: Yes (Slide 5 — compare.png "scale lies" plug)
+- Status: Complete
+
+## 2026-06-08 — STAGES OF A SUMMER CUT
+- Slug: stages-of-a-summer-cut
+- Slides: 6 (cover + 5 week-by-week beats)
+- Format: Seasonal emotional narrative (Week 1 → Week 8 arc). Paired with Summer Shred Checklist but distinct tone/format.
+- GainFrame mention: No (pure value/humor)
+- Status: Complete
+
 ## 2026-06-02 — HOW MUCH I SPENT TO GET FIT
 - Slug: cost-to-get-fit
 - Slides: 6 (cover + 5)
