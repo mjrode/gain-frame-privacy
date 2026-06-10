@@ -7,6 +7,7 @@ import {
   UnifrakturCook,
 } from "next/font/google";
 import { SITE } from "@/lib/site";
+import AppStoreClickTracker from "@/components/AppStoreClickTracker";
 
 // Self-hosted fonts via next/font — emits @font-face declarations using these
 // family names so existing CSS that references 'DM Sans' / 'Outfit' / etc.
@@ -135,6 +136,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <AppStoreClickTracker />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4Id}`}
           strategy="afterInteractive"

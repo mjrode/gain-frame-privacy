@@ -126,6 +126,8 @@ export default function Home() {
               href={SITE.appStoreUrl}
               target="_blank"
               rel="noopener"
+              data-cta-source="home"
+              data-cta-content="hero_download"
             >
               Download free <span aria-hidden="true">-&gt;</span>
             </a>
@@ -658,6 +660,8 @@ export default function Home() {
           href={SITE.appStoreUrl}
           target="_blank"
           rel="noopener"
+          data-cta-source="home"
+          data-cta-content="closing_download"
         >
           Download on App Store <span aria-hidden="true">-&gt;</span>
         </a>

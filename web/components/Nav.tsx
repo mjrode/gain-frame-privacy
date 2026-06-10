@@ -76,6 +76,8 @@ export default function Nav() {
           href={SITE.appStoreUrl}
           target="_blank"
           rel="noopener"
+          data-cta-source="nav"
+          data-cta-content="nav_download"
         >
           Download
         </a>

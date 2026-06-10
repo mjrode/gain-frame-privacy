@@ -175,6 +175,9 @@ function CTACard({
       href={href}
       target="_blank"
       rel="noopener"
+      // Fires its own outbound event below with the campaign source —
+      // exempt from the global AppStoreClickTracker to avoid double counts.
+      data-track-exempt="true"
       onClick={() => {
         track("bf_tool_cta_clicked", { cta_content: ctaContent });
         track("outbound_app_store_click", {
@@ -636,6 +639,9 @@ export default function BFEstimatorClient() {
           href={appStoreUrl("cta_primary")}
           target="_blank"
           rel="noopener"
+          // Fires its own outbound event below with the campaign source —
+          // exempt from the global AppStoreClickTracker to avoid double counts.
+          data-track-exempt="true"
           onClick={() => {
             track("bf_tool_cta_clicked", { cta_content: "cta_primary" });
             track("outbound_app_store_click", {
@@ -710,6 +716,10 @@ export default function BFEstimatorClient() {
             href={appStoreUrl("cta_rate_limited")}
             target="_blank"
             rel="noopener"
+            // outbound_app_store_click comes from the global tracker; these
+            // attributes keep its source consistent with the other BF CTAs.
+            data-cta-source={CTA_CAMPAIGN}
+            data-cta-content="cta_rate_limited"
             onClick={() =>
               track("bf_tool_cta_clicked", { cta_content: "cta_rate_limited" })
             }

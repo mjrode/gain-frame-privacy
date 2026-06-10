@@ -104,6 +104,8 @@ export default function BlogNav() {
             className="nav-cta-btn"
             target="_blank"
             rel="noopener"
+            data-cta-source="blog_nav"
+            data-cta-content="nav_download"
           >
             Download
           </a>

@@ -680,6 +680,8 @@ export default function ToolsPage() {
                 target="_blank"
                 rel="noopener"
                 className="cl-cta-badge"
+                data-cta-source="tools_index"
+                data-cta-content="store_badge"
               >
                 <img
                   src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png"

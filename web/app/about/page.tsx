@@ -431,6 +431,8 @@ export default function AboutPage() {
                   target="_blank"
                   rel="noopener"
                   aria-label="Open the GainFrame app to chat with the founder"
+                  data-cta-source="about"
+                  data-cta-content="chat_card"
                 >
                   <span className="about-chat-card__icon" aria-hidden="true">
                     <svg
@@ -572,6 +574,8 @@ export default function AboutPage() {
                   target="_blank"
                   rel="noopener"
                   aria-label="Download GainFrame on the App Store"
+                  data-cta-source="about"
+                  data-cta-content="store_badge"
                 >
                   <img
                     src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png"
