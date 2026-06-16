@@ -186,4 +186,14 @@ Cluster goal: own the aesthetic physique / V-taper proportions space (Cluster C)
 
 ## Published
 
-(none yet)
+### 2026-06-15 — net-new from SEO audit (not from a prior keyword-research doc)
+
+- [x] **Best Body Recomposition Apps** — /blog/best-body-recomposition-apps/ — "recomp is 3 jobs" listicle; was backlog item (see above)
+- [x] **Import Progress Photos** — /blog/import-progress-photos/ — NEW cluster (Differentiator #1: camera-roll import / Backstory). Targets "import progress photos" / "body transformation from old photos" — wide-open SERP, no competitor does camera-roll import.
+- [x] **2-Week Body Experiment** — /blog/body-composition-experiment/ — NEW; "identifying trends" feature → correlation-vs-causation angle on the pattern/Insights cards. Targets "does X actually work" / "how to know if a supplement is working".
+- [x] **Recovery Score for Lifters** — /blog/recovery-score-for-lifters/ — NEW; recovery-metrics feature, framed as training-readiness→physique (one post, NOT a recovery cluster — off-core per audit, dilution risk accepted knowingly).
+- [x] **[Refresh] personalized-ai-fitness-coach** — added "Coach compares two check-ins + biggest movers" screenshot + paragraph; dateModified bumped 2026-06-15 (was pos ~46; refresh, not net-new, to avoid cannibalizing the Coach cluster).
+
+**Indexing fix (2026-06-15):** wired inbound internal links to 3 orphaned/uncrawled posts (best-body-fat-scanner-apps, ai-fitness-analysis, how-to-lean-bulk-without-gaining-fat) from indexed parents + resubmitted sitemap (Google's last fetch was 2026-05-11). All 4 new posts above shipped with inbound links so they aren't born orphans. Competitor profile: seo-tools/competitor-research/getrecomp.md (pre-launch; vs-page held until they ship).
+
+**Next candidates surfaced (not yet done):** best-ai-personal-trainer-apps ranking-lift refresh (pos 19, 1363 impr — biggest single ranking opportunity); resistance-training-guidelines quotable refresh (ACSM impression flood, 0 clicks); more comparison/alternative pages (InBody/Bodygram alternative); getrecomp.app vs-page once it launches.
