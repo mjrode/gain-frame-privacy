@@ -2,6 +2,36 @@
 // To change comics, edit the .mjs file and run `npm run build:comics-manifest`.
 const COMICS_MANIFEST = [
   {
+    "slug": "stages-of-a-summer-cut",
+    "title": "Stages of a Summer Cut",
+    "date": "2026-06-08",
+    "ext": "webp"
+  },
+  {
+    "slug": "summer-shred-checklist",
+    "title": "Summer Shred Checklist",
+    "date": "2026-06-08",
+    "ext": "webp"
+  },
+  {
+    "slug": "cardio-kill-gains",
+    "title": "Will Cardio Kill Your Gains?",
+    "date": "2026-06-08",
+    "ext": "webp"
+  },
+  {
+    "slug": "bulk-or-cut",
+    "title": "Should You Bulk or Cut?",
+    "date": "2026-06-08",
+    "ext": "webp"
+  },
+  {
+    "slug": "dating-a-guy-who-lifts",
+    "title": "Dating a Guy Who Lifts",
+    "date": "2026-06-08",
+    "ext": "webp"
+  },
+  {
     "slug": "gift-guide-lifter",
     "title": "Gift Guide for the Guy Who Lifts",
     "date": "2026-06-02",
