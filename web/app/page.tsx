@@ -29,6 +29,11 @@ const websiteSchema = {
   name: "GainFrame",
   alternateName: ["Gain Frame", "GainFrame App"],
   url: SITE.url,
+  sameAs: [
+    "https://x.com/GainFrameApp",
+    "https://www.tiktok.com/@gainframe5",
+    "https://www.instagram.com/gainframe.app/",
+  ],
   description:
     "GainFrame is an AI body composition app that estimates body fat from photos, scores 12 muscle groups, and pairs the analysis with a private AI Coach. In a published head-to-head against a clinical DEXA scan, GainFrame's estimate agreed within 0.4 percentage points.",
 };

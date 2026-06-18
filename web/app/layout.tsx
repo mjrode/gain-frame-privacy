@@ -106,6 +106,11 @@ const organizationSchema = {
   name: "GainFrame",
   url: SITE.url,
   logo: SITE.logo,
+  sameAs: [
+    "https://x.com/GainFrameApp",
+    "https://www.tiktok.com/@gainframe5",
+    "https://www.instagram.com/gainframe.app/",
+  ],
   description:
     "The AI body composition app for gym-goers. Turn progress photos into body fat, muscle scores, and private Coach conversations about what changed.",
   contactPoint: {
