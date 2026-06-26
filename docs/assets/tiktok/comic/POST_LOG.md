@@ -1,5 +1,138 @@
 # TikTok Carousel Post Log
 
+## 2026-06-24 — LOVE ISLAND GYM TYPES
+- Slug: love-island-gym-types
+- Slides: 8 (cover + 7 character archetypes)
+- Format: Standard, Love Island USA Season 8 cast as gym archetypes
+- GainFrame mention: No (pure meme/commentary)
+- Status: Complete
+
+## 2026-06-24 — SLEEP RUNS YOUR DIET
+- Slug: sleep-runs-your-diet
+- Slides: 6 (cover + 4 tips + plug)
+- Format: Standard, sleep + diet control
+- GainFrame mention: Yes (Slide 5 — recovery-home-checked-in.jpg recovery plug)
+- Status: Complete
+
+## 2026-06-24 — SLEEP BEATS SUPPLEMENTS
+- Slug: sleep-beats-supplements
+- Slides: 6 (cover + 4 tips + plug)
+- Format: Standard, controversial supplement comparison
+- GainFrame mention: Yes (Slide 5 — recovery-home-before-checkin.jpg recovery plug)
+- Status: Complete
+
+## 2026-06-24 — LATE NIGHTS KILL GAINS
+- Slug: revenge-bedtime-kills-gains
+- Slides: 6 (cover + 5 tips)
+- Format: Standard, sleep habit reframe
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-23 — THE FAILURE TRAP
+- Slug: training-to-failure-trap
+- Slides: 6 (cover + 5)
+- Format: Standard, controversial training reframe
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-23 — WEEKENDS RUIN CUTS
+- Slug: weekends-ruin-cuts
+- Slides: 6 (cover + 4 tips + plug)
+- Format: Standard, controversial fat-loss math
+- GainFrame mention: Yes (Slide 5 — weight-chart.png trend plug)
+- Status: Complete
+
+## 2026-06-23 — STEPS BEAT HIIT
+- Slug: steps-beat-hiit
+- Slides: 6 (cover + 5)
+- Format: Split Panel, controversial cardio reframe
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-23 — TRAIN LESS GROW MORE
+- Slug: train-less-grow-more
+- Slides: 6 (cover + 5)
+- Format: Split Panel, junk-volume controversy
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-23 — BEST EXERCISES FOR A V-TAPER
+- Slug: best-v-taper-exercises
+- Slides: 6 (cover + 5)
+- Format: Hero Reference, anatomy + exercise guide
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-23 — DEFICIT ISN'T STARVATION
+- Slug: deficit-isnt-starvation
+- Slides: 6 (cover + 5)
+- Format: Standard, controversial dieting reframe
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-23 — STOP CHASING PUMP
+- Slug: stop-chasing-pump
+- Slides: 6 (cover + 5)
+- Format: Standard, controversial muscle-building reframe
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-23 — VACATION WON'T RUIN GAINS
+- Slug: vacation-wont-ruin-gains
+- Slides: 6 (cover + 4 tips + plug)
+- Format: Standard, practical maintenance
+- GainFrame mention: Yes (Slide 5 — check-ins.png streak plug)
+- Status: Complete
+
+## 2026-06-23 — WHY ARMS WON'T GROW
+- Slug: why-arms-wont-grow
+- Slides: 6 (cover + 5)
+- Format: Standard, direct hypertrophy advice
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-23 — SCALE STALLS LIE
+- Slug: scale-stalls-lie
+- Slides: 6 (cover + 4 tips + plug)
+- Format: Standard, progress-tracking reframe
+- GainFrame mention: Yes (Slide 5 — compare.png progress plug)
+- Status: Complete
+
+## 2026-06-17 — THE ANABOLIC WINDOW LIE
+- Slug: anabolic-window-lie
+- Slides: 6 (cover + 5)
+- Format: Standard, myth-bust (question/fear hook — models the winning "Cardio Kill Gains" DNA)
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-17 — DOES MUSCLE TURN TO FAT?
+- Slug: muscle-turn-to-fat
+- Slides: 6 (cover + 5)
+- Format: Standard, myth-bust (universal "muscle turns to fat" belief; whiteboard + before/after)
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-17 — SORENESS ISN'T GROWTH
+- Slug: soreness-isnt-growth
+- Slides: 6 (cover + 5)
+- Format: Standard, myth-bust (DOMS ≠ hypertrophy; contrarian "no pain no gain" reframe)
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-17 — SWEAT ISN'T FAT LOSS
+- Slug: sweat-isnt-fat-loss
+- Slides: 6 (cover + 4 tips + plug)
+- Format: Standard, myth-bust
+- GainFrame mention: Yes (Slide 5 — post-check-in-photo-score.png body-fat plug)
+- Status: Complete
+
+## 2026-06-17 — LIFTING WON'T MAKE YOU BULKY
+- Slug: lifting-wont-make-you-bulky
+- Slides: 6 (cover + 5)
+- Format: Standard, myth-bust. Uses the female mascot variant (lavender sports bra + leggings, ponytail) referenced from 5-girls-at-every-gym for consistency.
+- GainFrame mention: No (pure value)
+- Status: Complete
+
 ## 2026-06-08 — DATING A GUY WHO LIFTS
 - Slug: dating-a-guy-who-lifts
 - Slides: 6 (cover + 5)

@@ -1,0 +1,17 @@
+eventName	eventCount	totalUsers
+page_view	1999	1209
+session_start	1402	1211
+first_visit	1192	1192
+user_engagement	763	470
+click	265	202
+scroll	207	150
+bf_tool_photo_uploaded	96	45
+bf_tool_estimate_requested	77	45
+outbound_app_store_click	47	35
+bf_tool_result_shown	44	39
+bf_tool_rate_limited	17	15
+bf_tool_cta_clicked	11	10
+bf_tool_error	10	7
+form_start	4	4
+bf_tool_photo_unusable	3	2
+bf_tool_view	3	3
