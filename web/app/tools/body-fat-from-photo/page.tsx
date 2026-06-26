@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     absolute: "Free AI Body Fat Estimator from a Photo | GainFrame",
   },
   description:
-    "Free body fat estimator that analyzes a single photo with AI. No measurements, no signup. One estimate per day, instant result. Try GainFrame on iOS for precision multi-photo tracking.",
+    "Free AI body fat estimator and calculator that reads a single photo — no measurements, no signup. One estimate per day, instant result. Try GainFrame on iOS for precision multi-photo tracking.",
   alternates: { canonical: PAGE_PATH },
   openGraph: {
     title: "Free AI Body Fat Estimator — From a Photo",
@@ -130,6 +130,14 @@ const faqSchema = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Yes. The visual reference ranges shift between male and female bodies, so selecting your sex before submission improves accuracy.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is this an AI body fat calculator?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — it's an AI body fat calculator that works from a photo instead of tape-measure inputs. Rather than typing in neck, waist, and hip measurements like a Navy-method calculator, you upload one photo and the AI reads your body composition visually. If you'd rather plug in measurements for a formula-based number, use our Navy tape-measure calculator instead.",
       },
     },
   ],
