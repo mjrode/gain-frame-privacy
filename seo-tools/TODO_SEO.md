@@ -184,7 +184,32 @@ Cluster goal: own the aesthetic physique / V-taper proportions space (Cluster C)
 
 - [ ] **[CTR] `/blog/how-to-estimate-body-fat-from-photo/` — 82 combined impressions at pos 2-3, 0% CTR** — largest untouched CTR leak in current GSC data. `body fat percentage estimation from photo` (45 imp, pos 2.8) + `body fat percentage estimation from photos` (37 imp, pos 3.0) — ranking top 3 but converting 0 clicks. Title/meta may not match the "estimation" query intent literally enough. Pull `get_search_by_page_query` for this URL and evaluate before changing (per measurement-first rule). — surfaced 2026-06-03
 
+### From: 2026-06-28 — double-down-on-winners (competitor vs/review + brand-alternative bets)
+
+Context: GSC keyword-opportunity well is dry (only `best body ai` left, and that's a decaying query — CTR refresh on `ai-body-editor-apps-vs-real-analysis` SKIPPED 2026-06-28 after measurement: 90d "best body ai" 408 imp/6.13% CTR collapsed to 19 imp/30d, CTR already healthy, page lost head term `ai body editor` to pos 91 — ranking/decay problem, not CTR). The 17 `best-X` roundups saturate the listicle space; net-new value is in the competitor vs/review/alternative format (proven: spren-app-review 18 clicks, metamorph-vs 10). **Indexing-first:** before/with these, the 2 uncrawled existing roundups (`best-body-fat-scanner-apps`, `ai-physique-rating-apps`) must get Request Indexing — see indexing task below. All new pages run through generator Phase 0 cannibalization check.
+
+#### Competitor vs/review pages (profiles exist — comparison-article-generator)
+
+- [x] **BodyScan by FitnessAI — review/vs** (LEAD; in winning cluster = AI body-comp-from-photo / DEXA alternative; profile: seo-tools/gsc-data/may-11/competitor-research/bodyscan-fitnessai.md) — added 2026-06-28 — **published 2026-06-28 as /blog/fitnessai-bodyscan-vs-gainframe/** — angle: body-comp module inside a workout app (3D scan ritual + ~$9.99/mo on top of FitnessAI workout sub, Prism Labs engine) vs GainFrame single-photo body-comp-first ($5.99/mo). Honest concession = cross-platform (FitnessAI on Android, GainFrame iOS-only); Prism Labs DEXA-validation noted factually as vendor-published. Explicit audience split. FAQPage + BlogPosting + BreadcrumbList schemas. Reused canonical GainFrame screenshots; cross-links to dexa-scan-vs-ai-body-composition + best-ai-body-fat-apps + trackbod-vs-gainframe + what-is-ffmi. Build verified, in sitemap. Cover image generated. Used correct App Store ID id6759252082 (NOT the skill template's wrong id6742498826).
+- [x] ~~**Snapsie — review/vs**~~ — **SKIPPED 2026-06-28** as a dedicated post (per its own competitor profile recommendation). Snapsie last updated Aug 2017 (~9 yrs), 46 reviews, fully free, near-zero search volume. A dedicated comparison = thin content of the kind already deleted from this repo. **Action instead:** fold into `/blog/best-progress-photo-apps/` (and/or best-free-progress-photo-apps) as the "best free option (not updated since 2017)" with the abandoned caveat. Not done yet — quick roundup edit, not a full post.
+- [x] **Progress by Lasmit — review/vs** (weight-loss photo tracker; profile: .../progress-lasmit.md) — added 2026-06-28 — **published 2026-06-28 as /blog/progress-app-vs-gainframe/** — angle: weight-loss vs muscle-gain goal split. **Pricing corrected via fresh research:** Progress is now SUBSCRIPTION ~$0.99/mo or $5.99/yr (App Store id583840813), NOT the one-time IAP the profile guessed — honestly conceded as cheaper than GainFrame. Honest concessions foregrounded: 14-yr track record / ~15K reviews, 17+ tape measurements, Fitbit integration, price. FAQPage + BlogPosting + BreadcrumbList schemas. Cross-links to best-progress-photo-apps + trackbod-vs + fitnessai-bodyscan-vs + what-is-ffmi. Build verified, in sitemap. Cover generated. Correct App Store ID id6759252082.
+
+#### Brand-alternative roundups (NEED competitor-scan first — no profile yet)
+
+- [ ] **InBody alternative (at-home / from-photo)** — added 2026-06-28 — highest brand-search intent of the three (InBody = gold-standard body-comp brand); run `/competitor-scan` before writing. Capture "InBody alternative" / "InBody at home".
+- [ ] **ZOZOFIT alternative** — added 2026-06-28 — body-scan brand; run `/competitor-scan zozofit.com` first.
+- [ ] **Bodygram alternative** — added 2026-06-28 — body-measurement-from-photo brand; run `/competitor-scan` first. Lowest priority of the three.
+
 ## Published
+
+### 2026-06-28 — uncrawled-roundup unblock (indexing-first before new content)
+
+GSC URL inspection found 2 finished roundups in the winning cluster never crawled by Google:
+- `ai-physique-rating-apps` (May 12) — TRUE ORPHAN (0 inbound links), 6+ weeks uncrawled.
+- `best-body-fat-scanner-apps` (Jun 4) — had 2 inbound links (best-ai-body-fat-apps + best-body-composition-apps) but still never crawled.
+
+- [x] **[Internal links] Wire orphan `ai-physique-rating-apps` from crawled authority pages** — done 2026-06-28. Added Related-Articles links from `understanding-ai-physique-score`, `best-ai-body-composition-app`, `best-ai-fitness-apps-track-body` (all crawled/indexed). Orphan now has 3 inbound links. Build verified in web/out/.
+- [ ] **[MANUAL — needs GSC write] Request Indexing for the 2 uncrawled roundups** — Michael to paste into GSC URL Inspection → Request Indexing: `https://gainframe.app/blog/best-body-fat-scanner-apps/` and `https://gainframe.app/blog/ai-physique-rating-apps/`. Re-inspect ~2026-07-02 to confirm crawl.
 
 ### 2026-06-15 — net-new from SEO audit (not from a prior keyword-research doc)
 
