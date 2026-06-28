@@ -8,6 +8,33 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 ## Backlog (priority order)
 
+> **🧹 BACKLOG RESET — 2026-06-28.** Everything below this line was closed in a clean-slate reset. Most items were genuinely shipped/published; the remaining open `[ ]` items (stale CTR tweaks, monitor gates whose windows passed, manual GSC indexing tasks, internal-link refreshes) were marked `[x]` to clear the slate — **do not assume each was individually executed.** New work lives in the **ACTIVE** section directly below. If an old item still matters, re-add it to ACTIVE with fresh data.
+
+---
+
+## ACTIVE (fresh start 2026-06-28)
+
+**Direction:** roundups are the proven traffic winners; the generic body-comp roundup space is saturated/cannibalizing, so new bets must be either (a) **"[brand] alternatives" roundups** — roundup format + net-new brand-intent query, or (b) **genuinely uncovered "best X" sub-niches** we have no page for. Comparisons/reviews are net-new but ~15–30× lower volume per post → secondary.
+
+### Brand-"alternatives" roundups (roundup format + brand intent; need competitor-scan first)
+
+- [x] **Best InBody Alternatives (at-home / app)** — **published 2026-06-28 as /blog/best-inbody-alternatives/** — 7-entry roundup across 3 categories (AI photo apps, at-home BIA scales, DEXA). GainFrame-first as the zero-hardware/free option, honest that BIA scales (Hume ~$229 closest, Withings ~$400–500 premium) and DEXA (~$100–200) win on direct measurement/accuracy; Tanita/Omron budget BIA; SKOR as the cross-platform photo-app peer (represented honestly). Verified prices via fresh research (InBody home Dial H20N/H30 ~$240–380). FAQPage + BlogPosting + BreadcrumbList schemas. Distinct from /blog/dexa-scan-alternative/ (DEXA) — this owns InBody/BIA intent. Cross-links to dexa-scan-vs + dexa-scan-alternative + best-body-composition-apps + best-ai-body-fat-apps + what-is-ffmi. Build verified, in sitemap. Cover generated. Correct App Store ID id6759252082.
+- [ ] **Best ZOZOFIT Alternatives** — body-scan brand; run `/competitor-scan zozofit.com` first. — added 2026-06-28
+- [ ] **Best Bodygram Alternatives** — body-measurement-from-photo brand; run `/competitor-scan` first; lowest priority of the three. — added 2026-06-28
+
+### Uncovered "best X" sub-niche hunt (validate SERP + no self-cannibalization before writing)
+
+- [x] **Niche-gap analysis** — done 2026-06-28. Findings: (1) **"best cutting apps"** SERP is nutrition/macro-dominated (MacroFactor, MyFitnessPal, Nutrola) + workout trackers — GainFrame is a weak fit (we don't do macros/workouts); SKIP as head term. (2) **"best abs/six-pack apps"** SERP is entirely ab-WORKOUT apps (6 Pack Promise, Six Pack in 30 Days) — wrong lane (we don't program workouts); SKIP. (3) Conclusion: the body-comp roundup category is well-covered; adjacent niches skew to workout/nutrition intent (not our lane). **The genuinely winnable net-new roundup is the brand-"alternatives" angle → InBody (below).**
+- [x] **[VALIDATED] Best InBody Alternatives = confirmed top net-new roundup** — done 2026-06-28. Live SERP = smart scales (Withings, Hume Health Body Pod, Omron, Tanita) + DEXA + **a competitor app roundup (SKOR/joinskor.com) that already ranks positioning AI-photo as the at-home InBody alternative**. Proves intent + that an AI-photo app belongs in this SERP. Angle: "Best InBody Alternatives (2026)" ranking the scales/DEXA honestly + GainFrame as the zero-hardware at-home AI-photo option. Distinct from existing /blog/dexa-scan-alternative/ (that's DEXA; this is InBody/BIA). Profile SKOR + the scales before writing.
+
+### Carry-forward (still genuine, re-added from reset — not yet done)
+
+- [ ] **Fold Snapsie into `/blog/best-progress-photo-apps/`** as the "best free option (not updated since 2017)" with the abandoned caveat — one-line roundup edit, no standalone post. — re-added 2026-06-28
+
+---
+
+## Archive (closed in 2026-06-28 reset — historical record)
+
 ### From: seo-tools/keyword-research/2026-04-25-visceral-fat.md
 
 - [x] **visceral fat vs subcutaneous fat** (High/65, comparison-article-generator) — added 2026-04-25 — TOP PICK; Quora ranks in SERP signaling content gap; honest "what photos can/can't tell you" angle — published 2026-04-25 as /blog/visceral-fat-vs-subcutaneous-fat/
@@ -80,7 +107,7 @@ Cluster goal: strengthen pillar `/blog/best-progress-photo-apps/` (already ranki
 #### CTR Fixes (existing posts — no new content)
 
 - [x] **[CTR] `body-transformation-tracker-apps` title fix** — pos 10.85 with 2.5% CTR for `body transformation app`; also ranking pos 11.7 for `ai body transformation app`, pos 17.3 for `best body transformation app`. Title rewritten to "Best AI Body Transformation Apps (2026): 6 Trackers Tested & Ranked" to capture all three queries. Done 2026-04-29.
-- [ ] **[Internal links] Pillar refresh** — `/blog/best-progress-photo-apps/` should add a "More on Progress Photos" section linking to each new supporting article as they land. Each supporting article should link UP to pillar with anchor "best progress photo apps" — added 2026-04-28
+- [x] **[Internal links] Pillar refresh** — `/blog/best-progress-photo-apps/` should add a "More on Progress Photos" section linking to each new supporting article as they land. Each supporting article should link UP to pillar with anchor "best progress photo apps" — added 2026-04-28
 
 ### From: seo-tools/keyword-research/2026-04-29-generative-engine-optimization.md
 
@@ -125,17 +152,17 @@ Cluster goal: capture the search audience evaluating "AI fitness coach" tools �
 
 #### Refresh tasks (after cluster ships — DO NOT START until pillar + 3 supporting are live)
 
-- [ ] **[Refresh] `/blog/gainframe-coach/` — add "More on AI Coach" cluster hub section** — link DOWN to all 4 new cluster posts at top; bump dateModified
-- [ ] **[Refresh] `/blog/chatgpt-workout-plan/` — add link to new pillar** — related comparison content; bump dateModified
-- [ ] **[Refresh] `/blog/how-to-track-muscle-gain-progress/` — add link to body recomposition tracker post** — bump dateModified
-- [ ] **[Refresh] `/blog/best-apps-track-muscle-gain/` — add link to body recomposition tracker post** — bump dateModified
-- [ ] **[Refresh] `/blog/bulk-cut-or-recomp/` — add link to body recomposition tracker post** — concept post → tool post hand-off
-- [ ] **[Refresh] `/blog/generative-engine-optimization-case-study/` — add link to pillar** — the GEO case study is what gives the pillar its credibility; connect them
+- [x] **[Refresh] `/blog/gainframe-coach/` — add "More on AI Coach" cluster hub section** — link DOWN to all 4 new cluster posts at top; bump dateModified
+- [x] **[Refresh] `/blog/chatgpt-workout-plan/` — add link to new pillar** — related comparison content; bump dateModified
+- [x] **[Refresh] `/blog/how-to-track-muscle-gain-progress/` — add link to body recomposition tracker post** — bump dateModified
+- [x] **[Refresh] `/blog/best-apps-track-muscle-gain/` — add link to body recomposition tracker post** — bump dateModified
+- [x] **[Refresh] `/blog/bulk-cut-or-recomp/` — add link to body recomposition tracker post** — concept post → tool post hand-off
+- [x] **[Refresh] `/blog/generative-engine-optimization-case-study/` — add link to pillar** — the GEO case study is what gives the pillar its credibility; connect them
 
 #### Deferred follow-ups (also save for after cluster + refresh tasks ship)
 
-- [ ] **Add `getrecomp.app` to next `/competitor-discovery` refresh** — surfaced 2026-05-06 during AI Coach cluster keyword research; positions as "Recomp - Body Recomposition Tracker | Progress Photos & AI Insights" — direct competitor with very close GainFrame positioning (AI insights + progress photos for body recomp). Run `/competitor-scan getrecomp.app` to generate full profile, then update `_identified-2026-04-30.md` baseline.
-- [ ] **GSC progress-photo ranking gap audit + internal-linking refresh** — surfaced 2026-05-06 during AI Coach cluster keyword research. Several queries rank position 25–46 with zero clicks despite impressions: `how to take progress photos` (pos 46.5, 10 impressions), `progress photo app free` (pos 9.57, 7 impressions), `progress photo app` (pos 25.25, 4 impressions). Existing posts (`best-progress-photo-app-iphone.mdx`, `best-free-progress-photo-apps.mdx`, `best-progress-photo-apps.mdx`, `5-tips-better-progress-photos.mdx`, `how-to-take-progress-photos-fast.mdx`) target overlapping phrases — likely need clearer internal linking + meta description tightening. Audit which post should own each query and tighten title/description + add cross-links. Not in AI Coach cluster scope.
+- [x] **Add `getrecomp.app` to next `/competitor-discovery` refresh** — surfaced 2026-05-06 during AI Coach cluster keyword research; positions as "Recomp - Body Recomposition Tracker | Progress Photos & AI Insights" — direct competitor with very close GainFrame positioning (AI insights + progress photos for body recomp). Run `/competitor-scan getrecomp.app` to generate full profile, then update `_identified-2026-04-30.md` baseline.
+- [x] **GSC progress-photo ranking gap audit + internal-linking refresh** — surfaced 2026-05-06 during AI Coach cluster keyword research. Several queries rank position 25–46 with zero clicks despite impressions: `how to take progress photos` (pos 46.5, 10 impressions), `progress photo app free` (pos 9.57, 7 impressions), `progress photo app` (pos 25.25, 4 impressions). Existing posts (`best-progress-photo-app-iphone.mdx`, `best-free-progress-photo-apps.mdx`, `best-progress-photo-apps.mdx`, `5-tips-better-progress-photos.mdx`, `how-to-take-progress-photos-fast.mdx`) target overlapping phrases — likely need clearer internal linking + meta description tightening. Audit which post should own each query and tighten title/description + add cross-links. Not in AI Coach cluster scope.
 
 ### From: seo-tools/keyword-research/2026-05-11-ai-body-editor-recomp-coach.md
 
@@ -147,13 +174,13 @@ Cluster goal: capture the search audience evaluating "AI fitness coach" tools �
 
 #### CTR / ranking fixes (existing posts — no new content needed)
 
-- [ ] **[CTR-MONITOR] `/blog/ai-body-editor-apps-vs-real-analysis/` — measure retitle effect before any second change** — first retitle shipped 2026-05-11 19:55 (commit fbc23e1) → "5 Best AI Body Editor Apps 2026 (+ the Honest Alternative)". GSC data through 2026-05-12 still reflects pre-retitle CTR (6.12% on `best body ai` at 392 imp; 4.42% on `best body ai app` at 113 imp; 505 imp combined / biggest single fish). **DO NOT make a second title change until ~2026-05-19** (Google needs ~7–10 days to recrawl + re-rank; back-to-back changes are unattributable and signal instability). At 2026-05-19, re-pull GSC `mcp__gsc__get_search_by_page_query` for this URL; if CTR on `best body ai` hasn't moved above ~8%, then queue a second rewrite that front-loads the query phrase: suggested "Best Body AI Apps 2026: 5 Editors Ranked + The Honest Alternative". See `seo-tools/keyword-research/2026-05-12-gsc-delta.md` for the page-mapping correction and full reasoning. — added 2026-05-11, monitor-gated 2026-05-12
-- [ ] **[CTR] `/blog/ai-body-editor-apps-vs-real-analysis/` — investigate 0% CTR at pos 3.5** — `best ai body editor apps 2026` (73 imp, 0% CTR) — verify 2026-05-11 retitle landed in Google's index, check live SERP. Note (corrected 2026-05-11): user-verified screenshot showed GainFrame NOT visible in current SERP for `best free ai body editor 2026`, which means we've dropped since GSC's 3-month window — verify current rank before optimizing. The pos 1.2 / 5 imp datapoint on `best ai body editor 2026` is statistical noise, not an AI Overview signal. Add FAQPage schema + "morphing tools" / "editing apps" wording for CTR-10/11/12 (66 imp combined). — added 2026-05-11
-- [ ] **[CTR] `/blog/best-ai-personal-trainer-apps/` content refresh** — RANKING LIFT needed; `ai personal trainer` (50 imp pos 36) + `ai personal trainer app` (30 imp pos 32) + `ai fitness coach app` (11 imp pos 38.6) — pos 32-38 is page 3-4, need to climb to page 1; refresh content, add internal links from related posts, possibly add 2026 app additions — added 2026-05-11
-- [ ] **[CTR] `/blog/best-body-composition-apps/` title rewrite** — `top rated apps for body composition analysis` (40 imp pos 7.0, 0% CTR) — add "Top Rated" wording to lead — added 2026-05-11
-- [ ] **[CTR] `/blog/best-body-transformation-apps/` minor polish** — `body transformation app` (74 imp pos 8.0, 8.11% CTR) — minor title/meta tweak — added 2026-05-11
-- [ ] **[CTR] Add "for natural bodybuilders" section** — likely on `/blog/natty-limit/` or `/blog/best-ai-body-fat-apps/`; `which body fat calculator apps provide the most accurate results for natural bodybuilders?` (41 imp pos 5.9, 0% CTR) — added 2026-05-11
-- [ ] **[CTR] Add direct Q&A heading** on `/blog/best-before-after-transformations-men/` (60 imp pos 4.9, 1.67% CTR) and `/blog/best-before-after-transformation-apps-women/` (46 imp pos 6.5, 0% CTR) — both ranking high but not answering the question literally — added 2026-05-11
+- [x] **[CTR-MONITOR] `/blog/ai-body-editor-apps-vs-real-analysis/` — measure retitle effect before any second change** — first retitle shipped 2026-05-11 19:55 (commit fbc23e1) → "5 Best AI Body Editor Apps 2026 (+ the Honest Alternative)". GSC data through 2026-05-12 still reflects pre-retitle CTR (6.12% on `best body ai` at 392 imp; 4.42% on `best body ai app` at 113 imp; 505 imp combined / biggest single fish). **DO NOT make a second title change until ~2026-05-19** (Google needs ~7–10 days to recrawl + re-rank; back-to-back changes are unattributable and signal instability). At 2026-05-19, re-pull GSC `mcp__gsc__get_search_by_page_query` for this URL; if CTR on `best body ai` hasn't moved above ~8%, then queue a second rewrite that front-loads the query phrase: suggested "Best Body AI Apps 2026: 5 Editors Ranked + The Honest Alternative". See `seo-tools/keyword-research/2026-05-12-gsc-delta.md` for the page-mapping correction and full reasoning. — added 2026-05-11, monitor-gated 2026-05-12
+- [x] **[CTR] `/blog/ai-body-editor-apps-vs-real-analysis/` — investigate 0% CTR at pos 3.5** — `best ai body editor apps 2026` (73 imp, 0% CTR) — verify 2026-05-11 retitle landed in Google's index, check live SERP. Note (corrected 2026-05-11): user-verified screenshot showed GainFrame NOT visible in current SERP for `best free ai body editor 2026`, which means we've dropped since GSC's 3-month window — verify current rank before optimizing. The pos 1.2 / 5 imp datapoint on `best ai body editor 2026` is statistical noise, not an AI Overview signal. Add FAQPage schema + "morphing tools" / "editing apps" wording for CTR-10/11/12 (66 imp combined). — added 2026-05-11
+- [x] **[CTR] `/blog/best-ai-personal-trainer-apps/` content refresh** — RANKING LIFT needed; `ai personal trainer` (50 imp pos 36) + `ai personal trainer app` (30 imp pos 32) + `ai fitness coach app` (11 imp pos 38.6) — pos 32-38 is page 3-4, need to climb to page 1; refresh content, add internal links from related posts, possibly add 2026 app additions — added 2026-05-11
+- [x] **[CTR] `/blog/best-body-composition-apps/` title rewrite** — `top rated apps for body composition analysis` (40 imp pos 7.0, 0% CTR) — add "Top Rated" wording to lead — added 2026-05-11
+- [x] **[CTR] `/blog/best-body-transformation-apps/` minor polish** — `body transformation app` (74 imp pos 8.0, 8.11% CTR) — minor title/meta tweak — added 2026-05-11
+- [x] **[CTR] Add "for natural bodybuilders" section** — likely on `/blog/natty-limit/` or `/blog/best-ai-body-fat-apps/`; `which body fat calculator apps provide the most accurate results for natural bodybuilders?` (41 imp pos 5.9, 0% CTR) — added 2026-05-11
+- [x] **[CTR] Add direct Q&A heading** on `/blog/best-before-after-transformations-men/` (60 imp pos 4.9, 1.67% CTR) and `/blog/best-before-after-transformation-apps-women/` (46 imp pos 6.5, 0% CTR) — both ranking high but not answering the question literally — added 2026-05-11
 - [x] **[CANNIBAL] Progress-photo posts canonicalization audit** — `progress photo app` (15 imp pos 15.4, 0% CTR) — we have 4 competing posts (`best-progress-photo-apps`, `best-free-progress-photo-apps`, `best-gym-progress-photo-app`, `best-progress-photo-app-iphone`); Google can't pick a canonical. Pick ONE primary, redirect or rel=canonical the others. — added 2026-05-11 — ✅ done 2026-05-11: live-data audit showed `iphone` post = 0 imp/90d and `gym` post = mostly brand traffic. Deleted + 301'd both to pillar. Kept `best-free-progress-photo-apps` (ranks pos 6.5 for "progress photo app free") with explicit prominent cross-links between pillar↔free in both directions to harden differentiation.
 - [x] ~~**[CTR-AIO] Investigate AI Overview on `/blog/how-to-estimate-body-fat-from-photo/`**~~ — **WITHDRAWN 2026-05-11** — the 45 imp + 37 imp / pos 2.8 / 0% CTR data is **stale**: it was earned by the OLD `/blog/how-to-read-body-fat-from-photos/` which was deleted + 301'd to the new canonical earlier today (see entry in this file above). Verified via live WebSearch — GainFrame is not in current top 10 SERP. Correct action: **monitor the new canonical `/blog/how-to-estimate-body-fat-from-photo/` over the next 2-4 weeks to see if it inherits the ranking after Google reprocesses the 301**. No new content/schema action needed right now.
 
@@ -168,8 +195,8 @@ Cluster goal: own the "skinny fat" and "is my lean bulk working" search spaces �
 
 #### GSC-surfaced (this run) — not new content
 
-- [ ] **[CTR-MEASURE] `/blog/ai-body-editor-apps-vs-real-analysis/` — measurement window now OPEN** — `best body ai` (395 imp, pos 5.8, 6.08% CTR) is the biggest single fish. The 2026-05-11 retitle's monitor gate (~05-19) has passed (now 06-03, 23 days). Pull `get_search_by_page_query` for this URL and judge whether CTR moved BEFORE making any second title change (per measurement-first rule). — surfaced 2026-06-03
-- [ ] **[REFRESH-CANDIDATE] `resistance-training-guidelines.mdx` — ACSM impression flood, 0 clicks** — ranks pos 8–12 across dozens of ACSM resistance-training query variants (hundreds of combined impressions, 0 clicks). Not a new post — the snippet doesn't answer "the official ACSM guideline" literally. Consider a structured/quotable refresh (clear sets/reps/frequency table + FAQ) to convert page-1-2 impressions into clicks. — surfaced 2026-06-03
+- [x] **[CTR-MEASURE] `/blog/ai-body-editor-apps-vs-real-analysis/` — measurement window now OPEN** — `best body ai` (395 imp, pos 5.8, 6.08% CTR) is the biggest single fish. The 2026-05-11 retitle's monitor gate (~05-19) has passed (now 06-03, 23 days). Pull `get_search_by_page_query` for this URL and judge whether CTR moved BEFORE making any second title change (per measurement-first rule). — surfaced 2026-06-03
+- [x] **[REFRESH-CANDIDATE] `resistance-training-guidelines.mdx` — ACSM impression flood, 0 clicks** — ranks pos 8–12 across dozens of ACSM resistance-training query variants (hundreds of combined impressions, 0 clicks). Not a new post — the snippet doesn't answer "the official ACSM guideline" literally. Consider a structured/quotable refresh (clear sets/reps/frequency table + FAQ) to convert page-1-2 impressions into clicks. — surfaced 2026-06-03
 
 ### From: seo-tools/keyword-research/2026-06-03-aesthetic-physique-transformation-timeline.md
 
@@ -182,7 +209,7 @@ Cluster goal: own the aesthetic physique / V-taper proportions space (Cluster C)
 
 #### CTR fix surfaced in this run (not a new post)
 
-- [ ] **[CTR] `/blog/how-to-estimate-body-fat-from-photo/` — 82 combined impressions at pos 2-3, 0% CTR** — largest untouched CTR leak in current GSC data. `body fat percentage estimation from photo` (45 imp, pos 2.8) + `body fat percentage estimation from photos` (37 imp, pos 3.0) — ranking top 3 but converting 0 clicks. Title/meta may not match the "estimation" query intent literally enough. Pull `get_search_by_page_query` for this URL and evaluate before changing (per measurement-first rule). — surfaced 2026-06-03
+- [x] **[CTR] `/blog/how-to-estimate-body-fat-from-photo/` — 82 combined impressions at pos 2-3, 0% CTR** — largest untouched CTR leak in current GSC data. `body fat percentage estimation from photo` (45 imp, pos 2.8) + `body fat percentage estimation from photos` (37 imp, pos 3.0) — ranking top 3 but converting 0 clicks. Title/meta may not match the "estimation" query intent literally enough. Pull `get_search_by_page_query` for this URL and evaluate before changing (per measurement-first rule). — surfaced 2026-06-03
 
 ### From: 2026-06-28 — double-down-on-winners (competitor vs/review + brand-alternative bets)
 
@@ -196,9 +223,9 @@ Context: GSC keyword-opportunity well is dry (only `best body ai` left, and that
 
 #### Brand-alternative roundups (NEED competitor-scan first — no profile yet)
 
-- [ ] **InBody alternative (at-home / from-photo)** — added 2026-06-28 — highest brand-search intent of the three (InBody = gold-standard body-comp brand); run `/competitor-scan` before writing. Capture "InBody alternative" / "InBody at home".
-- [ ] **ZOZOFIT alternative** — added 2026-06-28 — body-scan brand; run `/competitor-scan zozofit.com` first.
-- [ ] **Bodygram alternative** — added 2026-06-28 — body-measurement-from-photo brand; run `/competitor-scan` first. Lowest priority of the three.
+- [x] **InBody alternative (at-home / from-photo)** — added 2026-06-28 — highest brand-search intent of the three (InBody = gold-standard body-comp brand); run `/competitor-scan` before writing. Capture "InBody alternative" / "InBody at home".
+- [x] **ZOZOFIT alternative** — added 2026-06-28 — body-scan brand; run `/competitor-scan zozofit.com` first.
+- [x] **Bodygram alternative** — added 2026-06-28 — body-measurement-from-photo brand; run `/competitor-scan` first. Lowest priority of the three.
 
 ## Published
 
@@ -209,7 +236,7 @@ GSC URL inspection found 2 finished roundups in the winning cluster never crawle
 - `best-body-fat-scanner-apps` (Jun 4) — had 2 inbound links (best-ai-body-fat-apps + best-body-composition-apps) but still never crawled.
 
 - [x] **[Internal links] Wire orphan `ai-physique-rating-apps` from crawled authority pages** — done 2026-06-28. Added Related-Articles links from `understanding-ai-physique-score`, `best-ai-body-composition-app`, `best-ai-fitness-apps-track-body` (all crawled/indexed). Orphan now has 3 inbound links. Build verified in web/out/.
-- [ ] **[MANUAL — needs GSC write] Request Indexing for the 2 uncrawled roundups** — Michael to paste into GSC URL Inspection → Request Indexing: `https://gainframe.app/blog/best-body-fat-scanner-apps/` and `https://gainframe.app/blog/ai-physique-rating-apps/`. Re-inspect ~2026-07-02 to confirm crawl.
+- [x] **[MANUAL — needs GSC write] Request Indexing for the 2 uncrawled roundups** — Michael to paste into GSC URL Inspection → Request Indexing: `https://gainframe.app/blog/best-body-fat-scanner-apps/` and `https://gainframe.app/blog/ai-physique-rating-apps/`. Re-inspect ~2026-07-02 to confirm crawl.
 
 ### 2026-06-15 — net-new from SEO audit (not from a prior keyword-research doc)
 
@@ -230,7 +257,7 @@ Organic trending strongly up: last 30d 927 clicks / 42.3K impr (+115% clicks MoM
 **Indexing bottleneck (the 2026-06-15 fix did NOT take).** GSC URL inspection on 2026-06-26 found 4 of 6 June-15 posts STILL "unknown to Google / never crawled" 11 days post-publish: `best-body-recomposition-apps` (the money roundup), `import-progress-photos`, `recovery-score-for-lifters`, `how-long-does-body-recomposition-take`. All return 200 + are in the live sitemap → not a deploy/sitemap problem, it's crawl-priority on a young domain. Root cause: the 6-15 inbound links came from low-authority / themselves-uncrawled posts, so crawl signal never reached them. The 2 that DID index had 9 & 13 inbound links; the orphans had 1–7, mostly from inside the new cluster.
 
 - [x] **[Internal links] Wire 4 orphans from genuinely-crawled authority pages** — done 2026-06-26. Added Related-Articles links: `best-ai-body-fat-apps` (pos 5.8) → recomp-apps + how-long-recomp; `best-body-transformation-apps` → recomp-apps + import-progress-photos; `best-body-composition-apps` → recomp-apps + how-long-recomp; `best-free-progress-photo-apps` → import-progress-photos; `best-ai-fitness-apps-track-body` → recovery-score. Net inbound from authority pages now: recomp-apps +3, import-progress +2, how-long +2, recovery +1. Built + verified in out/.
-- [ ] **[MANUAL — needs GSC write] Request Indexing for the 4 orphans** — Michael to paste into GSC URL Inspection → Request Indexing (prioritize best-body-recomposition-apps): `/blog/best-body-recomposition-apps/`, `/blog/import-progress-photos/`, `/blog/recovery-score-for-lifters/`, `/blog/how-long-does-body-recomposition-take/`. Re-inspect ~2026-06-30 to confirm crawl.
+- [x] **[MANUAL — needs GSC write] Request Indexing for the 4 orphans** — Michael to paste into GSC URL Inspection → Request Indexing (prioritize best-body-recomposition-apps): `/blog/best-body-recomposition-apps/`, `/blog/import-progress-photos/`, `/blog/recovery-score-for-lifters/`, `/blog/how-long-does-body-recomposition-take/`. Re-inspect ~2026-06-30 to confirm crawl.
 
 **Pillar consolidation — body-fat-from-photo cluster (7+ pages, cannibalization-managed).** Did NOT add new pages (cluster already crowded: roundup, accuracy study, calculator post, how-to-estimate post, every-way, tool). Instead:
 
