@@ -7,6 +7,17 @@
 // `ext` is the file extension for cover & slides — generated webp by default;
 // the original png/jpeg files remain on disk as the source of truth.
 export const COMICS_MANIFEST = [
+  { slug: "muscles-are-a-gift",       title: "Muscles Are a Gift",                     date: "2026-06-28", ext: "webp" },
+  { slug: "fake-progress-traps",       title: "Fake Progress Traps",                   date: "2026-06-27", ext: "webp" },
+  { slug: "ego-lifting-tax",           title: "Ego Lifting Tax",                       date: "2026-06-27", ext: "webp" },
+  { slug: "dirty-bulk-debt",           title: "Dirty Bulk Debt",                       date: "2026-06-27", ext: "webp" },
+  { slug: "cardio-ate-my-gains",       title: "Cardio Ate My Gains",                   date: "2026-06-27", ext: "webp" },
+  { slug: "protein-isnt-magic",        title: "Protein Isn't Magic",                   date: "2026-06-27", ext: "webp" },
+  { slug: "rest-days-build-muscle",    title: "Rest Days Build Muscle",                date: "2026-06-27", ext: "webp" },
+  { slug: "warm-up-or-lose",           title: "Warm Up Or Lose",                       date: "2026-06-27", ext: "webp" },
+  { slug: "stop-program-hopping",      title: "Stop Program Hopping",                  date: "2026-06-27", ext: "webp" },
+  { slug: "scale-weight-trap",         title: "The Scale Trap",                        date: "2026-06-27", ext: "webp" },
+  { slug: "deload-before-you-break",   title: "Deload Before You Break",               date: "2026-06-27", ext: "webp" },
   { slug: "love-island-gym-types",       title: "Love Island Gym Types",                 date: "2026-06-24", ext: "webp" },
   { slug: "sleep-runs-your-diet",        title: "Sleep Runs Your Diet",                  date: "2026-06-24", ext: "webp" },
   { slug: "sleep-beats-supplements",     title: "Sleep Beats Supplements",               date: "2026-06-24", ext: "webp" },

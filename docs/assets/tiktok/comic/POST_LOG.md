@@ -1,5 +1,82 @@
 # TikTok Carousel Post Log
 
+## 2026-06-28 — MUSCLES ARE A GIFT
+- Slug: muscles-are-a-gift
+- Slides: 7 (chest, abs, back, legs, arms, shoulders, calves)
+- Format: AI-generated dark anatomy carousel inspired by TikTok reference
+- GainFrame mention: Yes (branding + caption)
+- Status: Complete
+
+## 2026-06-27 — FAKE PROGRESS TRAPS
+- Slug: fake-progress-traps
+- Slides: 6 (cover + 4 tips + plug)
+- Format: Standard, surreal progress-tracking metaphor
+- GainFrame mention: Yes (Slide 5 — compare.png progress plug)
+- Status: Complete
+
+## 2026-06-27 — EGO LIFTING TAX
+- Slug: ego-lifting-tax
+- Slides: 6 (cover + 5)
+- Format: Standard, controversial lifting-form reframe
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-27 — DIRTY BULK DEBT
+- Slug: dirty-bulk-debt
+- Slides: 6 (cover + 4 tips + plug)
+- Format: Standard, controversial bulking reframe
+- GainFrame mention: Yes (Slide 5 — weight-chart.png trend plug)
+- Status: Complete
+
+## 2026-06-27 — CARDIO ATE MY GAINS
+- Slug: cardio-ate-my-gains
+- Slides: 6 (cover + 5)
+- Format: Standard, controversial cardio myth reframe
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-27 — PROTEIN ISN'T MAGIC
+- Slug: protein-isnt-magic
+- Slides: 6 (cover + 5)
+- Format: Standard, controversial supplement reframe
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-27 — REST DAYS BUILD MUSCLE
+- Slug: rest-days-build-muscle
+- Slides: 6 (cover + 4 tips + plug)
+- Format: Standard, recovery metaphor
+- GainFrame mention: Yes (Slide 5 — recovery-home-checked-in.jpg recovery plug)
+- Status: Complete
+
+## 2026-06-27 — WARM UP OR LOSE
+- Slug: warm-up-or-lose
+- Slides: 6 (cover + 5)
+- Format: Standard, warm-up mistake guide
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-27 — STOP PROGRAM HOPPING
+- Slug: stop-program-hopping
+- Slides: 6 (cover + 5)
+- Format: Standard, consistency/programming guide
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-27 — THE SCALE TRAP
+- Slug: scale-weight-trap
+- Slides: 6 (cover + 5)
+- Format: Standard, scale-weight progress reframe
+- GainFrame mention: No (pure value)
+- Status: Complete
+
+## 2026-06-27 — DELOAD BEFORE YOU BREAK
+- Slug: deload-before-you-break
+- Slides: 6 (cover + 5)
+- Format: Standard, recovery/fatigue guide
+- GainFrame mention: No (pure value)
+- Status: Complete
+
 ## 2026-06-24 — LOVE ISLAND GYM TYPES
 - Slug: love-island-gym-types
 - Slides: 8 (cover + 7 character archetypes)

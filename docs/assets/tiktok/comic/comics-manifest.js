@@ -2,6 +2,72 @@
 // To change comics, edit the .mjs file and run `npm run build:comics-manifest`.
 const COMICS_MANIFEST = [
   {
+    "slug": "muscles-are-a-gift",
+    "title": "Muscles Are a Gift",
+    "date": "2026-06-28",
+    "ext": "webp"
+  },
+  {
+    "slug": "fake-progress-traps",
+    "title": "Fake Progress Traps",
+    "date": "2026-06-27",
+    "ext": "webp"
+  },
+  {
+    "slug": "ego-lifting-tax",
+    "title": "Ego Lifting Tax",
+    "date": "2026-06-27",
+    "ext": "webp"
+  },
+  {
+    "slug": "dirty-bulk-debt",
+    "title": "Dirty Bulk Debt",
+    "date": "2026-06-27",
+    "ext": "webp"
+  },
+  {
+    "slug": "cardio-ate-my-gains",
+    "title": "Cardio Ate My Gains",
+    "date": "2026-06-27",
+    "ext": "webp"
+  },
+  {
+    "slug": "protein-isnt-magic",
+    "title": "Protein Isn't Magic",
+    "date": "2026-06-27",
+    "ext": "webp"
+  },
+  {
+    "slug": "rest-days-build-muscle",
+    "title": "Rest Days Build Muscle",
+    "date": "2026-06-27",
+    "ext": "webp"
+  },
+  {
+    "slug": "warm-up-or-lose",
+    "title": "Warm Up Or Lose",
+    "date": "2026-06-27",
+    "ext": "webp"
+  },
+  {
+    "slug": "stop-program-hopping",
+    "title": "Stop Program Hopping",
+    "date": "2026-06-27",
+    "ext": "webp"
+  },
+  {
+    "slug": "scale-weight-trap",
+    "title": "The Scale Trap",
+    "date": "2026-06-27",
+    "ext": "webp"
+  },
+  {
+    "slug": "deload-before-you-break",
+    "title": "Deload Before You Break",
+    "date": "2026-06-27",
+    "ext": "webp"
+  },
+  {
     "slug": "love-island-gym-types",
     "title": "Love Island Gym Types",
     "date": "2026-06-24",
