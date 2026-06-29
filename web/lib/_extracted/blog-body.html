@@ -34,26 +34,34 @@
         <div class="container">
             <!-- BLOG_FILTER:START -->
             <div class="blog-filter" role="group" aria-label="Filter posts by topic">
-                <button type="button" class="blog-filter-chip is-active" data-tag="all" aria-pressed="true">All<span class="blog-filter-count">100</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="body-composition" aria-pressed="false">Body Composition<span class="blog-filter-count">29</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="guide" aria-pressed="false">Guide<span class="blog-filter-count">11</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="app-reviews" aria-pressed="false">App Reviews<span class="blog-filter-count">8</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="comparison" aria-pressed="false">Comparison<span class="blog-filter-count">7</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="deep-dive" aria-pressed="false">Deep Dive<span class="blog-filter-count">7</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="founder-story" aria-pressed="false">Founder Story<span class="blog-filter-count">7</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="product-update" aria-pressed="false">Product Update<span class="blog-filter-count">7</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="training" aria-pressed="false">Training<span class="blog-filter-count">6</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="roundup" aria-pressed="false">Roundup<span class="blog-filter-count">5</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="fitness-apps" aria-pressed="false">Fitness Apps<span class="blog-filter-count">4</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="how-to" aria-pressed="false">How-To<span class="blog-filter-count">2</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="announcement" aria-pressed="false">Announcement<span class="blog-filter-count">1</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="case-study" aria-pressed="false">Case Study<span class="blog-filter-count">1</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="community" aria-pressed="false">Community<span class="blog-filter-count">1</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="feature-guide" aria-pressed="false">Feature Guide<span class="blog-filter-count">1</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="integration" aria-pressed="false">Integration<span class="blog-filter-count">1</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="progress-photos" aria-pressed="false">Progress Photos<span class="blog-filter-count">1</span></button>
-                <button type="button" class="blog-filter-chip" data-tag="science" aria-pressed="false">Science<span class="blog-filter-count">1</span></button>
-            </div>
+                    <span class="blog-filter-label">Topics</span>
+                    <div class="blog-filter-pills">
+                        <button type="button" class="blog-filter-pill is-active" data-tag="all" aria-pressed="true">All<span class="blog-filter-count">100</span></button>
+                        <button type="button" class="blog-filter-pill" data-tag="body-composition" aria-pressed="false">Body Composition<span class="blog-filter-count">29</span></button>
+                        <button type="button" class="blog-filter-pill" data-tag="guide" aria-pressed="false">Guide<span class="blog-filter-count">11</span></button>
+                        <button type="button" class="blog-filter-pill" data-tag="app-reviews" aria-pressed="false">App Reviews<span class="blog-filter-count">8</span></button>
+                    </div>
+                    <div class="blog-filter-more">
+                        <select class="blog-filter-select" data-blog-filter-select aria-label="Filter by more topics">
+                            <option value="">More topics…</option>
+                            <option value="comparison">Comparison (7)</option>
+                            <option value="deep-dive">Deep Dive (7)</option>
+                            <option value="founder-story">Founder Story (7)</option>
+                            <option value="product-update">Product Update (7)</option>
+                            <option value="training">Training (6)</option>
+                            <option value="roundup">Roundup (5)</option>
+                            <option value="fitness-apps">Fitness Apps (4)</option>
+                            <option value="how-to">How-To (2)</option>
+                            <option value="announcement">Announcement (1)</option>
+                            <option value="case-study">Case Study (1)</option>
+                            <option value="community">Community (1)</option>
+                            <option value="feature-guide">Feature Guide (1)</option>
+                            <option value="integration">Integration (1)</option>
+                            <option value="progress-photos">Progress Photos (1)</option>
+                            <option value="science">Science (1)</option>
+                        </select>
+                    </div>
+                </div>
             <p class="blog-filter-status" data-blog-filter-status aria-live="polite"></p>
             <!-- BLOG_FILTER:END -->
             <div class="blog-grid margin-top-grid">

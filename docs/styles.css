@@ -1590,53 +1590,113 @@ body {
 }
 
 /* =====================================================
-   BLOG FILTER (tag chips)
+   BLOG FILTER (tag pills + dropdown)
+   Mirrors the clean category filter on the /tools page.
    ===================================================== */
 
 .blog-filter {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--sp-sm);
+    align-items: center;
+    gap: 8px;
     margin-top: var(--sp-lg);
 }
 
-.blog-filter-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-body);
-    font-size: 0.82rem;
-    font-weight: 600;
-    line-height: 1;
-    padding: 9px 14px;
-    border-radius: var(--radius-full);
-    border: 1.5px solid var(--color-border);
-    background: var(--color-bg);
-    color: var(--color-text-secondary);
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+.blog-filter-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    margin-right: 4px;
 }
 
-.blog-filter-chip:hover {
-    border-color: rgba(0, 0, 0, 0.2);
+.blog-filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.blog-filter-pill,
+.blog-filter-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1;
+    padding: 8px 14px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: var(--color-surface);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.blog-filter-pill:hover,
+.blog-filter-select:hover {
+    border-color: rgba(0, 0, 0, 0.18);
     color: var(--color-text);
 }
 
-.blog-filter-chip.is-active {
-    background: var(--color-text);
-    border-color: var(--color-text);
-    color: var(--color-bg);
+.blog-filter-pill.is-active,
+.blog-filter-select.is-active {
+    background-color: var(--color-sage-light);
+    border-color: rgba(107, 143, 113, 0.35);
+    color: var(--color-sage);
+    font-weight: 600;
 }
 
-.blog-filter-chip:focus-visible {
+.blog-filter-pill:focus-visible,
+.blog-filter-select:focus-visible {
     outline: 2px solid var(--color-sage);
     outline-offset: 2px;
 }
 
 .blog-filter-count {
     font-size: 0.72rem;
-    font-weight: 700;
-    opacity: 0.6;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-text-tertiary);
+    transition: background-color 0.15s ease, color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.blog-filter-pill.is-active .blog-filter-count {
+    background: var(--color-sage);
+    border-color: var(--color-sage);
+    color: #fff;
+}
+
+/* Native select restyled to match the pills, with a custom chevron. */
+.blog-filter-more {
+    display: inline-flex;
+}
+
+.blog-filter-select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 36px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 13px center;
+    background-size: 11px;
+}
+
+.blog-filter-select.is-active {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B8F71' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
+
+/* Dropdown list items render with the OS palette, so keep them readable. */
+.blog-filter-select option {
+    color: var(--color-text);
+    background: var(--color-bg);
 }
 
 .blog-filter-status {
@@ -1916,6 +1976,15 @@ body {
 
     .blog-grid {
         grid-template-columns: 1fr;
+    }
+
+    .blog-filter-count {
+        display: none;
+    }
+
+    .blog-filter-more,
+    .blog-filter-select {
+        width: 100%;
     }
 
     .blog-cta-card h2 {

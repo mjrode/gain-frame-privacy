@@ -118,6 +118,9 @@ function renderCard(post, index) {
                 </a>`;
 }
 
+// Number of most-used categories surfaced as pills; the rest go in a dropdown.
+const TOP_PILLS = 3;
+
 function renderFilter(posts) {
   // Tally posts per canonical category.
   const counts = new Map();
@@ -133,17 +136,42 @@ function renderFilter(posts) {
     return a[1].name.localeCompare(b[1].name);
   });
 
-  const chip = (slug, label, count, active) =>
-    `                <button type="button" class="blog-filter-chip${active ? " is-active" : ""}" data-tag="${escapeHtml(slug)}" aria-pressed="${active ? "true" : "false"}">${escapeHtml(label)}<span class="blog-filter-count">${count}</span></button>`;
+  const top = ordered.slice(0, TOP_PILLS);
+  const rest = ordered.slice(TOP_PILLS);
 
-  const chips = [
-    chip("all", "All", posts.length, true),
-    ...ordered.map(([slug, { name, count }]) => chip(slug, name, count, false)),
-  ].join("\n");
+  const pill = (slug, label, count, active) =>
+    `<button type="button" class="blog-filter-pill${active ? " is-active" : ""}" data-tag="${escapeHtml(slug)}" aria-pressed="${active ? "true" : "false"}">${escapeHtml(label)}<span class="blog-filter-count">${count}</span></button>`;
+
+  const pills = [
+    pill("all", "All", posts.length, true),
+    ...top.map(([slug, { name, count }]) => pill(slug, name, count, false)),
+  ].join("\n                        ");
+
+  // Remaining categories live in a native (styled) dropdown so the bar stays
+  // compact. Each option still maps to a shareable ?tag= slug.
+  const options = rest
+    .map(
+      ([slug, { name, count }]) =>
+        `<option value="${escapeHtml(slug)}">${escapeHtml(name)} (${count})</option>`,
+    )
+    .join("\n                            ");
+
+  const dropdown = rest.length
+    ? `
+                    <div class="blog-filter-more">
+                        <select class="blog-filter-select" data-blog-filter-select aria-label="Filter by more topics">
+                            <option value="">More topics…</option>
+                            ${options}
+                        </select>
+                    </div>`
+    : "";
 
   return `<div class="blog-filter" role="group" aria-label="Filter posts by topic">
-${chips}
-            </div>
+                    <span class="blog-filter-label">Topics</span>
+                    <div class="blog-filter-pills">
+                        ${pills}
+                    </div>${dropdown}
+                </div>
             <p class="blog-filter-status" data-blog-filter-status aria-live="polite"></p>`;
 }
 
