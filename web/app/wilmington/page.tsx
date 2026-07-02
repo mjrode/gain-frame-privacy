@@ -105,7 +105,7 @@ export default function WilmingtonPromoPage() {
               <span></span>July 4th CashStash special · Wilmington, NC
             </span>
             <h1>
-              Coach up. <em>Cash in.</em>
+              Hunt cash. <em>Track gains.</em>
             </h1>
             <p>
               GainFrame is made here in Wilmington. Take a gym selfie and it
