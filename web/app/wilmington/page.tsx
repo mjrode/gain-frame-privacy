@@ -108,9 +108,10 @@ export default function WilmingtonPromoPage() {
               Hunt cash. <em>Track gains.</em>
             </h1>
             <p>
-              GainFrame is made here in Wilmington. Take a gym selfie and it
-              estimates your body fat %, scores your physique, and shows you
-              whether anything&apos;s actually changing.
+              One progress photo is all it takes. GainFrame estimates your
+              body fat %, scores your physique muscle by muscle, and gives
+              instant AI feedback on your progress. Proudly built in
+              Wilmington, NC.
             </p>
           </div>
 
