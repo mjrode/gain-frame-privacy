@@ -2407,6 +2407,21 @@ body {
     color: var(--color-text-secondary);
 }
 
+/* Bare markdown images (![alt](src) in MDX) compile to <p><img></p> with no
+   wrapper class, so without this rule they render at natural size — full-res
+   phone screenshots (1290×2796) blow out the column. Cap height so portrait
+   screenshots stay phone-sized; landscape images are bound by max-width. */
+.post-body p > img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 600px;
+    margin: var(--sp-lg) auto;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
 /* Clear the float after inline screenshots */
 .post-body .post-divider {
     clear: both;
