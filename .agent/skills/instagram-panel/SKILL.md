@@ -1,5 +1,5 @@
 ---
-name: Instagram Panel Generator
+name: instagram-panel
 description: Generates GainFrame Guy multi-panel Instagram carousel slides in two proven formats — (A) tiered "good/better/best" panels and (B) "X per day → is Y per year" escalation panels. Uses the Gemini image API (same engine as /tiktok) with the mascot reference images. Always renders on a clean white background.
 triggers:
   - "instagram panel"
@@ -17,15 +17,18 @@ Generates GainFrame Guy **multi-panel Instagram carousels**. Image generation us
 the Gemini API via `generate.sh` (same pipeline as `/tiktok`), passing the mascot
 reference images so GainFrame Guy stays on-model.
 
-Two formats — pick one per post:
+Four formats — pick one per post:
 
 | Format | Look | Hook | Panels |
 |--------|------|------|--------|
 | **A — Tiered** ("FAT LOSS") | Clean white, light pastel tiers | good → better → best | 3 stacked, RED→ORANGE→GREEN banners |
 | **B — Escalation** ("Kings Mindset") | Clean white, minimal | "X per day → is Y per year" | 2 stacked, same pose, escalating text |
+| **C — Think vs Actually** ("ABS") | Clean white, 2 labeled rows | "What people think X / what actually X" | 2 rows × 3 captioned mini-illustrations |
+| **D — Contrast statement** ("CARDIO") | Clean white, 2 stacked scenes | virtue statement / twist counterpoint | 2 stacked, mood flips, key words in red |
 
-Worked examples live at `docs/assets/tiktok/panels/fat-loss/` and
-`docs/assets/tiktok/panels/kings-mindset/`.
+Worked examples live at `docs/assets/tiktok/panels/fat-loss/` (A),
+`docs/assets/tiktok/panels/kings-mindset/` (B), `docs/assets/tiktok/panels/abs-truth/` (C),
+and `docs/assets/tiktok/panels/cardio-gains/` (D).
 
 ---
 
@@ -122,7 +125,40 @@ Good GainFrame-relevant escalations: "50 Pull Ups a Day → 18,250 a Year",
 
 ---
 
-## The CTA / Download slide (both formats)
+## Format C — "What people think X / What actually X"
+
+Myth-bust contrast (builtwithscience-style). One 4:5 slide on pure white, two
+labeled sections. Top: bold black ALL-CAPS header `WHAT PEOPLE THINK <X>` over a
+row of THREE captioned mini-illustrations (the myths). Bottom: header
+`WHAT ACTUALLY <X>` over three more (the truths). Captions are one or two words,
+plain black sans-serif. Action items get a mini GainFrame Guy doing the thing;
+food/object items get clean flat props. Gray "N/2" counter pill top-right.
+The comment bait is people defending the top row.
+
+**Prompt template:** copy `docs/assets/tiktok/panels/abs-truth/prompts/slide-1.txt`
+and swap the two headers plus the six item descriptions + captions. Keep the
+CHARACTER BLOCK and white background lines unchanged. With six small figures in
+one image, mascot-head errors are MORE likely — check every mini-figure on review.
+
+---
+
+## Format D — Two-panel contrast statement
+
+Nuance-flip debate bait (Coach Gabriel-style, adapted to GainFrame white).
+2 stacked panels, thin light-gray divider. TOP: the virtue statement — GainFrame
+Guy confident/strong doing the thing, big bold black ALL-CAPS text with the key
+word in red (#E53935). BOTTOM: the twist/counterpoint — same character, mood and
+scene flipped (slumped, struggling, surrounded by the failure props), text in the
+same style. Statements stay short and arguable — that's the engagement engine.
+Gray "N/2" counter pill top-right.
+
+**Prompt template:** copy `docs/assets/tiktok/panels/cardio-gains/prompts/slide-1.txt`
+and swap the two scenes + two text lines. Keep the CHARACTER BLOCK + white
+background (never the reference's dark painted scenes).
+
+---
+
+## The CTA / Download slide (all formats)
 
 Replace the source's follow/engagement slide with a GainFrame app CTA. Keep it on
 clean white. Reuse the launch-promo pattern from
@@ -142,6 +178,10 @@ phone showing the real app, a bold "DOWNLOAD GAINFRAME" headline, the black
 - **Format A:** tier order red→orange→green top→bottom; build improves top→bottom;
   props match the category.
 - **Format B:** same pose both panels; number in red; day→year math correct.
+- **Format C:** exactly 3 items per row, captions spelled exactly; EVERY mini
+  GainFrame Guy has the bracket-frame head (small figures regress to human heads).
+- **Format D:** mood/build contrast reads instantly; key words red; statements
+  verbatim.
 
 Fix by editing the slide's `.txt` and re-running `generate.sh`. Iterate until clean.
 

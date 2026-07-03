@@ -1,5 +1,5 @@
 ---
-name: Codex Instagram Panel Generator
+name: codex-instagram-panel
 description: Codex-specific copy of the GainFrame Guy instagram-panel workflow. Use when creating multi-panel Instagram carousels in Codex with OpenAI GPT Image 2 (`gpt-image-2`) for slide image generation. Two formats — tiered "good/better/best" and "X per day → is Y per year" escalation. Always clean white background.
 triggers:
   - "codex instagram panel"

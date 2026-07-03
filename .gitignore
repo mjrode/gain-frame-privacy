@@ -1,4 +1,7 @@
-.claude/
+.claude/*
+# Claude Code discovers project skills only in .claude/skills/ — these are
+# symlinks into .agent/skills/ (the shared source of truth), safe to commit.
+!.claude/skills/
 client_secret*.json
 .DS_Store
 
