@@ -1,6 +1,6 @@
 ---
 name: instagram-panel
-description: Generates GainFrame Guy multi-panel Instagram carousel slides in two proven formats — (A) tiered "good/better/best" panels and (B) "X per day → is Y per year" escalation panels. Uses the Gemini image API (same engine as /tiktok) with the mascot reference images. Always renders on a clean white background.
+description: Generates GainFrame Guy multi-panel Instagram carousel posts. Preferred formats are (C) "what people think X / what actually X" myth-busts and (D) two-panel contrast statements — debate-bait lanes; (A) tiered good/better/best and (B) day→year escalation are also available. Can recommend post ideas, dedups against existing posts, reads GEMINI_API_KEY from ~/.zshrc, and always syncs finished posts to the iCloud TikTok-Drafts folder.
 triggers:
   - "instagram panel"
   - "instagram-panel"
@@ -26,9 +26,36 @@ Four formats — pick one per post:
 | **C — Think vs Actually** ("ABS") | Clean white, 2 labeled rows | "What people think X / what actually X" | 2 rows × 3 captioned mini-illustrations |
 | **D — Contrast statement** ("CARDIO") | Clean white, 2 stacked scenes | virtue statement / twist counterpoint | 2 stacked, mood flips, key words in red |
 
+**Michael's preferred lanes are C and D** — myth-bust debate bait, same energy as the
+winning TikTok comics (question-fear / nuance-flip hooks). Default new posts to C or D;
+use A/B only when he asks or the topic is a natural tier-list/escalation. Standard post
+shape: **2-slide carousel** — the content slide + the shared Download CTA
+(`docs/assets/tiktok/panels/_shared/cta.png`, copied in as `slide-2.png`).
+
 Worked examples live at `docs/assets/tiktok/panels/fat-loss/` (A),
 `docs/assets/tiktok/panels/kings-mindset/` (B), `docs/assets/tiktok/panels/abs-truth/` (C),
 and `docs/assets/tiktok/panels/cardio-gains/` (D).
+
+---
+
+## Recommending posts + no duplicates (do this BEFORE ideating)
+
+When Michael asks for post ideas (or just says "make some posts"), recommend ~10,
+mostly C/D, and make the app the punchline where natural (photos/tracking/data topics
+convert best — see `scale-vs-photos`, `progress-truth`, `motivation-data`).
+Flat declarative hooks only — no "here's exactly what worked" AI-slop framing.
+
+**Dedup first.** Check BOTH existing-post lists and skip any topic/hook already used,
+even reworded (e.g. "why your abs don't show" ≈ "what actually builds abs" — too close):
+
+```bash
+ls docs/assets/tiktok/panels/                                                  # panel posts (this skill)
+ls "$HOME/Library/Mobile Documents/com~apple~CloudDocs/TikTok-Drafts/"         # everything ever drafted (/tiktok + panels)
+```
+
+The TikTok-Drafts listing is the authoritative "already posted or queued" set — it has
+dozens of comic-lane slugs too. If a proposed idea collides, drop it and propose a
+different angle rather than a synonym of the same one.
 
 ---
 
@@ -64,11 +91,16 @@ CRITICAL — GAINFRAME GUY CHARACTER (copy EXACTLY from the reference images; ge
 # 1. Author the slide prompt (one .txt per slide) — see templates below.
 #    docs/assets/tiktok/panels/<slug>/prompts/slide-N.txt
 
-# 2. Generate (reads GEMINI_API_KEY from env; source it first — lives in ~/.zshrc on the Mac).
-GEMINI_API_KEY=... bash .agent/skills/instagram-panel/generate.sh \
+# 2. Generate. The key lives in ~/.zshrc on the Mac — extract it like this
+#    (shell state doesn't persist between agent Bash calls, so prefix EVERY call):
+export GEMINI_API_KEY=$(sed -n 's/.*GEMINI_API_KEY="\([^"]*\)".*/\1/p' ~/.zshrc | head -1)
+bash .agent/skills/instagram-panel/generate.sh \
   docs/assets/tiktok/panels/<slug>/slide-N.png \
   docs/assets/tiktok/panels/<slug>/prompts/slide-N.txt
 ```
+
+If the sed pulls nothing (e.g. remote container — no ~/.zshrc), stop and ask Michael
+for the key rather than guessing.
 
 `generate.sh` always attaches three references (template + muscular ref + badge).
 Output is a single 4:5 (1080×1350) PNG per slide. Generate one slide at a time and
@@ -140,6 +172,12 @@ and swap the two headers plus the six item descriptions + captions. Keep the
 CHARACTER BLOCK and white background lines unchanged. With six small figures in
 one image, mascot-head errors are MORE likely — check every mini-figure on review.
 
+**Learned the hard way:** if ALL six items are plain objects, the model force-inserts
+extra mascot figures anyway (and ignores "no figure" instructions). Always give
+GainFrame Guy 1–2 sanctioned item spots (an action item like "walking" or "planking")
+and mark the rest "objects only, no figure" — see
+`docs/assets/tiktok/panels/clean-eating-truth/prompts/slide-1.txt` for the fixed pattern.
+
 ---
 
 ## Format D — Two-panel contrast statement
@@ -187,10 +225,16 @@ Fix by editing the slide's `.txt` and re-running `generate.sh`. Iterate until cl
 
 ---
 
-## Caption + iCloud sync (same as /tiktok)
+## Caption + iCloud sync (REQUIRED final step for every post)
 
-1. Write `content.md` (caption + hashtags) in the post dir.
-2. Sync to phone (run on the Mac, where iCloud lives):
+A post is not done until it's in the shared TikTok-Drafts folder (iCloud Drive —
+this is how it reaches Michael's phone).
+
+1. Write `content.md` (caption + hashtags) in the post dir. Caption style: flat
+   declarative myth-bust line, 1–2 sentences, "👇" CTA, ~10 hashtags (see any
+   existing panel `content.md`).
+2. Copy the shared CTA in as slide 2: `cp docs/assets/tiktok/panels/_shared/cta.png docs/assets/tiktok/panels/$SLUG/slide-2.png`
+3. Sync to iCloud. When running ON the Mac (local session — check `ls ~/Library/Mobile\ Documents/` works), do it directly:
    ```bash
    SLUG="<slug>"
    DEST="$HOME/Library/Mobile Documents/com~apple~CloudDocs/TikTok-Drafts/$SLUG"
@@ -198,6 +242,10 @@ Fix by editing the slide's `.txt` and re-running `generate.sh`. Iterate until cl
    cp docs/assets/tiktok/panels/$SLUG/slide-*.png "$DEST/"
    cp docs/assets/tiktok/panels/$SLUG/content.md "$DEST/"
    ```
+   When running in a remote container (no iCloud), commit everything and give
+   Michael the same block prefixed with `git pull` to run on his Mac.
+4. Commit the post dir (prompts + slides + content.md) so remote sessions can dedup
+   against it.
 
 ## Reference files
 
