@@ -1,0 +1,15 @@
+A single Instagram carousel graphic, portrait 4:5 (1080x1350), clean FLAT cartoon illustration on a PURE WHITE (#FFFFFF) background.
+
+TOP: bold BLACK condensed sans-serif (Impact/Anton), centered, two lines: "SMALL HABITS," / "BIG RESULTS" with "BIG RESULTS" in bright red (#E53935). Top-right: a small gray rounded pill with white text reads "4/4".
+
+CRITICAL — GAINFRAME GUY CHARACTER (copy EXACTLY from the reference images; get this right):
+- The HEAD is ONLY a "scan frame" logo: four separate rounded corner brackets floating in empty space. Three brackets are black; the BOTTOM-RIGHT bracket is RED. Inside the frame float just TWO simple googly eyes and one small "S"-curve nose. That is the ENTIRE head.
+- There is NO human head, NO human face, NO skull, NO hair, NO ears, and NO neck anywhere. Do NOT draw a person's head behind or inside the brackets. The space inside and behind the brackets is plain white background — nothing is behind them.
+- The bracket-frame head floats directly above the shoulders with a small gap; the body never connects to a human head.
+- BODY: a solid, FLAT, matte BLACK/charcoal cartoon silhouette (a shadow-figure look) with thick clean outlines and flat colors — NOT realistic skin, NOT anatomical muscle rendering. Muscular/athletic build, wearing black training shorts.
+
+CENTER: the muscular, confident GainFrame Guy stands on the right giving a big thumbs-up, next to a large smartphone (tilted slightly) on the left showing the GainFrame app — a body-composition dashboard with a circular GainFrame Score, a small muscle/radar chart, and a before/after progress-photo thumbnail (clean readable iOS UI). Everything on clean white.
+
+LOWER: bold black headline "DOWNLOAD GAINFRAME" centered, and directly below it the standard black "Download on the App Store" badge (Apple logo + text), centered.
+
+TYPOGRAPHY: bold condensed sans-serif; crisp, correctly spelled. Clean, bright, white-forward. No QR code. No watermarks except the character'\''s own bracket-frame head.
