@@ -19,17 +19,9 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 ### Brand-"alternatives" roundups (roundup format + brand intent; need competitor-scan first)
 
 - [x] **Best InBody Alternatives (at-home / app)** — **published 2026-06-28 as /blog/best-inbody-alternatives/** — 7-entry roundup across 3 categories (AI photo apps, at-home BIA scales, DEXA). GainFrame-first as the zero-hardware/free option, honest that BIA scales (Hume ~$229 closest, Withings ~$400–500 premium) and DEXA (~$100–200) win on direct measurement/accuracy; Tanita/Omron budget BIA; SKOR as the cross-platform photo-app peer (represented honestly). Verified prices via fresh research (InBody home Dial H20N/H30 ~$240–380). FAQPage + BlogPosting + BreadcrumbList schemas. Distinct from /blog/dexa-scan-alternative/ (DEXA) — this owns InBody/BIA intent. Cross-links to dexa-scan-vs + dexa-scan-alternative + best-body-composition-apps + best-ai-body-fat-apps + what-is-ffmi. Build verified, in sitemap. Cover generated. Correct App Store ID id6759252082.
-- [x] **Best ZOZOFIT Alternatives** — **published 2026-07-02 as /blog/best-zozofit-alternatives/** — 6-entry roundup (GainFrame photo lane, MeThreeSixty free scan w/ 5-scan free cap + ~$5/mo Premium, Recomp AI, Hume Body Pod ~$229, Progress manual, DEXA). Verified: ZOZOFIT now suit-free, free plan + Premium $3.99/mo / $29.99/yr / $99.99 lifetime. Uses v3.0 app screenshots. Cross-linked with /blog/best-body-scanning-measurement-apps/. — added 2026-06-28, published 2026-07-02
-- [x] **Best Bodygram Alternatives** — CLOSED 2026-07-02 without a post: Bodygram pivoted to B2B SDK; consumer app not in US App Store search. Brand intent too thin for a standalone page. Covered instead as an honorable-mention + FAQ answer in /blog/best-body-scanning-measurement-apps/ ("What happened to Bodygram?"). — added 2026-06-28
-
-### Comparison posts (competitor-brand intent, secondary volume)
-
-- [x] **MeThreeSixty vs GainFrame** — **published 2026-07-02 as /blog/methreesixty-vs-gainframe/** — 18K-rating brand, no dedicated comparison in SERP. Angle: 3D avatar measurements vs AI-scored photos; honest that MeThreeSixty free tier now caps at 5 recent scans (~$5/mo Premium). v3.0 screenshots. — added+published 2026-07-02
-- [x] **Recomp AI vs GainFrame** — **published 2026-07-02 as /blog/recomp-ai-vs-gainframe/** — early-mover on rising direct competitor (ISO Labs, ~737 ratings). Angle: scan-centric vs timeline-centric; consistent with flagship post's Recomp AI review. Pricing hedged (check listing). v3.0 screenshots. — added+published 2026-07-02
-
-### Screenshot refreshes (v3.0 assets, no metadata changes)
-
-- [x] **recovery-score-for-lifters + import-progress-photos** — refreshed 2026-07-02 with v3.0 screenshots (6-signal recovery detail, sleep trend chart, new import report); alt text updated, dateModified bumped, titles/meta untouched per measurement rule. NOTE: 3.0 is NOT released yet — screenshots show shipped features (recovery, import) with updated UI only; no "new in 3.0" claims anywhere. — done 2026-07-02
+- [ ] **Best ZOZOFIT Alternatives** — body-scan brand; run `/competitor-scan zozofit.com` first. — added 2026-06-28
+- [ ] **Best Bodygram Alternatives** — body-measurement-from-photo brand; run `/competitor-scan` first; lowest priority of the three. — added 2026-06-28
+- [ ] **Best LeanLens Alternatives** — LeanLens.ai is a *direct* AI-body-fat-from-photo competitor (same lane as GainFrame), so this is the strongest brand-"alternatives" fit of the set — GainFrame slots in honestly as a peer AI-photo option, not a hardware/scale outsider. Run `/competitor-scan leanlens.ai` first (⚠️ leanlens.ai is blocked by this session's egress policy — do the scan in a session with network access). — added 2026-07-01 — source: user suggestion (leanlens.ai/blog)
 
 ### Uncovered "best X" sub-niche hunt (validate SERP + no self-cannibalization before writing)
 
