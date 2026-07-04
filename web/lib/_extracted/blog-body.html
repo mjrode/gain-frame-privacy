@@ -36,7 +36,7 @@
             <div class="blog-filter" role="group" aria-label="Filter posts by topic">
                     <span class="blog-filter-label">Topics</span>
                     <div class="blog-filter-pills">
-                        <button type="button" class="blog-filter-pill is-active" data-tag="all" aria-pressed="true">All<span class="blog-filter-count">105</span></button>
+                        <button type="button" class="blog-filter-pill is-active" data-tag="all" aria-pressed="true">All<span class="blog-filter-count">106</span></button>
                         <button type="button" class="blog-filter-pill" data-tag="body-composition" aria-pressed="false">Body Composition<span class="blog-filter-count">29</span></button>
                         <button type="button" class="blog-filter-pill" data-tag="guide" aria-pressed="false">Guide<span class="blog-filter-count">11</span></button>
                         <button type="button" class="blog-filter-pill" data-tag="comparison" aria-pressed="false">Comparison<span class="blog-filter-count">9</span></button>
@@ -44,8 +44,8 @@
                     <div class="blog-filter-more">
                         <select class="blog-filter-select" data-blog-filter-select aria-label="Filter by more topics">
                             <option value="">More topics…</option>
+                            <option value="founder-story">Founder Story (9)</option>
                             <option value="app-reviews">App Reviews (8)</option>
-                            <option value="founder-story">Founder Story (8)</option>
                             <option value="deep-dive">Deep Dive (7)</option>
                             <option value="product-update">Product Update (7)</option>
                             <option value="roundup">Roundup (7)</option>
@@ -66,10 +66,28 @@
             <!-- BLOG_FILTER:END -->
             <div class="blog-grid margin-top-grid">
                 <!-- BLOG_GRID:START -->
+                <a href="/blog/getting-user-feedback/" class="blog-card scroll-reveal" data-category="founder-story">
+                    <div class="blog-card-image">
+                        <img src="/blog/getting-user-feedback/assets/cover.webp"
+                            alt="Six weeks of in-app surveys brought 189 responses while 116 cancellation emails got zero replies. Real numbers from four feedback channels in a solo iOS app."
+                            width="800" height="500"
+                            loading="eager"
+                            decoding="async">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="post-meta">
+                            <span class="post-category">Founder Story</span>
+                            <span class="post-date">Jul 4, 2026</span>
+                        </div>
+                        <h3>In-App Surveys Got 189 Responses. My Cancel Emails Got Zero.</h3>
+                        <p>I've now tried four different ways to get GainFrame users to talk to me. Here are the numbers on all four, including the two that flopped.</p>
+                    </div>
+                </a>
+
                 <a href="/blog/organic-traffic-15x-90-days/" class="blog-card scroll-reveal" data-category="founder-story">
                     <div class="blog-card-image">
                         <img src="/blog/organic-traffic-15x-90-days/assets/cover.webp"
-                            alt="After I killed $5,674 of paid ads I went all-in on SEO. Here is the real Search Console and Analytics data — 7 to ~100 organic clicks a day in 90 days, what worked, and what was a waste of time."
+                            alt="After I killed $5,674 of paid ads I went all-in on SEO. Here is the real Search Console and Analytics data — 7 to ~100 organic clicks a day in 90 days, what worked, and what didn't."
                             width="800" height="500"
                             loading="eager"
                             decoding="async">
@@ -107,7 +125,7 @@
                         <img src="/blog/best-zozofit-alternatives/assets/cover.webp"
                             alt="The best ZOZOFIT alternatives in 2026 — free 3D body scan apps, AI photo analysis, smart scales, and manual trackers compared on price, method, and accuracy."
                             width="800" height="500"
-                            loading="eager"
+                            loading="lazy"
                             decoding="async">
                     </div>
                     <div class="blog-card-content">

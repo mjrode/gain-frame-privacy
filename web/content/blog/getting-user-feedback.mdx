@@ -1,0 +1,131 @@
+---
+title: In-App Surveys Got 189 Responses. My Cancel Emails Got Zero.
+description: Six weeks of in-app surveys brought 189 responses while 116 cancellation emails got zero replies. Real numbers from four feedback channels in a solo iOS app.
+slug: getting-user-feedback
+canonical: "https://gainframe.app/blog/getting-user-feedback/"
+ogTitle: In-App Surveys Got 189 Responses. My Cancel Emails Got Zero.
+ogDescription: Real numbers from four ways I ask users for feedback — in-app surveys piped to Slack, founder chat, cancel emails, and a feature board nobody found.
+ogImage: "https://gainframe.app/blog/getting-user-feedback/assets/cover.webp"
+ogType: article
+twitterTitle: In-App Surveys Got 189 Responses. My Cancel Emails Got Zero.
+twitterDescription: Real numbers from four ways I ask users for feedback — in-app surveys piped to Slack, founder chat, cancel emails, and a feature board nobody found.
+twitterImage: "https://gainframe.app/blog/getting-user-feedback/assets/cover.webp"
+breadcrumbCategory: Founder Story
+displayCategory: Founder Story
+displayDate: Jul 4, 2026
+readTime: 8 min read
+subtitle: "I've now tried four different ways to get GainFrame users to talk to me. Here are the numbers on all four, including the two that flopped."
+schemas:
+  - {"@context":"https://schema.org","@type":"BlogPosting","headline":"In-App Surveys Got 189 Responses. My Cancel Emails Got Zero.","description":"Six weeks of in-app surveys brought 189 responses while 116 cancellation emails got zero replies. Real numbers from four feedback channels in a solo iOS app.","image":"https://gainframe.app/blog/getting-user-feedback/assets/cover.webp","datePublished":"2026-07-04","dateModified":"2026-07-04","author":{"@type":"Person","name":"Michael Rode","url":"https://gainframe.app/about"},"publisher":{"@type":"Organization","name":"GainFrame","url":"https://gainframe.app","logo":{"@type":"ImageObject","url":"https://gainframe.app/assets/favicons/favicon.webp"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gainframe.app/blog/getting-user-feedback/"},"articleSection":"Founder Story","keywords":"user feedback, in-app surveys, PostHog surveys, indie app development, build in public"}
+  - {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gainframe.app/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://gainframe.app/blog/"},{"@type":"ListItem","position":3,"name":"In-App Surveys Got 189 Responses","item":"https://gainframe.app/blog/getting-user-feedback/"}]}
+---
+
+<div className="post-hero-image scroll-reveal" style={{marginBottom: '3rem'}}>
+  <img src="assets/cover.webp" alt="Line-art illustration of survey cards and speech bubbles flowing from a phone into an inbox while envelopes and an empty suggestion box fall away" loading="lazy" style={{borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)'}} />
+</div>
+
+Quick build-in-public update on my iOS app. Over the last few months I've tried four different ways to get GainFrame users to tell me what's broken and what to build. In the last six weeks, in-app surveys collected 189 responses. In roughly the same window, 116 automated "why did you cancel?" emails collected zero replies. Not a low number. Zero.
+
+I think talking directly to users is the single most useful thing a new app can do. Analytics shows you what people did; it never tells you why, and it definitely never tells you what you're blind to. So I kept adding channels until something worked. Here's the full scoreboard, including the embarrassing rows.
+
+<figure className="post-figure" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/channels-scoreboard.webp" alt="Scorecard of four feedback channels: in-app surveys 189 responses in 6 weeks, founder chat 30 conversations in 10 weeks, cancel emails 116 sent with 0 replies, feature request board 0 posts in 4 weeks" loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>Four channels, one clear winner. All numbers as of July 4.</figcaption></figure>
+
+<hr className="post-divider" />
+
+## In-app chat: good, but not the firehose I hoped for
+
+<div className="post-inline-screenshot scroll-reveal">
+  <img src="assets/ask-mike.webp" alt="The Ask Mike chat profile inside GainFrame — founder photo, 'typically replies within a day', and a Start Chat button" loading="lazy" style={{borderRadius: '16px', border: '1px solid var(--color-border)'}} />
+  <p className="post-caption">The "Ask Mike" profile. Real human, real reply.</p>
+</div>
+
+Back in April I added a Crisp chat behind an "Ask Mike" button and [wrote about why](/blog/in-app-chat/). Ten weeks later: 74 people have opened the chat screen and 30 started an actual conversation.
+
+The conversations I do get are great — bug reports with screenshots, feature asks, a couple of people just saying the app helped them. But it didn't move the needle as much as I hoped, and it produced one problem I did not see coming: GainFrame also has an AI coach you can chat with, and some users assumed "Ask Mike" was the same thing. They'd send the founder chat a question about their training and wait for the AI to answer. A human answering a day later, when they expected an instant bot, is a weird experience for everyone involved.
+
+Keeping it anyway. Thirty real conversations is thirty more than I'd have otherwise, and the support tickets alone justify it.
+
+## Cancel emails: 116 sent, zero replies
+
+This one I had real hopes for. When someone cancels a trial or a paid subscription, RevenueCat fires a webhook, the event lands in a database table, and a cron job emails them within about 15 minutes asking one question: what could I change to keep you around?
+
+The pipeline works flawlessly. 74 trial cancellations emailed, 42 paid cancellations emailed. Replies: zero.
+
+In hindsight I get it. Someone who just cancelled has already spent their last unit of attention on you, and answering "what could I change" is homework for a product they've decided to stop using. The people most able to tell you why they're leaving are exactly the people with the least reason to bother. I'm leaving the automation on because it costs nothing, but I've stopped checking that inbox with any optimism.
+
+## The feature board nobody found
+
+In June I set up a Featurebase feature-request board and linked it from Settings. Four weeks later it has zero posts.
+
+I don't think the idea is dead — I think I buried it. A voting board behind Settings → Feature Requests is invisible to anyone who isn't already digging around, and people who dig around in Settings are not usually in a "let me write a product suggestion" mood. It needs an entry point at the moment someone hits a wall, not a parking spot three taps deep. That's on me, not the users.
+
+## What worked: surveys that show up inside the app
+
+The channel that finally produced volume was the least personal one. In late May I wired up PostHog's in-app surveys, restyled them to match the app instead of using the default popover, and targeted each one at a specific moment:
+
+- Dismissed the paywall in the last week → "What's holding you back from trying Pro?"
+- 10+ scored photos → "Does your physique score feel accurate?"
+- Came back after 7+ days away → "What brought you back?"
+- Just finished onboarding → "How easy was it to get started?"
+
+Six weeks, 189 responses. For comparison, that's more feedback than every other channel combined, times three.
+
+The trick that makes it work for me day to day: every submitted survey also posts to a Slack channel with the full context attached — device, iOS version, app version, free or Pro, photo count. My phone buzzes, I read it in five seconds, and when an answer needs a follow-up I can look the account up and reply personally. Feedback arrives where I already live instead of in a dashboard I have to remember to visit.
+
+<figure className="post-figure scroll-reveal" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/slack-feed.webp" alt="Slack channel showing a stream of survey responses with device, app version, and subscription context attached to each one" loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>The #gainframe-feedback channel. Every response lands here within seconds of the user tapping Send.</figcaption></figure>
+
+And the answers changed what I'm working on. The paywall survey has a 38% response rate — 61 answers from 160 people shown — because it fires five seconds after someone dismisses the paywall and takes one tap to answer:
+
+<figure className="post-figure scroll-reveal" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/paywall-reasons.webp" alt="Bar chart of paywall dismissal reasons: too expensive 46%, haven't used the app enough 28%, free version is enough 11%, not sure what I'd get 8%, other 7%" loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>"Too expensive" winning isn't surprising. "Haven't used it enough yet" at 28% was — those people aren't rejecting the price, they're telling me the trial comes too early.</figcaption></figure>
+
+The score-calibration survey hurt more. Of the users with 10+ scored photos who answered, 58% picked "it's all over the place" to describe their AI physique score. Two people out of twelve said it matches how they look. That's the kind of thing no analytics funnel will ever surface — the feature works, people use it, and a chunk of them quietly don't trust the number. Score consistency moved way up my list because of one survey question.
+
+## The dashboard was undercounting my responses
+
+One honest caveat about the winning channel, because it nearly misled me.
+
+While writing this post I noticed the PostHog surveys dashboard showed numbers that felt low — one survey showed 4 responses when I could see fresh ones in Slack from the day before, and another showed a flat 0 against 50 real submissions.
+
+<figure className="post-figure scroll-reveal" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/posthog-survey-list.webp" alt="PostHog surveys dashboard listing six surveys with response counts that undercount the real totals, including Feature Pulse showing zero" loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>The dashboard view. Feature Pulse: 0 responses. Feature Pulse in reality: 50.</figcaption></figure>
+
+Because every response also writes to Slack and to my own database at the moment the user taps Send, I could line the two up. The analytics pipeline captured 88 responses. The direct pipes captured 189.
+
+<figure className="post-figure scroll-reveal" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/posthog-vs-actual.webp" alt="Paired bar chart comparing PostHog dashboard counts against actual submitted responses per survey, totaling 88 captured versus 189 actual, a 47 percent capture rate" loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>What the dashboard saw vs. what users submitted. Roughly half the responses never made it into the analytics UI.</figcaption></figure>
+
+The why is mundane mobile-SDK stuff. The Slack and database writes are plain HTTP requests the app fires directly at submit time. The analytics event goes through an SDK callback chain into a batched queue that flushes later — and someone who just answered a survey popup very often closes the app in the next few seconds. Three of my surveys are also rendered natively and were never wired to PostHog's survey events at all. None of this is really PostHog's fault, but the lesson stands either way: I only knew the dashboard was undercounting because the same data flowed through a second, dumber pipe. If a number matters, send it down two paths and let them argue.
+
+## What I'd copy if I were starting again
+
+<div className="post-steps">
+
+1. **Ask inside the app, at a specific moment.** A survey five seconds after a paywall dismissal got a 38% response rate. An email the day after cancelling got 0%. Distance from the moment kills response rates.
+
+2. **Make the first question one tap.** Single choice or a rating. Every survey with a required open-text first question would have died. Let the open text be the optional second question.
+
+3. **Pipe responses to wherever you already look.** For me that's Slack, with device and account context attached so I can follow up personally. A dashboard you have to visit is a dashboard you'll stop visiting.
+
+4. **Send the data down two pipes.** One analytics SDK, one dumb HTTP write to your own table. When they disagree, the dumb one is usually right.
+
+5. **Keep the human channel open anyway.** Chat produced 30 conversations, not 189 responses, but the depth per conversation is 10x. Surveys find the what; the chats explain the why.
+
+</div>
+
+Two of my four channels flopped and one undercounted itself by half. Still the best time I've spent on the app this quarter. The roadmap I had in May and the roadmap I have now are different documents, and users did that. Slower than guessing, but I'm no longer building for an imaginary person.
+
+<div className="blog-post-cta scroll-reveal">
+  <h3>See what all this feedback is building</h3>
+  <p>GainFrame is an AI body composition tracker built in public by one person — progress photos in, physique score and coaching out. The surveys in this post are shaping it every week.</p>
+  <a href="https://apps.apple.com/us/app/gainframe/id6742498826" className="cta-button" target="_blank" rel="noopener">Download GainFrame Free</a>
+</div>
+
+<hr className="post-divider" />
+
+<div className="post-related scroll-reveal">
+  <h3>Related Articles</h3>
+  <ul>
+    <li><a href="/blog/in-app-chat/">Why I Added In-App Chat to GainFrame</a></li>
+    <li><a href="/blog/stop-building-features-start-reading-data/">Stop Building Features, Start Reading Data</a></li>
+    <li><a href="/blog/spent-5k-on-app-ads/">I Spent $5K on Ads for My iOS App</a></li>
+    <li><a href="/blog/organic-traffic-15x-90-days/">Organic Traffic 15x in 90 Days</a></li>
+  </ul>
+</div>
