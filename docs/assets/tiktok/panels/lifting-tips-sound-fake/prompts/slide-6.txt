@@ -1,0 +1,20 @@
+A single Instagram carousel closing slide, portrait 4:5 (1080x1350), in a clean FLAT cartoon illustration style on a PURE WHITE (#FFFFFF) background — flat, no gradient, no tint, no cream, no peach. Layout: bold text in the top 45%, illustration in the middle, App Store badge at the bottom.
+
+In the top-right corner a small gray rounded pill with white text reads "6/6".
+
+TEXT (top 45%, centered, stacked):
+- HUGE bold condensed ALL-CAPS sans-serif (Impact/Anton) headline: "SOUNDS FAKE:" in red (#E53935) on the first line, then "AN AI THAT TRACKS YOUR GAINS FROM A PHOTO" in near-black (#1A1A1A) on the next lines.
+- Below it, a smaller but still bold ALL-CAPS subline in near-black: "ACTUALLY WORKS."
+All words spelled EXACTLY as written.
+
+ILLUSTRATION (middle): a large smartphone stands upright slightly left of center, screen facing forward showing the GainFrame app: a clean minimal iOS dashboard titled "Dashboard" with a circular score gauge reading "78" labeled "GainFrame Score" and a before/after progress-photo thumbnail pair labeled "Week 1" and "Week 12". Keep on-screen text minimal — ONLY these labels. Standing to the RIGHT of the phone, GainFrame Guy — LEAN and MUSCULAR with a V-taper, confident — with BOTH arms clearly visible: one arm flexing a bicep, the other hand pointing at the phone screen.
+
+CRITICAL — GAINFRAME GUY CHARACTER (copy EXACTLY from the reference images; get this right):
+- The HEAD is ONLY a "scan frame" logo: four separate rounded corner brackets floating in empty space. Three brackets are black; the BOTTOM-RIGHT bracket is RED. Inside the frame float just TWO simple googly eyes and one small "S"-curve nose. That is the ENTIRE head.
+- There is NO human head, NO human face, NO skull, NO hair, NO ears, and NO neck anywhere. Do NOT draw a person's head behind or inside the brackets. The space inside and behind the brackets is plain white background — nothing is behind them.
+- The bracket-frame head floats directly above the shoulders with a small gap; the body never connects to a human head.
+- BODY: a solid, FLAT, matte BLACK/charcoal cartoon silhouette (a shadow-figure look) with thick clean outlines and flat colors — NOT realistic skin, NOT anatomical muscle rendering. Wearing olive/army-green shorts. Exactly one head, one torso, TWO arms, two legs. Head square, upright, axis-aligned.
+
+BOTTOM (bottom 12%): bold black text "DOWNLOAD GAINFRAME" in condensed ALL-CAPS, and below it the standard black "Download on the App Store" badge, centered.
+
+TYPOGRAPHY: bold condensed sans-serif (Impact/Anton); black with red accent words. All text crisp and correctly spelled EXACTLY as written. Clean, bright, premium, white-forward. No watermarks except the character's bracket-frame head.

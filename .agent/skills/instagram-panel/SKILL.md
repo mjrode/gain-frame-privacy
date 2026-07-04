@@ -25,6 +25,7 @@ Four formats — pick one per post:
 | **B — Escalation** ("Kings Mindset") | Clean white, minimal | "X per day → is Y per year" | 2 stacked, same pose, escalating text |
 | **C — Think vs Actually** ("ABS") | Clean white, 2 labeled rows | "What people think X / what actually X" | 2 rows × 3 captioned mini-illustrations |
 | **D — Contrast statement** ("CARDIO") | Clean white, 2 stacked scenes | virtue statement / twist counterpoint | 2 stacked, mood flips, key words in red |
+| **E — Sounds-fake listicle** ("LIFTING TIPS") | Clean white, text-top/illo-bottom | "X tips that sound FAKE but actually work" | 6 slides: cover + 4 numbered tips + plug |
 
 **Michael's preferred lanes are C and D** — myth-bust debate bait, same energy as the
 winning TikTok comics (question-fear / nuance-flip hooks). Default new posts to C or D;
@@ -193,6 +194,24 @@ Gray "N/2" counter pill top-right.
 **Prompt template:** copy `docs/assets/tiktok/panels/cardio-gains/prompts/slide-1.txt`
 and swap the two scenes + two text lines. Keep the CHARACTER BLOCK + white
 background (never the reference's dark painted scenes).
+
+---
+
+## Format E — "Sounds fake but actually works" listicle
+
+6-slide counterintuitive-tips carousel (enduroapppp running-tips reference, adapted to
+GainFrame white). Slide 1 = cover: giant stacked headline "<TOPIC> TIPS / THAT SOUND /
+FAKE / BUT ACTUALLY / WORK" with "FAKE" extra-large in red, two mascots doing the
+topic below. Slides 2–5 = numbered tips: HUGE claim headline (key words red) + 1–2
+bold ALL-CAPS sublines explaining why, mascot demonstrating below. Slide 6 = plug
+that mirrors the hook: "SOUNDS FAKE: <app claim> / ACTUALLY WORKS." + phone +
+DOWNLOAD GAINFRAME + App Store badge. Counter pill "N/6".
+
+The tips MUST genuinely sound fake (counterintuitive but true) — that's the hook.
+Dedup each tip against TikTok-Drafts before using it.
+
+**Prompt template:** copy `docs/assets/tiktok/panels/lifting-tips-sound-fake/prompts/`
+(slide-1 = cover, slide-2 = tip, slide-6 = plug) and swap topic, claims, and scenes.
 
 ---
 
