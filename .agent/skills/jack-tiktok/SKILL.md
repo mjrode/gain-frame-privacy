@@ -372,18 +372,18 @@ The caption for this format should feel like it was written by a real gym person
 **Caption Formula:**
 
 - **Hook line** (1 sentence, lowercase, matches the vibe of the slide 1 text)
-- **Brief body** (optional — 1-2 sentences about the reveal or the app feature)
-- **CTA** (low-pressure — "link in bio", "track your frame", "save this")
-- **Hashtags** (5-8 tags — mix of broad and niche)
+- **Optional second line** (only if it earns its place — a joke or "link in bio", never both)
+- **Hashtags** (EXACTLY 5 tags — mix of broad and niche)
+
+Keep it SHORT — one line is the default. No formal sentences, no explaining the
+carousel, no "Save this 💪" formulas.
 
 **Example Caption:**
 
 ```
 when your strength score says you're built different but your chest still says 3 more days 🥲
 
-recovery tracking in the app genuinely changed how i train. link in bio
-
-#gainframe #gymtok #fitnessapp #gymlife #recoverytraining #strengthtraining #gymbro
+#gainframe #gymtok #fitnessapp #gymlife #gymbro
 ```
 
 Save the caption + hashtags to:

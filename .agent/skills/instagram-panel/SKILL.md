@@ -249,9 +249,10 @@ Fix by editing the slide's `.txt` and re-running `generate.sh`. Iterate until cl
 A post is not done until it's in the shared TikTok-Drafts folder (iCloud Drive —
 this is how it reaches Michael's phone).
 
-1. Write `content.md` (caption + hashtags) in the post dir. Caption style: flat
-   declarative myth-bust line, 1–2 sentences, "👇" CTA, ~10 hashtags (see any
-   existing panel `content.md`).
+1. Write `content.md` (caption + hashtags) in the post dir. Caption style: ONE
+   short casual line, funny if possible — real-TikTok voice, not marketing copy
+   (lowercase fine, no "Save this 💪" formulas, no explaining the post). EXACTLY
+   5 hashtags mixing broad + niche (#gymtok #lifting #gymhumor #fitness #gainframe).
 2. Copy the shared CTA in as slide 2: `cp docs/assets/tiktok/panels/_shared/cta.png docs/assets/tiktok/panels/$SLUG/slide-2.png`
 3. Sync to iCloud. When running ON the Mac (local session — check `ls ~/Library/Mobile\ Documents/` works), do it directly:
    ```bash

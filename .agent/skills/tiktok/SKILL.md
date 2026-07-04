@@ -326,8 +326,13 @@ Hyphens only. Never underscores. Never `cover.png` or `slide1.png`. The gallery 
 1. Show all slides together for a full carousel review
 2. Check text rendering — if any text is garbled, regenerate with a simplified subtitle
 3. Draft caption + hashtags:
-   - **Caption:** 2–3 sentences, hook-first, CTA ("Save this 💪")
-   - **Hashtags:** 5–10 mixing broad (#gymtok #fitness) and niche (#gymmistakes #gainframe)
+   - **Caption:** ONE short line, casual and funny if possible — like a real TikTok
+     caption, not marketing copy. Lowercase is fine. Think "the ones who know, know 💀"
+     or "posting this before my rest day turns into a rest week" — NOT "Here are 5
+     mistakes killing your gains! Save this 💪". No hook-first formulas, no formal
+     sentences, no explaining the carousel (they can see it).
+   - **Hashtags:** EXACTLY 5, no more. Mix broad + niche, e.g. #gymtok #lifting
+     #gymhumor #fitness #gainframe
 4. Save `content.md` to `docs/assets/tiktok/comic/[slug]/content.md`:
    ```
    [Caption text]

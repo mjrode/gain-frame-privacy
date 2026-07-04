@@ -430,8 +430,8 @@ Do NOT name them `cover.png` or `slide1.png` or `slide_1.png`. You MUST use HYPH
 2. **Verify text rendering.** Check that the text in each generated image is readable and correctly spelled. If any text is garbled or cut off, regenerate that slide with a simplified text prompt.
 
 3. **Generate caption & hashtags.** Draft:
-   - **Caption:** 2-3 sentences, hook-first, with a CTA ("Save this for your next gym session 💪")
-   - **Hashtags:** 5-10 relevant hashtags mixing broad (#gymtok #fitness) and niche (#gymmistakes #workoutsplit)
+   - **Caption:** ONE short line, casual and funny if possible — like a real TikTok caption, not marketing copy. Lowercase is fine. No hook-first formulas, no "Save this 💪" CTAs, no explaining the carousel.
+   - **Hashtags:** EXACTLY 5, mixing broad (#gymtok #fitness) and niche (#gymmistakes #gainframe)
 
 4. **Save the text content** to a `content.md` file in the output directory — this is a **copy-paste ready** file for TikTok posting:
    ```
