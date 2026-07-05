@@ -2,7 +2,7 @@ A single Instagram carousel slide, portrait 4:5 (1080x1350), in a clean FLAT car
 
 In the top-right corner a small gray rounded pill with white text reads "1/6".
 
-HEADLINE (top 60%, centered, stacked lines, HUGE): "LOOK BIGGER TIPS" on the first line in near-black, "THAT SOUND" on the second line in italic near-black, "FAKE" alone on the third line — EXTRA large, in red (#E53935), "BUT ACTUALLY" on the fourth line in near-black, "WORK" alone on the fifth line — EXTRA large, near-black.
+HEADLINE (top 60%, centered, stacked lines, HUGE): "TIPS TO LOOK BIGGER" on the first line in near-black, "THAT SOUND" on the second line in italic near-black, "FAKE" alone on the third line — EXTRA large, in red (#E53935), "BUT ACTUALLY" on the fourth line in near-black, "WORK" alone on the fifth line — EXTRA large, near-black.
 
 CRITICAL — GAINFRAME GUY CHARACTER (copy EXACTLY from the reference images; get this right — EVERY figure follows this design):
 - The HEAD is ONLY a "scan frame" logo: four separate rounded corner brackets floating in empty space. Three brackets are black; the BOTTOM-RIGHT bracket is RED. Inside the frame float just TWO simple googly eyes and one small "S"-curve nose. That is the ENTIRE head.
@@ -11,3 +11,7 @@ CRITICAL — GAINFRAME GUY CHARACTER (copy EXACTLY from the reference images; ge
 - BODY: a solid, FLAT, matte BLACK/charcoal cartoon silhouette (a shadow-figure look) with thick clean outlines and flat colors — NOT realistic skin, NOT anatomical muscle rendering. LEAN and MUSCULAR with a V-taper, wearing olive/army-green shorts. Exactly one head, one torso, two arms, two legs per figure. Heads stay SQUARE, UPRIGHT and AXIS-ALIGNED, floating in open white space overlapping NOTHING — no white box or card behind the brackets.
 
 ILLUSTRATION (bottom 40%): TWO GainFrame Guy figures side by side, both standing: the LEFT one slouched with rounded shoulders looking narrow, the RIGHT one standing tall, chest out, shoulders back, looking twice as wide. Plain white background, soft small ground shadows.
+
+FIX: Make BOTH figures SMALLER so they fit entirely in the bottom 35% of the canvas — the bracket heads sit fully BELOW the word "WORK" with clear white space between, overlapping NOTHING. The two figures must look DIFFERENT: LEFT figure narrow and slouched with rounded shoulders; RIGHT figure visibly WIDER with chest out and shoulders back.
+
+SPACING: Leave a horizontal band of COMPLETELY EMPTY WHITE space, at least 10% of the canvas height, between the bottom of the word "WORK" and the tops of the bracket heads. Every letter of WORK fully visible, nothing in front of it.

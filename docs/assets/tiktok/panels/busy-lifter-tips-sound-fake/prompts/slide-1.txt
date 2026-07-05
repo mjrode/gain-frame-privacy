@@ -2,7 +2,7 @@ A single Instagram carousel slide, portrait 4:5 (1080x1350), in a clean FLAT car
 
 In the top-right corner a small gray rounded pill with white text reads "1/6".
 
-HEADLINE (top 60%, centered, stacked lines, HUGE): "BUSY LIFTER TIPS" on the first line in near-black, "THAT SOUND" on the second line in italic near-black, "FAKE" alone on the third line — EXTRA large, in red (#E53935), "BUT ACTUALLY" on the fourth line in near-black, "WORK" alone on the fifth line — EXTRA large, near-black.
+HEADLINE (top 60%, centered, stacked lines, HUGE): "TIPS FOR BUSY LIFTERS" on the first line in near-black, "THAT SOUND" on the second line in italic near-black, "FAKE" alone on the third line — EXTRA large, in red (#E53935), "BUT ACTUALLY" on the fourth line in near-black, "WORK" alone on the fifth line — EXTRA large, near-black.
 
 CRITICAL — GAINFRAME GUY CHARACTER (copy EXACTLY from the reference images; get this right — EVERY figure follows this design):
 - The HEAD is ONLY a "scan frame" logo: four separate rounded corner brackets floating in empty space. Three brackets are black; the BOTTOM-RIGHT bracket is RED. Inside the frame float just TWO simple googly eyes and one small "S"-curve nose. That is the ENTIRE head.
