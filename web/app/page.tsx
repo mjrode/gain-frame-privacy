@@ -111,6 +111,26 @@ export default function Home() {
         <section className="hero">
         <div className="page-grid" aria-hidden="true"></div>
         <div className="hero-copy reveal">
+          <style>{`
+            .challenge-ticket { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; padding: 9px 8px 9px 16px; background: #171717; border-radius: 999px; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 10px 26px rgba(23,23,23,0.22); transition: transform 180ms ease, box-shadow 180ms ease; }
+            .challenge-ticket:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 14px 32px rgba(23,23,23,0.3); }
+            .challenge-ticket .ct-dot { width: 8px; height: 8px; border-radius: 99px; background: var(--green); box-shadow: 0 0 0 0 rgba(52,210,111,0.45); animation: ct-pulse 2.2s ease-out infinite; }
+            @keyframes ct-pulse { 0% { box-shadow: 0 0 0 0 rgba(52,210,111,0.45); } 70% { box-shadow: 0 0 0 9px rgba(52,210,111,0); } 100% { box-shadow: 0 0 0 0 rgba(52,210,111,0); } }
+            .challenge-ticket .ct-label { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--green); white-space: nowrap; }
+            .challenge-ticket .ct-text { font-size: 14px; font-weight: 700; letter-spacing: -0.03em; color: #fff; white-space: nowrap; }
+            @media (max-width: 380px) { .challenge-ticket .ct-text { white-space: normal; } }
+            .challenge-ticket .ct-arrow { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 26px; border-radius: 99px; background: rgba(255,255,255,0.14); color: #fff; font-size: 13px; font-weight: 700; transition: transform 180ms ease; }
+            .challenge-ticket:hover .ct-arrow { transform: translateX(3px); }
+            @media (max-width: 540px) { .challenge-ticket .ct-label { display: none; } .challenge-ticket .ct-text { font-size: 13px; } }
+            @media (prefers-reduced-motion: reduce) { .challenge-ticket .ct-dot { animation: none; } }
+          `}</style>
+          <a href="/giveaway" className="challenge-ticket" data-cta-source="home" data-cta-content="challenge_ticket">
+            <span className="ct-dot" aria-hidden="true"></span>
+            <span className="ct-label">JULY CONTEST</span>
+            <span className="ct-text">Win $300 for your best transformation</span>
+            <span className="ct-arrow" aria-hidden="true">-&gt;</span>
+          </a>
+          <br />
           <span className="eyebrow">
             <span></span>AI body analysis + Coach
           </span>
