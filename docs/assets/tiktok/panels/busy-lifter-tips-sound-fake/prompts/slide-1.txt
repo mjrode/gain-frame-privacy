@@ -1,0 +1,21 @@
+A single Instagram carousel slide, portrait 4:5 (1080x1350), in a clean FLAT cartoon illustration style on a PURE WHITE (#FFFFFF) background — flat, no gradient, no tint, no cream, no peach. Bold condensed ALL-CAPS sans-serif typography (Impact/Anton), near-black (#1A1A1A) with red (#E53935) accents. All text crisp and correctly spelled EXACTLY as written. No watermarks except each character's bracket-frame head. This is the COVER slide. Layout: giant headline filling the top 60%, illustration in the bottom 40%.
+
+In the top-right corner a small gray rounded pill with white text reads "1/6".
+
+HEADLINE (top 60%, centered, stacked lines, HUGE): "BUSY LIFTER TIPS" on the first line in near-black, "THAT SOUND" on the second line in italic near-black, "FAKE" alone on the third line — EXTRA large, in red (#E53935), "BUT ACTUALLY" on the fourth line in near-black, "WORK" alone on the fifth line — EXTRA large, near-black.
+
+CRITICAL — GAINFRAME GUY CHARACTER (copy EXACTLY from the reference images; get this right — EVERY figure follows this design):
+- The HEAD is ONLY a "scan frame" logo: four separate rounded corner brackets floating in empty space. Three brackets are black; the BOTTOM-RIGHT bracket is RED. Inside the frame float just TWO simple googly eyes and one small "S"-curve nose. That is the ENTIRE head.
+- There is NO human head, NO human face, NO skull, NO hair, NO ears, and NO neck anywhere. Do NOT draw a person's head behind or inside the brackets. The space inside and behind the brackets is plain white background — nothing is behind them.
+- The bracket-frame head floats directly above the shoulders with a small gap; the body never connects to a human head.
+- BODY: a solid, FLAT, matte BLACK/charcoal cartoon silhouette (a shadow-figure look) with thick clean outlines and flat colors — NOT realistic skin, NOT anatomical muscle rendering. LEAN and MUSCULAR with a V-taper, wearing olive/army-green shorts. Exactly one head, one torso, two arms, two legs per figure. Heads stay SQUARE, UPRIGHT and AXIS-ALIGNED, floating in open white space overlapping NOTHING — no white box or card behind the brackets.
+
+ILLUSTRATION (bottom 40%): TWO GainFrame Guy figures side by side, both standing: the LEFT one holding a briefcase in one hand and a dumbbell in the other, the RIGHT one checking a wristwatch while holding a dumbbell mid-curl. Plain white background, soft small ground shadows.
+
+CRITICAL HEAD COLOR: On EVERY figure, exactly THREE brackets are BLACK and ONLY the BOTTOM-RIGHT bracket is RED. Never draw an all-red head frame, never an all-black head frame — both figures have identical 3-black + 1-red-bottom-right heads with two googly eyes and one S-curve nose.
+
+CRITICAL LAYOUT: The title text block occupies the TOP half only, and BOTH figures stay entirely BELOW it — the bracket heads must sit fully below the word "WORK" with clear white space between, never overlapping or touching any letters.
+
+FIX: Make BOTH figures SMALLER so they fit entirely in the bottom 35% of the canvas with a clear white gap below the headline. The bracket heads float in OPEN WHITE SPACE overlapping NOTHING — there is NO white box, NO white card, NO rounded rectangle behind the brackets; the four corner brackets sit directly on the plain white background.
+
+PILL: There is EXACTLY ONE gray rounded pill reading "1/6", positioned in the TOP-RIGHT CORNER of the canvas. Do NOT draw any pill near the figures or at the bottom — only the single one at top-right.
