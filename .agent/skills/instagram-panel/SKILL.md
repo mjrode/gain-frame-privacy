@@ -74,6 +74,22 @@ different angle rather than a synonym of the same one.
    floating scan-frame; the body is a FLAT black silhouette (a realistic/anatomical
    body reads as human and triggers the bug).
 
+3. **NO MOUTH — happy/social scenes grow smiles.** Scenes where the mascot is
+   "friendly" (meal prep, fist bumps, greeting someone) make the model add a smile
+   or even a filled black round head inside the brackets. If a roll shows a mouth,
+   append: "The character has NO MOUTH — the face is ONLY two googly eyes and one
+   small S-curve nose. No smile, no mouth line." For two-figure scenes add "FACES
+   IDENTICAL" so both get the same treatment.
+
+4. **Multi-figure covers drift on head colors and pill count.** Two-mascot covers
+   sometimes render one all-black and one all-red bracket head, duplicate the N/X
+   pill near the figures, or push heads up into the title. Fixes that worked:
+   "exactly THREE brackets BLACK, ONLY the BOTTOM-RIGHT bracket RED — both heads
+   identical", "EXACTLY ONE gray pill, TOP-RIGHT corner only", and "make BOTH
+   figures SMALLER so they fit entirely in the bottom 35% with clear white space
+   below the headline" (a bare "don't overlap the text" instruction tends to
+   produce a white card behind the brackets instead).
+
 ### CHARACTER BLOCK (paste verbatim into every slide prompt)
 
 ```
