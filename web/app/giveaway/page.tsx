@@ -104,6 +104,11 @@ export default function GiveawayPage() {
           .gw-step h3 { font-size: 17px; font-weight: 800; letter-spacing: -0.04em; color: var(--ink); margin: 4px 0 4px; }
           .gw-step p { color: var(--muted); font-size: 15px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.35; margin: 0; }
           .gw-cta-row { text-align: center; margin: 30px 0 0; }
+          .gw-examples { width: min(860px, 100%); margin: 52px auto 0; }
+          .gw-examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+          .gw-example { text-align: center; }
+          .gw-example img { width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--line); box-shadow: var(--shadow-soft); }
+          .gw-example figcaption { margin-top: 10px; color: var(--muted); font-size: 14px; font-weight: 600; letter-spacing: -0.03em; }
           .gw-dates { width: min(760px, 100%); margin: 40px auto 0; text-align: center; color: var(--muted); font-size: 15px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.6; }
           .gw-dates b { color: var(--ink); }
           .gw-rules { width: min(760px, 100%); margin: 52px auto 0; padding-bottom: 70px; }
@@ -167,6 +172,43 @@ export default function GiveawayPage() {
                 Download GainFrame free <span aria-hidden="true">-&gt;</span>
               </a>
             </div>
+          </section>
+
+          <section className="gw-examples reveal">
+            <h2 style={{ fontSize: "clamp(24px, 3.4vw, 32px)", fontWeight: 800, letterSpacing: "-0.06em", color: "var(--ink)", textAlign: "center", margin: "0 0 22px" }}>
+              What an entry looks like
+            </h2>
+            <div className="gw-examples-grid">
+              <figure className="gw-example" style={{ margin: 0 }}>
+                <img
+                  src="/assets/promo/entry-example-report.webp"
+                  alt="Example entry: GainFrame Transformation Report share card showing a before and after with body fat, score, and weight changes"
+                  width={1062}
+                  height={1715}
+                  loading="lazy"
+                />
+                <figcaption>
+                  The Transformation Report share card — from Compare, tap the
+                  share button
+                </figcaption>
+              </figure>
+              <figure className="gw-example" style={{ margin: 0 }}>
+                <img
+                  src="/assets/promo/entry-example-compare.webp"
+                  alt="Example entry: screenshot of the GainFrame Compare screen showing two progress photos side by side"
+                  width={1290}
+                  height={2330}
+                  loading="lazy"
+                />
+                <figcaption>
+                  Or just screenshot your Compare screen — that counts too
+                </figcaption>
+              </figure>
+            </div>
+            <p style={{ textAlign: "center", color: "var(--muted)", fontSize: "14px", fontWeight: 600, letterSpacing: "-0.03em", marginTop: "16px" }}>
+              That's the founder's real 8-month transformation, made in the
+              app. Yours doesn't have to beat it — it just has to be yours.
+            </p>
           </section>
 
           <div className="gw-dates reveal">
