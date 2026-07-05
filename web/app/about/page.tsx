@@ -48,7 +48,7 @@ const aboutPageSchema = {
     founder: { "@type": "Person", "@id": "https://gainframe.app/about/#michael-rode" },
     sameAs: [
       "https://x.com/GainFrameApp",
-      "https://www.tiktok.com/@gainframe5",
+      "https://www.tiktok.com/@gainframeapp",
       "https://www.instagram.com/gainframe.app/",
     ],
     contactPoint: {
@@ -146,7 +146,7 @@ export default function AboutPage() {
                     X
                   </a>
                   <a
-                    href="https://www.tiktok.com/@gainframe5"
+                    href="https://www.tiktok.com/@gainframeapp"
                     target="_blank"
                     rel="noopener"
                   >
@@ -513,7 +513,7 @@ export default function AboutPage() {
 
                   <a
                     className="about-channel"
-                    href="https://www.tiktok.com/@gainframe5"
+                    href="https://www.tiktok.com/@gainframeapp"
                     target="_blank"
                     rel="noopener"
                   >
@@ -523,7 +523,7 @@ export default function AboutPage() {
                       </svg>
                     </span>
                     <p className="about-channel__label">TikTok</p>
-                    <p className="about-channel__handle">@gainframe5</p>
+                    <p className="about-channel__handle">@gainframeapp</p>
                   </a>
 
                   <a

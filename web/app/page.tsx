@@ -31,7 +31,7 @@ const websiteSchema = {
   url: SITE.url,
   sameAs: [
     "https://x.com/GainFrameApp",
-    "https://www.tiktok.com/@gainframe5",
+    "https://www.tiktok.com/@gainframeapp",
     "https://www.instagram.com/gainframe.app/",
   ],
   description:

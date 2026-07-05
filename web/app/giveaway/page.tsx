@@ -63,15 +63,15 @@ const STEPS = [
   },
   {
     n: "3",
-    title: "Export your share card",
+    title: "Grab your share card",
     detail:
-      "Use the share button on the Compare screen or your Transformation Report. Camera-shy? Use the built-in blur and crop tools first.",
+      "Take a screenshot of the Compare screen, or use the share button on your Deep Dive compare. Camera-shy? Use the built-in blur and crop tools first.",
   },
   {
     n: "4",
     title: "Post it on TikTok",
     detail:
-      "Post your card with #GainFrameChallenge and follow @gainframe5. That's your entry.",
+      "Post your card with #GainFrameChallenge and follow @gainframeapp. That's your entry.",
   },
 ];
 
@@ -172,7 +172,7 @@ export default function GiveawayPage() {
           <div className="gw-dates reveal">
             Entries close <b>July 31, 2026 at 11:59 PM ET</b>. Winners judged
             on transformation quality and story, announced on{" "}
-            <b>@gainframe5</b> by <b>August 3</b>.
+            <b>@gainframeapp</b> by <b>August 3</b>.
           </div>
 
           <section className="gw-rules reveal">
@@ -184,7 +184,7 @@ export default function GiveawayPage() {
                 download and free to enter with.
               </li>
               <li>
-                To enter: follow @gainframe5 on TikTok and publicly post a
+                To enter: follow @gainframeapp on TikTok and publicly post a
                 transformation share card exported from the GainFrame app
                 (Compare screen or Transformation Report) with the hashtag
                 #GainFrameChallenge between July 5 and July 31, 2026, 11:59 PM
@@ -194,7 +194,7 @@ export default function GiveawayPage() {
                 This is a judged contest, not a random drawing. Three winners
                 are selected by GainFrame based on transformation quality,
                 effort, and story. Judging decisions are final. Winners are
-                announced on @gainframe5 by August 3, 2026 and contacted via
+                announced on @gainframeapp by August 3, 2026 and contacted via
                 TikTok DM; unclaimed prizes after 7 days may be awarded to a
                 runner-up.
               </li>
