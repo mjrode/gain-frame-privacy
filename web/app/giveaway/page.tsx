@@ -69,11 +69,14 @@ const STEPS = [
   },
   {
     n: "4",
-    title: "Post it on TikTok",
+    title: "Post it — or just send it to me",
     detail:
-      "Post your card with #GainFrameChallenge and follow @gainframeapp. That's your entry.",
+      "Post your card on TikTok or Instagram with #GainFrameChallenge and follow @gainframeapp. Don't want to post publicly? Email your card to michaelrode44@gmail.com and you're entered — I'll share it from the GainFrame account instead.",
   },
 ];
+
+// Entry embeds — add TikTok video URLs here as entries come in and redeploy.
+const ENTRY_VIDEOS: string[] = [];
 
 export default function GiveawayPage() {
   return (
@@ -151,6 +154,25 @@ export default function GiveawayPage() {
             ))}
           </div>
 
+          <div
+            className="reveal"
+            style={{
+              width: "min(980px, 100%)",
+              margin: "14px auto 0",
+              textAlign: "center",
+              background: "#171717",
+              color: "#fff",
+              borderRadius: "14px",
+              padding: "14px 20px",
+              fontSize: "15px",
+              fontWeight: 700,
+              letterSpacing: "-0.03em",
+            }}
+          >
+            Early-bird: the first 10 entries each get a free month of Pro —
+            guaranteed, win or lose.
+          </div>
+
           <section className="gw-steps reveal">
             <h2>How to enter</h2>
             {STEPS.map((s) => (
@@ -211,6 +233,32 @@ export default function GiveawayPage() {
             </p>
           </section>
 
+          {ENTRY_VIDEOS.length > 0 && (
+            <section className="gw-examples reveal">
+              <h2 style={{ fontSize: "clamp(24px, 3.4vw, 32px)", fontWeight: 800, letterSpacing: "-0.06em", color: "var(--ink)", textAlign: "center", margin: "0 0 22px" }}>
+                Entries so far
+              </h2>
+              <div className="gw-examples-grid">
+                {ENTRY_VIDEOS.map((url) => (
+                  <blockquote
+                    key={url}
+                    className="tiktok-embed"
+                    cite={url}
+                    data-video-id={url.split("/video/")[1]?.split("?")[0] ?? ""}
+                    style={{ maxWidth: "325px", minWidth: "260px", margin: "0 auto" }}
+                  >
+                    <section>
+                      <a href={url} target="_blank" rel="noopener noreferrer">
+                        View entry on TikTok
+                      </a>
+                    </section>
+                  </blockquote>
+                ))}
+              </div>
+              <script async src="https://www.tiktok.com/embed.js"></script>
+            </section>
+          )}
+
           <div className="gw-dates reveal">
             Entries close <b>July 31, 2026 at 11:59 PM ET</b>. Winners judged
             on transformation quality and story, announced on{" "}
@@ -228,9 +276,17 @@ export default function GiveawayPage() {
               <li>
                 To enter: follow @gainframeapp on TikTok and publicly post a
                 transformation share card exported from the GainFrame app
-                (Compare screen or Transformation Report) with the hashtag
-                #GainFrameChallenge between July 5 and July 31, 2026, 11:59 PM
-                ET. One entry per person. Photos must be of you.
+                (Compare screen or Transformation Report) on TikTok or
+                Instagram with the hashtag #GainFrameChallenge — or email your
+                card to michaelrode44@gmail.com — between July 5 and July 31,
+                2026, 11:59 PM ET. Emailed entries may be shared from
+                GainFrame&apos;s accounts. One entry per person. Photos must
+                be of you.
+              </li>
+              <li>
+                Early-bird bonus: the first 10 valid entries each receive one
+                free month of GainFrame Pro, regardless of contest outcome.
+                Limit one per person, delivered within 3 days of entry.
               </li>
               <li>
                 This is a judged contest, not a random drawing. Three winners
