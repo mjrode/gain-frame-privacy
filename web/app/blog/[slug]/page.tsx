@@ -4,6 +4,7 @@ import path from "path";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import BlogNav from "@/components/BlogNav";
 import BlogFonts from "@/components/BlogFonts";
 import BlogScrollReveal from "@/components/BlogScrollReveal";
@@ -11,7 +12,17 @@ import AuthorByline from "@/components/AuthorByline";
 import ByLine from "@/components/ByLine";
 import PostTable from "@/components/PostTable";
 
-const mdxComponents = { PostTable };
+// Markdown pipe tables (GFM) get the same styling as hand-written
+// <table className="post-table"> markup — without this mapping they render
+// unstyled (and without remark-gfm they don't render as tables at all).
+const mdxComponents = {
+  PostTable,
+  table: (props: React.ComponentPropsWithoutRef<"table">) => (
+    <div className="post-table-wrapper">
+      <table className="post-table" {...props} />
+    </div>
+  ),
+};
 
 type PostFrontmatter = {
   title?: string;
@@ -154,7 +165,7 @@ export async function generateMetadata({
   if (!post) return {};
   const { frontmatter } = await compileMDX<PostFrontmatter>({
     source: post.source,
-    options: { parseFrontmatter: true, mdxOptions: {}, scope: {}, blockJS: false },
+    options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [[remarkGfm, { singleTilde: false }]] }, scope: {}, blockJS: false },
   });
   const fm = frontmatter;
   return {
@@ -192,7 +203,7 @@ export default async function BlogPostPage({
 
   const { content, frontmatter } = await compileMDX<PostFrontmatter>({
     source: post.source,
-    options: { parseFrontmatter: true, mdxOptions: {}, scope: {}, blockJS: false },
+    options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [[remarkGfm, { singleTilde: false }]] }, scope: {}, blockJS: false },
     components: mdxComponents,
   });
 
