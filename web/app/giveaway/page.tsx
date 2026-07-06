@@ -69,9 +69,9 @@ const STEPS = [
   },
   {
     n: "4",
-    title: "Post it — or just send it to me",
+    title: "Post it",
     detail:
-      "Post your card on TikTok or Instagram with #GainFrameChallenge and follow @gainframeapp. Don't want to post publicly? Email your card to michaelrode44@gmail.com and you're entered — I'll share it from the GainFrame account instead.",
+      "Post your card on TikTok or Instagram with #GainFrameChallenge and follow @gainframeapp. That's your entry.",
   },
 ];
 
@@ -277,11 +277,9 @@ export default function GiveawayPage() {
                 To enter: follow @gainframeapp on TikTok and publicly post a
                 transformation share card exported from the GainFrame app
                 (Compare screen or Transformation Report) on TikTok or
-                Instagram with the hashtag #GainFrameChallenge — or email your
-                card to michaelrode44@gmail.com — between July 5 and July 31,
-                2026, 11:59 PM ET. Emailed entries may be shared from
-                GainFrame&apos;s accounts. One entry per person. Photos must
-                be of you.
+                Instagram with the hashtag #GainFrameChallenge between July 5
+                and July 31, 2026, 11:59 PM ET. One entry per person. Photos
+                must be of you.
               </li>
               <li>
                 Early-bird bonus: the first 10 valid entries each receive one
