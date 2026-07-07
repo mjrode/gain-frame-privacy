@@ -23,7 +23,7 @@ schemas:
   <img src="assets/cover.webp" alt="Line-art illustration of a repaired funnel over a smartphone with coins flowing through into a rising trend line, and a magnifying glass inspecting the funnel" loading="lazy" style={{borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)'}} />
 </div>
 
-In late May the worst number in my app's business was trial conversion. 20.7% of free trials were becoming paying subscribers. The industry median for Health & Fitness apps is 39.9%, so I was converting at about half the going rate, and the trend was down — my April and May weekly cohorts ranged from 8% to 25%.
+In late May the worst number in my app's business was trial conversion. 20.7% of free trials were becoming paying subscribers. The [industry median for Health & Fitness apps is 39.9%](https://www.revenuecat.com/blog/growth/subscription-app-trends-benchmarks-2026/), so I was converting at about half the going rate, and the trend was down — my April and May weekly cohorts ranged from 8% to 25%.
 
 Five weeks later the last four fully-resolved weekly cohorts converted at 37.5%, 37.5%, 57.7%, and 43.3%. Blended that's 44%, 46 paid out of 104 trials. MRR went from $634 to $925 over the same stretch, up 46%, with zero dollars of ad spend behind any of it.
 
@@ -35,7 +35,7 @@ This is what I changed, in order.
 
 Some context on how I got here. Back in March my trials converted at 28 to 43% a week. Those were small, warm cohorts — 13 to 23 trials a week, almost all organic. Then I started [spending real money on ads](/blog/spent-5k-on-app-ads/), volume went up, and conversion fell off a cliff. One April cohort converted at 7.7%. Thirteen trials, one payer.
 
-I killed the ads in mid-May because the unit economics were hopeless (that's its own post, linked above). But the conversion problem remained, and when I benchmarked it against RevenueCat's industry data it was the single biggest gap between my app and a healthy one. Retention was at or above benchmark. Churn was normal. Conversion was half of median.
+I killed the ads in mid-May because the unit economics were hopeless (that's its own post, linked above). But the conversion problem remained, and when I benchmarked it against [RevenueCat's subscription benchmarks](https://www.revenuecat.com/blog/growth/subscription-app-trends-benchmarks-2026/) it was the single biggest gap between my app and a healthy one. Retention was at or above benchmark. Churn was normal. Conversion was half of median.
 
 So the plan for June was one line: fix trial conversion.
 
@@ -45,11 +45,11 @@ So the plan for June was one line: fix trial conversion.
 
 Three moves in the first week of June.
 
-**I re-gated features that had quietly become free.** While building fast I'd let two Pro features slip out from behind the paywall and never noticed — free users were getting a recovery dashboard and a weekly summary for nothing. I put them back behind Pro and fixed a broken gate on a third. If the free tier already gives you the good stuff, the trial has nothing to sell.
+**I put the Pro features back behind the paywall.** While building fast I'd accidentally made two Pro features free and never noticed — free users were getting a recovery dashboard and a weekly summary for nothing. I put them back behind Pro and fixed a broken gate on a third. If the free tier already gives you the good stuff, the trial has nothing to sell.
 
-**I launched a proper paywall A/B test.** The control was my existing trial-timeline paywall. The variant leads with a value stack and a per-month price anchor computed from the yearly plan. As of July 5 the variant converts paywall views to trial starts at **30.1% (58 of 193) vs 24.1% (46 of 191)** for control. That's +6 points absolute, but with an 88.9% chance-to-win it is *not* statistically significant yet, so I'm not calling it. Decision date is end of July.
+**I A/B tested a new paywall.** My old paywall mostly explained how the 7-day trial works. The new one leads with what upgrading actually gets you — Deep Dive reports on every check-in, precision body fat, the Coach — and shows the yearly plan as $3.33 a month instead of $39.99 a year. Same price, different frame. As of July 5 the new paywall converts **30.1% of views into trial starts (58 of 193) vs 24.1% (46 of 191)** for the old one. That's +6 points absolute, but with an 88.9% chance-to-win it is *not* statistically significant yet, so I'm not calling it. Decision date is end of July.
 
-**I kept building feature-specific paywalls.** Instead of one generic gate, every premium feature now shows a real, partially-unlocked preview of itself — the AI deep-dive report with locked sections, the photo-history feature showing your oldest and newest photo as a teaser. The pattern: show the thing, lock the depth.
+**I kept building feature-specific paywalls.** Instead of one generic gate, every premium feature now shows a real, partially-unlocked preview of itself. Tap into a muscle comparison as a free user and you see your actual before/after muscle map with the detailed breakdown blurred behind the upgrade button. Open the Coach and you get a real sample answer built from your own numbers before the ask. The pattern: show the thing, lock the depth.
 
 <hr className="post-divider" />
 
@@ -57,7 +57,7 @@ Three moves in the first week of June.
 
 One detour worth a paragraph before this section: to trust any of the numbers below I first had to fix my tracking. My analytics had logged 10 trial conversions in 120 days while RevenueCat had counted about 48 — a wrong-flavor API key silently failing plus two event bugs. A week and a half of unglamorous plumbing that moved nothing by itself, but every readout below exists because of it.
 
-With conversions visible per-user, I joined the payment records to behavior data (332 of 374 subscribers matched) and got the findings that shaped everything after:
+With conversions visible per-user, I joined the payment records to behavior data (332 of 374 subscribers matched) — the same [read-your-data-before-building habit](/blog/stop-building-features-start-reading-data/) that's saved me before — and got the findings that shaped everything after:
 
 - **The check-in habit is the payer signature.** 43% of eventual payers had checked in on 2 or more days, vs 13% of people who never paid.
 - **Photo volume is the strongest activation predictor I have.** Among single-session users, trial-start rate goes 0.7% → 12% → 28% → 63% as photo count goes from zero to 1–5 to 6–15 to 16–40. Zero photos, zero conversions, almost literally: 7 out of 676.
@@ -114,7 +114,7 @@ You can check the live revenue numbers here, so nobody thinks I'm making this up
 
 This is the part most posts like this leave out, so here's mine.
 
-**I can't cleanly attribute the win to any single change.** The improvement starts with the May 31 cohort — *before* several of the changes above had even shipped. The honest list of candidate causes: paid ads went off in mid-May, so trials reverted to high-intent organic users (my March organic cohorts already converted at 28–43% before I touched anything); the re-gated Pro features; the new paywall on half of traffic; the photo-history feature. The intent-mix reversal from killing ads is probably the biggest single factor. I'd rather admit that than pretend my paywall genius did it all.
+**I can't cleanly attribute the win to any single change.** The improvement starts with the May 31 cohort — *before* several of the changes above had even shipped. The honest list of candidate causes: paid ads went off in mid-May, so trials reverted to [high-intent organic users](/blog/organic-traffic-15x-90-days/) (my March organic cohorts already converted at 28–43% before I touched anything); the re-gated Pro features; the new paywall on half of traffic; the photo-history feature. The intent-mix reversal from killing ads is probably the biggest single factor. I'd rather admit that than pretend my paywall genius did it all.
 
 **The cohorts are small.** 24 to 30 trials a week means one week can swing ±10 points on noise. That's why I quote the 4-cohort blend of 44% and not the 57.7% best week, which would be a nicer headline and a worse claim. Two newer cohorts are still maturing and aren't counted at all.
 
@@ -122,7 +122,7 @@ This is the part most posts like this leave out, so here's mine.
 
 **Onboarding didn't move.** About 42% of installs still never finish onboarding, unchanged since May, despite a targeted experiment. Biggest remaining leak.
 
-**Late-June momentum has a traffic confound.** A TikTok sponsorship went live July 3 and spiked my web traffic to about 15–20x baseline for a day, with installs up 51% the same week. That flatters the MRR and install numbers at the very end of the chart. It does not explain the conversion-rate gains, which started a month earlier — but you should know it's in there.
+**Late-June momentum has a traffic confound.** A [TikTok sponsorship](/blog/out-of-the-box-marketing-experiments/) went live July 3 and spiked my web traffic to about 15–20x baseline for a day, with installs up 51% the same week. That flatters the MRR and install numbers at the very end of the chart. It does not explain the conversion-rate gains, which started a month earlier — but you should know it's in there.
 
 Churn also ticked up a bit (4.76% weekly vs a 3.59% baseline) as the bigger new cohorts hit their first renewals. Watching it, not alarmed yet.
 

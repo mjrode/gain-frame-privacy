@@ -33,7 +33,9 @@ Either a **brief file** (preferred — e.g. `analytics/trial-conversion-post-bri
 List `web/content/blog/*.mdx`, confirm this story isn't already told. Founder stories that overlap an existing post should LINK to it, not re-tell it (e.g. the paid-ads prologue links to `spent-5k-on-app-ads`).
 
 ### Phase 1 — Voice
-Apply the **mike-writes** skill (`~/.claude/skills/mike-writes/SKILL.md`) in full: lead with the fact, backstory and motivation, honest hedging, mechanism over outcome, second-order lessons, blunt headers, loose human grammar, run the Removal Checklist (no teaser hooks, no "what actually worked", no manufactured aphorisms, no AI-polish tells). Titles are flat declaratives with a real number — offer 2–3 options, pattern-matched to the winners:
+Apply the **mike-writes** skill (`~/.claude/skills/mike-writes/SKILL.md`) in full: lead with the fact, backstory and motivation, honest hedging, mechanism over outcome, second-order lessons, blunt headers, loose human grammar, run the Removal Checklist (no teaser hooks, no "what actually worked", no manufactured aphorisms, no AI-polish tells).
+
+**No growth jargon — describe what the user sees.** Terms like "value-anchored", "value stack", "trial-timeline paywall", "activation lever" read like garbage to the actual audience (Michael flagged this on the trial-conversion post). Translate every one into the concrete thing: not "the variant leads with a value stack and a per-month price anchor derived from the yearly plan" but "the new paywall leads with what you get when you upgrade, and shows the yearly plan as $3.33/mo instead of $39.99/year. Same price, different frame." If a sentence needs a growth-marketing glossary, rewrite it. Titles are flat declaratives with a real number — offer 2–3 options, pattern-matched to the winners:
 - "I Spent $5,674 on App Ads. Here's Why I Stopped."
 - "In-App Surveys Got 189 Responses. My Cancel Emails Got Zero."
 
@@ -53,6 +55,9 @@ Charts are matplotlib rendered to WebP, in the **dark shadcn-style card** (house
 
 For chart-design judgment calls (what to emphasize, how to declutter), apply frontend-design/impeccable sensibilities: one message per chart, the key number visually loudest, everything else recedes.
 
+### Phase 2b — App screenshots of the surfaces discussed
+When the post discusses a specific in-app surface — a paywall, an onboarding step, a feature that drove the numbers — include a real screenshot of it. Readers (and Reddit commenters) want to SEE the paywall that converted 30%, not read a description of it. Sources, in order: ask Michael for current screenshots (paywalls change; stale screenshots of money surfaces are worse than none), then the versioned library at `docs/app-screenshots/[latest]/`. Convert to WebP (`cwebp -q 80`) into the post's assets dir; embed phone screenshots with the `post-inline-screenshot` float or a side-by-side pair, each with a `post-caption` stating what the reader is looking at and the number it produced.
+
 ### Phase 3 — Cover image
 Invoke **image-generate** (`~/.claude/skills/image-generate/SKILL.md`), default `blog-cover` template, 4:3, to `docs/blog/[slug]/assets/cover.webp`. Subject should be a visual metaphor for the story (not a chart).
 
@@ -68,6 +73,7 @@ Follow **blog-post-generator** (`.agent/skills/blog-post-generator/SKILL.md`) fo
 - `breadcrumbCategory` / `displayCategory` / `articleSection`: `Founder Story`.
 - Product mention stays light: the story is the product. One contextual mention + the closing CTA block, same as every founder post.
 - Include the RevenueCat verified link when quoting revenue: `https://verified.revenuecat.com/gainframe`.
+- **Link densely — internal and external.** Every sentence that touches a prior post gets an inline internal link at its first natural mention (the paid-ads postmortem, the organic-traffic 15x post, the marketing-experiments post, etc.) — the Related Articles block is the floor, not the ceiling. Every benchmark, statistic, or industry claim links its authoritative external source (e.g. the 39.9% H&F median → `https://www.revenuecat.com/blog/growth/subscription-app-trends-benchmarks-2026/`). Internal links spread authority across the blog; external citations are an E-E-A-T signal. Anchor text = the claim, not "here" or "this post".
 - End the body with a short plain-declarative close (mike-writes rule 11), then a blockquote inviting questions, then the standard CTA + Related Articles blocks. Related Articles should include the other founder stories that this one continues.
 
 ### Phase 5 — Reddit post
