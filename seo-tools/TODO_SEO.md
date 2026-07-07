@@ -285,3 +285,13 @@ Organic trending strongly up: last 30d 927 clicks / 42.3K impr (+115% clicks MoM
 - [x] **[Tool optimize] `/tools/body-fat-from-photo/` for "ai body fat calculator"** — done 2026-06-26. Page already owns "estimator" (pos 10). Surgical: added "calculator" to meta description + 1 FAQ schema Q ("Is this an AI body fat calculator?") distinguishing the photo-AI calculator from the Navy-formula `/tools/body-fat-estimator/`. No disruption to the working page.
 
 **Flagged for separate task:** ~25 blog posts link to App Store `id6742498826`, which does NOT match the canonical `id6759252082` (SITE config + app-marketing-context). Likely wrong/legacy store links leaking conversions — audit + fix repo-wide.
+
+### Jul 7 second batch — 15 outside-the-box posts (agent-written, all conventions verified)
+
+- [x] **Stats pages:** average-body-fat-percentage-by-age (age-varied visualizer renders — unique asset), average-waist-size-men, average-bicep-size, ffmi-percentiles — published 2026-07-07
+- [x] **Visual explainers:** what-would-i-look-like-with-less-body-fat (Future You tie-in), dad-bod-body-fat-percentage, 10-pounds-fat-vs-muscle, body-recomposition-before-and-after — published 2026-07-07
+- [x] **Question/AEO:** why-do-i-look-smaller-in-photos, why-weight-goes-up-when-lifting, why-abs-show-in-some-lighting — published 2026-07-07
+- [x] **Quiz format (static self-assessments, new format):** should-i-bulk-or-cut-quiz, am-i-skinny-fat-quiz — published 2026-07-07 (guards: link, don't duplicate, bulk-cut-or-recomp + how-to-tell-if-skinny-fat pillars)
+- [x] **Audience expansion:** groom-wedding-shred (event-driven, underserved), trt-body-composition-tracking (YMYL-hedged like GLP-1 post) — published 2026-07-07
+
+NOTE: 21 posts published Jul 7 total (6 morning + 15 afternoon). Request GSC indexing for all. Expect impressions lag; informational/AEO posts here will pull impressions more than clicks per strategy — that's by design (diversification batch).
