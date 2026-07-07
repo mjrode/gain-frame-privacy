@@ -32,6 +32,21 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 - [x] **Best Body Scanning & Measurement Apps** — **published 2026-07-02 as /blog/best-body-scanning-measurement-apps/** — combined roundup targeting "best body scan app" (was pos 25) + "best body measurement app" (was pos ~10, no dedicated page). 6 entries across 3 categories: AI photo (GainFrame visual-change lane, Recomp AI), 3D scan (MeThreeSixty free, ZOZOFIT $3.99/mo suit-free), manual trackers (Progress, My Body Measurement Tracker). Honest that GainFrame doesn't log circumferences. Bodygram excluded (pivoted B2B) — doubles as competitor research for the Bodygram-alternatives backlog item. FAQPage + HowTo + BlogPosting + BreadcrumbList schemas. Internal links added FROM best-ai-body-fat-apps, best-body-fat-scanner-apps, best-inbody-alternatives (anti-orphaning). Also linked TO best-ai-personal-trainer-apps (striking-distance boost, pos 16.8 after Jun 18 fix — do NOT touch its metadata again yet, links only). — added+published 2026-07-02
 
+### Jul 7 batch — 6 posts (brand lanes + 2 net-new audiences)
+
+- [x] **Best Renpho Alternatives** — published 2026-07-07 as /blog/best-renpho-alternatives/ — 700K-rating scale brand; BIA-frustration angle, InBody template. — added+published 2026-07-07
+- [x] **Apps Like Umax** — published 2026-07-07 as /blog/apps-like-umax/ — face-vs-physique pivot (Umax is face-first, 51K ratings); captures "physique rater"/"body rater" queries (22 imp). — added+published 2026-07-07
+- [x] **Ray Fitness App Review** — published 2026-07-07 as /blog/ray-fitness-app-review/ — already pulled 16 imp @ pos 10.4 with no page; Ray is small (236 ratings), consistent with gainframe-vs-fitbod-ray-gymstreak framing ("Ray coaches in real time"). — added+published 2026-07-07
+- [x] **Spren vs GainFrame** — published 2026-07-07 as /blog/spren-vs-gainframe/ — completes Spren cluster ("what is spren" 15 imp pos 9.8); consistent with spren-app-review verdict. — added+published 2026-07-07
+- [x] **Hevy vs Strong** — published 2026-07-07 as /blog/hevy-vs-strong/ — net-new top-of-funnel lifter audience (78K vs 108K rating apps); GainFrame mentioned once via Hevy integration. — added+published 2026-07-07
+- [x] **Best GLP-1 Muscle Tracking Apps** — published 2026-07-07 as /blog/best-glp1-muscle-tracking-apps/ — roundup on existing GLP-1 cluster; YMYL-hedged, "talk to your prescriber" framing throughout. — added+published 2026-07-07
+
+### Outside-the-box queue (informational keyword targets — next batch candidates)
+
+- [ ] **Average body fat percentage by age (men & women)** — TOP PICK: high-volume informational head term; UNIQUE asset fit — the body-fat-visualizer has age-varied renders (20s–60s) nobody else has, same play that took body-fat-percentage-chart from pos 43→10. AEO/stats-page magnet. — added 2026-07-07
+- [ ] **Average waist size for men (by age/height)** — stats-page format; feeds shoulder-to-waist + measurement cluster. Validate SERP first. — added 2026-07-07
+- [ ] **"Dad bod body fat percentage"** — playful definitional + visualizer renders; debate-bait shareability (TikTok crossover potential). Validate volume. — added 2026-07-07
+
 ### Carry-forward (still genuine, re-added from reset — not yet done)
 
 - [ ] **Fold Snapsie into `/blog/best-progress-photo-apps/`** as the "best free option (not updated since 2017)" with the abandoned caveat — one-line roundup edit, no standalone post. — re-added 2026-06-28
