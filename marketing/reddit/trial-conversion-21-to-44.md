@@ -28,6 +28,8 @@ I spent June fixing it. The last four fully-resolved weekly cohorts converted at
 
 **Built camera-roll import to act on that.** It finds up to ten years of old progress photos and scores them in one shot, so trial users now hit the paywall with months of visible progress instead of one day-one photo.
 
+**Put previews of the best Pro features into onboarding.** Every new user now gets a real taste of the three best features before they even reach the home screen: an AI Deep Dive report on their first photo (detailed sections locked), a Future Me projection of their own photo toward their goal, and one free Coach answer built from their actual numbers. It teaches people how to use the app while attention is highest, and it makes the paywall concrete — by the time they see it, they've already held everything it's selling. If I had to bet on which product change mattered most, it's this one.
+
 The same data pass also found I'd **deleted my own biggest paywall** in an April commit — the welcome paywall on first launch — and never noticed. Paywall exposure among new users had fallen 38% → 21%. Most embarrassing find of the month.
 
 **The numbers:**

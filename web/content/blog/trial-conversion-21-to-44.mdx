@@ -8,13 +8,13 @@ ogDescription: My app converted 21% of trials to paid against a 40% industry med
 ogImage: "https://gainframe.app/blog/trial-conversion-21-to-44/assets/cover.webp"
 ogType: article
 twitterTitle: "My Trial Conversion Was 21%. Five Weeks Later It's 44%."
-twitterDescription: Trial to paid went from 21% to 44% in five weeks with $0 ad spend. Re-gated Pro features, a value-anchored paywall test, and getting trial users to their progress faster.
+twitterDescription: Trial to paid went from 21% to 44% in five weeks with $0 ad spend. Pro features back behind the paywall, a new paywall test, and Pro previews in onboarding.
 twitterImage: "https://gainframe.app/blog/trial-conversion-21-to-44/assets/cover.webp"
 breadcrumbCategory: Founder Story
 displayCategory: Founder Story
 displayDate: Jul 7, 2026
-readTime: 9 min read
-subtitle: "The worst metric in my business was trial→paid conversion: 21% against a 40% industry median. Five weeks and $0 in ads later the last four cohorts blended 44%. What moved it: re-gated Pro features, a value-anchored paywall test, and getting trial users to their progress faster."
+readTime: 10 min read
+subtitle: "The worst metric in my business was trial→paid conversion: 21% against a 40% industry median. Five weeks and $0 in ads later the last four cohorts blended 44%. What moved it: Pro features back behind the paywall, a new paywall test, and previews of the best features in onboarding."
 schemas:
   - {"@context":"https://schema.org","@type":"BlogPosting","headline":"My Trial Conversion Was 21%. Five Weeks Later It's 44%.","description":"My iOS app converted 21% of trials to paid against a 40% industry median. Five weeks of paywall and trial-value fixes moved it to 44% with $0 ad spend. Real cohort numbers.","image":"https://gainframe.app/blog/trial-conversion-21-to-44/assets/cover.webp","datePublished":"2026-07-07","dateModified":"2026-07-07","author":{"@type":"Person","name":"Michael Rode","url":"https://gainframe.app/about"},"publisher":{"@type":"Organization","name":"GainFrame","url":"https://gainframe.app","logo":{"@type":"ImageObject","url":"https://gainframe.app/assets/favicons/favicon.webp"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gainframe.app/blog/trial-conversion-21-to-44/"},"articleSection":"Founder Story","keywords":"trial to paid conversion, free trial conversion rate, subscription app conversion, paywall a b test, indie ios app, app onboarding conversion, subscription paywall optimization"}
   - {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gainframe.app/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://gainframe.app/blog/"},{"@type":"ListItem","position":3,"name":"Trial Conversion 21% to 44%","item":"https://gainframe.app/blog/trial-conversion-21-to-44/"}]}
@@ -47,9 +47,20 @@ Three moves in the first week of June.
 
 **I put the Pro features back behind the paywall.** While building fast I'd accidentally made two Pro features free and never noticed — free users were getting a recovery dashboard and a weekly summary for nothing. I put them back behind Pro and fixed a broken gate on a third. If the free tier already gives you the good stuff, the trial has nothing to sell.
 
+<div className="post-inline-screenshot scroll-reveal">
+  <img src="assets/paywall-new.webp" alt="GainFrame's new paywall showing $3.33 per month billed as $39.99 per year with a 7-day free trial, a checklist of Pro features, and a 4.9-star rating badge" loading="lazy" />
+  <p className="post-caption">The new paywall: $3.33/mo framing, features first. 30.1% of viewers start a trial vs 24.1% on the old one.</p>
+</div>
+
 **I A/B tested a new paywall.** My old paywall mostly explained how the 7-day trial works. The new one leads with what upgrading actually gets you — Deep Dive reports on every check-in, precision body fat, the Coach — and shows the yearly plan as $3.33 a month instead of $39.99 a year. Same price, different frame. As of July 5 the new paywall converts **30.1% of views into trial starts (58 of 193) vs 24.1% (46 of 191)** for the old one. That's +6 points absolute, but with an 88.9% chance-to-win it is *not* statistically significant yet, so I'm not calling it. Decision date is end of July.
 
 **I kept building feature-specific paywalls.** Instead of one generic gate, every premium feature now shows a real, partially-unlocked preview of itself. Tap into a muscle comparison as a free user and you see your actual before/after muscle map with the detailed breakdown blurred behind the upgrade button. Open the Coach and you get a real sample answer built from your own numbers before the ask. The pattern: show the thing, lock the depth.
+
+<div className="scroll-reveal" style={{display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', margin: 'var(--sp-lg) 0'}}>
+  <img src="assets/paywall-muscle-preview.webp" alt="GainFrame muscle comparison paywall showing real before and after muscle maps with the detailed per-muscle breakdown blurred behind an Unlock full comparison button" loading="lazy" style={{width: '40%', minWidth: '210px', borderRadius: '14px', border: '1px solid var(--color-border)'}} />
+  <img src="assets/paywall-coach.webp" alt="GainFrame AI Coach paywall with a Pro preview of a real coach answer and a list of what Coach can do, ahead of the upgrade ask" loading="lazy" style={{width: '40%', minWidth: '210px', borderRadius: '14px', border: '1px solid var(--color-border)'}} />
+</div>
+<p className="post-caption" style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '-8px'}}>Feature-specific paywalls: your real muscle comparison with the breakdown locked, and the Coach showing a real answer before the ask.</p>
 
 <hr className="post-divider" />
 
@@ -65,6 +76,27 @@ With conversions visible per-user, I joined the payment records to behavior data
 - **I had deleted my own biggest paywall.** A late-April commit removed the welcome paywall that new users saw on first launch, and I never replaced it. Paywall exposure among new users fell from 38% to 21% over three months and I had no idea.
 
 The one that reframed the whole problem: of everyone who had *ever* trialed or purchased, **44.9% (168 of 374) had paid at some point**. The paywall sells fine. The trial was what leaked.
+
+<hr className="post-divider" />
+
+## Putting the Best Features Into Onboarding
+
+The change I'd bet on most, though, isn't the paywall itself. It's that onboarding now shows off the app instead of just setting it up.
+
+Onboarding used to be pure setup: pick your poses, add photos, make an account. Now every new user gets a real preview of the three best Pro features before they ever reach the home screen:
+
+- **A Deep Dive report on their first photo.** Real AI analysis of the photo they just added — score, body fat estimate, a written summary of their physique — with the detailed sections locked behind the upgrade.
+- **A Future Me preview.** An AI projection of their own photo toward the goal they picked, six months out.
+- **A free Coach answer.** The AI Coach answers one question grounded in their actual first check-in, right there in onboarding.
+
+<div className="scroll-reveal" style={{display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', margin: 'var(--sp-lg) 0'}}>
+  <img src="assets/onboarding-deep-dive.webp" alt="GainFrame onboarding Deep Dive report preview showing a physique score of 74, body fat estimate, and AI executive summary with the full report locked behind an upgrade button" loading="lazy" style={{width: '31%', minWidth: '190px', borderRadius: '14px', border: '1px solid var(--color-border)'}} />
+  <img src="assets/onboarding-future-me.webp" alt="GainFrame onboarding Future Me preview showing a six-month AI projection slider over the user's own progress photo" loading="lazy" style={{width: '31%', minWidth: '190px', borderRadius: '14px', border: '1px solid var(--color-border)'}} />
+  <img src="assets/onboarding-coach.webp" alt="GainFrame onboarding Coach preview anchored to the user's first check-in, offering three free prompts to test the AI Coach" loading="lazy" style={{width: '31%', minWidth: '190px', borderRadius: '14px', border: '1px solid var(--color-border)'}} />
+</div>
+<p className="post-caption" style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '-8px'}}>The three Pro previews every new user hits during onboarding: a Deep Dive on their first photo, a Future Me projection, and a free Coach answer.</p>
+
+This does two jobs at once. It teaches people what the app actually does with their photos, which was half my onboarding problem in the first place. And it makes the paywall concrete — by the time someone sees the upgrade screen they've already held every feature it's selling, run on their own body. I think these previews drove more conversions than any other single change I made, though the attribution caveats below apply to this claim as much as any other.
 
 <hr className="post-divider" />
 
@@ -114,7 +146,7 @@ You can check the live revenue numbers here, so nobody thinks I'm making this up
 
 This is the part most posts like this leave out, so here's mine.
 
-**I can't cleanly attribute the win to any single change.** The improvement starts with the May 31 cohort — *before* several of the changes above had even shipped. The honest list of candidate causes: paid ads went off in mid-May, so trials reverted to [high-intent organic users](/blog/organic-traffic-15x-90-days/) (my March organic cohorts already converted at 28–43% before I touched anything); the re-gated Pro features; the new paywall on half of traffic; the photo-history feature. The intent-mix reversal from killing ads is probably the biggest single factor. I'd rather admit that than pretend my paywall genius did it all.
+**I can't cleanly attribute the win to any single change.** The improvement starts with the May 31 cohort — *before* several of the changes above had even shipped. The honest list of candidate causes: paid ads went off in mid-May, so trials reverted to [high-intent organic users](/blog/organic-traffic-15x-90-days/) (my March organic cohorts already converted at 28–43% before I touched anything); the re-gated Pro features; the new paywall on half of traffic; the Pro previews in onboarding; the photo-history feature. The intent-mix reversal from killing ads is probably the biggest single factor. I'd rather admit that than pretend my paywall genius did it all.
 
 **The cohorts are small.** 24 to 30 trials a week means one week can swing ±10 points on noise. That's why I quote the 4-cohort blend of 44% and not the 57.7% best week, which would be a nicer headline and a worse claim. Two newer cohorts are still maturing and aren't counted at all.
 
