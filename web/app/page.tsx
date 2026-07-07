@@ -136,9 +136,10 @@ export default function Home() {
           </span>
           <h1>Progress photos that explain what changed</h1>
           <p>
-            Take or import a gym selfie. GainFrame estimates body fat,
-            physique score, FFMI, and muscle groups, then Coach explains the
-            trend using your photos, weight, workouts, and nutrition data.
+            Take or import a gym selfie and GainFrame pairs it with your
+            weight, estimated body fat, and training — so you can see whether
+            you&apos;re actually gaining muscle and losing fat, not just moving
+            the scale.
           </p>
           <div className="hero-proof" aria-label="GainFrame report highlights">
             <span>Body fat %</span>
