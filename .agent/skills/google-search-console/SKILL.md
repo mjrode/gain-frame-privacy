@@ -54,6 +54,7 @@ Deliver in this order, prose + small tables, no jargon:
 
 - **Never recommend a metadata change** for a page changed within the last 7–10 days (check git log for the page before suggesting). Content-depth suggestions are fine.
 - Brand queries (`gainframe`, `gain frame`, `gainframe app`) are tracked separately — they reflect TikTok/social halo, not SEO wins.
+- **Position reliability threshold:** only quote a query's position as meaningful if it has ≥30 impressions in the window; 10–30 impressions = "directional"; under 10 = anecdote, never present as a rank (GSC position averages only the impressions that occurred — a 2-impression "position 1" is usually one personalized result or an AI Overview citation, not a reproducible rank). SERP features (AI Overview citations, image packs, Discussions units) count as positions too.
 - Single-day click counts under ~10 per page are noise; call trends only on multi-day patterns.
 - If the `gsc` MCP server is unavailable, say so and stop — do not try to scrape the GSC UI.
 - Keep the whole report under ~40 lines of output. This is a pulse check, not a deep-dive; suggest a deep-dive only if something looks broken.
