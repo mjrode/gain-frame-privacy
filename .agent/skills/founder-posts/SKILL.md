@@ -39,11 +39,14 @@ Apply the **mike-writes** skill (`~/.claude/skills/mike-writes/SKILL.md`) in ful
 
 ### Phase 2 — Charts
 
-Charts are matplotlib rendered to WebP, in the brand style (matches every existing founder-post chart):
+Charts are matplotlib rendered to WebP, in the **dark shadcn-style card** (house reference: `docs/blog/organic-traffic-15x-90-days/assets/organic-clicks-90d.webp` and the trial-conversion post; this style anchored the two highest-view Reddit posts):
 
-- **Palette:** background `#F8FAFC` (off-white), ink/lines/text `#2D3748` (charcoal), positive fill `#48BB78` (sage, use ~12% alpha for area fills), warning/annotation `#FF6B6B` (coral, dashed vlines for events), highlight `#ECC94B` (golden) sparingly.
-- **Typography:** bold charcoal title ~26pt, tick labels ~16–18pt, DejaVu Sans (mpl default) is fine.
-- **Composition:** ~1560×880 px (`figsize=(13, 7.3), dpi=120`), generous margins, no top/right spines, no gridlines or very light ones, annotate the 2–4 numbers that matter directly on the chart (callout arrows welcome), event markers as coral dashed vlines with labels.
+- **Card:** near-black rounded card `#0B0E13` (bake rounded corners: transparent fig + `FancyBboxPatch` background), ~2240×1232 px (`figsize=(14, 7.7), dpi=160`).
+- **Header row:** bold white title ~31pt top-left + muted subtitle (`#8B95A8`, include the data source, e.g. "Weekly trial cohorts · RevenueCat"); 2–3 big stats top-right (value ~30pt bold colored, label below muted) — the stats ARE the takeaway.
+- **Palette:** text `#F1F5F9`, muted `#8B95A8`, positive `#7DD991` (green, glow + vertical gradient area fill), negative/event `#FF6B6B` (coral), neutral series `#64748B` (slate), grid `#334155` at ~45% alpha, horizontal only.
+- **Effects:** glow the hero line (re-plot 3× at increasing width/low alpha), gradient fill under areas (imshow clipped to the curve polygon), rounded bar corners (`FancyBboxPatch`), chip annotations (rounded bbox, colored bg + dark text) for events and the headline value, no spines, no tick marks.
+- **Typography:** Helvetica Neue.
+- Annotate the 2–4 numbers that matter directly on the chart; event markers as thin white vlines with a coral chip.
 - **Every chart earns its place:** a chart that just decorates a sentence gets cut; a chart that lets the reader skip the sentence stays.
 - **Pipeline:** write the script in the scratchpad, render PNG, `cwebp -q 80` into `docs/blog/[slug]/assets/*.webp`, delete the PNG. Never link a PNG.
 - Embed with the `post-figure` pattern used by `spent-5k-on-app-ads.mdx`: `<figure className="post-figure">` + `<img>` + `<figcaption>` (caption states the takeaway, not the axes).
