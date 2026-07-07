@@ -19,8 +19,8 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 ### Brand-"alternatives" roundups (roundup format + brand intent; need competitor-scan first)
 
 - [x] **Best InBody Alternatives (at-home / app)** — **published 2026-06-28 as /blog/best-inbody-alternatives/** — 7-entry roundup across 3 categories (AI photo apps, at-home BIA scales, DEXA). GainFrame-first as the zero-hardware/free option, honest that BIA scales (Hume ~$229 closest, Withings ~$400–500 premium) and DEXA (~$100–200) win on direct measurement/accuracy; Tanita/Omron budget BIA; SKOR as the cross-platform photo-app peer (represented honestly). Verified prices via fresh research (InBody home Dial H20N/H30 ~$240–380). FAQPage + BlogPosting + BreadcrumbList schemas. Distinct from /blog/dexa-scan-alternative/ (DEXA) — this owns InBody/BIA intent. Cross-links to dexa-scan-vs + dexa-scan-alternative + best-body-composition-apps + best-ai-body-fat-apps + what-is-ffmi. Build verified, in sitemap. Cover generated. Correct App Store ID id6759252082.
-- [ ] **Best ZOZOFIT Alternatives** — body-scan brand; run `/competitor-scan zozofit.com` first. — added 2026-06-28
-- [ ] **Best Bodygram Alternatives** — body-measurement-from-photo brand; run `/competitor-scan` first; lowest priority of the three. — added 2026-06-28
+- [x] **Best ZOZOFIT Alternatives** — published 2026-07-02 as /blog/best-zozofit-alternatives/ (see Jul 2 entry below). — added 2026-06-28
+- [x] **Best Bodygram Alternatives** — CLOSED 2026-07-02 without a post (brand pivoted B2B); covered as FAQ in /blog/best-body-scanning-measurement-apps/. — added 2026-06-28
 - [ ] **Best LeanLens Alternatives** — LeanLens.ai is a *direct* AI-body-fat-from-photo competitor (same lane as GainFrame), so this is the strongest brand-"alternatives" fit of the set — GainFrame slots in honestly as a peer AI-photo option, not a hardware/scale outsider. Run `/competitor-scan leanlens.ai` first (⚠️ leanlens.ai is blocked by this session's egress policy — do the scan in a session with network access). — added 2026-07-01 — source: user suggestion (leanlens.ai/blog)
 
 ### Uncovered "best X" sub-niche hunt (validate SERP + no self-cannibalization before writing)
@@ -43,9 +43,9 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 ### Outside-the-box queue (informational keyword targets — next batch candidates)
 
-- [ ] **Average body fat percentage by age (men & women)** — TOP PICK: high-volume informational head term; UNIQUE asset fit — the body-fat-visualizer has age-varied renders (20s–60s) nobody else has, same play that took body-fat-percentage-chart from pos 43→10. AEO/stats-page magnet. — added 2026-07-07
-- [ ] **Average waist size for men (by age/height)** — stats-page format; feeds shoulder-to-waist + measurement cluster. Validate SERP first. — added 2026-07-07
-- [ ] **"Dad bod body fat percentage"** — playful definitional + visualizer renders; debate-bait shareability (TikTok crossover potential). Validate volume. — added 2026-07-07
+- [x] **Average body fat percentage by age (men & women)** — published 2026-07-07 as /blog/average-body-fat-percentage-by-age/ — TOP PICK: high-volume informational head term; UNIQUE asset fit — the body-fat-visualizer has age-varied renders (20s–60s) nobody else has, same play that took body-fat-percentage-chart from pos 43→10. AEO/stats-page magnet. — added 2026-07-07
+- [x] **Average waist size for men (by age/height)** — published 2026-07-07 as /blog/average-waist-size-men/ — stats-page format; feeds shoulder-to-waist + measurement cluster. Validate SERP first. — added 2026-07-07
+- [x] **"Dad bod body fat percentage"** — published 2026-07-07 as /blog/dad-bod-body-fat-percentage/ — playful definitional + visualizer renders; debate-bait shareability (TikTok crossover potential). Validate volume. — added 2026-07-07
 
 ### Carry-forward (still genuine, re-added from reset — not yet done)
 
