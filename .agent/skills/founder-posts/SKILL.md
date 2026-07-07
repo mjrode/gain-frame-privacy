@@ -75,11 +75,20 @@ Follow **blog-post-generator** (`.agent/skills/blog-post-generator/SKILL.md`) fo
 Write the companion Reddit post to `marketing/reddit/[slug].md`. ⚠️ NEVER put it in `docs/blog/[slug]/` — that directory is symlinked into `web/public/blog` and everything in it gets PUBLISHED to the live site. Rules:
 
 - **Self-contained value.** The full story with the real numbers lives IN the post — Reddit punishes link-bait. Someone who never clicks still gets everything.
-- Same mike-writes voice; even looser than the blog (it's a forum comment, not an essay). Markdown tables work on Reddit — use one for the before/after numbers.
-- Title: flat declarative with the number, no hooks. Offer 2–3 options tuned per subreddit if they differ.
+- Same mike-writes voice; even looser than the blog (it's a forum comment, not an essay).
+- Title: flat declarative with the number, no hooks. Offer 2–3 options tuned per subreddit if they differ (milestone framing for r/appledevelopers, lesson framing for r/AppBusiness / r/iOSAppsMarketing).
 - Every failure/caveat from the blog post survives the compression — Reddit's first comment WILL be the caveat you omitted. Preempt it.
-- **The link comes last**, framed as optional extra: "I wrote this up with the charts here: [link]" — one line, no UTM hard-sell (add `?utm_source=reddit&utm_medium=social&utm_campaign=[slug]`).
-- No emoji, no bullet-point-with-bold-lead-in walls, no "TL;DR:" header (Reddit-native short paragraphs instead).
+- **Never a wall of text — format for the skim.** Markdown that has proven out in Michael's editing passes:
+  - Paragraphs of 1–3 sentences with blank lines between. Split anything longer.
+  - **Bold the lead-in sentence of each change/step** ("**Re-gated features that had quietly become free.** While building fast…") so the post scans as a list without being one.
+  - A bolded one-line header before each section: "**What I changed, roughly in order:**", "**The numbers:**", "**The caveats, because these matter more than the wins:**".
+  - Bold the handful of numbers that carry the story (the before %, the after %, the key predictor) — a handful, not every figure.
+  - Markdown table for the before/after numbers.
+  - Caveats as a short dash list, one caveat per item.
+  - Inline markdown links early: the app's App Store page on first mention (Reddit renders a preview card), and the benchmark/data source. RevenueCat verified link near the end.
+  - Attach the strongest chart as the post image where the sub allows image+text — the top-performing posts led with a dark chart.
+- **The blog link comes last**, framed as optional extra: "Full write-up with the charts: [link]" — one line, with `?utm_source=reddit&utm_medium=social&utm_campaign=[slug]`.
+- No emoji, no "TL;DR:" header.
 
 ### Phase 6 — Publish
 Per blog-post-generator step 9: stage only the new files, commit (`feat(blog): [slug] founder story`), push to main (Cloudflare Pages auto-deploys). Verify the build locally first (`cd web && npm run build`) so a broken MDX never lands on main.
