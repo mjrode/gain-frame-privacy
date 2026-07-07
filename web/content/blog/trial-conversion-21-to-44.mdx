@@ -1,0 +1,155 @@
+---
+title: "My Trial Conversion Was 21%. Five Weeks Later It's 44%."
+description: My iOS app converted 21% of trials to paid against a 40% industry median. Five weeks of paywall and trial-value fixes moved it to 44% with $0 ad spend. Real cohort numbers.
+slug: trial-conversion-21-to-44
+canonical: "https://gainframe.app/blog/trial-conversion-21-to-44/"
+ogTitle: "My Trial Conversion Was 21%. Five Weeks Later It's 44%."
+ogDescription: My app converted 21% of trials to paid against a 40% industry median. Five weeks of paywall and trial-value fixes moved it to 44% with $0 ad spend. Real cohort numbers.
+ogImage: "https://gainframe.app/blog/trial-conversion-21-to-44/assets/cover.webp"
+ogType: article
+twitterTitle: "My Trial Conversion Was 21%. Five Weeks Later It's 44%."
+twitterDescription: Trial to paid went from 21% to 44% in five weeks with $0 ad spend. Re-gated Pro features, a value-anchored paywall test, and getting trial users to their progress faster.
+twitterImage: "https://gainframe.app/blog/trial-conversion-21-to-44/assets/cover.webp"
+breadcrumbCategory: Founder Story
+displayCategory: Founder Story
+displayDate: Jul 7, 2026
+readTime: 9 min read
+subtitle: "The worst metric in my business was trial→paid conversion: 21% against a 40% industry median. Five weeks and $0 in ads later the last four cohorts blended 44%. What moved it: re-gated Pro features, a value-anchored paywall test, and getting trial users to their progress faster."
+schemas:
+  - {"@context":"https://schema.org","@type":"BlogPosting","headline":"My Trial Conversion Was 21%. Five Weeks Later It's 44%.","description":"My iOS app converted 21% of trials to paid against a 40% industry median. Five weeks of paywall and trial-value fixes moved it to 44% with $0 ad spend. Real cohort numbers.","image":"https://gainframe.app/blog/trial-conversion-21-to-44/assets/cover.webp","datePublished":"2026-07-07","dateModified":"2026-07-07","author":{"@type":"Person","name":"Michael Rode","url":"https://gainframe.app/about"},"publisher":{"@type":"Organization","name":"GainFrame","url":"https://gainframe.app","logo":{"@type":"ImageObject","url":"https://gainframe.app/assets/favicons/favicon.webp"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gainframe.app/blog/trial-conversion-21-to-44/"},"articleSection":"Founder Story","keywords":"trial to paid conversion, free trial conversion rate, subscription app conversion, paywall a b test, indie ios app, app onboarding conversion, subscription paywall optimization"}
+  - {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gainframe.app/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://gainframe.app/blog/"},{"@type":"ListItem","position":3,"name":"Trial Conversion 21% to 44%","item":"https://gainframe.app/blog/trial-conversion-21-to-44/"}]}
+---
+<div className="post-hero-image scroll-reveal" style={{marginBottom: '3rem'}}>
+  <img src="assets/cover.webp" alt="Line-art illustration of a repaired funnel over a smartphone with coins flowing through into a rising trend line, and a magnifying glass inspecting the funnel" loading="lazy" style={{borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)'}} />
+</div>
+
+In late May the worst number in my app's business was trial conversion. 20.7% of free trials were becoming paying subscribers. The industry median for Health & Fitness apps is 39.9%, so I was converting at about half the going rate, and the trend was down — my April and May weekly cohorts ranged from 8% to 25%.
+
+Five weeks later the last four fully-resolved weekly cohorts converted at 37.5%, 37.5%, 57.7%, and 43.3%. Blended that's 44%, 46 paid out of 104 trials. MRR went from $634 to $925 over the same stretch, up 46%, with zero dollars of ad spend behind any of it.
+
+This is what I changed, in order.
+
+<hr className="post-divider" />
+
+## The Worst Number in the Business
+
+Some context on how I got here. Back in March my trials converted at 28 to 43% a week. Those were small, warm cohorts — 13 to 23 trials a week, almost all organic. Then I started [spending real money on ads](/blog/spent-5k-on-app-ads/), volume went up, and conversion fell off a cliff. One April cohort converted at 7.7%. Thirteen trials, one payer.
+
+I killed the ads in mid-May because the unit economics were hopeless (that's its own post, linked above). But the conversion problem remained, and when I benchmarked it against RevenueCat's industry data it was the single biggest gap between my app and a healthy one. Retention was at or above benchmark. Churn was normal. Conversion was half of median.
+
+So the plan for June was one line: fix trial conversion.
+
+<hr className="post-divider" />
+
+## The Paywall Work
+
+Three moves in the first week of June.
+
+**I re-gated features that had quietly become free.** While building fast I'd let two Pro features slip out from behind the paywall and never noticed — free users were getting a recovery dashboard and a weekly summary for nothing. I put them back behind Pro and fixed a broken gate on a third. If the free tier already gives you the good stuff, the trial has nothing to sell.
+
+**I launched a proper paywall A/B test.** The control was my existing trial-timeline paywall. The variant leads with a value stack and a per-month price anchor computed from the yearly plan. As of July 5 the variant converts paywall views to trial starts at **30.1% (58 of 193) vs 24.1% (46 of 191)** for control. That's +6 points absolute, but with an 88.9% chance-to-win it is *not* statistically significant yet, so I'm not calling it. Decision date is end of July.
+
+**I kept building feature-specific paywalls.** Instead of one generic gate, every premium feature now shows a real, partially-unlocked preview of itself — the AI deep-dive report with locked sections, the photo-history feature showing your oldest and newest photo as a teaser. The pattern: show the thing, lock the depth.
+
+<hr className="post-divider" />
+
+## What the Data Said About Who Pays
+
+One detour worth a paragraph before this section: to trust any of the numbers below I first had to fix my tracking. My analytics had logged 10 trial conversions in 120 days while RevenueCat had counted about 48 — a wrong-flavor API key silently failing plus two event bugs. A week and a half of unglamorous plumbing that moved nothing by itself, but every readout below exists because of it.
+
+With conversions visible per-user, I joined the payment records to behavior data (332 of 374 subscribers matched) and got the findings that shaped everything after:
+
+- **The check-in habit is the payer signature.** 43% of eventual payers had checked in on 2 or more days, vs 13% of people who never paid.
+- **Photo volume is the strongest activation predictor I have.** Among single-session users, trial-start rate goes 0.7% → 12% → 28% → 63% as photo count goes from zero to 1–5 to 6–15 to 16–40. Zero photos, zero conversions, almost literally: 7 out of 676.
+- **The onboarding wall is one specific step** — the photo pose setup. 806 abandonment events, a third of all of them, with people parked there an average of 12 hours.
+- **I had deleted my own biggest paywall.** A late-April commit removed the welcome paywall that new users saw on first launch, and I never replaced it. Paywall exposure among new users fell from 38% to 21% over three months and I had no idea.
+
+The one that reframed the whole problem: of everyone who had *ever* trialed or purchased, **44.9% (168 of 374) had paid at some point**. The paywall sells fine. The trial was what leaked.
+
+<hr className="post-divider" />
+
+## Giving the Trial More to Convert On
+
+If photos drive conversion, the obvious move was getting trial users to more photos, faster. So I built the feature I'd been putting off: camera-roll import that finds up to ten years of your old progress photos, scores them, and builds your transformation history in one shot. A trial user who runs it hits the paywall with months of visible progress in the app instead of a single day-one photo. It shipped mid-June.
+
+I also ran onboarding experiments against that pose-setup wall — a library-first flow, softer copy, a "remind me tonight" deferral. Honest result: **no clean win to report.** Onboarding completion is still about 58%, the same as before. That leak is still open, and it's the biggest one left.
+
+<hr className="post-divider" />
+
+## The Numbers Now
+
+<figure className="post-figure" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/weekly-cohorts.webp" alt="Bar chart of weekly trial to paid conversion cohorts from March through July 2026: gray March bars around 28 to 44 percent, red April and May bars collapsing to 8 to 29 percent, green June and July bars at 37 to 58 percent against a dashed industry median line at 39.9 percent" loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>Every weekly cohort, from the March baseline through the collapse to now. The dashed line is the 39.9% industry median.</figcaption></figure>
+
+Before and after, all verified against RevenueCat:
+
+<div className="post-table-wrapper scroll-reveal">
+  <table className="post-table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Late May</th>
+        <th>Now (Jul 7)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Trial → paid conversion</td><td>20.7% blended</td><td><strong>44% last 4 cohorts (46/104)</strong></td></tr>
+      <tr><td>vs 39.9% industry median</td><td>about half</td><td><strong>at/above</strong></td></tr>
+      <tr><td>Paywall view → trial start</td><td>13% (66/495)</td><td><strong>23.5% (62/264)</strong></td></tr>
+      <tr><td>Install → paying within 7 days</td><td>5.17%</td><td><strong>10.0% (23/230)</strong></td></tr>
+      <tr><td>MRR</td><td>$634</td><td><strong>$925</strong></td></tr>
+      <tr><td>Active subscriptions</td><td>122</td><td><strong>198</strong></td></tr>
+      <tr><td>Realized 30-day LTV per payer</td><td>$18</td><td><strong>$27.50–31.12</strong></td></tr>
+      <tr><td>Ad spend</td><td>$0</td><td><strong>$0</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure className="post-figure" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/mrr-growth.webp" alt="Line chart of MRR rising from 531 dollars in mid May to 925 dollars on July 7, with a dashed marker in early June where the conversion fixes began" loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>MRR $634 → $925 while the conversion work landed. All of it organic.</figcaption></figure>
+
+You can check the live revenue numbers here, so nobody thinks I'm making this up: [RevenueCat verified — GainFrame](https://verified.revenuecat.com/gainframe).
+
+<hr className="post-divider" />
+
+## What I Can't Take Credit For
+
+This is the part most posts like this leave out, so here's mine.
+
+**I can't cleanly attribute the win to any single change.** The improvement starts with the May 31 cohort — *before* several of the changes above had even shipped. The honest list of candidate causes: paid ads went off in mid-May, so trials reverted to high-intent organic users (my March organic cohorts already converted at 28–43% before I touched anything); the re-gated Pro features; the new paywall on half of traffic; the photo-history feature. The intent-mix reversal from killing ads is probably the biggest single factor. I'd rather admit that than pretend my paywall genius did it all.
+
+**The cohorts are small.** 24 to 30 trials a week means one week can swing ±10 points on noise. That's why I quote the 4-cohort blend of 44% and not the 57.7% best week, which would be a nicer headline and a worse claim. Two newer cohorts are still maturing and aren't counted at all.
+
+**The A/B test hasn't concluded.** 88.9% chance-to-win is promising and not a result.
+
+**Onboarding didn't move.** About 42% of installs still never finish onboarding, unchanged since May, despite a targeted experiment. Biggest remaining leak.
+
+**Late-June momentum has a traffic confound.** A TikTok sponsorship went live July 3 and spiked my web traffic to about 15–20x baseline for a day, with installs up 51% the same week. That flatters the MRR and install numbers at the very end of the chart. It does not explain the conversion-rate gains, which started a month earlier — but you should know it's in there.
+
+Churn also ticked up a bit (4.76% weekly vs a 3.59% baseline) as the bigger new cohorts hit their first renewals. Watching it, not alarmed yet.
+
+<hr className="post-divider" />
+
+## What This Unlocks
+
+The reason I cared this much about one metric: at 21% conversion and $18 LTV, paid acquisition could never work — I proved that expensively in May. At 44% conversion and $27–31 realized LTV, the math changes. I'd set myself a rule that I don't touch paid again until trial conversion clears 30%. It has, so if the July cohorts hold I'll run one small capped Apple Search Ads re-test in August, a couple hundred dollars, and see if the funnel behind the click is finally strong enough to pay for the click.
+
+Six weeks ago I assumed I had a paywall problem. Mostly I had a trial problem. The app wasn't showing people enough of their own progress inside the trial to be worth paying for, and a couple of my own regressions were giving away the parts that were. Charge for what's worth paying for, anchor the price, get people to their progress faster. None of it is clever. It compounds anyway.
+
+> If you're staring at a bad conversion number on your own app, I'm happy to compare notes — and if you're into lifting, the app this is all about is below.
+
+<div className="blog-post-cta scroll-reveal">
+  <h3>Track your progress with GainFrame</h3>
+  <p>Take or import a gym photo and get an AI body fat estimate, physique score, FFMI, and muscle breakdown, plus a Coach that explains what changed using your photos, weight, and workouts.</p>
+  <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" className="cta-button" target="_blank" rel="noopener">Download GainFrame Free</a>
+</div>
+
+<hr className="post-divider" />
+
+<div className="post-related scroll-reveal">
+  <h3>Related Articles</h3>
+  <ul>
+    <li><a href="/blog/spent-5k-on-app-ads/">I Spent $5,674 on App Ads. Here's Why I Stopped.</a></li>
+    <li><a href="/blog/organic-traffic-15x-90-days/">How I Grew My App's Organic Traffic 15x in 90 Days</a></li>
+    <li><a href="/blog/getting-user-feedback/">In-App Surveys Got 189 Responses. My Cancel Emails Got Zero.</a></li>
+    <li><a href="/blog/stop-building-features-start-reading-data/">Stop Building Features. Start Reading Your Data.</a></li>
+  </ul>
+</div>
