@@ -1,7 +1,7 @@
-// Thin wrapper around GA4's gtag for typed event tracking.
-// gtag is loaded site-wide in app/layout.tsx; this module just provides
-// a safe call site that no-ops on the server and before the GA4 script
-// has finished loading.
+// Thin wrapper for typed event tracking, fanned out to GA4 (gtag) and
+// PostHog. Both scripts are loaded site-wide in app/layout.tsx; this module
+// just provides a safe call site that no-ops on the server and before the
+// scripts have finished loading (the PostHog snippet stub queues calls).
 
 declare global {
   interface Window {
@@ -11,6 +11,9 @@ declare global {
       params?: Record<string, unknown>,
     ) => void;
     dataLayer?: unknown[];
+    posthog?: {
+      capture?: (eventName: string, params?: Record<string, unknown>) => void;
+    };
   }
 }
 
@@ -32,6 +35,10 @@ export function track(
   params: Record<string, unknown> = {},
 ): void {
   if (typeof window === "undefined") return;
-  if (typeof window.gtag !== "function") return;
-  window.gtag("event", event, params);
+  if (typeof window.gtag === "function") {
+    window.gtag("event", event, params);
+  }
+  if (typeof window.posthog?.capture === "function") {
+    window.posthog.capture(event, params);
+  }
 }
