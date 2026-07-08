@@ -14,6 +14,9 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 ## ACTIVE (fresh start 2026-06-28)
 
+> **📍 Topical map lives at `seo-tools/topical-map.md`** (created 2026-07-07) — check the cluster + gap list there BEFORE adding new keyword targets here. Programmatic SEO explicitly deferred by owner.
+
+
 **Direction:** roundups are the proven traffic winners; the generic body-comp roundup space is saturated/cannibalizing, so new bets must be either (a) **"[brand] alternatives" roundups** — roundup format + net-new brand-intent query, or (b) **genuinely uncovered "best X" sub-niches** we have no page for. Comparisons/reviews are net-new but ~15–30× lower volume per post → secondary.
 
 ### Brand-"alternatives" roundups (roundup format + brand intent; need competitor-scan first)
