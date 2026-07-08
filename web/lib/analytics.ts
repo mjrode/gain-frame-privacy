@@ -27,6 +27,9 @@ export type AnalyticsEvent =
   | "bf_tool_rate_limited"
   | "bf_tool_error"
   | "bf_tool_cta_clicked"
+  // Homepage promo film
+  | "promo_film_sound_on"
+  | "promo_film_watched_75"
   // Generic
   | "outbound_app_store_click";
 

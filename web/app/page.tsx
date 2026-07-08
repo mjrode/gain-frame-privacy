@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import PromoFilm from "@/components/PromoFilm";
 import { SITE } from "@/lib/site";
 
 const geist = Geist({
@@ -96,7 +97,7 @@ const faqSchema = {
 export default function Home() {
   return (
     <div className={homeFontClass}>
-      <link rel="stylesheet" href="/styles-clean.css?v=trailer-crop" />
+      <link rel="stylesheet" href="/styles-clean.css?v=promo-film" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -157,128 +158,13 @@ export default function Home() {
             >
               Download free <span aria-hidden="true">-&gt;</span>
             </a>
-            <a className="btn btn-light" href="#trailer">
-              Watch demo
+            <a className="btn btn-light" href="#film" data-film-sound>
+              Watch with sound
             </a>
           </div>
         </div>
 
-        <div className="hero-stage reveal" aria-label="GainFrame app preview">
-          <div className="radar-glow" aria-hidden="true"></div>
-          <div className="radar-orbit" aria-hidden="true"></div>
-          <div className="radar-map" aria-hidden="true">
-            <span className="map-label label-a">FFMI</span>
-            <span className="map-label label-b">BF%</span>
-            <span className="map-label label-c">BMI</span>
-            <span className="map-label label-d">Weight</span>
-            <span className="metric-pin pin-a">
-              <strong>BMI</strong>
-              <em>28.1</em>
-            </span>
-            <span className="metric-pin pin-b">
-              <strong>FFMI</strong>
-              <em>19.4</em>
-            </span>
-            <span className="metric-pin pin-c">
-              <strong>BF%</strong>
-              <em>18.0</em>
-            </span>
-            <span className="metric-pin pin-d">
-              <strong>Weight</strong>
-              <em>239</em>
-            </span>
-          </div>
-          <div className="phone-shell phone-left" aria-hidden="true">
-            <img src="/app-screenshots/misc/IMG_1789.webp" alt="" />
-          </div>
-          <div className="phone-shell phone-main">
-            <img
-              src="/app-screenshots/1.21/day-checkin-score.webp"
-              alt="GainFrame check-in score screen showing physique score and precision body fat."
-            />
-          </div>
-          <div className="visit-card">
-            <div className="visit-copy">
-              <strong>Coach context loaded</strong>
-              <span>Photos, weight, lifts, and nutrition ready</span>
-            </div>
-            <div className="visit-metrics">
-              <span className="visit-metric">
-                <span className="status-dot"></span>
-                <strong>BF 19%</strong>
-              </span>
-              <span className="visit-metric">
-                <span className="status-dot"></span>
-                <strong>Bench 90d trend</strong>
-              </span>
-            </div>
-            <a href="#coach">Ask Coach</a>
-          </div>
-          <div className="float-chip chip-top">Ask why it changed</div>
-          <div className="float-chip chip-right">Sources visible</div>
-        </div>
-      </section>
-
-      <section className="trailer reveal" id="trailer">
-        <div className="section-head">
-          <h2>
-            See the analysis and Coach in action.
-          </h2>
-          <p>
-            Import progress photos, get AI body analysis, compare check-ins,
-            then ask Coach what changed and why.
-          </p>
-        </div>
-        <div className="video-shell demo-board recording-board">
-          <div className="demo-phone demo-phone-left" aria-hidden="true">
-            <img
-              src="/app-screenshots/1.21/muscle-compare.webp"
-              alt=""
-              loading="lazy"
-            />
-          </div>
-          <div className="demo-video-crop">
-            <video
-              className="demo-video"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              poster="/app-screenshots/1.21/screen-recording-1-21-poster.jpg"
-              aria-label="GainFrame product walkthrough recording"
-            >
-              <source
-                src="/app-screenshots/1.21/screen-recording-1-21-web.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-          <div className="demo-phone demo-phone-right" aria-hidden="true">
-            <img
-              src="/app-screenshots/1.21/macros.webp"
-              alt=""
-              loading="lazy"
-            />
-          </div>
-          <div className="demo-caption">Product walkthrough</div>
-          <svg className="caption-arrow" viewBox="0 0 140 120" aria-hidden="true">
-            <path
-              d="M112 10c7 38-12 70-68 88"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-            <path
-              d="M42 99l18-2M42 99l12-14"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
+        <PromoFilm />
       </section>
 
       <section className="showcase reverse coach-section" id="coach">
