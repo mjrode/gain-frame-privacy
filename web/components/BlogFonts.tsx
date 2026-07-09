@@ -2,5 +2,5 @@
 // This component just brings in the legacy global stylesheet that the
 // blog/comics pages depend on for layout and component styles.
 export default function BlogFonts() {
-  return <link rel="stylesheet" href="/styles.css?v=post-img-fix" />;
+  return <link rel="stylesheet" href="/styles.css?v=render-figures" />;
 }
