@@ -9,7 +9,7 @@
 
 ---
 
-Quick build-in-public update on my iOS app ([GainFrame](https://apps.apple.com/us/app/gainframe/id6742498826), AI body composition tracking). This one is about the first time I paid a stranger from a Reddit DM, and why I think I've been doing outsourcing wrong the whole time.
+Quick build-in-public update on my iOS app ([GainFrame](https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082), AI body composition tracking). This one is about the first time I paid a stranger from a Reddit DM, and why I think I've been doing outsourcing wrong the whole time.
 
 **The setup.** The demo video on my landing page has been a raw screen recording since I put the site up. Me tapping through the app for 48 seconds. I knew it was mediocre, but every time I thought about a proper motion graphics demo, I filed it under "not worth the effort."
 

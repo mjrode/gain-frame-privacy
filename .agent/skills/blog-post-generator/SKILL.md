@@ -317,7 +317,7 @@ When a post cites scientific studies or peer-reviewed research, these additional
    <div className="blog-post-cta scroll-reveal">
      <h3>[CTA HEADLINE]</h3>
      <p>[CTA BODY]</p>
-     <a href="https://apps.apple.com/us/app/gainframe/id6742498826" className="cta-button" target="_blank" rel="noopener">Download GainFrame Free</a>
+     <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" className="cta-button" target="_blank" rel="noopener">Download GainFrame Free</a>
    </div>
 
    <hr className="post-divider" />
