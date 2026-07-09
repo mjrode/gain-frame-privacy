@@ -4016,3 +4016,39 @@ body {
     line-height: 1.65;
     margin: 0;
 }
+
+/* Centered render figure — for standardized visualizer physiques and
+   phone screenshots that sit BETWEEN paragraphs rather than floated
+   beside them. Replaces the misuse of .post-inline-screenshot (a
+   float-right card) with inline margin overrides, which made
+   consecutive figures collide side-by-side and captions render as
+   card-footer chips. */
+.post-render-figure {
+    float: none;
+    clear: both;
+    width: auto;
+    max-width: 320px;
+    margin: var(--sp-lg) auto;
+    text-align: center;
+}
+.post-render-figure img {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+.post-render-figure .post-caption {
+    margin: 10px auto 0;
+    max-width: 300px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: center;
+}
