@@ -36,38 +36,13 @@ export default function GetPage() {
       <link rel="stylesheet" href="/styles/get-page.css" />
 
       <header className="get-topbar">
-        <svg
+        <img
           className="get-mark"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <path
-            d="M4 13V7a3 3 0 0 1 3-3h6"
-            stroke="currentColor"
-            strokeWidth="3.4"
-            strokeLinecap="round"
-          />
-          <path
-            d="M36 13V7a3 3 0 0 0-3-3h-6"
-            stroke="currentColor"
-            strokeWidth="3.4"
-            strokeLinecap="round"
-          />
-          <path
-            d="M4 27v6a3 3 0 0 0 3 3h6"
-            stroke="currentColor"
-            strokeWidth="3.4"
-            strokeLinecap="round"
-          />
-          <path
-            d="M36 27v6a3 3 0 0 1-3 3h-6"
-            stroke="#e84c3d"
-            strokeWidth="3.4"
-            strokeLinecap="round"
-          />
-        </svg>
+          src="/assets/favicons/favicon.webp"
+          alt="GainFrame"
+          width={30}
+          height={30}
+        />
         <span className="get-wordmark">GainFrame</span>
       </header>
 

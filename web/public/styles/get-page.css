@@ -31,9 +31,10 @@
   padding: 22px 20px 4px;
 }
 .get-mark {
-  width: 27px;
-  height: 27px;
-  color: var(--gf-ink);
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: block;
 }
 .get-wordmark {
   font-family: "Outfit", sans-serif;
