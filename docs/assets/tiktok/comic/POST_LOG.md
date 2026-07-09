@@ -1,5 +1,20 @@
 # TikTok Carousel Post Log
 
+## 2026-07-09 — "SOUND FAKE BUT WORK" BATCH (10 posts)
+Format: counterintuitive-promise hook (the winning `diet-tips-sound-fake` DNA) — "X TIPS THAT SOUND FAKE/BACKWARDS/ILLEGAL/TOO EASY". **All slide text is now rendered deterministically** by `_pipeline/compose.py` (fixed Impact font, sizes, positions, red accent, page pill); the image model only draws the mascot on blank white space, auto-cropped below the text → zero styling drift, zero text/art collision. Pipeline + content spec live in `docs/assets/tiktok/comic/_pipeline/` (posts.json, compose.py, build.py). Covers are badge-free for consistency.
+
+- muscle-tips-sound-fake — 5 slides — GainFrame: No
+- fat-loss-backwards — 5 slides — GainFrame: No
+- sleep-hacks-sound-fake — 6 slides — GainFrame: Yes (slide 5 — check-ins.png)
+- strength-sounds-illegal — 5 slides — GainFrame: No
+- protein-hacks-sound-fake — 5 slides — GainFrame: No
+- motivation-too-easy — 5 slides — GainFrame: No
+- gym-anxiety-sound-fake — 5 slides — GainFrame: No
+- abs-sound-backwards — 6 slides — GainFrame: Yes (slide 5 — post-check-in-photo-score.png)
+- recovery-sound-fake — 5 slides — GainFrame: No
+- beginner-gains-sound-fake — 6 slides — GainFrame: Yes (slide 5 — weight-chart.png)
+- Status: Complete
+
 ## 2026-06-28 — MUSCLES ARE A GIFT
 - Slug: muscles-are-a-gift
 - Slides: 7 (chest, abs, back, legs, arms, shoulders, calves)

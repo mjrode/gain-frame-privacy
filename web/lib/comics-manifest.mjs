@@ -7,6 +7,16 @@
 // `ext` is the file extension for cover & slides — generated webp by default;
 // the original png/jpeg files remain on disk as the source of truth.
 export const COMICS_MANIFEST = [
+  { slug: "muscle-tips-sound-fake",    title: "Muscle Tips That Sound Fake",           date: "2026-07-09", ext: "webp" },
+  { slug: "fat-loss-backwards",        title: "Fat Loss Tips That Sound Backwards",    date: "2026-07-09", ext: "webp" },
+  { slug: "sleep-hacks-sound-fake",    title: "Sleep Hacks That Sound Fake",           date: "2026-07-09", ext: "webp" },
+  { slug: "strength-sounds-illegal",   title: "Strength Tips That Sound Illegal",      date: "2026-07-09", ext: "webp" },
+  { slug: "protein-hacks-sound-fake",  title: "Protein Hacks That Sound Fake",         date: "2026-07-09", ext: "webp" },
+  { slug: "motivation-too-easy",       title: "Motivation Tricks That Sound Too Easy", date: "2026-07-09", ext: "webp" },
+  { slug: "gym-anxiety-sound-fake",    title: "Gym Anxiety Fixes That Sound Fake",     date: "2026-07-09", ext: "webp" },
+  { slug: "abs-sound-backwards",       title: "Ab Tips That Sound Backwards",          date: "2026-07-09", ext: "webp" },
+  { slug: "recovery-sound-fake",       title: "Recovery Tips That Sound Fake",         date: "2026-07-09", ext: "webp" },
+  { slug: "beginner-gains-sound-fake", title: "Beginner Tips That Sound Fake",         date: "2026-07-09", ext: "webp" },
   { slug: "muscles-are-a-gift",       title: "Muscles Are a Gift",                     date: "2026-06-28", ext: "webp" },
   { slug: "fake-progress-traps",       title: "Fake Progress Traps",                   date: "2026-06-27", ext: "webp" },
   { slug: "ego-lifting-tax",           title: "Ego Lifting Tax",                       date: "2026-06-27", ext: "webp" },
