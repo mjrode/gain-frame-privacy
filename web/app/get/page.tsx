@@ -33,7 +33,7 @@ export default function GetPage() {
   return (
     <div className="get-page">
       <link rel="stylesheet" href="/styles.css" />
-      <link rel="stylesheet" href="/styles/get-page.css" />
+      <link rel="stylesheet" href="/styles/get-page.css?v=hero-order" />
 
       <header className="get-topbar">
         <img
