@@ -283,11 +283,19 @@
                 }
             });
 
-            // Parse hash on load
+            // Parse deep-link params on load. Accepts both query string
+            // (?g=male&bf=18&age=30s — used by internal links from the
+            // estimator tool; ?sex= is an alias for ?g=) and hash
+            // (#g=…&bf=…&age=… — used by the Share button). Hash wins when
+            // both are present. bf snaps to the nearest step so estimator
+            // values like 17 or 20 land on a real render.
             function parseHash() {
-                const raw = window.location.hash.replace(/^#/, '');
+                const query = window.location.search.replace(/^\?/, '');
+                const hash  = window.location.hash.replace(/^#/, '');
+                const raw = [query, hash].filter(Boolean).join('&');
                 if (!raw) return;
                 const parts = Object.fromEntries(raw.split('&').map(kv => kv.split('=').map(decodeURIComponent)));
+                if (!parts.g && parts.sex) parts.g = parts.sex;
                 if (parts.g && GENDER_CONFIG[parts.g]) {
                     gender = parts.g;
                     root.setAttribute('data-gender', gender);
@@ -298,8 +306,13 @@
                     });
                 }
                 const bfParam = parseInt(parts.bf, 10);
-                if (!isNaN(bfParam) && steps().includes(bfParam)) {
-                    bfIdx = steps().indexOf(bfParam);
+                if (!isNaN(bfParam)) {
+                    const s = steps();
+                    let nearest = 0;
+                    for (let i = 1; i < s.length; i++) {
+                        if (Math.abs(s[i] - bfParam) < Math.abs(s[nearest] - bfParam)) nearest = i;
+                    }
+                    bfIdx = nearest;
                 }
                 if (parts.age && AGE_STEPS.includes(parts.age)) {
                     ageIdx = AGE_STEPS.indexOf(parts.age);

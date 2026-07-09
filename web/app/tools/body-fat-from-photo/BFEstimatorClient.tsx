@@ -634,6 +634,80 @@ export default function BFEstimatorClient() {
           </div>
         </div>
 
+        {(() => {
+          // Spectrum Bridge — personalized strip of visualizer renders
+          // centered on the user's estimate. Each figure deep-links into
+          // the visualizer at that percentage.
+          const g = sex === "female" ? "female" : "male";
+          const steps =
+            g === "female" ? [18, 22, 27, 32, 37, 42] : [8, 13, 18, 23, 28, 33];
+          let nearest = 0;
+          for (let i = 1; i < steps.length; i++) {
+            if (Math.abs(steps[i] - targetNum) < Math.abs(steps[nearest] - targetNum))
+              nearest = i;
+          }
+          const start = Math.max(0, Math.min(nearest - 1, steps.length - 4));
+          const window4 = steps.slice(start, start + 4);
+          const vizHref = (bf: number) =>
+            `/tools/body-fat-visualizer/?g=${g}&bf=${bf}&age=30s`;
+          return (
+            <div className="bff-spectrum">
+              <p className="bff-spectrum-title">Where you sit on the spectrum</p>
+              <p className="bff-spectrum-sub">
+                Same build, same lighting — only body fat changes.
+              </p>
+              <div className="bff-spectrum-strip">
+                {window4.map((bf) => {
+                  const isYou = bf === steps[nearest];
+                  const delta = bf - steps[nearest];
+                  return (
+                    <a
+                      key={bf}
+                      className={`bff-spectrum-fig${isYou ? " is-you" : ""}`}
+                      href={vizHref(bf)}
+                      title={`See ${bf}% body fat in the visualizer`}
+                      onClick={() =>
+                        track("bf_tool_visualizer_clicked", { bf, is_you: isYou })
+                      }
+                    >
+                      <span className="frame">
+                        <img
+                          src={`/tools/body-fat-visualizer/assets/physiques/${g}-age30s-bf${bf}.webp`}
+                          alt={`${bf} percent body fat reference physique`}
+                          loading="lazy"
+                          width={220}
+                          height={295}
+                        />
+                      </span>
+                      {isYou ? (
+                        <span className="you-chip">You · ~{Math.round(targetNum)}%</span>
+                      ) : (
+                        <span className="delta">
+                          {delta > 0 ? `+${delta}%` : `${delta}%`}
+                        </span>
+                      )}
+                    </a>
+                  );
+                })}
+              </div>
+              <a
+                className="bff-spectrum-cta"
+                href={vizHref(steps[nearest])}
+                onClick={() =>
+                  track("bf_tool_visualizer_clicked", {
+                    bf: steps[nearest],
+                    is_you: true,
+                    cta: true,
+                  })
+                }
+              >
+                Drag through every level →
+                <small>Opens the Body Fat Visualizer at your estimate</small>
+              </a>
+            </div>
+          );
+        })()}
+
         <a
           className="bff-primary-cta"
           href={appStoreUrl("cta_primary")}

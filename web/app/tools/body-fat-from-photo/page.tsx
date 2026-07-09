@@ -249,6 +249,49 @@ export default function BodyFatFromPhotoPage() {
           </div>
         </section>
 
+        {/* Server-rendered spectrum strip — the estimator result view is
+            client-side, so crawlers never see the personalized version.
+            This static section guarantees the visualizer links are visible
+            on every crawl. */}
+        <section className="bff-section">
+          <div className="bff-section-inner">
+            <p className="bff-section-eyebrow">Browse the spectrum</p>
+            <h2>What does each body fat percentage look like?</h2>
+            <p>
+              These are standardized reference physiques from our{" "}
+              <a href="/tools/body-fat-visualizer/">body fat visualizer</a> —
+              the same build, pose, and lighting at every level, so the only
+              thing changing between images is body fat. Tap any figure to
+              explore every percentage from 8% to 42%, across ages 20s to 60s.
+            </p>
+            <div className="bff-spectrum-strip bff-spectrum-strip--static">
+              {[13, 18, 23, 28].map((bf) => (
+                <a
+                  key={bf}
+                  className="bff-spectrum-fig"
+                  href={`/tools/body-fat-visualizer/?g=male&bf=${bf}&age=30s`}
+                  title={`See ${bf}% body fat in the visualizer`}
+                >
+                  <span className="frame">
+                    <img
+                      src={`/tools/body-fat-visualizer/assets/physiques/male-age30s-bf${bf}.webp`}
+                      alt={`${bf} percent body fat on a man — reference physique`}
+                      loading="lazy"
+                      width={220}
+                      height={295}
+                    />
+                  </span>
+                  <span className="delta">{bf}%</span>
+                </a>
+              ))}
+            </div>
+            <a className="bff-spectrum-cta" href="/tools/body-fat-visualizer/">
+              Open the Body Fat Visualizer →
+              <small>Every level, male &amp; female, ages 20s–60s</small>
+            </a>
+          </div>
+        </section>
+
         <section className="bff-section">
           <div className="bff-section-inner">
             <p className="bff-section-eyebrow">Related tools</p>
