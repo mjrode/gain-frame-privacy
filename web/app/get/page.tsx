@@ -73,7 +73,7 @@ export default function GetPage() {
 
       <main className="get-hero">
         <div className="get-inner">
-          <div className="get-copy">
+          <div className="get-head">
             <h1 className="get-h1">
               Stop <span className="get-strike">guessing</span> your body fat.
             </h1>
@@ -82,7 +82,27 @@ export default function GetPage() {
               and get your body-fat number in seconds &mdash; no calipers, no
               squinting at the mirror.
             </p>
+          </div>
 
+          <div className="get-visual">
+            <div className="get-redpanel">
+              <div className="get-photo">
+                <img
+                  src="/assets/gainframe-guy/illustrations/mirror-mascot.webp"
+                  alt="GainFrame Guy sizing himself up in the mirror, wondering if he looks different"
+                  width={1728}
+                  height={2478}
+                />
+              </div>
+              <div className="get-numchip">
+                <b>18.4%</b>
+                <small>body fat &middot; sample</small>
+              </div>
+              <span className="get-scanline" aria-hidden="true" />
+            </div>
+          </div>
+
+          <div className="get-actions">
             <LiveStats />
 
             <div className="get-cta-row">
@@ -112,24 +132,6 @@ export default function GetPage() {
               </a>{" "}
               &nbsp;&middot;&nbsp; <a href="/privacy">Privacy Policy</a>
             </p>
-          </div>
-
-          <div className="get-visual">
-            <div className="get-redpanel">
-              <div className="get-photo">
-                <img
-                  src="/assets/gainframe-guy/illustrations/mirror-mascot.webp"
-                  alt="GainFrame Guy sizing himself up in the mirror, wondering if he looks different"
-                  width={1728}
-                  height={2478}
-                />
-              </div>
-              <div className="get-numchip">
-                <b>18.4%</b>
-                <small>body fat &middot; sample</small>
-              </div>
-              <span className="get-scanline" aria-hidden="true" />
-            </div>
           </div>
         </div>
       </main>

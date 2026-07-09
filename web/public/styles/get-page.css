@@ -49,19 +49,30 @@
   justify-content: center;
   padding: clamp(24px, 5vw, 64px) clamp(20px, 5vw, 48px) clamp(40px, 6vw, 80px);
 }
+/* Mobile-first: single column, headline → image → actions (Deepstash order). */
 .get-inner {
   width: 100%;
-  max-width: 1080px;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(28px, 4vw, 60px);
-  align-items: center;
-}
-
-.get-copy {
+  max-width: 460px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  align-items: center;
+  gap: 26px;
+}
+
+.get-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.get-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
 }
 .get-h1 {
   font-family: "Outfit", sans-serif;
@@ -157,9 +168,10 @@
 /* ---- CTA ---- */
 .get-cta-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
 }
 .get-cta {
   display: inline-flex;
@@ -213,6 +225,7 @@
 
 /* ---- red visual panel ---- */
 .get-visual {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -293,35 +306,56 @@
   62% { opacity: 0; }
 }
 
-/* ---- responsive: stack on mobile, visual first ---- */
-@media (max-width: 780px) {
+/* ---- base (mobile) refinements ---- */
+.get-stats {
+  justify-content: center;
+}
+.get-cta {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ---- desktop: split hero — headline top-left, image right (spanning both
+   rows), stats + CTA bottom-left ---- */
+@media (min-width: 781px) {
   .get-inner {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    max-width: 460px;
-  }
-  .get-copy {
-    order: 2;
-    gap: 20px;
-    text-align: center;
+    max-width: 1080px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-areas:
+      "head visual"
+      "actions visual";
+    column-gap: clamp(28px, 4vw, 60px);
+    row-gap: 22px;
     align-items: center;
+    align-content: center;
+  }
+  .get-head {
+    grid-area: head;
+    align-items: flex-start;
+    text-align: left;
+    align-self: end;
+    gap: 20px;
   }
   .get-visual {
-    order: 1;
+    grid-area: visual;
   }
-  .get-sub {
-    max-width: 40ch;
+  .get-actions {
+    grid-area: actions;
+    align-items: flex-start;
+    align-self: start;
   }
   .get-stats {
-    justify-content: center;
+    justify-content: flex-start;
   }
   .get-cta-row {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    width: auto;
   }
   .get-cta {
-    width: 100%;
-    justify-content: center;
+    width: auto;
   }
 }
 
