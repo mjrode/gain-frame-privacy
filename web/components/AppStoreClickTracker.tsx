@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { track } from "@/lib/analytics";
+import { trackOncePerDay } from "@/lib/analytics";
 
 /**
  * Site-wide delegated listener that fires `outbound_app_store_click` for any
@@ -18,6 +18,10 @@ import { track } from "@/lib/analytics";
  *
  * Listens in the capture phase so a stopPropagation() in page scripts can't
  * swallow the event before GA sees it.
+ *
+ * The event is deduped to once per user per day (keyed by source + placement)
+ * so a single tap the browser reports multiple times — or repeat visits to the
+ * same CTA — can't inflate the count.
  */
 export default function AppStoreClickTracker() {
   useEffect(() => {
@@ -39,10 +43,11 @@ export default function AppStoreClickTracker() {
             ? "store_badge"
             : "link");
 
-      track("outbound_app_store_click", {
-        source,
-        cta_content: ctaContent,
-      });
+      trackOncePerDay(
+        "outbound_app_store_click",
+        { source, cta_content: ctaContent },
+        `${source}:${ctaContent}`,
+      );
     };
 
     document.addEventListener("click", onClick, true);
