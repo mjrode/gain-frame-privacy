@@ -608,3 +608,10 @@ Format: counterintuitive-promise hook (the winning `diet-tips-sound-fake` DNA) �
 - Format: Anti-influencer hot take (new format)
 - GainFrame mention: No
 - Status: Complete
+
+## 2026-07-11 — HOW LONG YOUR BREAKFAST KEEPS YOU FULL
+- Slug: breakfast-keeps-you-full
+- Slides: 8 (cover + 6 breakfasts ranked worst→best + GainFrame promo)
+- Format: Standard (ranked satiety countdown); build escalates soft→muscular with fullness
+- GainFrame mention: Yes (Slide 7 — GainFrame Score / body fat / recomp)
+- Status: Complete (head re-locked to badge; slide-3 regen for dup stamp + white bg)
