@@ -366,6 +366,7 @@ export default function BFEstimatorClient() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const replaceInputRef = useRef<HTMLInputElement>(null);
   const viewedRef = useRef(false);
+  const submittingRef = useRef(false);
 
   useEffect(() => {
     if (viewedRef.current) return;
@@ -435,6 +436,13 @@ export default function BFEstimatorClient() {
 
   async function submit() {
     if (!file) return;
+    // Guard against rapid duplicate taps: setStage is async, so the submit
+    // button stays mounted/clickable until the next render. Without this, a
+    // double/triple-tap (or a mobile browser emitting duplicate click events)
+    // fires bf_tool_estimate_requested — and a real scan request — 2–3× before
+    // the UI transitions to the processing view.
+    if (submittingRef.current) return;
+    submittingRef.current = true;
     setStage({ kind: "processing" });
     track("bf_tool_estimate_requested", { sex: sex ?? "skip" });
 
@@ -497,6 +505,10 @@ export default function BFEstimatorClient() {
         kind: "error",
         message: (err as Error).message ?? "Network error. Please try again.",
       });
+    } finally {
+      // Release the guard so a legitimate retry (after error / unusable / rate
+      // limit → reset → idle) can submit again.
+      submittingRef.current = false;
     }
   }
 
