@@ -18,3 +18,22 @@ const body = `const COMICS_MANIFEST = ${JSON.stringify(COMICS_MANIFEST, null, 2)
 
 await fs.writeFile(TARGET, banner + body);
 console.log(`[generate-comics-manifest-js] wrote ${COMICS_MANIFEST.length} entries to ${path.relative(process.cwd(), TARGET)}`);
+
+// Guard: every manifest comic should have a transcript, or its /comics/[slug]/
+// page renders cover-only with no indexable text. Loud warning, not a failure —
+// CI builds without GEMINI_API_KEY can still ship; the page falls back gracefully.
+try {
+  const transcripts = JSON.parse(
+    await fs.readFile(path.resolve(__dirname, "../lib/comics-transcripts.json"), "utf8"),
+  );
+  const missing = COMICS_MANIFEST.filter((c) => !transcripts[c.slug]).map((c) => c.slug);
+  if (missing.length) {
+    console.warn(
+      `\n[generate-comics-manifest-js] ⚠️  ${missing.length} comic(s) missing transcripts — their /comics/ pages will have no text:\n` +
+        missing.map((s) => `  - ${s}`).join("\n") +
+        `\n  Fix: GEMINI_API_KEY=... node scripts/generate-comics-transcripts.mjs\n`,
+    );
+  }
+} catch {
+  console.warn("[generate-comics-manifest-js] ⚠️  lib/comics-transcripts.json missing or unreadable");
+}

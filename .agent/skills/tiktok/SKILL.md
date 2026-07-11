@@ -348,10 +348,28 @@ Hyphens only. Never underscores. Never `cover.png` or `slide1.png`. The gallery 
    - GainFrame mention: Yes/No (Slide #)
    - Status: Done
    ```
-6. Add to top of `COMICS_MANIFEST` array in `docs/assets/tiktok/comic/comics-manifest.js`:
+6. Add to top of `COMICS_MANIFEST` array in `web/lib/comics-manifest.mjs` — this is the
+   **single source of truth** (the served `docs/assets/tiktok/comic/comics-manifest.js` is
+   auto-generated from it at build; never edit the .js directly):
    ```js
-   { slug: "[slug]", title: "[Cover Title]", date: "[YYYY-MM-DD]", ext: "png" },
+   { slug: "[slug]", title: "[Cover Title]", date: "[YYYY-MM-DD]", ext: "webp" },
    ```
+   Use `ext: "webp"` — the web build's `optimize-images` step generates the `.webp`
+   files from your `.png` slides automatically.
+7. Generate the SEO page transcript. Every manifest entry gets a static page at
+   `gainframe.app/comics/[slug]/` built from `web/lib/comics-transcripts.json` —
+   without a transcript the page renders cover-only with no indexable text
+   (the build prints a ⚠️ warning listing any comic you forgot). The script is
+   resumable and only processes new slugs, but it OCRs the **webp** slides, so
+   run the prebuild first:
+   ```bash
+   cd web
+   npm run prebuild            # converts new png slides → webp
+   source ~/.zshrc && node scripts/generate-comics-transcripts.mjs
+   ```
+   Commit `web/lib/comics-manifest.mjs`, `web/lib/comics-transcripts.json`, and the
+   comic's asset folder together — a manifest entry whose images or transcript
+   aren't committed ships a broken/empty page.
 
 ---
 
@@ -581,4 +599,6 @@ The screenshot library is **versioned by app release** (`/docs/app-screenshots/1
 | `docs/assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png` | Cover style reference — bare text on cream |
 | `docs/assets/tiktok/comic/discipline-not-motivation/slide-1.png` | Banner style reference — solid black full-width bar |
 | `docs/assets/tiktok/comic/POST_LOG.md` | Running log of all carousels |
-| `docs/assets/tiktok/comic/comics-manifest.js` | Gallery manifest — add new entries here |
+| `web/lib/comics-manifest.mjs` | Gallery manifest (source of truth) — add new entries here |
+| `docs/assets/tiktok/comic/comics-manifest.js` | AUTO-GENERATED mirror of the .mjs — never edit |
+| `web/lib/comics-transcripts.json` | Slide transcripts for /comics/[slug]/ SEO pages — regenerate via `web/scripts/generate-comics-transcripts.mjs` |
