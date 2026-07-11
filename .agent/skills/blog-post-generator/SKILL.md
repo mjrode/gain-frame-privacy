@@ -118,6 +118,12 @@ These rules define GainFrame's editorial voice. Every blog post MUST follow them
   - ✅ *"Same number, completely different appearance."*
   - ❌ *"This means that a female at 20% body fat looks vastly different — and is significantly leaner relative to her gender — than a male at 20% body fat."*
 - **Second-person address.** Write "you" directly. Avoid "users" or "one."
+- **BANNED: "not X, but Y" antithesis constructions** (all variants: *"Not X — Y."*, *"X, not Y"*, *"Not because X…"*). Michael has explicitly flagged this as an AI tell he hates. State the positive fact directly instead of defining it against its negation.
+  - ❌ *"Not users — competitors."* / ❌ *"It is verifiable, not vibes."* / ❌ *"Not because it's magic — most of it is boring."*
+  - ✅ *"Some of them are competitors."* / ✅ *"You can verify it yourself."* / ✅ *"Most of it is boring project context anyway."*
+- **BANNED: meta / self-referential section headers** — headers that describe the writing move instead of the content. Michael flags these as AI-sounding. Name what the section says, in concrete terms.
+  - ❌ *"The Honest Part"* / ❌ *"The Real Story"* / ❌ *"Let's Be Real"*
+  - ✅ *"One of Them Was First"* / ✅ *"The Numbers He Asked For"*
 - **No fluff.** Every sentence must either advance the argument, provide data, or give actionable advice. Delete anything that is merely transitional filler.
 
 ### GainFrame Integration
