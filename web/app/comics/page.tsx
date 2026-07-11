@@ -8,14 +8,14 @@ import ComicsGrid from "@/components/ComicsGrid";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "GainFrame Comics — Science-Backed Gym Tips & Fitness Education",
+  title: "Fitness Comics — Gym, Nutrition & Training Myths Illustrated",
   description:
-    "Visual guides to nutrition, training, and body composition. Swipe-through comics that make fitness science simple.",
+    "Free fitness comics for lifters: gym myths busted, nutrition and recovery tips illustrated in swipe-through gym comics. New issues weekly from GainFrame.",
   alternates: { canonical: "/comics/" },
   openGraph: {
-    title: "GainFrame Comics — Science-Backed Gym Tips & Fitness Education",
+    title: "Fitness Comics — Gym, Nutrition & Training Myths Illustrated",
     description:
-      "Visual guides to nutrition, training, and body composition. Swipe-through comics that make fitness science simple.",
+      "Free fitness comics for lifters: gym myths busted, nutrition and recovery tips illustrated in swipe-through gym comics. New issues weekly from GainFrame.",
     type: "website",
     url: `${SITE.url}/comics/`,
     siteName: "GainFrame",
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GainFrame Comics — Science-Backed Gym Tips & Fitness Education",
+    title: "Fitness Comics — Gym, Nutrition & Training Myths Illustrated",
     description:
-      "Visual guides to nutrition, training, and body composition. Swipe-through comics that make fitness science simple.",
+      "Free fitness comics for lifters: gym myths busted, nutrition and recovery tips illustrated in swipe-through gym comics. New issues weekly from GainFrame.",
     images: [SITE.ogImage],
   },
 };
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "GainFrame Comics",
+  name: "GainFrame Fitness Comics",
   description:
-    "Visual guides to nutrition, training, and body composition. Swipe-through comics that make fitness science simple.",
+    "Free fitness comics for lifters: gym myths busted, nutrition and recovery tips illustrated in swipe-through gym comics.",
   url: "https://gainframe.app/comics/",
   isPartOf: {
     "@type": "WebSite",

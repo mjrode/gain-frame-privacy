@@ -3,6 +3,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { SITE } from "@/lib/site";
+import { COMICS_MANIFEST } from "@/lib/comics-manifest.mjs";
 
 export const dynamic = "force-static";
 
@@ -118,5 +119,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...calcEntries, ...blogEntries];
+  const comicEntries: MetadataRoute.Sitemap = (
+    COMICS_MANIFEST as Array<{ slug: string; date: string }>
+  ).map((comic) => ({
+    url: `${SITE.url}/comics/${comic.slug}/`,
+    lastModified: comic.date,
+    changeFrequency: "yearly",
+    priority: 0.5,
+  }));
+
+  return [...staticEntries, ...calcEntries, ...blogEntries, ...comicEntries];
 }

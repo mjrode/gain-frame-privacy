@@ -25,7 +25,7 @@ const PULL_QUOTES = [
 const FILTERS = ["All", "Training", "Nutrition", "Recovery", "Body Comp", "Mindset"];
 const NEW_COUNT = 3;
 
-function getTag(slug: string): string {
+export function getTag(slug: string): string {
   for (const [tag, re] of TAG_MAP) if (re.test(slug)) return tag;
   return FALLBACK_TAG;
 }
@@ -93,7 +93,14 @@ function Hero({ comic, totalCount }: { comic: Comic; totalCount: number }) {
         <span className="hero-label">
           Latest Issue — No. {String(totalCount).padStart(2, "0")}
         </span>
-        <h3>{comic.title}</h3>
+        <h3>
+          <a
+            href={`/comics/${comic.slug}/`}
+            style={{ color: "inherit", textDecoration: "none" }}
+          >
+            {comic.title}
+          </a>
+        </h3>
         <span className="comic-tag">{tag}</span>
         {series ? (
           <span className="comic-series-badge">
@@ -150,7 +157,14 @@ function Card({ comic, index, totalCount }: { comic: Comic; index: number; total
         ) : null}
       </div>
       <div className="comic-card-info">
-        <h3>{comic.title}</h3>
+        <h3>
+          <a
+            href={`/comics/${comic.slug}/`}
+            style={{ color: "inherit", textDecoration: "none" }}
+          >
+            {comic.title}
+          </a>
+        </h3>
         <div className="comic-card-date">{formatDate(comic.date)}</div>
         <span className="comic-tag">{tag}</span>
         {series ? (
@@ -214,6 +228,21 @@ export default function ComicsGrid() {
             <span className="dateline-diamond" />
             <span>Est. 2026</span>
           </div>
+          <p
+            className="masthead-subtitle"
+            style={{ maxWidth: "640px", margin: "0.75rem auto 0", fontStyle: "normal" }}
+          >
+            Free fitness comics for people who lift. Every issue is a
+            swipe-through gym comic that busts a training myth or turns
+            nutrition, recovery, and body-composition science into something
+            you can read in thirty seconds — starring GainFrame Guy. New
+            issues land here and on{" "}
+            <a href="https://www.tiktok.com/@gainframe" target="_blank" rel="noopener">
+              TikTok
+            </a>{" "}
+            every week. Tap any cover to read, or open an issue&rsquo;s page for
+            the full transcript.
+          </p>
         </div>
       </header>
 
