@@ -302,4 +302,9 @@ NOTE: 21 posts published Jul 7 total (6 morning + 15 afternoon). Request GSC ind
 ### Jul 9 batch — 10 posts (week's queue, written in one pass)
 
 - [x] best-whoop-alternatives-for-lifters · hume-body-pod-review (hardware-review lane debut) · best-leanlens-alternatives (LeanLens = web-based, represented fairly) · body-recomposition-for-women + menopause-body-composition (FIRST female-audience pages) · progress-photo-poses · waist-to-height-ratio · lean-bulk-vs-dirty-bulk · first-cut-guide · ai-body-fat-apps-android (honest iOS-only answer) — all published 2026-07-09
+
+### Jul 11 batch — stats pages round 2 + tool-link sweep
+
+- [x] **Stats pages:** average-chest-size, average-shoulder-width (biacromial vs circumference disambiguation), average-neck-size (health-marker + Navy-formula angle) — published 2026-07-11. Rationale: waist/bicep stats pages from Jul 7 pulled 1,000–1,500 impressions each within 4 days of publish (GSC Jul 6–8). Inbound links added from average-bicep-size, shoulder-to-waist-ratio, average-waist-size-men related blocks (June crawl-bottleneck lesson: no orphans).
+- [x] **Internal-link sweep:** added /tools/body-fat-from-photo/ links to 13 roundups + 4 stats pages that had none (tool hit pos 6.6 / 14.4% CTR wk of Jul 6). Varied anchors, placed in GainFrame sections — 2026-07-11
 - [x] **CRITICAL FIX shipped same commit:** App Store CTA links across 31 posts + 9 legacy HTML pages pointed at DEAD listing id6742498826; corrected sitewide to live id6759252082 (gainframe-progress-photos) and fixed the blog-post-generator SKILL.md template that seeded it. Every "Download GainFrame Free" button on recent posts was a dead link until 2026-07-09.
