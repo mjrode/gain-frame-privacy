@@ -1,6 +1,6 @@
 ---
 name: Founder Posts
-description: Generate a build-in-public founder-story blog post + companion Reddit post for gainframe.app. Metric-dense, honest about failures, celebrates wins, with brand-styled matplotlib charts. Wraps mike-writes (voice), blog-post-generator (publishing mechanics), and image-generate (cover).
+description: Generate a build-in-public founder-story blog post + companion Reddit post for gainframe.app. Metric-dense, honest about failures, celebrates wins, with shadcn-style light-card charts (HTML/SVG + headless Chrome). Wraps mike-writes (voice), blog-post-generator (publishing mechanics), and image-generate (cover).
 triggers:
   - "founder post"
   - "founder story"
@@ -41,16 +41,15 @@ Apply the **mike-writes** skill (`~/.claude/skills/mike-writes/SKILL.md`) in ful
 
 ### Phase 2 — Charts
 
-Charts are matplotlib rendered to WebP, in the **dark shadcn-style card** (house reference: `docs/blog/organic-traffic-15x-90-days/assets/organic-clicks-90d.webp` and the trial-conversion post; this style anchored the two highest-view Reddit posts):
+Charts are **shadcn-style light cards** rendered as hand-built HTML/SVG and screenshotted with headless Chrome (Michael's standing preference, Jul 2026: the older matplotlib dark-card charts — trial-conversion post, organic-traffic post — are superseded; do NOT reproduce that style). House reference: `docs/blog/1000-mrr-five-months/assets/mrr-journey.webp` and `milestone-gaps.webp`; working generator: `.claude/skills/founder-posts/scripts/shadcn_charts_example.py` — compute SVG geometry in Python, emit a fixed-size HTML card, screenshot at 2×.
 
-- **Card:** near-black rounded card `#0B0E13` (bake rounded corners: transparent fig + `FancyBboxPatch` background), ~2240×1232 px (`figsize=(14, 7.7), dpi=160`).
-- **Header row:** bold white title ~31pt top-left + muted subtitle (`#8B95A8`, include the data source, e.g. "Weekly trial cohorts · RevenueCat"); 2–3 big stats top-right (value ~30pt bold colored, label below muted) — the stats ARE the takeaway.
-- **Palette:** text `#F1F5F9`, muted `#8B95A8`, positive `#7DD991` (green, glow + vertical gradient area fill), negative/event `#FF6B6B` (coral), neutral series `#64748B` (slate), grid `#334155` at ~45% alpha, horizontal only.
-- **Effects:** glow the hero line (re-plot 3× at increasing width/low alpha), gradient fill under areas (imshow clipped to the curve polygon), rounded bar corners (`FancyBboxPatch`), chip annotations (rounded bbox, colored bg + dark text) for events and the headline value, no spines, no tick marks.
-- **Typography:** Helvetica Neue.
-- Annotate the 2–4 numbers that matter directly on the chart; event markers as thin white vlines with a coral chip.
+- **Card:** white `#ffffff`, 1px border `#e4e4e7`, 16px radius, ~28px padding, sized exactly to the viewport (e.g. 1120×620 CSS px → 2240×1240 at 2×). System font stack (`-apple-system, Inter, …`).
+- **Header:** 20px semibold title `#09090b` + 14px muted description `#71717a` including the data source ("Weekly · RevenueCat · Feb 8 – Jul 12, 2026"); 2–3 stats top-right (24px semibold value, 12.5px muted label) — the stats ARE the takeaway.
+- **Palette (shadcn defaults):** primary series teal `#2a9d90` (chart-2), negative/contrast orange `#e76e50` (chart-1), text `#09090b`, muted `#71717a`, grid/border `#e4e4e7`. One accent color per chart plus at most one contrast color; no glows, no heavy effects.
+- **Marks:** smooth monotone-cubic line (Fritsch–Carlson, never overshoots flat runs) at ~2.25px with a subtle vertical gradient fill (0.22 → 0.02 opacity); dashed 3-3 horizontal gridlines only; milestone dots as white-filled circles with colored stroke; event markers as dashed `#d4d4d8` vlines with small muted text labels; bars rounded rx 6, fill-opacity 0.9, value labels color-matched beside the bar.
+- Annotate the 2–4 numbers that matter directly on the chart; keep everything else quiet.
 - **Every chart earns its place:** a chart that just decorates a sentence gets cut; a chart that lets the reader skip the sentence stays.
-- **Pipeline:** write the script in the scratchpad, render PNG, `cwebp -q 80` into `docs/blog/[slug]/assets/*.webp`, delete the PNG. Never link a PNG.
+- **Pipeline:** Python script in the scratchpad emits `chart.html` → `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --force-device-scale-factor=2 --window-size=W,H --screenshot=chart.png file://…` → `cwebp -q 85` into `docs/blog/[slug]/assets/*.webp`, delete the PNG. Never link a PNG. Escape `$` normally (it's HTML, not matplotlib mathtext) and use HTML entities (`&#183;`, `&#8211;`) for typographic characters.
 - Embed with the `post-figure` pattern used by `spent-5k-on-app-ads.mdx`: `<figure className="post-figure">` + `<img>` + `<figcaption>` (caption states the takeaway, not the axes).
 
 For chart-design judgment calls (what to emphasize, how to declutter), apply frontend-design/impeccable sensibilities: one message per chart, the key number visually loudest, everything else recedes.
