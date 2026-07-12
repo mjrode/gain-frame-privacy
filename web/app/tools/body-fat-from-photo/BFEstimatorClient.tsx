@@ -85,6 +85,21 @@ function getOrCreateClientId(): string {
   return id;
 }
 
+function nextRunIndex(): number {
+  // Lifetime attempt counter for this browser, sent as `run_index` on
+  // bf_tool_estimate_requested so downstream consumers (Slack alerts,
+  // PostHog) can tell a first-time visitor from the same person retrying.
+  // 0 means "unknown" (localStorage blocked — private mode etc).
+  const KEY = "gf_bf_runs";
+  try {
+    const n = (Number(localStorage.getItem(KEY)) || 0) + 1;
+    localStorage.setItem(KEY, String(n));
+    return n;
+  } catch {
+    return 0;
+  }
+}
+
 async function preprocessImage(
   file: File,
   maxDim = 1024,
@@ -444,7 +459,10 @@ export default function BFEstimatorClient() {
     if (submittingRef.current) return;
     submittingRef.current = true;
     setStage({ kind: "processing" });
-    track("bf_tool_estimate_requested", { sex: sex ?? "skip" });
+    track("bf_tool_estimate_requested", {
+      sex: sex ?? "skip",
+      run_index: nextRunIndex(),
+    });
 
     try {
       const { base64 } = await preprocessImage(file);
