@@ -28,6 +28,9 @@ export type AnalyticsEvent =
   | "bf_tool_error"
   | "bf_tool_cta_clicked"
   | "bf_tool_visualizer_clicked"
+  | "bf_tool_email_submitted"
+  | "bf_tool_report_sent"
+  | "bf_tool_report_error"
   // Homepage promo film
   | "promo_film_sound_on"
   | "promo_film_watched_75"

@@ -6,12 +6,18 @@ import { track } from "@/lib/analytics";
 
 const FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/bf-estimate";
+const REPORT_FUNCTION_URL =
+  "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/bf-full-report";
 
 const CTA_CAMPAIGN = "bf_from_photo";
 const MASCOT_SRC = "/assets/gainframe-guy/poses/gainframe-guy-wave.png";
 
 type Sex = "male" | "female" | "skip";
 type Confidence = "low" | "medium" | "high";
+
+// Email-capture card on the result screen. "already" = the backend says a
+// report already went out for this person today (429) — treated as success.
+type EmailStage = "idle" | "sending" | "sent" | "already" | "error";
 
 type Stage =
   | { kind: "idle" }
@@ -383,6 +389,16 @@ export default function BFEstimatorClient() {
   const viewedRef = useRef(false);
   const submittingRef = useRef(false);
 
+  // Email capture (result screen). The report call must reuse the exact
+  // client_id and photo bytes from the estimate call: the backend gates on
+  // the same-day rate-limit row keyed by hash(ip + client_id), and the
+  // cached base64 avoids re-encoding the photo.
+  const [email, setEmail] = useState("");
+  const [emailStage, setEmailStage] = useState<EmailStage>("idle");
+  const estimateClientIdRef = useRef<string | null>(null);
+  const photoBase64Ref = useRef<string | null>(null);
+  const emailSubmittingRef = useRef(false);
+
   useEffect(() => {
     if (viewedRef.current) return;
     viewedRef.current = true;
@@ -431,6 +447,71 @@ export default function BFEstimatorClient() {
     setSex(null);
     setStage({ kind: "idle" });
     setDisplayedNumber(0);
+    setEmail("");
+    setEmailStage("idle");
+    estimateClientIdRef.current = null;
+    photoBase64Ref.current = null;
+  }
+
+  async function submitReport() {
+    if (stage.kind !== "result") return;
+    if (emailSubmittingRef.current) return;
+    const trimmed = email.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+      setEmailStage("error");
+      return;
+    }
+    const photoBase64 = photoBase64Ref.current;
+    const clientId = estimateClientIdRef.current;
+    if (!photoBase64 || !clientId) {
+      // Shouldn't happen (both are set before any result renders), but if
+      // the refs are gone there's nothing to analyze — surface the error.
+      setEmailStage("error");
+      return;
+    }
+
+    emailSubmittingRef.current = true;
+    setEmailStage("sending");
+    track("bf_tool_email_submitted", {});
+
+    try {
+      const res = await fetch(REPORT_FUNCTION_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          client_id: clientId,
+          email: trimmed,
+          photo_base64: photoBase64,
+          photo_mime: "image/jpeg",
+          sex: sex && sex !== "skip" ? sex : null,
+          estimate: stage.estimate,
+          confidence: stage.confidence,
+          // Lets the server-side bf_tool_report_lead event land on the same
+          // PostHog person as this browser's client-side events.
+          posthog_distinct_id:
+            (window.posthog as unknown as {
+              get_distinct_id?: () => string;
+            })?.get_distinct_id?.() ?? null,
+        }),
+      });
+      if (res.ok) {
+        track("bf_tool_report_sent", {});
+        setEmailStage("sent");
+      } else if (res.status === 429) {
+        // Already sent today — from the user's perspective that's success.
+        track("bf_tool_report_sent", { already: true });
+        setEmailStage("already");
+      } else {
+        const err = (await res.json().catch(() => ({}))) as ErrorResponse;
+        track("bf_tool_report_error", { status: res.status, code: err.error });
+        setEmailStage("error");
+      }
+    } catch (err) {
+      track("bf_tool_report_error", { error: (err as Error).message });
+      setEmailStage("error");
+    } finally {
+      emailSubmittingRef.current = false;
+    }
   }
 
   function onPick(picked: File | null) {
@@ -466,8 +547,11 @@ export default function BFEstimatorClient() {
 
     try {
       const { base64 } = await preprocessImage(file);
+      const clientId = getOrCreateClientId();
+      estimateClientIdRef.current = clientId;
+      photoBase64Ref.current = base64;
       const payload = {
-        client_id: getOrCreateClientId(),
+        client_id: clientId,
         photo_base64: base64,
         photo_mime: "image/jpeg",
         sex: sex && sex !== "skip" ? sex : null,
@@ -663,6 +747,77 @@ export default function BFEstimatorClient() {
             a directional read, not for tracking small changes week-to-week.
           </div>
         </div>
+
+        {emailStage === "sent" || emailStage === "already" ? (
+          <div className="bff-email is-sent">
+            <span className="bff-email-check" aria-hidden>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </span>
+            <div>
+              <p className="bff-email-title">
+                {emailStage === "already"
+                  ? "Your report is already on its way"
+                  : "Report sent"}
+              </p>
+              <p className="bff-email-sub">
+                Give it a couple of minutes — and check spam the first time,
+                then drag it to your inbox so the next one lands right.
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="bff-email">
+            <p className="bff-email-eyebrow">Free · no account needed</p>
+            <p className="bff-email-title">
+              Get the full breakdown of this photo
+            </p>
+            <ul className="bff-email-points">
+              <li>Everything the AI saw — line by line, not one sentence</li>
+              <li>Your strengths and the areas with the most visual upside</li>
+              <li>Where {stage.estimate} sits and a realistic timeline to the next level</li>
+            </ul>
+            <form
+              className="bff-email-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                submitReport();
+              }}
+            >
+              <input
+                className="bff-email-input"
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                placeholder="you@example.com"
+                aria-label="Email address for your full report"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (emailStage === "error") setEmailStage("idle");
+                }}
+                disabled={emailStage === "sending"}
+              />
+              <button
+                type="submit"
+                className="bff-email-btn"
+                disabled={emailStage === "sending"}
+              >
+                {emailStage === "sending" ? "Building report…" : "Email my report"}
+              </button>
+            </form>
+            {emailStage === "error" && (
+              <p className="bff-email-error" role="alert">
+                That didn't go through — check the address and try again.
+              </p>
+            )}
+            <p className="bff-email-note">
+              We keep your email and the written report — never your photo.
+              Occasional GainFrame updates, unsubscribe anytime.
+            </p>
+          </div>
+        )}
 
         {(() => {
           // Spectrum Bridge — personalized strip of visualizer renders

@@ -1201,3 +1201,147 @@
 @media (prefers-reduced-motion: reduce) {
   .bff-spectrum-fig { transition: none; }
 }
+
+/* ================================================================
+   Email capture — full-report card on the result screen
+   ================================================================ */
+
+.bff-email {
+  max-width: 620px;
+  margin: clamp(18px, 3vw, 26px) auto 0;
+  background: var(--bff-paper);
+  border: 1px solid var(--bff-line);
+  border-radius: var(--bff-radius-sm);
+  box-shadow: var(--bff-shadow-2);
+  padding: clamp(20px, 3.4vw, 28px);
+  text-align: left;
+}
+.bff-email-eyebrow {
+  font-family: var(--bff-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bff-green);
+  margin: 0 0 8px;
+}
+.bff-email-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--bff-ink);
+  margin: 0 0 10px;
+}
+.bff-email-points {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+.bff-email-points li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--bff-muted);
+  margin-bottom: 6px;
+}
+.bff-email-points li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.58em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--bff-green);
+}
+.bff-email-form {
+  display: flex;
+  gap: 10px;
+}
+.bff-email-input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--bff-sans);
+  font-size: 0.95rem;
+  color: var(--bff-ink);
+  background: var(--bff-paper-2);
+  border: 1px solid var(--bff-line-2);
+  border-radius: 11px;
+  padding: 13px 15px;
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+.bff-email-input::placeholder { color: var(--bff-faint); }
+.bff-email-input:focus {
+  border-color: var(--bff-ink);
+  background: var(--bff-paper);
+  box-shadow: 0 0 0 3px rgba(23, 23, 23, 0.06);
+}
+.bff-email-input:disabled { opacity: 0.6; }
+.bff-email-btn {
+  flex-shrink: 0;
+  background: var(--bff-ink);
+  color: var(--bff-paper);
+  font-family: var(--bff-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 13px 20px;
+  border-radius: 11px;
+  border: 1px solid var(--bff-ink);
+  cursor: pointer;
+  transition: transform 100ms ease, background 200ms ease;
+  box-shadow: 0 8px 20px rgba(23, 23, 23, 0.14);
+}
+.bff-email-btn:hover:not(:disabled) {
+  background: #000;
+  transform: translateY(-1px);
+}
+.bff-email-btn:disabled {
+  cursor: wait;
+  opacity: 0.7;
+  box-shadow: none;
+}
+.bff-email-error {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+  color: var(--bff-red);
+}
+.bff-email-note {
+  margin: 14px 0 0;
+  font-family: var(--bff-mono);
+  font-size: 0.74rem;
+  line-height: 1.55;
+  color: var(--bff-muted);
+}
+
+/* Sent / already-sent confirmation */
+.bff-email.is-sent {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.bff-email.is-sent .bff-email-title { margin-bottom: 4px; }
+.bff-email-sub {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--bff-muted);
+}
+.bff-email-check {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bff-green-50);
+  color: var(--bff-green);
+  margin-top: 2px;
+}
+
+@media (max-width: 520px) {
+  .bff-email-form { flex-direction: column; }
+  .bff-email-btn { width: 100%; }
+}
