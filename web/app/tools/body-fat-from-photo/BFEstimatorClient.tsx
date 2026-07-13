@@ -177,205 +177,6 @@ function ConfidenceChip({ value }: { value: Confidence }) {
   );
 }
 
-function CTACard({
-  href,
-  ctaContent,
-  title,
-  body,
-  preview,
-}: {
-  href: string;
-  ctaContent: string;
-  title: string;
-  body: string;
-  preview: React.ReactNode;
-}) {
-  return (
-    <a
-      className="bff-cta"
-      href={href}
-      target="_blank"
-      rel="noopener"
-      // Fires its own outbound event below with the campaign source —
-      // exempt from the global AppStoreClickTracker to avoid double counts.
-      data-track-exempt="true"
-      onClick={() => {
-        track("bf_tool_cta_clicked", { cta_content: ctaContent });
-        track("outbound_app_store_click", {
-          source: CTA_CAMPAIGN,
-          cta_content: ctaContent,
-        });
-      }}
-    >
-      <span className="bff-cta-preview" aria-hidden>
-        {preview}
-      </span>
-      <span className="bff-cta-body">
-        <span className="bff-cta-h">{title}</span>
-        <span className="bff-cta-p">{body}</span>
-        <span className="bff-cta-link">
-          Open in app
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 12h14M13 5l7 7-7 7" />
-          </svg>
-        </span>
-      </span>
-    </a>
-  );
-}
-
-/* ── Abstract previews for CTA cards ── */
-
-function PreviewSparkline() {
-  return (
-    <svg viewBox="0 0 200 124" fill="none">
-      <defs>
-        <linearGradient id="sparkfill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#34d26f" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#34d26f" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <g transform="translate(20, 20)">
-        {[0, 1, 2, 3, 4, 5, 6].map((i) => {
-          const heights = [22, 30, 26, 38, 32, 46, 44];
-          return (
-            <rect
-              key={i}
-              x={i * 22}
-              y={70 - heights[i]}
-              width={6}
-              height={heights[i]}
-              fill="rgba(23,23,23,0.08)"
-              rx={1}
-            />
-          );
-        })}
-        <path
-          d="M3 50 L25 42 L47 46 L69 32 L91 38 L113 24 L135 28 L157 16"
-          stroke="#171717"
-          strokeWidth="2"
-          strokeLinecap="round"
-          fill="none"
-        />
-        <path
-          d="M3 50 L25 42 L47 46 L69 32 L91 38 L113 24 L135 28 L157 16 L157 70 L3 70 Z"
-          fill="url(#sparkfill)"
-        />
-        <circle cx="157" cy="16" r="3.5" fill="#34d26f" />
-        <circle cx="157" cy="16" r="7" fill="none" stroke="#34d26f" strokeOpacity="0.35" />
-      </g>
-    </svg>
-  );
-}
-
-function PreviewMuscleMap() {
-  const dots: { x: number; y: number; tier: 0 | 1 | 2 }[] = [
-    { x: 100, y: 30, tier: 2 },
-    { x: 78, y: 36, tier: 1 },
-    { x: 122, y: 36, tier: 2 },
-    { x: 64, y: 50, tier: 1 },
-    { x: 136, y: 50, tier: 1 },
-    { x: 90, y: 58, tier: 2 },
-    { x: 100, y: 70, tier: 0 },
-    { x: 100, y: 84, tier: 1 },
-    { x: 80, y: 76, tier: 0 },
-    { x: 120, y: 76, tier: 1 },
-    { x: 88, y: 100, tier: 1 },
-    { x: 112, y: 100, tier: 2 },
-  ];
-  const tierColor = ["#ff5d6c", "#ffd23f", "#34d26f"];
-  return (
-    <svg viewBox="0 0 200 124" fill="none">
-      <g transform="translate(0, -2)">
-        <path
-          d="M82 22 Q100 18 118 22 L122 50 L116 60 L116 100 L114 124 L106 124 L104 102 L100 102 L96 124 L88 124 L86 100 L86 60 L80 50 Z M80 24 L66 50 L70 70 M120 24 L134 50 L130 70"
-          stroke="rgba(23,23,23,0.16)"
-          strokeWidth="1.2"
-          fill="rgba(23,23,23,0.04)"
-        />
-        <circle
-          cx="100"
-          cy="14"
-          r="6"
-          stroke="rgba(23,23,23,0.16)"
-          strokeWidth="1.2"
-          fill="rgba(23,23,23,0.04)"
-        />
-        {dots.map((d, i) => (
-          <g key={i}>
-            <circle cx={d.x} cy={d.y} r={4} fill={tierColor[d.tier]} />
-            <circle
-              cx={d.x}
-              cy={d.y}
-              r={7}
-              fill="none"
-              stroke={tierColor[d.tier]}
-              strokeOpacity="0.3"
-            />
-          </g>
-        ))}
-      </g>
-    </svg>
-  );
-}
-
-function PreviewFuture() {
-  return (
-    <svg viewBox="0 0 200 124" fill="none">
-      <defs>
-        <linearGradient id="fade1" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="rgba(23,23,23,0.18)" />
-          <stop offset="100%" stopColor="rgba(23,23,23,0.05)" />
-        </linearGradient>
-      </defs>
-      <g transform="translate(0, 4)">
-        <path
-          d="M48 22 Q60 18 72 22 L76 50 L72 56 L72 96 L70 116 L64 116 L62 96 L58 96 L56 116 L50 116 L48 96 L48 56 L44 50 Z"
-          stroke="rgba(23,23,23,0.18)"
-          strokeWidth="1.2"
-          fill="url(#fade1)"
-        />
-        <circle cx="60" cy="14" r="6" stroke="rgba(23,23,23,0.18)" strokeWidth="1.2" fill="url(#fade1)" />
-        <path
-          d="M88 64 L112 64 M104 58 L112 64 L104 70"
-          stroke="#34d26f"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <text
-          x="100"
-          y="52"
-          textAnchor="middle"
-          fontFamily="Geist Mono, monospace"
-          fontSize="6"
-          fill="#34d26f"
-          letterSpacing="1"
-          fontWeight="600"
-        >
-          +6 MO
-        </text>
-        <path
-          d="M128 22 Q140 16 152 22 L158 48 L152 54 L152 96 L150 116 L144 116 L142 96 L138 96 L136 116 L130 116 L128 96 L128 54 L122 48 Z"
-          stroke="#171717"
-          strokeWidth="1.4"
-          fill="rgba(52,210,111,0.08)"
-        />
-        <circle cx="140" cy="12" r="6" stroke="#171717" strokeWidth="1.4" fill="rgba(52,210,111,0.08)" />
-      </g>
-    </svg>
-  );
-}
-
 export default function BFEstimatorClient() {
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
   const [file, setFile] = useState<File | null>(null);
@@ -395,6 +196,7 @@ export default function BFEstimatorClient() {
   // cached base64 avoids re-encoding the photo.
   const [email, setEmail] = useState("");
   const [emailStage, setEmailStage] = useState<EmailStage>("idle");
+  const [emailOpen, setEmailOpen] = useState(false);
   const estimateClientIdRef = useRef<string | null>(null);
   const photoBase64Ref = useRef<string | null>(null);
   const emailSubmittingRef = useRef(false);
@@ -449,6 +251,7 @@ export default function BFEstimatorClient() {
     setDisplayedNumber(0);
     setEmail("");
     setEmailStage("idle");
+    setEmailOpen(false);
     estimateClientIdRef.current = null;
     photoBase64Ref.current = null;
   }
@@ -631,36 +434,6 @@ export default function BFEstimatorClient() {
 
   // ============ RENDER ============
 
-  const ctaCards = (
-    <div className="bff-cta-section">
-      <p className="bff-cta-eyebrow">Take it further</p>
-      <h2 className="bff-cta-title">Beyond the single estimate</h2>
-      <div className="bff-cta-grid">
-        <CTACard
-          href={appStoreUrl("cta_track")}
-          ctaContent="cta_track"
-          title="Track this every week"
-          body="Side-by-side compare and trend charts as you cut or bulk."
-          preview={<PreviewSparkline />}
-        />
-        <CTACard
-          href={appStoreUrl("cta_muscles")}
-          ctaContent="cta_muscles"
-          title="Muscle-by-muscle scoring"
-          body="12 muscle groups rated Needs Work → Strong, with growth tips."
-          preview={<PreviewMuscleMap />}
-        />
-        <CTACard
-          href={appStoreUrl("cta_future")}
-          ctaContent="cta_future"
-          title="See yourself at 12% body fat"
-          body="AI-generated future physique at 3, 6, and 12 months."
-          preview={<PreviewFuture />}
-        />
-      </div>
-    </div>
-  );
-
   // -------- Processing --------
   if (stage.kind === "processing") {
     return (
@@ -740,6 +513,125 @@ export default function BFEstimatorClient() {
           </div>
         </div>
 
+        {/* Two doors — ONE decision after the result: the app (primary,
+            the page's only green-on-dark element) or the emailed report
+            (quiet, form expands on tap). Everything below is content. */}
+        <div className="bff-doors">
+          <a
+            className="bff-door bff-door--app"
+            href={appStoreUrl("cta_primary")}
+            target="_blank"
+            rel="noopener"
+            // Fires its own outbound event below with the campaign source —
+            // exempt from the global AppStoreClickTracker to avoid double counts.
+            data-track-exempt="true"
+            onClick={() => {
+              track("bf_tool_cta_clicked", { cta_content: "cta_primary" });
+              track("outbound_app_store_click", {
+                source: CTA_CAMPAIGN,
+                cta_content: "cta_primary",
+              });
+            }}
+          >
+            <span className="bff-door-glow" aria-hidden />
+            <span className="bff-door-eyebrow">Recommended</span>
+            <span className="bff-door-title">Keep going in the app</span>
+            <span className="bff-door-sub">
+              Precise multi-photo body fat, 12 muscle scores, weekly trends.
+              Free to start.
+            </span>
+            <span className="bff-door-btn">
+              Download on iOS <span aria-hidden>→</span>
+            </span>
+          </a>
+
+          <div className="bff-door bff-door--email">
+            {emailStage === "sent" || emailStage === "already" ? (
+              <>
+                <span className="bff-email-check" aria-hidden>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                </span>
+                <span className="bff-door-title">
+                  {emailStage === "already"
+                    ? "Already on its way"
+                    : "Report sent"}
+                </span>
+                <span className="bff-door-sub">
+                  Give it a couple of minutes — check spam the first time.
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="bff-door-eyebrow">Or by email</span>
+                <span className="bff-door-title">Full written report</span>
+                {!emailOpen ? (
+                  <>
+                    <span className="bff-door-sub">
+                      Everything the AI saw, strengths, focus areas, and a
+                      realistic timeline. Free.
+                    </span>
+                    <button
+                      type="button"
+                      className="bff-door-btn-outline"
+                      onClick={() => {
+                        setEmailOpen(true);
+                        track("bf_tool_email_opened", {});
+                      }}
+                    >
+                      Email it to me
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <form
+                      className="bff-door-form"
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        submitReport();
+                      }}
+                    >
+                      <input
+                        className="bff-email-input"
+                        type="email"
+                        inputMode="email"
+                        autoComplete="email"
+                        autoFocus
+                        placeholder="you@example.com"
+                        aria-label="Email address for your full report"
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                          if (emailStage === "error") setEmailStage("idle");
+                        }}
+                        disabled={emailStage === "sending"}
+                      />
+                      <button
+                        type="submit"
+                        className="bff-email-btn"
+                        disabled={emailStage === "sending"}
+                      >
+                        {emailStage === "sending" ? "Building…" : "Send report"}
+                      </button>
+                    </form>
+                    {emailStage === "error" && (
+                      <p className="bff-email-error" role="alert">
+                        That didn't go through — check the address and try
+                        again.
+                      </p>
+                    )}
+                    <p className="bff-email-note">
+                      We keep your email and the written report — never your
+                      photo. Occasional GainFrame updates, unsubscribe anytime.
+                    </p>
+                  </>
+                )}
+              </>
+            )}
+          </div>
+        </div>
+
         <div className="bff-disclaimer">
           <span className="bff-disclaimer-mark">i</span>
           <div>
@@ -747,77 +639,6 @@ export default function BFEstimatorClient() {
             a directional read, not for tracking small changes week-to-week.
           </div>
         </div>
-
-        {emailStage === "sent" || emailStage === "already" ? (
-          <div className="bff-email is-sent">
-            <span className="bff-email-check" aria-hidden>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20 6L9 17l-5-5" />
-              </svg>
-            </span>
-            <div>
-              <p className="bff-email-title">
-                {emailStage === "already"
-                  ? "Your report is already on its way"
-                  : "Report sent"}
-              </p>
-              <p className="bff-email-sub">
-                Give it a couple of minutes — and check spam the first time,
-                then drag it to your inbox so the next one lands right.
-              </p>
-            </div>
-          </div>
-        ) : (
-          <div className="bff-email">
-            <p className="bff-email-eyebrow">Free · no account needed</p>
-            <p className="bff-email-title">
-              Get the full breakdown of this photo
-            </p>
-            <ul className="bff-email-points">
-              <li>Everything the AI saw — line by line, not one sentence</li>
-              <li>Your strengths and the areas with the most visual upside</li>
-              <li>Where {stage.estimate} sits and a realistic timeline to the next level</li>
-            </ul>
-            <form
-              className="bff-email-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                submitReport();
-              }}
-            >
-              <input
-                className="bff-email-input"
-                type="email"
-                inputMode="email"
-                autoComplete="email"
-                placeholder="you@example.com"
-                aria-label="Email address for your full report"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  if (emailStage === "error") setEmailStage("idle");
-                }}
-                disabled={emailStage === "sending"}
-              />
-              <button
-                type="submit"
-                className="bff-email-btn"
-                disabled={emailStage === "sending"}
-              >
-                {emailStage === "sending" ? "Building report…" : "Email my report"}
-              </button>
-            </form>
-            {emailStage === "error" && (
-              <p className="bff-email-error" role="alert">
-                That didn't go through — check the address and try again.
-              </p>
-            )}
-            <p className="bff-email-note">
-              We keep your email and the written report — never your photo.
-              Occasional GainFrame updates, unsubscribe anytime.
-            </p>
-          </div>
-        )}
 
         {(() => {
           // Spectrum Bridge — personalized strip of visualizer renders
@@ -876,7 +697,7 @@ export default function BFEstimatorClient() {
                 })}
               </div>
               <a
-                className="bff-spectrum-cta"
+                className="bff-spectrum-link"
                 href={vizHref(steps[nearest])}
                 onClick={() =>
                   track("bf_tool_visualizer_clicked", {
@@ -887,41 +708,10 @@ export default function BFEstimatorClient() {
                 }
               >
                 Drag through every level →
-                <small>Opens the Body Fat Visualizer at your estimate</small>
               </a>
             </div>
           );
         })()}
-
-        <a
-          className="bff-primary-cta"
-          href={appStoreUrl("cta_primary")}
-          target="_blank"
-          rel="noopener"
-          // Fires its own outbound event below with the campaign source —
-          // exempt from the global AppStoreClickTracker to avoid double counts.
-          data-track-exempt="true"
-          onClick={() => {
-            track("bf_tool_cta_clicked", { cta_content: "cta_primary" });
-            track("outbound_app_store_click", {
-              source: CTA_CAMPAIGN,
-              cta_content: "cta_primary",
-            });
-          }}
-        >
-          <span className="bff-primary-cta-body">
-            <span className="bff-primary-cta-eyebrow">For precision tracking</span>
-            <span className="bff-primary-cta-title">
-              Get GainFrame on iOS
-            </span>
-            <span className="bff-primary-cta-sub">
-              Multi-photo body fat, weekly trends, 12 muscle scores. Free to start.
-            </span>
-          </span>
-          <span className="bff-primary-cta-arrow" aria-hidden>→</span>
-        </a>
-
-        {ctaCards}
 
         <p className="bff-retry-note">
           Today's free estimate used · Come back tomorrow or get the app
