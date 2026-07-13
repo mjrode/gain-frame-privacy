@@ -27,8 +27,8 @@ body-fat-percentage-chart (hub) · average-body-fat-percentage-by-age · dad-bod
 
 The brand-alternatives lane (InBody template). Best new-post velocity: top-6 within a week.
 
-best-body-scanning-measurement-apps (hub) · best-inbody-alternatives · best-zozofit-alternatives · best-renpho-alternatives · methreesixty-vs-gainframe · recomp-ai-vs-gainframe · fitnessai-bodyscan-vs-gainframe · spren-app-review · spren-vs-gainframe · average-waist-size-men 📊 · average-bicep-size 📊 · shoulder-to-waist-ratio 📊
-**Gaps:** Hume Body Pod review (hardware-review lane untested) · Withings Body Scan review · "Fit3D/Styku alternatives" (B2B-ish, low priority).
+best-body-scanning-measurement-apps (hub) · best-inbody-alternatives · best-zozofit-alternatives · best-renpho-alternatives · best-leanlens-alternatives · hume-body-pod-review · methreesixty-vs-gainframe · recomp-ai-vs-gainframe · fitnessai-bodyscan-vs-gainframe · spren-app-review · spren-vs-gainframe · **Measurement stats sub-cluster 📊 (breakout format — 5K imp/5d):** ideal-body-measurements-men (hub) · average-waist-size-men · average-bicep-size · average-shoulder-width (Jul 11 session) · average-chest-size (Jul 11) · average-neck-size (Jul 11) · average-wrist-size · average-forearm-size · waist-to-height-ratio · shoulder-to-waist-ratio · why-is-my-waist-not-shrinking
+**Gaps:** Withings Body Scan review · average-thigh/calf-size (only if the measurement family keeps compounding). ⚠️ Parallel-session rule: re-list web/content/blog before briefing ANY batch — Jul 13 near-miss duplicated Jul 11 session's stats pages.
 
 ## Cluster 4 — Progress photos 💰📊
 
