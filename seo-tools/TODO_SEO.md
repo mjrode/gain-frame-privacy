@@ -309,3 +309,10 @@ NOTE: 21 posts published Jul 7 total (6 morning + 15 afternoon). Request GSC ind
 - [x] **Internal-link sweep:** added /tools/body-fat-from-photo/ links to 13 roundups + 4 stats pages that had none (tool hit pos 6.6 / 14.4% CTR wk of Jul 6). Varied anchors, placed in GainFrame sections — 2026-07-11
 - [ ] **Request GSC indexing for the 3 new stats pages** (average-chest-size, average-shoulder-width, average-neck-size) — daily indexing quota was exhausted 2026-07-11; submit on/after 2026-07-12
 - [x] **CRITICAL FIX shipped same commit:** App Store CTA links across 31 posts + 9 legacy HTML pages pointed at DEAD listing id6742498826; corrected sitewide to live id6759252082 (gainframe-progress-photos) and fixed the blog-post-generator SKILL.md template that seeded it. Every "Download GainFrame Free" button on recent posts was a dead link until 2026-07-09.
+
+### Jul 13 batch — 10 posts doubling down on validated formats (stats pages 5K imp/5d, quizzes 12-17% CTR)
+
+- [x] **Stats/measurement cluster:** ideal-body-measurements-men (hub) · average-body-fat-percentage-women (women head terms; guards vs by-age + chart) · average-wrist-size · average-forearm-size — published 2026-07-13
+- [x] **Relatable questions:** how-long-to-see-abs · why-is-my-waist-not-shrinking · normal-bmi-but-look-fat · strong-but-look-small · how-much-muscle-can-you-gain-in-a-month — published 2026-07-13
+- [x] **Quiz:** body-type-quiz (honest somatotype myth-bust) — published 2026-07-13
+- NOTE: original batch briefed average-shoulder-width-men/chest/neck as dupes of the **Jul 11 session's stats round 2** (average-shoulder-width, average-chest-size, average-neck-size — already live, indexing queued). Writer agent caught it; replaced with wrist/forearm/strong-but-small. Overwritten neck cover restored from git. LESSON: always re-list web/content/blog before briefing a batch — sessions run in parallel.
