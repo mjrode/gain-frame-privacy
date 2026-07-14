@@ -1203,175 +1203,161 @@
 }
 
 /* ================================================================
-   Two doors — the single post-result decision (app vs email report)
+   One block, both asks — the single post-result conversion unit.
+   Green download primary + "or get it in writing" email row.
    ================================================================ */
 
-.bff-doors {
-  display: flex;
-  gap: 12px;
-  max-width: 680px;
-  margin: clamp(18px, 3vw, 26px) auto 0;
-  align-items: stretch;
-}
-.bff-door {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  border-radius: var(--bff-radius-sm);
-  padding: clamp(18px, 2.8vw, 24px);
-}
-
-/* Primary door — the ONLY green-on-dark element on the page */
-.bff-door--app {
-  flex: 1.45;
+.bff-cta-block {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #10241a 0%, #171717 58%);
-  border: 1px solid rgba(52, 210, 111, 0.45);
-  box-shadow: 0 14px 36px rgba(23, 23, 23, 0.22), 0 0 0 4px var(--bff-green-50);
+  max-width: 620px;
+  margin: clamp(18px, 3vw, 26px) auto 0;
+  border-radius: var(--bff-radius-sm);
+  padding: clamp(20px, 3vw, 26px);
+  background: linear-gradient(150deg, #10241a 0%, #171717 60%);
+  border: 1px solid rgba(52, 210, 111, 0.4);
+  box-shadow: 0 14px 36px rgba(23, 23, 23, 0.24), 0 0 0 4px var(--bff-green-50);
   color: #fff;
-  text-decoration: none;
-  transition: transform 120ms ease, box-shadow 200ms ease;
+  text-align: left;
 }
-.bff-door--app:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 44px rgba(23, 23, 23, 0.28), 0 0 0 4px rgba(52, 210, 111, 0.16);
-}
-.bff-door-glow {
+.bff-cta-glow {
   position: absolute;
   right: -70px;
   top: -70px;
   width: 220px;
   height: 220px;
-  background: radial-gradient(circle, rgba(52, 210, 111, 0.28), transparent 70%);
+  background: radial-gradient(circle, rgba(52, 210, 111, 0.25), transparent 70%);
   pointer-events: none;
 }
-.bff-door-eyebrow {
-  font-family: var(--bff-mono);
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.bff-door--app .bff-door-eyebrow { color: var(--bff-green); }
-.bff-door--email .bff-door-eyebrow { color: var(--bff-muted); }
-.bff-door-title {
-  font-size: 1.12rem;
+.bff-cta-block-title {
+  font-size: clamp(1.15rem, 2.4vw, 1.3rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  margin: 0;
 }
-.bff-door-sub {
-  font-size: 0.82rem;
+.bff-cta-block-sub {
+  font-size: 0.86rem;
   line-height: 1.55;
-  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 5px 0 16px;
+  max-width: 440px;
 }
-.bff-door--app .bff-door-sub { color: rgba(255, 255, 255, 0.72); }
-.bff-door--email .bff-door-sub { color: var(--bff-muted); }
-.bff-door-btn {
-  display: inline-block;
-  margin-top: auto;
-  padding: 12px 20px;
+.bff-cta-download {
+  display: block;
+  width: 100%;
+  text-align: center;
   background: var(--bff-green);
   color: #08130c;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 800;
+  padding: 14px 20px;
   border-radius: 11px;
+  text-decoration: none;
   box-shadow: 0 8px 22px rgba(52, 210, 111, 0.35);
-  transition: transform 100ms ease;
+  transition: transform 100ms ease, box-shadow 200ms ease;
 }
-.bff-door--app .bff-door-btn { margin-top: 16px; }
-.bff-door--app:hover .bff-door-btn { transform: translateY(-1px); }
-
-/* Secondary door — quiet paper card; form expands in place */
-.bff-door--email {
-  flex: 1;
-  background: var(--bff-paper);
-  border: 1px solid var(--bff-line);
-  box-shadow: var(--bff-shadow-2);
+.bff-cta-download:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(52, 210, 111, 0.45);
 }
-.bff-door-btn-outline {
-  margin-top: 14px;
-  padding: 11px 18px;
-  background: var(--bff-paper);
-  color: var(--bff-ink);
-  font-family: var(--bff-sans);
-  font-size: 0.84rem;
-  font-weight: 700;
-  border: 1px solid var(--bff-line-2);
-  border-radius: 11px;
-  cursor: pointer;
-  transition: border-color 150ms ease, background 150ms ease;
-}
-.bff-door-btn-outline:hover {
-  border-color: var(--bff-ink);
-  background: var(--bff-paper-2);
-}
-.bff-door-form {
+.bff-cta-divider {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-  margin-top: 12px;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 12px;
+  font-family: var(--bff-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
 }
-.bff-email-input {
-  width: 100%;
+.bff-cta-divider::before,
+.bff-cta-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.14);
+}
+.bff-cta-form {
+  display: flex;
+  gap: 8px;
+}
+.bff-cta-input {
+  flex: 1;
+  min-width: 0;
   font-family: var(--bff-sans);
   font-size: 0.9rem;
-  color: var(--bff-ink);
-  background: var(--bff-paper-2);
-  border: 1px solid var(--bff-line-2);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 11px 13px;
   outline: none;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
+  transition: border-color 150ms ease, background 150ms ease;
 }
-.bff-email-input::placeholder { color: var(--bff-faint); }
-.bff-email-input:focus {
-  border-color: var(--bff-ink);
-  background: var(--bff-paper);
-  box-shadow: 0 0 0 3px rgba(23, 23, 23, 0.06);
+.bff-cta-input::placeholder { color: rgba(255, 255, 255, 0.4); }
+.bff-cta-input:focus {
+  border-color: var(--bff-green);
+  background: rgba(255, 255, 255, 0.1);
 }
-.bff-email-input:disabled { opacity: 0.6; }
-.bff-email-btn {
-  width: 100%;
-  background: var(--bff-ink);
-  color: var(--bff-paper);
+.bff-cta-input:disabled { opacity: 0.6; }
+.bff-cta-send {
+  flex-shrink: 0;
+  background: transparent;
+  color: #fff;
   font-family: var(--bff-sans);
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   font-weight: 700;
   padding: 11px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 10px;
-  border: 1px solid var(--bff-ink);
   cursor: pointer;
-  transition: background 200ms ease;
+  transition: border-color 150ms ease, background 150ms ease;
 }
-.bff-email-btn:hover:not(:disabled) { background: #000; }
-.bff-email-btn:disabled { cursor: wait; opacity: 0.7; }
-.bff-email-error {
-  margin: 8px 0 0;
+.bff-cta-send:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+}
+.bff-cta-send:disabled { cursor: wait; opacity: 0.7; }
+.bff-cta-error {
+  margin: 9px 0 0;
   font-size: 0.8rem;
   color: var(--bff-red);
 }
-.bff-email-note {
+.bff-cta-note {
   margin: 10px 0 0;
   font-family: var(--bff-mono);
-  font-size: 0.68rem;
-  line-height: 1.55;
-  color: var(--bff-muted);
+  font-size: 0.66rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.42);
 }
-.bff-email-check {
+.bff-cta-sent {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+}
+.bff-cta-check {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: var(--bff-green-50);
+  background: rgba(52, 210, 111, 0.18);
   color: var(--bff-green);
-  margin-bottom: 10px;
+  margin-top: 1px;
+}
+.bff-cta-sent-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin: 0;
+}
+.bff-cta-sent-sub {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 2px 0 0;
 }
 
 /* Spectrum CTA demoted to a quiet text link (was a full-width dark button) */
@@ -1386,6 +1372,7 @@
 }
 .bff-spectrum-link:hover { color: #000; }
 
-@media (max-width: 640px) {
-  .bff-doors { flex-direction: column; }
+@media (max-width: 480px) {
+  .bff-cta-form { flex-direction: column; }
+  .bff-cta-send { width: 100%; }
 }

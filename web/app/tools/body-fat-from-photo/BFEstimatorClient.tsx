@@ -196,7 +196,6 @@ export default function BFEstimatorClient() {
   // cached base64 avoids re-encoding the photo.
   const [email, setEmail] = useState("");
   const [emailStage, setEmailStage] = useState<EmailStage>("idle");
-  const [emailOpen, setEmailOpen] = useState(false);
   const estimateClientIdRef = useRef<string | null>(null);
   const photoBase64Ref = useRef<string | null>(null);
   const emailSubmittingRef = useRef(false);
@@ -251,7 +250,6 @@ export default function BFEstimatorClient() {
     setDisplayedNumber(0);
     setEmail("");
     setEmailStage("idle");
-    setEmailOpen(false);
     estimateClientIdRef.current = null;
     photoBase64Ref.current = null;
   }
@@ -513,12 +511,18 @@ export default function BFEstimatorClient() {
           </div>
         </div>
 
-        {/* Two doors — ONE decision after the result: the app (primary,
-            the page's only green-on-dark element) or the emailed report
-            (quiet, form expands on tap). Everything below is content. */}
-        <div className="bff-doors">
+        {/* One block, both asks — the page's single conversion unit. Green
+            download is the loudest element; the email row sits below an
+            "or get it in writing" divider, zero taps to reach the field. */}
+        <div className="bff-cta-block">
+          <span className="bff-cta-glow" aria-hidden />
+          <p className="bff-cta-block-title">Take this past a one-off guess</p>
+          <p className="bff-cta-block-sub">
+            Precise multi-photo body fat, 12 muscle scores, weekly trends —
+            free to start.
+          </p>
           <a
-            className="bff-door bff-door--app"
+            className="bff-cta-download"
             href={appStoreUrl("cta_primary")}
             target="_blank"
             rel="noopener"
@@ -533,103 +537,74 @@ export default function BFEstimatorClient() {
               });
             }}
           >
-            <span className="bff-door-glow" aria-hidden />
-            <span className="bff-door-eyebrow">Recommended</span>
-            <span className="bff-door-title">Keep going in the app</span>
-            <span className="bff-door-sub">
-              Precise multi-photo body fat, 12 muscle scores, weekly trends.
-              Free to start.
-            </span>
-            <span className="bff-door-btn">
-              Download on iOS <span aria-hidden>→</span>
-            </span>
+            Download GainFrame on iOS <span aria-hidden>→</span>
           </a>
 
-          <div className="bff-door bff-door--email">
-            {emailStage === "sent" || emailStage === "already" ? (
-              <>
-                <span className="bff-email-check" aria-hidden>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>
-                </span>
-                <span className="bff-door-title">
-                  {emailStage === "already"
-                    ? "Already on its way"
-                    : "Report sent"}
-                </span>
-                <span className="bff-door-sub">
-                  Give it a couple of minutes — check spam the first time.
-                </span>
-              </>
-            ) : (
-              <>
-                <span className="bff-door-eyebrow">Or by email</span>
-                <span className="bff-door-title">Full written report</span>
-                {!emailOpen ? (
-                  <>
-                    <span className="bff-door-sub">
-                      Everything the AI saw, strengths, focus areas, and a
-                      realistic timeline. Free.
-                    </span>
-                    <button
-                      type="button"
-                      className="bff-door-btn-outline"
-                      onClick={() => {
-                        setEmailOpen(true);
-                        track("bf_tool_email_opened", {});
-                      }}
-                    >
-                      Email it to me
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <form
-                      className="bff-door-form"
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        submitReport();
-                      }}
-                    >
-                      <input
-                        className="bff-email-input"
-                        type="email"
-                        inputMode="email"
-                        autoComplete="email"
-                        autoFocus
-                        placeholder="you@example.com"
-                        aria-label="Email address for your full report"
-                        value={email}
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                          if (emailStage === "error") setEmailStage("idle");
-                        }}
-                        disabled={emailStage === "sending"}
-                      />
-                      <button
-                        type="submit"
-                        className="bff-email-btn"
-                        disabled={emailStage === "sending"}
-                      >
-                        {emailStage === "sending" ? "Building…" : "Send report"}
-                      </button>
-                    </form>
-                    {emailStage === "error" && (
-                      <p className="bff-email-error" role="alert">
-                        That didn't go through — check the address and try
-                        again.
-                      </p>
-                    )}
-                    <p className="bff-email-note">
-                      We keep your email and the written report — never your
-                      photo. Occasional GainFrame updates, unsubscribe anytime.
-                    </p>
-                  </>
-                )}
-              </>
-            )}
+          <div className="bff-cta-divider" aria-hidden>
+            or get it in writing
           </div>
+
+          {emailStage === "sent" || emailStage === "already" ? (
+            <div className="bff-cta-sent">
+              <span className="bff-cta-check" aria-hidden>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </span>
+              <div>
+                <p className="bff-cta-sent-title">
+                  {emailStage === "already"
+                    ? "Your report is already on its way"
+                    : "Report sent"}
+                </p>
+                <p className="bff-cta-sent-sub">
+                  Give it a couple of minutes — check spam the first time.
+                </p>
+              </div>
+            </div>
+          ) : (
+            <>
+              <form
+                className="bff-cta-form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  submitReport();
+                }}
+              >
+                <input
+                  className="bff-cta-input"
+                  type="email"
+                  inputMode="email"
+                  autoComplete="email"
+                  placeholder="you@example.com"
+                  aria-label="Email address for your full report"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (emailStage === "error") setEmailStage("idle");
+                  }}
+                  disabled={emailStage === "sending"}
+                />
+                <button
+                  type="submit"
+                  className="bff-cta-send"
+                  disabled={emailStage === "sending"}
+                >
+                  {emailStage === "sending" ? "Building…" : "Email report"}
+                </button>
+              </form>
+              {emailStage === "error" && (
+                <p className="bff-cta-error" role="alert">
+                  That didn't go through — check the address and try again.
+                </p>
+              )}
+              <p className="bff-cta-note">
+                Full written breakdown — what the AI saw, strengths, focus
+                areas, timeline. We store your email and the report, never
+                your photo.
+              </p>
+            </>
+          )}
         </div>
 
         <div className="bff-disclaimer">
