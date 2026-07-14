@@ -316,3 +316,11 @@ NOTE: 21 posts published Jul 7 total (6 morning + 15 afternoon). Request GSC ind
 - [x] **Relatable questions:** how-long-to-see-abs · why-is-my-waist-not-shrinking · normal-bmi-but-look-fat · strong-but-look-small · how-much-muscle-can-you-gain-in-a-month — published 2026-07-13
 - [x] **Quiz:** body-type-quiz (honest somatotype myth-bust) — published 2026-07-13
 - NOTE: original batch briefed average-shoulder-width-men/chest/neck as dupes of the **Jul 11 session's stats round 2** (average-shoulder-width, average-chest-size, average-neck-size — already live, indexing queued). Writer agent caught it; replaced with wrist/forearm/strong-but-small. Overwritten neck cover restored from git. LESSON: always re-list web/content/blog before briefing a batch — sessions run in parallel.
+
+### Jul 16 batch — 10 posts (measurement family extension + women's stats push)
+
+- [x] **Women's measurement stats (audience push):** average-waist-size-women · average-hip-size-women · average-bicep-size-women — published 2026-07-16
+- [x] **Measurement family completion:** waist-to-hip-ratio (head term) · average-thigh-size (incl. calves) · body-frame-size — published 2026-07-16
+- [x] **Relatable Qs:** how-long-does-it-take-to-lose-belly-fat · why-do-i-have-skinny-arms — published 2026-07-16
+- [x] **Lifter guide + commercial:** mini-cut (map gap) · withings-body-scan-review (hardware-review lane #2) — published 2026-07-16
+- Window reads logged Jul 16: chart post stable ~11.8 (from 42.6) · accuracy-study CTR 0.32%→0.85% post-title-test · trainer post 16.8→11.2 links-only · visualizer 12 clicks/wk post-indexing. avg-waist-size-men sustaining ~4.9K imp/wk.
