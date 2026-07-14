@@ -29,7 +29,9 @@ type Stage =
       one_line: string;
     }
   | { kind: "unusable"; message: string }
-  | { kind: "rate_limited"; message: string }
+  // lifetime: true = all 3 free scans used, terminal — vs the daily limit
+  // where tomorrow works. Different title + CTA label on the same screen.
+  | { kind: "rate_limited"; message: string; lifetime: boolean }
   | { kind: "error"; message: string };
 
 type SuccessResponse = {
@@ -380,9 +382,11 @@ export default function BFEstimatorClient() {
 
       const err = (await res.json().catch(() => ({}))) as ErrorResponse;
       if (res.status === 429) {
-        track("bf_tool_rate_limited");
+        const lifetime = err.error === "lifetime_limited";
+        track("bf_tool_rate_limited", { kind: lifetime ? "lifetime" : "daily" });
         setStage({
           kind: "rate_limited",
+          lifetime,
           message:
             err.message ??
             "You've used your free estimate for today. Try GainFrame for unlimited weekly check-ins.",
@@ -689,7 +693,7 @@ export default function BFEstimatorClient() {
         })()}
 
         <p className="bff-retry-note">
-          Today's free estimate used · Come back tomorrow or get the app
+          Today's free scan used · 3 per person total · The app has no limits
         </p>
       </>
     );
@@ -732,20 +736,24 @@ export default function BFEstimatorClient() {
             width={96}
             height={96}
           />
-          <p className="bff-msg-title">Daily limit reached</p>
+          <p className="bff-msg-title">
+            {stage.lifetime ? "You've used your 3 free scans" : "Daily limit reached"}
+          </p>
           <p className="bff-msg-sub">{stage.message}</p>
           <a
             className="bff-submit"
             style={{ maxWidth: 280, margin: "0 auto", textDecoration: "none", textAlign: "center" }}
-            href={appStoreUrl("cta_rate_limited")}
+            href={appStoreUrl(stage.lifetime ? "cta_lifetime_limited" : "cta_rate_limited")}
             target="_blank"
             rel="noopener"
             // outbound_app_store_click comes from the global tracker; these
             // attributes keep its source consistent with the other BF CTAs.
             data-cta-source={CTA_CAMPAIGN}
-            data-cta-content="cta_rate_limited"
+            data-cta-content={stage.lifetime ? "cta_lifetime_limited" : "cta_rate_limited"}
             onClick={() =>
-              track("bf_tool_cta_clicked", { cta_content: "cta_rate_limited" })
+              track("bf_tool_cta_clicked", {
+                cta_content: stage.lifetime ? "cta_lifetime_limited" : "cta_rate_limited",
+              })
             }
           >
             Get GainFrame on iOS <span className="arrow" aria-hidden>→</span>

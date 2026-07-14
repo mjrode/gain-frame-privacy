@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     absolute: "Free AI Body Fat Estimator from a Photo | GainFrame",
   },
   description:
-    "Free AI body fat estimator and calculator that reads a single photo — no measurements, no signup. One estimate per day, instant result. Try GainFrame on iOS for precision multi-photo tracking.",
+    "Free AI body fat estimator and calculator that reads a single photo — no measurements, no signup. Up to 3 free scans (one per day), instant result. Try GainFrame on iOS for precision multi-photo tracking.",
   alternates: { canonical: PAGE_PATH },
   openGraph: {
     title: "Free AI Body Fat Estimator — From a Photo",
@@ -51,7 +51,7 @@ const webAppSchema = {
   applicationCategory: "HealthApplication",
   operatingSystem: "All",
   description:
-    "Free AI tool that estimates body fat percentage from a single photo. One estimate per user per day.",
+    "Free AI tool that estimates body fat percentage from a single photo. Up to 3 free estimates per user, one per day.",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   publisher: { "@type": "Organization", name: "GainFrame", url: SITE.url },
 };
@@ -110,10 +110,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Why am I limited to one estimate per day?",
+      name: "Why is the tool limited to 3 free scans?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The web tool is free and rate-limited to one estimate per day per user to keep AI compute costs sustainable. The GainFrame iOS app removes the limit and adds tracking, scoring, and comparison features.",
+        text: "The web tool is free and limited to 3 estimates per user (one per day) to keep AI compute costs sustainable. The GainFrame iOS app removes the limit and adds tracking, scoring, and comparison features.",
       },
     },
     {
@@ -168,7 +168,7 @@ export default function BodyFatFromPhotoPage() {
           <div className="bff-hero-inner">
             <span className="bff-eyebrow">
               <span className="dot" aria-hidden />
-              AI body fat scan · Free · 1/day
+              AI body fat scan · Free · 3 scans
             </span>
             <h1>
               Free AI Body Fat Estimator from a Photo
