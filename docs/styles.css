@@ -2374,10 +2374,30 @@ body {
     display: block;
 }
 
-.post-inline-screenshot figcaption {
-    padding: 8px 12px;
+/* Caption contract: <p class="post-caption"> is THE caption element inside
+   every image wrapper (.post-inline-screenshot, .post-hero-image,
+   .post-render-figure). Without these scoped rules it falls through to
+   body-paragraph sizing (1.15rem gray) and reads as broken text under the
+   image — the bug fixed Jul 2026 across 46 posts. Never remove. */
+.post-inline-screenshot figcaption,
+.post-inline-screenshot .post-caption {
+    padding: 9px 14px;
+    margin: 0;
     font-size: 0.78rem;
+    line-height: 1.5;
     color: var(--color-text-tertiary);
+    text-align: center;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+}
+
+.post-hero-image .post-caption,
+.post-hero-image figcaption {
+    margin: 0;
+    padding: 10px 16px;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
     text-align: center;
     background: var(--color-surface);
     border-top: 1px solid var(--color-border);
