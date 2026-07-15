@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { SITE } from "@/lib/site";
+import { APP_STORE_PROVIDER_TOKEN, SITE } from "@/lib/site";
 import { track } from "@/lib/analytics";
 
 const FUNCTION_URL =
@@ -143,6 +143,12 @@ function appStoreUrl(content: string): string {
     utm_medium: "tool",
     utm_campaign: CTA_CAMPAIGN,
     utm_content: content,
+    // Apple campaign tokens — UTM params never reach App Store Connect, so
+    // these are what tie a BF-tool install to the web funnel there. The CTAs
+    // are data-track-exempt, so the global tracker won't re-rewrite them.
+    pt: APP_STORE_PROVIDER_TOKEN,
+    ct: "web-bftool",
+    mt: "8",
   });
   return `${SITE.appStoreUrl}?${params.toString()}`;
 }
@@ -538,6 +544,7 @@ export default function BFEstimatorClient() {
               track("outbound_app_store_click", {
                 source: CTA_CAMPAIGN,
                 cta_content: "cta_primary",
+                ct: "web-bftool",
               });
             }}
           >

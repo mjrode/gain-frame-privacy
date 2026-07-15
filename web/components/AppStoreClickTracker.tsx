@@ -2,6 +2,11 @@
 
 import { useEffect } from "react";
 import { trackOncePerDay } from "@/lib/analytics";
+import {
+  APP_STORE_APP_ID,
+  APP_STORE_PROVIDER_TOKEN,
+  campaignForPath,
+} from "@/lib/site";
 
 /**
  * Site-wide delegated listener that fires `outbound_app_store_click` for any
@@ -43,9 +48,37 @@ export default function AppStoreClickTracker() {
             ? "store_badge"
             : "link");
 
+      // Coarse Apple campaign token: nav CTAs render on every page, so they
+      // get their own token; everything else is keyed off the page path.
+      const ct =
+        source === "nav" || source === "blog_nav"
+          ? "web-nav"
+          : campaignForPath(window.location.pathname);
+
+      // Append Apple campaign tokens at click time so App Store Connect
+      // attributes the install to a web campaign instead of "organic". This
+      // covers static blog bodies and future posts without content edits.
+      // Only GainFrame's own listing is rewritten (blog posts also link to
+      // competitor apps), and a page that set its own ct (giveaway,
+      // wilmington) keeps it.
+      try {
+        const url = new URL(anchor.href);
+        if (
+          url.pathname.includes(APP_STORE_APP_ID) &&
+          !url.searchParams.has("ct")
+        ) {
+          url.searchParams.set("pt", APP_STORE_PROVIDER_TOKEN);
+          url.searchParams.set("ct", ct);
+          url.searchParams.set("mt", "8");
+          anchor.href = url.toString();
+        }
+      } catch {
+        // Malformed href — leave the anchor untouched.
+      }
+
       trackOncePerDay(
         "outbound_app_store_click",
-        { source, cta_content: ctaContent },
+        { source, cta_content: ctaContent, ct },
         `${source}:${ctaContent}`,
       );
     };
