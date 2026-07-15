@@ -2358,9 +2358,12 @@ body {
     padding: var(--sp-xl) 0;
 }
 
-/* Inline Phone Screenshot — floats right alongside text */
+/* Inline Phone Screenshot — floats right alongside text.
+   clear: right stops consecutive float cards from being active at once,
+   which squeezed body text into a skinny column between them. */
 .post-inline-screenshot {
     float: right;
+    clear: right;
     width: 240px;
     margin: 0 0 var(--sp-lg) var(--sp-xl);
     border-radius: var(--radius-lg);
@@ -2613,6 +2616,26 @@ body {
 
 .post-table tbody tr:hover td:last-child {
     background: rgba(107, 143, 113, 0.14);
+}
+
+/* ============================================================
+   Modifier: .post-table.no-highlight
+   For tables with NO GainFrame column (e.g. third-party-only roundups).
+   The default :last-child sage tint marks a column as "ours" — without
+   this modifier a competitor inherits the brand highlight.
+   ============================================================ */
+.post-table.no-highlight th:last-child,
+.post-table.no-highlight td:last-child {
+    background: transparent;
+    border-left: none;
+}
+
+.post-table.no-highlight th:last-child {
+    color: var(--color-text);
+}
+
+.post-table.no-highlight tbody tr:hover td {
+    background: rgba(107, 143, 113, 0.04);
 }
 
 /* ============================================================

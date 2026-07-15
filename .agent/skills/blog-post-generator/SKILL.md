@@ -202,6 +202,13 @@ Maintain `sameAs` arrays on `docs/about/index.html`:
 3. If a post needs a different author for any reason (guest post, etc.), flag it explicitly to the user and discuss before introducing variation.
 
 ### Visual Components Available
+
+**Caption contract (recurring-bug guard):** the caption element inside ANY image wrapper is `<p className="post-caption">`. It is styled ONLY by scoped rules in `docs/styles.css` (`.post-inline-screenshot .post-caption`, `.post-hero-image .post-caption`, `.post-render-figure .post-caption`). Two things follow:
+1. Never invent a new caption class or leave a bare `<p>` under an image — it falls through to body-paragraph sizing (1.15rem) and renders as broken oversized text (the bug that hit 46 posts before the Jul 2026 CSS fix).
+2. If you introduce a NEW image wrapper class, add its scoped `.post-caption` rule to `docs/styles.css` in the same commit, and verify the caption renders at caption size in the browser before pushing.
+
+**Screenshot freshness:** before using any third-party screenshot (App Store or vendor site), LOOK at it — reject shots showing old device frames (home-button iPhones, "9:41 AM" dot-signal status bars) or placeholder content. If a vendor has no modern assets, crop their screenshot to the pure UI area so no dated bezel shows.
+
 - `post-callout` blockquotes for key takeaways
 - `post-callout post-quick-answer` for the mandatory Quick Answer block (see Structure Rules)
 - `post-feature-grid` / `post-feature-card` for visual marker cards (SF Symbol icon + title + description)
@@ -232,6 +239,8 @@ Comparison tables wider than the viewport on desktop hide their rightmost column
     </table>
 </div>
 ```
+
+**Tables with NO GainFrame column** (third-party-only roundups): add the `no-highlight` modifier (`<table class="post-table no-highlight">`). The default `:last-child` sage tint marks a column as "ours" — without the modifier, whichever competitor sits last inherits the GainFrame brand highlight.
 
 **Default for tables with ≤3 data columns** (e.g. single-competitor comparison: Feature | Competitor | GainFrame): omit the modifier, keep GainFrame as the LAST column. The default `:last-child` sage highlight is fine because the table fits the viewport without scroll.
 
