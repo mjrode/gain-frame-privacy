@@ -57,6 +57,19 @@ When triggered, you MUST follow these steps sequentially. **Do not proceed to th
 4. **Only ask for new screenshots** if the article needs a specific screen this catalog doesn't cover. Be specific: *"The library doesn't have a screenshot of [X] — could you provide one?"* Don't ask for screenshots the library already has.
 5. **WebP conversion always happens** (whether the source is library PNG or user-provided PNG/JPG). Never link `.png` or `.jpg` in the final HTML.
 
+#### Roundup / listicle posts — first-class treatment for EVERY entry (mandatory)
+
+When a post ranks or lists multiple third-party apps/products (roundups, "best X apps", stack posts), every entry gets the same production quality — never screenshot-and-link one favored entry while the rest are text-only. Each ranked entry MUST have:
+
+1. **A real screenshot**, converted to WebP in the post's `assets/` folder. Sources in preference order:
+   - The app's official App Store marketing screenshots via the iTunes API: `curl "https://itunes.apple.com/lookup?id=[APP_ID]&country=us"` → `screenshotUrls` array. Upsize any thumb URL by replacing its size suffix (e.g. `.../392x696bb.png` → `.../800x0w.png`).
+   - The app's own website assets (as done for partner swaps).
+   - **View every screenshot before using it** (Read tool). Pick a shot showing real UI that illustrates the claim your section makes; skip text-only marketing slides ("LOG WORKOUTS / GET STRONGER" cards). Write alt text and captions describing what is actually on screen.
+2. **Two links minimum:** the official website in the H2 (`## 1\. [AppName](https://site.com) — Best for…`) and the App Store listing in the platform line (`**Platform:** [iOS App Store](https://apps.apple.com/...), Android · **Price:** …`).
+3. **Verified ratings** — pull `averageUserRating` / `userRatingCount` from the iTunes API at write time. Never state a rating or review count from memory.
+
+Precedent: `best-workout-tracker-apps.mdx` (Jul 2026) — all five entries have App Store screenshot, site link, App Store link, and API-verified ratings.
+
 #### Catalog maintenance
 
 - The library is **versioned by app release** (`/docs/app-screenshots/1.21/`, `/docs/app-screenshots/1.22/`, ...). Always check for the latest version directory before recommending — newer versions may add or replace screens.
