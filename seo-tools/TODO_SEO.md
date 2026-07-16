@@ -324,3 +324,10 @@ NOTE: 21 posts published Jul 7 total (6 morning + 15 afternoon). Request GSC ind
 - [x] **Relatable Qs:** how-long-does-it-take-to-lose-belly-fat · why-do-i-have-skinny-arms — published 2026-07-16
 - [x] **Lifter guide + commercial:** mini-cut (map gap) · withings-body-scan-review (hardware-review lane #2) — published 2026-07-16
 - Window reads logged Jul 16: chart post stable ~11.8 (from 42.6) · accuracy-study CTR 0.32%→0.85% post-title-test · trainer post 16.8→11.2 links-only · visualizer 12 clicks/wk post-indexing. avg-waist-size-men sustaining ~4.9K imp/wk.
+
+### Jul 17 batch — 10 posts (female hub + optics family + decision content)
+
+- [x] **Female measurement hub:** ideal-body-measurements-women (anchors the women's family) · average-shoulder-width-women — published 2026-07-17
+- [x] **Optics/relatable Qs:** why-do-i-look-fat-in-pictures · why-do-i-look-better-in-the-gym-mirror · face-fat-and-body-fat (jawline landmarks kept consistent) · how-lean-can-you-get-naturally · why-am-i-losing-inches-but-not-weight — published 2026-07-17
+- [x] **How-to + decision + quiz:** how-to-measure-body-fat-with-tape (Navy method) · tape-measure-vs-smart-scale · am-i-overtraining-quiz (YMYL-lite hedged) — published 2026-07-17
+- Pulse read Jul 17: record wk 1,222 clicks (+50%), 57.3K imp (+93%); Jul 13 = 191-click record; Jul 12 = first 10K-imp day. avg-waist-men 8.3K imp/wk.
