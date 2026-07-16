@@ -1,0 +1,153 @@
+---
+title: "Three of Every Four People Who Install My App Are Gone Within a Week"
+description: "27% of GainFrame installers now return in week 1, up from 20% in May after six weeks of retention features. The cohort table, what shipped, and what's still broken."
+slug: retention-hardest-problem
+canonical: "https://gainframe.app/blog/retention-hardest-problem/"
+ogTitle: "Three of Every Four People Who Install My App Are Gone Within a Week"
+ogDescription: "Retention is the hardest problem I've hit in six months of building. Week-1 went from 20% to 27% after six weeks of work — and week-4 hasn't moved at all."
+ogImage: "https://gainframe.app/blog/retention-hardest-problem/assets/cover.webp"
+ogType: article
+twitterTitle: "Three of Every Four People Who Install My App Are Gone Within a Week"
+twitterDescription: "Retention is the hardest problem I've hit in six months of building. Week-1 went from 20% to 27% after six weeks of work — and week-4 hasn't moved at all."
+twitterImage: "https://gainframe.app/blog/retention-hardest-problem/assets/cover.webp"
+breadcrumbCategory: Founder Story
+displayCategory: Founder Story
+displayDate: Jul 16, 2026
+readTime: 9 min read
+subtitle: "My app crossed $1,000 MRR, trial conversion is fixed, traffic is growing — and retention is the problem none of that solves. Six weeks of features moved week-1 retention from 20% to 27%. Week-4 hasn't moved at all. I'm writing this one down while it's still unsolved."
+schemas:
+  - {"@context":"https://schema.org","@type":"BlogPosting","headline":"Three of Every Four People Who Install My App Are Gone Within a Week","description":"27% of GainFrame installers now return in week 1, up from 20% in May after six weeks of retention features. The cohort table, what shipped, and what's still broken.","image":"https://gainframe.app/blog/retention-hardest-problem/assets/cover.webp","datePublished":"2026-07-16","dateModified":"2026-07-16","author":{"@type":"Person","name":"Michael Rode","url":"https://gainframe.app/about"},"publisher":{"@type":"Organization","name":"GainFrame","url":"https://gainframe.app","logo":{"@type":"ImageObject","url":"https://gainframe.app/assets/favicons/favicon.webp"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gainframe.app/blog/retention-hardest-problem/"},"articleSection":"Founder Story","keywords":"app retention, week 1 retention, consumer app retention benchmarks, health fitness app retention, indie app churn, retention features, build in public"}
+  - {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gainframe.app/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://gainframe.app/blog/"},{"@type":"ListItem","position":3,"name":"Retention Is the Hardest Problem","item":"https://gainframe.app/blog/retention-hardest-problem/"}]}
+---
+<div className="post-hero-image scroll-reveal" style={{marginBottom: '3rem'}}>
+  <img src="assets/cover.webp" alt="Line-art illustration of a bucket filling from a faucet while water leaks from small holes in its sides and a hand patches one hole" loading="lazy" style={{borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)'}} />
+</div>
+
+GainFrame is at $1,096.79 MRR this morning ([verified on RevenueCat](https://verified.revenuecat.com/gainframe)), and my last few posts have been about things that went well — [the trial conversion fix](/blog/trial-conversion-21-to-44/), [the organic traffic run](/blog/organic-traffic-15x-90-days/), [the $1,000 milestone](/blog/1000-mrr-five-months/). This one is about the problem that has not gone well. Retention is the hardest thing I've worked on in six months of building this app, and I want to write it down while it's still unsolved, because the mid-problem version is the one I never find when I search for other people's retention posts.
+
+The numbers first. In June, 27.0% of the people who installed GainFrame came back at some point during their first week. That's the <em>improved</em> figure — it was 20.1% across May's cohorts. I spent six weeks shipping features aimed almost entirely at this, the number moved seven points, and the plain reading is still: three out of four people who install my app leave and never return.
+
+Week 4 is worse. Somewhere between 8% and 12% of any install cohort is still active four weeks in, and that band has not moved all spring, no matter what I shipped.
+
+<figure className="post-figure" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/w1-cohorts.webp" alt="Bar chart of week-1 retention by weekly install cohort from April 27 to June 29, 2026, ranging from a 17.8% floor in early May to a 34.5% peak the week of June 22, with the two paid-ad-heavy May cohorts highlighted in orange and markers for the June 8 daily read launch and the late-June notification overhaul" loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>Week-1 retention by install cohort. The orange bars matter — those are the weeks I was buying installs, and they retain worse. More on that in the caveats.</figcaption></figure>
+
+<hr className="post-divider" />
+
+## The App Gets Good on Check-In Five. Most People Leave After One.
+
+The reason this is hard, at least for my app, is structural. GainFrame's whole value is longitudinal. You check in with a progress photo, and the analysis gets richer with every check-in you feed it: after a few weeks it can tell you whether a weight jump is water or real, compare this month's photos against your own history instead of a generic chart, and give the coach enough context to say something specific about you. That's the product people pay for and keep.
+
+A user on day two has none of that. They get one photo, one score, one narrative. It's decent, but the thing that makes people stay — watching their own data compound into insight — literally does not exist yet on day two, because there's no data to compound.
+
+So I'm stuck in a loop I haven't cracked: users need to keep coming back for the app to become worth coming back to. Every feature I shipped in June is some attempt at bridging that gap — giving someone a reason to open the app on day 2 and day 3 that doesn't depend on having weeks of history yet. I'm still tweaking this and I have not figured it out. Some of what follows helped. None of it solved it.
+
+<hr className="post-divider" />
+
+## The Cohort Table
+
+Installers by week, and the share with an app session in weeks 1, 2, and 4. Cohort weeks start Monday; data from PostHog with test accounts filtered.
+
+<div className="post-table-wrapper scroll-reveal">
+  <table className="post-table no-highlight">
+    <thead>
+      <tr>
+        <th>Install cohort (wk of)</th>
+        <th>Installs</th>
+        <th>W1 retained</th>
+        <th>W1 %</th>
+        <th>W2 %</th>
+        <th>W4 %</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Apr 27</td><td>204</td><td>58</td><td>28.4%</td><td>17.2%</td><td>11.8%</td></tr>
+      <tr><td>May 4</td><td>348</td><td>62</td><td>17.8%</td><td>8.9%</td><td>7.8%</td></tr>
+      <tr><td>May 11</td><td>309</td><td>56</td><td>18.1%</td><td>12.6%</td><td>8.4%</td></tr>
+      <tr><td>May 18</td><td>125</td><td>30</td><td>24.0%</td><td>19.2%</td><td>11.2%</td></tr>
+      <tr><td>May 25</td><td>105</td><td>30</td><td>28.6%</td><td>21.9%</td><td>12.4%</td></tr>
+      <tr><td>Jun 1</td><td>160</td><td>38</td><td>23.8%</td><td>16.3%</td><td>9.4%</td></tr>
+      <tr><td>Jun 8</td><td>200</td><td>49</td><td>24.5%</td><td>14.0%</td><td>8.5%</td></tr>
+      <tr><td>Jun 15</td><td>178</td><td>51</td><td>28.7%</td><td>18.5%</td><td>8.4%</td></tr>
+      <tr><td>Jun 22</td><td>200</td><td>69</td><td>34.5%</td><td>19.5%</td><td>—</td></tr>
+      <tr><td>Jun 29</td><td>301</td><td>74</td><td>24.6%</td><td>10.6%*</td><td>—</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p style={{fontSize: '0.85rem', color: 'var(--color-text-secondary)'}}>* The Jun 22 and Jun 29 cohorts haven't existed long enough for mature W2/W4 numbers — the starred figure will still rise. I've excluded the Jul 6 cohort entirely; its measurement window was four days old at pull time and the number it shows is an undercount.</p>
+
+Blended: May 4–25 cohorts (887 installs) came back in week 1 at 20.1%. June's cohorts (1,039 installs) at 27.0%. For context, the [industry benchmarks I've seen](https://www.revenuecat.com/blog/growth/subscription-app-trends-benchmarks-2026/) put typical health & fitness week-1 retention in the high teens to mid-20s, so I started this push at roughly benchmark and June is somewhat above it. That sounds better than it feels to work on.
+
+<hr className="post-divider" />
+
+## What I Shipped in the Six Weeks
+
+Everything here is aimed at the same target: a reason to open the app on a day you didn't take a photo.
+
+<figure className="post-inline-screenshot scroll-reveal"><img src="assets/daily-read.webp" alt="GainFrame home screen after a check-in, showing the day's score and weight, a recovery card, and the Daily Read card with an AI-written note about the user's weight trend plus suggested follow-up questions" loading="lazy" /><figcaption>The daily read on the home screen — shown 248 times its first week, 2,407 times a week three weeks later.</figcaption></figure>
+
+**The daily read and day verdicts (week of Jun 8).** A short daily note on the dashboard, built from your recent data — weight trend, recovery, what changed — with follow-up questions that drop you into the coach. The point is that it works even on non-photo days, which is exactly where new users fall off. It was shown 248 times in its first week. By the week of June 29 it was 2,407 times a week, and the day-verdict cards that shipped alongside it went from zero to 1,673 a week. This is the biggest single correlate of the week-1 lift, with a correlation caveat coming below.
+
+**The capture banner redesign (Jun 11).** The home screen used to have a generic take-a-photo button. Now there's a docked "today" slot with a weekday strip that shows your week at a glance — what's logged, what's missing, what today needs. Small change, but it makes day 2 look like a continuation of day 1 instead of a blank screen.
+
+<figure className="post-inline-screenshot scroll-reveal"><img src="assets/capture-banner.webp" alt="GainFrame home screen before a check-in, showing the docked capture banner for Tuesday's check-in with a weekday strip, above a backstory import card and a recovery card" loading="lazy" /><figcaption>The redesigned home screen before a check-in: a docked today slot instead of a generic button.</figcaption></figure>
+
+**The notification overhaul (v2.19, late June).** I audited every notification the app sends and rebuilt the set around insights — the coach telling you something it noticed in your data, or a rescue prompt scheduled for when a week is about to end with zero photos. The old set was mostly check-in reminders, which I suspect read as nagging, and a nag is a reason to uninstall.
+
+**The coach became a habit surface on its own.** Weekly coach users went from 29–33 in May to 86–101 in July, check-in taps from 229–265 a week to 330–393, and generated weekly summaries from 1,062 a week in late May to 2,364 by the week of June 29. I covered the cost side of that growth in [the AI margin post](/blog/ai-costs-half-my-revenue/).
+
+<figure className="post-figure" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/engagement-receipts.webp" alt="Paired bar chart comparing weekly engagement before and after the June ships: daily reads shown grew from 248 to 2,407 per week, day verdicts from zero to 1,673, and weekly summaries from 1,062 to 2,364" loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>The engagement receipts. Usage of the new surfaces is real; how much of the retention lift they own is much less certain.</figcaption></figure>
+
+Overall weekly actives went from 281 the week of May 25 to 593 the week of July 6, so the app is unambiguously more used. Whether it's more <em>retaining</em> is the murkier question the caveats below are about.
+
+<hr className="post-divider" />
+
+## The Caveats
+
+These matter more than the wins in this post, so they get their own section.
+
+**Part of the improvement is traffic mix, and I have to say that out loud.** The two floor cohorts — 17.8% and 18.1% in early May — landed during [my paid ads experiment](/blog/spent-5k-on-app-ads/), and bought installs retain worse: paid cohorts ran 17–21% week-1 against 27–30% for organic. Comparing organic to organic, mid-to-late May was around 24–29% and June ran 25–35%. So the claim I can defend is a 5–8 point organic lift with the best cohort at 34.5%, and the 18-to-34 spread you'd read off the chart overstates it.
+
+**Week 4 hasn't moved.** Every cohort mature enough to measure lands between 7.8% and 12.4%, before and after all of the above. The June ships show up at week 1 and week 2; whether they bend week 4 is unknowable for a few more weeks because those cohorts are still young. This is the number that decides whether any of this mattered, and I don't have it yet. I'll report back either way.
+
+**Cohorts bounce.** The 34.5% cohort was followed immediately by a 24.6% one — that later cohort was 50% bigger with a heavier share of installs from my web traffic. One great bar is a range, and treating it as the new baseline would be lying to myself with a chart.
+
+**I can't prove causation on any of it.** Nothing here was A/B tested against a holdout. People who use the coach retain dramatically better — 58–81% week-1 — but that's selection, motivated users open the coach, and claiming the coach causes retention from that number would be exactly backwards.
+
+**The better my blog does, the worse this metric will look.** A growing share of installs now comes from [organic search content](/blog/organic-traffic-15x-90-days/), and content-driven installs are lower intent than someone who searched the App Store for a progress photo app. The Jun 29 dip is probably this arriving early. It's a trade I'll take, but it means the W1 line can go down while the business gets better, which makes this whole dashboard fun to interpret.
+
+<hr className="post-divider" />
+
+## What I'm Trying Now
+
+The thesis behind all of it: the reward for coming back should be richer analysis, and it should get visibly richer with every check-in. Each day you log, the daily read gets more specific because it has more of your history to draw on — that's the loop I'm trying to make obvious inside the first week, so a new user can feel the compounding before they'd otherwise churn. I'm still tweaking how fast that payoff shows up and how loudly the app points at it.
+
+Alongside that: the notification timing and content work continues, I'm adjusting the streak and check-in mechanics, and a churn-rescue lane shipped July 14 in v2.22 — a flow that catches people who look like they're about to lapse. It's two days old and has zero data, so it goes in the "what's next" bucket rather than the results section.
+
+<hr className="post-divider" />
+
+## Where That Leaves It
+
+$1,096 in MRR. Conversion fixed. Traffic growing. And a week-1 retention line that moved seven blended points after six weeks of work aimed directly at it, on a week-4 line that hasn't moved at all.
+
+Everything else on this project gave me a number that responded when I pushed on it. Ads were bad, so I turned them off. Conversion was broken, so I fixed the paywall. This one is different. It moves slowly, it bounces, and part of what moves it has nothing to do with the product. I'm five months in, the app is objectively more used than it's ever been, and I still lose three of every four people in the first week. If the compounding-insight loop works and week 4 ever lifts off 10%, that's a post I'd love to write. If it doesn't, I'll write that one instead.
+
+> If you've genuinely moved week-4 retention on a consumer health or fitness app, I want to hear what did it — comments or DMs, and I'll trade every number I have.
+
+<div className="blog-post-cta scroll-reveal">
+  <h3>Track your progress with GainFrame</h3>
+  <p>Take or import a gym photo and get an AI body fat estimate, physique score, FFMI, and muscle breakdown, plus a Coach that explains what changed using your photos, weight, and workouts.</p>
+  <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" className="cta-button" target="_blank" rel="noopener">Download GainFrame Free</a>
+</div>
+
+<hr className="post-divider" />
+
+<div className="post-related scroll-reveal">
+  <h3>Related Articles</h3>
+  <ul>
+    <li><a href="/blog/1000-mrr-five-months/">My App Hit $1,000 MRR Today, Five Months After the First Commit</a></li>
+    <li><a href="/blog/ai-costs-half-my-revenue/">My App Was Spending Half Its Revenue on AI. Four Weeks Later It's 17%.</a></li>
+    <li><a href="/blog/trial-conversion-21-to-44/">My Trial Conversion Was 21%. Five Weeks Later It's 44%.</a></li>
+    <li><a href="/blog/spent-5k-on-app-ads/">I Spent $5,674 on App Ads. Here's Why I Stopped.</a></li>
+  </ul>
+</div>
