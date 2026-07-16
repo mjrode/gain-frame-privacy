@@ -1,0 +1,171 @@
+---
+title: "My App Was Spending Half Its Revenue on AI. Four Weeks Later It's 17%."
+description: "In mid-June GainFrame's Gemini bill hit 48.6% of weekly revenue. Four weeks later: 16.7%. The per-feature costs, the five fixes, and the honest math."
+slug: ai-costs-half-my-revenue
+canonical: "https://gainframe.app/blog/ai-costs-half-my-revenue/"
+ogTitle: "My App Was Spending Half Its Revenue on AI. Four Weeks Later It's 17%."
+ogDescription: "The week of June 14 my Gemini bill was $237.14 against $488.36 of revenue. Here's the per-feature cost breakdown and what I changed."
+ogImage: "https://gainframe.app/blog/ai-costs-half-my-revenue/assets/cover.webp"
+ogType: article
+twitterTitle: "My App Was Spending Half Its Revenue on AI. Four Weeks Later It's 17%."
+twitterDescription: "The week of June 14 my Gemini bill was $237.14 against $488.36 of revenue. Here's the per-feature cost breakdown and what I changed."
+twitterImage: "https://gainframe.app/blog/ai-costs-half-my-revenue/assets/cover.webp"
+breadcrumbCategory: Founder Story
+displayCategory: Founder Story
+displayDate: Jul 16, 2026
+readTime: 8 min read
+subtitle: "The week of June 14, my app's Gemini bill was $237.14 against $488.36 of gross revenue — 48.6%. Four weeks later the bill was smaller and revenue had doubled. Half of the fix was cost engineering. The other half was growth doing the work for me."
+schemas:
+  - {"@context":"https://schema.org","@type":"BlogPosting","headline":"My App Was Spending Half Its Revenue on AI. Four Weeks Later It's 17%.","description":"In mid-June GainFrame's Gemini bill hit 48.6% of weekly revenue. Four weeks later: 16.7%. The per-feature costs, the five fixes, and the honest math.","image":"https://gainframe.app/blog/ai-costs-half-my-revenue/assets/cover.webp","datePublished":"2026-07-16","dateModified":"2026-07-16","author":{"@type":"Person","name":"Michael Rode","url":"https://gainframe.app/about"},"publisher":{"@type":"Organization","name":"GainFrame","url":"https://gainframe.app","logo":{"@type":"ImageObject","url":"https://gainframe.app/assets/favicons/favicon.webp"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gainframe.app/blog/ai-costs-half-my-revenue/"},"articleSection":"Founder Story","keywords":"AI API costs, LLM cost per user, Gemini API pricing, AI app unit economics, indie AI app margins, PostHog LLM analytics, build in public"}
+  - {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gainframe.app/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://gainframe.app/blog/"},{"@type":"ListItem","position":3,"name":"AI Was Half My Revenue","item":"https://gainframe.app/blog/ai-costs-half-my-revenue/"}]}
+---
+<div className="post-hero-image scroll-reveal" style={{marginBottom: '3rem'}}>
+  <img src="assets/cover.webp" alt="Line-art illustration of an oversized invoice being trimmed with scissors next to a rising line chart and a small AI chip" loading="lazy" style={{borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)'}} />
+</div>
+
+GainFrame is at $1,096.79 MRR as of this morning ([verified on RevenueCat](https://verified.revenuecat.com/gainframe)), a few days after [crossing $1,000 for the first time](/blog/1000-mrr-five-months/). This post is about the least fun number underneath that one: what the AI costs.
+
+In mid-June I opened PostHog and saw that the week's Gemini bill was $237.14. Gross revenue that same week was $488.36. So 48.6% of everything the app earned that week went back out the door to Google.
+
+That genuinely scared me. Every feature people pay for in my app runs on Gemini — the photo scoring, the coach, the weekly summaries — which means the bill scales with exactly the thing I'm trying to grow. I'd just spent five weeks [fixing my trial conversion](/blog/trial-conversion-21-to-44/), and here was a chart quietly suggesting half of whatever I'd fixed was getting eaten by inference. The background fear with any AI app is that the unit economics don't work underneath and you find out late. For that one week, mine didn't work.
+
+Four weeks later the bill was $160.04 against $955.63 of revenue — 16.7%. Cost per user who touched an AI feature went from $0.38 to $0.16, while the number of those users grew from 618 to 1,031 a week. Here's what happened in between, with the usual pile of caveats at the end.
+
+<figure className="post-figure" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/cost-vs-revenue.webp" alt="Two-line weekly chart of the Gemini bill versus gross revenue from June 7 to July 11, 2026. The bill peaks at $237 (48.6% of revenue) the week of June 14, then falls to $160 while revenue roughly doubles to $956, with markers for the June 18 prompt diet and Batch API move and the July 1 message cap and caching work" loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>The scary week is the orange peak. Everything after it is half cost engineering, half revenue growing into the cost base.</figcaption></figure>
+
+<hr className="post-divider" />
+
+## I Was Flying Blind Until June 8
+
+The embarrassing part first: until June 8, I had no idea what any individual AI feature cost. I knew the Google invoice existed and I knew it was growing. I could not have told you whether the money was going to photo scoring, the coach, or something dumb I'd forgotten was still running.
+
+The fix took one afternoon. PostHog has LLM analytics built in — every model call gets logged as an <code>$ai_generation</code> event with a cost estimate attached — and I added one property on top of it: <code>gen_flow</code>, tagging every Gemini call with the feature it belongs to. That's the whole trick. That afternoon of tagging did more for my margin than any single optimization that followed, because every fix below started as a line item I could suddenly see. I wrote a while back about [reading my analytics before building anything](/blog/stop-building-features-start-reading-data/), and this was the same lesson wearing a different hat.
+
+The $237 week was the first full week of visibility. I don't believe the bill spiked that week — I think it had been roughly that bad for a while and I just hadn't looked. It was also partly self-inflicted: I ran a big backfill that week re-scoring imported photo history, and that job alone was $86.87 of the total. My worst AI week was partly my own migration.
+
+<hr className="post-divider" />
+
+## The Weekly Numbers
+
+All costs below are PostHog's list-price estimates, which I'll caveat properly at the end. Weeks start Sunday.
+
+<div className="post-table-wrapper scroll-reveal">
+  <table className="post-table no-highlight">
+    <thead>
+      <tr>
+        <th>Week of</th>
+        <th>Gemini bill</th>
+        <th>Users touching AI</th>
+        <th>Cost per AI user</th>
+        <th>Gross revenue</th>
+        <th>AI as % of revenue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Jun 7*</td><td>$83.04</td><td>225</td><td>$0.37</td><td>$444.97</td><td>~19%</td></tr>
+      <tr><td>Jun 14</td><td>$237.14</td><td>618</td><td>$0.38</td><td>$488.36</td><td>48.6%</td></tr>
+      <tr><td>Jun 21</td><td>$142.29</td><td>697</td><td>$0.20</td><td>$879.99</td><td>16.2%</td></tr>
+      <tr><td>Jun 28</td><td>$173.87</td><td>867</td><td>$0.20</td><td>$758.48</td><td>22.9%</td></tr>
+      <tr><td>Jul 5</td><td>$160.04</td><td>1,031</td><td>$0.16</td><td>$955.63</td><td>16.7%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p style={{fontSize: '0.85rem', color: 'var(--color-text-secondary)'}}>* Cost tracking went live midweek, so the week of Jun 7 is partial. The current week (Jul 12) was also partial when I pulled this — $91.53 and $0.12 per AI user through five days — so I'm not comparing it to complete weeks.</p>
+
+Two efficiency numbers underneath that table did most of the quiet work. Average input tokens per request went from 13,354 to 9,311 — about 30% less context shipped with every call. And the share of requests hitting Gemini's context caching went from 0% to 11%.
+
+The line I care most about: users touching an AI feature went 225 → 1,031 per week over this span, and the bill went <em>down</em>.
+
+<figure className="post-figure" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/cost-per-user.webp" alt="Bar chart of weekly AI cost per user who touched an AI feature, falling from $0.37 and $0.38 in early June to $0.20, $0.20, $0.15, and a partial-week $0.12 by mid-July" loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>Cost per AI user, week by week. The gray bar is the current partial week.</figcaption></figure>
+
+<hr className="post-divider" />
+
+## Where the Money Was Going
+
+This is the table the <code>gen_flow</code> tagging bought me. Peak week vs the latest complete week, by feature:
+
+<div className="post-table-wrapper scroll-reveal">
+  <table className="post-table no-highlight">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Wk Jun 14</th>
+        <th>Wk Jul 5</th>
+        <th>What happened</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Coach chat</td><td>$59.16</td><td>$65.44</td><td>Usage grew ~12x since April; cost held near flat</td></tr>
+      <tr><td>Photo scoring</td><td>$86.87</td><td>$35.39</td><td>Backfill ended, prompts got cheaper — big drop despite more users</td></tr>
+      <tr><td>Coach starter questions</td><td>$15.62</td><td>$2.08</td><td>Was regenerating suggestions constantly; now cached</td></tr>
+      <tr><td>History import scoring</td><td>$38.26 + $2.92</td><td>$1.74</td><td>Moved to the Gemini Batch API</td></tr>
+      <tr><td>Review / Deep Dive / Weekly Summary</td><td>$6.64 / $8.10 / $5.63</td><td>$17.46 / $11.72 / $5.00</td><td>Grew with usage — deliberate spend on paid-tier features</td></tr>
+      <tr><td>Everything else</td><td>~$15</td><td>~$20</td><td>Reports, memory extraction, image gen, predictions — the long tail</td></tr>
+    </tbody>
+  </table>
+</div>
+
+One thing worth saying about model choice: about 99% of my cost is <code>gemini-3.5-flash</code> — $790.91 total over the last 60 days. Image generation, which sounds like it should be expensive, was $10.36 total over the same period. If you're modeling costs for an app like this, the text calls with big context windows are the whole story.
+
+<hr className="post-divider" />
+
+## What I Changed
+
+Everything below shipped between June 18 and early July, in roughly this order.
+
+<figure className="post-inline-screenshot scroll-reveal"><img src="assets/ai-coach.webp" alt="GainFrame Coach chat screen showing the Coach Knows summary chip with the user's current body fat, score, and weight, plus three suggested starter questions" loading="lazy" /><figcaption>The coach — 41% of the current AI bill, and the one feature where I want spend growing.</figcaption></figure>
+
+**Put the coach on a prompt diet (Jun 18).** The coach assembles a lot of context per message — your scores, weight history, workout data, conversation memory. I restructured how that context gets built and cut input tokens on that flow by 37%. The part I was nervous about was quality: saving money by making the coach dumber would be a terrible trade, so before deploying I replayed a set of real conversations through the old and new prompts and compared answers. No regression I could find. The receipts on why this mattered: coach messages went from 79 a week in late April to 689 a week by late June, and unique coach users from 8 to 101 a week. Usage up 12x, cost near flat — $59.16 that peak week, $65.44 in the latest one.
+
+**Moved history imports to the Batch API (Jun 18).** GainFrame can import your camera roll and score months of old progress photos at once, which is exactly the kind of bursty job that shouldn't run at realtime prices. Gemini's Batch API is half price and asynchronous. That flow went from $38 a week to about $2.
+
+**Stopped regenerating starter questions (Jul 1).** The coach screen suggests three questions to get you started. I was regenerating those suggestions on basically every screen visit, which is as dumb as it sounds — the underlying data barely changes hour to hour. Cached them: $15.62 a week at peak, $2.08 the week of Jul 5, $0.96 last week. An 87% cut on a feature no user would ever notice changed. Checking the per-flow table for things like this is now a monthly ritual.
+
+**Added a fair-use cap on coach chat (early July).** Trial and promo users get 15 coach messages a day. Paying subscribers are never capped. I went back and forth on this one because caps feel bad to build, but the data showed a tiny group of non-paying users treating the coach as free unlimited ChatGPT — the cap protects the margin from the 1% without touching anyone who pays, and 15 messages a day is far above what any normal trial user sends.
+
+**Rolled out context caching (through July).** Gemini can cache the repeated portion of prompts so you only pay full price for what's new. This went out gradually per-flow: 0% of requests at the start, 11% by last week. It's the least finished item on this list and probably where the next chunk of savings lives.
+
+<hr className="post-divider" />
+
+## The Caveats
+
+The honesty section, because the headline ratio flatters me.
+
+**Half the improvement is the denominator.** Revenue went from $488 to $956 a week over this stretch while the bill fell about a third, from $237 to $160. The cost engineering alone would have moved the ratio from 48.6% to about 33% — growth into the cost base did the rest. Both halves are real, but only one of them was margin work.
+
+**These are telemetry estimates, and they're the upper bound.** PostHog prices every call at list price. It doesn't know about the Batch API's 50% discount or context-cache billing, so my true Google invoice is somewhat lower than every number in this post. I'm deliberately not quoting an invoice figure because I haven't reconciled the two, and quoting a number I haven't verified is how [my analytics bit me last time](/blog/trial-conversion-21-to-44/).
+
+**Two of the seven weeks are partial** — the first week of tracking started midweek, and the latest week had five days of data when I pulled it.
+
+**The scary week was partly my own fault.** $86.87 of the $237 was the history-import backfill I ran that same week. A true steady-state worst week was probably closer to $180 — still around 37% of that week's revenue, still a real problem, just not quite the headline.
+
+**Apple takes its cut before I see anything.** Measured against proceeds after the 15% small-business commission instead of gross, the week of Jul 5 was 19.7%, and every ratio in this post gets proportionally worse. Gross revenue is the honest public number to chart, but proceeds are what pays the bill.
+
+<hr className="post-divider" />
+
+## The Bill Is Growing Slower Than the Users Now
+
+1,031 people used an AI feature the week of July 5. The first week I could measure, 225 did. The bill for the bigger group was $77 smaller. That's the trade I was hoping for when I started tagging calls: usage compounding while cost per user shrinks.
+
+The June fear hasn't fully left, and I don't think it should. One viral week or one carelessly built feature could put the ratio right back near 49%. The difference is I'd know within a week this time. The bill used to arrive and surprise me. Now I watch it move.
+
+> If you're building on an LLM and haven't tagged your calls by feature yet, that's the one thing from this post worth doing this week. Happy to answer questions about any of it — the replay harness, the cap, the caching, whatever's useful.
+
+<div className="blog-post-cta scroll-reveal">
+  <h3>Track your progress with GainFrame</h3>
+  <p>Take or import a gym photo and get an AI body fat estimate, physique score, FFMI, and muscle breakdown, plus a Coach that explains what changed using your photos, weight, and workouts.</p>
+  <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" className="cta-button" target="_blank" rel="noopener">Download GainFrame Free</a>
+</div>
+
+<hr className="post-divider" />
+
+<div className="post-related scroll-reveal">
+  <h3>Related Articles</h3>
+  <ul>
+    <li><a href="/blog/1000-mrr-five-months/">My App Hit $1,000 MRR Today, Five Months After the First Commit</a></li>
+    <li><a href="/blog/trial-conversion-21-to-44/">My Trial Conversion Was 21%. Five Weeks Later It's 44%.</a></li>
+    <li><a href="/blog/spent-5k-on-app-ads/">I Spent $5,674 on App Ads. Here's Why I Stopped.</a></li>
+    <li><a href="/blog/stop-building-features-start-reading-data/">Stop Building Features, Start Reading Data</a></li>
+  </ul>
+</div>
