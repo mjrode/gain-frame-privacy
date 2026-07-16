@@ -2,9 +2,9 @@
 
 **Suggested image:** attach `docs/blog/retention-hardest-problem/assets/w1-cohorts.webp` where the sub allows image+text.
 
-**Title options:**
-- r/SideProject / r/indiehackers: **Three of every four people who install my app never come back. Six weeks of retention work, with the cohort data.**
-- r/iOSProgramming: **Week-1 retention went 20% → 27% after six weeks of features. Week-4 didn't move at all.**
+**Title options** (lead with the MRR/revenue figure — it pulls clicks):
+- r/SideProject / r/indiehackers: **My app makes $1,096/month. Three of every four people who install it never come back.**
+- r/iOSProgramming: **Week-1 retention on my $1K MRR app went 20% → 27% after six weeks of features. Week-4 didn't move at all.**
 
 **Note:** stagger this at least a few days after the AI-margin post from the same account.
 

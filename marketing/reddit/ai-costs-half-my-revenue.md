@@ -2,9 +2,9 @@
 
 **Suggested image:** attach `docs/blog/ai-costs-half-my-revenue/assets/cost-vs-revenue.webp` where the sub allows image+text.
 
-**Title options:**
-- r/SideProject / r/indiehackers: **My app was spending half its revenue on AI. Four weeks later it's 17%.**
-- r/iOSProgramming: **Tagging every Gemini call by feature cut my AI cost per user from $0.38 to $0.16**
+**Title options** (lead with the MRR/revenue figure — it pulls clicks):
+- r/SideProject / r/indiehackers: **My $1,096 MRR app was spending half its revenue on AI. Four weeks later it's 17%.**
+- r/iOSProgramming: **Tagging every Gemini call by feature cut my $1K MRR app's AI cost per user from $0.38 to $0.16**
 
 ---
 

@@ -81,7 +81,7 @@ Write the companion Reddit post to `marketing/reddit/[slug].md`. ⚠️ NEVER pu
 
 - **Self-contained value.** The full story with the real numbers lives IN the post — Reddit punishes link-bait. Someone who never clicks still gets everything.
 - Same mike-writes voice; even looser than the blog (it's a forum comment, not an essay).
-- Title: flat declarative with the number, no hooks. Offer 2–3 options tuned per subreddit if they differ (milestone framing for r/appledevelopers, lesson framing for r/AppBusiness / r/iOSAppsMarketing).
+- Title: flat declarative with the number, no hooks — and include the app's total revenue or MRR in the title (e.g. "My $1,096 MRR app…"), it measurably pulls more clicks (Michael, Jul 2026). Offer 2–3 options tuned per subreddit if they differ (milestone framing for r/appledevelopers, lesson framing for r/AppBusiness / r/iOSAppsMarketing).
 - Every failure/caveat from the blog post survives the compression — Reddit's first comment WILL be the caveat you omitted. Preempt it.
 - **Never a wall of text — format for the skim.** Markdown that has proven out in Michael's editing passes:
   - Paragraphs of 1–3 sentences with blank lines between. Split anything longer.
