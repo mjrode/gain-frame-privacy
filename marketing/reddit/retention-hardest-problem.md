@@ -34,7 +34,7 @@ My iOS app ([GainFrame](https://apps.apple.com/us/app/gainframe-progress-photos/
 
 **A notification overhaul (late June).** Audited every notification, rebuilt them around insights the coach noticed in your data. The old set was mostly check-in reminders, which I suspect read as nagging.
 
-**The caveats, because these matter more than the wins:**
+**The caveats:**
 
 - Part of the lift is traffic mix. The 17.8/18.1% floor weeks were paid-ad-heavy (I was [burning money on ads](https://gainframe.app/blog/spent-5k-on-app-ads/?utm_source=reddit&utm_medium=social&utm_campaign=retention-hardest-problem) then); bought installs retained 17–21% vs 27–30% organic. Organic-to-organic the honest claim is +5–8 points, best cohort 34.5%.
 - W4 hasn't moved. This is the number that decides whether any of it mattered. The June cohorts are still too young there; I'll report back either way.

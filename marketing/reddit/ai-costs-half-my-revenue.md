@@ -35,7 +35,7 @@ Users touching an AI feature grew from 618 to 1,031 a week over that span while 
 
 **Capped free usage, never paid.** Trial and promo users get 15 coach messages/day. A tiny group of non-payers was treating it as free unlimited ChatGPT. Paying subscribers are never capped.
 
-**The caveats, because these matter more than the wins:**
+**The caveats:**
 
 - Half the ratio improvement is the denominator. Revenue roughly doubled ($488 → $956/wk) while cost fell about a third. Cost work alone would have gotten me to ~33%, growth did the rest.
 - These are PostHog list-price estimates — an upper bound. They don't reflect the Batch discount or context caching, so the true Google invoice is somewhat lower. I haven't reconciled it against billing, so I'm not quoting an invoice figure.
