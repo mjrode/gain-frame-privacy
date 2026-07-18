@@ -331,3 +331,10 @@ NOTE: 21 posts published Jul 7 total (6 morning + 15 afternoon). Request GSC ind
 - [x] **Optics/relatable Qs:** why-do-i-look-fat-in-pictures · why-do-i-look-better-in-the-gym-mirror · face-fat-and-body-fat (jawline landmarks kept consistent) · how-lean-can-you-get-naturally · why-am-i-losing-inches-but-not-weight — published 2026-07-17
 - [x] **How-to + decision + quiz:** how-to-measure-body-fat-with-tape (Navy method) · tape-measure-vs-smart-scale · am-i-overtraining-quiz (YMYL-lite hedged) — published 2026-07-17
 - Pulse read Jul 17: record wk 1,222 clicks (+50%), 57.3K imp (+93%); Jul 13 = 191-click record; Jul 12 = first 10K-imp day. avg-waist-men 8.3K imp/wk.
+
+### Jul 18 batch — 10 posts (cluster-leveling hubs + gated areas opened)
+
+- [x] **Hubs:** how-to-take-body-measurements (binds the 17-page measurement family, head term) · body-fat-percentage-chart-women (completes female visual family, guarded vs unisex chart) — published 2026-07-18
+- [x] **Formats:** body-fat-percentage-quiz (visual self-assessment → tool funnel) · why-do-i-weigh-more-than-i-look · why-do-abs-only-show-when-flexing — published 2026-07-18
+- [x] **Gaps:** best-progress-photo-apps-android (honesty play #2) · skeletal-muscle-mass-percentage · average-body-fat-for-athletes — published 2026-07-18
+- [x] **Gated areas opened:** glp1-body-recomposition-after-stopping (YMYL) · are-smart-scales-accurate (scale-lane head question) — published 2026-07-18

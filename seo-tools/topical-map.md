@@ -21,7 +21,7 @@ The flagship cluster; drives the majority of non-brand clicks.
 The visualizer-asset cluster. Proven play: per-level/per-age standardized renders (chart post: pos 43→10 in 5 days).
 
 body-fat-percentage-chart (hub) · average-body-fat-percentage-by-age · dad-bod-body-fat-percentage · aesthetic-physique-body-fat-percentage · what-would-i-look-like-with-less-body-fat · 10-pounds-fat-vs-muscle · body-fat-percentage-vs-bmi · body-fat-visible-jawline-men · **Tool:** /tools/body-fat-visualizer/
-**Gaps:** female-focused visual page (e.g. "body fat percentage chart women" is currently inside the unisex chart post — split ONLY if GSC shows female queries stuck; cannibalization risk) · "average body fat percentage women" dedicated (same caution).
+body-fat-percentage-chart-women (Jul 18, female per-level visuals) · body-fat-percentage-quiz (Jul 18) also live here. **Gaps:** none — female visual family complete; watch chart-women vs unisex chart in GSC for cannibalization.
 
 ## Cluster 3 — Scanning, measurement & hardware alternatives 💰
 
