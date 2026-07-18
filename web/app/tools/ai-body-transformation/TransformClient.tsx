@@ -9,9 +9,41 @@ const FUNCTION_URL =
 
 const CTA_CAMPAIGN = "ai_body_transformation";
 const MASCOT_SRC = "/assets/gainframe-guy/poses/gainframe-guy-wave.png";
+// Limit screens get the "out of battery" mascot — sympathetic, on-theme.
+const MASCOT_TIRED_SRC = "/assets/gainframe-guy/poses/gainframe-guy-tired.png";
 
 type Sex = "male" | "female" | "skip";
 type Goal = "lose_fat" | "build_muscle" | "recomp";
+type Intensity = "realistic" | "strong" | "peak" | "fantasy";
+
+// Mirrors the edge function's INTENSITY_TIERS ladder (ported from the app's
+// QuickVisionIntensity). Index order == slider order.
+const INTENSITY_STOPS: {
+  key: Intensity;
+  label: string;
+  blurb: string;
+}[] = [
+  {
+    key: "realistic",
+    label: "Realistic",
+    blurb: "A grounded year of consistent training. Believable progress.",
+  },
+  {
+    key: "strong",
+    label: "Strong",
+    blurb: "A dedicated athlete's year — strict training, dialed nutrition.",
+  },
+  {
+    key: "peak",
+    label: "Peak",
+    blurb: "Peak natural physique. Fitness-model territory.",
+  },
+  {
+    key: "fantasy",
+    label: "Fantasy",
+    blurb: "Action-hero mode. Realism limits off — still you, though.",
+  },
+];
 
 const ZONES = [
   { key: "shoulders", label: "Shoulders" },
@@ -246,6 +278,7 @@ export default function TransformClient() {
   const [sex, setSex] = useState<Sex | null>(null);
   const [goal, setGoal] = useState<Goal>("recomp");
   const [zones, setZones] = useState<string[]>([]);
+  const [intensityIdx, setIntensityIdx] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [processingIdx, setProcessingIdx] = useState(0);
   // Before/after scrubber position, 0–100 (% of width showing the BEFORE).
@@ -361,6 +394,7 @@ export default function TransformClient() {
       sex: sex ?? "skip",
       goal,
       zones: zones.join(","),
+      intensity: INTENSITY_STOPS[intensityIdx].key,
     });
 
     try {
@@ -378,6 +412,7 @@ export default function TransformClient() {
           sex: sex && sex !== "skip" ? sex : null,
           goal,
           zones,
+          intensity: INTENSITY_STOPS[intensityIdx].key,
           posthog_distinct_id: posthogDistinctId(),
         }),
       });
@@ -667,10 +702,12 @@ export default function TransformClient() {
 
         <div className="btf-cta-block">
           <span className="btf-cta-glow" aria-hidden />
-          <p className="btf-cta-block-title">Now make it real</p>
+          <p className="btf-cta-block-title">
+            Unlimited AI transformations in the app
+          </p>
           <p className="btf-cta-block-sub">
-            GainFrame tracks your actual progress photos, scores 12 muscle
-            groups, and coaches you toward this render — free to start.
+            Re-render at any intensity, track your real progress photos, and
+            let the AI coach get you there — free to start.
           </p>
           <a
             className="btf-cta-download"
@@ -703,7 +740,7 @@ export default function TransformClient() {
         <p className="btf-retry-note">
           {stage.remaining > 0
             ? `${stage.remaining} render left — make it count`
-            : "Free renders used · The app has no limits"}
+            : "Free renders used · Unlimited in the app"}
         </p>
       </>
     );
@@ -747,11 +784,11 @@ export default function TransformClient() {
       <div className="btf-card">
         <div className="btf-msg">
           <img
-            className="btf-msg-mascot"
-            src={MASCOT_SRC}
+            className="btf-msg-mascot btf-msg-mascot--tired"
+            src={MASCOT_TIRED_SRC}
             alt=""
             aria-hidden
-            width={96}
+            width={120}
             height={96}
           />
           <p className="btf-msg-title">
@@ -790,8 +827,8 @@ export default function TransformClient() {
             }
           >
             {stage.canUnlock
-              ? "Or get unlimited renders in the app →"
-              : "Get GainFrame on iOS"}
+              ? "Or get unlimited AI transformations in the app →"
+              : "Get GainFrame on iOS — unlimited AI transformations"}
           </a>
         </div>
       </div>
@@ -973,6 +1010,47 @@ export default function TransformClient() {
               </button>
             );
           })}
+        </div>
+      </div>
+
+      <div className="btf-field">
+        <p className="btf-field-label">
+          <span>How far to push it</span>
+          <span className="btf-field-hint">
+            {INTENSITY_STOPS[intensityIdx].label}
+          </span>
+        </p>
+        <div className="btf-intensity">
+          <input
+            className="btf-intensity-range"
+            type="range"
+            min={0}
+            max={INTENSITY_STOPS.length - 1}
+            step={1}
+            value={intensityIdx}
+            aria-label="Transformation intensity, realistic to fantasy"
+            aria-valuetext={INTENSITY_STOPS[intensityIdx].label}
+            data-fantasy={
+              INTENSITY_STOPS[intensityIdx].key === "fantasy" || undefined
+            }
+            onChange={(e) => setIntensityIdx(Number(e.target.value))}
+          />
+          <div className="btf-intensity-stops" aria-hidden>
+            {INTENSITY_STOPS.map((s, i) => (
+              <button
+                key={s.key}
+                type="button"
+                tabIndex={-1}
+                className={`btf-intensity-stop ${i === intensityIdx ? "is-active" : ""}`}
+                onClick={() => setIntensityIdx(i)}
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
+          <p className="btf-intensity-blurb">
+            {INTENSITY_STOPS[intensityIdx].blurb}
+          </p>
         </div>
       </div>
 

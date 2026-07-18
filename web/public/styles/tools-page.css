@@ -631,24 +631,37 @@
     }
 }
 
-/* ─── Second feature band — AI Body Transformation ─── */
+/* ─── Second feature band — AI Body Transformation ───
+   A contained, tinted panel (vs the open hero above) so the two AI tools
+   read as clearly distinct sections. Visual = the mascot's own before/after:
+   chubby GainFrame Guy → jacked GainFrame Guy. */
 .cl-tool-feature {
-    position: relative;
     max-width: var(--cl-container);
     margin: 0 auto;
-    padding: clamp(28px, 4vw, 48px) var(--cl-pad-x) clamp(32px, 4.5vw, 56px);
+    padding: clamp(24px, 3.5vw, 44px) var(--cl-pad-x) clamp(28px, 4vw, 48px);
     border-bottom: 1px solid var(--cl-border-soft);
+}
+.cl-tool-feature-panel {
+    position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: clamp(28px, 5vw, 64px);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(24px, 4vw, 56px);
     align-items: center;
+    background:
+        radial-gradient(ellipse 70% 90% at 88% 12%, rgba(37, 99, 235, 0.07), transparent 60%),
+        linear-gradient(135deg, #f7f9ff 0%, #fdfdfe 55%, #f4f7ff 100%);
+    border: 1px solid rgba(37, 99, 235, 0.14);
+    border-radius: 24px;
+    padding: clamp(24px, 4vw, 48px);
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(17, 24, 39, 0.06);
 }
 .cl-tool-feature h2 {
     font-family: var(--cl-font);
     font-weight: 800;
-    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-size: clamp(1.8rem, 3.8vw, 2.8rem);
     letter-spacing: -0.04em;
-    line-height: 1.04;
+    line-height: 1.05;
     color: var(--cl-text);
     margin: 0 0 16px;
 }
@@ -656,70 +669,74 @@
     font-style: normal;
     color: var(--cl-accent);
 }
-/* Before/after split visual built from the visualizer's reference
-   physiques — no new assets, and it links the two tools conceptually. */
-.cl-tool-feature-split {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid var(--cl-border-soft);
-    box-shadow: 0 22px 60px rgba(17, 24, 39, 0.10);
-    background: var(--cl-surface);
-    max-width: 440px;
-    margin: 0 auto;
+
+/* Mascot before/after duo */
+.cl-tool-feature-duo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 1.6vw, 18px);
 }
-.cl-tool-feature-split img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 220 / 295;
-    object-fit: cover;
-}
-.cl-tool-feature-divider {
-    position: absolute;
-    top: 0; bottom: 0;
-    left: 50%;
-    width: 2px;
-    margin-left: -1px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 12px rgba(17, 24, 39, 0.35);
-}
-.cl-tool-feature-divider::after {
-    content: "⟷";
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 34px; height: 34px;
-    display: grid;
-    place-items: center;
+.cl-tool-feature-fig {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     background: #fff;
-    color: var(--cl-text);
-    border-radius: 50%;
-    font-size: 0.85rem;
-    box-shadow: 0 4px 14px rgba(17, 24, 39, 0.25);
+    border: 1px solid var(--cl-border-soft);
+    border-radius: 18px;
+    padding: 18px 16px 14px;
+    box-shadow: 0 10px 26px rgba(17, 24, 39, 0.07);
+    transform: rotate(-2deg);
 }
-.cl-tool-feature-tag {
-    position: absolute;
-    top: 10px;
-    font-size: 0.68rem;
+.cl-tool-feature-fig.is-after {
+    transform: rotate(2deg);
+    border-color: rgba(37, 99, 235, 0.35);
+    box-shadow: 0 14px 32px rgba(37, 99, 235, 0.16);
+}
+.cl-tool-feature-fig img {
+    width: clamp(96px, 12vw, 150px);
+    height: auto;
+    display: block;
+    /* Generated mascot art has a near-white bg; multiply melts it into
+       the white card. */
+    mix-blend-mode: multiply;
+}
+.cl-tool-feature-fig figcaption {
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.05em;
-    color: #fff;
-    background: rgba(17, 24, 39, 0.68);
-    padding: 4px 10px;
-    border-radius: 7px;
+    text-transform: uppercase;
+    color: var(--cl-muted);
+    background: var(--cl-surface);
+    border: 1px solid var(--cl-border-soft);
+    border-radius: 100px;
+    padding: 4px 12px;
 }
-.cl-tool-feature-tag.is-before { left: 10px; }
-.cl-tool-feature-tag.is-after  { right: 10px; background: var(--cl-accent); }
+.cl-tool-feature-fig.is-after figcaption {
+    color: #fff;
+    background: var(--cl-accent);
+    border-color: var(--cl-accent);
+}
+.cl-tool-feature-arrow {
+    flex-shrink: 0;
+    width: 38px; height: 38px;
+    display: grid;
+    place-items: center;
+    background: var(--cl-text);
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 6px 16px rgba(17, 24, 39, 0.25);
+}
+.cl-tool-feature-arrow svg { width: 16px; height: 16px; }
+
 @media (max-width: 860px) {
-    .cl-tool-feature {
+    .cl-tool-feature-panel {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 26px;
     }
-    /* Copy first on mobile — the split visual is decoration, not the pitch. */
+    /* Copy first — the duo is the punchline, not the pitch. */
     .cl-tool-feature-visual { order: 2; }
     .cl-tool-feature-copy   { order: 1; }
-    .cl-tool-feature-split  { max-width: 340px; }
 }

@@ -205,58 +205,70 @@ export default function ToolsPage() {
           </div>
         </section>
 
-        {/* SECOND FEATURE — AI Body Transformation ("Future You") */}
+        {/* SECOND FEATURE — AI Body Transformation. Contained tinted panel so
+            it reads as a clearly separate tool from the scan hero above. */}
         <section
           className="cl-tool-feature"
           aria-labelledby="cl-tool-feature-title"
         >
-          <div className="cl-tool-feature-visual" aria-hidden="true">
-            <div className="cl-tool-feature-split">
-              <img
-                src="/tools/body-fat-visualizer/assets/physiques/male-age30s-bf28.webp"
-                alt=""
-                loading="lazy"
-                width={220}
-                height={295}
-              />
-              <img
-                src="/tools/body-fat-visualizer/assets/physiques/male-age30s-bf18.webp"
-                alt=""
-                loading="lazy"
-                width={220}
-                height={295}
-              />
-              <span className="cl-tool-feature-divider" />
-              <span className="cl-tool-feature-tag is-before">Now</span>
-              <span className="cl-tool-feature-tag is-after">+1 year</span>
-            </div>
-          </div>
-          <div className="cl-tool-feature-copy">
-            <span className="cl-tool-hero-pill cl-tool-feature-pill">
-              <span className="dot" aria-hidden />
-              New · AI transformation
-            </span>
-            <h2 id="cl-tool-feature-title">
-              See the you a <em>year from now.</em>
-            </h2>
-            <p className="cl-tool-hero-sub">
-              Upload one photo and AI renders what a year of consistent
-              training and diet builds — same face, same setting, your future
-              body. Pick the areas to emphasize.
-            </p>
-            <div className="cl-tool-hero-actions">
-              <a
-                className="cl-tool-hero-cta"
-                href="/tools/ai-body-transformation/"
-              >
-                Render future me
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M13 5l7 7-7 7" />
-                </svg>
-              </a>
-              <span className="cl-tool-hero-actions-meta">
-                <strong>Free</strong> · ~20s render · 1 per person
+          <div className="cl-tool-feature-panel">
+            <div className="cl-tool-feature-copy">
+              <span className="cl-tool-hero-pill cl-tool-feature-pill">
+                <span className="dot" aria-hidden />
+                New · AI body transformation
               </span>
+              <h2 id="cl-tool-feature-title">
+                See your after photo, <em>a year early.</em>
+              </h2>
+              <p className="cl-tool-hero-sub">
+                Upload one photo and AI renders the transformation a year of
+                training builds — same face, same setting, your body. Slide
+                from realistic to fantasy, pick the areas to grow.
+              </p>
+              <div className="cl-tool-hero-actions">
+                <a
+                  className="cl-tool-hero-cta"
+                  href="/tools/ai-body-transformation/"
+                >
+                  Transform my photo
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <span className="cl-tool-hero-actions-meta">
+                  <strong>Free</strong> · ~20s · before/after slider
+                </span>
+              </div>
+            </div>
+
+            <div className="cl-tool-feature-visual" aria-hidden="true">
+              <div className="cl-tool-feature-duo">
+                <figure className="cl-tool-feature-fig">
+                  <img
+                    src="/assets/gainframe-guy/poses/gainframe-guy-chubby.webp"
+                    alt=""
+                    loading="lazy"
+                    width={160}
+                    height={160}
+                  />
+                  <figcaption>Day 1</figcaption>
+                </figure>
+                <span className="cl-tool-feature-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </span>
+                <figure className="cl-tool-feature-fig is-after">
+                  <img
+                    src="/assets/gainframe-guy/poses/gainframe-guy-jacked.webp"
+                    alt=""
+                    loading="lazy"
+                    width={160}
+                    height={160}
+                  />
+                  <figcaption>+1 year</figcaption>
+                </figure>
+              </div>
             </div>
           </div>
         </section>
