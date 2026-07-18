@@ -1,0 +1,18 @@
+A clean cartoon promotional banner for the GainFrame fitness app in WIDE LANDSCAPE 16:9 format. The fourth reference image shows the exact brand style to match (typography, mascot rendering, phone treatment, App Store badge) — but recompose it as a WIDE horizontal banner.
+
+CRITICAL HEAD DESIGN: The mascot's head is NOT a solid square — it is four separate corner brackets floating in space with the background visible between them (three black corners, bottom-right corner bracket RED). The eyes and S-curve nose float inside the bracket frame with NO background fill. The face has ONLY two eyes and the S-curve nose — NO mouth. Copy the head exactly from the first reference image.
+CRITICAL ANATOMY: The mascot has EXACTLY ONE torso, EXACTLY TWO arms, EXACTLY TWO legs, EXACTLY TWO hands. NO extra limbs.
+
+LAYOUT — left to right:
+
+1. LEFT THIRD: Bold Impact-style condensed sans-serif headline, ALL CAPS, stacked on three lines on the white background — NO banner or box behind it:
+   Line 1: "SEE YOURSELF" in near-black (#1A1A1A)
+   Line 2: "IN 6 MONTHS" in bright red (#E53935)
+   Below the headline, one smaller line of clean dark sans-serif text: "AI renders your future physique from today's photo."
+   Below that, bold text "DOWNLOAD GAINFRAME" and under it a small black iOS "Download on the App Store" badge.
+
+2. CENTER-RIGHT: A single large smartphone in portrait orientation, slightly tilted (5-8 degrees). PHONE SCREEN: copy the layout of the SECOND reference image as faithfully as possible — the "AI Future Physique" screen with two side-by-side progress photos labeled "You Now" and "You in 6 mo", the "GainFrame Score 88/100" row with green progress bar, and the "Projected Stats" cards (8% Body Fat, 206 Weight, 22.3 FFMI). All UI colors and labels readable and faithful.
+
+3. FAR RIGHT: The MUSCULAR GainFrame Guy mascot (heavily defined black cartoon body — big chest, biceps, six-pack like the third reference image, olive-green shorts, tan sneakers) standing beside the phone, pointing at the phone screen with one hand, confident expression.
+
+Background: pure clean WHITE (#FFFFFF) — flat, no gradient, not cream. Clean cartoon style, thick outlines, flat colors. WIDE 16:9 LANDSCAPE format. No watermarks.

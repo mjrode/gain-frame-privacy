@@ -615,3 +615,29 @@ Format: counterintuitive-promise hook (the winning `diet-tips-sound-fake` DNA) �
 - Format: Standard (ranked satiety countdown); build escalates soft→muscular with fullness
 - GainFrame mention: Yes (Slide 7 — GainFrame Score / body fat / recomp)
 - Status: Complete (head re-locked to badge; slide-3 regen for dup stamp + white bg)
+
+## 2026-07-16 — WANT PROOF YOUR GAINS ARE REAL?
+- Slug: proof-your-gains-promo
+- Slides: 1 (single-image promo, Hammr-style download post)
+- GainFrame mention: Yes (whole post — promo)
+- Status: Done
+
+## 2026-07-16 — Download-promo variants (5 iterations)
+- Slug: promo/download-variants-2026-07-16
+- Slides: 5 single-image promo variants (Hammr-style download posts)
+- GainFrame mention: Yes (all — promos)
+- Status: Drafts — pick one to post
+
+## 2026-07-18 — I ALMOST GAVE UP / THEN I LOCKED IN
+- Slug: promo/locked-in-2026-07-18
+- Slides: 2 (real before photo → deep-dive payoff w/ 48→78 score card)
+- Format: NEW — real-photo transformation promo. Both slides cropped from the real deep-dive compare screenshot (Aug 12, 22 ~23% → Jun 27, 25 ~14%); date/BF% overlays left intact for credibility. No AI-generated people (fake before/afters = comment-section death + fabricated app results). Impact black/red text on white via build.py in the post folder (same type system as comic pipeline).
+- GainFrame mention: Yes (whole post — promo)
+- Status: Draft — synced to iCloud TikTok-Drafts/locked-in-promo
+
+## 2026-07-18 — I ALMOST GAVE UP / THEN I LOCKED IN (new-UI variant)
+- Slug: promo/locked-in-newui-2026-07-18
+- Slides: 2 (real before photo → new-UI payoff w/ WHAT CHANGED · 1581 DAYS + Score 48→78 + Body fat rows)
+- Format: Same as locked-in-2026-07-18 but cut from the new Compare Overview UI (May 22 → Sep 20 screenshot, saved to tiktok-screenshots/deep-dive-compare-newui.png). Prefer this variant — newer UI, redder sunburn before photo, 1581 DAYS detail.
+- GainFrame mention: Yes (whole post — promo)
+- Status: Draft — synced to iCloud TikTok-Drafts/locked-in-promo-newui

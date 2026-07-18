@@ -1,0 +1,21 @@
+A clean cartoon promotional header banner for the GainFrame fitness app in ULTRA-WIDE 21:9 LANDSCAPE format. The fourth reference image shows the exact brand style to match (typography, mascot rendering, phone treatment) — but recompose it as one SHORT HORIZONTAL STRIP.
+
+THIS IS A PROFILE HEADER BANNER: every element must sit in a single horizontal band, vertically centered, with generous equal white margins above and below all elements. NOTHING may touch the top or bottom edge. No element may be cut off.
+
+CRITICAL HEAD DESIGN: The mascot's head is NOT a solid square — it is four separate corner brackets floating in space with the background visible between them (three black corners, bottom-right corner bracket RED). The eyes and S-curve nose float inside the bracket frame with NO background fill. The face has ONLY two eyes and the S-curve nose — NO mouth. Copy the head EXACTLY, stroke for stroke, from the first reference image: four L-shaped corner brackets (top-left, top-right, bottom-left black; bottom-right RED), two round white eyes with black pupils side by side, and one smooth S-curve nose sweeping down-left. Nothing else on the face.
+CRITICAL ANATOMY: The mascot has EXACTLY ONE torso, EXACTLY TWO arms, EXACTLY TWO legs, EXACTLY TWO hands. NO extra limbs.
+
+LAYOUT — four elements in one horizontal row, left to right:
+
+1. LEFT: Bold Impact-style condensed sans-serif headline, ALL CAPS, stacked on two lines — NO box behind it:
+   Line 1: "YOUR CAMERA ROLL" in near-black (#1A1A1A)
+   Line 2: "IS FULL OF PROGRESS" in bright red (#E53935)
+   Below the headline one small line of clean dark sans-serif text: "GainFrame finds old photos and builds your timeline."
+
+2. CENTER-LEFT: EXACTLY ONE small black iOS "Download on the App Store" badge with the text "DOWNLOAD GAINFRAME" in small bold caps directly above it. This badge block appears ONCE in the entire image — never duplicated.
+
+3. CENTER-RIGHT: A smartphone in portrait orientation TILTED at a strong 25-30 degree angle so it fits the short banner height, showing the app screen from the SECOND reference image copied as faithfully as possible — the "You have more progress than you think." screen with the fanned stack of polaroid-style progress photos, "72 check-ins become your first real progress timeline", the "72 PHOTOS / 28 MONTHS / ~1x PER WEEK" stat row and the green "Import 72 photos" button. The ENTIRE phone is visible — no cropping.
+
+4. RIGHT: The MUSCULAR GainFrame Guy mascot (heavily defined black cartoon body — big chest, biceps, six-pack like the third reference image, olive-green shorts, tan sneakers) shown FULL BODY head-to-sneakers, sized to fit comfortably inside the band, pointing at the phone screen with one hand, other hand on hip.
+
+Background: pure clean WHITE (#FFFFFF) — flat, no gradient, not cream. Clean cartoon style, thick outlines, flat colors. ULTRA-WIDE 21:9 LANDSCAPE. No watermarks.

@@ -3,6 +3,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import Script from "next/script";
 import BlogNav from "@/components/BlogNav";
+import EditorialFonts from "@/components/EditorialFonts";
 import BlogScrollReveal from "@/components/BlogScrollReveal";
 import ComicsGrid from "@/components/ComicsGrid";
 import { SITE } from "@/lib/site";
@@ -58,6 +59,7 @@ export default async function ComicsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
       />
+      <EditorialFonts />
       <BlogNav />
       <BlogScrollReveal />
 

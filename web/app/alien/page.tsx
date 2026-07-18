@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BlogNav from "@/components/BlogNav";
 import BlogFonts from "@/components/BlogFonts";
+import EditorialFonts from "@/components/EditorialFonts";
 import BlogScrollReveal from "@/components/BlogScrollReveal";
 
 export const metadata: Metadata = {
@@ -454,6 +455,7 @@ export default function AlienPage() {
   return (
     <>
       <BlogFonts />
+      <EditorialFonts />
       <BlogNav />
       <BlogScrollReveal />
       <style dangerouslySetInnerHTML={{ __html: ALIEN_STYLES }} />

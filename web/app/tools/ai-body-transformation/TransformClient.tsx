@@ -8,9 +8,9 @@ const FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/body-transform";
 
 const CTA_CAMPAIGN = "ai_body_transformation";
-const MASCOT_SRC = "/assets/gainframe-guy/poses/gainframe-guy-wave.png";
+const MASCOT_SRC = "/assets/gainframe-guy/poses/gainframe-guy-wave.webp";
 // Limit screens get the "out of battery" mascot — sympathetic, on-theme.
-const MASCOT_TIRED_SRC = "/assets/gainframe-guy/poses/gainframe-guy-tired.png";
+const MASCOT_TIRED_SRC = "/assets/gainframe-guy/poses/gainframe-guy-tired.webp";
 
 type Sex = "male" | "female" | "skip";
 type Goal = "lose_fat" | "build_muscle" | "recomp";

@@ -10,7 +10,7 @@ const REPORT_FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/bf-full-report";
 
 const CTA_CAMPAIGN = "bf_from_photo";
-const MASCOT_SRC = "/assets/gainframe-guy/poses/gainframe-guy-wave.png";
+const MASCOT_SRC = "/assets/gainframe-guy/poses/gainframe-guy-wave.webp";
 
 type Sex = "male" | "female" | "skip";
 type Confidence = "low" | "medium" | "high";
