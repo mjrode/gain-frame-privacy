@@ -34,6 +34,12 @@ const ALL_TOOLS: RelatedTool[] = [
       "Free single-photo AI estimator. One scan per day, no signup. The fastest way to get a directional body-fat number.",
   },
   {
+    slug: "ai-body-transformation",
+    title: "AI Body Transformation",
+    blurb:
+      "See yourself after a year of consistent training — AI renders your future body on your own photo. One free render.",
+  },
+  {
     slug: "body-fat-estimator",
     title: "U.S. Navy Tape-Measure Calculator",
     blurb:

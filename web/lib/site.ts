@@ -39,6 +39,7 @@ export function campaignForPath(pathname: string): string {
   const p = pathname.replace(/\/+$/, "") || "/";
   if (p === "/") return "web-home";
   if (p.startsWith("/tools/body-fat-from-photo")) return "web-bftool";
+  if (p.startsWith("/tools/ai-body-transformation")) return "web-bttool";
   if (p.startsWith("/tools")) return "web-tools";
   if (p.startsWith("/blog")) return "web-blog";
   if (p.startsWith("/get")) return "web-get";

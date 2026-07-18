@@ -630,3 +630,96 @@
         animation: none !important;
     }
 }
+
+/* ─── Second feature band — AI Body Transformation ─── */
+.cl-tool-feature {
+    position: relative;
+    max-width: var(--cl-container);
+    margin: 0 auto;
+    padding: clamp(28px, 4vw, 48px) var(--cl-pad-x) clamp(32px, 4.5vw, 56px);
+    border-bottom: 1px solid var(--cl-border-soft);
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+}
+.cl-tool-feature h2 {
+    font-family: var(--cl-font);
+    font-weight: 800;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    letter-spacing: -0.04em;
+    line-height: 1.04;
+    color: var(--cl-text);
+    margin: 0 0 16px;
+}
+.cl-tool-feature h2 em {
+    font-style: normal;
+    color: var(--cl-accent);
+}
+/* Before/after split visual built from the visualizer's reference
+   physiques — no new assets, and it links the two tools conceptually. */
+.cl-tool-feature-split {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--cl-border-soft);
+    box-shadow: 0 22px 60px rgba(17, 24, 39, 0.10);
+    background: var(--cl-surface);
+    max-width: 440px;
+    margin: 0 auto;
+}
+.cl-tool-feature-split img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 220 / 295;
+    object-fit: cover;
+}
+.cl-tool-feature-divider {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 2px;
+    margin-left: -1px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 12px rgba(17, 24, 39, 0.35);
+}
+.cl-tool-feature-divider::after {
+    content: "⟷";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 34px; height: 34px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    color: var(--cl-text);
+    border-radius: 50%;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 14px rgba(17, 24, 39, 0.25);
+}
+.cl-tool-feature-tag {
+    position: absolute;
+    top: 10px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: rgba(17, 24, 39, 0.68);
+    padding: 4px 10px;
+    border-radius: 7px;
+}
+.cl-tool-feature-tag.is-before { left: 10px; }
+.cl-tool-feature-tag.is-after  { right: 10px; background: var(--cl-accent); }
+@media (max-width: 860px) {
+    .cl-tool-feature {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    /* Copy first on mobile — the split visual is decoration, not the pitch. */
+    .cl-tool-feature-visual { order: 2; }
+    .cl-tool-feature-copy   { order: 1; }
+    .cl-tool-feature-split  { max-width: 340px; }
+}

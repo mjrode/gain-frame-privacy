@@ -31,6 +31,18 @@ export type AnalyticsEvent =
   | "bf_tool_email_submitted"
   | "bf_tool_report_sent"
   | "bf_tool_report_error"
+  // Body transformation tool
+  | "bt_tool_view"
+  | "bt_tool_photo_uploaded"
+  | "bt_tool_generate_requested"
+  | "bt_tool_result_shown"
+  | "bt_tool_unusable"
+  | "bt_tool_rate_limited"
+  | "bt_tool_email_submitted"
+  | "bt_tool_second_run_unlocked"
+  | "bt_tool_download_clicked"
+  | "bt_tool_cta_clicked"
+  | "bt_tool_error"
   // Homepage promo film
   | "promo_film_sound_on"
   | "promo_film_watched_75"

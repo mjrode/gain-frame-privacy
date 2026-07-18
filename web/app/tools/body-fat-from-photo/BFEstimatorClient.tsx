@@ -699,6 +699,27 @@ export default function BFEstimatorClient() {
           );
         })()}
 
+        {/* Highest-intent surface on the site: they just saw their current
+            number — offer the "where a year takes you" render next. */}
+        <a
+          className="bff-crosslink-card"
+          style={{ marginTop: 18 }}
+          href="/tools/ai-body-transformation/"
+          onClick={() =>
+            track("bf_tool_cta_clicked", { cta_content: "future_you_crosslink" })
+          }
+        >
+          <div className="bff-crosslink-text">
+            <strong>Now see your future physique</strong>
+            <span>
+              That&apos;s where you are today. Our AI transformation tool
+              renders the same photo after a year of consistent training —
+              free, one render.
+            </span>
+          </div>
+          <span className="bff-crosslink-arrow">Render →</span>
+        </a>
+
         <p className="bff-retry-note">
           Today's free scan used · 3 per person total · The app has no limits
         </p>

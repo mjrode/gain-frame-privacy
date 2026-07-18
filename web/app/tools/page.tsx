@@ -41,16 +41,17 @@ const itemListSchema = {
   name: "GainFrame Free Fitness Calculators",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "AI Body Fat Estimator from a Photo", url: "https://gainframe.app/tools/body-fat-from-photo/" },
-    { "@type": "ListItem", position: 2, name: "Body Fat Calculator", url: "https://gainframe.app/tools/body-fat-estimator/" },
-    { "@type": "ListItem", position: 3, name: "Body Fat Percentage at Each Age", url: "https://gainframe.app/tools/body-fat-visualizer/" },
-    { "@type": "ListItem", position: 4, name: "FFMI Calculator", url: "https://gainframe.app/tools/ffmi-calculator/" },
-    { "@type": "ListItem", position: 5, name: "TDEE Calculator", url: "https://gainframe.app/tools/tdee-calculator/" },
-    { "@type": "ListItem", position: 6, name: "Macro Calculator", url: "https://gainframe.app/tools/macro-calculator/" },
-    { "@type": "ListItem", position: 7, name: "Calorie Deficit Calculator", url: "https://gainframe.app/tools/calorie-deficit-calculator/" },
-    { "@type": "ListItem", position: 8, name: "1RM Calculator", url: "https://gainframe.app/tools/one-rep-max-calculator/" },
-    { "@type": "ListItem", position: 9, name: "Strength Standards Calculator", url: "https://gainframe.app/tools/strength-standards-calculator/" },
-    { "@type": "ListItem", position: 10, name: "Calories Burned Calculator", url: "https://gainframe.app/tools/calories-burned-calculator/" },
-    { "@type": "ListItem", position: 11, name: "Progress Photo Setup Tool", url: "https://gainframe.app/tools/progress-photo-setup/" },
+    { "@type": "ListItem", position: 2, name: "AI Body Transformation Generator", url: "https://gainframe.app/tools/ai-body-transformation/" },
+    { "@type": "ListItem", position: 3, name: "Body Fat Calculator", url: "https://gainframe.app/tools/body-fat-estimator/" },
+    { "@type": "ListItem", position: 4, name: "Body Fat Percentage at Each Age", url: "https://gainframe.app/tools/body-fat-visualizer/" },
+    { "@type": "ListItem", position: 5, name: "FFMI Calculator", url: "https://gainframe.app/tools/ffmi-calculator/" },
+    { "@type": "ListItem", position: 6, name: "TDEE Calculator", url: "https://gainframe.app/tools/tdee-calculator/" },
+    { "@type": "ListItem", position: 7, name: "Macro Calculator", url: "https://gainframe.app/tools/macro-calculator/" },
+    { "@type": "ListItem", position: 8, name: "Calorie Deficit Calculator", url: "https://gainframe.app/tools/calorie-deficit-calculator/" },
+    { "@type": "ListItem", position: 9, name: "1RM Calculator", url: "https://gainframe.app/tools/one-rep-max-calculator/" },
+    { "@type": "ListItem", position: 10, name: "Strength Standards Calculator", url: "https://gainframe.app/tools/strength-standards-calculator/" },
+    { "@type": "ListItem", position: 11, name: "Calories Burned Calculator", url: "https://gainframe.app/tools/calories-burned-calculator/" },
+    { "@type": "ListItem", position: 12, name: "Progress Photo Setup Tool", url: "https://gainframe.app/tools/progress-photo-setup/" },
   ],
 };
 
@@ -89,7 +90,7 @@ export default function ToolsPage() {
             #cl-count IDs are consumed by ToolsInteractions; do not rename. */}
         <div className="cl-search-rail">
           <div className="cl-tool-meta-pill">
-            <strong id="cl-count">11</strong>&nbsp;tools available
+            <strong id="cl-count">12</strong>&nbsp;tools available
           </div>
           <div className="cl-search-bar-compact" id="cl-search-wrap">
             <span className="cl-search-icon">
@@ -204,11 +205,67 @@ export default function ToolsPage() {
           </div>
         </section>
 
+        {/* SECOND FEATURE — AI Body Transformation ("Future You") */}
+        <section
+          className="cl-tool-feature"
+          aria-labelledby="cl-tool-feature-title"
+        >
+          <div className="cl-tool-feature-visual" aria-hidden="true">
+            <div className="cl-tool-feature-split">
+              <img
+                src="/tools/body-fat-visualizer/assets/physiques/male-age30s-bf28.webp"
+                alt=""
+                loading="lazy"
+                width={220}
+                height={295}
+              />
+              <img
+                src="/tools/body-fat-visualizer/assets/physiques/male-age30s-bf18.webp"
+                alt=""
+                loading="lazy"
+                width={220}
+                height={295}
+              />
+              <span className="cl-tool-feature-divider" />
+              <span className="cl-tool-feature-tag is-before">Now</span>
+              <span className="cl-tool-feature-tag is-after">+1 year</span>
+            </div>
+          </div>
+          <div className="cl-tool-feature-copy">
+            <span className="cl-tool-hero-pill cl-tool-feature-pill">
+              <span className="dot" aria-hidden />
+              New · AI transformation
+            </span>
+            <h2 id="cl-tool-feature-title">
+              See the you a <em>year from now.</em>
+            </h2>
+            <p className="cl-tool-hero-sub">
+              Upload one photo and AI renders what a year of consistent
+              training and diet builds — same face, same setting, your future
+              body. Pick the areas to emphasize.
+            </p>
+            <div className="cl-tool-hero-actions">
+              <a
+                className="cl-tool-hero-cta"
+                href="/tools/ai-body-transformation/"
+              >
+                Render future me
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </a>
+              <span className="cl-tool-hero-actions-meta">
+                <strong>Free</strong> · ~20s render · 1 per person
+              </span>
+            </div>
+          </div>
+        </section>
+
         {/* Demoted page headline — sits above the categorized grid */}
         <div className="cl-section-intro">
           <h2>Free Fitness Calculators</h2>
           <p>
-            Eleven evidence-based tools for body composition, nutrition, and
+            Twelve evidence-based tools for body composition, nutrition, and
             performance. Instant results, no signup.
           </p>
         </div>
@@ -217,7 +274,7 @@ export default function ToolsPage() {
           <nav className="cl-sidebar" aria-label="Tool categories">
             <p className="cl-sidebar-label">Categories</p>
             <a href="#body-composition" className="cl-nav-link cl-active">
-              Body Composition <span className="cl-nav-count">4</span>
+              Body Composition <span className="cl-nav-count">5</span>
             </a>
             <a href="#nutrition" className="cl-nav-link">
               Nutrition &amp; Energy <span className="cl-nav-count">3</span>
@@ -234,7 +291,7 @@ export default function ToolsPage() {
             <section className="cl-section" id="body-composition">
               <div className="cl-section-header">
                 <h2>Body Composition</h2>
-                <span className="cl-count-badge">4 tools</span>
+                <span className="cl-count-badge">5 tools</span>
               </div>
               <div className="cl-grid cl-grid-2">
                 <a
@@ -292,6 +349,37 @@ export default function ToolsPage() {
                   <p className="cl-card-desc">
                     Upload one photo, get an AI body fat estimate in seconds.
                     No tape, no calipers. One free estimate per day.
+                  </p>
+                  <span className="cl-card-link">Open →</span>
+                </a>
+
+                <a
+                  href="/tools/ai-body-transformation/"
+                  className="cl-card"
+                  data-search="ai body transformation future you before after muscle fat to fit render photo"
+                >
+                  <div className="cl-card-icon ic-bf">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M12 3v18" strokeDasharray="3 3" />
+                      <path d="M8 7H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4" />
+                      <path d="M16 7h4a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-4" />
+                    </svg>
+                  </div>
+                  <h3>AI Body Transformation</h3>
+                  <p className="cl-card-desc">
+                    See yourself after a year of consistent training — AI
+                    renders your future body on your own photo. One free
+                    render, before/after slider.
                   </p>
                   <span className="cl-card-link">Open →</span>
                 </a>
@@ -582,8 +670,8 @@ export default function ToolsPage() {
                     <h3>Progress Photo Setup Tool</h3>
                     <p className="cl-card-desc">
                       Build your perfect progress photo routine in five steps —
-                      personalized lighting, framing, and pose guidance with a
-                      score for your current setup.
+                      personalized lighting, framing, and pose guidance. The
+                      same photos feed the AI transformation tool.
                     </p>
                     <span className="cl-card-link">Open →</span>
                   </div>

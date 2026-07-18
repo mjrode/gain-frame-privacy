@@ -296,6 +296,20 @@ export default function BodyFatFromPhotoPage() {
           <div className="bff-section-inner">
             <p className="bff-section-eyebrow">Related tools</p>
             <h2>More ways to measure.</h2>
+            <a
+              className="bff-crosslink-card"
+              href="/tools/ai-body-transformation/"
+            >
+              <div className="bff-crosslink-text">
+                <strong>AI Body Transformation</strong>
+                <span>
+                  You know where you are — now see where a year of consistent
+                  training takes you. AI renders your future body on your own
+                  photo.
+                </span>
+              </div>
+              <span className="bff-crosslink-arrow">Open →</span>
+            </a>
             <a className="bff-crosslink-card" href="/tools/body-fat-estimator/">
               <div className="bff-crosslink-text">
                 <strong>U.S. Navy tape-measure calculator</strong>
