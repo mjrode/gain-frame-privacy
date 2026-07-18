@@ -1512,6 +1512,20 @@ button {
   margin-bottom: 30px;
 }
 
+.seo-receipt {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 0 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.seo-receipt img {
+  display: block;
+  height: 68px;
+  width: auto;
+}
+
 .foot {
   width: min(1240px, calc(100% - 48px));
   margin: 0 auto;

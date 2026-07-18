@@ -104,7 +104,7 @@ const faqSchema = {
 export default function Home() {
   return (
     <div className={homeFontClass} style={homeFontStyle}>
-      <link rel="stylesheet" href="/styles-clean.css?v=promo-film" />
+      <link rel="stylesheet" href="/styles-clean.css?v=seo-badge" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -566,6 +566,19 @@ export default function Home() {
         </a>
       </section>
       </main>
+      <div className="seo-receipt">
+        <a
+          href="https://seoreceipts.com/site/gainframe/?ref=badge&utm_source=embed&utm_medium=badge&utm_campaign=status-auto"
+          title="View the live SEO Receipt for gainframe.app"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://seoreceipts.com/api/badge?slug=gainframe&mode=auto"
+            alt="Live verified SEO status for gainframe.app"
+            height={68}
+          />
+        </a>
+      </div>
       <Footer />
     </div>
   );
