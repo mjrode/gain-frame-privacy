@@ -67,9 +67,10 @@ type Stage =
       canUnlock: boolean;
     }
   | { kind: "unusable"; message: string }
-  // can_unlock: the free render is used but an email unlocks one more.
-  // Terminal (both used / capacity / ip-daily) renders the app CTA instead.
-  | { kind: "rate_limited"; message: string; canUnlock: boolean }
+  // canUnlock: an email unlocks one more lifetime render — offered on every
+  // limit screen (lifetime AND ip-daily/capacity: the extra render persists
+  // past the daily reset). Only hidden once already unlocked.
+  | { kind: "rate_limited"; message: string; canUnlock: boolean; title?: string }
   | { kind: "error"; message: string };
 
 type UnlockStage = "idle" | "sending" | "error";
@@ -300,8 +301,9 @@ export default function TransformClient() {
     viewedRef.current = true;
     track("bt_tool_view");
 
-    // Returning visitors with no renders left skip straight to the limit
-    // screen instead of uploading a photo that can't be rendered.
+    // Visitors who can't render right now — lifetime spent, IP daily cap,
+    // or global capacity — skip straight to the limit screen instead of
+    // uploading and aiming a photo that can't be rendered.
     const clientId = getOrCreateClientId();
     clientIdRef.current = clientId;
     fetch(FUNCTION_URL, {
@@ -311,13 +313,33 @@ export default function TransformClient() {
     })
       .then((res) => (res.ok ? res.json() : null))
       .then(
-        (json: { remaining: number; used: number; unlocked: boolean } | null) => {
-          if (!json || json.remaining > 0) return;
+        (
+          json: {
+            remaining: number;
+            used: number;
+            unlocked: boolean;
+            ip_limited?: boolean;
+            capacity_limited?: boolean;
+          } | null,
+        ) => {
+          if (!json) return;
+          if (json.ip_limited || json.capacity_limited) {
+            setStage({
+              kind: "rate_limited",
+              title: "Daily limit reached",
+              canUnlock: !json.unlocked,
+              message: json.capacity_limited
+                ? "The free tool is at capacity for today — come back tomorrow. Drop your email now and an extra render will be waiting."
+                : "Too many renders from this connection today — try tomorrow. Drop your email now and an extra render will be waiting.",
+            });
+            return;
+          }
+          if (json.remaining > 0) return;
           setStage({
             kind: "rate_limited",
-            canUnlock: !json.unlocked && json.used >= 1,
+            canUnlock: !json.unlocked,
             message: json.unlocked
-              ? "Both free renders are used. GainFrame on iOS has unlimited Future You renders — plus the coaching to actually get there."
+              ? "Both free renders are used. GainFrame on iOS has unlimited AI transformations — plus the coaching to actually get there."
               : "You've used your free render. Drop your email to unlock one more — or get unlimited renders in the GainFrame app.",
           });
         },
@@ -437,12 +459,13 @@ export default function TransformClient() {
 
       const err = (await res.json().catch(() => ({}))) as ErrorResponse;
       if (res.status === 429) {
-        const canUnlock = err.error === "lifetime_limited" &&
-          err.can_unlock !== false;
         track("bt_tool_rate_limited", { kind: err.error });
         setStage({
           kind: "rate_limited",
-          canUnlock,
+          canUnlock: err.can_unlock === true,
+          title: err.error === "rate_limited" || err.error === "capacity"
+            ? "Daily limit reached"
+            : undefined,
           message: err.message ??
             "You've used your free render. The GainFrame app has no limits.",
         });
@@ -792,9 +815,10 @@ export default function TransformClient() {
             height={96}
           />
           <p className="btf-msg-title">
-            {stage.canUnlock
-              ? "Your free render is used"
-              : "No renders left here"}
+            {stage.title ??
+              (stage.canUnlock
+                ? "Your free render is used"
+                : "No renders left here")}
           </p>
           <p className="btf-msg-sub">{stage.message}</p>
 
