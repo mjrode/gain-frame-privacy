@@ -308,6 +308,10 @@ NOTE: 21 posts published Jul 7 total (6 morning + 15 afternoon). Request GSC ind
 - [x] **Stats pages:** average-chest-size, average-shoulder-width (biacromial vs circumference disambiguation), average-neck-size (health-marker + Navy-formula angle) — published 2026-07-11. Rationale: waist/bicep stats pages from Jul 7 pulled 1,000–1,500 impressions each within 4 days of publish (GSC Jul 6–8). Inbound links added from average-bicep-size, shoulder-to-waist-ratio, average-waist-size-men related blocks (June crawl-bottleneck lesson: no orphans).
 - [x] **Internal-link sweep:** added /tools/body-fat-from-photo/ links to 13 roundups + 4 stats pages that had none (tool hit pos 6.6 / 14.4% CTR wk of Jul 6). Varied anchors, placed in GainFrame sections — 2026-07-11
 - [ ] **Request GSC indexing for the 3 new stats pages** (average-chest-size, average-shoulder-width, average-neck-size) — daily indexing quota was exhausted 2026-07-11; submit on/after 2026-07-12
+
+### Jul 18 — body-fat-percentage-chart CTR title test
+
+- [x] Title/meta iteration shipped 2026-07-18 (in the planned Jul 16–20 window, 16 days after the Jul 2 rewrite). Old title: "Body Fat Percentage Chart with Photos: Visual Guide for Men & Women". New: "Body Fat Percentage Chart: What 10–40% Actually Looks Like (Men & Women)" — aligned to the dominant "what does N% body fat look like / N% example" query mix visible in GSC. **Baseline (wk Jul 10–16): 42 clicks / 5,147 impr / 0.82% CTR / pos 12.2.** Judge ~Jul 28–Aug 1: success = CTR ≥1.2% at same-or-better position. No further metadata touches on this page until then.
 - [x] **CRITICAL FIX shipped same commit:** App Store CTA links across 31 posts + 9 legacy HTML pages pointed at DEAD listing id6742498826; corrected sitewide to live id6759252082 (gainframe-progress-photos) and fixed the blog-post-generator SKILL.md template that seeded it. Every "Download GainFrame Free" button on recent posts was a dead link until 2026-07-09.
 
 ### Jul 13 batch — 10 posts doubling down on validated formats (stats pages 5K imp/5d, quizzes 12-17% CTR)
