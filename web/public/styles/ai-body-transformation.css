@@ -433,6 +433,27 @@
   cursor: not-allowed;
 }
 
+/* Photo-first progressive disclosure: the aim panel only exists once a
+   photo is in, entering with a soft slide. The hint line holds the space
+   conceptually beforehand. */
+.btf-aim-hint {
+  margin: 16px 0 0;
+  text-align: center;
+  font-family: var(--btf-mono);
+  font-size: 0.76rem;
+  color: var(--btf-faint);
+}
+.btf-aim {
+  animation: btf-aim-in 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes btf-aim-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btf-aim { animation: none; }
+}
+
 /* Intensity slider — realistic → fantasy. The blue fill deepens as you
    push right; the fantasy stop flips the accent to a warm gradient. */
 .btf-intensity {

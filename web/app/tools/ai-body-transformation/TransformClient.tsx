@@ -954,6 +954,14 @@ export default function TransformClient() {
         </div>
       )}
 
+      {!file && (
+        <p className="btf-aim-hint">
+          Aim &amp; intensity appear once your photo&apos;s in
+        </p>
+      )}
+
+      {file && (
+      <div className="btf-aim">
       <div className="btf-field">
         <p className="btf-field-label">
           <span>The year ahead</span>
@@ -1083,6 +1091,8 @@ export default function TransformClient() {
           </button>
         </div>
       </div>
+      </div>
+      )}
 
       <button
         type="button"
@@ -1090,7 +1100,7 @@ export default function TransformClient() {
         disabled={submitDisabled}
         onClick={submit}
       >
-        {submitDisabled ? "Pick a photo & reference" : (
+        {!file ? "Add a photo to start" : submitDisabled ? "Pick a reference to render" : (
           <>
             Render future me <span className="arrow" aria-hidden>→</span>
           </>
