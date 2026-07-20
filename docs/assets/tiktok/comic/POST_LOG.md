@@ -1,5 +1,20 @@
 # TikTok Carousel Post Log
 
+## 2026-07-20 — MYTH-BUST QUESTION-HOOK BATCH (10 posts)
+Format: debate-bait myth-busts with question-fear cover hooks (the winning "WILL CARDIO KILL YOUR GAINS?" DNA). Built via `_pipeline/` (deterministic Pillow text, badge-free covers); specs in `_pipeline/posts.json`. Covers use short stacked lines so the compositor renders them at max font size, red scare-word accent.
+
+- fasted-cardio-myth — 5 slides — GainFrame: No
+- target-belly-fat — 6 slides — GainFrame: Yes (slide 5 — post-check-in-photo-score.png)
+- ice-baths-kill-gains — 5 slides — GainFrame: No
+- diet-soda-fat — 5 slides — GainFrame: No
+- are-machines-cheating — 5 slides — GainFrame: No
+- blame-genetics — 6 slides — GainFrame: Yes (slide 5 — compare.png)
+- test-boosters-truth — 5 slides — GainFrame: No
+- do-you-need-to-squat — 5 slides — GainFrame: No
+- late-eating-myth — 5 slides — GainFrame: No
+- lose-fat-build-muscle — 6 slides — GainFrame: Yes (slide 5 — muscle-map.png)
+- Status: Complete
+
 ## 2026-07-09 — "SOUND FAKE BUT WORK" BATCH (10 posts)
 Format: counterintuitive-promise hook (the winning `diet-tips-sound-fake` DNA) — "X TIPS THAT SOUND FAKE/BACKWARDS/ILLEGAL/TOO EASY". **All slide text is now rendered deterministically** by `_pipeline/compose.py` (fixed Impact font, sizes, positions, red accent, page pill); the image model only draws the mascot on blank white space, auto-cropped below the text → zero styling drift, zero text/art collision. Pipeline + content spec live in `docs/assets/tiktok/comic/_pipeline/` (posts.json, compose.py, build.py). Covers are badge-free for consistency.
 

@@ -5488,5 +5488,320 @@
     "alt": "The GainFrame mascot points to a smartphone screen showing a rising progress chart from Day 1 to Day 1000, encouraging users to track their fitness journey."
    }
   ]
+ },
+ "diet-soda-fat": {
+  "summary": "Diet soda contains zero calories and does not directly cause weight gain, making it an effective swap for high-calorie sugary drinks. Often, the real cause of weight gain is the high-calorie food paired with the soda rather than the drink itself. However, because sweet tastes can trigger snacking cravings in some individuals, it is important to monitor your personal eating patterns.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is diet soda making you fat?",
+    "alt": "The GainFrame mascot holds out a red soda can under the title asking if diet soda is making you fat."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Zero calories is zero. It cant store what isnt there. The can is not the problem.",
+    "alt": "The GainFrame mascot shrugs with a green checkmark above its head to show that diet soda has zero calories and is not the cause of weight gain."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. It beats full sugar. Swapping soda saves 150 calories a can. Easy swaps beat willpower.",
+    "alt": "The GainFrame mascot chooses a diet soda over a regular sugary soda to illustrate how simple swaps can easily save 150 calories per can."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Blame the pairing. Its the burger next to the diet soda. The can just takes the fall.",
+    "alt": "The GainFrame mascot points at a high-calorie burger and fries next to a diet soda, showing that the accompanying food is often the real cause of weight gain."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Know your cravings. Sweet taste triggers snacking for some. Watch your own pattern, not the headlines.",
+    "alt": "The GainFrame mascot reaches into a refrigerator to highlight how sweet tastes can trigger snacking cravings for some individuals."
+   }
+  ]
+ },
+ "fasted-cardio-myth": {
+  "summary": "Fasted cardio does not burn more fat than fed cardio because overall daily caloric balance determines fat loss. Training without food can actually reduce workout intensity and lead to fewer calories burned. For the best results, focus on maintaining a caloric deficit and exercising consistently at the times you feel strongest.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Fasted cardio burns more fat?",
+    "alt": "The GainFrame mascot is sweating while running on a treadmill next to an empty plate, illustrating the question of whether fasted cardio burns more fat."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Same calories, same fat loss. Fed or fasted, the burn is equal. Your body evens it out by bedtime.",
+    "alt": "Two muscular GainFrame mascots run on treadmills next to flames, one with a plate of food nearby and one without, showing that fed and fasted cardio result in the same fat loss."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Fasted just means weaker. Less fuel means a slower session. Slower sessions burn less.",
+    "alt": "A tired GainFrame mascot walks slowly on a treadmill under a low battery icon, illustrating that working out fasted can lead to weaker, less effective sessions."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. The deficit does the work. Fat loss is calories in vs calories out. Cardio timing is a rounding error.",
+    "alt": "The GainFrame mascot holds a balance scale weighing a burning flame against a plate of food, highlighting that a caloric deficit is what drives fat loss rather than cardio timing."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Train when you feel strongest. The schedule you keep beats the hack. Consistency is the fat burner.",
+    "alt": "The GainFrame mascot walks happily under the sun while listening to music, emphasizing that consistency and training when you feel strongest is the key to fat loss."
+   }
+  ]
+ },
+ "ice-baths-kill-gains": {
+  "summary": "Taking ice baths immediately after lifting weights can blunt muscle growth signals and reduce overall gains. To avoid this, wait four to six hours after a workout or save cold plunges for rest days. While cold therapy is excellent for mental alertness and stress relief, simple sleep is often a better tool for muscle recovery.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Do ice baths kill your gains?",
+    "alt": "The GainFrame mascot shivers inside a wooden tub filled with ice water, introducing the question of whether ice baths kill muscle gains."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Cold blunts the growth signal. Plunging right after lifting shrinks gains. Studies show smaller muscle growth.",
+    "alt": "The GainFrame mascot steps into a tub of ice next to a barbell, illustrating how cold exposure immediately after lifting blunts muscle growth signals."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Wait 4 to 6 hours. Plunge later or on rest days. Keep the cold away from the lift.",
+    "alt": "The GainFrame mascot relaxes in an ice bath under a crescent moon next to a clock, showing that waiting four to six hours after lifting preserves muscle gains."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Cold is for your brain. The mood and alertness boost is real. Use it for stress, not for size.",
+    "alt": "The GainFrame mascot sits in an ice bath with a frosted head and sparkling icons, highlighting that cold therapy is best used for mental alertness and stress relief rather than muscle size."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Soreness relief has a price. Less sore today can mean less growth. Sometimes recovery is just sleep.",
+    "alt": "The GainFrame mascot sleeps peacefully in bed with a crossed-out ice cube on the nightstand, illustrating that sleep is often a better recovery tool than ice baths for muscle growth."
+   }
+  ]
+ },
+ "blame-genetics": {
+  "summary": "Genetic limits are rarely the primary obstacle to fitness progress, as most people are far from reaching their genetic ceiling. While genetics determine muscle shape, muscle size can still be significantly increased with consistent training. Before blaming genetics, individuals should audit their basic habits, including sleep, protein intake, and consistent effort over time.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is it just bad genetics?",
+    "alt": "The GainFrame mascot stands with arms crossed under a floating DNA helix and chemical symbols, introducing the question of whether bad genetics are holding back fitness progress."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Genes set the ceiling. Almost nobody is near theirs. You have years of growth left.",
+    "alt": "The GainFrame mascot jumps high with an outstretched arm, illustrating that almost no one has reached their genetic ceiling and years of potential growth remain."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Shape is genetic, size isn't. Insertions decide the look, not the limit. Train the muscle you were dealt.",
+    "alt": "Two muscular GainFrame mascots flex their biceps to show different genetic muscle shapes, emphasizing that while muscle shape is genetic, size can still be built."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Slow responders still grow. Every study has late bloomers. They catch up given time.",
+    "alt": "The GainFrame mascot walks along a path next to a turtle toward a trophy, showing that slow responders can still achieve great fitness results over time."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Audit the basics first. Sleep, protein, effort, and years. Blame DNA last, not first.",
+    "alt": "The GainFrame mascot holds a clipboard next to checked-off icons for sleep, protein, and weightlifting, highlighting the importance of mastering basic habits before blaming genetics."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Proof you are actually changing photo vs photo. GainFrame. Compare. Deep dive analysis. See what changed and what to focus on next.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app's side-by-side photo comparison feature, demonstrating how to track actual physical progress over time."
+   }
+  ]
+ },
+ "target-belly-fat": {
+  "summary": "Spot reduction is a myth, as fat loss occurs across the entire body rather than in targeted areas. Genetics determine the order in which fat is lost, with belly fat typically being the last to go. To reveal abdominal muscles, maintain a consistent calorie deficit to lower overall body fat while training the abs directly to build their thickness.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Can you target belly fat?",
+    "alt": "The GainFrame mascot is shown performing a crunch on a fitness mat, introducing the question of whether it is possible to target belly fat."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Spot reduction is a myth. Ab work does not burn ab fat. Fat comes off the whole body at once.",
+    "alt": "The GainFrame mascot performs a crunch with a green checkmark above its head and a red cross over a flame on its stomach, illustrating that spot reduction is a myth and ab exercises do not directly burn belly fat."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Your DNA picks the order. Face and arms usually lean out first. Belly and lower back go last.",
+    "alt": "The GainFrame mascot stands next to a DNA double helix model, illustrating that genetics determine the order in which different body parts lose fat."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Drain the whole pool. A calorie deficit lowers all of it. Stay in it long enough to reach the belly.",
+    "alt": "The GainFrame mascot drains a swimming pool to represent how a consistent calorie deficit is required to lower overall body fat until it eventually reaches the belly."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Build the abs while you wait. Thick abs show at higher body fat. Train them heavy now, reveal them later.",
+    "alt": "The GainFrame mascot performs a kneeling cable rope crunch to show that training abdominal muscles heavily builds thickness so they can be revealed later at higher body fat levels."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Know your real body fat from a single photo. GainFrame. Unlock deep insights. Body fat 17.0%. Weight 239.0 lbs. Breakdown. Body fat. Muscle. Proportions. Goal fit. Trajectory. Recomp on track.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app interface, showing how users can track their body fat percentage and muscle metrics from a single photo."
+   }
+  ]
+ },
+ "test-boosters-truth": {
+  "summary": "Testosterone booster supplements provide negligible results in scientific studies. Instead of relying on pills, individuals can naturally optimize their testosterone levels by prioritizing sleep, lifting heavy weights, eating sufficient calories, and reducing excess body fat.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Do test boosters even work?",
+    "alt": "The GainFrame mascot, a character with a square viewfinder-like head, looks through a magnifying glass at a pill bottle, questioning if testosterone boosters are effective."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. The pills barely move it\n\nA few percent at best in studies not enough to feel or see",
+    "alt": "The GainFrame mascot looks down sadly at a spilled bottle of green pills, illustrating that testosterone booster pills have a negligible effect on hormone levels."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Sleep is the real booster\n\nOne short week can tank T levels free and legal every night",
+    "alt": "The GainFrame mascot stands next to a bed with a large alarm clock, highlighting that getting enough sleep is a highly effective and natural way to boost testosterone levels."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Lift heavy, eat enough\n\nTraining and food drive hormones undereating tanks them",
+    "alt": "The muscular GainFrame mascot deadlifts a heavy barbell next to a table with a plate of chicken, rice, and water, showing that heavy lifting and proper nutrition are essential for maintaining healthy testosterone levels."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Leaner often means higher T\n\nExtra body fat converts T away the cut is the supplement",
+    "alt": "The lean, muscular GainFrame mascot stands confidently with hands on hips as a green upward-trending arrow rises from his chest, demonstrating that reducing body fat naturally increases testosterone levels."
+   }
+  ]
+ },
+ "late-eating-myth": {
+  "summary": "Eating late does not inherently cause weight gain, as total daily calorie intake is what determines weight changes. However, late-night snacking often leads to overeating, and heavy meals close to bedtime can disrupt sleep quality, which negatively impacts weight management. Consuming a light, protein-rich snack like Greek yogurt before bed can support muscle recovery without disrupting rest.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Does eating late make you fat?",
+    "alt": "The GainFrame mascot stands in front of an open refrigerator at night holding a snack, illustrating the common question of whether late-night eating causes weight gain."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Calories cant tell time. A 10pm meal stores like a noon meal daily totals decide, not the clock.",
+    "alt": "The GainFrame mascot holds a balanced meal on a plate next to an empty plate, representing the concept that daily calorie totals matter more than the time of day you eat."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Night eating is extra eating. Late snacks stack on top of dinner thats why the myth feels true.",
+    "alt": "The GainFrame mascot sits in an armchair eating snacks next to a tall stack of dirty plates, illustrating how late-night eating often leads to weight gain simply because it adds extra calories on top of daily meals."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Protein before bed helps. Slow protein feeds muscle overnight greek yogurt is a legal bedtime snack.",
+    "alt": "The GainFrame mascot eats Greek yogurt in bed next to a large alarm clock, highlighting how slow-digesting protein before sleep can help feed muscle overnight."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Guard the sleep, not the clock. Huge meals at midnight wreck rest bad sleep drives real weight gain.",
+    "alt": "The GainFrame mascot sleeps peacefully in bed next to a crossed-out plate icon, emphasizing that avoiding heavy meals before bed protects sleep quality, which is crucial for preventing weight gain."
+   }
+  ]
+ },
+ "are-machines-cheating": {
+  "summary": "Both free weights and machines are highly effective tools for muscle growth, as muscles respond to mechanical tension regardless of the equipment used. Machines offer a safer way to train to failure without a spotter, while free weights are superior for developing balance and coordination. Ultimately, the most important factor for progress is applying progressive overload over time.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Are machines cheating?",
+    "alt": "The GainFrame mascot stands shrugging between a dumbbell rack and a leg press machine, introducing the debate between free weights and gym machines."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Muscle cant read labels. Tension is tension either way. Studies show equal growth.",
+    "alt": "The GainFrame mascot is shown performing a dumbbell curl and a dumbbell bench press with an equals sign between them, illustrating that muscles grow from tension regardless of the exercise modality."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Machines let you go harder. No balancing means safer failure. Push to the edge without a spotter.",
+    "alt": "The GainFrame mascot struggles to balance a heavy dumbbell next to a stable leg press machine, highlighting how machines allow lifters to safely push to failure without a spotter."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Free weights build skill. Balance and control carry over. Different tools, different jobs.",
+    "alt": "The GainFrame mascot performs a heavy barbell squat with balance arrows near its feet, demonstrating how free weights build functional balance and control."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. The only rule is overload. Machine or barbell, add weight over time. Progress is all that counts.",
+    "alt": "The GainFrame mascot inserts a pin into a cable weight stack next to an upward-pointing arrow, emphasizing that progressive overload is the ultimate rule of muscle building."
+   }
+  ]
+ },
+ "lose-fat-build-muscle": {
+  "summary": "Body recomposition, or losing fat while building muscle simultaneously, is highly achievable for new and returning lifters during their first two years of training. To achieve this, maintain a slight calorie deficit while consuming high protein, and focus on visual progress rather than scale weight. Once progress stalls, advanced lifters will need to transition to dedicated bulking or cutting phases.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Lose fat and build muscle?",
+    "alt": "The GainFrame mascot is shown in two forms: a softer, out-of-shape version on the left, and a highly muscular version flexing its biceps on the right, introducing the concept of body recomposition."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Recomp is real. New and returning lifters do both at once. The first two years are magic.",
+    "alt": "The GainFrame mascot looks into a mirror and sees a highly muscular reflection of itself, illustrating that body recomposition is highly effective for beginners."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Small deficit, big protein. Slight cut plus 1g per pound. Body fat funds the new muscle.",
+    "alt": "The GainFrame mascot eats a high-protein meal with arrows indicating a calorie deficit and muscle growth, showing how to fuel body recomposition."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. The scale will lie. Weight stalls while the mirror changes. Judge the body, not the number.",
+    "alt": "The GainFrame mascot stands on a scale looking confused, but the mirror reflection shows a lean, muscular physique, emphasizing that progress should be judged by appearance rather than weight."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. It slows as you advance. Year three lifters must pick a lane. Bulk or cut once recomp stalls.",
+    "alt": "The GainFrame mascot stands at a fork in the road with a signpost pointing toward cutting or bulking, showing that advanced lifters must eventually choose a specific goal."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Watch muscle replace fat photo by photo. GainFrame. Front. Back. Before. After. Needs work. Developing. Solid. Strong. Elite. Muscle comparison. Front delts. Side/rear delts. Upper chest. Mid/lower chest. Biceps. Abs. Obliques.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app, which tracks muscle development and body recomposition progress over time using visual comparisons and charts."
+   }
+  ]
+ },
+ "do-you-need-to-squat": {
+  "summary": "Squats are not a mandatory exercise for leg development, as muscles respond to movement patterns rather than specific exercise names. Alternative movements like leg presses, hack squats, and lunges are highly effective and should be used if squats cause pain or do not suit your individual body structure. Ultimately, you should choose the exercises that allow for pain-free progression based on your unique frame.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Do you need to squat?",
+    "alt": "The GainFrame mascot stands confidently with arms crossed next to a loaded squat rack, introducing the question of whether squats are a mandatory exercise."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. No lift is mandatory. Muscles dont know exercise names. Movement patterns matter, not brands.",
+    "alt": "The GainFrame mascot shrugs with open hands in front of dumbbells, a kettlebell, and a leg press machine, highlighting that no single lift is mandatory for muscle growth."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Leg press grows legs too. Hack squats, lunges, split squats all work. Pick the one you can keep progressing.",
+    "alt": "The GainFrame mascot sweats while pushing a heavy leg press machine, demonstrating that alternative exercises can effectively build leg muscles."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Pain is data. If squats hurt, swap them out. An exercise you avoid builds nothing.",
+    "alt": "The GainFrame mascot looks down at a barbell with a red warning exclamation mark next to it, illustrating that pain is a signal to swap out exercises you cannot perform comfortably."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Squats are a tool, not a test. Great if they fit your body. Your frame picks your lifts.",
+    "alt": "The GainFrame mascot places a dumbbell into a red toolbox, symbolizing that exercises are merely tools to be selected based on your individual body frame."
+   }
+  ]
  }
 }

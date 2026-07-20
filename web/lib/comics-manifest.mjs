@@ -7,6 +7,16 @@
 // `ext` is the file extension for cover & slides — generated webp by default;
 // the original png/jpeg files remain on disk as the source of truth.
 export const COMICS_MANIFEST = [
+  { slug: "fasted-cardio-myth",        title: "Fasted Cardio Burns More Fat?",         date: "2026-07-20", ext: "webp" },
+  { slug: "target-belly-fat",          title: "Can You Target Belly Fat?",             date: "2026-07-20", ext: "webp" },
+  { slug: "ice-baths-kill-gains",      title: "Do Ice Baths Kill Your Gains?",         date: "2026-07-20", ext: "webp" },
+  { slug: "diet-soda-fat",             title: "Is Diet Soda Making You Fat?",          date: "2026-07-20", ext: "webp" },
+  { slug: "are-machines-cheating",     title: "Are Machines Cheating?",                date: "2026-07-20", ext: "webp" },
+  { slug: "blame-genetics",            title: "Is It Just Bad Genetics?",              date: "2026-07-20", ext: "webp" },
+  { slug: "test-boosters-truth",       title: "Do Test Boosters Even Work?",           date: "2026-07-20", ext: "webp" },
+  { slug: "do-you-need-to-squat",      title: "Do You Need to Squat?",                 date: "2026-07-20", ext: "webp" },
+  { slug: "late-eating-myth",          title: "Does Eating Late Make You Fat?",        date: "2026-07-20", ext: "webp" },
+  { slug: "lose-fat-build-muscle",     title: "Lose Fat and Build Muscle?",            date: "2026-07-20", ext: "webp" },
   { slug: "breakfast-keeps-you-full",  title: "How Long Your Breakfast Keeps You Full", date: "2026-07-11", ext: "webp" },
   { slug: "muscle-tips-sound-fake",    title: "Muscle Tips That Sound Fake",           date: "2026-07-09", ext: "webp" },
   { slug: "fat-loss-backwards",        title: "Fat Loss Tips That Sound Backwards",    date: "2026-07-09", ext: "webp" },
