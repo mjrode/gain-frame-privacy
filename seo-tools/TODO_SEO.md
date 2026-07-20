@@ -342,3 +342,10 @@ NOTE: 21 posts published Jul 7 total (6 morning + 15 afternoon). Request GSC ind
 - [x] **Formats:** body-fat-percentage-quiz (visual self-assessment → tool funnel) · why-do-i-weigh-more-than-i-look · why-do-abs-only-show-when-flexing — published 2026-07-18
 - [x] **Gaps:** best-progress-photo-apps-android (honesty play #2) · skeletal-muscle-mass-percentage · average-body-fat-for-athletes — published 2026-07-18
 - [x] **Gated areas opened:** glp1-body-recomposition-after-stopping (YMYL) · are-smart-scales-accurate (scale-lane head question) — published 2026-07-18
+
+### Jul 19 batch — 10 posts (honest how-tos + nutrition-adjacent + body-image)
+
+- [x] **Honest how-tos (big queries):** how-to-get-a-smaller-waist · how-to-get-toned-arms (female) — published 2026-07-19
+- [x] **Head Qs + decision:** why-does-my-weight-fluctuate · is-bmi-accurate · progress-photos-vs-scale — published 2026-07-19
+- [x] **Nutrition-adjacent guides (feed TDEE tool + cut cluster):** maintenance-calories · reverse-dieting · cutting-without-counting-calories — published 2026-07-19
+- [x] **Gated + brand-defining:** jefit-vs-hevy (Jefit verified 4.8/46K) · progress-photos-body-image (max-care body-image piece, NEDA resource, weekly-cadence philosophy) — published 2026-07-19
