@@ -38,7 +38,6 @@ const websiteSchema = {
   alternateName: ["Gain Frame", "GainFrame App"],
   url: SITE.url,
   sameAs: [
-    "https://x.com/GainFrameApp",
     "https://www.tiktok.com/@gainframeapp",
     "https://www.instagram.com/gainframe.app/",
   ],

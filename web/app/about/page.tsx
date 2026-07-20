@@ -47,7 +47,6 @@ const aboutPageSchema = {
     foundingDate: "2026-03-08",
     founder: { "@type": "Person", "@id": "https://gainframe.app/about/#michael-rode" },
     sameAs: [
-      "https://x.com/GainFrameApp",
       "https://www.tiktok.com/@gainframeapp",
       "https://www.instagram.com/gainframe.app/",
     ],
@@ -89,6 +88,7 @@ const personSchema = {
     "Founder of GainFrame. Full-time backend engineer with 15 years of experience, lifter for 20 years, and new dad squeezing workouts in around naps. Built GainFrame after two expensive DEXA scans convinced him there had to be a better way to track body composition.",
   sameAs: [
     "https://www.linkedin.com/in/michael-rode/",
+    "https://x.com/mikerodebuilds",
     "https://github.com/mjrode",
     "https://apps.apple.com/us/developer/michael-rode/id1869450871",
     "https://www.crunchbase.com/person/michael-rode-b23f",
@@ -142,7 +142,7 @@ export default function AboutPage() {
                 </p>
                 <div className="about-hero__actions" aria-label="Contact links">
                   <a href="mailto:michaelrode44@gmail.com">Email</a>
-                  <a href="https://x.com/GainFrameApp" target="_blank" rel="noopener">
+                  <a href="https://x.com/mikerodebuilds" target="_blank" rel="noopener">
                     X
                   </a>
                   <a
@@ -498,7 +498,7 @@ export default function AboutPage() {
 
                   <a
                     className="about-channel"
-                    href="https://x.com/GainFrameApp"
+                    href="https://x.com/mikerodebuilds"
                     target="_blank"
                     rel="noopener"
                   >
@@ -508,7 +508,7 @@ export default function AboutPage() {
                       </svg>
                     </span>
                     <p className="about-channel__label">X / Twitter</p>
-                    <p className="about-channel__handle">@GainFrameApp</p>
+                    <p className="about-channel__handle">@mikerodebuilds</p>
                   </a>
 
                   <a

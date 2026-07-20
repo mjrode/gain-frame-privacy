@@ -88,7 +88,6 @@ const organizationSchema = {
   url: SITE.url,
   logo: SITE.logo,
   sameAs: [
-    "https://x.com/GainFrameApp",
     "https://www.tiktok.com/@gainframeapp",
     "https://www.instagram.com/gainframe.app/",
   ],
