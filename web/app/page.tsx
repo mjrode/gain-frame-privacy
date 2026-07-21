@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PromoFilm from "@/components/PromoFilm";
+import HeroDemo from "@/components/HeroDemo";
 import { SITE } from "@/lib/site";
 
 const geist = Geist({
@@ -103,7 +104,7 @@ const faqSchema = {
 export default function Home() {
   return (
     <div className={homeFontClass} style={homeFontStyle}>
-      <link rel="stylesheet" href="/styles-clean.css?v=seo-badge" />
+      <link rel="stylesheet" href="/styles-clean.css?v=hero-demo" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -121,12 +122,11 @@ export default function Home() {
           <span className="eyebrow">
             <span></span>AI body analysis + Coach
           </span>
-          <h1>Progress photos that explain what changed</h1>
+          <h1>Progress photos, finally explained</h1>
           <p>
-            Take or import a gym selfie and GainFrame pairs it with your
-            weight, estimated body fat, and training — so you can see whether
-            you&apos;re actually gaining muscle and losing fat, not just moving
-            the scale.
+            Snap a gym selfie. GainFrame turns it into body fat %, muscle
+            scores, and a Coach who tells you what actually changed — not just
+            what the scale says.
           </p>
           <div className="hero-proof" aria-label="GainFrame report highlights">
             <span>Body fat %</span>
@@ -150,6 +150,37 @@ export default function Home() {
           </div>
         </div>
 
+        <HeroDemo />
+
+        <div className="hero-stats reveal" aria-label="GainFrame proof points">
+          <div className="stat">
+            <strong>
+              0.4<span>pp</span>
+            </strong>
+            <p>agreement vs a clinical DEXA scan, head-to-head</p>
+          </div>
+          <div className="stat">
+            <strong>12</strong>
+            <p>muscle groups scored on every check-in</p>
+          </div>
+          <div className="stat">
+            <strong>0.98</strong>
+            <p>CCC vs DEXA for AI photo analysis, peer-reviewed</p>
+          </div>
+          <div className="stat">
+            <strong>$0</strong>
+            <p>to start — the base tier is free</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="film-section">
+        <div className="section-head reveal">
+          <span className="eyebrow">
+            <span></span>The film
+          </span>
+          <h2>38 seconds. Photo in, answers out.</h2>
+        </div>
         <PromoFilm />
       </section>
 

@@ -294,7 +294,7 @@ button {
 .hero {
   position: relative;
   min-height: 900px;
-  padding: 190px 24px 0;
+  padding: 190px 24px 30px;
   overflow: hidden;
   text-align: center;
 }
@@ -2361,5 +2361,248 @@ button {
 
   .film-caption {
     justify-content: center;
+  }
+}
+
+/* ---- Hero auto demo, stat band, film section (landing redesign) ---- */
+
+.hero-demo {
+  position: relative;
+  z-index: 2;
+  width: min(1120px, 100%);
+  margin: 64px auto 0;
+}
+
+.hd-glow {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  z-index: 0;
+  width: min(760px, 96vw);
+  height: 540px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    closest-side,
+    rgba(52, 210, 111, 0.15),
+    rgba(28, 196, 177, 0.06) 55%,
+    transparent 78%
+  );
+  pointer-events: none;
+}
+
+.hd-phone {
+  position: relative;
+  z-index: 1;
+  width: min(330px, 80vw);
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 46px;
+  background: #171717;
+  box-shadow:
+    0 42px 96px rgba(23, 23, 23, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.hd-phone::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  z-index: 2;
+  width: 86px;
+  height: 24px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #171717;
+}
+
+.hd-phone video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  object-fit: cover;
+  border-radius: 36px;
+  background: #f2f2f0;
+  cursor: pointer;
+}
+
+.hd-chip {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 9px 24px rgba(23, 23, 23, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #202020;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  animation: pingFloat 3.8s ease-in-out infinite;
+}
+
+.hd-chip i {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--green);
+  box-shadow: 0 0 0 5px rgba(52, 210, 111, 0.12);
+}
+
+.hd-chip-fat {
+  left: calc(50% - 322px);
+  top: 20%;
+}
+
+.hd-chip-muscle {
+  right: calc(50% - 334px);
+  top: 44%;
+  animation-delay: 1.4s;
+}
+
+.hd-chip-coach {
+  left: calc(50% - 306px);
+  top: 66%;
+  animation-delay: 2.4s;
+}
+
+.hd-caption {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.hd-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #343432;
+}
+
+.hd-live i {
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  background: var(--green);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.hero-stats {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: min(1040px, 100%);
+  margin: 72px auto 0;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-stats .stat {
+  padding: 0 18px;
+  text-align: center;
+}
+
+.hero-stats .stat + .stat {
+  border-left: 1px solid var(--line);
+}
+
+.hero-stats strong {
+  display: block;
+  color: var(--ink);
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.hero-stats strong span {
+  margin-left: 2px;
+  color: #4d4d4b;
+  font-size: 0.55em;
+  letter-spacing: -0.03em;
+}
+
+.hero-stats p {
+  max-width: 200px;
+  margin: 9px auto 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.film-section {
+  padding: 46px 24px 0;
+}
+
+.film-section .section-head {
+  margin-bottom: 0;
+}
+
+.film-section .film-stage {
+  margin-top: 38px;
+  padding-bottom: 46px;
+}
+
+@media (max-width: 900px) {
+  .hd-chip-fat {
+    left: calc(50% - 288px);
+  }
+
+  .hd-chip-muscle {
+    right: calc(50% - 296px);
+  }
+
+  .hd-chip-coach {
+    left: calc(50% - 278px);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-demo {
+    margin-top: 40px;
+  }
+
+  .hd-chip {
+    display: none;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 0;
+    margin-top: 52px;
+    padding: 22px 0;
+  }
+
+  .hero-stats .stat + .stat {
+    border-left: 0;
+  }
+
+  .hero-stats .stat:nth-child(even) {
+    border-left: 1px solid var(--line);
+  }
+
+  .film-section {
+    padding: 34px 18px 0;
   }
 }
