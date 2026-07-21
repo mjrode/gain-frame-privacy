@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "About GainFrame — The Progress Photo App Built by Someone Who Needed It | GainFrame",
+      "About GainFrame — Progress Photos Built by Someone Who Needed Them",
   },
   description:
     "Built by Michael Rode — a senior software engineer in Wilmington, NC with 20 years in the gym and 15 in code. GainFrame is the progress photo app he needed.",
