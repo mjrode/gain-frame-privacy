@@ -6,8 +6,7 @@
   --line: rgba(24, 26, 23, 0.18);
   --green: #34d26f;
   --green-deep: #0f8b43;
-  --red: #ff5d6c;
-  --purple: #9655f6;
+  --coral: #ff5d6c;
   --mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", monospace;
   width: calc(100% + 16px);
   min-height: 100vh;
@@ -71,7 +70,7 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  width: min(100%, 1080px);
+  width: min(100%, 900px);
   min-height: 60px;
   margin: 0 auto;
   padding: 7px 8px 7px 14px;
@@ -120,13 +119,6 @@
 
 .navLinks a:hover {
   background: rgba(24, 26, 23, 0.07);
-}
-
-.navDivider {
-  width: 1px;
-  height: 22px;
-  margin: 0 5px;
-  background: var(--line);
 }
 
 .mobileMenu {
@@ -213,15 +205,9 @@
   text-transform: uppercase;
 }
 
-.mobileMenuPanel p:not(:first-child) {
-  margin-top: 15px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-}
-
 .mobileMenuPanel > div {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 7px;
 }
 
@@ -490,7 +476,7 @@
 }
 
 .filmFrameSoundOn {
-  box-shadow: 0 22px 44px rgba(18, 22, 18, 0.28), 0 0 0 5px var(--red);
+  box-shadow: 0 22px 44px rgba(18, 22, 18, 0.28), 0 0 0 5px var(--coral);
   transform: translateY(-2px);
 }
 
@@ -559,7 +545,7 @@
 }
 
 .filmSoundButton:hover {
-  box-shadow: 5px 5px 0 var(--red);
+  box-shadow: 5px 5px 0 var(--coral);
   transform: translateY(-2px);
 }
 
@@ -596,7 +582,7 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--red);
+  background: var(--coral);
 }
 
 .heroMascot {
@@ -635,7 +621,8 @@
   overflow: hidden;
   border-top: 2px solid var(--graphite);
   border-bottom: 2px solid var(--graphite);
-  background: var(--red);
+  background: var(--graphite);
+  color: var(--paper-bright);
   transform: rotate(-0.65deg) scale(1.02);
 }
 
@@ -654,6 +641,7 @@
 }
 
 .ticker i {
+  color: var(--green);
   font-style: normal;
 }
 
@@ -903,7 +891,7 @@
 
 .coachChapter {
   background:
-    radial-gradient(circle at 10% 70%, rgba(255, 93, 108, 0.18), transparent 25%),
+    radial-gradient(circle at 10% 70%, rgba(52, 210, 111, 0.14), transparent 25%),
     var(--paper-bright);
 }
 
@@ -940,32 +928,20 @@
   padding-top: 16px;
   border-radius: 30px;
   background:
-    linear-gradient(rgba(24, 26, 23, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(24, 26, 23, 0.06) 1px, transparent 1px),
-    var(--red);
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    var(--graphite);
   background-size: 30px 30px;
 }
 
-.coachStage > img:not(.coachMascot) {
+.coachStage > img {
   position: relative;
   z-index: 2;
   width: min(75%, 410px);
-  border: 5px solid var(--graphite);
+  border: 5px solid var(--paper-bright);
   border-bottom: 0;
   border-radius: 48px 48px 0 0;
   box-shadow: 0 27px 60px rgba(24, 26, 23, 0.25);
-}
-
-.coachMascot {
-  position: absolute;
-  bottom: 12px;
-  left: -2%;
-  z-index: 3;
-  width: min(31%, 180px);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  transform: rotate(-5deg);
-  filter: drop-shadow(5px 6px 0 rgba(24, 26, 23, 0.18));
 }
 
 .coachStamp {
@@ -984,7 +960,7 @@
   background:
     linear-gradient(rgba(24, 26, 23, 0.07) 1px, transparent 1px),
     linear-gradient(90deg, rgba(24, 26, 23, 0.07) 1px, transparent 1px),
-    var(--red);
+    var(--paper-bright);
   background-size: 34px 34px;
   box-shadow: 12px 12px 0 var(--graphite);
 }
@@ -1088,45 +1064,6 @@
   color: var(--green);
 }
 
-.historyMascot {
-  position: relative;
-  grid-column: 1 / -1;
-  justify-self: end;
-  width: min(100%, 390px);
-  height: 180px;
-  margin: 8px 18px -40px 0;
-  pointer-events: none;
-}
-
-.historyMascot img {
-  position: absolute;
-  right: -10px;
-  bottom: -68px;
-  width: 205px;
-  mix-blend-mode: multiply;
-  mask-image: radial-gradient(ellipse 60% 48% at 50% 65%, #000 68%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 60% 48% at 50% 65%, #000 68%, transparent 100%);
-}
-
-.historyMascot span {
-  position: absolute;
-  right: 148px;
-  bottom: 54px;
-  z-index: 2;
-  width: max-content;
-  padding: 9px 11px;
-  border: 2px solid var(--graphite);
-  border-radius: 10px;
-  background: var(--paper-bright);
-  box-shadow: 4px 4px 0 var(--graphite);
-  font-family: var(--mono);
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transform: rotate(-2deg);
-}
-
 .futureChapter {
   position: relative;
   display: grid;
@@ -1140,12 +1077,19 @@
   overflow: hidden;
   border: 2px solid var(--graphite);
   border-radius: clamp(30px, 4vw, 60px);
+  color: var(--paper-bright);
   background:
-    radial-gradient(circle at 79% 48%, rgba(255, 255, 255, 0.24), transparent 26%),
-    linear-gradient(rgba(24, 26, 23, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(24, 26, 23, 0.07) 1px, transparent 1px),
-    var(--purple);
+    radial-gradient(circle at 79% 48%, rgba(52, 210, 111, 0.16), transparent 26%),
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    var(--graphite);
   background-size: auto, 34px 34px, 34px 34px, auto;
+}
+
+.futureChapter .labLabel span:first-child {
+  border-color: var(--green);
+  background: var(--green);
+  color: var(--graphite);
 }
 
 .futureCopy {
@@ -1160,6 +1104,7 @@
   border: 1px solid var(--graphite);
   border-radius: 9px;
   background: rgba(255, 253, 247, 0.85);
+  color: var(--graphite);
   font-family: var(--mono);
   font-size: 0.64rem;
   font-weight: 700;
@@ -1179,10 +1124,10 @@
   position: relative;
   z-index: 2;
   width: min(74%, 410px);
-  border: 5px solid var(--graphite);
+  border: 5px solid var(--paper-bright);
   border-bottom: 0;
   border-radius: 48px 48px 0 0;
-  box-shadow: 0 28px 70px rgba(45, 18, 76, 0.35);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
 }
 
 .futureOrbit {
@@ -1193,6 +1138,7 @@
   padding: 13px;
   border: 2px solid var(--graphite);
   background: var(--green);
+  color: var(--graphite);
   font-family: var(--mono);
   font-size: clamp(1rem, 2vw, 1.6rem);
   font-weight: 900;
@@ -1234,8 +1180,8 @@
   color: var(--paper-bright);
 }
 
-.systemCardRed {
-  background: var(--red);
+.systemCardLight {
+  background: var(--paper-bright);
 }
 
 .cardTop {
@@ -1256,7 +1202,7 @@
   border: 2px solid var(--graphite);
   border-bottom: 0;
   border-radius: 30px 30px 0 0;
-  background: #f2f1f7;
+  background: var(--paper);
 }
 
 .cardImage img {
@@ -1448,17 +1394,6 @@
   z-index: 2;
 }
 
-.finalCta > .finalMascot {
-  position: absolute;
-  right: clamp(-42px, 1vw, 16px);
-  bottom: -54px;
-  z-index: 1;
-  width: clamp(190px, 21vw, 300px);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  transform: rotate(4deg);
-}
-
 .finalLabel {
   margin: 0 0 21px;
   font-family: var(--mono);
@@ -1517,7 +1452,7 @@
 .page a:focus-visible,
 .page summary:focus-visible,
 .page button:focus-visible {
-  outline: 3px solid var(--red);
+  outline: 3px solid var(--coral);
   outline-offset: 4px;
 }
 
@@ -1706,7 +1641,7 @@
   .futureStage { min-height: 570px; }
   .scanPhone,
   .comparePhone,
-  .coachStage > img:not(.coachMascot),
+  .coachStage > img,
   .futureStage img { width: 80%; border-width: 4px; border-radius: 38px 38px 0 0; }
   .scanLine { left: 4%; width: 92%; }
   .scanAnnotation { right: 0; bottom: 11%; }
@@ -1729,13 +1664,6 @@
   .historySummary { grid-column: auto; margin: 18px 8px 0; }
   .historyPanel { max-height: 620px; }
   .historyPanel img { width: 82%; }
-  .historyMascot {
-    justify-self: center;
-    width: min(100%, 330px);
-    margin: 4px 0 -35px;
-  }
-  .historyMascot img { right: -8px; width: 175px; }
-  .historyMascot span { right: 126px; }
 
   .systemSection { width: calc(100% - 32px); margin-block: 80px; }
   .systemGrid { margin-top: 38px; }
@@ -1759,7 +1687,6 @@
 
   .finalCta h2 { font-size: clamp(4.15rem, 20vw, 6.3rem); }
   .finalButton { width: 100%; }
-  .finalCta > .finalMascot { right: -60px; bottom: -32px; width: 180px; opacity: 0.48; }
 }
 
 @media (max-width: 340px) {

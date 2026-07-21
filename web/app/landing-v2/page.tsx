@@ -84,13 +84,10 @@ export default function LandingV2() {
             <span>GainFrame</span>
           </Link>
           <div className={styles.navLinks}>
-            <a href="#scan">Scan</a>
-            <a href="#history">History</a>
-            <a href="#coach">Coach</a>
-            <span className={styles.navDivider} aria-hidden="true" />
-            <Link href="/blog/">Blog</Link>
             <Link href="/comics/">Comics</Link>
+            <Link href="/tools/">Tools</Link>
             <Link href="/about/">About</Link>
+            <Link href="/blog/">Blog</Link>
           </div>
           <AppStoreCta className={styles.navCta} content="floating_nav_download">
             Get the app
@@ -101,17 +98,12 @@ export default function LandingV2() {
               <i className={styles.menuGlyph} aria-hidden="true" />
             </summary>
             <div className={styles.mobileMenuPanel}>
-              <p>On this page</p>
-              <div>
-                <a href="#scan"><span>01</span> Scan</a>
-                <a href="#history"><span>02</span> History</a>
-                <a href="#coach"><span>03</span> Coach</a>
-              </div>
               <p>Explore</p>
               <div>
-                <Link href="/blog/"><span>A</span> Blog</Link>
-                <Link href="/comics/"><span>B</span> Comics</Link>
+                <Link href="/comics/"><span>A</span> Comics</Link>
+                <Link href="/tools/"><span>B</span> Tools</Link>
                 <Link href="/about/"><span>C</span> About</Link>
+                <Link href="/blog/"><span>D</span> Blog</Link>
               </div>
             </div>
           </details>
@@ -240,15 +232,6 @@ export default function LandingV2() {
           <div className={styles.coachStage}>
             <span className={styles.coachStamp}>Sources open</span>
             <Image
-              className={styles.coachMascot}
-              src="/assets/gainframe-guy/poses/gainframe-coach.webp"
-              width={1024}
-              height={1024}
-              sizes="180px"
-              alt=""
-              aria-hidden="true"
-            />
-            <Image
               src="/assets/shared/coach-goal-progress.webp"
               width={860}
               height={1864}
@@ -294,16 +277,6 @@ export default function LandingV2() {
               <span>Old photos in</span>
               <strong>Clear trend out</strong>
               <p>Day · week · month · quarter · year</p>
-            </div>
-            <div className={styles.historyMascot} aria-hidden="true">
-              <Image
-                src="/assets/gainframe-guy/illustrations/mascot-pictures.webp"
-                width={1536}
-                height={2752}
-                sizes="240px"
-                alt=""
-              />
-              <span>Same pose. Clearer story.</span>
             </div>
           </div>
         </section>
@@ -365,7 +338,7 @@ export default function LandingV2() {
               </div>
               <p>Automatic throwbacks surface progress you may have missed.</p>
             </article>
-            <article className={`${styles.systemCard} ${styles.systemCardRed}`}>
+            <article className={`${styles.systemCard} ${styles.systemCardLight}`}>
               <div className={styles.cardTop}><span>03</span><strong>Connect weight</strong></div>
               <div className={styles.cardImage}>
                 <Image
@@ -488,15 +461,6 @@ export default function LandingV2() {
 
         <section className={styles.finalCta}>
           <div className={styles.finalGrid} aria-hidden="true" />
-          <Image
-            className={styles.finalMascot}
-            src="/assets/gainframe-guy/poses/gainframe-guy-jacked.webp"
-            width={992}
-            height={1087}
-            sizes="260px"
-            alt=""
-            aria-hidden="true"
-          />
           <p className={styles.finalLabel}>Your progress starts here</p>
           <h2>Take the photo.<br />See the signal.</h2>
           <p>Start free with one check-in. Your future trend starts there.</p>
