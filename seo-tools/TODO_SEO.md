@@ -349,3 +349,12 @@ NOTE: 21 posts published Jul 7 total (6 morning + 15 afternoon). Request GSC ind
 - [x] **Head Qs + decision:** why-does-my-weight-fluctuate · is-bmi-accurate · progress-photos-vs-scale — published 2026-07-19
 - [x] **Nutrition-adjacent guides (feed TDEE tool + cut cluster):** maintenance-calories · reverse-dieting · cutting-without-counting-calories — published 2026-07-19
 - [x] **Gated + brand-defining:** jefit-vs-hevy (Jefit verified 4.8/46K) · progress-photos-body-image (max-care body-image piece, NEDA resource, weekly-cadence philosophy) — published 2026-07-19
+
+### Jul 23 batch — 15 posts (record-week read: women's family validated, thigh 4.4K imp/3d)
+
+- [x] **Stats/measurement:** average-body-fat-percentage-men (male mirror head term) · chest-to-waist-ratio · average-hand-size · long-torso-short-legs — published 2026-07-23
+- [x] **Female audience:** skinny-fat-women · how-to-get-a-toned-stomach · body-recomposition-over-40 (age expansion) — published 2026-07-23
+- [x] **Relatable/lifter:** why-do-i-look-leaner-in-the-morning · water-weight · newbie-gains · am-i-bulking-too-fast — published 2026-07-23
+- [x] **Quiz + tool feeders:** beginner-intermediate-advanced-lifter · strength-standards (both feed strength-standards-calculator) — published 2026-07-23
+- [x] **Brand reviews:** macrofactor-review (verified 4.8/19.5K) · renpho-scale-review — published 2026-07-23
+- [x] **Housekeeping:** Snapsie folded into best-progress-photo-apps (carry-forward closed after 25 days) — done 2026-07-23
