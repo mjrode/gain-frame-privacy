@@ -229,13 +229,6 @@
   background: var(--green);
 }
 
-.mobileMenuPanel a span {
-  color: var(--ink-muted);
-  font-family: var(--mono);
-  font-size: 0.5rem;
-  letter-spacing: 0.06em;
-}
-
 .navCta,
 .primaryCta,
 .finalButton {
@@ -1654,9 +1647,46 @@
 
   .historyChapter {
     width: calc(100% - 24px);
+    min-width: 0;
     padding: 45px 20px;
+    overflow: hidden;
     border-radius: 28px;
     box-shadow: 7px 7px 0 var(--graphite);
+  }
+
+  .historyHead {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .historyHead .labLabel {
+    grid-template-columns: auto minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .historyHead .labLabel span {
+    min-width: 0;
+  }
+
+  .historyHead .labLabel span:last-child {
+    padding-block: 6px;
+    line-height: 1.25;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+
+  .historyHead h2 {
+    max-width: 100%;
+    font-size: clamp(2.5rem, 11vw, 3.5rem);
+    line-height: 1.02;
+    overflow-wrap: break-word;
+  }
+
+  .historyHead > p {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
   }
 
   .historyStage { grid-template-columns: 1fr; margin-top: 45px; }

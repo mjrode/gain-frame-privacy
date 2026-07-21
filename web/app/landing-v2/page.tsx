@@ -100,10 +100,10 @@ export default function LandingV2() {
             <div className={styles.mobileMenuPanel}>
               <p>Explore</p>
               <div>
-                <Link href="/comics/"><span>A</span> Comics</Link>
-                <Link href="/tools/"><span>B</span> Tools</Link>
-                <Link href="/about/"><span>C</span> About</Link>
-                <Link href="/blog/"><span>D</span> Blog</Link>
+                <Link href="/comics/">Comics</Link>
+                <Link href="/tools/">Tools</Link>
+                <Link href="/about/">About</Link>
+                <Link href="/blog/">Blog</Link>
               </div>
             </div>
           </details>
