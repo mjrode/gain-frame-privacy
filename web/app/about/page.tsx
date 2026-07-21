@@ -198,12 +198,12 @@ export default function AboutPage() {
                   <span>Launched on the App Store</span>
                 </div>
                 <div className="about-intro-stat">
-                  <strong>1,000+</strong>
-                  <span>Users and growing weekly</span>
+                  <strong>3,500+</strong>
+                  <span>Unique app users</span>
                 </div>
                 <div className="about-intro-stat">
-                  <strong>4.9</strong>
-                  <span>Average App Store rating</span>
+                  <strong>$1.2K+</strong>
+                  <span>Monthly recurring revenue</span>
                 </div>
               </section>
 
@@ -399,8 +399,18 @@ export default function AboutPage() {
                     <strong>App Store rating:</strong> 4.9 stars
                   </li>
                   <li>
-                    <strong>Pricing:</strong> Free 30-day trial, then $4.99/month
-                    or $29.99/year
+                    <strong>Product usage, Mar 8&ndash;Jul 21, 2026:</strong>{" "}
+                    3,598 unique app users, 3,509 unique installs, and 2,311
+                    first scores received
+                  </li>
+                  <li>
+                    <strong>RevenueCat, Jul 21, 2026:</strong> 249 active
+                    subscriptions and 1,849 active users in the prior 28 days.
+                    Live MRR and revenue are shown above.
+                  </li>
+                  <li>
+                    <strong>Pricing:</strong> Free download; Pro is $7.99/month
+                    or $49.99/year. Current plans have no trial.
                   </li>
                   <li>
                     <strong>Team size:</strong> One. Just me.
@@ -556,8 +566,8 @@ export default function AboutPage() {
 
               <section className="about-cta" aria-labelledby="try-the-app">
                 <span className="about-cta__kicker">
-                  <span className="dot"></span>Free 30-day trial &middot; no
-                  card required
+                  <span className="dot"></span>Free download &middot; Pro from
+                  $7.99/month
                 </span>
                 <h2 id="try-the-app" className="about-cta__title">
                   See the body{" "}
@@ -593,7 +603,7 @@ export default function AboutPage() {
                     <strong>4.9</strong> on the App Store
                   </span>
                   <span className="sep" aria-hidden="true"></span>
-                  <span>1,000+ users</span>
+                  <span>3,500+ app users</span>
                 </div>
               </section>
             </div>
