@@ -10,12 +10,10 @@ export default function BlogNav() {
   const [open, setOpen] = useState(false);
 
   const norm = pathname.replace(/index\.html$/, "").replace(/\/$/, "") || "/";
-  const isHome = norm === "/" || norm === "";
   const isBlog = /^\/blog($|\/)/.test(norm);
   const isComics = /^\/comics($|\/|\.html$)/.test(norm);
   const isTools = /^\/tools($|\/)/.test(norm);
   const isAbout = /^\/about($|\/)/.test(norm);
-  const showNavMascot = isHome || norm === "/blog";
 
   const cls = (active: boolean) => (active ? "active" : undefined);
 
@@ -33,58 +31,26 @@ export default function BlogNav() {
         </Link>
         <button
           className={`nav-hamburger${open ? " nav-hamburger--open" : ""}`}
-          aria-label="Open menu"
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
+          aria-controls="site-navigation-links"
           onClick={() => setOpen((v) => !v)}
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
-        {showNavMascot ? (
+        <div
+          id="site-navigation-links"
+          className={`blog-nav-links${open ? " nav-open" : ""}`}
+        >
           <Link
-            className="nav-mascot-link nav-mascot-link--mobile"
-            href="/comics"
-            aria-label="Read GainFrame comics"
-          >
-            <img
-              src="/assets/gainframe-guy/poses/gainframe-guy-wave.webp"
-              alt=""
-            />
-          </Link>
-        ) : null}
-        <div className={`blog-nav-links${open ? " nav-open" : ""}`}>
-          <Link href="/" className={cls(isHome)} onClick={() => setOpen(false)}>
-            Home
-          </Link>
-          <Link
-            href="/blog/"
-            className={cls(isBlog)}
+            href="/comics/"
+            className={cls(isComics)}
             onClick={() => setOpen(false)}
           >
-            Blog
+            Comics
           </Link>
-          <span className="nav-comics-target">
-            <Link
-              href="/comics"
-              className={cls(isComics)}
-              onClick={() => setOpen(false)}
-            >
-              Comics
-            </Link>
-            {showNavMascot ? (
-              <Link
-                className="nav-mascot-link nav-mascot-link--desktop"
-                href="/comics"
-                aria-label="Read GainFrame comics"
-              >
-                <img
-                  src="/assets/gainframe-guy/poses/gainframe-guy-wave.webp"
-                  alt=""
-                />
-              </Link>
-            ) : null}
-          </span>
           <Link
             href="/tools/"
             className={cls(isTools)}
@@ -99,6 +65,13 @@ export default function BlogNav() {
           >
             About
           </Link>
+          <Link
+            href="/blog/"
+            className={cls(isBlog)}
+            onClick={() => setOpen(false)}
+          >
+            Blog
+          </Link>
           <a
             href={SITE.appStoreUrl}
             className="nav-cta-btn"
@@ -107,7 +80,7 @@ export default function BlogNav() {
             data-cta-source="blog_nav"
             data-cta-content="nav_download"
           >
-            Download
+            Get the app
           </a>
         </div>
       </div>

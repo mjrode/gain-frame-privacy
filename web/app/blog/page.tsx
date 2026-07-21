@@ -54,13 +54,19 @@ export default async function BlogPage() {
   return (
     <>
       <BlogFonts />
+      <link rel="stylesheet" href="/styles/blog-index-page.css" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
       />
-      <BlogNav />
       <BlogScrollReveal />
-      <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+      <div className="blog-index-page">
+        <BlogNav />
+        <div
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: bodyHtml }}
+        />
+      </div>
     </>
   );
 }
