@@ -71,7 +71,7 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  width: min(100%, 900px);
+  width: min(100%, 1080px);
   min-height: 60px;
   margin: 0 auto;
   padding: 7px 8px 7px 14px;
@@ -104,7 +104,7 @@
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 3px;
   font-family: var(--mono);
   font-size: 0.68rem;
   font-weight: 700;
@@ -113,13 +113,141 @@
 }
 
 .navLinks a {
-  padding: 10px 11px;
+  padding: 10px 8px;
   border-radius: 10px;
   transition: background 150ms ease;
 }
 
 .navLinks a:hover {
   background: rgba(24, 26, 23, 0.07);
+}
+
+.navDivider {
+  width: 1px;
+  height: 22px;
+  margin: 0 5px;
+  background: var(--line);
+}
+
+.mobileMenu {
+  position: relative;
+  display: none;
+}
+
+.mobileMenu summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 11px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--paper-bright);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.mobileMenu summary::-webkit-details-marker { display: none; }
+
+.mobileMenu[open] summary {
+  background: var(--graphite);
+  color: var(--paper-bright);
+}
+
+.menuGlyph {
+  position: relative;
+  width: 12px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+
+.mobileMenu[open] .menuGlyph {
+  height: 12px;
+  border: 0;
+}
+
+.mobileMenu[open] .menuGlyph::before,
+.mobileMenu[open] .menuGlyph::after {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 12px;
+  height: 2px;
+  background: currentColor;
+  content: "";
+}
+
+.mobileMenu[open] .menuGlyph::before { transform: rotate(45deg); }
+.mobileMenu[open] .menuGlyph::after { transform: rotate(-45deg); }
+
+.mobileMenuPanel {
+  position: absolute;
+  top: calc(100% + 13px);
+  right: 0;
+  width: min(320px, calc(100vw - 20px));
+  max-height: calc(100svh - 98px);
+  padding: 16px;
+  overflow-y: auto;
+  border: 2px solid var(--graphite);
+  border-radius: 17px;
+  background: var(--paper-bright);
+  color: var(--graphite);
+  box-shadow: 7px 7px 0 var(--graphite);
+}
+
+.mobileMenuPanel p {
+  margin: 0 0 7px;
+  color: var(--ink-muted);
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mobileMenuPanel p:not(:first-child) {
+  margin-top: 15px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.mobileMenuPanel > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+
+.mobileMenuPanel a {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 11px 9px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-align: left;
+}
+
+.mobileMenuPanel a:hover {
+  border-color: var(--graphite);
+  background: var(--green);
+}
+
+.mobileMenuPanel a span {
+  color: var(--ink-muted);
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.06em;
 }
 
 .navCta,
@@ -1431,8 +1559,12 @@
 }
 
 @media (max-width: 820px) {
-  .nav { grid-template-columns: 1fr auto; }
+  .nav {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 6px;
+  }
   .navLinks { display: none; }
+  .mobileMenu { display: block; }
 
   .hero {
     grid-template-columns: 1fr;
@@ -1501,10 +1633,11 @@
 
 @media (max-width: 560px) {
   .navShell { top: 10px; padding-inline: 10px; }
-  .nav { min-height: 56px; border-radius: 16px; }
+  .nav { min-height: 56px; padding-left: 12px; border-radius: 16px; }
   .brand span { font-size: 0.92rem; }
   .brand img { width: 30px; height: 30px; }
-  .navCta { min-height: 40px; padding-inline: 13px; font-size: 0.74rem; }
+  .navCta { gap: 7px; min-height: 40px; padding-inline: 10px; font-size: 0.72rem; }
+  .mobileMenu summary { gap: 6px; padding-inline: 9px; }
 
   .hero { width: calc(100% - 24px); padding-top: 94px; }
   .heroCopy { padding: 26px 4px 0; }
@@ -1627,6 +1760,11 @@
   .finalCta h2 { font-size: clamp(4.15rem, 20vw, 6.3rem); }
   .finalButton { width: 100%; }
   .finalCta > .finalMascot { right: -60px; bottom: -32px; width: 180px; opacity: 0.48; }
+}
+
+@media (max-width: 340px) {
+  .brand { gap: 0; }
+  .brand span { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

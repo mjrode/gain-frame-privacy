@@ -87,10 +87,34 @@ export default function LandingV2() {
             <a href="#scan">Scan</a>
             <a href="#history">History</a>
             <a href="#coach">Coach</a>
+            <span className={styles.navDivider} aria-hidden="true" />
+            <Link href="/blog/">Blog</Link>
+            <Link href="/comics/">Comics</Link>
+            <Link href="/about/">About</Link>
           </div>
           <AppStoreCta className={styles.navCta} content="floating_nav_download">
             Get the app
           </AppStoreCta>
+          <details className={styles.mobileMenu}>
+            <summary>
+              <span>Menu</span>
+              <i className={styles.menuGlyph} aria-hidden="true" />
+            </summary>
+            <div className={styles.mobileMenuPanel}>
+              <p>On this page</p>
+              <div>
+                <a href="#scan"><span>01</span> Scan</a>
+                <a href="#history"><span>02</span> History</a>
+                <a href="#coach"><span>03</span> Coach</a>
+              </div>
+              <p>Explore</p>
+              <div>
+                <Link href="/blog/"><span>A</span> Blog</Link>
+                <Link href="/comics/"><span>B</span> Comics</Link>
+                <Link href="/about/"><span>C</span> About</Link>
+              </div>
+            </div>
+          </details>
         </nav>
       </header>
 
