@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import localFont from "next/font/local";
 import { SITE } from "@/lib/site";
+import HeroFilm from "./HeroFilm";
 import styles from "./page.module.css";
 
 const anton = localFont({
@@ -40,6 +41,14 @@ function AppStoreCta({ className, content, children }: AppStoreCtaProps) {
       data-cta-source="landing_v2"
       data-cta-content={content}
     >
+      <svg
+        className={styles.appleMark}
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.18-.07 2.04.66 2.75.72 1.05-.21 2.05-.81 3.17-.73 1.34.11 2.35.64 3.02 1.6-2.76 1.66-2.1 5.29.43 6.31-.5 1.32-1.15 2.63-2.37 4.07ZM12.03 7.25C11.88 5.28 13.5 3.65 15.34 3.5c.25 2.28-2.07 3.98-3.31 3.75Z" />
+      </svg>
       {children}
     </a>
   );
@@ -80,7 +89,7 @@ export default function LandingV2() {
             <a href="#coach">Coach</a>
           </div>
           <AppStoreCta className={styles.navCta} content="floating_nav_download">
-            Get the app <span aria-hidden="true">↗</span>
+            Get the app
           </AppStoreCta>
         </nav>
       </header>
@@ -101,47 +110,20 @@ export default function LandingV2() {
             </p>
             <div className={styles.heroActions}>
               <AppStoreCta className={styles.primaryCta} content="hero_download">
-                Download free <span aria-hidden="true">→</span>
+                Download free
               </AppStoreCta>
-              <a className={styles.textCta} href="#scan">
-                Enter the lab <span aria-hidden="true">↓</span>
+              <a
+                className={styles.textCta}
+                href="#film"
+                data-landing-v2-film-sound
+              >
+                Watch the 38-second film
               </a>
             </div>
             <p className={styles.heroNote}>Built for consistent weekly check-ins on iPhone.</p>
           </div>
 
-          <div className={styles.heroLab} aria-label="GainFrame compare screen preview">
-            <span className={`${styles.corner} ${styles.cornerTl}`} aria-hidden="true" />
-            <span className={`${styles.corner} ${styles.cornerTr}`} aria-hidden="true" />
-            <span className={`${styles.corner} ${styles.cornerBl}`} aria-hidden="true" />
-            <span className={`${styles.corner} ${styles.cornerBr}`} aria-hidden="true" />
-            <p className={styles.stageLabel}>Live specimen / transformation</p>
-            <div className={styles.heroPhone}>
-              <Image
-                src="/app-screenshots/1.21/compare.webp"
-                width={1320}
-                height={2868}
-                sizes="(max-width: 720px) 74vw, (max-width: 1100px) 42vw, 390px"
-                alt="GainFrame Compare showing two progress photos side by side with score and estimated body fat changes."
-                preload
-              />
-            </div>
-            <div className={`${styles.metricTag} ${styles.metricOne}`}>
-              <span>Δ physique</span>
-              <strong>Visible</strong>
-              <small>side-by-side</small>
-            </div>
-            <div className={`${styles.metricTag} ${styles.metricTwo}`}>
-              <span>Scan output</span>
-              <strong>12</strong>
-              <small>muscle scores</small>
-            </div>
-            <div className={`${styles.metricTag} ${styles.metricThree}`}>
-              <span>Context</span>
-              <strong>Coach</strong>
-              <small>asks why</small>
-            </div>
-          </div>
+          <HeroFilm />
         </section>
 
         <div className={styles.ticker} aria-label="GainFrame capabilities">
@@ -157,7 +139,7 @@ export default function LandingV2() {
 
         <section className={`${styles.chapter} ${styles.scanChapter}`} id="scan">
           <div className={styles.chapterCopy}>
-            <LabLabel index="01">Scan / body composition</LabLabel>
+            <LabLabel index="01">Photo analysis / body composition</LabLabel>
             <h2>Turn one check-in into a full physique readout.</h2>
             <p>
               Start with one photo for a quick scan, or add multiple angles for
@@ -201,7 +183,7 @@ export default function LandingV2() {
             <span className={styles.photoNote}>Auto-align / filter / blur</span>
           </div>
           <div className={styles.chapterCopy}>
-            <LabLabel index="02">Compare / isolate signal</LabLabel>
+            <LabLabel index="02">Compare / see the difference</LabLabel>
             <h2>Make the change impossible to miss.</h2>
             <p>
               Line up any two photos, choose the same pose, and use smart
@@ -234,6 +216,15 @@ export default function LandingV2() {
           <div className={styles.coachStage}>
             <span className={styles.coachStamp}>Sources open</span>
             <Image
+              className={styles.coachMascot}
+              src="/assets/gainframe-guy/poses/gainframe-coach.webp"
+              width={1024}
+              height={1024}
+              sizes="180px"
+              alt=""
+              aria-hidden="true"
+            />
+            <Image
               src="/assets/shared/coach-goal-progress.webp"
               width={860}
               height={1864}
@@ -245,7 +236,7 @@ export default function LandingV2() {
 
         <section className={styles.historyChapter} id="history">
           <div className={styles.historyHead}>
-            <LabLabel index="04">Smart Import / history reconstruction</LabLabel>
+            <LabLabel index="04">Smart Import / build your history</LabLabel>
             <h2>Your camera roll already contains a transformation.</h2>
             <p>
               Smart Import classifies old gym photos by pose and builds the
@@ -279,6 +270,16 @@ export default function LandingV2() {
               <span>Old photos in</span>
               <strong>Clear trend out</strong>
               <p>Day · week · month · quarter · year</p>
+            </div>
+            <div className={styles.historyMascot} aria-hidden="true">
+              <Image
+                src="/assets/gainframe-guy/illustrations/mascot-pictures.webp"
+                width={1536}
+                height={2752}
+                sizes="240px"
+                alt=""
+              />
+              <span>Same pose. Clearer story.</span>
             </div>
           </div>
         </section>
@@ -388,7 +389,7 @@ export default function LandingV2() {
 
         <section className={styles.workflow} id="workflow">
           <div className={styles.workflowHead}>
-            <LabLabel index="07">60 second protocol</LabLabel>
+            <LabLabel index="07">60-second check-in</LabLabel>
             <h2>Snap. Analyze. Ask.</h2>
           </div>
           <ol className={styles.steps}>
@@ -412,7 +413,7 @@ export default function LandingV2() {
 
         <section className={styles.faq} id="faq">
           <div className={styles.faqHead}>
-            <LabLabel index="08">FAQ / field notes</LabLabel>
+            <LabLabel index="08">FAQ / good to know</LabLabel>
             <h2>Questions before your first scan.</h2>
           </div>
           <div className={styles.faqList}>
@@ -463,11 +464,20 @@ export default function LandingV2() {
 
         <section className={styles.finalCta}>
           <div className={styles.finalGrid} aria-hidden="true" />
-          <p className={styles.finalLabel}>Your next data point</p>
+          <Image
+            className={styles.finalMascot}
+            src="/assets/gainframe-guy/poses/gainframe-guy-jacked.webp"
+            width={992}
+            height={1087}
+            sizes="260px"
+            alt=""
+            aria-hidden="true"
+          />
+          <p className={styles.finalLabel}>Your progress starts here</p>
           <h2>Take the photo.<br />See the signal.</h2>
           <p>Start free with one check-in. Your future trend starts there.</p>
           <AppStoreCta className={styles.finalButton} content="closing_download">
-            Download GainFrame <span aria-hidden="true">↗</span>
+            Download GainFrame
           </AppStoreCta>
         </section>
       </main>
