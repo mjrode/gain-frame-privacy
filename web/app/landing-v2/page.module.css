@@ -349,16 +349,16 @@
 .faqHead h2,
 .finalCta h2 {
   margin: 0;
-  font-family: var(--font-lab-display), Impact, sans-serif;
-  font-weight: 400;
-  letter-spacing: -0.025em;
-  line-height: 0.94;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 1;
+  text-transform: none;
 }
 
 .hero h1 {
   max-width: 720px;
-  font-size: clamp(4.25rem, 7.2vw, 7.4rem);
+  font-size: clamp(3.4rem, 6vw, 6rem);
 }
 
 .heroLead {
@@ -700,7 +700,7 @@
 .systemHead h2,
 .workflowHead h2,
 .faqHead h2 {
-  font-size: clamp(3.5rem, 5.5vw, 6.7rem);
+  font-size: clamp(2.8rem, 4.5vw, 4.8rem);
 }
 
 .chapterCopy > p,
@@ -1404,7 +1404,7 @@
 }
 
 .finalCta h2 {
-  font-size: clamp(4.6rem, 10vw, 10rem);
+  font-size: clamp(3.2rem, 7vw, 6.8rem);
 }
 
 .finalCta > p:not(.finalLabel) {

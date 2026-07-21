@@ -166,11 +166,18 @@
     max-width: 900px;
     margin: 0 0 22px;
     color: var(--gf-graphite);
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 9vw, 7.6rem);
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 0.92;
+    text-transform: none;
+}
+
+.blog-index-page .blog-header-title .accent-underline {
     font-family: "GainFrame Anton", sans-serif;
-    font-size: clamp(5.2rem, 12vw, 10.5rem);
     font-weight: 400;
-    letter-spacing: -0.025em;
-    line-height: 0.82;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
 }
 
@@ -229,12 +236,12 @@
 
 .blog-index-page .early-access-text h2 {
     margin: 0;
-    font-family: "GainFrame Anton", sans-serif;
-    font-size: clamp(1.8rem, 3vw, 2.65rem);
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 0.95;
-    text-transform: uppercase;
+    font-family: var(--font-display);
+    font-size: clamp(1.55rem, 2.4vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    text-transform: none;
 }
 
 .blog-index-page .early-access-text p {
@@ -441,16 +448,16 @@
 .blog-index-page .blog-card-content h3 {
     margin: 0 0 10px;
     color: var(--gf-graphite);
-    font-family: "GainFrame Anton", sans-serif;
-    font-size: clamp(1.45rem, 2vw, 2rem);
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 1.02;
-    text-transform: uppercase;
+    font-family: var(--font-display);
+    font-size: clamp(1.12rem, 1.35vw, 1.38rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    text-transform: none;
 }
 
 .blog-index-page .blog-card:first-child .blog-card-content h3 {
-    font-size: clamp(2rem, 3.2vw, 3.3rem);
+    font-size: clamp(1.65rem, 2.5vw, 2.35rem);
 }
 
 .blog-index-page .blog-card-content p {
@@ -485,12 +492,12 @@
 .blog-index-page .blog-cta-card h2 {
     margin: 0 0 10px;
     color: var(--gf-graphite);
-    font-family: "GainFrame Anton", sans-serif;
-    font-size: clamp(3.5rem, 8vw, 7.5rem);
-    font-weight: 400;
-    letter-spacing: -0.015em;
-    line-height: 0.9;
-    text-transform: uppercase;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 0.96;
+    text-transform: none;
 }
 
 .blog-index-page .blog-cta-card p {
@@ -593,7 +600,7 @@
     }
 
     .blog-index-page .blog-header-title {
-        font-size: clamp(4.5rem, 21vw, 7.4rem);
+        font-size: clamp(3.6rem, 15vw, 5.6rem);
     }
 
     .blog-index-page .early-access-inline,
@@ -654,7 +661,7 @@
     }
 
     .blog-index-page .blog-card:first-child .blog-card-content h3 {
-        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        font-size: clamp(1.55rem, 6vw, 2rem);
     }
 }
 
@@ -668,7 +675,7 @@
     }
 
     .blog-index-page .blog-header-title {
-        font-size: clamp(4rem, 22vw, 5.4rem);
+        font-size: clamp(3.2rem, 15vw, 4.4rem);
     }
 
     .blog-index-page .blog-header-subtitle {

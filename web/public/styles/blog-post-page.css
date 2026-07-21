@@ -177,13 +177,13 @@
     max-width: 940px;
     margin: 0 0 18px;
     color: var(--post-graphite);
-    font-family: "GainFrame Anton", sans-serif;
-    font-size: clamp(3.25rem, 6vw, 5.6rem);
-    font-weight: 400;
-    letter-spacing: -0.022em;
-    line-height: 0.92;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5.4vw, 5.2rem);
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    line-height: 1.02;
     text-wrap: balance;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .blog-post-page .post-subtitle {
@@ -351,13 +351,13 @@
 .blog-post-page .post-body h2 {
     margin: 82px 0 22px;
     color: var(--post-graphite);
-    font-family: "GainFrame Anton", sans-serif;
-    font-size: clamp(2.65rem, 5.5vw, 4.35rem);
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 0.98;
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 4.3vw, 3.3rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.08;
     text-wrap: balance;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .blog-post-page .post-body h3 {
@@ -365,7 +365,7 @@
     color: var(--post-graphite);
     font-family: var(--font-display);
     font-size: clamp(1.35rem, 3vw, 1.8rem);
-    font-weight: 850;
+    font-weight: 800;
     letter-spacing: -0.025em;
     line-height: 1.18;
 }
@@ -782,11 +782,12 @@
 .blog-post-page .post-footer-cta h3 {
     margin: 0 0 12px;
     color: var(--post-graphite);
-    font-family: "GainFrame Anton", sans-serif;
-    font-size: clamp(2.3rem, 5vw, 3.8rem);
-    font-weight: 400;
-    line-height: 0.95;
-    text-transform: uppercase;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+    text-transform: none;
 }
 
 .blog-post-page .blog-post-cta p,
@@ -1066,7 +1067,7 @@
 
     .blog-post-page .post-header h1,
     .blog-post-page .post-title {
-        font-size: clamp(3rem, 11vw, 4.5rem);
+        font-size: clamp(2.8rem, 9vw, 4rem);
     }
 
     .blog-post-page .post-hero-image {
@@ -1108,7 +1109,7 @@
 
     .blog-post-page .post-header h1,
     .blog-post-page .post-title {
-        font-size: clamp(2.75rem, 14vw, 3.8rem);
+        font-size: clamp(2.5rem, 11vw, 3.3rem);
     }
 
     .blog-post-page .post-body p,
@@ -1117,7 +1118,7 @@
     }
 
     .blog-post-page .post-body h2 {
-        font-size: 2.65rem;
+        font-size: 2.15rem;
     }
 
     .blog-post-page .post-callout,

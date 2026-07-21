@@ -133,7 +133,7 @@ export default function AboutPage() {
                 <span className="about-hero__eyebrow">
                   Dad, day job, side project
                 </span>
-                <h1>Progress photos deserved better than a camera roll</h1>
+                <h1>Progress deserved better.</h1>
                 <p className="about-hero__lede">
                   I&rsquo;m Michael Rode, a backend engineer and lifelong
                   fitness nerd in Wilmington, NC. GainFrame started because
