@@ -1,12 +1,12 @@
 /* TOOLS INDEX — CLINICAL PRECISION */
 :root {
-    --cl-bg: #ffffff;
-    --cl-surface: #f7f8fa;
-    --cl-border: #d1d5db;
-    --cl-border-soft: #e4e7eb;
-    --cl-text: #111827;
-    --cl-muted: #6b7280;
-    --cl-subtle: #9ca3af;
+    --cl-bg: #fffdf7;
+    --cl-surface: #f3f0e8;
+    --cl-border: #c8c5bd;
+    --cl-border-soft: #dedbd2;
+    --cl-text: #181a17;
+    --cl-muted: #5e625d;
+    --cl-subtle: #858983;
     --cl-accent: #2563eb;
     --cl-accent-light: #eff6ff;
     --cl-accent-border: #93c5fd;
@@ -15,7 +15,113 @@
     --cl-pad-x: 40px;
 }
 
-.cl-body { background: var(--cl-bg); color: var(--cl-text); font-family: var(--cl-font); min-height: 100vh; }
+.cl-body {
+    min-height: 100vh;
+    overflow: clip;
+    background-color: var(--cl-bg);
+    background-image:
+        linear-gradient(rgba(24, 26, 23, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 26, 23, 0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
+    color: var(--cl-text);
+    font-family: var(--cl-font);
+}
+
+/* Align the directory shell with the editorial site without changing the
+   blue tool language or the directory's existing composition. */
+.cl-body .blog-nav {
+    position: sticky;
+    top: 16px;
+    z-index: 100;
+    width: min(900px, calc(100% - 32px));
+    margin: 16px auto 0;
+    padding: 7px 0;
+    border: 1px solid rgba(24, 26, 23, 0.2);
+    border-radius: 18px;
+    background: rgba(255, 253, 247, 0.9);
+    box-shadow: 0 14px 40px rgba(24, 26, 23, 0.12);
+    backdrop-filter: blur(18px) saturate(1.2);
+    -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.cl-body .blog-nav .container {
+    width: 100%;
+    max-width: none;
+    padding-inline: 8px;
+}
+
+.cl-body .blog-nav-inner { min-height: 46px; }
+.cl-body .blog-nav-logo { gap: 9px; padding-left: 6px; color: var(--cl-text); }
+.cl-body .blog-nav-icon { width: 34px; height: 34px; border-radius: 10px; }
+.cl-body .blog-nav-wordmark {
+    font-family: var(--cl-font);
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+.cl-body .blog-nav-links { gap: 3px; }
+.cl-body .blog-nav-links a {
+    width: auto;
+    padding: 10px 9px;
+    border-radius: 10px;
+    color: var(--cl-text);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.cl-body .blog-nav-links a:hover,
+.cl-body .blog-nav-links a.active { background: rgba(24, 26, 23, 0.07); }
+.cl-body .blog-nav-links .nav-cta-btn {
+    min-height: 40px;
+    margin-left: 5px;
+    padding: 0 15px !important;
+    border: 1px solid var(--cl-text) !important;
+    border-radius: 11px !important;
+    background: var(--cl-text) !important;
+    color: var(--cl-bg) !important;
+    font-size: 0.65rem !important;
+}
+.cl-body .blog-nav-links .nav-cta-btn:hover {
+    background: var(--cl-accent) !important;
+    color: #fff !important;
+    transform: none;
+}
+.cl-body .nav-hamburger span { border-radius: 0; background: var(--cl-text); }
+.cl-body a:focus-visible,
+.cl-body button:focus-visible,
+.cl-body input:focus-visible {
+    outline: 3px solid var(--cl-accent);
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .cl-body .blog-nav {
+        top: 10px;
+        width: calc(100% - 20px);
+        margin-top: 10px;
+    }
+    .cl-body .nav-hamburger { display: flex; margin-left: auto; }
+    .cl-body .blog-nav-links {
+        top: calc(100% + 8px);
+        right: 0;
+        width: min(260px, calc(100vw - 20px));
+        padding: 8px;
+        border: 1px solid var(--cl-text);
+        background: var(--cl-bg);
+        box-shadow: 6px 6px 0 var(--cl-text);
+    }
+    .cl-body .blog-nav-links a {
+        width: 100%;
+        padding: 12px;
+        border-bottom: 1px solid rgba(24, 26, 23, 0.2);
+        border-radius: 0;
+    }
+    .cl-body .blog-nav-links .nav-cta-btn {
+        width: 100%;
+        margin: 8px 0 0;
+    }
+}
 
 .cl-hero { border-bottom: 1px solid var(--cl-border-soft); padding: clamp(56px, 8vw, 96px) var(--cl-pad-x) clamp(44px, 5vw, 64px); text-align: center; }
 .cl-hero-inner { max-width: var(--cl-container); margin: 0 auto; }

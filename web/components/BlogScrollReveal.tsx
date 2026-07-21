@@ -26,7 +26,10 @@ export default function BlogScrollReveal() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -5% 0px" },
+      // Large specialty-post wrappers can be several viewports tall. A 10%
+      // threshold can leave their entire contents transparent because that much
+      // of the wrapper never fits in the viewport at once.
+      { threshold: 0.01, rootMargin: "0px 0px -5% 0px" },
     );
 
     elements.forEach((el) => {

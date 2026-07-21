@@ -212,6 +212,7 @@ export default async function BlogPostPage({
   return (
     <>
       <BlogFonts />
+      <link rel="stylesheet" href="/styles/blog-post-page.css" />
       {(frontmatter.schemas || []).map((schema, i) => (
         <script
           key={i}
@@ -219,20 +220,22 @@ export default async function BlogPostPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-      <BlogNav />
-      <BlogScrollReveal />
-      {frontmatter.customStyles ? (
-        <style dangerouslySetInnerHTML={{ __html: frontmatter.customStyles }} />
-      ) : null}
+      <div className="blog-post-page">
+        <BlogNav />
+        <BlogScrollReveal />
+        {frontmatter.customStyles ? (
+          <style dangerouslySetInnerHTML={{ __html: frontmatter.customStyles }} />
+        ) : null}
 
-      <div className="post-container">
-        <PostHeader frontmatter={frontmatter} cover={cover} />
+        <main className="post-container">
+          <PostHeader frontmatter={frontmatter} cover={cover} />
 
-        <ByLine displayDate={frontmatter.displayDate} />
+          <ByLine displayDate={frontmatter.displayDate} />
 
-        <article className="post-body">{content}</article>
+          <article className="post-body">{content}</article>
 
-        <AuthorByline />
+          <AuthorByline />
+        </main>
       </div>
     </>
   );
