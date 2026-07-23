@@ -340,6 +340,16 @@ export default function BodyFatFromPhotoPage() {
               </div>
               <span className="bff-crosslink-arrow">Open →</span>
             </a>
+            <a className="bff-crosslink-card" href="/blog/best-ai-body-fat-apps/">
+              <div className="bff-crosslink-text">
+                <strong>Best AI body fat apps, ranked</strong>
+                <span>
+                  How the full iOS apps compare — GainFrame, Formfy, Recomp
+                  AI and the rest of the 2026 field, tested against DEXA.
+                </span>
+              </div>
+              <span className="bff-crosslink-arrow">Read →</span>
+            </a>
           </div>
         </section>
       </div>
