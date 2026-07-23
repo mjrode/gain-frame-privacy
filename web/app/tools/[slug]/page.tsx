@@ -40,6 +40,12 @@ const ALL_TOOLS: RelatedTool[] = [
       "See yourself after a year of consistent training — AI renders your future body on your own photo. One free render.",
   },
   {
+    slug: "physique-rater",
+    title: "AI Physique Rater",
+    blurb:
+      "Upload one photo, get a 1–100 physique score broken into body fat, muscle, proportions, and goal fit. Three free ratings, no signup.",
+  },
+  {
     slug: "body-fat-estimator",
     title: "U.S. Navy Tape-Measure Calculator",
     blurb:

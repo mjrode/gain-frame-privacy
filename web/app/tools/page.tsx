@@ -274,6 +274,66 @@ export default function ToolsPage() {
           </div>
         </section>
 
+        {/* THIRD FEATURE — AI Physique Rater. Same tinted-panel treatment as
+            the transformation feature; visual reuses the hero score-card. */}
+        <section
+          className="cl-tool-feature"
+          aria-labelledby="cl-tool-rater-title"
+        >
+          <div className="cl-tool-feature-panel">
+            <div className="cl-tool-feature-copy">
+              <span className="cl-tool-hero-pill cl-tool-feature-pill">
+                <span className="dot" aria-hidden />
+                New · AI physique score
+              </span>
+              <h2 id="cl-tool-rater-title">
+                Rate my physique, <em>honestly.</em>
+              </h2>
+              <p className="cl-tool-hero-sub">
+                Upload one photo and get a 1–100 physique score, broken into
+                body fat, muscle, proportions, and goal fit — plus the one
+                change that would move it most. No signup.
+              </p>
+              <div className="cl-tool-hero-actions">
+                <a className="cl-tool-hero-cta" href="/tools/physique-rater/">
+                  Rate my physique
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <span className="cl-tool-hero-actions-meta">
+                  <strong>Free</strong> · ~8s · 3 free ratings
+                </span>
+              </div>
+            </div>
+
+            <div className="cl-tool-feature-visual" aria-hidden="true">
+              <div className="cl-tool-hero-card">
+                <span className="cl-tool-hero-card-status">
+                  <span className="dot" />
+                  Rated
+                </span>
+                <div className="cl-tool-hero-card-num">
+                  74
+                  <span className="pct">/100</span>
+                </div>
+                <div className="cl-tool-hero-card-label">Physique score</div>
+                <div className="cl-tool-hero-card-divider" />
+                <div className="cl-tool-hero-card-conf">
+                  <span>
+                    Band <em>Impressive</em>
+                  </span>
+                  <span className="cl-tool-hero-card-dots">
+                    <span className="is-on" />
+                    <span className="is-on" />
+                    <span className="is-on" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Demoted page headline — sits above the categorized grid */}
         <div className="cl-section-intro">
           <h2>Free Fitness Calculators</h2>
