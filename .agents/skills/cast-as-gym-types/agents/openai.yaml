@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cast As Gym Types"
+  short_description: "Generate a TikTok carousel mapping TV show or movie characters"
+  default_prompt: "Use $cast-as-gym-types to run this workflow."

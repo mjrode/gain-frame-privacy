@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Tools"
+  short_description: "Show the GainFrame SEO and content workflow reference. Use when"
+  default_prompt: "Use $seo-tools to run this workflow."

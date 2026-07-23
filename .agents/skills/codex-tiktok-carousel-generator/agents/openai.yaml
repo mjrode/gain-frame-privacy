@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Tiktok Carousel Generator"
+  short_description: "Codex-specific copy of the GainFrame Guy TikTok carousel"
+  default_prompt: "Use $codex-tiktok-carousel-generator to run this workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Context"
+  short_description: "Synthesize a tight, SEO/content-focused product context snapshot"
+  default_prompt: "Use $product-context to run this workflow."

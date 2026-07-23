@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tiktok"
+  short_description: "Generates GainFrame Guy TikTok carousel posts. Uses the Gemini"
+  default_prompt: "Use $tiktok to run this workflow."

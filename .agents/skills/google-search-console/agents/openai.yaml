@@ -1,0 +1,4 @@
+interface:
+  display_name: "Google Search Console"
+  short_description: "Pull fresh GSC data for gainframe.app over the last N days —"
+  default_prompt: "Use $google-search-console to run this workflow."

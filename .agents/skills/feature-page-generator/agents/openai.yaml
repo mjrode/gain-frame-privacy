@@ -1,0 +1,4 @@
+interface:
+  display_name: "Feature Page Generator"
+  short_description: "Interactive workflow for generating, structuring, and publishing"
+  default_prompt: "Use $feature-page-generator to run this workflow."

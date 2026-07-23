@@ -1,0 +1,4 @@
+interface:
+  display_name: "Competitor Scan"
+  short_description: "Scan one or more competitor websites to extract their content"
+  default_prompt: "Use $competitor-scan to run this workflow."

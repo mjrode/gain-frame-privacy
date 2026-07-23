@@ -1,0 +1,4 @@
+interface:
+  display_name: "Instagram Panel"
+  short_description: "Generates GainFrame Guy multi-panel Instagram carousel posts."
+  default_prompt: "Use $instagram-panel to run this workflow."

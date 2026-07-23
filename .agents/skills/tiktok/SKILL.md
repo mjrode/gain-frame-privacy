@@ -1,14 +1,6 @@
 ---
-name: TikTok Carousel Generator
-description: Generates GainFrame Guy TikTok carousel posts. Uses the Gemini API directly via curl with base64-encoded reference images for image generation.
-triggers:
-  - "tiktok"
-  - "tiktok post"
-  - "tiktok carousel"
-  - "new tiktok"
-  - "mascot post"
-  - "carousel post"
-  - "gainframe guy"
+name: tiktok
+description: "Generates GainFrame Guy TikTok carousel posts. Uses the Gemini API directly via curl with base64-encoded reference images for image generation. Use when the user says \"tiktok\", \"tiktok post\", \"tiktok carousel\", \"new tiktok\", \"mascot post\", \"carousel post\", \"gainframe guy\"."
 ---
 
 # TikTok Carousel Generator
@@ -21,7 +13,7 @@ Every phase is the same. Only the image generation bash block in Phase 3 changes
 
 Read the style guide before starting:
 ```
-sed -n '1,240p' docs/assets/gainframe-guy/illustrations/STYLE_GUIDE.md
+sed -n '1,999p' docs/assets/gainframe-guy/illustrations/STYLE_GUIDE.md
 ```
 
 ---
@@ -326,8 +318,13 @@ Hyphens only. Never underscores. Never `cover.png` or `slide1.png`. The gallery 
 1. Show all slides together for a full carousel review
 2. Check text rendering — if any text is garbled, regenerate with a simplified subtitle
 3. Draft caption + hashtags:
-   - **Caption:** 2–3 sentences, hook-first, CTA ("Save this 💪")
-   - **Hashtags:** 5–10 mixing broad (#gymtok #fitness) and niche (#gymmistakes #gainframe)
+   - **Caption:** ONE short line, casual and funny if possible — like a real TikTok
+     caption, not marketing copy. Lowercase is fine. Think "the ones who know, know 💀"
+     or "posting this before my rest day turns into a rest week" — NOT "Here are 5
+     mistakes killing your gains! Save this 💪". No hook-first formulas, no formal
+     sentences, no explaining the carousel (they can see it).
+   - **Hashtags:** EXACTLY 5, no more. Mix broad + niche, e.g. #gymtok #lifting
+     #gymhumor #fitness #gainframe
 4. Save `content.md` to `docs/assets/tiktok/comic/[slug]/content.md`:
    ```
    [Caption text]
@@ -343,10 +340,28 @@ Hyphens only. Never underscores. Never `cover.png` or `slide1.png`. The gallery 
    - GainFrame mention: Yes/No (Slide #)
    - Status: Done
    ```
-6. Add to top of `COMICS_MANIFEST` array in `docs/assets/tiktok/comic/comics-manifest.js`:
+6. Add to top of `COMICS_MANIFEST` array in `web/lib/comics-manifest.mjs` — this is the
+   **single source of truth** (the served `docs/assets/tiktok/comic/comics-manifest.js` is
+   auto-generated from it at build; never edit the .js directly):
    ```js
-   { slug: "[slug]", title: "[Cover Title]", date: "[YYYY-MM-DD]", ext: "png" },
+   { slug: "[slug]", title: "[Cover Title]", date: "[YYYY-MM-DD]", ext: "webp" },
    ```
+   Use `ext: "webp"` — the web build's `optimize-images` step generates the `.webp`
+   files from your `.png` slides automatically.
+7. Generate the SEO page transcript. Every manifest entry gets a static page at
+   `gainframe.app/comics/[slug]/` built from `web/lib/comics-transcripts.json` —
+   without a transcript the page renders cover-only with no indexable text
+   (the build prints a ⚠️ warning listing any comic you forgot). The script is
+   resumable and only processes new slugs, but it OCRs the **webp** slides, so
+   run the prebuild first:
+   ```bash
+   cd web
+   npm run prebuild            # converts new png slides → webp
+   source ~/.zshrc && node scripts/generate-comics-transcripts.mjs
+   ```
+   Commit `web/lib/comics-manifest.mjs`, `web/lib/comics-transcripts.json`, and the
+   comic's asset folder together — a manifest entry whose images or transcript
+   aren't committed ships a broken/empty page.
 
 ---
 
@@ -552,7 +567,7 @@ The screenshot library is **versioned by app release** (`/docs/app-screenshots/1
 
 - **Never skip Phase 2 iteration.** Approved copy before any images.
 - **One image at a time.** Character consistency requires sequential generation.
-- **Always `source ~/.zshrc`** — GEMINI_API_KEY lives there and is not guaranteed to be in Codex's shell environment.
+- **Always `source ~/.zshrc`** — GEMINI_API_KEY lives there, not in Codex's shell environment.
 - **Always check for `.error` in the API response** — Gemini returns errors as JSON on HTTP 200.
 - **File names use hyphens, never underscores.** `slide-1.png` not `slide_1.png`.
 - **Cover gets 3 references (template + cover style + badge). Numbered gets 2 (template + banner style).**
@@ -576,4 +591,6 @@ The screenshot library is **versioned by app release** (`/docs/app-screenshots/1
 | `docs/assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png` | Cover style reference — bare text on cream |
 | `docs/assets/tiktok/comic/discipline-not-motivation/slide-1.png` | Banner style reference — solid black full-width bar |
 | `docs/assets/tiktok/comic/POST_LOG.md` | Running log of all carousels |
-| `docs/assets/tiktok/comic/comics-manifest.js` | Gallery manifest — add new entries here |
+| `web/lib/comics-manifest.mjs` | Gallery manifest (source of truth) — add new entries here |
+| `docs/assets/tiktok/comic/comics-manifest.js` | AUTO-GENERATED mirror of the .mjs — never edit |
+| `web/lib/comics-transcripts.json` | Slide transcripts for /comics/[slug]/ SEO pages — regenerate via `web/scripts/generate-comics-transcripts.mjs` |

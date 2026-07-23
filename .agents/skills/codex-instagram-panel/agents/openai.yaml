@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Instagram Panel"
+  short_description: "Codex-specific copy of the GainFrame Guy instagram-panel"
+  default_prompt: "Use $codex-instagram-panel to run this workflow."

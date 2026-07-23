@@ -1,0 +1,4 @@
+interface:
+  display_name: "Founder Posts"
+  short_description: "Generate a build-in-public founder-story blog post + companion"
+  default_prompt: "Use $founder-posts to run this workflow."

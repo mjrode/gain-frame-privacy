@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tiktok Apps"
+  short_description: "Generates GainFrame app-listicle TikTok carousels (editorial"
+  default_prompt: "Use $tiktok-apps to run this workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Competitor Discovery"
+  short_description: "Identify and classify competitors for GainFrame using free SERP"
+  default_prompt: "Use $competitor-discovery to run this workflow."

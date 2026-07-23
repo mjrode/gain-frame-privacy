@@ -1,0 +1,4 @@
+interface:
+  display_name: "Keyword Discovery"
+  short_description: "Discover, score, and cluster SEO keyword opportunities for"
+  default_prompt: "Use $keyword-discovery to run this workflow."

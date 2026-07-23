@@ -1,0 +1,4 @@
+interface:
+  display_name: "Comparison Article Generator"
+  short_description: "Generate \"[Competitor] vs GainFrame\" comparison articles that"
+  default_prompt: "Use $comparison-article-generator to run this workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jack Tiktok"
+  short_description: "Generates photorealistic Jack TikTok 2-slide posts (hook photo +"
+  default_prompt: "Use $jack-tiktok to run this workflow."
