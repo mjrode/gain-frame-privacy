@@ -295,6 +295,16 @@ export default function AiBodyTransformationPage() {
               </div>
               <span className="btf-crosslink-arrow">Open →</span>
             </a>
+            <a className="btf-crosslink-card" href="/tools/physique-rater/">
+              <div className="btf-crosslink-text">
+                <strong>AI Physique Rater</strong>
+                <span>
+                  Score where you are today — a 1–100 physique rating with body
+                  fat, muscle, proportions, and goal fit from one photo.
+                </span>
+              </div>
+              <span className="btf-crosslink-arrow">Open →</span>
+            </a>
             <a
               className="btf-crosslink-card"
               href="/tools/body-fat-visualizer/"

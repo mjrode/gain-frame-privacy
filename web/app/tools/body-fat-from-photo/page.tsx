@@ -296,6 +296,17 @@ export default function BodyFatFromPhotoPage() {
           <div className="bff-section-inner">
             <p className="bff-section-eyebrow">Related tools</p>
             <h2>More ways to measure.</h2>
+            <a className="bff-crosslink-card" href="/tools/physique-rater/">
+              <div className="bff-crosslink-text">
+                <strong>AI Physique Rater</strong>
+                <span>
+                  Body fat is one input — get the full 1–100 physique score
+                  from the same photo, broken into body fat, muscle,
+                  proportions, and goal fit.
+                </span>
+              </div>
+              <span className="bff-crosslink-arrow">Open →</span>
+            </a>
             <a
               className="bff-crosslink-card"
               href="/tools/ai-body-transformation/"
