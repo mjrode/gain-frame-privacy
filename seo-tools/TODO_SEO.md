@@ -358,3 +358,14 @@ NOTE: 21 posts published Jul 7 total (6 morning + 15 afternoon). Request GSC ind
 - [x] **Quiz + tool feeders:** beginner-intermediate-advanced-lifter · strength-standards (both feed strength-standards-calculator) — published 2026-07-23
 - [x] **Brand reviews:** macrofactor-review (verified 4.8/19.5K) · renpho-scale-review — published 2026-07-23
 - [x] **Housekeeping:** Snapsie folded into best-progress-photo-apps (carry-forward closed after 25 days) — done 2026-07-23
+
+### Jul 26 batch — 10 posts (CLICK-INTENT PIVOT, driven by CTR data)
+
+**Data behind the pivot:** stats pages rank well but are answered in-SERP — avg-hip-size-women 3,864 imp @ pos 6.0 = 0.72% CTR; avg-shoulder-width-women 2,681 @ 6.5 = 0.26%. Meanwhile tools convert (ai-body-transformation 23.9%, body-fat-from-photo 10.6%), app roundups 4–6%, and "free" queries are the best modifier on the site ("ai body fat scanner free" 38.5% CTR @ pos 2.2). Conclusion: more stats pages add impressions without clicks. This batch is all commercial/click intent.
+
+- [x] **Physique-rating cluster (4.65% CTR family):** physique-rating-scale · rate-my-physique · best-body-rating-apps — published 2026-07-26
+- [x] **Free intent (38.5% CTR signal):** best-free-body-fat-apps ("what's actually free" column) — published 2026-07-26
+- [x] **Own-brand honesty page:** apps-like-gainframe (founder-written, declares bias, routes to competitors where they genuinely win) — published 2026-07-26
+- [x] **Commercial roundups:** best-body-tracking-apps (category routing hub) · best-body-composition-scales (hardware) · best-fitness-apps-for-men · best-fitness-apps-for-women — published 2026-07-26
+- [x] **Tool feeder:** how-accurate-are-body-fat-calculators — published 2026-07-26
+- NOTE: 3 writer agents died mid-stream (API instability); relaunched, no content lost. One agent's safety classifier was down — its 3 posts were independently re-audited in the main loop and passed.
