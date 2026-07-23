@@ -43,6 +43,10 @@ export type AnalyticsEvent =
   | "bt_tool_download_clicked"
   | "bt_tool_cta_clicked"
   | "bt_tool_error"
+  // Physique rater tool
+  | "physique_rater_requested"
+  | "physique_rater_scored"
+  | "physique_rater_cta_click"
   // Homepage promo film
   | "promo_film_sound_on"
   | "promo_film_watched_75"
