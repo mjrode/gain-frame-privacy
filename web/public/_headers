@@ -25,6 +25,14 @@
   ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
 
+# Behavior scripts under /assets/ aren't content-hashed like /_next/static/*,
+# so the immutable rule above means an edit (e.g. the blog tag-filter logic)
+# silently never reaches a browser that already cached the old file — clicks
+# just stop doing anything, with no console error. Force revalidation instead.
+/assets/*.js
+  ! Cache-Control
+  Cache-Control: public, max-age=0, must-revalidate
+
 /blog/*/assets/*
   ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
