@@ -4,6 +4,7 @@ import path from "path";
 import BlogNav from "@/components/BlogNav";
 import BlogFonts from "@/components/BlogFonts";
 import BlogScrollReveal from "@/components/BlogScrollReveal";
+import BlogTagFilter from "@/components/BlogTagFilter";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -60,6 +61,7 @@ export default async function BlogPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
       />
       <BlogScrollReveal />
+      <BlogTagFilter />
       <div className="blog-index-page">
         <BlogNav />
         <div

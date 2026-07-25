@@ -381,6 +381,17 @@
     grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
 }
 
+/* Tag filtering hides cards with .is-hidden, but that rule lives in the shared
+   styles.css as `.blog-card.is-hidden` — same specificity as the card display
+   rules below (and lower than the :first-child one), so this later stylesheet
+   was winning and filtered-out cards stayed on screen. Re-state it here with
+   enough specificity to beat every display declaration in this file, including
+   the ones inside the <=1024px block. */
+.blog-index-page .blog-card.is-hidden,
+.blog-index-page .blog-card.is-hidden:first-child {
+    display: none;
+}
+
 .blog-index-page .blog-card:hover {
     transform: translate(-2px, -2px);
     border-color: var(--gf-graphite);
