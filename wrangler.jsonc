@@ -18,6 +18,12 @@
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   },
+  "routes": [
+    {
+      "pattern": "gainframe.app",
+      "custom_domain": true
+    }
+  ],
   "observability": {
     "enabled": true
   }
