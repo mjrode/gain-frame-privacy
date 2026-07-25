@@ -1,4 +1,4 @@
-// Cloudflare Pages Function: GET /api/stats
+// GET /api/stats
 //
 // Returns the two trust numbers shown on the /get landing page:
 //   { rating: number, ratingCount: number, lifters: number }
@@ -11,26 +11,20 @@
 // blank. The response is cached for 6h (Cloudflare edge cache + Cache-Control)
 // so we don't hammer Apple/PostHog on every page view.
 //
-// Env vars (Cloudflare Pages → Settings → Environment variables):
+// Env vars (Cloudflare dashboard → Worker → Settings → Variables and Secrets):
 //   - POSTHOG_PERSONAL_API_KEY   optional; a PostHog personal API key with
 //                                `query:read` scope. Without it, lifters uses
 //                                the fallback constant.
 //   - POSTHOG_PROJECT_ID         optional; defaults to 357433 (GainFrame).
 //   - POSTHOG_HOST               optional; defaults to https://us.posthog.com.
 
-interface Env {
+import type { Ctx } from "../types";
+
+export interface StatsEnv {
   POSTHOG_PERSONAL_API_KEY?: string;
   POSTHOG_PROJECT_ID?: string;
   POSTHOG_HOST?: string;
 }
-
-interface FunctionContext {
-  request: Request;
-  env: Env;
-  waitUntil: (promise: Promise<unknown>) => void;
-}
-
-type PagesHandler = (context: FunctionContext) => Promise<Response>;
 
 const APP_ID = "6759252082";
 const RATING_FALLBACK = 4.9;
@@ -67,7 +61,7 @@ async function fetchAppStore(): Promise<{ rating: number; ratingCount: number }>
   }
 }
 
-async function fetchLifters(env: Env): Promise<number> {
+async function fetchLifters(env: StatsEnv): Promise<number> {
   const key = env.POSTHOG_PERSONAL_API_KEY;
   if (!key) return LIFTERS_FALLBACK;
   const projectId = env.POSTHOG_PROJECT_ID || "357433";
@@ -97,7 +91,11 @@ async function fetchLifters(env: Env): Promise<number> {
   }
 }
 
-export const onRequestGet: PagesHandler = async ({ request, env, waitUntil }) => {
+export async function handleStats(
+  request: Request,
+  env: StatsEnv,
+  ctx: Ctx,
+): Promise<Response> {
   const cache = (caches as unknown as { default: Cache }).default;
   const cacheKey = new Request(new URL(request.url).toString(), {
     method: "GET",
@@ -126,6 +124,6 @@ export const onRequestGet: PagesHandler = async ({ request, env, waitUntil }) =>
     },
   );
 
-  waitUntil(cache.put(cacheKey, response.clone()));
+  ctx.waitUntil(cache.put(cacheKey, response.clone()));
   return response;
-};
+}

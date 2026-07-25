@@ -26,3 +26,6 @@ progress-photos/
 
 # Archived docs assets — not in prebuild TARGETS, not served; kept locally
 docs/_archive/
+
+# wrangler local state (wrangler dev cache, build artifacts)
+.wrangler/

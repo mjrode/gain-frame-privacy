@@ -1,4 +1,4 @@
-# Redirects for Cloudflare Pages.
+# Redirects for Cloudflare Workers Static Assets.
 # Format: <from> <to> <status>
 # Cloudflare matches in order; first hit wins.
 # https://developers.cloudflare.com/pages/configuration/redirects/

@@ -7,7 +7,7 @@
     "prebuild": "node scripts/optimize-images.mjs && node scripts/generate-comics-manifest-js.mjs && node scripts/generate-blog-grid.mjs",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build && npx wrangler pages deploy out --project-name gain-frame-privacy",
+    "deploy": "next build && cd .. && npx wrangler deploy",
     "build:blog-grid": "node scripts/generate-blog-grid.mjs",
     "build:images": "node scripts/optimize-images.mjs",
     "build:comics-manifest": "node scripts/generate-comics-manifest-js.mjs"

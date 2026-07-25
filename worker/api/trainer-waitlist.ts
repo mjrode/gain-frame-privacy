@@ -1,21 +1,20 @@
-// Cloudflare Pages Function: POST /api/trainer-waitlist
+// POST /api/trainer-waitlist
 //
 // Soft-CTA email capture for the /trainers landing page. Adds the contact to
 // a Resend Audience (so we have a clean list to email when V1 ships) and
 // fires a notification email to michaelrode44@gmail.com with the details
 // each signup volunteered (active client count, source).
 //
-// Env vars (set in Cloudflare Pages dashboard → Settings → Environment
-// variables, both Production and Preview):
+// Env vars (Cloudflare dashboard → Worker → Settings → Variables and Secrets):
 //   - RESEND_API_KEY           required, Resend API key
 //   - RESEND_TRAINER_AUDIENCE_ID  required, audience UUID from Resend dashboard
 //   - NOTIFY_EMAIL_TO          optional, defaults to michaelrode44@gmail.com
 //   - NOTIFY_EMAIL_FROM        optional, defaults to noreply@gainframe.app
 //                              (must be a verified sender in Resend)
 
-interface Env {
-  RESEND_API_KEY: string;
-  RESEND_TRAINER_AUDIENCE_ID: string;
+export interface TrainerWaitlistEnv {
+  RESEND_API_KEY?: string;
+  RESEND_TRAINER_AUDIENCE_ID?: string;
   NOTIFY_EMAIL_TO?: string;
   NOTIFY_EMAIL_FROM?: string;
 }
@@ -26,16 +25,7 @@ interface RequestBody {
   source?: string;
 }
 
-interface FunctionContext {
-  request: Request;
-  env: Env;
-  // The full Pages-Function context has more fields (params, waitUntil, etc.)
-  // but we only use request and env here.
-}
-
-type PagesHandler = (context: FunctionContext) => Promise<Response>;
-
-const CORS_HEADERS = {
+export const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
@@ -59,10 +49,10 @@ function isLikelyEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
-export const onRequestOptions: PagesHandler = async () =>
-  new Response(null, { status: 204, headers: CORS_HEADERS });
-
-export const onRequestPost: PagesHandler = async ({ request, env }) => {
+export async function handleTrainerWaitlist(
+  request: Request,
+  env: TrainerWaitlistEnv,
+): Promise<Response> {
   if (!env.RESEND_API_KEY || !env.RESEND_TRAINER_AUDIENCE_ID) {
     return jsonResponse(
       { error: "Server is not configured for waitlist signups yet." },
@@ -153,4 +143,4 @@ export const onRequestPost: PagesHandler = async ({ request, env }) => {
   }
 
   return jsonResponse({ ok: true });
-};
+}

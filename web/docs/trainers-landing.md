@@ -6,7 +6,7 @@ the parts that need configuration are:
 
 1. The Stripe Payment Link the deposit button points to
 2. Resend Audience + API key for the soft email-capture form
-3. Cloudflare Pages environment variables for the API function
+3. Cloudflare Worker secrets for the API endpoint
 
 Once those are in place, push to `main` and the page deploys automatically.
 
@@ -71,8 +71,8 @@ If the 21-day window closes with fewer than 5 deposits:
 ## 2. Resend Audience (waitlist email capture)
 
 The soft-CTA form on `/trainers/` POSTs to `/api/trainer-waitlist`, which is
-a Cloudflare Pages Function defined in
-[`functions/api/trainer-waitlist.ts`](../functions/api/trainer-waitlist.ts).
+a Cloudflare Worker endpoint defined in
+[`worker/api/trainer-waitlist.ts`](../../worker/api/trainer-waitlist.ts).
 It adds the contact to a Resend Audience and fires an internal notification
 email to Mike.
 
@@ -89,8 +89,8 @@ email to Mike.
 If you don't already have a production Resend API key:
 
 1. Resend dashboard → API Keys → **Create API Key**
-   - Name: `gainframe-pages`
-   - Permission: `Sending access` (the Pages function needs to send emails too)
+   - Name: `gainframe-worker`
+   - Permission: `Sending access` (the Worker needs to send emails too)
    - Domain: gainframe.app (assumes you've already verified it)
 2. Copy the `re_…` key — this becomes `RESEND_API_KEY`
 
@@ -103,10 +103,10 @@ in env vars.
 
 ---
 
-## 3. Cloudflare Pages env vars
+## 3. Cloudflare Worker secrets
 
-In the Cloudflare dashboard → Pages → `gain-frame-privacy` project → Settings
-→ Environment variables, add the following to **both Production and Preview**:
+In the Cloudflare dashboard → Workers & Pages → `gain-frame-privacy` → Settings
+→ Variables and Secrets, add the following as Worker secrets:
 
 | Variable | Value |
 |---|---|
@@ -115,7 +115,7 @@ In the Cloudflare dashboard → Pages → `gain-frame-privacy` project → Setti
 | `NOTIFY_EMAIL_TO` | `michaelrode44@gmail.com` (optional — defaults to this) |
 | `NOTIFY_EMAIL_FROM` | `noreply@gainframe.app` (optional — defaults to this) |
 
-After saving, redeploy from the dashboard so the function picks up the env
+After saving, redeploy from the dashboard so the Worker picks up the
 vars. Test by submitting the form on `/trainers/` (use a real email of yours)
 and verify:
 
@@ -222,5 +222,5 @@ From the plan in `~/.claude/plans/i-have-a-request-expressive-quilt.md`:
 - `app/trainers/TrainerWaitlistForm.tsx` — client component for the soft-CTA form
 - `app/trainers/thanks/page.tsx` — post-deposit confirmation page
 - `public/styles/trainers-page.css` — page-scoped stylesheet
-- `functions/api/trainer-waitlist.ts` — Cloudflare Pages Function for the form
+- `worker/api/trainer-waitlist.ts` — Cloudflare Worker endpoint for the form
 - `lib/site.ts` → `trainerDepositUrl` — the Stripe Payment Link URL (replace before launch)
