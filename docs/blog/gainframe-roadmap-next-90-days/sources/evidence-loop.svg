@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">GainFrame check-in evidence loop</title>
+  <desc id="description">A recurring five-step loop: capture a check-in, receive a trustworthy read, understand the trajectory, know what the next check-in can confirm, and return for more evidence.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#9DA79F"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" fill="#F7F7F2"/>
+  <text x="100" y="105" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="4">THE CHECK-IN EVIDENCE LOOP</text>
+  <text x="100" y="165" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="27">The habit I want GainFrame to earn.</text>
+
+  <path d="M490 285 C630 190 970 190 1110 285" fill="none" stroke="#9DA79F" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M1250 385 C1345 480 1280 655 1130 690" fill="none" stroke="#9DA79F" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M1000 735 C875 800 715 800 590 735" fill="none" stroke="#9DA79F" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M450 690 C300 655 235 480 330 385" fill="none" stroke="#9DA79F" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="155" y="250" width="390" height="145" rx="28" fill="#FFFFFF" stroke="#D9DED9" stroke-width="2"/>
+  <circle cx="220" cy="322" r="34" fill="#E6EEE6"/>
+  <text x="220" y="331" text-anchor="middle" fill="#527258" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="24" font-weight="750">1</text>
+  <text x="275" y="309" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">Capture a check-in</text>
+  <text x="275" y="347" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="21">Photos plus the day’s context</text>
+
+  <rect x="1055" y="250" width="390" height="145" rx="28" fill="#FFFFFF" stroke="#BED0C0" stroke-width="3"/>
+  <circle cx="1120" cy="322" r="34" fill="#DCE9DD"/>
+  <text x="1120" y="331" text-anchor="middle" fill="#527258" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="24" font-weight="750">2</text>
+  <text x="1175" y="309" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">Get a trustworthy read</text>
+  <text x="1175" y="347" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="21">Change plus confidence</text>
+
+  <rect x="1055" y="650" width="390" height="145" rx="28" fill="#FFFFFF" stroke="#D9DED9" stroke-width="2"/>
+  <circle cx="1120" cy="722" r="34" fill="#EDE7DA"/>
+  <text x="1120" y="731" text-anchor="middle" fill="#946E3C" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="24" font-weight="750">3</text>
+  <text x="1175" y="709" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">See the trajectory</text>
+  <text x="1175" y="747" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="21">What may be contributing</text>
+
+  <rect x="155" y="650" width="420" height="145" rx="28" fill="#FFFFFF" stroke="#D9DED9" stroke-width="2"/>
+  <circle cx="220" cy="722" r="34" fill="#F2E6E2"/>
+  <text x="220" y="731" text-anchor="middle" fill="#A76452" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="24" font-weight="750">4</text>
+  <text x="275" y="702" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="27" font-weight="750">Know what comes next</text>
+  <text x="275" y="740" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="21">What the next check-in can confirm</text>
+  <text x="275" y="770" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="21">and when to take it</text>
+
+  <rect x="610" y="310" width="380" height="280" rx="40" fill="#18201B"/>
+  <text x="800" y="382" text-anchor="middle" fill="#D6E7D8" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="3">INTENDED HABIT</text>
+  <text x="800" y="455" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="52" font-weight="780">1–3 visits</text>
+  <text x="800" y="505" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="30">per week</text>
+  <text x="800" y="555" text-anchor="middle" fill="#BFC8C1" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="21">about two check-ins</text>
+
+  <rect x="550" y="625" width="500" height="70" rx="24" fill="#527258"/>
+  <text x="800" y="670" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="23" font-weight="720">5  Return for the next piece of evidence</text>
+
+  <text x="800" y="850" text-anchor="middle" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="22">Coach and Trends should answer questions created by the check-in.</text>
+</svg>

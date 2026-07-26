@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">GainFrame current product focus</title>
+  <desc id="description">Three connected focus areas: paid retention, trustworthy check-ins, and a signature social artifact, all supporting a visual evidence system for physique progress.</desc>
+  <rect width="1600" height="900" fill="#F7F7F2"/>
+  <text x="100" y="105" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="4">CURRENT PRODUCT FOCUS</text>
+  <text x="100" y="165" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="27">Three jobs, one product loop.</text>
+
+  <path d="M495 417 H552" stroke="#AEB6AF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1048 417 H1105" stroke="#AEB6AF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M538 405 L552 417 L538 429" fill="none" stroke="#AEB6AF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1091 405 L1105 417 L1091 429" fill="none" stroke="#AEB6AF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="100" y="245" width="395" height="345" rx="28" fill="#FFFFFF" stroke="#D9DED9" stroke-width="2"/>
+  <circle cx="165" cy="315" r="30" fill="#E6EEE6"/>
+  <path d="M150 315 H180 M165 300 V330" stroke="#527258" stroke-width="4" stroke-linecap="round"/>
+  <text x="215" y="326" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="31" font-weight="750">Paid retention</text>
+  <text x="145" y="405" fill="#39443C" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="24">
+    <tspan x="145" dy="0">Define realized churn.</tspan>
+    <tspan x="145" dy="43">Find the first-week behaviors</tspan>
+    <tspan x="145" dy="36">associated with staying.</tspan>
+    <tspan x="145" dy="43">Fix the reasons people leave.</tspan>
+  </text>
+
+  <rect x="552" y="245" width="496" height="345" rx="28" fill="#FFFFFF" stroke="#BED0C0" stroke-width="3"/>
+  <circle cx="622" cy="315" r="30" fill="#DCE9DD"/>
+  <rect x="608" y="300" width="28" height="30" rx="5" fill="none" stroke="#527258" stroke-width="3"/>
+  <circle cx="622" cy="315" r="7" fill="none" stroke="#527258" stroke-width="3"/>
+  <text x="672" y="326" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="31" font-weight="750">Trustworthy check-ins</text>
+  <text x="602" y="405" fill="#39443C" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="24">
+    <tspan x="602" dy="0">Make AI changes explainable.</tspan>
+    <tspan x="602" dy="43">Attach training and recovery</tspan>
+    <tspan x="602" dy="36">context to the day.</tspan>
+    <tspan x="602" dy="43">Make the next check-in useful.</tspan>
+  </text>
+
+  <rect x="1105" y="245" width="395" height="345" rx="28" fill="#FFFFFF" stroke="#D9DED9" stroke-width="2"/>
+  <circle cx="1170" cy="315" r="30" fill="#F2E6E2"/>
+  <path d="M1157 326 L1170 300 L1183 326 Z" fill="none" stroke="#A76452" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="1170" cy="315" r="4" fill="#A76452"/>
+  <text x="1220" y="326" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="31" font-weight="750">Social artifact</text>
+  <text x="1150" y="405" fill="#39443C" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="24">
+    <tspan x="1150" dy="0">Prototype Timeprint.</tspan>
+    <tspan x="1150" dy="43">Make subtle progress visible.</tspan>
+    <tspan x="1150" dy="43">Build privacy into the export.</tspan>
+    <tspan x="1150" dy="43">Measure scan-to-install intent.</tspan>
+  </text>
+
+  <rect x="100" y="670" width="1400" height="130" rx="30" fill="#18201B"/>
+  <text x="800" y="725" text-anchor="middle" fill="#D6E7D8" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="3">THE PRODUCT</text>
+  <text x="800" y="770" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="32" font-weight="720">A visual evidence system for physique progress</text>
+</svg>

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">GainFrame 90-day roadmap</title>
+  <desc id="description">A five-phase decision sequence: establish truth, protect trust and activation, build check-in context, test Timeprint, and select a churn intervention.</desc>
+  <rect width="1600" height="900" fill="#F7F7F2"/>
+  <text x="100" y="105" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="4">THE NEXT 90 DAYS</text>
+  <text x="100" y="165" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="27">A decision sequence. Scope changes when the evidence does.</text>
+
+  <path d="M175 310 H1425" stroke="#C8CEC9" stroke-width="6" stroke-linecap="round"/>
+
+  <circle cx="175" cy="310" r="28" fill="#527258"/>
+  <circle cx="485" cy="310" r="28" fill="#527258"/>
+  <circle cx="795" cy="310" r="28" fill="#527258"/>
+  <circle cx="1105" cy="310" r="28" fill="#C58B55"/>
+  <circle cx="1425" cy="310" r="28" fill="#A76452"/>
+  <text x="175" y="319" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="22" font-weight="750">1</text>
+  <text x="485" y="319" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="22" font-weight="750">2</text>
+  <text x="795" y="319" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="22" font-weight="750">3</text>
+  <text x="1105" y="319" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="22" font-weight="750">4</text>
+  <text x="1425" y="319" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="22" font-weight="750">5</text>
+
+  <rect x="70" y="370" width="250" height="340" rx="24" fill="#FFFFFF" stroke="#D9DED9" stroke-width="2"/>
+  <text x="100" y="420" fill="#527258" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="18" font-weight="750" letter-spacing="2">ESTABLISH TRUTH</text>
+  <text x="100" y="474" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">Analytics +</text>
+  <text x="100" y="508" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">subscription audit</text>
+  <text x="100" y="570" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="20">
+    <tspan x="100" dy="0">PostHog identity</tspan>
+    <tspan x="100" dy="33">RevenueCat states</tspan>
+    <tspan x="100" dy="33">Realized churn</tspan>
+    <tspan x="100" dy="33">Pre-cancel behavior</tspan>
+  </text>
+
+  <rect x="350" y="370" width="270" height="340" rx="24" fill="#FFFFFF" stroke="#D9DED9" stroke-width="2"/>
+  <text x="380" y="420" fill="#527258" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="18" font-weight="750" letter-spacing="2">PROTECT THE PAYOFF</text>
+  <text x="380" y="474" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">Trust + first</text>
+  <text x="380" y="508" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">session value</text>
+  <text x="380" y="570" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="20">
+    <tspan x="380" dy="0">Score stability</tspan>
+    <tspan x="380" dy="33">Comparability</tspan>
+    <tspan x="380" dy="33">Baseline Brief</tspan>
+    <tspan x="380" dy="33">Next useful action</tspan>
+  </text>
+
+  <rect x="650" y="370" width="290" height="340" rx="24" fill="#FFFFFF" stroke="#BED0C0" stroke-width="3"/>
+  <text x="680" y="420" fill="#527258" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="18" font-weight="750" letter-spacing="2">BUILD THE LOOP</text>
+  <text x="680" y="474" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">Durable check-in</text>
+  <text x="680" y="508" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">context</text>
+  <text x="680" y="570" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="20">
+    <tspan x="680" dy="0">Workout + recovery</tspan>
+    <tspan x="680" dy="33">Evidence milestones</tspan>
+    <tspan x="680" dy="33">Coach questions</tspan>
+    <tspan x="680" dy="33">Return timing</tspan>
+  </text>
+
+  <rect x="970" y="370" width="270" height="340" rx="24" fill="#FFFFFF" stroke="#E5D0BC" stroke-width="2"/>
+  <text x="1000" y="420" fill="#A66D38" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="18" font-weight="750" letter-spacing="2">TEST THE SOCIAL BET</text>
+  <text x="1000" y="474" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">GainFrame</text>
+  <text x="1000" y="508" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">Timeprint</text>
+  <text x="1000" y="570" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="20">
+    <tspan x="1000" dy="0">3 visual directions</tspan>
+    <tspan x="1000" dy="33">Privacy modes</tspan>
+    <tspan x="1000" dy="33">Viewer curiosity</tspan>
+    <tspan x="1000" dy="33">Export flow</tspan>
+  </text>
+
+  <rect x="1270" y="370" width="260" height="340" rx="24" fill="#FFFFFF" stroke="#E3C6BD" stroke-width="2"/>
+  <text x="1300" y="420" fill="#A76452" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="18" font-weight="750" letter-spacing="2">INTERVENE</text>
+  <text x="1300" y="474" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">One churn</text>
+  <text x="1300" y="508" fill="#18201B" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="28" font-weight="750">response</text>
+  <text x="1300" y="570" fill="#5F6861" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="20">
+    <tspan x="1300" dy="0">Pick from evidence</tspan>
+    <tspan x="1300" dy="33">Ship one branch</tspan>
+    <tspan x="1300" dy="33">Measure save quality</tspan>
+    <tspan x="1300" dy="33">Watch later churn</tspan>
+  </text>
+
+  <rect x="100" y="770" width="1400" height="64" rx="18" fill="#E7ECE7"/>
+  <text x="800" y="812" text-anchor="middle" fill="#39443C" font-family="-apple-system, BlinkMacSystemFont, Inter, Arial, sans-serif" font-size="22" font-weight="650">Research gates the build. Every package can ship, measure, or roll back on its own.</text>
+</svg>
