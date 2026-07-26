@@ -13,10 +13,11 @@
 
 The site runs on **Cloudflare Workers with Static Assets** (it was a Pages
 project until Jul 2026). `web/out` is uploaded as the asset store — including
-`_headers` and `_redirects`, which Workers assets honour the same way Pages did
-— and asset-first routing serves existing files directly while unmatched
-requests such as `/api/*` fall through to `worker/index.ts`. The
-`gainframe.app` custom domain is declared in `wrangler.jsonc`.
+`_headers` and `_redirects`, which Workers assets honour the same way Pages did.
+Worker-first routing lets `worker/index.ts` permanently redirect HTTP requests
+to the canonical HTTPS URL and handle `/api/*`; all other requests are delegated
+to the static asset binding. The `gainframe.app` custom domain is declared in
+`wrangler.jsonc`.
 
 ### Automatic (normal flow)
 Push to `main` → Workers Builds runs the build command and deploys.

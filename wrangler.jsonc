@@ -2,10 +2,9 @@
   // Cloudflare Workers config for gainframe.app.
   //
   // The site is a static Next.js export (`cd web && npm run build` → web/out)
-  // served by Workers Static Assets. `worker/index.ts` exists only for the two
-  // dynamic endpoints the static export can't provide. Asset-first routing
-  // serves existing files without invoking the Worker; unmatched paths such
-  // as /api/* fall through to it.
+  // served by Workers Static Assets. `worker/index.ts` runs first to enforce
+  // HTTP -> HTTPS canonicalization and handle the two dynamic endpoints, then
+  // delegates all other requests to the asset binding.
   //
   // This file must live at the repo root — that's the Root directory
   // configured for the build in the Cloudflare dashboard.
@@ -15,6 +14,7 @@
   "assets": {
     "directory": "web/out",
     "binding": "ASSETS",
+    "run_worker_first": true,
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   },

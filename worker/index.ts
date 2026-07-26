@@ -1,10 +1,9 @@
 // Worker entry point for gainframe.app.
 //
 // Everything the site serves is a static file from web/out — Workers Static
-// Assets handles those directly (see wrangler.jsonc). This script only exists
-// for the two dynamic endpoints the static export can't provide. Asset-first
-// routing sends existing files directly from the asset store, while unmatched
-// requests (including /api/*) reach this fetch handler.
+// Assets handles those through the ASSETS binding (see wrangler.jsonc). The
+// Worker runs first so it can enforce the canonical HTTPS origin before
+// routing API requests or returning a static asset.
 
 import { handleStats, type StatsEnv } from "./api/stats";
 import {
@@ -34,7 +33,17 @@ function methodNotAllowed(
 
 export default {
   async fetch(request: Request, env: Env, ctx: Ctx): Promise<Response> {
-    const { pathname } = new URL(request.url);
+    const url = new URL(request.url);
+
+    if (url.protocol === "http:") {
+      url.protocol = "https:";
+      return new Response(null, {
+        status: 308,
+        headers: { Location: url.toString() },
+      });
+    }
+
+    const { pathname } = url;
 
     if (pathname === "/api/stats") {
       if (request.method !== "GET" && request.method !== "HEAD") {
@@ -60,7 +69,7 @@ export default {
       });
     }
 
-    // Non-/api paths only reach the Worker if the asset router missed them.
+    // All non-/api requests are served from the static asset binding.
     return env.ASSETS.fetch(request);
   },
 };
