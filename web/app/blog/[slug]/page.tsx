@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { promises as fs } from "fs";
 import path from "path";
 import Link from "next/link";
@@ -11,6 +12,8 @@ import BlogScrollReveal from "@/components/BlogScrollReveal";
 import AuthorByline from "@/components/AuthorByline";
 import ByLine from "@/components/ByLine";
 import PostTable from "@/components/PostTable";
+import BlogArticleCta from "@/components/BlogArticleCta";
+import { getBlogCtaIntent } from "@/lib/blog-cta";
 
 // Markdown pipe tables (GFM) get the same styling as hand-written
 // <table className="post-table"> markup — without this mapping they render
@@ -208,6 +211,12 @@ export default async function BlogPostPage({
   });
 
   const cover = resolveCover(slug, frontmatter.coverImage);
+  const ctaIntent = getBlogCtaIntent({
+    category:
+      frontmatter.displayCategory || frontmatter.breadcrumbCategory || "",
+    slug,
+    title: frontmatter.title,
+  });
 
   return (
     <>
@@ -223,6 +232,9 @@ export default async function BlogPostPage({
       <div className="blog-post-page">
         <BlogNav />
         <BlogScrollReveal />
+        {ctaIntent === "founder" ? (
+          <Script src="/assets/email-capture-bar.js" strategy="lazyOnload" />
+        ) : null}
         {frontmatter.customStyles ? (
           <style dangerouslySetInnerHTML={{ __html: frontmatter.customStyles }} />
         ) : null}
@@ -233,6 +245,8 @@ export default async function BlogPostPage({
           <ByLine displayDate={frontmatter.displayDate} />
 
           <article className="post-body">{content}</article>
+
+          <BlogArticleCta intent={ctaIntent} slug={slug} />
 
           <AuthorByline />
         </main>

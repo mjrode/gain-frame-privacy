@@ -17,13 +17,15 @@
         ctaLabel: "GET IT",
         placeholder: "your@email.com",
         successMessage: "Check your inbox.",
-        errorMessage: "Something went wrong — try again.",
+        errorMessage: "Something went wrong, try again.",
     };
 
     const DISMISSED_KEY = "gf_capture_bar_dismissed";
 
     // Don't show if already dismissed this session
     if (sessionStorage.getItem(DISMISSED_KEY)) return;
+
+    const mountCaptureBar = () => {
 
     // ── Inject CSS ─────────────────────────────────────────────────────────────
     // Editorial subscription card — light cream bg, 2px black top rule that
@@ -356,4 +358,37 @@
             }
         }, 10000);
     });
+    };
+
+    let mounted = false;
+    let timerId = 0;
+
+    const removeTriggers = () => {
+        window.removeEventListener("scroll", onScroll);
+        if (timerId) window.clearTimeout(timerId);
+    };
+
+    const mountOnce = () => {
+        if (mounted) return;
+        mounted = true;
+        removeTriggers();
+        mountCaptureBar();
+    };
+
+    const isPastReadingThreshold = () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollable <= 0) return false;
+        return window.scrollY / scrollable >= 0.5;
+    };
+
+    function onScroll() {
+        if (isPastReadingThreshold()) mountOnce();
+    }
+
+    if (isPastReadingThreshold()) {
+        mountOnce();
+    } else {
+        window.addEventListener("scroll", onScroll, { passive: true });
+        timerId = window.setTimeout(mountOnce, 20000);
+    }
 })();

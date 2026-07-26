@@ -3,7 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import localFont from "next/font/local";
 import { SITE } from "@/lib/site";
+import PlatformDownloadLink from "@/components/PlatformDownloadLink";
 import HeroFilm from "./HeroFilm";
+import HomepageHeroProof from "./HomepageHeroProof";
 import styles from "./page.module.css";
 
 const anton = localFont({
@@ -32,14 +34,22 @@ type AppStoreCtaProps = {
 };
 
 function AppStoreCta({ className, content, children }: AppStoreCtaProps) {
+  const campaign =
+    content === "floating_nav_download"
+      ? "web-home-nav"
+      : content === "closing_download"
+        ? "web-home-closing"
+        : "web-home-hero";
+
   return (
-    <a
+    <PlatformDownloadLink
       className={className}
-      href={SITE.appStoreUrl}
-      target="_blank"
-      rel="noopener"
-      data-cta-source="landing_v2"
-      data-cta-content={content}
+      source="landing_v2"
+      content={content}
+      campaign={campaign}
+      androidLabel={
+        content === "floating_nav_download" ? "Try the tool" : "Try free web tool"
+      }
     >
       <svg
         className={styles.appleMark}
@@ -50,7 +60,7 @@ function AppStoreCta({ className, content, children }: AppStoreCtaProps) {
         <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.18-.07 2.04.66 2.75.72 1.05-.21 2.05-.81 3.17-.73 1.34.11 2.35.64 3.02 1.6-2.76 1.66-2.1 5.29.43 6.31-.5 1.32-1.15 2.63-2.37 4.07ZM12.03 7.25C11.88 5.28 13.5 3.65 15.34 3.5c.25 2.28-2.07 3.98-3.31 3.75Z" />
       </svg>
       {children}
-    </a>
+    </PlatformDownloadLink>
   );
 }
 
@@ -136,7 +146,7 @@ export default function LandingV2() {
                 Watch the 38-second film
               </a>
             </div>
-            <p className={styles.heroNote}>Built for consistent weekly check-ins on iPhone.</p>
+            <HomepageHeroProof />
           </div>
 
           <HeroFilm />

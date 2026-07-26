@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SITE } from "@/lib/site";
+import PlatformDownloadLink from "@/components/PlatformDownloadLink";
 
 export default function BlogNav() {
   const pathname = usePathname() || "/";
@@ -72,16 +72,15 @@ export default function BlogNav() {
           >
             Blog
           </Link>
-          <a
-            href={SITE.appStoreUrl}
+          <PlatformDownloadLink
             className="nav-cta-btn"
-            target="_blank"
-            rel="noopener"
-            data-cta-source="blog_nav"
-            data-cta-content="nav_download"
+            source="blog_nav"
+            content="nav_download"
+            campaign="web-blog-nav"
+            androidLabel="Try free tool"
           >
             Get the app
-          </a>
+          </PlatformDownloadLink>
         </div>
       </div>
     </nav>

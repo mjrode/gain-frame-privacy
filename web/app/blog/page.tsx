@@ -5,6 +5,7 @@ import BlogNav from "@/components/BlogNav";
 import BlogFonts from "@/components/BlogFonts";
 import BlogScrollReveal from "@/components/BlogScrollReveal";
 import BlogTagFilter from "@/components/BlogTagFilter";
+import BlogIndexBridge from "@/components/BlogIndexBridge";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -51,6 +52,14 @@ export default async function BlogPage() {
     path.join(process.cwd(), "lib", "_extracted", "blog-body.html"),
     "utf8",
   );
+  const bridgeMarker = "<!-- BLOG_APP_CTA_SLOT -->";
+  const markerIndex = bodyHtml.indexOf(bridgeMarker);
+  const beforeBridge =
+    markerIndex === -1 ? bodyHtml : bodyHtml.slice(0, markerIndex);
+  const afterBridge =
+    markerIndex === -1
+      ? ""
+      : bodyHtml.slice(markerIndex + bridgeMarker.length);
 
   return (
     <>
@@ -65,9 +74,18 @@ export default async function BlogPage() {
       <div className="blog-index-page">
         <BlogNav />
         <div
+          className="blog-html-fragment"
           suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: bodyHtml }}
+          dangerouslySetInnerHTML={{ __html: beforeBridge }}
         />
+        <BlogIndexBridge />
+        {afterBridge ? (
+          <div
+            className="blog-html-fragment"
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{ __html: afterBridge }}
+          />
+        ) : null}
       </div>
     </>
   );

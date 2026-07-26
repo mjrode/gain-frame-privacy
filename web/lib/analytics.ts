@@ -51,6 +51,7 @@ export type AnalyticsEvent =
   | "promo_film_sound_on"
   | "promo_film_watched_75"
   // Generic
+  | "cta_platform_alternative_click"
   | "outbound_app_store_click";
 
 export function track(
