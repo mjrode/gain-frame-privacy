@@ -21,15 +21,15 @@ const PAGE_URL = `${SITE.url}${PAGE_PATH}`;
 export const metadata: Metadata = {
   title: {
     absolute:
-      "AI Body Transformation — See Yourself After 1 Year of Training | GainFrame",
+      "What Would I Look Like If I Lost Weight? Free AI Body Transformation | GainFrame",
   },
   description:
-    "Free AI body transformation generator. Upload one photo and see what you'd look like after a year of consistent training and diet — same face, same setting, your future body. One free render, no signup.",
+    "See what you'd look like if you lost weight and trained for a year. Free AI body transformation generator — upload one photo, get your future body on the same face and setting. One free render, no signup.",
   alternates: { canonical: PAGE_PATH },
   openGraph: {
-    title: "AI Body Transformation — Your Future Body From One Photo",
+    title: "What Would I Look Like If I Lost Weight? Free AI Body Transformation",
     description:
-      "Upload one photo, pick what to emphasize, and see the you that a year of consistent training builds. Free, no signup.",
+      "Upload one photo and see what you'd look like after a year of losing weight and training. Free AI render, no signup.",
     type: "website",
     url: PAGE_URL,
     siteName: "GainFrame",
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Body Transformation — Your Future Body From One Photo",
+    title: "What Would I Look Like If I Lost Weight? Free AI Body Transformation",
     description:
-      "Upload one photo, pick what to emphasize, and see the you that a year of consistent training builds. Free, no signup.",
+      "Upload one photo and see what you'd look like after a year of losing weight and training. Free AI render, no signup.",
     images: [SITE.ogImage],
   },
 };
@@ -52,7 +52,7 @@ const webAppSchema = {
   applicationCategory: "HealthApplication",
   operatingSystem: "All",
   description:
-    "Free AI tool that renders what you'd look like after one year of consistent training and nutrition, from a single photo. One free render per user, plus one more with email.",
+    "Free AI tool that shows what you'd look like if you lost weight and trained consistently for a year, rendered from a single photo. One free render per user, plus one more with email.",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   publisher: { "@type": "Organization", name: "GainFrame", url: SITE.url },
 };
@@ -183,9 +183,10 @@ export default function AiBodyTransformationPage() {
               Future you, <span className="accent">from one photo.</span>
             </h1>
             <p className="btf-hero-sub">
-              Upload a photo, pick what to emphasize, and AI renders what a
-              year of consistent training and diet builds — same face, same
-              setting, your future body.
+              Wondering what you&apos;d look like if you lost weight? Upload a
+              photo, pick what to emphasize, and AI renders what a year of
+              consistent training and diet builds — same face, same setting,
+              your future body.
             </p>
             <div className="btf-hero-meta">
               <span>Free · No signup</span>

@@ -717,6 +717,30 @@ export default function TransformClient() {
             </button>
           </div>
 
+          {/* Lowest-friction next step on the page. They have just seen a
+              projection of where a year goes; the free photo estimator gives
+              them today's real number without an install. Mirrors the
+              future-you card on the estimator, which is that tool's
+              best-performing CTA by a wide margin. */}
+          <a
+            className="btf-crosslink-card"
+            style={{ marginTop: 18 }}
+            href="/tools/body-fat-from-photo/"
+            onClick={() =>
+              track("bt_tool_cta_clicked", { cta_content: "bf_tool_crosslink" })
+            }
+          >
+            <div className="btf-crosslink-text">
+              <strong>Now get your real number</strong>
+              <span>
+                That&apos;s where a year could take you. Our AI reads your
+                current body fat percentage from the same kind of photo — free,
+                no signup.
+              </span>
+            </div>
+            <span className="btf-crosslink-arrow">Scan →</span>
+          </a>
+
           <p className="btf-result-honesty">
             This is a motivational AI projection of one consistent year — not a
             guarantee. The work is still the work.
@@ -726,11 +750,12 @@ export default function TransformClient() {
         <div className="btf-cta-block">
           <span className="btf-cta-glow" aria-hidden />
           <p className="btf-cta-block-title">
-            Unlimited AI transformations in the app
+            Make that render the actual outcome
           </p>
           <p className="btf-cta-block-sub">
-            Re-render at any intensity, track your real progress photos, and
-            let the AI coach get you there — free to start.
+            The app tracks your real progress photos against this projection,
+            re-renders at any intensity, and the AI coach adjusts the plan as
+            your body changes — free to start.
           </p>
           <a
             className="btf-cta-download"

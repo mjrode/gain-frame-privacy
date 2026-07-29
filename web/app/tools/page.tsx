@@ -13,15 +13,16 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Free Fitness Calculators — Body Fat, TDEE & Macros | GainFrame",
+    absolute:
+      "Free Body Fat Calculators — AI Photo Scan & Visualizer | GainFrame",
   },
   description:
-    "Free fitness calculators from GainFrame. Estimate body fat with the Navy method, calculate your TDEE, and get personalized macro targets — no signup required.",
+    "Free body fat tools from GainFrame. Get your body fat % from one photo with AI, see what every body fat percentage looks like, and calculate TDEE, macros and FFMI — no signup required.",
   alternates: { canonical: "/tools/" },
   openGraph: {
-    title: "Free Fitness Calculators — GainFrame",
+    title: "Free Body Fat Calculators — AI Photo Scan & Visualizer",
     description:
-      "Body fat calculator, TDEE calculator, and macro calculator — all free, instant, no signup.",
+      "Body fat from a photo, a visual body fat reference at every age, and free TDEE, macro and FFMI calculators — instant, no signup.",
     type: "website",
     url: `${SITE.url}/tools/`,
     siteName: "GainFrame",
@@ -29,30 +30,34 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Fitness Calculators — GainFrame",
+    title: "Free Body Fat Calculators — AI Photo Scan & Visualizer",
     description:
-      "Body fat calculator, TDEE calculator, and macro calculator — all free, instant, no signup.",
+      "Body fat from a photo, a visual body fat reference at every age, and free TDEE, macro and FFMI calculators — instant, no signup.",
   },
 };
 
 const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "GainFrame Free Fitness Calculators",
+  name: "GainFrame Free Body Fat & Fitness Calculators",
+  // Ordered by actual organic entry volume — the photo/AI tools and the
+  // visualizer are what search sends people to, so they lead the list.
+  // Positions must be unique and contiguous; a duplicate here silently
+  // invalidates the carousel eligibility for everything after it.
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "AI Body Fat Estimator from a Photo", url: "https://gainframe.app/tools/body-fat-from-photo/" },
-    { "@type": "ListItem", position: 2, name: "AI Body Transformation Generator", url: "https://gainframe.app/tools/ai-body-transformation/" },
-    { "@type": "ListItem", position: 3, name: "AI Physique Rater", url: "https://gainframe.app/tools/physique-rater/" },
-    { "@type": "ListItem", position: 3, name: "Body Fat Calculator", url: "https://gainframe.app/tools/body-fat-estimator/" },
-    { "@type": "ListItem", position: 4, name: "Body Fat Percentage at Each Age", url: "https://gainframe.app/tools/body-fat-visualizer/" },
-    { "@type": "ListItem", position: 5, name: "FFMI Calculator", url: "https://gainframe.app/tools/ffmi-calculator/" },
-    { "@type": "ListItem", position: 6, name: "TDEE Calculator", url: "https://gainframe.app/tools/tdee-calculator/" },
-    { "@type": "ListItem", position: 7, name: "Macro Calculator", url: "https://gainframe.app/tools/macro-calculator/" },
-    { "@type": "ListItem", position: 8, name: "Calorie Deficit Calculator", url: "https://gainframe.app/tools/calorie-deficit-calculator/" },
-    { "@type": "ListItem", position: 9, name: "1RM Calculator", url: "https://gainframe.app/tools/one-rep-max-calculator/" },
-    { "@type": "ListItem", position: 10, name: "Strength Standards Calculator", url: "https://gainframe.app/tools/strength-standards-calculator/" },
-    { "@type": "ListItem", position: 11, name: "Calories Burned Calculator", url: "https://gainframe.app/tools/calories-burned-calculator/" },
-    { "@type": "ListItem", position: 12, name: "Progress Photo Setup Tool", url: "https://gainframe.app/tools/progress-photo-setup/" },
+    { "@type": "ListItem", position: 2, name: "Body Fat Percentage at Each Age", url: "https://gainframe.app/tools/body-fat-visualizer/" },
+    { "@type": "ListItem", position: 3, name: "AI Body Transformation Generator", url: "https://gainframe.app/tools/ai-body-transformation/" },
+    { "@type": "ListItem", position: 4, name: "AI Physique Rater", url: "https://gainframe.app/tools/physique-rater/" },
+    { "@type": "ListItem", position: 5, name: "Body Fat Calculator", url: "https://gainframe.app/tools/body-fat-estimator/" },
+    { "@type": "ListItem", position: 6, name: "FFMI Calculator", url: "https://gainframe.app/tools/ffmi-calculator/" },
+    { "@type": "ListItem", position: 7, name: "TDEE Calculator", url: "https://gainframe.app/tools/tdee-calculator/" },
+    { "@type": "ListItem", position: 8, name: "Macro Calculator", url: "https://gainframe.app/tools/macro-calculator/" },
+    { "@type": "ListItem", position: 9, name: "Calorie Deficit Calculator", url: "https://gainframe.app/tools/calorie-deficit-calculator/" },
+    { "@type": "ListItem", position: 10, name: "1RM Calculator", url: "https://gainframe.app/tools/one-rep-max-calculator/" },
+    { "@type": "ListItem", position: 11, name: "Strength Standards Calculator", url: "https://gainframe.app/tools/strength-standards-calculator/" },
+    { "@type": "ListItem", position: 12, name: "Calories Burned Calculator", url: "https://gainframe.app/tools/calories-burned-calculator/" },
+    { "@type": "ListItem", position: 13, name: "Progress Photo Setup Tool", url: "https://gainframe.app/tools/progress-photo-setup/" },
   ],
 };
 

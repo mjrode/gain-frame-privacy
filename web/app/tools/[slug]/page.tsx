@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import BlogNav from "@/components/BlogNav";
 import BlogScrollReveal from "@/components/BlogScrollReveal";
 import CalcEmbed from "@/components/CalcEmbed";
+import VisualizerAnalytics from "@/components/VisualizerAnalytics";
 
 const CALC_SLUGS = [
   "body-fat-estimator",
@@ -155,6 +156,7 @@ export default async function CalculatorPage({
       <BlogNav />
       <BlogScrollReveal />
       <CalcEmbed html={bodyHtml} script={scriptJs} />
+      {slug === "body-fat-visualizer" && <VisualizerAnalytics />}
       <RelatedToolsFooter currentSlug={slug} />
     </>
   );
