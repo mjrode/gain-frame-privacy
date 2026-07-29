@@ -656,3 +656,108 @@ Format: counterintuitive-promise hook (the winning `diet-tips-sound-fake` DNA) �
 - Format: Same as locked-in-2026-07-18 but cut from the new Compare Overview UI (May 22 → Sep 20 screenshot, saved to tiktok-screenshots/deep-dive-compare-newui.png). Prefer this variant — newer UI, redder sunburn before photo, 1581 DAYS detail.
 - GainFrame mention: Yes (whole post — promo)
 - Status: Draft — synced to iCloud TikTok-Drafts/locked-in-promo-newui
+
+## 2026-07-26 — IS STRETCHING A WASTE OF TIME?
+- Slug: is-stretching-a-waste
+- Slides: 6 (cover + 5 tips)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: No
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — IS PRE-WORKOUT WORTH IT?
+- Slug: is-pre-workout-worth-it
+- Slides: 6 (cover + 5 tips)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: No
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — CAN YOU OUT-TRAIN A BAD DIET?
+- Slug: out-train-a-bad-diet
+- Slides: 6 (cover + 4 tips + GainFrame promo)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: Yes (Slide 5)
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — ARE SEED OILS KILLING GAINS?
+- Slug: are-seed-oils-killing-gains
+- Slides: 6 (cover + 5 tips)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: No
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — IS BMI USELESS IF YOU LIFT?
+- Slug: is-bmi-useless-if-you-lift
+- Slides: 6 (cover + 4 tips + GainFrame promo)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: Yes (Slide 5)
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — DO YOU REALLY NEED 10K STEPS?
+- Slug: do-you-need-10k-steps
+- Slides: 6 (cover + 5 tips)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: No
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — ARE EGGS ACTUALLY BAD?
+- Slug: are-eggs-actually-bad
+- Slides: 6 (cover + 5 tips)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: No
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — IS THE SMITH MACHINE A JOKE?
+- Slug: is-the-smith-machine-a-joke
+- Slides: 6 (cover + 5 tips)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: No
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — DOES THE SAUNA DO ANYTHING?
+- Slug: does-the-sauna-do-anything
+- Slides: 6 (cover + 5 tips)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: No
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — SHOULD YOU TRAIN WHEN SORE?
+- Slug: should-you-train-when-sore
+- Slides: 6 (cover + 4 tips + GainFrame promo)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: Yes (Slide 5)
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — ARE BCAAS A SCAM?
+- Slug: are-bcaas-a-scam
+- Slides: 6 (cover + 5 tips)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: No
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — CAN YOU BUILD MUSCLE AFTER 40?
+- Slug: build-muscle-after-40
+- Slides: 6 (cover + 4 tips + GainFrame promo)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: Yes (Slide 5)
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — DOES MUSCLE WEIGH MORE THAN FAT?
+- Slug: does-muscle-weigh-more-than-fat
+- Slides: 6 (cover + 4 tips + GainFrame promo)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: Yes (Slide 5)
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — DOES FULL RANGE ACTUALLY MATTER?
+- Slug: does-full-range-of-motion-matter
+- Slides: 6 (cover + 5 tips)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: No
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-07-26 — DO YOU NEED TO DEADLIFT?
+- Slug: do-you-need-to-deadlift
+- Slides: 6 (cover + 5 tips)
+- Format: Standard myth-bust question hook; red-knockout grid-safe cover
+- GainFrame mention: No
+- Status: Complete (head QA gate + white-bg gate enforced in build.py)
