@@ -43,6 +43,10 @@ export type AnalyticsEvent =
   | "bt_tool_download_clicked"
   | "bt_tool_cta_clicked"
   | "bt_tool_error"
+  // Body fat visualizer (static calc body — instrumented by VisualizerAnalytics)
+  | "bfv_tool_view"
+  | "bfv_slider_engaged"
+  | "bfv_cta_clicked"
   // Physique rater tool
   | "physique_rater_requested"
   | "physique_rater_scored"
