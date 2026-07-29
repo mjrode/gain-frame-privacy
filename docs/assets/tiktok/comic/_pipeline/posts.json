@@ -1,1047 +1,1847 @@
 {
-  "batch_date": "2026-07-09",
-  "posts": [
+ "batch_date": "2026-07-26",
+ "posts": [
+  {
+   "slug": "muscle-tips-sound-fake",
+   "cover_lines": [
+    [
+     "MUSCLE TIPS",
+     "black"
+    ],
+    [
+     "THAT SOUND",
+     "black"
+    ],
+    [
+     "FAKE",
+     "red"
+    ],
+    [
+     "BUT WORK",
+     "black"
+    ]
+   ],
+   "cover_scene": "TWO GainFrame Guy figures side by side, both in confident double-bicep flex poses showing lean muscular V-taper builds, olive-green shorts. Simple soft ground shadows.",
+   "tips": [
     {
-      "slug": "muscle-tips-sound-fake",
-      "cover_lines": [
-        [
-          "MUSCLE TIPS",
-          "black"
-        ],
-        [
-          "THAT SOUND",
-          "black"
-        ],
-        [
-          "FAKE",
-          "red"
-        ],
-        [
-          "BUT WORK",
-          "black"
-        ]
-      ],
-      "cover_scene": "TWO GainFrame Guy figures side by side, both in confident double-bicep flex poses showing lean muscular V-taper builds, olive-green shorts. Simple soft ground shadows.",
-      "tips": [
-        {
-          "headline": "TRAIN EACH MUSCLE TWICE A WEEK",
-          "accent": "TWICE",
-          "sub1": "FREQUENCY BEATS ONE BRUTAL SESSION",
-          "sub2": "HIT IT, RECOVER, HIT IT AGAIN",
-          "scene": "GainFrame Guy doing a dumbbell curl, a small calendar beside him with two days circled in red."
-        },
-        {
-          "headline": "LEAVE 2 REPS IN THE TANK",
-          "accent": "2 REPS",
-          "sub1": "STOPPING SHORT GROWS MORE THAN FAILURE",
-          "sub2": "FRESH REPS BEAT JUNK REPS",
-          "scene": "GainFrame Guy mid barbell bench press, calm and controlled, a small fuel-gauge icon beside him pointing to a bit above empty."
-        },
-        {
-          "headline": "REST 3 FULL MINUTES",
-          "accent": "3",
-          "sub1": "LONGER REST = MORE REPS = MORE GROWTH",
-          "sub2": "SCROLLING BETWEEN SETS IS LEGAL NOW",
-          "scene": "GainFrame Guy sitting relaxed on a gym bench holding a phone, a small clock beside him reading 3:00."
-        },
-        {
-          "headline": "GO LIGHTER, LIFT BETTER",
-          "accent": "LIGHTER",
-          "sub1": "THE MUSCLE CANT READ THE DUMBBELL",
-          "sub2": "HALF THE EGO, TWICE THE TENSION",
-          "scene": "GainFrame Guy doing a slow controlled lateral raise with light dumbbells, perfect posture, small focus lines around the shoulder."
-        }
-      ],
-      "plug": null,
-      "caption": "train each muscle twice a week and thank me later",
-      "hashtags": "#gymtok #hypertrophy #liftingtips #musclegrowth #gainframe"
+     "headline": "TRAIN EACH MUSCLE TWICE A WEEK",
+     "accent": "TWICE",
+     "sub1": "FREQUENCY BEATS ONE BRUTAL SESSION",
+     "sub2": "HIT IT, RECOVER, HIT IT AGAIN",
+     "scene": "GainFrame Guy doing a dumbbell curl, a small calendar beside him with two days circled in red."
     },
     {
-      "slug": "fat-loss-backwards",
-      "cover_lines": [
-        [
-          "FAT LOSS TIPS",
-          "black"
-        ],
-        [
-          "THAT SOUND",
-          "black"
-        ],
-        [
-          "BACKWARDS",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy standing lean and confident, one hand on hip, next to a small plate stacked with chicken and rice and a pair of walking shoes on the ground. Soft ground shadow.",
-      "tips": [
-        {
-          "headline": "EAT MORE PROTEIN TO LOSE FAT",
-          "accent": "MORE",
-          "sub1": "IT BURNS CALORIES JUST DIGESTING",
-          "sub2": "AND KILLS THE CRAVINGS THAT END DIETS",
-          "scene": "GainFrame Guy happily holding a big plate piled with chicken breast, eggs and greek yogurt."
-        },
-        {
-          "headline": "ADD A REFEED DAY",
-          "accent": "REFEED",
-          "sub1": "EATING MORE FOR A DAY RESTARTS FAT LOSS",
-          "sub2": "DIET BREAKS BEAT CRASH DIETS",
-          "scene": "GainFrame Guy marking one day on a wall calendar that has a small bowl-of-rice icon on it."
-        },
-        {
-          "headline": "WALK, DONT RUN",
-          "accent": "WALK",
-          "sub1": "10K STEPS OUTBURNS A HIIT CLASS",
-          "sub2": "YOU CANT OUTRUN YOUR APPETITE",
-          "scene": "GainFrame Guy walking casually with earbuds in, a small step-counter icon beside him reading 10K."
-        },
-        {
-          "headline": "LIFT TO LOSE FAT",
-          "accent": "LIFT",
-          "sub1": "MUSCLE BURNS CALORIES WHILE YOU SLEEP",
-          "sub2": "CARDIO BURNS NOW, MUSCLE BURNS FOREVER",
-          "scene": "GainFrame Guy deadlifting a barbell with good form, small flame icon beside the muscle."
-        }
-      ],
-      "plug": null,
-      "caption": "eating more protein to lose fat still feels illegal",
-      "hashtags": "#fatloss #gymtok #cutting #fitnesstips #gainframe"
+     "headline": "LEAVE 2 REPS IN THE TANK",
+     "accent": "2 REPS",
+     "sub1": "STOPPING SHORT GROWS MORE THAN FAILURE",
+     "sub2": "FRESH REPS BEAT JUNK REPS",
+     "scene": "GainFrame Guy mid barbell bench press, calm and controlled, a small fuel-gauge icon beside him pointing to a bit above empty."
     },
     {
-      "slug": "sleep-hacks-sound-fake",
-      "cover_lines": [
-        [
-          "SLEEP HACKS",
-          "black"
-        ],
-        [
-          "THAT SOUND",
-          "black"
-        ],
-        [
-          "FAKE",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy lying peacefully asleep in a simple bed with a small crescent moon floating above. Soft calm scene.",
-      "tips": [
-        {
-          "headline": "COLD ROOM, WARM SOCKS",
-          "accent": "SOCKS",
-          "sub1": "65 DEGREES AND SOCKS = DEEPER SLEEP",
-          "sub2": "YOUR BODY DROPS TEMP TO KNOCK OUT",
-          "scene": "GainFrame Guy in bed wearing cozy socks, a small thermostat icon beside him reading 65."
-        },
-        {
-          "headline": "GET SUNLIGHT IN HOUR ONE",
-          "accent": "SUNLIGHT",
-          "sub1": "MORNING LIGHT FIXES TONIGHTS SLEEP",
-          "sub2": "YOUR ALARM SHOULD BE THE SUN",
-          "scene": "GainFrame Guy standing outside stretching with a bright sun rising beside him."
-        },
-        {
-          "headline": "CUT CAFFEINE AT 2PM",
-          "accent": "2PM",
-          "sub1": "THAT 3PM COFFEE IS STILL IN YOU AT 11",
-          "sub2": "CAFFEINE HAS A 6 HOUR HALF LIFE",
-          "scene": "GainFrame Guy setting down a coffee cup that has a small red X over it, a clock beside him reading 2:00."
-        },
-        {
-          "headline": "STOP EATING 3 HOURS BEFORE BED",
-          "accent": "3 HOURS",
-          "sub1": "LATE FEASTS WRECK DEEP SLEEP",
-          "sub2": "DIGESTION AND DEEP SLEEP DONT MIX",
-          "scene": "GainFrame Guy pushing away a dinner plate, a small clock and a bed icon beside him."
-        }
-      ],
-      "plug": {
-        "screenshot": "check-ins.png",
-        "h1": "See if the work",
-        "h2": "is actually paying off",
-        "screen_name": "check-in streak"
-      },
-      "caption": "warm socks for better sleep sounds fake but try it tonight",
-      "hashtags": "#sleep #recovery #gymtok #fitnesstips #gainframe"
+     "headline": "REST 3 FULL MINUTES",
+     "accent": "3",
+     "sub1": "LONGER REST = MORE REPS = MORE GROWTH",
+     "sub2": "SCROLLING BETWEEN SETS IS LEGAL NOW",
+     "scene": "GainFrame Guy sitting relaxed on a gym bench holding a phone, a small clock beside him reading 3:00."
     },
     {
-      "slug": "strength-sounds-illegal",
-      "cover_lines": [
-        [
-          "STRENGTH TIPS",
-          "black"
-        ],
-        [
-          "THAT SOUND",
-          "black"
-        ],
-        [
-          "ILLEGAL",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy gripping a loaded barbell on the floor, braced and intense, ready to pull. Lean muscular build, olive shorts.",
-      "tips": [
-        {
-          "headline": "GRIP LIKE YOURE BENDING THE BAR",
-          "accent": "GRIP",
-          "sub1": "SQUEEZING HARDER INSTANTLY ADDS REPS",
-          "sub2": "ITS CALLED IRRADIATION",
-          "scene": "Close scene of GainFrame Guy gripping a barbell hard with both hands, small tension lines around the fists."
-        },
-        {
-          "headline": "BRACE LIKE YOURE ABOUT TO GET HIT",
-          "accent": "BRACE",
-          "sub1": "AIR IS A FREE LIFTING BELT",
-          "sub2": "BREATHE INTO YOUR BELLY, NOT YOUR CHEST",
-          "scene": "GainFrame Guy standing braced with a tight core, hands on his midsection, small inhale arrows around his belly."
-        },
-        {
-          "headline": "SLOW THE WAY DOWN",
-          "accent": "SLOW",
-          "sub1": "3 SECONDS DOWN BUILDS MORE THAN EXPLODING UP",
-          "sub2": "GRAVITY IS FREE RESISTANCE",
-          "scene": "GainFrame Guy lowering into a slow squat with control, a small 3-2-1 count and a down arrow beside him."
-        },
-        {
-          "headline": "LIFT IT MORE OFTEN",
-          "accent": "OFTEN",
-          "sub1": "3 HARD SETS DAILY BEATS 15 ONCE A WEEK",
-          "sub2": "STRENGTH IS A SKILL YOU PRACTICE",
-          "scene": "GainFrame Guy doing a clean overhead press, a small calendar with several days checked beside him."
-        }
-      ],
-      "plug": null,
-      "caption": "just squeeze the bar harder, it genuinely works",
-      "hashtags": "#strengthtraining #gymtok #powerlifting #liftingtips #gainframe"
-    },
-    {
-      "slug": "protein-hacks-sound-fake",
-      "cover_lines": [
-        [
-          "PROTEIN HACKS",
-          "black"
-        ],
-        [
-          "THAT SOUND",
-          "black"
-        ],
-        [
-          "FAKE",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy holding a large plate of high-protein food (chicken, eggs, greek yogurt) with a satisfied confident stance.",
-      "tips": [
-        {
-          "headline": "FRONT LOAD BREAKFAST",
-          "accent": "BREAKFAST",
-          "sub1": "40G AT BREAKFAST KILLS ALL DAY CRAVINGS",
-          "sub2": "MOST PEOPLE BACKLOAD AND LOSE",
-          "scene": "GainFrame Guy at a breakfast table with eggs and greek yogurt, a small 40G icon beside the plate."
-        },
-        {
-          "headline": "SKIP THE POST WORKOUT PANIC",
-          "accent": "PANIC",
-          "sub1": "THE ANABOLIC WINDOW IS HOURS WIDE",
-          "sub2": "TOTAL DAILY PROTEIN IS ALL THAT MATTERS",
-          "scene": "GainFrame Guy relaxed after a workout holding a gym towel, a shaker bottle sitting calmly nearby with no rush lines."
-        },
-        {
-          "headline": "EAT PROTEIN FIRST",
-          "accent": "FIRST",
-          "sub1": "SAME FOOD, LESS FAT STORED",
-          "sub2": "PLATE ORDER CHANGES THE RESULT",
-          "scene": "GainFrame Guy pointing his fork at the chicken on a plate before the rice, a small numbered 1 over the protein."
-        },
-        {
-          "headline": "CANNED AND FROZEN COUNT",
-          "accent": "COUNT",
-          "sub1": "4 DOLLAR TUNA HITS LIKE 14 DOLLAR SALMON",
-          "sub2": "YOUR MUSCLES CANT READ PRICE TAGS",
-          "scene": "GainFrame Guy holding a can of tuna in one hand and a bag of frozen chicken in the other, both with small green checks."
-        }
-      ],
-      "plug": null,
-      "caption": "canned tuna builds the same muscle as fancy salmon, sorry",
-      "hashtags": "#protein #nutrition #gymtok #mealprep #gainframe"
-    },
-    {
-      "slug": "motivation-too-easy",
-      "cover_lines": [
-        [
-          "MOTIVATION TRICKS",
-          "black"
-        ],
-        [
-          "THAT SOUND",
-          "black"
-        ],
-        [
-          "TOO EASY",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy lacing up a gym shoe on a bench, gym bag beside him, calm and ready. Soft ground shadow.",
-      "tips": [
-        {
-          "headline": "JUST PUT THE SHOES ON",
-          "accent": "SHOES",
-          "sub1": "COMMIT TO 5 MINUTES, YOULL FINISH",
-          "sub2": "STARTING IS THE WHOLE BATTLE",
-          "scene": "GainFrame Guy tying his shoelaces, a small 5:00 timer icon beside him."
-        },
-        {
-          "headline": "NEVER MISS TWICE",
-          "accent": "TWICE",
-          "sub1": "ONE SKIP IS LIFE, TWO IS A PATTERN",
-          "sub2": "THE COMEBACK BEATS THE STREAK",
-          "scene": "GainFrame Guy walking confidently back into the gym, a small calendar behind him with one X and then a green check."
-        },
-        {
-          "headline": "LAY IT OUT THE NIGHT BEFORE",
-          "accent": "NIGHT BEFORE",
-          "sub1": "REMOVE ONE DECISION, REMOVE THE EXCUSE",
-          "sub2": "MOTIVATION FOLLOWS ACTION",
-          "scene": "GainFrame Guy laying gym clothes and shoes neatly on a chair at night, a small moon in the corner."
-        },
-        {
-          "headline": "MAKE THE GOAL EMBARRASSINGLY SMALL",
-          "accent": "SMALL",
-          "sub1": "ONE SET BEATS ZERO",
-          "sub2": "SHRINK IT TILL YOU CANT SAY NO",
-          "scene": "GainFrame Guy doing a single set of curls with a small 1 SET icon beside him and a thumbs-up energy."
-        }
-      ],
-      "plug": null,
-      "caption": "the shoes trick works every single time and i hate that",
-      "hashtags": "#motivation #gymtok #discipline #fitnesstips #gainframe"
-    },
-    {
-      "slug": "gym-anxiety-sound-fake",
-      "cover_lines": [
-        [
-          "GYM ANXIETY FIXES",
-          "black"
-        ],
-        [
-          "THAT SOUND",
-          "black"
-        ],
-        [
-          "FAKE",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy standing calm and relaxed in the middle of a gym floor with equipment softly in the background, at ease.",
-      "tips": [
-        {
-          "headline": "NOBODY IS WATCHING YOU",
-          "accent": "NOBODY",
-          "sub1": "EVERYONES STARING AT THEIR OWN SET",
-          "sub2": "THE SPOTLIGHT IS IMAGINARY",
-          "scene": "GainFrame Guy lifting calmly while other simple gym figures in the background all look at their own phones and mirrors, ignoring him."
-        },
-        {
-          "headline": "GO AT THE SAME TIME DAILY",
-          "accent": "SAME TIME",
-          "sub1": "FAMILIAR FACES KILL THE FEAR",
-          "sub2": "ROUTINE BEATS WILLPOWER",
-          "scene": "GainFrame Guy waving cheerfully with one hand, relaxed and at home in the gym, a large round wall clock behind him showing a fixed time. ONLY the GainFrame Guy character appears, no other people."
-        },
-        {
-          "headline": "BRING A WRITTEN PLAN",
-          "accent": "PLAN",
-          "sub1": "KNOWING YOUR NEXT MOVE = ZERO PANIC",
-          "sub2": "WANDERING IS WHAT LOOKS LOST",
-          "scene": "GainFrame Guy confidently holding a phone showing a simple checklist of exercises."
-        },
-        {
-          "headline": "START ON THE MACHINES",
-          "accent": "MACHINES",
-          "sub1": "YOU DONT HAVE TO TOUCH THE FREE WEIGHTS YET",
-          "sub2": "CONFIDENCE IS BUILT, NOT BORN",
-          "scene": "GainFrame Guy comfortably using a simple weight machine, relaxed posture."
-        }
-      ],
-      "plug": null,
-      "caption": "nobody at the gym is watching you i promise",
-      "hashtags": "#gymanxiety #gymtok #beginner #fitnesstips #gainframe"
-    },
-    {
-      "slug": "abs-sound-backwards",
-      "cover_lines": [
-        [
-          "AB TIPS",
-          "black"
-        ],
-        [
-          "THAT SOUND",
-          "black"
-        ],
-        [
-          "BACKWARDS",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy standing tall showing a lean torso with visible abs, one hand resting on his stomach, confident posture.",
-      "tips": [
-        {
-          "headline": "STOP DOING CRUNCHES",
-          "accent": "STOP",
-          "sub1": "YOU CANT CRUNCH OFF BELLY FAT",
-          "sub2": "ABS ARE MADE IN THE KITCHEN",
-          "scene": "GainFrame Guy waving off a crunch mat with a small red X, gesturing instead toward a plate of healthy food."
-        },
-        {
-          "headline": "FIX YOUR POSTURE FIRST",
-          "accent": "POSTURE",
-          "sub1": "STANDING TALL REVEALS ABS YOU HAVE",
-          "sub2": "SLOUCHING HIDES A SIX PACK",
-          "scene": "GainFrame Guy standing up straight and tall with shoulders back, a small upward posture arrow beside his spine."
-        },
-        {
-          "headline": "TRAIN ABS HEAVY, LOW REP",
-          "accent": "HEAVY",
-          "sub1": "WEIGHTED, NOT 500 SIT UPS",
-          "sub2": "ABS ARE MUSCLES, OVERLOAD THEM",
-          "scene": "GainFrame Guy doing a weighted cable crunch holding a weight plate, focused."
-        },
-        {
-          "headline": "LOWER STRESS TO SEE THEM",
-          "accent": "STRESS",
-          "sub1": "CORTISOL HOLDS BELLY FAT",
-          "sub2": "SLEEP DOES MORE THAN SIT UPS",
-          "scene": "GainFrame Guy relaxing calmly with a small moon and a lowered stress-meter icon beside him."
-        }
-      ],
-      "plug": {
-        "screenshot": "post-check-in-photo-score.png",
-        "h1": "Know your real body fat",
-        "h2": "from a single photo",
-        "screen_name": "GainFrame Score"
-      },
-      "caption": "you cannot crunch your way to abs, it's a kitchen thing",
-      "hashtags": "#abs #coreworkout #gymtok #fatloss #gainframe"
-    },
-    {
-      "slug": "recovery-sound-fake",
-      "cover_lines": [
-        [
-          "RECOVERY TIPS",
-          "black"
-        ],
-        [
-          "THAT SOUND",
-          "black"
-        ],
-        [
-          "FAKE",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy resting comfortably in a lounge chair with a water bottle, relaxed and content, small muscle-recovery glow.",
-      "tips": [
-        {
-          "headline": "SORE DOESNT MEAN IT WORKED",
-          "accent": "SORE",
-          "sub1": "YOU CAN GROW WITHOUT EVER BEING SORE",
-          "sub2": "SORENESS MEASURES NOVELTY, NOT GROWTH",
-          "scene": "GainFrame Guy shrugging with a relaxed smile beside a small crossed-out DOMS soreness icon."
-        },
-        {
-          "headline": "A WALK BEATS COUCH REST",
-          "accent": "WALK",
-          "sub1": "BLOOD FLOW HEALS FASTER THAN SITTING",
-          "sub2": "MOVE TO RECOVER",
-          "scene": "GainFrame Guy taking a light casual walk outdoors, small motion lines showing easy movement."
-        },
-        {
-          "headline": "DELOAD ON PURPOSE",
-          "accent": "DELOAD",
-          "sub1": "A LIGHTER WEEK MAKES YOU STRONGER",
-          "sub2": "FATIGUE HIDES YOUR REAL STRENGTH",
-          "scene": "GainFrame Guy lifting a lighter barbell calmly, a small downward-then-upward arrow chart beside him."
-        },
-        {
-          "headline": "EAT CARBS AT NIGHT",
-          "accent": "CARBS",
-          "sub1": "CARBS BEFORE BED AID SLEEP AND RECOVERY",
-          "sub2": "NIGHTTIME CARBS ARENT THE ENEMY",
-          "scene": "GainFrame Guy eating a bowl of rice at night with a small moon and a calm bed icon nearby."
-        }
-      ],
-      "plug": null,
-      "caption": "not being sore does not mean you wasted the session",
-      "hashtags": "#recovery #gymtok #restday #fitnesstips #gainframe"
-    },
-    {
-      "slug": "beginner-gains-sound-fake",
-      "cover_lines": [
-        [
-          "BEGINNER TIPS",
-          "black"
-        ],
-        [
-          "THAT SOUND",
-          "black"
-        ],
-        [
-          "FAKE",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy as a proud beginner holding a light barbell with good form, a small upward progress arrow beside him.",
-      "tips": [
-        {
-          "headline": "LIFT LESS THAN YOU THINK",
-          "accent": "LESS",
-          "sub1": "3 FOCUSED DAYS BEATS 6 HALF DONE",
-          "sub2": "YOU GROW ON REST DAYS",
-          "scene": "GainFrame Guy training happily, a small calendar beside him with 3 days checked and the rest resting."
-        },
-        {
-          "headline": "ADD THE SMALLEST WEIGHT POSSIBLE",
-          "accent": "SMALLEST",
-          "sub1": "2.5 LBS A WEEK = 130 LBS A YEAR",
-          "sub2": "TINY JUMPS BEAT EGO JUMPS",
-          "scene": "GainFrame Guy adding a tiny 2.5 lb plate to a barbell, a small rising line chart beside him."
-        },
-        {
-          "headline": "MASTER 5 LIFTS, IGNORE THE REST",
-          "accent": "5 LIFTS",
-          "sub1": "SQUAT, HINGE, PUSH, PULL, CARRY",
-          "sub2": "YOU DONT NEED 40 EXERCISES",
-          "scene": "GainFrame Guy standing confidently with a barbell, holding up five fingers on one hand."
-        },
-        {
-          "headline": "TRACK IT OR STALL",
-          "accent": "TRACK",
-          "sub1": "IF YOU DONT LOG IT, YOULL REPEAT IT WRONG",
-          "sub2": "PROGRESS YOU CANT SEE, YOU CANT REPEAT",
-          "scene": "GainFrame Guy writing in a small training logbook, a rising progress line beside him."
-        }
-      ],
-      "plug": {
-        "screenshot": "weight-chart.png",
-        "h1": "Watch your progress",
-        "h2": "add up over time",
-        "screen_name": "progress chart"
-      },
-      "caption": "lifting only 3 days a week as a beginner is the cheat code",
-      "hashtags": "#gymbeginner #gymtok #liftingtips #fitness #gainframe"
-    },
-    {
-      "slug": "fasted-cardio-myth",
-      "cover_lines": [
-        [
-          "FASTED CARDIO",
-          "black"
-        ],
-        [
-          "BURNS MORE",
-          "black"
-        ],
-        [
-          "FAT?",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy running hard on a treadmill looking exhausted with sweat drops flying, while an untouched empty plate and fork sit on the floor beside the treadmill. Lean muscular build, olive-green shorts.",
-      "tips": [
-        {
-          "headline": "SAME CALORIES, SAME FAT LOSS",
-          "accent": "SAME",
-          "sub1": "FED OR FASTED, THE BURN IS EQUAL",
-          "sub2": "YOUR BODY EVENS IT OUT BY BEDTIME",
-          "scene": "TWO GainFrame Guy figures on side-by-side treadmills, one with a small plate of food on a stand beside his machine and one without, both running at the same pace with identical small flame icons floating above the treadmills."
-        },
-        {
-          "headline": "FASTED JUST MEANS WEAKER",
-          "accent": "WEAKER",
-          "sub1": "LESS FUEL MEANS A SLOWER SESSION",
-          "sub2": "SLOWER SESSIONS BURN LESS",
-          "scene": "GainFrame Guy dragging himself along on a treadmill, hunched and drained with droopy googly eyes, a low battery icon floating beside him."
-        },
-        {
-          "headline": "THE DEFICIT DOES THE WORK",
-          "accent": "DEFICIT",
-          "sub1": "FAT LOSS IS CALORIES IN VS CALORIES OUT",
-          "sub2": "CARDIO TIMING IS A ROUNDING ERROR",
-          "scene": "GainFrame Guy holding up a simple two-pan balance scale with a small plate of food on one pan and a flame icon on the other, the flame pan hanging lower."
-        },
-        {
-          "headline": "TRAIN WHEN YOU FEEL STRONGEST",
-          "accent": "STRONGEST",
-          "sub1": "THE SCHEDULE YOU KEEP BEATS THE HACK",
-          "sub2": "CONSISTENCY IS THE FAT BURNER",
-          "scene": "GainFrame Guy walking briskly outdoors with earbuds in, confident and energized, a bright sun overhead."
-        }
-      ],
-      "plug": null,
-      "caption": "did fasted cardio for a year before reading one study",
-      "hashtags": "#fastedcardio #fatloss #gymtok #cardio #gainframe"
-    },
-    {
-      "slug": "target-belly-fat",
-      "cover_lines": [
-        [
-          "CAN YOU",
-          "black"
-        ],
-        [
-          "TARGET",
-          "red"
-        ],
-        [
-          "BELLY FAT?",
-          "black"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy mid crunch on an exercise mat, pausing to stare down at his own stomach with skeptical googly eyes.",
-      "tips": [
-        {
-          "headline": "SPOT REDUCTION IS A MYTH",
-          "accent": "MYTH",
-          "sub1": "AB WORK DOES NOT BURN AB FAT",
-          "sub2": "FAT COMES OFF THE WHOLE BODY AT ONCE",
-          "scene": "GainFrame Guy doing a crunch on a mat while a small flame icon near his stomach has a bold red X over it."
-        },
-        {
-          "headline": "YOUR DNA PICKS THE ORDER",
-          "accent": "DNA",
-          "sub1": "FACE AND ARMS USUALLY LEAN OUT FIRST",
-          "sub2": "BELLY AND LOWER BACK GO LAST",
-          "scene": "GainFrame Guy standing beside a large DNA double-helix strand taller than he is, gesturing at it with an open palm."
-        },
-        {
-          "headline": "DRAIN THE WHOLE POOL",
-          "accent": "POOL",
-          "sub1": "A CALORIE DEFICIT LOWERS ALL OF IT",
-          "sub2": "STAY IN IT LONG ENOUGH TO REACH THE BELLY",
-          "scene": "GainFrame Guy pulling a bath plug on a chain out of a small round pool, the water level visibly dropping with a down arrow."
-        },
-        {
-          "headline": "BUILD THE ABS WHILE YOU WAIT",
-          "accent": "BUILD",
-          "sub1": "THICK ABS SHOW AT HIGHER BODY FAT",
-          "sub2": "TRAIN THEM HEAVY NOW, REVEAL THEM LATER",
-          "scene": "GainFrame Guy doing a kneeling cable crunch holding a rope attachment, focused and controlled, visible ab definition."
-        }
-      ],
-      "plug": {
-        "screenshot": "post-check-in-photo-score.png",
-        "h1": "Know your real body fat",
-        "h2": "from a single photo",
-        "screen_name": "GainFrame Score"
-      },
-      "caption": "the belly is always the last one to leave the party",
-      "hashtags": "#bellyfat #fatloss #gymtok #abs #gainframe"
-    },
-    {
-      "slug": "ice-baths-kill-gains",
-      "cover_lines": [
-        [
-          "DO ICE BATHS",
-          "black"
-        ],
-        [
-          "KILL",
-          "red"
-        ],
-        [
-          "YOUR GAINS?",
-          "black"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy sitting chest-deep in a round tub filled with floating ice cubes, shivering with small shake lines around him, googly eyes wide.",
-      "tips": [
-        {
-          "headline": "COLD BLUNTS THE GROWTH SIGNAL",
-          "accent": "BLUNTS",
-          "sub1": "PLUNGING RIGHT AFTER LIFTING SHRINKS GAINS",
-          "sub2": "STUDIES SHOW SMALLER MUSCLE GROWTH",
-          "scene": "GainFrame Guy stepping directly from a barbell on the floor into an ice-filled tub, a small bicep icon with a down arrow floating beside the tub."
-        },
-        {
-          "headline": "WAIT 4 TO 6 HOURS",
-          "accent": "4 TO 6",
-          "sub1": "PLUNGE LATER OR ON REST DAYS",
-          "sub2": "KEEP THE COLD AWAY FROM THE LIFT",
-          "scene": "GainFrame Guy relaxed in an ice-filled tub at night with a crescent moon above and a small round clock icon beside the tub."
-        },
-        {
-          "headline": "COLD IS FOR YOUR BRAIN",
-          "accent": "BRAIN",
-          "sub1": "THE MOOD AND ALERTNESS BOOST IS REAL",
-          "sub2": "USE IT FOR STRESS, NOT FOR SIZE",
-          "scene": "GainFrame Guy sitting calm and upright in an ice-filled tub, zen posture, small sparkle icons floating around his bracket head."
-        },
-        {
-          "headline": "SORENESS RELIEF HAS A PRICE",
-          "accent": "PRICE",
-          "sub1": "LESS SORE TODAY CAN MEAN LESS GROWTH",
-          "sub2": "SOMETIMES RECOVERY IS JUST SLEEP",
-          "scene": "GainFrame Guy tucked into bed sleeping peacefully, while a single ice cube with a small red X over it sits on the nightstand."
-        }
-      ],
-      "plug": null,
-      "caption": "your cold plunge might be doing cardio on your gains",
-      "hashtags": "#icebath #coldplunge #gymtok #recovery #gainframe"
-    },
-    {
-      "slug": "diet-soda-fat",
-      "cover_lines": [
-        [
-          "IS DIET SODA",
-          "black"
-        ],
-        [
-          "MAKING YOU",
-          "black"
-        ],
-        [
-          "FAT?",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy holding a plain unlabeled soda can at arm's length, staring at it with narrowed skeptical googly eyes.",
-      "tips": [
-        {
-          "headline": "ZERO CALORIES IS ZERO",
-          "accent": "ZERO",
-          "sub1": "IT CANT STORE WHAT ISNT THERE",
-          "sub2": "THE CAN IS NOT THE PROBLEM",
-          "scene": "GainFrame Guy shrugging with both palms up, a plain unlabeled soda can on a small table in front of him with a green check floating above it."
-        },
-        {
-          "headline": "IT BEATS FULL SUGAR",
-          "accent": "BEATS",
-          "sub1": "SWAPPING SODA SAVES 150 CALORIES A CAN",
-          "sub2": "EASY SWAPS BEAT WILLPOWER",
-          "scene": "Two plain unlabeled soda cans side by side on a table, one with a small red X above it and one with a green check, GainFrame Guy sliding the checked can toward himself."
-        },
-        {
-          "headline": "BLAME THE PAIRING",
-          "accent": "PAIRING",
-          "sub1": "ITS THE BURGER NEXT TO THE DIET SODA",
-          "sub2": "THE CAN JUST TAKES THE FALL",
-          "scene": "GainFrame Guy pointing accusingly at a big burger and a pile of fries on a table, while a small innocent soda can sits off to the side."
-        },
-        {
-          "headline": "KNOW YOUR CRAVINGS",
-          "accent": "CRAVINGS",
-          "sub1": "SWEET TASTE TRIGGERS SNACKING FOR SOME",
-          "sub2": "WATCH YOUR OWN PATTERN, NOT THE HEADLINES",
-          "scene": "GainFrame Guy caught mid-reach peeking into an open snack cupboard while holding a soda can, wide googly eyes looking over his shoulder."
-        }
-      ],
-      "plug": null,
-      "caption": "the diet coke was never the problem",
-      "hashtags": "#dietsoda #cutting #fatloss #gymtok #gainframe"
-    },
-    {
-      "slug": "are-machines-cheating",
-      "cover_lines": [
-        [
-          "ARE MACHINES",
-          "black"
-        ],
-        [
-          "CHEATING?",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy standing between a dumbbell rack and a shiny weight machine, shrugging with both palms up, googly eyes looking sideways.",
-      "tips": [
-        {
-          "headline": "MUSCLE CANT READ LABELS",
-          "accent": "CANT",
-          "sub1": "TENSION IS TENSION EITHER WAY",
-          "sub2": "STUDIES SHOW EQUAL GROWTH",
-          "scene": "GainFrame Guy doing a chest press on a machine on the left, and the SAME GainFrame Guy doing a dumbbell bench press on the right, a bold equals sign floating between them."
-        },
-        {
-          "headline": "MACHINES LET YOU GO HARDER",
-          "accent": "HARDER",
-          "sub1": "NO BALANCING MEANS SAFER FAILURE",
-          "sub2": "PUSH TO THE EDGE WITHOUT A SPOTTER",
-          "scene": "GainFrame Guy straining hard on a leg press machine with effort lines around him, safe and locked in."
-        },
-        {
-          "headline": "FREE WEIGHTS BUILD SKILL",
-          "accent": "SKILL",
-          "sub1": "BALANCE AND CONTROL CARRY OVER",
-          "sub2": "DIFFERENT TOOLS, DIFFERENT JOBS",
-          "scene": "GainFrame Guy doing a barbell squat with perfect upright form, small stability arrows at his feet."
-        },
-        {
-          "headline": "THE ONLY RULE IS OVERLOAD",
-          "accent": "OVERLOAD",
-          "sub1": "MACHINE OR BARBELL, ADD WEIGHT OVER TIME",
-          "sub2": "PROGRESS IS ALL THAT COUNTS",
-          "scene": "GainFrame Guy moving the selector pin lower on a weight machine stack, a small upward trend arrow floating beside the stack."
-        }
-      ],
-      "plug": null,
-      "caption": "the leg press is not cheating and neither are you",
-      "hashtags": "#gymtok #machines #freeweights #liftingtips #gainframe"
-    },
-    {
-      "slug": "blame-genetics",
-      "cover_lines": [
-        [
-          "IS IT JUST BAD",
-          "black"
-        ],
-        [
-          "GENETICS?",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy frowning up at a large glowing DNA double-helix strand floating in front of him, arms crossed.",
-      "tips": [
-        {
-          "headline": "GENES SET THE CEILING",
-          "accent": "CEILING",
-          "sub1": "ALMOST NOBODY IS NEAR THEIRS",
-          "sub2": "YOU HAVE YEARS OF GROWTH LEFT",
-          "scene": "GainFrame Guy leaping upward with one arm stretched high toward a plain horizontal ceiling line near the very top of the scene, with a LARGE visible empty gap between his hand and the line — he is far below it, not touching it."
-        },
-        {
-          "headline": "SHAPE IS GENETIC, SIZE ISNT",
-          "accent": "SIZE",
-          "sub1": "INSERTIONS DECIDE THE LOOK, NOT THE LIMIT",
-          "sub2": "TRAIN THE MUSCLE YOU WERE DEALT",
-          "scene": "TWO muscular GainFrame Guy figures flexing a single-arm bicep pose side by side — BOTH are the same black-silhouette cartoon character with the bracket-frame scan head, one with a tall peaked bicep and one with a full round bicep, a small green check floating above each. NO humans, no skin-tone figures, no thought bubbles."
-        },
-        {
-          "headline": "SLOW RESPONDERS STILL GROW",
-          "accent": "STILL",
-          "sub1": "EVERY STUDY HAS LATE BLOOMERS",
-          "sub2": "THEY CATCH UP GIVEN TIME",
-          "scene": "GainFrame Guy walking steadily up a long incline beside a small friendly turtle, a trophy waiting on a pedestal at the top."
-        },
-        {
-          "headline": "AUDIT THE BASICS FIRST",
-          "accent": "BASICS",
-          "sub1": "SLEEP, PROTEIN, EFFORT, AND YEARS",
-          "sub2": "BLAME DNA LAST, NOT FIRST",
-          "scene": "GainFrame Guy holding a blank clipboard, with a bed icon, a chicken drumstick icon, and a dumbbell icon floating beside him, each with a small green check."
-        }
-      ],
-      "plug": {
-        "screenshot": "compare.png",
-        "h1": "Proof you are actually changing",
-        "h2": "photo vs photo",
-        "screen_name": "progress compare"
-      },
-      "caption": "your genetics are fine, you have been lifting for 8 months",
-      "hashtags": "#genetics #gymtok #musclegrowth #liftingtips #gainframe"
-    },
-    {
-      "slug": "test-boosters-truth",
-      "cover_lines": [
-        [
-          "DO TEST",
-          "black"
-        ],
-        [
-          "BOOSTERS",
-          "red"
-        ],
-        [
-          "EVEN WORK?",
-          "black"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy examining a plain unlabeled supplement bottle through a large magnifying glass, one googly eye comically enlarged through the lens.",
-      "tips": [
-        {
-          "headline": "THE PILLS BARELY MOVE IT",
-          "accent": "BARELY",
-          "sub1": "A FEW PERCENT AT BEST IN STUDIES",
-          "sub2": "NOT ENOUGH TO FEEL OR SEE",
-          "scene": "GainFrame Guy looking disappointed at a tipped-over plain supplement bottle with a few pills spilled out, a tiny flat trend line floating above it."
-        },
-        {
-          "headline": "SLEEP IS THE REAL BOOSTER",
-          "accent": "SLEEP",
-          "sub1": "ONE SHORT WEEK CAN TANK T LEVELS",
-          "sub2": "FREE AND LEGAL EVERY NIGHT",
-          "scene": "GainFrame Guy lying asleep UNDER the blanket in a bed, head resting on the pillow with closed eyes, a crescent moon above and a small rising trend arrow floating over the bed. Exactly ONE character in the scene."
-        },
-        {
-          "headline": "LIFT HEAVY, EAT ENOUGH",
-          "accent": "HEAVY",
-          "sub1": "TRAINING AND FOOD DRIVE HORMONES",
-          "sub2": "UNDEREATING TANKS THEM",
-          "scene": "GainFrame Guy locked in on a heavy barbell deadlift with bent bar plates, a full plate of chicken and rice on a small table nearby."
-        },
-        {
-          "headline": "LEANER OFTEN MEANS HIGHER T",
-          "accent": "LEANER",
-          "sub1": "EXTRA BODY FAT CONVERTS T AWAY",
-          "sub2": "THE CUT IS THE SUPPLEMENT",
-          "scene": "GainFrame Guy standing lean and confident with hands on hips and visible abs, a small upward trend arrow beside his chest."
-        }
-      ],
-      "plug": null,
-      "caption": "the test booster aisle is just expensive hope",
-      "hashtags": "#testosterone #supplements #gymtok #lifting #gainframe"
-    },
-    {
-      "slug": "do-you-need-to-squat",
-      "cover_lines": [
-        [
-          "DO YOU NEED",
-          "black"
-        ],
-        [
-          "TO SQUAT?",
-          "red"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy standing in front of a barbell resting in a squat rack, arms crossed, giving it a long sideways skeptical look.",
-      "tips": [
-        {
-          "headline": "NO LIFT IS MANDATORY",
-          "accent": "MANDATORY",
-          "sub1": "MUSCLES DONT KNOW EXERCISE NAMES",
-          "sub2": "MOVEMENT PATTERNS MATTER, NOT BRANDS",
-          "scene": "GainFrame Guy shrugging cheerfully in front of a lineup of equipment: dumbbells, a kettlebell, and a simple weight machine."
-        },
-        {
-          "headline": "LEG PRESS GROWS LEGS TOO",
-          "accent": "GROWS",
-          "sub1": "HACK SQUATS, LUNGES, SPLIT SQUATS ALL WORK",
-          "sub2": "PICK THE ONE YOU CAN KEEP PROGRESSING",
-          "scene": "GainFrame Guy pushing hard on a leg press machine with big defined quads and effort lines."
-        },
-        {
-          "headline": "PAIN IS DATA",
-          "accent": "DATA",
-          "sub1": "IF SQUATS HURT, SWAP THEM OUT",
-          "sub2": "AN EXERCISE YOU AVOID BUILDS NOTHING",
-          "scene": "GainFrame Guy rubbing his lower back while standing next to a barbell on the floor, a small red warning triangle floating above the bar."
-        },
-        {
-          "headline": "SQUATS ARE A TOOL, NOT A TEST",
-          "accent": "TOOL",
-          "sub1": "GREAT IF THEY FIT YOUR BODY",
-          "sub2": "YOUR FRAME PICKS YOUR LIFTS",
-          "scene": "GainFrame Guy calmly placing a small barbell into an open toolbox that also holds a wrench and hammer silhouette."
-        }
-      ],
-      "plug": null,
-      "caption": "the squat police are already typing",
-      "hashtags": "#squats #legday #gymtok #liftingtips #gainframe"
-    },
-    {
-      "slug": "late-eating-myth",
-      "cover_lines": [
-        [
-          "DOES EATING",
-          "black"
-        ],
-        [
-          "LATE",
-          "red"
-        ],
-        [
-          "MAKE YOU FAT?",
-          "black"
-        ]
-      ],
-      "cover_scene": "GainFrame Guy lit by the glow of an open refrigerator at night, holding a snack container, looking guiltily over his shoulder, a crescent moon visible through a window.",
-      "tips": [
-        {
-          "headline": "CALORIES CANT TELL TIME",
-          "accent": "TIME",
-          "sub1": "A 10PM MEAL STORES LIKE A NOON MEAL",
-          "sub2": "DAILY TOTALS DECIDE, NOT THE CLOCK",
-          "scene": "GainFrame Guy happily holding a plate of food beside a large wall clock with blank face and no numbers, shrugging."
-        },
-        {
-          "headline": "NIGHT EATING IS EXTRA EATING",
-          "accent": "EXTRA",
-          "sub1": "LATE SNACKS STACK ON TOP OF DINNER",
-          "sub2": "THATS WHY THE MYTH FEELS TRUE",
-          "scene": "GainFrame Guy sunk into a couch with a big snack bowl, a teetering stack of empty plates on the side table beside him."
-        },
-        {
-          "headline": "PROTEIN BEFORE BED HELPS",
-          "accent": "HELPS",
-          "sub1": "SLOW PROTEIN FEEDS MUSCLE OVERNIGHT",
-          "sub2": "GREEK YOGURT IS A LEGAL BEDTIME SNACK",
-          "scene": "GainFrame Guy sitting up in bed happily eating from a small yogurt cup with a spoon, moon out the window, a small bicep icon floating above."
-        },
-        {
-          "headline": "GUARD THE SLEEP, NOT THE CLOCK",
-          "accent": "SLEEP",
-          "sub1": "HUGE MEALS AT MIDNIGHT WRECK REST",
-          "sub2": "BAD SLEEP DRIVES REAL WEIGHT GAIN",
-          "scene": "GainFrame Guy sleeping peacefully in bed while a big dinner plate with a bold red X over it sits on the nightstand."
-        }
-      ],
-      "plug": null,
-      "caption": "midnight yogurt is not why the cut stalled",
-      "hashtags": "#nutrition #fatloss #gymtok #cutting #gainframe"
-    },
-    {
-      "slug": "lose-fat-build-muscle",
-      "cover_lines": [
-        [
-          "LOSE FAT",
-          "black"
-        ],
-        [
-          "AND BUILD",
-          "black"
-        ],
-        [
-          "MUSCLE?",
-          "red"
-        ]
-      ],
-      "cover_scene": "TWO GainFrame Guy figures standing back to back: the left one softer around the middle glancing over his shoulder, the right one lean and muscular holding a confident double-bicep flex.",
-      "tips": [
-        {
-          "headline": "RECOMP IS REAL",
-          "accent": "REAL",
-          "sub1": "NEW AND RETURNING LIFTERS DO BOTH AT ONCE",
-          "sub2": "THE FIRST TWO YEARS ARE MAGIC",
-          "scene": "GainFrame Guy flexing in front of a full-length mirror, and the reflection is noticeably leaner and more muscular than he is."
-        },
-        {
-          "headline": "SMALL DEFICIT, BIG PROTEIN",
-          "accent": "PROTEIN",
-          "sub1": "SLIGHT CUT PLUS 1G PER POUND",
-          "sub2": "BODY FAT FUNDS THE NEW MUSCLE",
-          "scene": "GainFrame Guy eating from a big plate of chicken and eggs, a small down arrow floating over his belly and an up arrow floating over his flexed bicep."
-        },
-        {
-          "headline": "THE SCALE WILL LIE",
-          "accent": "LIE",
-          "sub1": "WEIGHT STALLS WHILE THE MIRROR CHANGES",
-          "sub2": "JUDGE THE BODY, NOT THE NUMBER",
-          "scene": "GainFrame Guy standing on a bathroom scale shrugging with palms up, while his reflection in a mirror behind him flexes lean and happy."
-        },
-        {
-          "headline": "IT SLOWS AS YOU ADVANCE",
-          "accent": "SLOWS",
-          "sub1": "YEAR THREE LIFTERS MUST PICK A LANE",
-          "sub2": "BULK OR CUT ONCE RECOMP STALLS",
-          "scene": "GainFrame Guy standing at a fork in a path between two icon signposts, one sign showing a flame icon and the other showing a bicep icon."
-        }
-      ],
-      "plug": {
-        "screenshot": "muscle-map.png",
-        "h1": "Watch muscle replace fat",
-        "h2": "photo by photo",
-        "screen_name": "muscle map"
-      },
-      "caption": "yes you can do both, no it wont last forever",
-      "hashtags": "#recomp #bodyrecomposition #gymtok #fatloss #gainframe"
+     "headline": "GO LIGHTER, LIFT BETTER",
+     "accent": "LIGHTER",
+     "sub1": "THE MUSCLE CANT READ THE DUMBBELL",
+     "sub2": "HALF THE EGO, TWICE THE TENSION",
+     "scene": "GainFrame Guy doing a slow controlled lateral raise with light dumbbells, perfect posture, small focus lines around the shoulder."
     }
-  ]
+   ],
+   "plug": null,
+   "caption": "train each muscle twice a week and thank me later",
+   "hashtags": "#gymtok #hypertrophy #liftingtips #musclegrowth #gainframe"
+  },
+  {
+   "slug": "fat-loss-backwards",
+   "cover_lines": [
+    [
+     "FAT LOSS TIPS",
+     "black"
+    ],
+    [
+     "THAT SOUND",
+     "black"
+    ],
+    [
+     "BACKWARDS",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy standing lean and confident, one hand on hip, next to a small plate stacked with chicken and rice and a pair of walking shoes on the ground. Soft ground shadow.",
+   "tips": [
+    {
+     "headline": "EAT MORE PROTEIN TO LOSE FAT",
+     "accent": "MORE",
+     "sub1": "IT BURNS CALORIES JUST DIGESTING",
+     "sub2": "AND KILLS THE CRAVINGS THAT END DIETS",
+     "scene": "GainFrame Guy happily holding a big plate piled with chicken breast, eggs and greek yogurt."
+    },
+    {
+     "headline": "ADD A REFEED DAY",
+     "accent": "REFEED",
+     "sub1": "EATING MORE FOR A DAY RESTARTS FAT LOSS",
+     "sub2": "DIET BREAKS BEAT CRASH DIETS",
+     "scene": "GainFrame Guy marking one day on a wall calendar that has a small bowl-of-rice icon on it."
+    },
+    {
+     "headline": "WALK, DONT RUN",
+     "accent": "WALK",
+     "sub1": "10K STEPS OUTBURNS A HIIT CLASS",
+     "sub2": "YOU CANT OUTRUN YOUR APPETITE",
+     "scene": "GainFrame Guy walking casually with earbuds in, a small step-counter icon beside him reading 10K."
+    },
+    {
+     "headline": "LIFT TO LOSE FAT",
+     "accent": "LIFT",
+     "sub1": "MUSCLE BURNS CALORIES WHILE YOU SLEEP",
+     "sub2": "CARDIO BURNS NOW, MUSCLE BURNS FOREVER",
+     "scene": "GainFrame Guy deadlifting a barbell with good form, small flame icon beside the muscle."
+    }
+   ],
+   "plug": null,
+   "caption": "eating more protein to lose fat still feels illegal",
+   "hashtags": "#fatloss #gymtok #cutting #fitnesstips #gainframe"
+  },
+  {
+   "slug": "sleep-hacks-sound-fake",
+   "cover_lines": [
+    [
+     "SLEEP HACKS",
+     "black"
+    ],
+    [
+     "THAT SOUND",
+     "black"
+    ],
+    [
+     "FAKE",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy lying peacefully asleep in a simple bed with a small crescent moon floating above. Soft calm scene.",
+   "tips": [
+    {
+     "headline": "COLD ROOM, WARM SOCKS",
+     "accent": "SOCKS",
+     "sub1": "65 DEGREES AND SOCKS = DEEPER SLEEP",
+     "sub2": "YOUR BODY DROPS TEMP TO KNOCK OUT",
+     "scene": "GainFrame Guy in bed wearing cozy socks, a small thermostat icon beside him reading 65."
+    },
+    {
+     "headline": "GET SUNLIGHT IN HOUR ONE",
+     "accent": "SUNLIGHT",
+     "sub1": "MORNING LIGHT FIXES TONIGHTS SLEEP",
+     "sub2": "YOUR ALARM SHOULD BE THE SUN",
+     "scene": "GainFrame Guy standing outside stretching with a bright sun rising beside him."
+    },
+    {
+     "headline": "CUT CAFFEINE AT 2PM",
+     "accent": "2PM",
+     "sub1": "THAT 3PM COFFEE IS STILL IN YOU AT 11",
+     "sub2": "CAFFEINE HAS A 6 HOUR HALF LIFE",
+     "scene": "GainFrame Guy setting down a coffee cup that has a small red X over it, a clock beside him reading 2:00."
+    },
+    {
+     "headline": "STOP EATING 3 HOURS BEFORE BED",
+     "accent": "3 HOURS",
+     "sub1": "LATE FEASTS WRECK DEEP SLEEP",
+     "sub2": "DIGESTION AND DEEP SLEEP DONT MIX",
+     "scene": "GainFrame Guy pushing away a dinner plate, a small clock and a bed icon beside him."
+    }
+   ],
+   "plug": {
+    "screenshot": "check-ins.png",
+    "h1": "See if the work",
+    "h2": "is actually paying off",
+    "screen_name": "check-in streak"
+   },
+   "caption": "warm socks for better sleep sounds fake but try it tonight",
+   "hashtags": "#sleep #recovery #gymtok #fitnesstips #gainframe"
+  },
+  {
+   "slug": "strength-sounds-illegal",
+   "cover_lines": [
+    [
+     "STRENGTH TIPS",
+     "black"
+    ],
+    [
+     "THAT SOUND",
+     "black"
+    ],
+    [
+     "ILLEGAL",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy gripping a loaded barbell on the floor, braced and intense, ready to pull. Lean muscular build, olive shorts.",
+   "tips": [
+    {
+     "headline": "GRIP LIKE YOURE BENDING THE BAR",
+     "accent": "GRIP",
+     "sub1": "SQUEEZING HARDER INSTANTLY ADDS REPS",
+     "sub2": "ITS CALLED IRRADIATION",
+     "scene": "Close scene of GainFrame Guy gripping a barbell hard with both hands, small tension lines around the fists."
+    },
+    {
+     "headline": "BRACE LIKE YOURE ABOUT TO GET HIT",
+     "accent": "BRACE",
+     "sub1": "AIR IS A FREE LIFTING BELT",
+     "sub2": "BREATHE INTO YOUR BELLY, NOT YOUR CHEST",
+     "scene": "GainFrame Guy standing braced with a tight core, hands on his midsection, small inhale arrows around his belly."
+    },
+    {
+     "headline": "SLOW THE WAY DOWN",
+     "accent": "SLOW",
+     "sub1": "3 SECONDS DOWN BUILDS MORE THAN EXPLODING UP",
+     "sub2": "GRAVITY IS FREE RESISTANCE",
+     "scene": "GainFrame Guy lowering into a slow squat with control, a small 3-2-1 count and a down arrow beside him."
+    },
+    {
+     "headline": "LIFT IT MORE OFTEN",
+     "accent": "OFTEN",
+     "sub1": "3 HARD SETS DAILY BEATS 15 ONCE A WEEK",
+     "sub2": "STRENGTH IS A SKILL YOU PRACTICE",
+     "scene": "GainFrame Guy doing a clean overhead press, a small calendar with several days checked beside him."
+    }
+   ],
+   "plug": null,
+   "caption": "just squeeze the bar harder, it genuinely works",
+   "hashtags": "#strengthtraining #gymtok #powerlifting #liftingtips #gainframe"
+  },
+  {
+   "slug": "protein-hacks-sound-fake",
+   "cover_lines": [
+    [
+     "PROTEIN HACKS",
+     "black"
+    ],
+    [
+     "THAT SOUND",
+     "black"
+    ],
+    [
+     "FAKE",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy holding a large plate of high-protein food (chicken, eggs, greek yogurt) with a satisfied confident stance.",
+   "tips": [
+    {
+     "headline": "FRONT LOAD BREAKFAST",
+     "accent": "BREAKFAST",
+     "sub1": "40G AT BREAKFAST KILLS ALL DAY CRAVINGS",
+     "sub2": "MOST PEOPLE BACKLOAD AND LOSE",
+     "scene": "GainFrame Guy at a breakfast table with eggs and greek yogurt, a small 40G icon beside the plate."
+    },
+    {
+     "headline": "SKIP THE POST WORKOUT PANIC",
+     "accent": "PANIC",
+     "sub1": "THE ANABOLIC WINDOW IS HOURS WIDE",
+     "sub2": "TOTAL DAILY PROTEIN IS ALL THAT MATTERS",
+     "scene": "GainFrame Guy relaxed after a workout holding a gym towel, a shaker bottle sitting calmly nearby with no rush lines."
+    },
+    {
+     "headline": "EAT PROTEIN FIRST",
+     "accent": "FIRST",
+     "sub1": "SAME FOOD, LESS FAT STORED",
+     "sub2": "PLATE ORDER CHANGES THE RESULT",
+     "scene": "GainFrame Guy pointing his fork at the chicken on a plate before the rice, a small numbered 1 over the protein."
+    },
+    {
+     "headline": "CANNED AND FROZEN COUNT",
+     "accent": "COUNT",
+     "sub1": "4 DOLLAR TUNA HITS LIKE 14 DOLLAR SALMON",
+     "sub2": "YOUR MUSCLES CANT READ PRICE TAGS",
+     "scene": "GainFrame Guy holding a can of tuna in one hand and a bag of frozen chicken in the other, both with small green checks."
+    }
+   ],
+   "plug": null,
+   "caption": "canned tuna builds the same muscle as fancy salmon, sorry",
+   "hashtags": "#protein #nutrition #gymtok #mealprep #gainframe"
+  },
+  {
+   "slug": "motivation-too-easy",
+   "cover_lines": [
+    [
+     "MOTIVATION TRICKS",
+     "black"
+    ],
+    [
+     "THAT SOUND",
+     "black"
+    ],
+    [
+     "TOO EASY",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy lacing up a gym shoe on a bench, gym bag beside him, calm and ready. Soft ground shadow.",
+   "tips": [
+    {
+     "headline": "JUST PUT THE SHOES ON",
+     "accent": "SHOES",
+     "sub1": "COMMIT TO 5 MINUTES, YOULL FINISH",
+     "sub2": "STARTING IS THE WHOLE BATTLE",
+     "scene": "GainFrame Guy tying his shoelaces, a small 5:00 timer icon beside him."
+    },
+    {
+     "headline": "NEVER MISS TWICE",
+     "accent": "TWICE",
+     "sub1": "ONE SKIP IS LIFE, TWO IS A PATTERN",
+     "sub2": "THE COMEBACK BEATS THE STREAK",
+     "scene": "GainFrame Guy walking confidently back into the gym, a small calendar behind him with one X and then a green check."
+    },
+    {
+     "headline": "LAY IT OUT THE NIGHT BEFORE",
+     "accent": "NIGHT BEFORE",
+     "sub1": "REMOVE ONE DECISION, REMOVE THE EXCUSE",
+     "sub2": "MOTIVATION FOLLOWS ACTION",
+     "scene": "GainFrame Guy laying gym clothes and shoes neatly on a chair at night, a small moon in the corner."
+    },
+    {
+     "headline": "MAKE THE GOAL EMBARRASSINGLY SMALL",
+     "accent": "SMALL",
+     "sub1": "ONE SET BEATS ZERO",
+     "sub2": "SHRINK IT TILL YOU CANT SAY NO",
+     "scene": "GainFrame Guy doing a single set of curls with a small 1 SET icon beside him and a thumbs-up energy."
+    }
+   ],
+   "plug": null,
+   "caption": "the shoes trick works every single time and i hate that",
+   "hashtags": "#motivation #gymtok #discipline #fitnesstips #gainframe"
+  },
+  {
+   "slug": "gym-anxiety-sound-fake",
+   "cover_lines": [
+    [
+     "GYM ANXIETY FIXES",
+     "black"
+    ],
+    [
+     "THAT SOUND",
+     "black"
+    ],
+    [
+     "FAKE",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy standing calm and relaxed in the middle of a gym floor with equipment softly in the background, at ease.",
+   "tips": [
+    {
+     "headline": "NOBODY IS WATCHING YOU",
+     "accent": "NOBODY",
+     "sub1": "EVERYONES STARING AT THEIR OWN SET",
+     "sub2": "THE SPOTLIGHT IS IMAGINARY",
+     "scene": "GainFrame Guy lifting calmly while other simple gym figures in the background all look at their own phones and mirrors, ignoring him."
+    },
+    {
+     "headline": "GO AT THE SAME TIME DAILY",
+     "accent": "SAME TIME",
+     "sub1": "FAMILIAR FACES KILL THE FEAR",
+     "sub2": "ROUTINE BEATS WILLPOWER",
+     "scene": "GainFrame Guy waving cheerfully with one hand, relaxed and at home in the gym, a large round wall clock behind him showing a fixed time. ONLY the GainFrame Guy character appears, no other people."
+    },
+    {
+     "headline": "BRING A WRITTEN PLAN",
+     "accent": "PLAN",
+     "sub1": "KNOWING YOUR NEXT MOVE = ZERO PANIC",
+     "sub2": "WANDERING IS WHAT LOOKS LOST",
+     "scene": "GainFrame Guy confidently holding a phone showing a simple checklist of exercises."
+    },
+    {
+     "headline": "START ON THE MACHINES",
+     "accent": "MACHINES",
+     "sub1": "YOU DONT HAVE TO TOUCH THE FREE WEIGHTS YET",
+     "sub2": "CONFIDENCE IS BUILT, NOT BORN",
+     "scene": "GainFrame Guy comfortably using a simple weight machine, relaxed posture."
+    }
+   ],
+   "plug": null,
+   "caption": "nobody at the gym is watching you i promise",
+   "hashtags": "#gymanxiety #gymtok #beginner #fitnesstips #gainframe"
+  },
+  {
+   "slug": "abs-sound-backwards",
+   "cover_lines": [
+    [
+     "AB TIPS",
+     "black"
+    ],
+    [
+     "THAT SOUND",
+     "black"
+    ],
+    [
+     "BACKWARDS",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy standing tall showing a lean torso with visible abs, one hand resting on his stomach, confident posture.",
+   "tips": [
+    {
+     "headline": "STOP DOING CRUNCHES",
+     "accent": "STOP",
+     "sub1": "YOU CANT CRUNCH OFF BELLY FAT",
+     "sub2": "ABS ARE MADE IN THE KITCHEN",
+     "scene": "GainFrame Guy waving off a crunch mat with a small red X, gesturing instead toward a plate of healthy food."
+    },
+    {
+     "headline": "FIX YOUR POSTURE FIRST",
+     "accent": "POSTURE",
+     "sub1": "STANDING TALL REVEALS ABS YOU HAVE",
+     "sub2": "SLOUCHING HIDES A SIX PACK",
+     "scene": "GainFrame Guy standing up straight and tall with shoulders back, a small upward posture arrow beside his spine."
+    },
+    {
+     "headline": "TRAIN ABS HEAVY, LOW REP",
+     "accent": "HEAVY",
+     "sub1": "WEIGHTED, NOT 500 SIT UPS",
+     "sub2": "ABS ARE MUSCLES, OVERLOAD THEM",
+     "scene": "GainFrame Guy doing a weighted cable crunch holding a weight plate, focused."
+    },
+    {
+     "headline": "LOWER STRESS TO SEE THEM",
+     "accent": "STRESS",
+     "sub1": "CORTISOL HOLDS BELLY FAT",
+     "sub2": "SLEEP DOES MORE THAN SIT UPS",
+     "scene": "GainFrame Guy relaxing calmly with a small moon and a lowered stress-meter icon beside him."
+    }
+   ],
+   "plug": {
+    "screenshot": "post-check-in-photo-score.png",
+    "h1": "Know your real body fat",
+    "h2": "from a single photo",
+    "screen_name": "GainFrame Score"
+   },
+   "caption": "you cannot crunch your way to abs, it's a kitchen thing",
+   "hashtags": "#abs #coreworkout #gymtok #fatloss #gainframe"
+  },
+  {
+   "slug": "recovery-sound-fake",
+   "cover_lines": [
+    [
+     "RECOVERY TIPS",
+     "black"
+    ],
+    [
+     "THAT SOUND",
+     "black"
+    ],
+    [
+     "FAKE",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy resting comfortably in a lounge chair with a water bottle, relaxed and content, small muscle-recovery glow.",
+   "tips": [
+    {
+     "headline": "SORE DOESNT MEAN IT WORKED",
+     "accent": "SORE",
+     "sub1": "YOU CAN GROW WITHOUT EVER BEING SORE",
+     "sub2": "SORENESS MEASURES NOVELTY, NOT GROWTH",
+     "scene": "GainFrame Guy shrugging with a relaxed smile beside a small crossed-out DOMS soreness icon."
+    },
+    {
+     "headline": "A WALK BEATS COUCH REST",
+     "accent": "WALK",
+     "sub1": "BLOOD FLOW HEALS FASTER THAN SITTING",
+     "sub2": "MOVE TO RECOVER",
+     "scene": "GainFrame Guy taking a light casual walk outdoors, small motion lines showing easy movement."
+    },
+    {
+     "headline": "DELOAD ON PURPOSE",
+     "accent": "DELOAD",
+     "sub1": "A LIGHTER WEEK MAKES YOU STRONGER",
+     "sub2": "FATIGUE HIDES YOUR REAL STRENGTH",
+     "scene": "GainFrame Guy lifting a lighter barbell calmly, a small downward-then-upward arrow chart beside him."
+    },
+    {
+     "headline": "EAT CARBS AT NIGHT",
+     "accent": "CARBS",
+     "sub1": "CARBS BEFORE BED AID SLEEP AND RECOVERY",
+     "sub2": "NIGHTTIME CARBS ARENT THE ENEMY",
+     "scene": "GainFrame Guy eating a bowl of rice at night with a small moon and a calm bed icon nearby."
+    }
+   ],
+   "plug": null,
+   "caption": "not being sore does not mean you wasted the session",
+   "hashtags": "#recovery #gymtok #restday #fitnesstips #gainframe"
+  },
+  {
+   "slug": "beginner-gains-sound-fake",
+   "cover_lines": [
+    [
+     "BEGINNER TIPS",
+     "black"
+    ],
+    [
+     "THAT SOUND",
+     "black"
+    ],
+    [
+     "FAKE",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy as a proud beginner holding a light barbell with good form, a small upward progress arrow beside him.",
+   "tips": [
+    {
+     "headline": "LIFT LESS THAN YOU THINK",
+     "accent": "LESS",
+     "sub1": "3 FOCUSED DAYS BEATS 6 HALF DONE",
+     "sub2": "YOU GROW ON REST DAYS",
+     "scene": "GainFrame Guy training happily, a small calendar beside him with 3 days checked and the rest resting."
+    },
+    {
+     "headline": "ADD THE SMALLEST WEIGHT POSSIBLE",
+     "accent": "SMALLEST",
+     "sub1": "2.5 LBS A WEEK = 130 LBS A YEAR",
+     "sub2": "TINY JUMPS BEAT EGO JUMPS",
+     "scene": "GainFrame Guy adding a tiny 2.5 lb plate to a barbell, a small rising line chart beside him."
+    },
+    {
+     "headline": "MASTER 5 LIFTS, IGNORE THE REST",
+     "accent": "5 LIFTS",
+     "sub1": "SQUAT, HINGE, PUSH, PULL, CARRY",
+     "sub2": "YOU DONT NEED 40 EXERCISES",
+     "scene": "GainFrame Guy standing confidently with a barbell, holding up five fingers on one hand."
+    },
+    {
+     "headline": "TRACK IT OR STALL",
+     "accent": "TRACK",
+     "sub1": "IF YOU DONT LOG IT, YOULL REPEAT IT WRONG",
+     "sub2": "PROGRESS YOU CANT SEE, YOU CANT REPEAT",
+     "scene": "GainFrame Guy writing in a small training logbook, a rising progress line beside him."
+    }
+   ],
+   "plug": {
+    "screenshot": "weight-chart.png",
+    "h1": "Watch your progress",
+    "h2": "add up over time",
+    "screen_name": "progress chart"
+   },
+   "caption": "lifting only 3 days a week as a beginner is the cheat code",
+   "hashtags": "#gymbeginner #gymtok #liftingtips #fitness #gainframe"
+  },
+  {
+   "slug": "fasted-cardio-myth",
+   "cover_lines": [
+    [
+     "FASTED CARDIO",
+     "black"
+    ],
+    [
+     "BURNS MORE",
+     "black"
+    ],
+    [
+     "FAT?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy running hard on a treadmill looking exhausted with sweat drops flying, while an untouched empty plate and fork sit on the floor beside the treadmill. Lean muscular build, olive-green shorts.",
+   "tips": [
+    {
+     "headline": "SAME CALORIES, SAME FAT LOSS",
+     "accent": "SAME",
+     "sub1": "FED OR FASTED, THE BURN IS EQUAL",
+     "sub2": "YOUR BODY EVENS IT OUT BY BEDTIME",
+     "scene": "TWO GainFrame Guy figures on side-by-side treadmills, one with a small plate of food on a stand beside his machine and one without, both running at the same pace with identical small flame icons floating above the treadmills."
+    },
+    {
+     "headline": "FASTED JUST MEANS WEAKER",
+     "accent": "WEAKER",
+     "sub1": "LESS FUEL MEANS A SLOWER SESSION",
+     "sub2": "SLOWER SESSIONS BURN LESS",
+     "scene": "GainFrame Guy dragging himself along on a treadmill, hunched and drained with droopy googly eyes, a low battery icon floating beside him."
+    },
+    {
+     "headline": "THE DEFICIT DOES THE WORK",
+     "accent": "DEFICIT",
+     "sub1": "FAT LOSS IS CALORIES IN VS CALORIES OUT",
+     "sub2": "CARDIO TIMING IS A ROUNDING ERROR",
+     "scene": "GainFrame Guy holding up a simple two-pan balance scale with a small plate of food on one pan and a flame icon on the other, the flame pan hanging lower."
+    },
+    {
+     "headline": "TRAIN WHEN YOU FEEL STRONGEST",
+     "accent": "STRONGEST",
+     "sub1": "THE SCHEDULE YOU KEEP BEATS THE HACK",
+     "sub2": "CONSISTENCY IS THE FAT BURNER",
+     "scene": "GainFrame Guy walking briskly outdoors with earbuds in, confident and energized, a bright sun overhead."
+    }
+   ],
+   "plug": null,
+   "caption": "did fasted cardio for a year before reading one study",
+   "hashtags": "#fastedcardio #fatloss #gymtok #cardio #gainframe"
+  },
+  {
+   "slug": "target-belly-fat",
+   "cover_lines": [
+    [
+     "CAN YOU",
+     "black"
+    ],
+    [
+     "TARGET",
+     "red"
+    ],
+    [
+     "BELLY FAT?",
+     "black"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy mid crunch on an exercise mat, pausing to stare down at his own stomach with skeptical googly eyes.",
+   "tips": [
+    {
+     "headline": "SPOT REDUCTION IS A MYTH",
+     "accent": "MYTH",
+     "sub1": "AB WORK DOES NOT BURN AB FAT",
+     "sub2": "FAT COMES OFF THE WHOLE BODY AT ONCE",
+     "scene": "GainFrame Guy doing a crunch on a mat while a small flame icon near his stomach has a bold red X over it."
+    },
+    {
+     "headline": "YOUR DNA PICKS THE ORDER",
+     "accent": "DNA",
+     "sub1": "FACE AND ARMS USUALLY LEAN OUT FIRST",
+     "sub2": "BELLY AND LOWER BACK GO LAST",
+     "scene": "GainFrame Guy standing beside a large DNA double-helix strand taller than he is, gesturing at it with an open palm."
+    },
+    {
+     "headline": "DRAIN THE WHOLE POOL",
+     "accent": "POOL",
+     "sub1": "A CALORIE DEFICIT LOWERS ALL OF IT",
+     "sub2": "STAY IN IT LONG ENOUGH TO REACH THE BELLY",
+     "scene": "GainFrame Guy pulling a bath plug on a chain out of a small round pool, the water level visibly dropping with a down arrow."
+    },
+    {
+     "headline": "BUILD THE ABS WHILE YOU WAIT",
+     "accent": "BUILD",
+     "sub1": "THICK ABS SHOW AT HIGHER BODY FAT",
+     "sub2": "TRAIN THEM HEAVY NOW, REVEAL THEM LATER",
+     "scene": "GainFrame Guy doing a kneeling cable crunch holding a rope attachment, focused and controlled, visible ab definition."
+    }
+   ],
+   "plug": {
+    "screenshot": "post-check-in-photo-score.png",
+    "h1": "Know your real body fat",
+    "h2": "from a single photo",
+    "screen_name": "GainFrame Score"
+   },
+   "caption": "the belly is always the last one to leave the party",
+   "hashtags": "#bellyfat #fatloss #gymtok #abs #gainframe"
+  },
+  {
+   "slug": "ice-baths-kill-gains",
+   "cover_lines": [
+    [
+     "DO ICE BATHS",
+     "black"
+    ],
+    [
+     "KILL",
+     "red"
+    ],
+    [
+     "YOUR GAINS?",
+     "black"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy sitting chest-deep in a round tub filled with floating ice cubes, shivering with small shake lines around him, googly eyes wide.",
+   "tips": [
+    {
+     "headline": "COLD BLUNTS THE GROWTH SIGNAL",
+     "accent": "BLUNTS",
+     "sub1": "PLUNGING RIGHT AFTER LIFTING SHRINKS GAINS",
+     "sub2": "STUDIES SHOW SMALLER MUSCLE GROWTH",
+     "scene": "GainFrame Guy stepping directly from a barbell on the floor into an ice-filled tub, a small bicep icon with a down arrow floating beside the tub."
+    },
+    {
+     "headline": "WAIT 4 TO 6 HOURS",
+     "accent": "4 TO 6",
+     "sub1": "PLUNGE LATER OR ON REST DAYS",
+     "sub2": "KEEP THE COLD AWAY FROM THE LIFT",
+     "scene": "GainFrame Guy relaxed in an ice-filled tub at night with a crescent moon above and a small round clock icon beside the tub."
+    },
+    {
+     "headline": "COLD IS FOR YOUR BRAIN",
+     "accent": "BRAIN",
+     "sub1": "THE MOOD AND ALERTNESS BOOST IS REAL",
+     "sub2": "USE IT FOR STRESS, NOT FOR SIZE",
+     "scene": "GainFrame Guy sitting calm and upright in an ice-filled tub, zen posture, small sparkle icons floating around his bracket head."
+    },
+    {
+     "headline": "SORENESS RELIEF HAS A PRICE",
+     "accent": "PRICE",
+     "sub1": "LESS SORE TODAY CAN MEAN LESS GROWTH",
+     "sub2": "SOMETIMES RECOVERY IS JUST SLEEP",
+     "scene": "GainFrame Guy tucked into bed sleeping peacefully, while a single ice cube with a small red X over it sits on the nightstand."
+    }
+   ],
+   "plug": null,
+   "caption": "your cold plunge might be doing cardio on your gains",
+   "hashtags": "#icebath #coldplunge #gymtok #recovery #gainframe"
+  },
+  {
+   "slug": "diet-soda-fat",
+   "cover_lines": [
+    [
+     "IS DIET SODA",
+     "black"
+    ],
+    [
+     "MAKING YOU",
+     "black"
+    ],
+    [
+     "FAT?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy holding a plain unlabeled soda can at arm's length, staring at it with narrowed skeptical googly eyes.",
+   "tips": [
+    {
+     "headline": "ZERO CALORIES IS ZERO",
+     "accent": "ZERO",
+     "sub1": "IT CANT STORE WHAT ISNT THERE",
+     "sub2": "THE CAN IS NOT THE PROBLEM",
+     "scene": "GainFrame Guy shrugging with both palms up, a plain unlabeled soda can on a small table in front of him with a green check floating above it."
+    },
+    {
+     "headline": "IT BEATS FULL SUGAR",
+     "accent": "BEATS",
+     "sub1": "SWAPPING SODA SAVES 150 CALORIES A CAN",
+     "sub2": "EASY SWAPS BEAT WILLPOWER",
+     "scene": "Two plain unlabeled soda cans side by side on a table, one with a small red X above it and one with a green check, GainFrame Guy sliding the checked can toward himself."
+    },
+    {
+     "headline": "BLAME THE PAIRING",
+     "accent": "PAIRING",
+     "sub1": "ITS THE BURGER NEXT TO THE DIET SODA",
+     "sub2": "THE CAN JUST TAKES THE FALL",
+     "scene": "GainFrame Guy pointing accusingly at a big burger and a pile of fries on a table, while a small innocent soda can sits off to the side."
+    },
+    {
+     "headline": "KNOW YOUR CRAVINGS",
+     "accent": "CRAVINGS",
+     "sub1": "SWEET TASTE TRIGGERS SNACKING FOR SOME",
+     "sub2": "WATCH YOUR OWN PATTERN, NOT THE HEADLINES",
+     "scene": "GainFrame Guy caught mid-reach peeking into an open snack cupboard while holding a soda can, wide googly eyes looking over his shoulder."
+    }
+   ],
+   "plug": null,
+   "caption": "the diet coke was never the problem",
+   "hashtags": "#dietsoda #cutting #fatloss #gymtok #gainframe"
+  },
+  {
+   "slug": "are-machines-cheating",
+   "cover_lines": [
+    [
+     "ARE MACHINES",
+     "black"
+    ],
+    [
+     "CHEATING?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy standing between a dumbbell rack and a shiny weight machine, shrugging with both palms up, googly eyes looking sideways.",
+   "tips": [
+    {
+     "headline": "MUSCLE CANT READ LABELS",
+     "accent": "CANT",
+     "sub1": "TENSION IS TENSION EITHER WAY",
+     "sub2": "STUDIES SHOW EQUAL GROWTH",
+     "scene": "GainFrame Guy doing a chest press on a machine on the left, and the SAME GainFrame Guy doing a dumbbell bench press on the right, a bold equals sign floating between them."
+    },
+    {
+     "headline": "MACHINES LET YOU GO HARDER",
+     "accent": "HARDER",
+     "sub1": "NO BALANCING MEANS SAFER FAILURE",
+     "sub2": "PUSH TO THE EDGE WITHOUT A SPOTTER",
+     "scene": "GainFrame Guy straining hard on a leg press machine with effort lines around him, safe and locked in."
+    },
+    {
+     "headline": "FREE WEIGHTS BUILD SKILL",
+     "accent": "SKILL",
+     "sub1": "BALANCE AND CONTROL CARRY OVER",
+     "sub2": "DIFFERENT TOOLS, DIFFERENT JOBS",
+     "scene": "GainFrame Guy doing a barbell squat with perfect upright form, small stability arrows at his feet."
+    },
+    {
+     "headline": "THE ONLY RULE IS OVERLOAD",
+     "accent": "OVERLOAD",
+     "sub1": "MACHINE OR BARBELL, ADD WEIGHT OVER TIME",
+     "sub2": "PROGRESS IS ALL THAT COUNTS",
+     "scene": "GainFrame Guy moving the selector pin lower on a weight machine stack, a small upward trend arrow floating beside the stack."
+    }
+   ],
+   "plug": null,
+   "caption": "the leg press is not cheating and neither are you",
+   "hashtags": "#gymtok #machines #freeweights #liftingtips #gainframe"
+  },
+  {
+   "slug": "blame-genetics",
+   "cover_lines": [
+    [
+     "IS IT JUST BAD",
+     "black"
+    ],
+    [
+     "GENETICS?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy frowning up at a large glowing DNA double-helix strand floating in front of him, arms crossed.",
+   "tips": [
+    {
+     "headline": "GENES SET THE CEILING",
+     "accent": "CEILING",
+     "sub1": "ALMOST NOBODY IS NEAR THEIRS",
+     "sub2": "YOU HAVE YEARS OF GROWTH LEFT",
+     "scene": "GainFrame Guy leaping upward with one arm stretched high toward a plain horizontal ceiling line near the very top of the scene, with a LARGE visible empty gap between his hand and the line — he is far below it, not touching it."
+    },
+    {
+     "headline": "SHAPE IS GENETIC, SIZE ISNT",
+     "accent": "SIZE",
+     "sub1": "INSERTIONS DECIDE THE LOOK, NOT THE LIMIT",
+     "sub2": "TRAIN THE MUSCLE YOU WERE DEALT",
+     "scene": "TWO muscular GainFrame Guy figures flexing a single-arm bicep pose side by side — BOTH are the same black-silhouette cartoon character with the bracket-frame scan head, one with a tall peaked bicep and one with a full round bicep, a small green check floating above each. NO humans, no skin-tone figures, no thought bubbles."
+    },
+    {
+     "headline": "SLOW RESPONDERS STILL GROW",
+     "accent": "STILL",
+     "sub1": "EVERY STUDY HAS LATE BLOOMERS",
+     "sub2": "THEY CATCH UP GIVEN TIME",
+     "scene": "GainFrame Guy walking steadily up a long incline beside a small friendly turtle, a trophy waiting on a pedestal at the top."
+    },
+    {
+     "headline": "AUDIT THE BASICS FIRST",
+     "accent": "BASICS",
+     "sub1": "SLEEP, PROTEIN, EFFORT, AND YEARS",
+     "sub2": "BLAME DNA LAST, NOT FIRST",
+     "scene": "GainFrame Guy holding a blank clipboard, with a bed icon, a chicken drumstick icon, and a dumbbell icon floating beside him, each with a small green check."
+    }
+   ],
+   "plug": {
+    "screenshot": "compare.png",
+    "h1": "Proof you are actually changing",
+    "h2": "photo vs photo",
+    "screen_name": "progress compare"
+   },
+   "caption": "your genetics are fine, you have been lifting for 8 months",
+   "hashtags": "#genetics #gymtok #musclegrowth #liftingtips #gainframe"
+  },
+  {
+   "slug": "test-boosters-truth",
+   "cover_lines": [
+    [
+     "DO TEST",
+     "black"
+    ],
+    [
+     "BOOSTERS",
+     "red"
+    ],
+    [
+     "EVEN WORK?",
+     "black"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy examining a plain unlabeled supplement bottle through a large magnifying glass, one googly eye comically enlarged through the lens.",
+   "tips": [
+    {
+     "headline": "THE PILLS BARELY MOVE IT",
+     "accent": "BARELY",
+     "sub1": "A FEW PERCENT AT BEST IN STUDIES",
+     "sub2": "NOT ENOUGH TO FEEL OR SEE",
+     "scene": "GainFrame Guy looking disappointed at a tipped-over plain supplement bottle with a few pills spilled out, a tiny flat trend line floating above it."
+    },
+    {
+     "headline": "SLEEP IS THE REAL BOOSTER",
+     "accent": "SLEEP",
+     "sub1": "ONE SHORT WEEK CAN TANK T LEVELS",
+     "sub2": "FREE AND LEGAL EVERY NIGHT",
+     "scene": "GainFrame Guy lying asleep UNDER the blanket in a bed, head resting on the pillow with closed eyes, a crescent moon above and a small rising trend arrow floating over the bed. Exactly ONE character in the scene."
+    },
+    {
+     "headline": "LIFT HEAVY, EAT ENOUGH",
+     "accent": "HEAVY",
+     "sub1": "TRAINING AND FOOD DRIVE HORMONES",
+     "sub2": "UNDEREATING TANKS THEM",
+     "scene": "GainFrame Guy locked in on a heavy barbell deadlift with bent bar plates, a full plate of chicken and rice on a small table nearby."
+    },
+    {
+     "headline": "LEANER OFTEN MEANS HIGHER T",
+     "accent": "LEANER",
+     "sub1": "EXTRA BODY FAT CONVERTS T AWAY",
+     "sub2": "THE CUT IS THE SUPPLEMENT",
+     "scene": "GainFrame Guy standing lean and confident with hands on hips and visible abs, a small upward trend arrow beside his chest."
+    }
+   ],
+   "plug": null,
+   "caption": "the test booster aisle is just expensive hope",
+   "hashtags": "#testosterone #supplements #gymtok #lifting #gainframe"
+  },
+  {
+   "slug": "do-you-need-to-squat",
+   "cover_lines": [
+    [
+     "DO YOU NEED",
+     "black"
+    ],
+    [
+     "TO SQUAT?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy standing in front of a barbell resting in a squat rack, arms crossed, giving it a long sideways skeptical look.",
+   "tips": [
+    {
+     "headline": "NO LIFT IS MANDATORY",
+     "accent": "MANDATORY",
+     "sub1": "MUSCLES DONT KNOW EXERCISE NAMES",
+     "sub2": "MOVEMENT PATTERNS MATTER, NOT BRANDS",
+     "scene": "GainFrame Guy shrugging cheerfully in front of a lineup of equipment: dumbbells, a kettlebell, and a simple weight machine."
+    },
+    {
+     "headline": "LEG PRESS GROWS LEGS TOO",
+     "accent": "GROWS",
+     "sub1": "HACK SQUATS, LUNGES, SPLIT SQUATS ALL WORK",
+     "sub2": "PICK THE ONE YOU CAN KEEP PROGRESSING",
+     "scene": "GainFrame Guy pushing hard on a leg press machine with big defined quads and effort lines."
+    },
+    {
+     "headline": "PAIN IS DATA",
+     "accent": "DATA",
+     "sub1": "IF SQUATS HURT, SWAP THEM OUT",
+     "sub2": "AN EXERCISE YOU AVOID BUILDS NOTHING",
+     "scene": "GainFrame Guy rubbing his lower back while standing next to a barbell on the floor, a small red warning triangle floating above the bar."
+    },
+    {
+     "headline": "SQUATS ARE A TOOL, NOT A TEST",
+     "accent": "TOOL",
+     "sub1": "GREAT IF THEY FIT YOUR BODY",
+     "sub2": "YOUR FRAME PICKS YOUR LIFTS",
+     "scene": "GainFrame Guy calmly placing a small barbell into an open toolbox that also holds a wrench and hammer silhouette."
+    }
+   ],
+   "plug": null,
+   "caption": "the squat police are already typing",
+   "hashtags": "#squats #legday #gymtok #liftingtips #gainframe"
+  },
+  {
+   "slug": "late-eating-myth",
+   "cover_lines": [
+    [
+     "DOES EATING",
+     "black"
+    ],
+    [
+     "LATE",
+     "red"
+    ],
+    [
+     "MAKE YOU FAT?",
+     "black"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy lit by the glow of an open refrigerator at night, holding a snack container, looking guiltily over his shoulder, a crescent moon visible through a window.",
+   "tips": [
+    {
+     "headline": "CALORIES CANT TELL TIME",
+     "accent": "TIME",
+     "sub1": "A 10PM MEAL STORES LIKE A NOON MEAL",
+     "sub2": "DAILY TOTALS DECIDE, NOT THE CLOCK",
+     "scene": "GainFrame Guy happily holding a plate of food beside a large wall clock with blank face and no numbers, shrugging."
+    },
+    {
+     "headline": "NIGHT EATING IS EXTRA EATING",
+     "accent": "EXTRA",
+     "sub1": "LATE SNACKS STACK ON TOP OF DINNER",
+     "sub2": "THATS WHY THE MYTH FEELS TRUE",
+     "scene": "GainFrame Guy sunk into a couch with a big snack bowl, a teetering stack of empty plates on the side table beside him."
+    },
+    {
+     "headline": "PROTEIN BEFORE BED HELPS",
+     "accent": "HELPS",
+     "sub1": "SLOW PROTEIN FEEDS MUSCLE OVERNIGHT",
+     "sub2": "GREEK YOGURT IS A LEGAL BEDTIME SNACK",
+     "scene": "GainFrame Guy sitting up in bed happily eating from a small yogurt cup with a spoon, moon out the window, a small bicep icon floating above."
+    },
+    {
+     "headline": "GUARD THE SLEEP, NOT THE CLOCK",
+     "accent": "SLEEP",
+     "sub1": "HUGE MEALS AT MIDNIGHT WRECK REST",
+     "sub2": "BAD SLEEP DRIVES REAL WEIGHT GAIN",
+     "scene": "GainFrame Guy sleeping peacefully in bed while a big dinner plate with a bold red X over it sits on the nightstand."
+    }
+   ],
+   "plug": null,
+   "caption": "midnight yogurt is not why the cut stalled",
+   "hashtags": "#nutrition #fatloss #gymtok #cutting #gainframe"
+  },
+  {
+   "slug": "lose-fat-build-muscle",
+   "cover_lines": [
+    [
+     "LOSE FAT",
+     "black"
+    ],
+    [
+     "AND BUILD",
+     "black"
+    ],
+    [
+     "MUSCLE?",
+     "red"
+    ]
+   ],
+   "cover_scene": "TWO GainFrame Guy figures standing back to back: the left one softer around the middle glancing over his shoulder, the right one lean and muscular holding a confident double-bicep flex.",
+   "tips": [
+    {
+     "headline": "RECOMP IS REAL",
+     "accent": "REAL",
+     "sub1": "NEW AND RETURNING LIFTERS DO BOTH AT ONCE",
+     "sub2": "THE FIRST TWO YEARS ARE MAGIC",
+     "scene": "GainFrame Guy flexing in front of a full-length mirror, and the reflection is noticeably leaner and more muscular than he is."
+    },
+    {
+     "headline": "SMALL DEFICIT, BIG PROTEIN",
+     "accent": "PROTEIN",
+     "sub1": "SLIGHT CUT PLUS 1G PER POUND",
+     "sub2": "BODY FAT FUNDS THE NEW MUSCLE",
+     "scene": "GainFrame Guy eating from a big plate of chicken and eggs, a small down arrow floating over his belly and an up arrow floating over his flexed bicep."
+    },
+    {
+     "headline": "THE SCALE WILL LIE",
+     "accent": "LIE",
+     "sub1": "WEIGHT STALLS WHILE THE MIRROR CHANGES",
+     "sub2": "JUDGE THE BODY, NOT THE NUMBER",
+     "scene": "GainFrame Guy standing on a bathroom scale shrugging with palms up, while his reflection in a mirror behind him flexes lean and happy."
+    },
+    {
+     "headline": "IT SLOWS AS YOU ADVANCE",
+     "accent": "SLOWS",
+     "sub1": "YEAR THREE LIFTERS MUST PICK A LANE",
+     "sub2": "BULK OR CUT ONCE RECOMP STALLS",
+     "scene": "GainFrame Guy standing at a fork in a path between two icon signposts, one sign showing a flame icon and the other showing a bicep icon."
+    }
+   ],
+   "plug": {
+    "screenshot": "muscle-map.png",
+    "h1": "Watch muscle replace fat",
+    "h2": "photo by photo",
+    "screen_name": "muscle map"
+   },
+   "caption": "yes you can do both, no it wont last forever",
+   "hashtags": "#recomp #bodyrecomposition #gymtok #fatloss #gainframe"
+  },
+  {
+   "slug": "is-stretching-a-waste",
+   "cover_lines": [
+    [
+     "IS STRETCHING A",
+     "black"
+    ],
+    [
+     "WASTE OF TIME?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy holding an awkward standing toe-touch stretch, one leg straight, reaching for his foot. A small simple wall clock beside him.",
+   "tips": [
+    {
+     "headline": "SAVE STATIC STRETCHING FOR AFTER",
+     "accent": "AFTER",
+     "sub1": "LONG HOLDS BEFORE A SET CAN CUT STRENGTH",
+     "sub2": "STRETCH WHEN THE LIFTING IS DONE",
+     "scene": "GainFrame Guy sitting doing a relaxed seated hamstring stretch, reaching toward his toes. A single loaded barbell resting beside him. Nothing else."
+    },
+    {
+     "headline": "WARM UP BY MOVING",
+     "accent": "MOVING",
+     "sub1": "LEG SWINGS AND EMPTY BAR SETS BEAT TOE TOUCHES",
+     "sub2": "RAISE THE TEMPERATURE, NOT THE SPLITS",
+     "scene": "GainFrame Guy mid leg swing holding a squat rack upright for balance, small motion arcs around the moving leg."
+    },
+    {
+     "headline": "TIGHT HIPS ARE OFTEN WEAK HIPS",
+     "accent": "WEAK",
+     "sub1": "STRENGTH AT LENGTH BEATS PASSIVE HOLDING",
+     "sub2": "TRAIN THE END RANGE UNDER LOAD",
+     "scene": "GainFrame Guy in a deep controlled goblet squat holding a single dumbbell at his chest, heels flat."
+    },
+    {
+     "headline": "STRETCH THE TWO SPOTS BLOCKING YOU",
+     "accent": "TWO SPOTS",
+     "sub1": "PICK WHAT ACTUALLY LIMITS YOUR LIFTS",
+     "sub2": "TEN MINUTES BEATS A ROUTINE YOU SKIP",
+     "scene": "GainFrame Guy doing a calf stretch against a wall, a small simple checklist card on the floor with two ticked boxes."
+    },
+    {
+     "headline": "FLEXIBILITY WILL NOT STOP INJURY",
+     "accent": "WILL NOT",
+     "sub1": "REVIEWS DO NOT SHOW STRETCHING PREVENTS INJURY",
+     "sub2": "LOADING SENSIBLY DOES THAT JOB",
+     "scene": "GainFrame Guy doing a slow controlled barbell squat with good posture, small green upward arrow beside the bar."
+    }
+   ],
+   "plug": null,
+   "caption": "posting this so i can stop doing toe touches for 8 minutes",
+   "hashtags": "#gymtok #mobility #liftingtips #warmup #gainframe"
+  },
+  {
+   "slug": "is-pre-workout-worth-it",
+   "cover_lines": [
+    [
+     "IS PRE-WORKOUT",
+     "black"
+    ],
+    [
+     "WORTH IT?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy holding a large plain supplement tub with a scoop in his other hand, head tilted, skeptical.",
+   "tips": [
+    {
+     "headline": "CAFFEINE IS THE ONLY STAR",
+     "accent": "CAFFEINE",
+     "sub1": "3 TO 6 MG PER KG LIFTS REPS AND MOOD",
+     "sub2": "MOST OF THE LABEL IS FILLER",
+     "scene": "GainFrame Guy holding a steaming coffee mug in one hand and a scoop of powder in the other, weighing them up."
+    },
+    {
+     "headline": "THE TINGLES ARE NOT THE WORK",
+     "accent": "NOT THE WORK",
+     "sub1": "THE BETA ALANINE ITCH MEANS NOTHING TODAY",
+     "sub2": "IT ONLY MATTERS AFTER WEEKS OF USE",
+     "scene": "GainFrame Guy scratching his forearm with small tingle sparkle marks around it, shrugging."
+    },
+    {
+     "headline": "COFFEE DOES THE SAME JOB",
+     "accent": "COFFEE",
+     "sub1": "TWO CUPS COSTS PENNIES, NOT FIFTY DOLLARS",
+     "sub2": "SAME DRUG, NO PROPRIETARY BLEND",
+     "scene": "GainFrame Guy sitting on a simple gym bench drinking from a takeaway coffee cup, a gym bag on the ground beside him."
+    },
+    {
+     "headline": "TIME IT 45 MINUTES OUT",
+     "accent": "45 MINUTES",
+     "sub1": "PEAK CAFFEINE LANDS ABOUT AN HOUR LATER",
+     "sub2": "SLAMMING IT IN THE CAR IS TOO LATE",
+     "scene": "GainFrame Guy holding a shaker bottle beside a small simple clock face, checking the time."
+    },
+    {
+     "headline": "TOLERANCE EATS THE EFFECT",
+     "accent": "TOLERANCE",
+     "sub1": "DAILY SCOOPS BECOME YOUR NEW BASELINE",
+     "sub2": "SAVE IT FOR THE HEAVY DAYS",
+     "scene": "GainFrame Guy asleep sitting upright on a gym bench holding a shaker bottle, small droop lines around him."
+    }
+   ],
+   "plug": null,
+   "caption": "the tingles are not a personality trait",
+   "hashtags": "#gymtok #preworkout #supplements #liftingtips #gainframe"
+  },
+  {
+   "slug": "out-train-a-bad-diet",
+   "cover_lines": [
+    [
+     "CAN YOU OUT-TRAIN",
+     "black"
+    ],
+    [
+     "A BAD DIET?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy running hard on a treadmill, sweating, while a small side table beside the treadmill holds a tall stack of donuts and a burger.",
+   "tips": [
+    {
+     "headline": "AN HOUR BURNS LESS THAN YOU THINK",
+     "accent": "LESS",
+     "sub1": "A HARD SESSION IS 300 TO 500 CALORIES",
+     "sub2": "THAT IS ONE MUFFIN AND A LATTE",
+     "scene": "GainFrame Guy standing between a treadmill and a small table holding one muffin and one coffee cup, looking between them."
+    },
+    {
+     "headline": "TRAINING MAKES YOU HUNGRIER",
+     "accent": "HUNGRIER",
+     "sub1": "APPETITE RISES TO MEET THE BURN",
+     "sub2": "THE BODY BALANCES THE BOOKS FOR YOU",
+     "scene": "GainFrame Guy standing in front of an open refrigerator holding a plate, gym towel over his shoulder."
+    },
+    {
+     "headline": "LIFTING DECIDES WHERE THE WEIGHT GOES",
+     "accent": "WHERE",
+     "sub1": "DIET SETS THE AMOUNT, TRAINING SETS THE SHAPE",
+     "sub2": "YOU NEED BOTH JOBS DONE",
+     "scene": "GainFrame Guy with a lean muscular build doing a dumbbell row on a bench, a plate of chicken and rice on a small table nearby."
+    },
+    {
+     "headline": "FIX THE THREE BIGGEST MEALS",
+     "accent": "THREE",
+     "sub1": "NOBODY GETS FAT ON THE SIDE SALAD",
+     "sub2": "PROTEIN FIRST, THEN CUT THE EXTRAS",
+     "scene": "GainFrame Guy standing and pointing at three simple plates of food floating in a row beside him. No counter, no kitchen."
+    }
+   ],
+   "plug": {
+    "screenshot": "post-check-in-photo-score.png",
+    "h1": "See if the training",
+    "h2": "is actually showing up",
+    "screen_name": "GainFrame Score"
+   },
+   "caption": "ran 5 miles then ate 5 miles",
+   "hashtags": "#gymtok #fatloss #caloriedeficit #fitness #gainframe"
+  },
+  {
+   "slug": "are-seed-oils-killing-gains",
+   "cover_lines": [
+    [
+     "ARE SEED OILS",
+     "black"
+    ],
+    [
+     "KILLING GAINS?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy holding a plain bottle of cooking oil out at arms length, leaning away from it suspiciously.",
+   "tips": [
+    {
+     "headline": "NO TRIAL SHOWS THEY BLOCK MUSCLE",
+     "accent": "NO TRIAL",
+     "sub1": "LINOLEIC ACID DOES NOT STOP HYPERTROPHY",
+     "sub2": "THE CLAIM STARTED ON A PODCAST",
+     "scene": "GainFrame Guy with a lean muscular build doing a dumbbell curl, a plain oil bottle sitting on the floor beside him."
+    },
+    {
+     "headline": "THE PROBLEM IS THE FOOD AROUND IT",
+     "accent": "THE FOOD",
+     "sub1": "FRIES AND CHIPS ARE NOT JUST OIL",
+     "sub2": "CALORIE DENSITY IS THE REAL ISSUE",
+     "scene": "GainFrame Guy holding a large basket of fries in one hand and a small oil bottle in the other, comparing sizes."
+    },
+    {
+     "headline": "OMEGA 3 IS THE ACTUAL GAP",
+     "accent": "OMEGA 3",
+     "sub1": "MOST LIFTERS UNDEREAT FISH",
+     "sub2": "ADD SALMON BEFORE YOU BAN CANOLA",
+     "scene": "GainFrame Guy holding a plate with a salmon fillet on it, looking pleased."
+    },
+    {
+     "headline": "OLIVE OIL IS STILL THE EASY WIN",
+     "accent": "OLIVE OIL",
+     "sub1": "BETTER FLAVOR AND A BETTER FAT PROFILE",
+     "sub2": "SWAP FOR TASTE, NOT FOR FEAR",
+     "scene": "GainFrame Guy at a kitchen counter pouring olive oil into a pan, small simple green tick beside the bottle."
+    },
+    {
+     "headline": "CHASE PROTEIN AND FIBER FIRST",
+     "accent": "PROTEIN AND FIBER",
+     "sub1": "THOSE TWO MOVE BODY COMPOSITION",
+     "sub2": "OIL BRAND IS A ROUNDING ERROR",
+     "scene": "GainFrame Guy holding a plate stacked with chicken, rice and broccoli, giving a thumbs up."
+    }
+   ],
+   "plug": null,
+   "caption": "my seed oil free chips still had 800 calories",
+   "hashtags": "#gymtok #nutrition #seedoils #fitness #gainframe"
+  },
+  {
+   "slug": "is-bmi-useless-if-you-lift",
+   "cover_lines": [
+    [
+     "IS BMI USELESS",
+     "black"
+    ],
+    [
+     "IF YOU LIFT?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy with a lean muscular build standing on a bathroom scale, arms out in a shrug, a small clipboard chart propped beside him.",
+   "tips": [
+    {
+     "headline": "BMI CANNOT SEE MUSCLE",
+     "accent": "CANNOT",
+     "sub1": "IT IS HEIGHT AND WEIGHT, NOTHING ELSE",
+     "sub2": "A LEAN LIFTER READS AS OVERWEIGHT",
+     "scene": "GainFrame Guy with a muscular build standing on a bathroom scale looking down at it, unimpressed."
+    },
+    {
+     "headline": "IT WAS BUILT FOR POPULATIONS",
+     "accent": "POPULATIONS",
+     "sub1": "DESIGNED TO DESCRIBE GROUPS, NOT YOU",
+     "sub2": "ONE PERSON IS THE WRONG UNIT",
+     "scene": "GainFrame Guy standing beside a simple bar chart on an easel, pointing at one tall bar."
+    },
+    {
+     "headline": "FFMI IS THE LIFTER VERSION",
+     "accent": "FFMI",
+     "sub1": "IT SCALES LEAN MASS TO YOUR HEIGHT",
+     "sub2": "THAT NUMBER MOVES WITH TRAINING",
+     "scene": "GainFrame Guy with a muscular build in a double bicep flex beside a simple vertical measuring ruler."
+    },
+    {
+     "headline": "TRACK BODY FAT AND THE MIRROR",
+     "accent": "BODY FAT",
+     "sub1": "SAME WEIGHT CAN LOOK COMPLETELY DIFFERENT",
+     "sub2": "COMPOSITION IS THE WHOLE POINT",
+     "scene": "GainFrame Guy with a lean muscular build in a confident double-bicep flex, a simple tape measure looped on the floor beside his feet. No mirror."
+    }
+   ],
+   "plug": {
+    "screenshot": "ffmi.png",
+    "h1": "BMI cannot tell",
+    "h2": "muscle from fat",
+    "screen_name": "FFMI"
+   },
+   "caption": "bmi says im overweight, my tshirts say otherwise",
+   "hashtags": "#gymtok #bodycomposition #ffmi #fitness #gainframe"
+  },
+  {
+   "slug": "do-you-need-10k-steps",
+   "cover_lines": [
+    [
+     "DO YOU REALLY",
+     "black"
+    ],
+    [
+     "NEED 10K STEPS?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy walking briskly, looking down at a large simple fitness tracker on his wrist.",
+   "tips": [
+    {
+     "headline": "10000 CAME FROM AN AD",
+     "accent": "AN AD",
+     "sub1": "IT WAS A 1960S PEDOMETER SLOGAN",
+     "sub2": "NOT ONE STUDY BEHIND THE NUMBER",
+     "scene": "GainFrame Guy holding up a small vintage clip-on pedometer device, examining it closely."
+    },
+    {
+     "headline": "THE CURVE BENDS AT 7000",
+     "accent": "7000",
+     "sub1": "MOST OF THE HEALTH BENEFIT LANDS BY THEN",
+     "sub2": "MORE HELPS, JUST LESS PER STEP",
+     "scene": "GainFrame Guy walking beside a simple rising line graph that flattens out near the top."
+    },
+    {
+     "headline": "STEPS ARE FREE FAT LOSS",
+     "accent": "FREE",
+     "sub1": "WALKING BURNS WITHOUT WRECKING RECOVERY",
+     "sub2": "IT WILL NOT COST YOU A LEG DAY",
+     "scene": "GainFrame Guy mid stride walking briskly, a single dumbbell resting on the ground behind him. No path, no scenery."
+    },
+    {
+     "headline": "GOING FROM 3K TO 6K IS THE WIN",
+     "accent": "3K TO 6K",
+     "sub1": "THE JUMP OFF THE FLOOR MATTERS MOST",
+     "sub2": "CHASING 12K IS NOT WHERE THE GAIN IS",
+     "scene": "GainFrame Guy climbing two simple stair-step blocks, the first step much taller than the second."
+    },
+    {
+     "headline": "PICK A FLOOR YOU HIT DAILY",
+     "accent": "DAILY",
+     "sub1": "CONSISTENT BEATS IMPRESSIVE",
+     "sub2": "SET IT LOW ENOUGH TO NEVER MISS",
+     "scene": "GainFrame Guy walking past a simple wall calendar with a row of small ticks on it."
+    }
+   ],
+   "plug": null,
+   "caption": "walked 9,847 and paced my kitchen for ten minutes",
+   "hashtags": "#gymtok #steps #fatloss #walking #gainframe"
+  },
+  {
+   "slug": "are-eggs-actually-bad",
+   "cover_lines": [
+    [
+     "ARE EGGS",
+     "black"
+    ],
+    [
+     "ACTUALLY BAD?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy holding up a frying pan with three fried eggs in it, an open egg carton floating beside him. No stove, no counter.",
+   "tips": [
+    {
+     "headline": "DIETARY CHOLESTEROL BARELY MOVES BLOOD",
+     "accent": "BARELY",
+     "sub1": "YOUR LIVER MAKES MOST OF IT ANYWAY",
+     "sub2": "IT DIALS DOWN WHEN YOU EAT MORE",
+     "scene": "GainFrame Guy holding a single egg up to eye level, inspecting it."
+    },
+    {
+     "headline": "THE YOLK IS THE NUTRIENT PART",
+     "accent": "THE YOLK",
+     "sub1": "CHOLINE, VITAMIN D AND HALF THE PROTEIN",
+     "sub2": "BINNING IT BINS THE POINT",
+     "scene": "GainFrame Guy holding a bowl of whole eggs, a small trash can beside him with discarded yolks and a red X above it."
+    },
+    {
+     "headline": "THREE A DAY IS FINE FOR MOST",
+     "accent": "THREE A DAY",
+     "sub1": "GUIDELINES DROPPED THE HARD LIMIT YEARS AGO",
+     "sub2": "IF YOU HAVE A CONDITION, ASK YOUR DOCTOR",
+     "scene": "GainFrame Guy sitting holding a plate of three eggs, fork in his other hand. No table, no room."
+    },
+    {
+     "headline": "WHAT THEY COME WITH MATTERS MORE",
+     "accent": "COME WITH",
+     "sub1": "EGGS AND SPINACH IS NOT EGGS AND BACON",
+     "sub2": "THE SIDE DISH RUNS THE NUMBERS",
+     "scene": "GainFrame Guy holding two plates, one with eggs and greens and a green tick, one piled with bacon and a red X."
+    },
+    {
+     "headline": "SIX GRAMS OF PROTEIN EACH",
+     "accent": "SIX GRAMS",
+     "sub1": "CHEAP, FAST AND EASY TO DIGEST",
+     "sub2": "STILL ONE OF THE BEST FOODS GOING",
+     "scene": "GainFrame Guy with a lean muscular build holding an egg carton overhead like a trophy."
+    }
+   ],
+   "plug": null,
+   "caption": "eating four eggs while people panic about one",
+   "hashtags": "#gymtok #nutrition #protein #eggs #gainframe"
+  },
+  {
+   "slug": "is-the-smith-machine-a-joke",
+   "cover_lines": [
+    [
+     "IS THE SMITH",
+     "black"
+    ],
+    [
+     "MACHINE A JOKE?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy standing beside a Smith machine with its angled fixed barbell, arms crossed, looking at it sideways.",
+   "tips": [
+    {
+     "headline": "THE FIXED BAR PATH IS THE FEATURE",
+     "accent": "THE FEATURE",
+     "sub1": "LESS BALANCING MEANS MORE LOAD ON THE MUSCLE",
+     "sub2": "THAT IS THE WHOLE POINT OF A MACHINE",
+     "scene": "GainFrame Guy pressing the angled fixed bar of a Smith machine, shown from the side so the whole machine frame sits to his right. Nothing passes behind his head — the space around his head is empty."
+    },
+    {
+     "headline": "IT IS THE SAFEST WAY TO PUSH",
+     "accent": "SAFEST",
+     "sub1": "THE HOOKS CATCH THE BAR WITH NO SPOTTER",
+     "sub2": "YOU CAN ACTUALLY GO TO THE EDGE",
+     "scene": "GainFrame Guy standing upright and resting one hand on the safety hooks of a plain grey steel Smith machine upright. The machine is a simple open grey frame with no panels or boards in it, positioned low and entirely to his right, well below head height. Nothing passes behind his head — the space around his head is empty white."
+    },
+    {
+     "headline": "STOP COMPARING THE NUMBER",
+     "accent": "THE NUMBER",
+     "sub1": "SMITH WEIGHT IS NOT BARBELL WEIGHT",
+     "sub2": "COMPARE IT TO YOUR LAST SMITH SET",
+     "scene": "GainFrame Guy standing between a Smith machine and a free barbell, holding a small logbook, looking between the two."
+    },
+    {
+     "headline": "IT IS NOT A SQUAT REPLACEMENT",
+     "accent": "NOT",
+     "sub1": "THE FIXED PATH FIGHTS YOUR HIPS ON SQUATS",
+     "sub2": "USE IT FOR PRESSES, ROWS AND SHRUGS",
+     "scene": "Two GainFrame Guy figures side by side, the left one pressing on a Smith machine with a green tick, the right one squatting on it awkwardly with a red X."
+    },
+    {
+     "headline": "USE IT WHEN THE RACK IS TAKEN",
+     "accent": "TAKEN",
+     "sub1": "A DECENT SET BEATS WAITING FIFTEEN MINUTES",
+     "sub2": "THE BEST MACHINE IS THE FREE ONE",
+     "scene": "GainFrame Guy walking toward an empty Smith machine, a busy squat rack behind him with a queue barrier beside it."
+    }
+   ],
+   "plug": null,
+   "caption": "smith machine haters have never trained at 6pm",
+   "hashtags": "#gymtok #liftingtips #gymequipment #hypertrophy #gainframe"
+  },
+  {
+   "slug": "does-the-sauna-do-anything",
+   "cover_lines": [
+    [
+     "DOES THE SAUNA",
+     "black"
+    ],
+    [
+     "DO ANYTHING?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy sitting on a short simple wooden bench with a folded towel beside him, sweat droplets around his head and small curved heat-wave lines rising. No room, no walls.",
+   "tips": [
+    {
+     "headline": "THE WEIGHT LOSS IS WATER",
+     "accent": "WATER",
+     "sub1": "IT COMES BACK WITH YOUR NEXT DRINK",
+     "sub2": "THE SCALE DROPS, BODY FAT DOES NOT",
+     "scene": "GainFrame Guy standing on a bathroom scale holding a large water bottle, sweat droplets around him."
+    },
+    {
+     "headline": "IT IS REAL FOR RECOVERY FEEL",
+     "accent": "RECOVERY",
+     "sub1": "HEAT RELAXES MUSCLE AND HELPS SLEEP",
+     "sub2": "FEELING BETTER IS A LEGITIMATE WIN",
+     "scene": "GainFrame Guy lying back relaxed along a short simple wooden bench, eyes closed, small curved heat-wave lines rising around him. No room, no walls."
+    },
+    {
+     "headline": "REGULAR HEAT HELPS THE HEART",
+     "accent": "THE HEART",
+     "sub1": "FINNISH DATA LINKS FREQUENT SAUNA TO LOWER RISK",
+     "sub2": "IT IS STILL NOT A CARDIO REPLACEMENT",
+     "scene": "GainFrame Guy sitting on a short simple wooden bench with a towel over his shoulder, small curved heat-wave lines rising around him. No sauna room, no walls."
+    },
+    {
+     "headline": "COLD BLUNTS GAINS, HEAT DOES NOT",
+     "accent": "HEAT DOES NOT",
+     "sub1": "ICE RIGHT AFTER LIFTING CAN CUT GROWTH SIGNALS",
+     "sub2": "SAUNA DOES NOT CARRY THAT PENALTY",
+     "scene": "Two GainFrame Guy figures side by side, the left in an ice bath tub with a red X, the right on a wooden sauna bench with a green tick."
+    },
+    {
+     "headline": "DRINK AND SALT AFTERWARDS",
+     "accent": "DRINK AND SALT",
+     "sub1": "YOU LOSE MORE THAN WATER IN THERE",
+     "sub2": "GOING IN DEHYDRATED IS THE REAL RISK",
+     "scene": "GainFrame Guy drinking from a large water bottle, a small salt shaker on a bench beside him."
+    }
+   ],
+   "plug": null,
+   "caption": "lost three pounds in the sauna and found them at the water fountain",
+   "hashtags": "#gymtok #recovery #sauna #fitness #gainframe"
+  },
+  {
+   "slug": "should-you-train-when-sore",
+   "cover_lines": [
+    [
+     "SHOULD YOU TRAIN",
+     "black"
+    ],
+    [
+     "WHEN SORE?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy walking stiffly down a short flight of stairs, one hand pressed to his thigh, gripping the handrail.",
+   "tips": [
+    {
+     "headline": "MILD SORENESS IS A GREEN LIGHT",
+     "accent": "GREEN LIGHT",
+     "sub1": "TRAINING OFTEN MAKES IT FEEL BETTER",
+     "sub2": "BLOOD FLOW BEATS LYING STILL",
+     "scene": "GainFrame Guy doing a light warm up set on a leg press machine, a small green tick beside him."
+    },
+    {
+     "headline": "SORE IS NOT THE SAME AS WEAK",
+     "accent": "NOT THE SAME",
+     "sub1": "TEST THE FIRST SET, THEN DECIDE",
+     "sub2": "IF STRENGTH HOLDS, THE SESSION IS ON",
+     "scene": "GainFrame Guy standing and unracking a barbell for a first set, small focus lines around him, a small logbook resting on the ground beside him."
+    },
+    {
+     "headline": "SHARP AND ONE SIDED MEANS STOP",
+     "accent": "SHARP",
+     "sub1": "JOINT PAIN AND PINCHING ARE DIFFERENT SIGNALS",
+     "sub2": "THAT ONE IS NOT SORENESS",
+     "scene": "GainFrame Guy stopping mid lift with a hand on one shoulder, a red warning triangle beside him."
+    },
+    {
+     "headline": "FOUR DAYS SORE MEANS TOO MUCH",
+     "accent": "FOUR DAYS",
+     "sub1": "YOU OVERSHOT THE VOLUME LAST SESSION",
+     "sub2": "CUT A SET AND ADD IT BACK SLOWLY",
+     "scene": "GainFrame Guy sitting on a bench holding a logbook, a small wall calendar behind him with four days marked in red."
+    }
+   ],
+   "plug": {
+    "screenshot": "check-ins.png",
+    "h1": "Log what you trained",
+    "h2": "so you can spot the pattern",
+    "screen_name": "check-in streak"
+   },
+   "caption": "walking down stairs like i owe them money",
+   "hashtags": "#gymtok #recovery #doms #liftingtips #gainframe"
+  },
+  {
+   "slug": "are-bcaas-a-scam",
+   "cover_lines": [
+    [
+     "ARE BCAAS",
+     "black"
+    ],
+    [
+     "A SCAM?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy holding up a shaker bottle of brightly colored liquid, looking at it flatly, unimpressed.",
+   "tips": [
+    {
+     "headline": "YOU NEED ALL NINE, NOT THREE",
+     "accent": "ALL NINE",
+     "sub1": "MUSCLE NEEDS THE FULL AMINO SET",
+     "sub2": "THREE ALONE CANNOT BUILD ANYTHING",
+     "scene": "GainFrame Guy standing beside a simple row of nine small blocks, only three of them filled in."
+    },
+    {
+     "headline": "WHEY ALREADY CONTAINS THEM",
+     "accent": "ALREADY",
+     "sub1": "ONE SCOOP BEATS A WHOLE TUB OF BCAAS",
+     "sub2": "AND IT COSTS LESS PER GRAM",
+     "scene": "GainFrame Guy holding a protein tub in one hand and a BCAA tub in the other, tipping toward the protein."
+    },
+    {
+     "headline": "HIT YOUR PROTEIN AND YOU ARE DONE",
+     "accent": "YOU ARE DONE",
+     "sub1": "ENOUGH DAILY PROTEIN MAKES THEM POINTLESS",
+     "sub2": "NO STUDY SHOWS EXTRA GROWTH ON TOP",
+     "scene": "GainFrame Guy with a lean muscular build holding a plate of chicken and rice, a green tick beside him."
+    },
+    {
+     "headline": "IT IS A FLAVORED DRINK",
+     "accent": "FLAVORED DRINK",
+     "sub1": "IF IT GETS YOU SIPPING WATER, FINE",
+     "sub2": "JUST DO NOT CALL IT A MUSCLE BUILDER",
+     "scene": "GainFrame Guy sitting on a simple gym bench sipping from a brightly colored shaker through a straw."
+    },
+    {
+     "headline": "SPEND IT ON FOOD INSTEAD",
+     "accent": "FOOD",
+     "sub1": "FORTY DOLLARS IS A LOT OF CHICKEN AND EGGS",
+     "sub2": "THAT ACTUALLY MOVES THE NEEDLE",
+     "scene": "GainFrame Guy carrying a grocery bag with chicken and an egg carton visible in the top."
+    }
+   ],
+   "plug": null,
+   "caption": "spent $45 on expensive water for two years",
+   "hashtags": "#gymtok #supplements #protein #bcaa #gainframe"
+  },
+  {
+   "slug": "build-muscle-after-40",
+   "cover_lines": [
+    [
+     "CAN YOU BUILD",
+     "black"
+    ],
+    [
+     "MUSCLE AFTER 40?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy with a lean muscular build doing a heavy single arm dumbbell row braced on a bench, focused and confident.",
+   "tips": [
+    {
+     "headline": "YES, AND THE STUDIES ARE CLEAR",
+     "accent": "YES",
+     "sub1": "TRAINED SIXTY YEAR OLDS GAIN REAL MUSCLE",
+     "sub2": "THE MACHINERY STILL WORKS FINE",
+     "scene": "GainFrame Guy with a muscular build in a double bicep flex, a small green upward arrow beside him."
+    },
+    {
+     "headline": "YOU NEED MORE PROTEIN, NOT LESS",
+     "accent": "MORE",
+     "sub1": "OLDER MUSCLE RESPONDS SLOWER TO A MEAL",
+     "sub2": "FORTY GRAMS PER MEAL BEATS TWENTY",
+     "scene": "GainFrame Guy holding a large plate of steak and potatoes, looking pleased."
+    },
+    {
+     "headline": "RECOVERY IS THE REAL LIMIT",
+     "accent": "RECOVERY",
+     "sub1": "SAME GROWTH, LONGER TURNAROUND",
+     "sub2": "THREE HARD DAYS BEATS SIX RUSHED ONES",
+     "scene": "GainFrame Guy standing and stretching his arms upward in a big morning stretch, relaxed and rested. A small alarm clock floats beside him at waist height. Nothing behind or above his head — completely empty white space around the head."
+    },
+    {
+     "headline": "JOINTS DECIDE THE EXERCISE LIST",
+     "accent": "JOINTS",
+     "sub1": "SWAP THE LIFT, KEEP THE STIMULUS",
+     "sub2": "MACHINES ARE NOT A DOWNGRADE",
+     "scene": "GainFrame Guy pressing on a chest press machine with a green tick beside him, a heavy barbell resting on the floor nearby."
+    }
+   ],
+   "plug": {
+    "screenshot": "compare.png",
+    "h1": "Proof it still works",
+    "h2": "photo next to photo",
+    "screen_name": "progress compare"
+   },
+   "caption": "started lifting at 41 and my 25 year old self is jealous",
+   "hashtags": "#gymtok #over40 #liftingtips #musclegrowth #gainframe"
+  },
+  {
+   "slug": "does-muscle-weigh-more-than-fat",
+   "cover_lines": [
+    [
+     "DOES MUSCLE WEIGH",
+     "black"
+    ],
+    [
+     "MORE THAN FAT?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy holding a small heavy dumbbell in one hand and a large light beach ball in the other, comparing them, head tilted.",
+   "tips": [
+    {
+     "headline": "A POUND IS A POUND",
+     "accent": "A POUND",
+     "sub1": "THE PHRASE IS WRONG AS WRITTEN",
+     "sub2": "WHAT CHANGES IS THE SPACE IT TAKES",
+     "scene": "GainFrame Guy standing beside a simple balance scale holding level, a small dense block on one side and a big light block on the other."
+    },
+    {
+     "headline": "MUSCLE IS DENSER, SO IT IS SMALLER",
+     "accent": "DENSER",
+     "sub1": "SAME WEIGHT, LESS ROOM ON YOUR FRAME",
+     "sub2": "THAT IS WHY THE MIRROR MOVES FIRST",
+     "scene": "GainFrame Guy standing in front of a full length mirror, the reflection showing a leaner tighter version of the same body."
+    },
+    {
+     "headline": "THE SCALE CAN STALL WHILE YOU CHANGE",
+     "accent": "STALL",
+     "sub1": "LOSING FAT AND GAINING MUSCLE CANCEL OUT",
+     "sub2": "FLAT WEIGHT IS NOT FLAT PROGRESS",
+     "scene": "GainFrame Guy standing on a bathroom scale with arms out in a shrug, a flat line graph on the wall behind him."
+    },
+    {
+     "headline": "MEASURE WHAT THE SCALE MISSES",
+     "accent": "MISSES",
+     "sub1": "PHOTOS, WAIST AND STRENGTH TELL THE STORY",
+     "sub2": "ONE NUMBER CANNOT DO THIS JOB",
+     "scene": "GainFrame Guy holding a tape measure around his waist, a phone on a small tripod beside him."
+    }
+   ],
+   "plug": {
+    "screenshot": "muscle-map.png",
+    "h1": "Same weight,",
+    "h2": "completely different body",
+    "screen_name": "muscle map"
+   },
+   "caption": "scale hasnt moved in six weeks and i look nothing like i did",
+   "hashtags": "#gymtok #bodyrecomposition #fatloss #bodycomposition #gainframe"
+  },
+  {
+   "slug": "does-full-range-of-motion-matter",
+   "cover_lines": [
+    [
+     "DOES FULL RANGE",
+     "black"
+    ],
+    [
+     "ACTUALLY MATTER?",
+     "red"
+    ]
+   ],
+   "cover_scene": "Two GainFrame Guy figures squatting side by side with barbells, the left one in a deep full squat, the right one barely bending his knees.",
+   "tips": [
+    {
+     "headline": "THE STRETCHED HALF DOES THE WORK",
+     "accent": "STRETCHED HALF",
+     "sub1": "MUSCLE GROWS MOST UNDER LENGTHENED LOAD",
+     "sub2": "THE BOTTOM OF THE REP IS THE POINT",
+     "scene": "GainFrame Guy at the deep bottom position of a dumbbell chest press on a bench, arms wide and stretched."
+    },
+    {
+     "headline": "HALF REPS BUILD HALF THE RANGE",
+     "accent": "HALF THE RANGE",
+     "sub1": "STRENGTH SHOWS UP WHERE YOU TRAINED IT",
+     "sub2": "SKIP THE BOTTOM AND STAY WEAK THERE",
+     "scene": "GainFrame Guy doing a shallow quarter squat with a loaded barbell, a red X beside him."
+    },
+    {
+     "headline": "IF YOU CUT REPS, CUT THE TOP",
+     "accent": "CUT THE TOP",
+     "sub1": "LENGTHENED PARTIALS BEAT SHORT ONES",
+     "sub2": "STAY WHERE THE MUSCLE IS STRETCHED",
+     "scene": "GainFrame Guy doing a lat pulldown from the fully stretched overhead position, a green tick beside him."
+    },
+    {
+     "headline": "DROP THE WEIGHT TO GET THE RANGE",
+     "accent": "DROP THE WEIGHT",
+     "sub1": "FULL REPS AT SIXTY PERCENT BEAT QUARTERS AT NINETY",
+     "sub2": "THE MUSCLE COUNTS TENSION, NOT PLATES",
+     "scene": "GainFrame Guy sliding a plate off a barbell, a smaller plate already loaded on the other side."
+    },
+    {
+     "headline": "YOUR RANGE IS NOT THEIR RANGE",
+     "accent": "YOUR RANGE",
+     "sub1": "HIP AND SHOULDER SHAPE SET THE LIMIT",
+     "sub2": "FULL MEANS FULL FOR YOUR JOINTS",
+     "scene": "Two GainFrame Guy figures squatting side by side at slightly different depths, both with green ticks above them."
+    }
+   ],
+   "plug": null,
+   "caption": "quarter squat guy still hasnt met the bottom half of a rep",
+   "hashtags": "#gymtok #liftingtips #hypertrophy #squats #gainframe"
+  },
+  {
+   "slug": "do-you-need-to-deadlift",
+   "cover_lines": [
+    [
+     "DO YOU NEED TO",
+     "black"
+    ],
+    [
+     "DEADLIFT?",
+     "red"
+    ]
+   ],
+   "cover_scene": "GainFrame Guy standing over a loaded barbell resting on the gym floor, hands on his hips, looking down at it, deciding.",
+   "tips": [
+    {
+     "headline": "NO SINGLE LIFT IS REQUIRED",
+     "accent": "NO SINGLE LIFT",
+     "sub1": "THE BACK DOES NOT KNOW EXERCISE NAMES",
+     "sub2": "IT ONLY KNOWS TENSION AND RECOVERY",
+     "scene": "GainFrame Guy doing a seated cable row with a focused expression, the cable stack low and entirely to his left. Nothing behind his head."
+    },
+    {
+     "headline": "IT IS THE MOST EFFICIENT OPTION",
+     "accent": "EFFICIENT",
+     "sub1": "ONE LIFT HITS HAMSTRINGS, GLUTES AND BACK",
+     "sub2": "HARD TO BEAT ON A SHORT SESSION",
+     "scene": "GainFrame Guy at the top of a conventional deadlift holding a loaded barbell, standing tall."
+    },
+    {
+     "headline": "IT ALSO COSTS THE MOST RECOVERY",
+     "accent": "COSTS",
+     "sub1": "HEAVY PULLS TAX THE WHOLE SYSTEM",
+     "sub2": "THAT IS WHY THEY GO WRONG FIRST",
+     "scene": "GainFrame Guy sitting slumped on the gym floor next to a loaded barbell, drained, small droop lines around him."
+    },
+    {
+     "headline": "TRAP BAR AND RDLS COVER IT",
+     "accent": "TRAP BAR",
+     "sub1": "SAME MUSCLES, FRIENDLIER BACK POSITION",
+     "sub2": "SWAPPING IS NOT QUITTING",
+     "scene": "GainFrame Guy standing inside a hexagonal trap bar lifting it, upright posture, a green tick beside him."
+    },
+    {
+     "headline": "IF IT HURTS, IT IS NOT MANDATORY",
+     "accent": "NOT MANDATORY",
+     "sub1": "PAIN FREE PROGRESS BEATS A PR YOU DREAD",
+     "sub2": "PICK THE PULL YOU CAN KEEP ADDING TO",
+     "scene": "GainFrame Guy doing a controlled Romanian deadlift with dumbbells, flat back, calm expression."
+    }
+   ],
+   "plug": null,
+   "caption": "deadlift day is just a nap scheduled six hours later",
+   "hashtags": "#gymtok #deadlift #liftingtips #strength #gainframe"
+  }
+ ]
 }

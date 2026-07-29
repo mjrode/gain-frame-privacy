@@ -15,14 +15,169 @@ triggers:
 
 ## Overview
 
-Generates GainFrame Guy TikTok carousel posts. Image generation uses the Gemini API directly via curl with base64-encoded reference images.
+Generates GainFrame Guy TikTok carousel posts.
 
-Every phase is the same. Only the image generation bash block in Phase 3 changes.
+**Use the deterministic pipeline (below) for all standard carousels.** The
+hand-rolled curl blocks documented further down are the fallback for one-off
+promo slides that do not fit the standard/plug slide shapes.
 
 Read the style guide before starting:
 ```
 view_file docs/assets/gainframe-guy/illustrations/STYLE_GUIDE.md
 ```
+Note: the style guide's background colour is **stale**. It says cream `#F5F0EB`;
+the brand is pure white `#FFFFFF` and has been since the pipeline landed.
+
+---
+
+## The deterministic pipeline (primary path)
+
+Lives in `docs/assets/tiktok/comic/_pipeline/`:
+
+| File | Job |
+|------|-----|
+| `posts.json` | All post copy — one entry per carousel. This is what you author. |
+| `build.py` | Generates mascot art via Gemini, gates it on QA, then calls compose. |
+| `compose.py` | Draws ALL slide text with Pillow at fixed sizes/positions. |
+| `clean_refs.py` | One-off: builds the white-background reference set. |
+
+**The model never renders text.** It draws only the mascot on a blank white
+canvas; every headline, subtitle, page pill and knockout block is composited by
+Pillow so type is pixel-identical across every slide of every post. Raw art is
+cached in `{post}/_art/`, so text can be re-composited for free.
+
+```bash
+source ~/.zshrc                                    # GEMINI_API_KEY
+python3 docs/assets/tiktok/comic/_pipeline/build.py --post <slug>
+python3 .../build.py --post <slug> --slides cover,1 # subset
+python3 .../build.py --post <slug> --recompose      # text-only redo, no API cost
+python3 .../build.py --post <slug> --force          # re-roll cached art
+```
+
+Authoring a post means appending one object to `posts.json["posts"]`:
+
+```jsonc
+{
+  "slug": "does-the-sauna-do-anything",
+  "cover_lines": [["DOES THE SAUNA", "black"], ["DO ANYTHING?", "red"]],
+  "cover_scene": "…mascot scene, no text…",
+  "tips": [{ "headline": "…", "accent": "…", "sub1": "…", "sub2": "…", "scene": "…" }],
+  "plug": null,          // or { screenshot, h1, h2, screen_name }
+  "caption": "…",
+  "hashtags": "#gymtok #… (exactly 5)"
+}
+```
+
+Copy conventions the existing entries follow — match them:
+- `headline` / `accent` / `sub1` / `sub2` are ALL CAPS, **no apostrophes**
+  (write `CANT`, `ISNT`, `WILL NOT`), and US spelling (`FIBER`, `FLAVOR`).
+- `accent` must be a verbatim substring of `headline` or it won't colour.
+- 6 slides per carousel: cover + 5 tips, or cover + 4 tips + plug.
+
+---
+
+## Cover slides: grid-safe + red knockout
+
+Two rules, both enforced in `compose.py` — do not regress them:
+
+**1. Everything lives inside the centre square.** TikTok centre-crops the 4:5
+slide to 1:1 for the profile-grid thumbnail, so only y 135–1215 survives there.
+Covers put the title at `COVER_TOP_ANCHOR` (213) and bottom-align art at
+`COVER_ART_BOTTOM` (1195). Before this was fixed, every cover shipped with the
+top of its title and the mascot's feet cropped off in the grid.
+
+**2. The accent line is a red knockout block**, not red type — white Impact
+reversed out of a solid `#E53935` bar. In a grid of white thumbnails the red
+block is what the eye lands on. Numbered slides keep red *type* for their
+accent; only covers get the block.
+
+Cover titles are therefore two lines: one black line, one red knockout line.
+Keep the knockout line ≤ ~15 characters or the auto-fit shrinks the whole title.
+
+---
+
+## Mascot head integrity
+
+The head is the one element that reliably drifts. It has failed in production
+across dozens of slides, so it gets a dedicated reference, a dedicated prompt
+block, and an automated gate. **Do not weaken any of the three.**
+
+### What went wrong (root cause, fixed 2026-07-26)
+
+1. **Every scene reference was drawn on a cream/tan canvas** (`mascot-sleep.jpeg`
+   was `#E4C582`). The prompt demanded pure white, so the model compromised by
+   filling the one *enclosed* region it could find — the interior of the bracket
+   head — with cream. That is the "solid card head" defect.
+2. **Four of the five scene references already contain a malformed head.**
+   `mascot-sleep.jpeg`'s head is literally a filled white panel with a sad face.
+   `mirror-mascot`, `mascot-legs` and `mascot-pictures` draw the brackets as a
+   nearly-closed continuous frame with an oversized face glyph. Every generation
+   was averaging one good head reference against one bad one.
+
+### The fix
+
+- **`_white/` references.** `clean_refs.py` border-flood-fills each reference
+  background to `#FFFFFF`. It floods from the image edge only, so olive shorts
+  and khaki shoes — same colour family as the old canvas — are untouched.
+  Re-run it only if a reference image is replaced.
+- **`_white/_head-reference.png` is the head authority**, passed as reference #1
+  on every mascot slide. It is a tight crop of the *template's* head on white.
+  Not `gary-badge.png`: the badge omits the small tick mark and draws a heavier
+  red bracket, so using it as the head-lock introduced drift of its own.
+- **Scene refs are demoted to pose-only** via `SCENE_REF_CAVEAT`, which tells
+  the model in so many words to ignore their head, background and shading.
+- **`HEAD_LOCK`** enumerates the five glyph elements, forbids the panel/fill/
+  outline/face failure modes, and requires head clearance — no prop, wall or
+  machine may pass behind the head, since an opaque head is the same defect in
+  milder form.
+
+### The automated gate
+
+`gen_art_checked()` runs two checks per slide and regenerates up to 3× on
+failure. It keeps the last attempt either way and prints the reason, so nothing
+silently ships and nothing silently goes missing:
+
+| Check | Cost | Catches |
+|-------|------|---------|
+| `check_background()` | free, deterministic | tinted floors/walls — ≥90% of the border ring must be near-white |
+| `check_head()` | ~$0.001 vision call | panel heads, missing/misplaced red bracket, face glyphs, opaque heads |
+
+`check_head()` is a **three-image comparison** — correct exemplar, incorrect
+exemplar, candidate. That framing matters: asking it to judge against an
+abstract rule list made it flag every slide as a "white card", because on a white
+page the head interior legitimately *is* white. It needs the negative anchor
+(`_white/_bad-head-example.png`) to make the distinction.
+
+Expect a visible number of `rejected (…) — regenerating` lines in a batch run.
+That is the gate working. A slide that exhausts all 3 attempts is flagged in the
+log; re-roll it with `--force`.
+
+**Audit a finished batch** with `--verify`, which re-runs both gates over cached
+art and prints a ready-to-paste `--force` command per failure. Roughly 5s per
+slide, so a 15-post batch takes ~8 minutes — run it in the background.
+
+**`check_head()` has a real false-positive rate** (~1 in 8). A muscular figure
+whose shoulders rise behind the lower brackets often gets flagged as "solid
+panel with an outline" when the head is perfectly correct. **Always eyeball a
+flagged slide before re-rolling it** — a false positive costs a good image.
+`check_background()` is deterministic and does not false-positive.
+
+### Scene writing rules (these prevent most failures)
+
+Background violations almost always trace back to the scene text, not the model.
+Ask for a kitchen and you get a counter; ask for a walk outdoors and you get
+grass; ask for a sauna and you get a wood-panelled room. `NO_SCENERY` in the
+prompt forbids floors, walls, counters and horizons, but the scene string has to
+cooperate:
+
+- **Never name a room or a location.** Write "sitting on a short simple wooden
+  bench with heat-wave lines rising", not "sitting in a sauna".
+- **Say where props go relative to the head.** Anything tall — a rack, a Smith
+  machine, a cable stack — must be placed "entirely to his left/right" or it
+  ends up behind the head and forces an opaque head.
+- Prefer "floating beside him" over "on a table/counter" for objects.
+- A soft grey ellipse shadow under the feet is the only thing allowed beneath
+  the character.
 
 ---
 

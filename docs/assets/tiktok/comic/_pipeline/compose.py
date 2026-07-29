@@ -26,8 +26,24 @@ ARIAL_BOLD = "/Users/michael.rode/Library/Fonts/Arial Bold.ttf"
 SIDE_MARGIN = 70
 MAX_TEXT_W = W - 2 * SIDE_MARGIN          # 940
 TOP_ANCHOR = 124                          # y where text blocks start (clears page pill)
-COVER_MAX_FONT = 150
-COVER_MIN_FONT = 78
+
+# TikTok center-crops the 4:5 slide to a square for the profile-grid thumbnail,
+# so only y 135..1215 survives there. Covers are the thumbnail — their title AND
+# the mascot must both live inside that band or the grid shows a clipped title
+# and cropped-off feet. Numbered slides are only ever seen full-frame in the
+# swipe feed, so they keep the taller layout.
+GRID_SAFE_TOP = (H - W) // 2              # 135
+GRID_SAFE_BOTTOM = H - (H - W) // 2       # 1215
+COVER_TOP_ANCHOR = GRID_SAFE_TOP + 78     # 213
+COVER_ART_BOTTOM = GRID_SAFE_BOTTOM - 20  # 1195
+
+COVER_MAX_FONT = 164
+COVER_MIN_FONT = 84
+COVER_LINE_SPACING = 0.98                 # tighter than body copy — title reads as one slab
+# red knockout block padding around an accent line
+KNOCKOUT_PAD_X = 26
+KNOCKOUT_PAD_TOP = 14
+KNOCKOUT_PAD_BOTTOM = 20
 HEAD_MAX_FONT = 104
 HEAD_MIN_FONT = 52
 SUB_FONT = 40
@@ -51,7 +67,7 @@ def _line_h(draw, font):
     return b[3] - b[1]
 
 
-def _draw_page_pill(draw, page):
+def _draw_page_pill(draw, page, y_top=34):
     if not page:
         return
     n, total = page
@@ -61,7 +77,7 @@ def _draw_page_pill(draw, page):
     pad_x, pad_y = 24, 14
     pw, ph = tw + 2 * pad_x, th + 2 * pad_y
     x1 = W - 34 - pw
-    y1 = 34
+    y1 = y_top
     draw.rounded_rectangle([x1, y1, x1 + pw, y1 + ph], radius=ph // 2, fill=PILL_BG)
     # center label inside pill (account for bbox top offset)
     b = draw.textbbox((0, 0), label, font=font)
@@ -137,12 +153,21 @@ BOTTOM_MARGIN = 36
 ART_TOP_PAD = 40
 
 
-def _place_art(canvas, art_path, top_limit, max_upscale=1.6):
+def _place_art(canvas, art_path, top_limit, max_upscale=1.6, bottom_limit=None,
+               valign="bottom"):
     """Crop model art to its non-white content and scale it into the band
-    below top_limit, bottom-aligned. Text is drawn first, so art can never
-    overlap it regardless of where the model placed the figure."""
+    between top_limit and bottom_limit. Text is drawn first, so art can never
+    overlap it regardless of where the model placed the figure.
+
+    valign="bottom" stands the mascot on the bottom margin, which is what a
+    figure with feet should do. valign="center" is for wide art that ends up
+    width-constrained — a bottom-aligned phone mock leaves a dead white void
+    between the headline and the art.
+    """
     if not art_path:
         return
+    if bottom_limit is None:
+        bottom_limit = H - BOTTOM_MARGIN
     art = Image.open(art_path).convert("RGB")
     gray = art.convert("L")
     mask = gray.point(lambda p: 255 if p < 248 else 0)
@@ -151,7 +176,7 @@ def _place_art(canvas, art_path, top_limit, max_upscale=1.6):
         return
     content = art.crop(bbox)
     cw, ch = content.size
-    avail_h = (H - BOTTOM_MARGIN) - top_limit
+    avail_h = bottom_limit - top_limit
     avail_w = W - 2 * 40
     if avail_h < 60:
         return
@@ -159,7 +184,10 @@ def _place_art(canvas, art_path, top_limit, max_upscale=1.6):
     nw, nh = max(1, int(cw * scale)), max(1, int(ch * scale))
     content = content.resize((nw, nh), Image.LANCZOS)
     x = (W - nw) // 2
-    y = (H - BOTTOM_MARGIN) - nh
+    if valign == "center":
+        y = top_limit + (avail_h - nh) // 2
+    else:
+        y = bottom_limit - nh
     canvas.paste(content, (x, y))
 
 
@@ -168,25 +196,39 @@ def _canvas():
 
 
 def _render_cover(spec, art_path):
+    """Cover = the profile-grid thumbnail, so it gets the loud treatment: every
+    "red" line is reversed out white on a solid red knockout block instead of
+    being set in red type. In a grid of white thumbnails the red block is the
+    thing the eye lands on. Whole layout stays inside the grid-safe square."""
     img = _canvas()
     draw = ImageDraw.Draw(img)
     lines = spec["lines"]  # [[text,color], ...]
-    color_map = {"black": NEAR_BLACK, "red": RED}
+    # knockout blocks add horizontal bulk, so fit against a slightly wider box
+    fit_w = W - 2 * 50 - 2 * KNOCKOUT_PAD_X
     for size in range(COVER_MAX_FONT, COVER_MIN_FONT - 1, -2):
         font = _font(IMPACT, size)
-        if all(_text_size(draw, t, font)[0] <= MAX_TEXT_W for t, _ in lines):
+        if all(_text_size(draw, t, font)[0] <= fit_w for t, _ in lines):
             break
     lh = _line_h(draw, font)
-    step = lh * LINE_SPACING
-    y = TOP_ANCHOR
+    step = lh * COVER_LINE_SPACING
+    y = COVER_TOP_ANCHOR
     for text, color in lines:
         b = draw.textbbox((0, 0), text, font=font)
         tw = b[2] - b[0]
         x = (W - tw) / 2
-        draw.text((x - b[0], y - b[1]), text, font=font, fill=color_map[color])
+        if color == "red":
+            draw.rectangle(
+                [x - KNOCKOUT_PAD_X, y - KNOCKOUT_PAD_TOP,
+                 x + tw + KNOCKOUT_PAD_X, y + lh + KNOCKOUT_PAD_BOTTOM],
+                fill=RED,
+            )
+            draw.text((x - b[0], y - b[1]), text, font=font, fill=WHITE)
+        else:
+            draw.text((x - b[0], y - b[1]), text, font=font, fill=NEAR_BLACK)
         y += step
-    _place_art(img, art_path, y + ART_TOP_PAD)
-    _draw_page_pill(draw, spec.get("page"))
+    _place_art(img, art_path, y + 44, max_upscale=2.2,
+               bottom_limit=COVER_ART_BOTTOM)
+    _draw_page_pill(draw, spec.get("page"), y_top=GRID_SAFE_TOP + 10)
     return img
 
 
@@ -229,7 +271,7 @@ def _render_plug(spec, art_path):
     img = _canvas()
     draw = ImageDraw.Draw(img)
     font = _font(ARIAL_BOLD, 58)
-    y = 60
+    y = 130          # sits closer to the art than the old y=60
     for key in ("h1", "h2"):
         txt = spec.get(key)
         if not txt:
@@ -239,7 +281,9 @@ def _render_plug(spec, art_path):
         x = (W - tw) / 2
         draw.text((x - b[0], y - b[1]), txt, font=font, fill=NEAR_BLACK)
         y += (b[3] - b[1]) + 18
-    _place_art(img, art_path, y + ART_TOP_PAD)
+    # phone-and-logo art is wide, so it scales to width and leaves vertical
+    # slack — centre it rather than parking it on the bottom margin
+    _place_art(img, art_path, y + 12, max_upscale=1.9, valign="center")
     _draw_page_pill(draw, spec.get("page"))
     return img
 
@@ -263,7 +307,7 @@ if __name__ == "__main__":
     import os
     os.makedirs("/tmp/compose-test", exist_ok=True)
     compose({"type": "cover", "page": [1, 5],
-             "lines": [["MUSCLE TIPS", "black"], ["THAT SOUND", "black"], ["FAKE", "red"], ["BUT WORK", "black"]]},
+             "lines": [["IS STRETCHING A", "black"], ["WASTE OF TIME?", "red"]]},
             None, "/tmp/compose-test/cover.png")
     compose({"type": "numbered", "page": [2, 5], "number": 1,
              "headline": "TRAIN EACH MUSCLE TWICE A WEEK", "accent": "TWICE",
