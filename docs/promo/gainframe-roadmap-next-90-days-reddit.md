@@ -1,6 +1,8 @@
-# Reddit draft — GainFrame 90-day roadmap
+# Reddit draft — GainFrame community feedback
 
-**Blog article:** `https://gainframe.app/blog/gainframe-roadmap-next-90-days/` after publication
+**Subreddit:** r/GainFrame
+
+**Full roadmap:** https://gainframe.app/blog/gainframe-roadmap-next-90-days/
 
 **Suggested image:** `../blog/gainframe-roadmap-next-90-days/assets/focus-map.webp`
 
@@ -8,66 +10,92 @@
 
 ## Title options
 
-1. The next 90 days of my iOS fitness app are focused on retention
-2. I’m narrowing my fitness app around one recurring check-in loop
-3. My 90-day roadmap after week-four retention stayed below 12%
+1. I’m planning the next 90 days of GainFrame and need your feedback
+2. The GainFrame features I want to improve next
+3. I need help deciding what to fix first in GainFrame
 
 ## Post
 
-I’m spending the next 90 days trying to reduce paid churn by 30–50% and improve paid retention by about 25% in my iOS app, GainFrame.
+I’m planning the next 90 days of GainFrame, and this subreddit has the people I most want feedback from: people who have used the app enough to know where it feels useful, confusing, or flat-out wrong.
 
-Those are targets. I still need to lock down the baseline and make sure I’m measuring entitlement expiration separately from somebody turning off renewal.
+My main goal is to make GainFrame easier to understand and worth returning to for a couple of check-ins each week. I have a roadmap, but several parts are still guesses. I’d rather hear where those guesses are wrong before I spend weeks building them.
 
-The current product is an AI progress-photo tracker. In June, 27% of installers returned during week one, up from 20.1% in May. Week-four retention stayed between 8% and 12%.
+Feedback has already pushed me away from the early subscription disclosure mockup and back toward the dashboard hero and FAB menu that felt more like GainFrame. I’m open to changing the rest too.
 
-I wrote previously that the app “gets good on check-in five.” I need to correct that. I want the product to become more useful as photos, comparisons, workouts, and recovery context accumulate. I don’t have data proving that people value the history or that it improves retention yet.
+These are the main areas I’m looking at:
 
-So the first part of my roadmap is research rather than another batch of features.
+**Make scores and body-fat estimates easier to trust**
 
-**1. Establish the retention and churn baseline**
+Lighting, pose, crop, and camera angle can all affect an AI result. I want to test that variance properly, show when two photos are comparable, explain confidence in plain language, and hold off on calling something a trend when the evidence is weak.
 
-I’m auditing PostHog and RevenueCat together: identity, onboarding drop-off, the first photo flow, behavior during the seven days before cancellation, usage after renewal is disabled, and which first-week actions are associated with paid retention.
+If GainFrame has ever given you a score or body-fat estimate that felt wrong, I want to know what happened. A screenshot and the conditions around the photo would be especially useful.
 
-App opens won’t count as the retained behavior. I care about completed check-ins, comparisons, useful trend reviews, and other actions tied to the product’s main job.
+**Give the first check-in a clearer result**
 
-**2. Make the AI result easier to trust**
+The working idea is a Baseline Brief that puts the important parts in one place: starting point, visible strengths, areas to watch, body-composition estimates with limitations, photo quality, a Coach interpretation, and what the next check-in could confirm.
 
-The most rewarding part of the app is seeing a score improve or a body-fat estimate fall. It’s also the easiest place to lose somebody if lighting, pose, angle, or crop moves the number around.
+I’m less interested in shortening onboarding for the sake of having fewer screens. I want the first session to prove why the app is useful.
 
-I’m going to benchmark repeated results with controlled photo changes. Then the app can explain photo comparability, confidence, and when a trend needs one more check-in before it deserves a conclusion.
+**Attach more context to each check-in**
 
-**3. Turn each check-in into a durable record**
+GainFrame already attaches some weight and workout information to photos. I’m considering a small historical snapshot for each check-in day with workout volume, recent training load, sleep, HRV relative to your baseline, resting heart rate, recovery availability, and optional notes like soreness, stress, or energy.
 
-GainFrame already attaches some weight and workout information to photos. I want a small, versioned snapshot for the check-in day: workout summary, recent load, sleep, HRV relative to the person’s baseline, resting heart rate, recovery availability, and optional notes like soreness or stress.
+The idea is to look back at a photo and understand what you looked like, what you were training, and how you were recovering around that time. I need to know which of those signals you would use and which would just create more noise.
 
-I don’t want to clone somebody’s entire HealthKit history. Every stored field needs a user-facing reason to exist.
+**Make the next check-in feel useful**
 
-The useful result would be: this is what you looked like, what you were doing, how you were recovering, and what changed afterward.
+After a check-in, I want GainFrame to explain what changed, how confident it is, what may have contributed, when to check in again, and what that next photo could confirm.
 
-**4. Make one check-in create the reason for the next**
+Coach and Trends should help answer questions created by your check-ins. I don’t want them to feel like separate areas you open with no clear reason.
 
-The intended habit is one to three visits a week and roughly two check-ins. After each one, the app should explain what changed, how confident it is, what may be contributing, when to check again, and what that next check-in can confirm.
+**Keep simplifying Today, Photos, Compare, and Trends**
 
-Coach and Trends can fill the days between photos, but only when they are answering a question created by the person’s data.
+Each tab is supposed to have one job:
 
-**5. Test one social feature**
+- Today tells you what to do now.
+- Photos organizes your visual history.
+- Compare evaluates two check-ins.
+- Trends shows changes across several weeks.
 
-The working concept is GainFrame Timeprint. It would be a short vertical story that pose-locks a baseline and current check-in, shows time passing, highlights one credible area of change, and adds a personalized AI insight.
+If you still get lost, can’t find something, or ignore an entire tab, tell me where. That is more useful than a general “the UI is confusing.”
 
-It also needs to work when the transformation is subtle and when somebody does not want to share a raw physique photo. The privacy modes I’m considering are face blur, background removal, and a stylized AI representation.
+**Test a more private way to share progress**
 
-I’m going to make three visual prototypes before I build the generator. The reaction I want is, “I want to run that scan.” A generic before-and-after does not justify the engineering.
+The working concept is GainFrame Timeprint. It would turn one or more check-ins into a short vertical story showing the time between photos, a pose-aligned change, one AI insight, and the consistency behind it.
 
-The broader product direction is pretty simple: GainFrame should be a visual evidence system for physique progress. The UI gets easier when every prominent feature helps somebody capture, compare, interpret, return, or share.
+It would include privacy options such as face blur, background removal, and a stylized AI representation for anyone who does not want to post a raw physique photo. This is still a concept. I want to see whether anyone would share it before building the full generator.
 
-I’m sharing this before the research because I want the messy version on record. If you track your physique or build a subscription app, I’d be interested in where you think this plan is wrong.
+### What I’d like to know
 
-Full roadmap with the diagrams: [BLOG_URL]
+You can answer one question or all of them:
+
+1. What do you open GainFrame for most often?
+2. Which feature currently provides the most value?
+3. Where does the app feel confusing or too busy?
+4. Have you received an AI score or body-fat estimate you did not trust? What made it feel wrong?
+5. What usually stops you from completing another check-in that week?
+6. Which workout or recovery data would make an old photo more useful to revisit?
+7. Would you share a Timeprint? Which privacy option would you use?
+8. If you pay now or previously canceled, what would make GainFrame feel worth keeping each month?
+
+If a shorter reply is easier, use this:
+
+**Most useful:**
+
+**Most confusing:**
+
+**One thing I’d improve:**
+
+**Would I share a Timeprint:**
+
+I wrote out the complete roadmap and the assumptions behind it here: https://gainframe.app/blog/gainframe-roadmap-next-90-days/
+
+I’ll read every response. I may ask a follow-up if you’re open to it. Be blunt, especially about the parts you don’t trust or never use.
 
 ## Posting notes
 
-- Replace `[BLOG_URL]` after the article is published.
-- Attach `focus-map.webp` when the subreddit supports an image plus body text.
-- For stricter communities, remove the final link and add it only if somebody asks.
-- Check the community’s current self-promotion rules before posting.
-- Stay around for the first few hours and answer the product and measurement questions directly.
+- Use title option 1 for the main post.
+- Attach `focus-map.webp` if Reddit allows the image alongside the full text.
+- Pin the post while roadmap feedback is being collected.
+- Reply publicly when possible so other users can build on the answer.
+- Tag recurring feedback by area: trust, first check-in, context, habit, navigation, sharing, or subscription value.
