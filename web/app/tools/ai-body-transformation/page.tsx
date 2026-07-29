@@ -179,14 +179,17 @@ export default function AiBodyTransformationPage() {
               <span className="dot" aria-hidden />
               AI body transformation · Free · 1 render
             </span>
+            {/* Carries the same query as the title tag — this is the only
+                part of the page a phone shows above the fold, so it has to
+                match what someone searched to get here. */}
             <h1>
-              Future you, <span className="accent">from one photo.</span>
+              What would you look like{" "}
+              <span className="accent">if you lost weight?</span>
             </h1>
             <p className="btf-hero-sub">
-              Wondering what you&apos;d look like if you lost weight? Upload a
-              photo, pick what to emphasize, and AI renders what a year of
-              consistent training and diet builds — same face, same setting,
-              your future body.
+              Upload one photo, pick what to emphasize, and AI renders what a
+              year of consistent training and diet builds — same face, same
+              setting, your future body.
             </p>
             <div className="btf-hero-meta">
               <span>Free · No signup</span>
