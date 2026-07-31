@@ -233,6 +233,48 @@ export default function AboutPage() {
                 you can actually learn from.
               </p>
 
+              <section
+                className="about-principles"
+                aria-labelledby="build-principles"
+              >
+                <header className="about-principles__header">
+                  <span>Build notes / 03</span>
+                  <h2 id="build-principles">What guides the build</h2>
+                  <p>
+                    Three rules I come back to whenever a feature risks getting
+                    louder than the progress it is meant to clarify.
+                  </p>
+                </header>
+                <div className="about-principles__grid">
+                  <article className="about-principle">
+                    <span className="about-principle__index">01 / signal</span>
+                    <h3>Trends over snapshots</h3>
+                    <p>
+                      One check-in can be noisy. A consistent run of them is
+                      where I look for the real story.
+                    </p>
+                  </article>
+                  <article className="about-principle about-principle--coral">
+                    <span className="about-principle__index">02 / limits</span>
+                    <h3>Honest estimates over fake precision</h3>
+                    <p>
+                      I&rsquo;ll show the estimate and its limits. GainFrame is
+                      a tracking tool, not a clinical measurement or medical
+                      advice.
+                    </p>
+                  </article>
+                  <article className="about-principle about-principle--dark">
+                    <span className="about-principle__index">03 / trust</span>
+                    <h3>Your photos stay yours</h3>
+                    <p>
+                      Your history stays on your device. Photos are sent
+                      securely for analysis and are never stored outside your
+                      device by GainFrame.
+                    </p>
+                  </article>
+                </div>
+              </section>
+
               <hr className="post-divider" />
 
               <h2>What GainFrame is</h2>

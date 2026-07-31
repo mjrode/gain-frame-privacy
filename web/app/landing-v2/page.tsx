@@ -163,6 +163,93 @@ export default function LandingV2() {
           </div>
         </div>
 
+        <section
+          className={styles.progressMap}
+          aria-labelledby="progress-map-heading"
+        >
+          <div className={styles.progressMapHead}>
+            <p className={styles.progressKicker}>The progress system</p>
+            <div>
+              <h2 id="progress-map-heading">
+                One photo. Four jobs. One clear story.
+              </h2>
+              <p>
+                Each check-in becomes more useful as it moves through the
+                system. Start anywhere, then follow the signal forward.
+              </p>
+            </div>
+          </div>
+          <ol className={styles.progressRail}>
+            <li>
+              <a href="#scan">
+                <strong>Capture</strong>
+                <p>Turn a consistent check-in into a physique readout.</p>
+                <div className={styles.progressMascot} aria-hidden="true">
+                  <Image
+                    src="/assets/gainframe-guy/progress-system/capture.png"
+                    width={1024}
+                    height={1024}
+                    sizes="(max-width: 560px) 200px, (max-width: 1100px) 240px, 210px"
+                    alt=""
+                  />
+                </div>
+                <span className={styles.progressLink}>Open scan chapter ↘</span>
+              </a>
+            </li>
+            <li>
+              <a href="#compare">
+                <strong>Compare</strong>
+                <p>Align two moments so subtle changes are easier to see.</p>
+                <div className={styles.progressMascot} aria-hidden="true">
+                  <Image
+                    src="/assets/gainframe-guy/progress-system/compare.png"
+                    width={1024}
+                    height={1024}
+                    sizes="(max-width: 560px) 200px, (max-width: 1100px) 240px, 210px"
+                    alt=""
+                  />
+                </div>
+                <span className={styles.progressLink}>Open compare chapter ↘</span>
+              </a>
+            </li>
+            <li>
+              <a href="#coach">
+                <strong>Explain</strong>
+                <p>Ask what moved, with your available trend data attached.</p>
+                <div className={styles.progressMascot} aria-hidden="true">
+                  <Image
+                    src="/assets/gainframe-guy/progress-system/explain.png"
+                    width={1024}
+                    height={1024}
+                    sizes="(max-width: 560px) 200px, (max-width: 1100px) 240px, 210px"
+                    alt=""
+                  />
+                </div>
+                <span className={styles.progressLink}>Open Coach chapter ↘</span>
+              </a>
+            </li>
+            <li>
+              <a href="#future-you">
+                <strong>Preview</strong>
+                <p>Explore an illustrative goal scenario with honest limits.</p>
+                <div
+                  className={`${styles.progressMascot} ${styles.progressMascotDark}`}
+                  aria-hidden="true"
+                >
+                  <Image
+                    src="/assets/gainframe-guy/progress-system/preview.png"
+                    width={1024}
+                    height={1024}
+                    sizes="(max-width: 560px) 200px, (max-width: 1100px) 240px, 210px"
+                    alt=""
+                  />
+                </div>
+                <span className={styles.progressLink}>Open Future You ↘</span>
+              </a>
+            </li>
+          </ol>
+        </section>
+
         <section className={`${styles.chapter} ${styles.scanChapter}`} id="scan">
           <div className={styles.chapterCopy}>
             <LabLabel index="01">Photo analysis / body composition</LabLabel>
@@ -362,6 +449,99 @@ export default function LandingV2() {
               <p>Read the scale beside physique changes, not in isolation.</p>
             </article>
           </div>
+        </section>
+
+        <section
+          className={styles.receiptsSection}
+          aria-labelledby="receipts-heading"
+        >
+          <div className={styles.receiptsHead}>
+            <LabLabel index="R / 01">The receipts</LabLabel>
+            <div>
+              <h2 id="receipts-heading">
+                A photo is evidence. A system makes it useful.
+              </h2>
+              <p>
+                This is a workflow comparison, not a scorecard. It shows how
+                much assembly is left to you after the photo is taken.
+              </p>
+            </div>
+          </div>
+          <div
+            className={styles.receiptsTableWrap}
+            role="region"
+            aria-labelledby="receipts-heading"
+            tabIndex={0}
+          >
+            <table className={styles.receiptsTable}>
+              <caption>
+                Progress-tracking workflow comparison across camera rolls,
+                scales, one-off AI photo tools, and GainFrame.
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">What you need</th>
+                  <th scope="col">Camera roll</th>
+                  <th scope="col">Scale only</th>
+                  <th scope="col">One-off AI photo tools</th>
+                  <th scope="col" className={styles.gainFrameColumn}>
+                    GainFrame
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Aligned photo comparisons</th>
+                  <td><span className={styles.statusManual}>Manual</span></td>
+                  <td><span className={styles.statusMissing}>Missing</span></td>
+                  <td><span className={styles.statusPartial}>Partial</span></td>
+                  <td className={styles.gainFrameColumn}>
+                    <span className={styles.statusBuilt}>Built in</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Trend context over time</th>
+                  <td><span className={styles.statusManual}>Manual</span></td>
+                  <td><span className={styles.statusPartial}>Partial</span></td>
+                  <td><span className={styles.statusMissing}>Missing</span></td>
+                  <td className={styles.gainFrameColumn}>
+                    <span className={styles.statusBuilt}>Built in</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Body metrics linked to the photo</th>
+                  <td><span className={styles.statusMissing}>Missing</span></td>
+                  <td><span className={styles.statusPartial}>Partial</span></td>
+                  <td><span className={styles.statusPartial}>Partial</span></td>
+                  <td className={styles.gainFrameColumn}>
+                    <span className={styles.statusBuilt}>Built in</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Structured on-device photo history</th>
+                  <td><span className={styles.statusManual}>Manual</span></td>
+                  <td><span className={styles.statusMissing}>Missing</span></td>
+                  <td><span className={styles.statusMissing}>Missing</span></td>
+                  <td className={styles.gainFrameColumn}>
+                    <span className={styles.statusBuilt}>Built in</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Follow-up explanations</th>
+                  <td><span className={styles.statusMissing}>Missing</span></td>
+                  <td><span className={styles.statusMissing}>Missing</span></td>
+                  <td><span className={styles.statusPartial}>Partial</span></td>
+                  <td className={styles.gainFrameColumn}>
+                    <span className={styles.statusBuilt}>Built in</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className={styles.receiptsNote}>
+            “Partial” and “Manual” describe the typical workflow, not accuracy.
+            One-off tools vary. GainFrame estimates are not medical measurements.
+          </p>
         </section>
 
         <section className={styles.proofStrip} aria-labelledby="proof-heading">
