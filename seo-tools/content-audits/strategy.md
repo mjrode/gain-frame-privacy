@@ -79,13 +79,13 @@ Meanwhile the physique-rating lane is the only thing growing:
 
 ## Structural debt
 
-- **46 orphan posts (0 inbound internal links), 34 of them published in the last 45 days.** The
-  July batches shipped without inbound links. This is the highest-leverage fix available and it
-  needs no new content.
-- **42 posts with exactly 1 inbound link.**
-- **60 Quick Answer defects** in the SEO lane (missing or outside 40–60 words). Founder-lane posts
-  are exempt and already excluded from that count.
-- **1 cannibalization pair:** `average-bicep-size` vs `average-chest-size` (0.74 overlap).
+**Largely cleared 2026-08-01.** Internal links 929 → 1,279; orphans 46 → 8; median inbound 3 → 4.
+
+- **8 orphans remain**, 6 of them founder-lane (exempt — judged on sessions, not GSC).
+- **51 Quick Answer defects remain**, all in the frozen stats lane. Deliberately skipped: better
+  AI-Overview extraction for a keyword losing 45–66% of volume a year is effort on a shrinking
+  asset. The 9 that mattered (converting pages + AI-Overview-cited pages) are fixed.
+- **Cannibalization: none real.** The one flagged pair was a false positive (see below).
 
 ---
 
@@ -97,6 +97,11 @@ Meanwhile the physique-rating lane is the only thing growing:
 - ~~"The stats pages have a CTR/title problem."~~ **Ruled out 2026-08-01.** They rank at positions
   6–8 and the queries are definitional with declining volume. This is zero-click demand, not a
   snippet-copy problem. Retitling will not recover it.
+- ~~"`average-bicep-size` and `average-chest-size` cannibalize each other."~~ **Ruled out
+  2026-08-01** by `get_search_by_page_query`: zero shared queries. The bicep page serves
+  "14.5 inch biceps", the chest page serves "40 inch chest". High title overlap came from a shared
+  series template. **Title-overlap pairs must be verified against real queries before any merge** —
+  acting on the signal alone would have deleted a page earning 7,645 impressions.
 
 ---
 
@@ -128,8 +133,15 @@ No metadata edits were made in this run, so no 7–10 day metadata windows are o
 
 ## Proposed but not built
 
-Nothing yet — the 2026-08-01 run is a baseline. Its proposals are in
-`content-audits/2026-08-01.md` awaiting approval.
+From 2026-08-01 (`fixes all` approved; both posts declined that cycle):
+
+| Post | Keyword | Volume | Trend | Why it is still worth doing |
+|---|---|---:|---:|---|
+| Physique-rating lane expansion | `rate my physique` / `physique rater` | 590 / 320 | **+108% / +85%** | Only cluster with positive market trend, KD 8, site already at pos 7.0 |
+| DEXA alternatives deepening | `dexa scan alternatives` | 90 | **+80%** | AI Overview rank 2 already held; F4/F5 strengthened the page, so measure before extending |
+
+Re-check both against fresh data before writing — the fixes shipped 2026-08-01 may move these on
+their own.
 
 ---
 

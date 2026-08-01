@@ -131,9 +131,15 @@ async function loadPosts() {
       const { data, body } = parseFrontmatter(raw);
       const schemaBlock = data.__schemaBlock ?? "";
 
-      const outbound = new Set(
-        [...body.matchAll(/href="\/blog\/([a-z0-9-]+)\/?"/g)].map((m) => m[1]),
-      );
+      // Two link styles coexist in this corpus and both count as real internal
+      // links. Newer posts use absolute hrefs; older ones use markdown
+      // relative links (189 of them as of 2026-08-01). Counting only the first
+      // style reported linked posts as orphans.
+      const outbound = new Set([
+        ...[...body.matchAll(/href="\/blog\/([a-z0-9-]+)\/?"/g)].map((m) => m[1]),
+        ...[...body.matchAll(/\]\(\.\.\/([a-z0-9-]+)\/?\)/g)].map((m) => m[1]),
+        ...[...body.matchAll(/\]\(\/blog\/([a-z0-9-]+)\/?\)/g)].map((m) => m[1]),
+      ]);
       outbound.delete(slug);
 
       const toolLinks = new Set(
@@ -201,6 +207,18 @@ function buildInventory(posts) {
     posts.map((p) => [p.slug, tokenize(`${p.title} ${p.description}`)]),
   );
 
+  // Series pages ("Average Bicep Size" / "Average Chest Size") share a title
+  // template and score high on token overlap while competing for entirely
+  // different queries — verified in GSC on 2026-08-01, zero shared queries.
+  // Flag them as likely-series so nobody merges two pages that never competed.
+  const seriesShape = (slug) => slug.split("-").filter((t) => t.length > 2);
+  const looksLikeSeries = (a, b) => {
+    const [x, y] = [seriesShape(a), seriesShape(b)];
+    if (x.length !== y.length) return false;
+    const differing = x.filter((t, i) => t !== y[i]).length;
+    return differing === 1; // identical template, one slot differs
+  };
+
   const cannibalization = [];
   for (let i = 0; i < posts.length; i += 1) {
     for (let j = i + 1; j < posts.length; j += 1) {
@@ -210,6 +228,7 @@ function buildInventory(posts) {
           a: posts[i].slug,
           b: posts[j].slug,
           overlap: Number(score.toFixed(2)),
+          likelySeries: looksLikeSeries(posts[i].slug, posts[j].slug),
         });
       }
     }
@@ -335,7 +354,19 @@ function toMarkdown(inv) {
     `## Cannibalization risk — title+description overlap ≥ ${OVERLAP_THRESHOLD} (${inv.cannibalization.length})`,
     "",
   );
-  lines.push(...list(inv.cannibalization, (c) => `${c.overlap} — \`${c.a}\` vs \`${c.b}\``));
+  lines.push(
+    ...list(
+      inv.cannibalization,
+      (c) =>
+        `${c.overlap} — \`${c.a}\` vs \`${c.b}\`` +
+        (c.likelySeries ? " — **likely series, verify in GSC before merging**" : ""),
+    ),
+  );
+  lines.push(
+    "",
+    "> Title overlap is a candidate signal, never a verdict. Confirm the two pages actually",
+    "> share queries with `mcp__gsc__get_search_by_page_query` before merging anything.",
+  );
   lines.push("");
 
   lines.push(`## Stale — dateModified older than ${STALE_DAYS} days (${inv.stale.length})`, "");
