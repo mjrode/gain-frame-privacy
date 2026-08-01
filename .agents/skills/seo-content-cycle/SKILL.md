@@ -136,7 +136,10 @@ Pull, at minimum:
 - **Pages**, 28d and prior 28d, `dimensions="page"`, row_limit 50.
 - **Query × page** (`mcp__gsc__get_search_by_page_query`) for any page you suspect of splitting a
   query with another page.
-- `mcp__gsc__compare_search_periods` for the 28d-vs-prior view.
+- `mcp__gsc__compare_search_periods` for the 28d-vs-prior view. **Its `Change` and `%` columns
+  render with an inverted sign** — a page that went from 38 clicks to 976 is reported as
+  `-938 / -96.1%`. Always read direction off the raw P1 and P2 click counts, never off the delta
+  column. A run that trusts that column will report a record month as a collapse.
 
 Then sweep index status with `mcp__gsc__batch_url_inspection` (**10 URLs per call**, so issue
 batches in parallel; the API allows 2,000 inspections/day per property). You do not need all 240+
@@ -194,12 +197,32 @@ Read three things from the result, in this order:
 
 `dataforseo_labs_google_ranked_keywords` with `target: "gainframe.app"`.
 
-**This response is enormous — 65KB for only 15 rows.** Always constrain it:
+**This response is enormous — 65KB at limit 15, and 113KB at limit 30, which overflows the tool
+result entirely.** Constrain it and plan to post-process:
 
-- `limit` no higher than 50 per call.
+- `limit` **no higher than 25**, and expect even that to be saved to a file rather than returned
+  inline.
 - `filters` to the slice you care about, e.g.
   `[["ranked_serp_element.serp_item.rank_group","<=",20],"and",["keyword_data.keyword_info.search_volume",">",500]]`
+  (the `filters` array caps at 3 elements, so that is two conditions joined by one operator —
+  filter on the two that matter most and narrow the rest in post-processing).
 - `order_by: ["keyword_data.keyword_info.search_volume,desc"]`
+
+When the response is written to a file instead of returned, do not try to read it back in chunks.
+Extract the four fields that matter with a one-liner and work from that:
+
+```bash
+python3 - "<saved-file>" <<'EOF'
+import json, sys
+data = json.loads(open(sys.argv[1]).read()[open(sys.argv[1]).read().index('{'):])
+for it in data['items']:
+    kd, se = it['keyword_data'], it['ranked_serp_element']['serp_item']
+    ki = kd['keyword_info']
+    print(kd['keyword'], ki.get('search_volume'),
+          (ki.get('search_volume_trend') or {}).get('yearly'),
+          se.get('rank_group'), se.get('url'))
+EOF
+```
 
 Run it three ways:
 
@@ -342,10 +365,54 @@ to clicks on this site.
 
 ### 4. Proposed fixes
 
-Numbered separately from the posts so they can be approved independently:
+Numbered separately from the posts so they can be approved independently, and **ordered by
+leverage rather than by number** — say which one to do first.
 
-| # | Target | Fix | Why | Effort |
-|---:|---|---|---|---|
+**Every fix must be concrete enough to execute without asking a follow-up question.** A fix is not
+"add inbound links to orphan posts" — that is a category, and the user has to do the real work of
+turning it into a task list. Name the actual slugs on both ends:
+
+- ❌ "F1 | 34 recent orphans | Add inbound links from cluster-adjacent posts"
+- ✅ A table with one row per orphan: `average-body-fat-percentage-men` ← link from
+  `average-body-fat-percentage-women` (0.80 overlap), `average-body-fat-percentage-by-age` (0.70)
+
+Generate those pairings mechanically rather than by eye. For each orphan, score title-token
+overlap against every post that already has ≥2 inbound links (established pages make better link
+sources than other orphans), and take the top 2–3 above ~0.12:
+
+```bash
+node - <<'EOF'
+import {execSync} from 'node:child_process';
+const inv = JSON.parse(execSync('node seo-tools/content-inventory.mjs',{maxBuffer:1e8}).toString());
+const STOP=new Set("a an and are as at be by for from how in is it its of on or that the to what with your you vs best top guide review app apps 2026 2025 gainframe".split(" "));
+const tok=s=>new Set(s.toLowerCase().replace(/[^a-z0-9\s-]/g," ").split(/[\s-]+/).filter(t=>t.length>2&&!STOP.has(t)));
+const jac=(a,b)=>{let s=0;for(const t of a)if(b.has(t))s++;return s/(a.size+b.size-s)||0;};
+const T=new Map(inv.posts.map(p=>[p.slug,tok(p.title)]));
+for (const o of inv.orphans) {
+  const cands = inv.posts.filter(p=>p.slug!==o.slug && p.inbound>=2)
+    .map(p=>({slug:p.slug, score:jac(T.get(o.slug),T.get(p.slug))}))
+    .filter(c=>c.score>0.12).sort((a,b)=>b.score-a.score).slice(0,3);
+  console.log(`${o.slug} | ${cands.map(c=>`${c.slug} (${c.score.toFixed(2)})`).join(', ') || '— pick by hand'}`);
+}
+EOF
+```
+
+State the link direction explicitly: the link goes **in the source post, pointing at the orphan**.
+Where the script finds no match above threshold, say "pick by hand from cluster N" rather than
+inventing a pairing.
+
+Apply the same standard to every other fix type: name the page, name the defect, name the
+replacement. A Quick Answer fix names the slug and its current word count. A cannibalization fix
+names both slugs, the overlap score, and says which page absorbs which.
+
+**Cross-reference fixes against the AI Overview citation list from Phase 2b before ranking them.**
+A page Google already cites at rank 1 that is missing its Quick Answer block is the highest-value
+fix available on this site, and it will look like a routine hygiene item unless the two data sets
+are joined. The 2026-08-01 baseline found three such pages.
+
+**Separate founder-lane orphans out and say you are skipping them.** Cluster 12–13 posts are
+judged on sessions and social traction, so orphan status costs them nothing. Listing them pads the
+fix count with work that has no SEO return.
 
 Typical fixes, in rough priority order:
 
@@ -511,6 +578,28 @@ Then update:
 In a review run, commit only the audit and strategy files, and say that is all you committed.
 
 ---
+
+## Feedback goes back into this file, immediately
+
+When the user corrects the output of a run — the shape of a table, a missing level of detail, an
+analysis step that was skipped, a number that was reported the wrong way round — **edit this skill
+in the same turn, before answering the question they asked.** Then answer.
+
+The user should never have to give the same note twice. If a correction is worth making once, it
+is worth encoding, and a skill that has to be re-taught every run is worse than no skill.
+
+This applies to tool behaviour too. Every quirk discovered at runtime (an inverted sign column, a
+response that overflows, an endpoint bound to the wrong property) gets written into the relevant
+phase the moment it is found, with the concrete symptom so the next run recognises it.
+
+Corrections recorded this way so far:
+
+| Date | Correction | Where it landed |
+|---|---|---|
+| 2026-08-01 | Proposed fixes were categories, not executable tasks — the user had to derive the actual slug pairings | Phase 5 §4, with a script that generates the pairings |
+| 2026-08-01 | `compare_search_periods` reports deltas with an inverted sign | Phase 1 |
+| 2026-08-01 | `ranked_keywords` overflows the tool result at limit 30 | Phase 2b, with a jq/python extractor |
+| 2026-08-01 | The SEO Receipts connector reads seoreceipts.com, not this property | Data sources table |
 
 ## Guardrails
 
