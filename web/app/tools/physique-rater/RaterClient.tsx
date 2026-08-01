@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { APP_STORE_PROVIDER_TOKEN, SITE } from "@/lib/site";
-import { track } from "@/lib/analytics";
+import { getPosthogDistinctId, track } from "@/lib/analytics";
 
 const FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/physique-rate";
@@ -137,6 +137,15 @@ function appStoreUrl(content: string): string {
   return `${SITE.appStoreUrl}?${params.toString()}`;
 }
 
+function trackAppStoreClick(placement: string): void {
+  track("physique_rater_cta_click", { placement });
+  track("outbound_app_store_click", {
+    source: CTA_CAMPAIGN,
+    cta_content: placement,
+    ct: "web-rater",
+  });
+}
+
 function ScoreRing({ score, band }: { score: number; band: string }) {
   const CIRC = 2 * Math.PI * 54;
   const dash = (Math.min(100, Math.max(0, score)) / 100) * CIRC;
@@ -231,6 +240,7 @@ export default function RaterClient() {
           photo_mime: "image/jpeg",
           sex: sex === "skip" ? null : sex,
           goal: goal === "skip" ? null : goal,
+          posthog_distinct_id: getPosthogDistinctId(),
         }),
       });
 
@@ -415,7 +425,7 @@ export default function RaterClient() {
               target="_blank"
               rel="noopener"
               data-track-exempt
-              onClick={() => track("physique_rater_cta_click", { placement: "result" })}
+              onClick={() => trackAppStoreClick("result")}
             >
               Score every check-in — GainFrame free on iOS
             </a>
@@ -450,9 +460,9 @@ export default function RaterClient() {
             rel="noopener"
             data-track-exempt
             onClick={() =>
-              track("physique_rater_cta_click", {
-                placement: stage.lifetime ? "lifetime_limit" : "daily_limit",
-              })
+              trackAppStoreClick(
+                stage.lifetime ? "lifetime_limit" : "daily_limit",
+              )
             }
           >
             Get unlimited scoring on iOS

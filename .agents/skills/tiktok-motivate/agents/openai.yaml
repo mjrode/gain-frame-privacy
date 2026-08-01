@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok Motivate"
+  short_description: "Builds gritty GainFrame motivation carousels"
+  default_prompt: "Use $tiktok-motivate to create a new GainFrame motivation carousel variation."

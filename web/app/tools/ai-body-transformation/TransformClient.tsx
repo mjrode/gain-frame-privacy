@@ -2,10 +2,37 @@
 
 import { useEffect, useRef, useState } from "react";
 import { APP_STORE_PROVIDER_TOKEN, SITE } from "@/lib/site";
-import { track } from "@/lib/analytics";
+import {
+  captureException,
+  getPosthogDistinctId,
+  track,
+} from "@/lib/analytics";
+import {
+  asToolClientError,
+  createAttemptId,
+  errorResponseJson,
+  fetchWithTimeout,
+  imageMime,
+  isLikelyImageFile,
+  preprocessImageForUpload,
+  terminalTelemetry,
+  toolNow,
+  validatedJson,
+  type PreprocessedImage,
+} from "@/lib/tool-client";
 
 const FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/body-transform";
+const STATUS_TIMEOUT_MS = 10_000;
+const GENERATE_TIMEOUT_MS = 60_000;
+const UNLOCK_TIMEOUT_MS = 20_000;
+const TRANSFORM_RAW_MIMES = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/heic",
+  "image/heif",
+] as const;
 
 const CTA_CAMPAIGN = "ai_body_transformation";
 const MASCOT_SRC = "/assets/gainframe-guy/poses/gainframe-guy-wave.webp";
@@ -87,6 +114,15 @@ type ErrorResponse = {
   error: string;
   message?: string;
   can_unlock?: boolean;
+  reason?: string;
+};
+
+type StatusResponse = {
+  remaining: number;
+  used?: number;
+  unlocked: boolean;
+  ip_limited?: boolean;
+  capacity_limited?: boolean;
 };
 
 // Image gen runs 10–30s (vs the BF scan's ~8s), so the ladder is slower and
@@ -148,41 +184,6 @@ function getOrCreateClientId(): string {
   return id;
 }
 
-function posthogDistinctId(): string | null {
-  return (
-    (window.posthog as unknown as { get_distinct_id?: () => string })
-      ?.get_distinct_id?.() ?? null
-  );
-}
-
-async function preprocessImage(
-  file: File,
-  maxDim = 1024,
-): Promise<{ base64: string }> {
-  const url = URL.createObjectURL(file);
-  try {
-    const img = await new Promise<HTMLImageElement>((resolve, reject) => {
-      const el = new Image();
-      el.onload = () => resolve(el);
-      el.onerror = () => reject(new Error("Couldn't read that image."));
-      el.src = url;
-    });
-    const ratio = Math.min(1, maxDim / Math.max(img.width, img.height));
-    const w = Math.round(img.width * ratio);
-    const h = Math.round(img.height * ratio);
-    const canvas = document.createElement("canvas");
-    canvas.width = w;
-    canvas.height = h;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Canvas not supported in this browser.");
-    ctx.drawImage(img, 0, 0, w, h);
-    const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
-    return { base64: dataUrl.split(",")[1] ?? "" };
-  } finally {
-    URL.revokeObjectURL(url);
-  }
-}
-
 function appStoreUrl(content: string): string {
   const params = new URLSearchParams({
     utm_source: "web",
@@ -194,6 +195,63 @@ function appStoreUrl(content: string): string {
     mt: "8",
   });
   return `${SITE.appStoreUrl}?${params.toString()}`;
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === "object";
+}
+
+function isSuccessResponse(value: unknown): value is SuccessResponse {
+  return isRecord(value) &&
+    typeof value.image_base64 === "string" && value.image_base64.length > 0 &&
+    (value.image_mime === "image/jpeg" || value.image_mime === "image/png" ||
+      value.image_mime === "image/webp") &&
+    typeof value.model_used === "string" &&
+    typeof value.remaining === "number" &&
+    typeof value.can_unlock === "boolean";
+}
+
+function isStatusResponse(value: unknown): value is StatusResponse {
+  return isRecord(value) &&
+    typeof value.remaining === "number" &&
+    typeof value.unlocked === "boolean" &&
+    (value.ip_limited === undefined || typeof value.ip_limited === "boolean") &&
+    (value.capacity_limited === undefined ||
+      typeof value.capacity_limited === "boolean");
+}
+
+function errorResponse(value: Record<string, unknown>): ErrorResponse {
+  return {
+    error: typeof value.error === "string" ? value.error : "unknown_error",
+    message: typeof value.message === "string" ? value.message : undefined,
+    reason: typeof value.reason === "string" ? value.reason : undefined,
+    can_unlock: typeof value.can_unlock === "boolean"
+      ? value.can_unlock
+      : undefined,
+  };
+}
+
+function fileTelemetry(file: File, processed?: PreprocessedImage) {
+  return {
+    file_mime: imageMime(file) || "unknown",
+    file_size_kb: Math.round(file.size / 1024),
+    ...(processed
+      ? {
+          preprocessing_method: processed.method,
+          compressed_size_kb: processed.sizeKb,
+          upload_mime: processed.photoMime,
+        }
+      : {}),
+  };
+}
+
+function shouldCaptureTechnicalError(code: string): boolean {
+  return ![
+    "unsupported_format",
+    "corrupt_image",
+    "decode_failed_large",
+    "invalid_email",
+  ].includes(code);
 }
 
 // Side-by-side before/after composite with a small watermark bar — the
@@ -297,56 +355,173 @@ export default function TransformClient() {
   const afterUrlRef = useRef<string | null>(null);
 
   useEffect(() => {
-    if (viewedRef.current) return;
-    viewedRef.current = true;
-    track("bt_tool_view");
+    if (!viewedRef.current) {
+      viewedRef.current = true;
+      track("bt_tool_view");
+    }
 
     // Visitors who can't render right now — lifetime spent, IP daily cap,
     // or global capacity — skip straight to the limit screen instead of
     // uploading and aiming a photo that can't be rendered.
     const clientId = getOrCreateClientId();
     clientIdRef.current = clientId;
-    fetch(FUNCTION_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "status", client_id: clientId }),
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then(
-        (
-          json: {
-            remaining: number;
-            used: number;
-            unlocked: boolean;
-            ip_limited?: boolean;
-            capacity_limited?: boolean;
-          } | null,
-        ) => {
-          if (!json) return;
-          if (json.ip_limited || json.capacity_limited) {
-            setStage({
-              kind: "rate_limited",
-              title: "Daily limit reached",
-              canUnlock: !json.unlocked,
-              message: json.capacity_limited
-                ? "The free tool is at capacity for today — come back tomorrow. Drop your email now and an extra render will be waiting."
-                : "Too many renders from this connection today — try tomorrow. Drop your email now and an extra render will be waiting.",
+    const controller = new AbortController();
+    let active = true;
+    const attemptId = createAttemptId();
+    const startedAt = toolNow();
+
+    void (async () => {
+      try {
+        const res = await fetchWithTimeout(
+          FUNCTION_URL,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              action: "status",
+              client_id: clientId,
+              request_id: attemptId,
+              attempt_id: attemptId,
+            }),
+            signal: controller.signal,
+          },
+          STATUS_TIMEOUT_MS,
+        );
+        if (!active) return;
+
+        if (!res.ok) {
+          const err = errorResponse(await errorResponseJson(res));
+          if (res.status === 429) {
+            track("bt_tool_rate_limited", {
+              kind: err.error,
+              ...terminalTelemetry({
+                attemptId,
+                startedAt,
+                phase: "status",
+                errorType: "rate_limit",
+                code: err.error,
+                status: res.status,
+                retryable: err.error !== "lifetime_limited",
+                source: "preflight",
+              }),
+              blocking: true,
             });
+            setStage((current) => current.kind === "idle"
+              ? {
+                  kind: "rate_limited",
+                  canUnlock: err.can_unlock === true,
+                  title: err.error === "rate_limited" || err.error === "capacity"
+                    ? "Daily limit reached"
+                    : undefined,
+                  message: err.message ??
+                    "You've used your free render. The GainFrame app has no limits.",
+                }
+              : current);
             return;
           }
-          if (json.remaining > 0) return;
-          setStage({
-            kind: "rate_limited",
-            canUnlock: !json.unlocked,
-            message: json.unlocked
-              ? "Both free renders are used. GainFrame on iOS has unlimited AI transformations — plus the coaching to actually get there."
-              : "You've used your free render. Drop your email to unlock one more — or get unlimited renders in the GainFrame app.",
+          const common = {
+            ...terminalTelemetry({
+              attemptId,
+              startedAt,
+              phase: "status",
+              errorType: "http",
+              code: err.error,
+              status: res.status,
+              retryable: res.status >= 500 || res.status === 408,
+              source: "preflight",
+            }),
+            blocking: false,
+          };
+          track("bt_tool_status_failed", {
+            ...common,
+            status: res.status,
+            code: err.error,
           });
-        },
-      )
-      .catch(() => {
-        /* status is best-effort; generation still enforces server-side */
-      });
+          if (res.status !== 422) {
+            track("bt_tool_error", { ...common, status: res.status, code: err.error });
+            const exception = new Error(
+              `Transformation status request failed with HTTP ${res.status}`,
+            );
+            captureException(exception, {
+              tool: "body_transformation",
+              ...common,
+            });
+          }
+          return;
+        }
+
+        const json = await validatedJson(res, isStatusResponse);
+        if (!active) return;
+        if (json.ip_limited || json.capacity_limited || json.remaining <= 0) {
+          const kind = json.capacity_limited
+            ? "capacity"
+            : json.ip_limited
+              ? "rate_limited"
+              : "lifetime_limited";
+          track("bt_tool_rate_limited", {
+            kind,
+            ...terminalTelemetry({
+              attemptId,
+              startedAt,
+              phase: "status",
+              errorType: "rate_limit",
+              code: kind,
+              status: res.status,
+              retryable: kind !== "lifetime_limited",
+              source: "preflight",
+            }),
+            blocking: true,
+          });
+          setStage((current) => {
+            if (current.kind !== "idle") return current;
+            if (json.ip_limited || json.capacity_limited) {
+              return {
+                kind: "rate_limited",
+                title: "Daily limit reached",
+                canUnlock: !json.unlocked,
+                message: json.capacity_limited
+                  ? "The free tool is at capacity for today — come back tomorrow. Drop your email now and an extra render will be waiting."
+                  : "Too many renders from this connection today — try tomorrow. Drop your email now and an extra render will be waiting.",
+              };
+            }
+            return {
+              kind: "rate_limited",
+              canUnlock: !json.unlocked,
+              message: json.unlocked
+                ? "Both free renders are used. GainFrame on iOS has unlimited AI transformations — plus the coaching to actually get there."
+                : "You've used your free render. Drop your email to unlock one more — or get unlimited renders in the GainFrame app.",
+            };
+          });
+        }
+      } catch (error) {
+        if (!active) return;
+        const failure = asToolClientError(error);
+        const common = {
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "status",
+            errorType: failure.errorType,
+            code: failure.code,
+            status: failure.status,
+            retryable: failure.retryable,
+            source: "preflight",
+          }),
+          blocking: false,
+        };
+        track("bt_tool_status_failed", { ...common, error: failure.message });
+        track("bt_tool_error", { ...common, error: failure.message });
+        captureException(error, {
+          tool: "body_transformation",
+          ...common,
+        });
+      }
+    })();
+
+    return () => {
+      active = false;
+      controller.abort();
+    };
   }, []);
 
   useEffect(() => {
@@ -393,8 +568,28 @@ export default function TransformClient() {
 
   function onPick(picked: File | null) {
     if (!picked) return;
-    if (!picked.type.startsWith("image/")) {
-      setStage({ kind: "error", message: "Please pick an image file." });
+    if (!isLikelyImageFile(picked)) {
+      const attemptId = createAttemptId();
+      const startedAt = toolNow();
+      track("bt_tool_unusable", {
+        reason: "unsupported_format",
+        ...terminalTelemetry({
+          attemptId,
+          startedAt,
+          phase: "image_select",
+          errorType: "unsupported_image",
+          code: "unsupported_format",
+          retryable: false,
+          source: "client",
+        }),
+        blocking: true,
+        ...fileTelemetry(picked),
+      });
+      setStage({
+        kind: "unusable",
+        message:
+          "That file isn't a supported image. Use JPEG, PNG, WebP, HEIC, or HEIF.",
+      });
       return;
     }
     if (previewUrl) URL.revokeObjectURL(previewUrl);
@@ -412,40 +607,69 @@ export default function TransformClient() {
     if (submittingRef.current) return;
     submittingRef.current = true;
     setStage({ kind: "processing" });
+    const attemptId = createAttemptId();
+    const startedAt = toolNow();
+    let phase = "preprocess";
+    let processed: PreprocessedImage | undefined;
     track("bt_tool_generate_requested", {
       sex: sex ?? "skip",
       goal,
       zones: zones.join(","),
       intensity: INTENSITY_STOPS[intensityIdx].key,
+      attempt_id: attemptId,
+      source: "client",
+      ...fileTelemetry(file),
     });
 
     try {
-      const { base64 } = await preprocessImage(file);
+      processed = await preprocessImageForUpload(file, {
+        allowedRawMimes: TRANSFORM_RAW_MIMES,
+      });
       const clientId = clientIdRef.current ?? getOrCreateClientId();
       clientIdRef.current = clientId;
-      const res = await fetch(FUNCTION_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "generate",
-          client_id: clientId,
-          photo_base64: base64,
-          photo_mime: "image/jpeg",
-          sex: sex && sex !== "skip" ? sex : null,
-          goal,
-          zones,
-          intensity: INTENSITY_STOPS[intensityIdx].key,
-          posthog_distinct_id: posthogDistinctId(),
-        }),
-      });
+      phase = "generate";
+      const res = await fetchWithTimeout(
+        FUNCTION_URL,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "generate",
+            client_id: clientId,
+            photo_base64: processed.base64,
+            photo_mime: processed.photoMime,
+            sex: sex && sex !== "skip" ? sex : null,
+            goal,
+            zones,
+            intensity: INTENSITY_STOPS[intensityIdx].key,
+            posthog_distinct_id: getPosthogDistinctId(),
+            request_id: attemptId,
+            attempt_id: attemptId,
+          }),
+        },
+        GENERATE_TIMEOUT_MS,
+      );
 
       if (res.ok) {
-        const json = (await res.json()) as SuccessResponse;
+        phase = "response_parse";
+        const json = await validatedJson(res, isSuccessResponse);
         const afterUrl = `data:${json.image_mime};base64,${json.image_base64}`;
         afterUrlRef.current = afterUrl;
         track("bt_tool_result_shown", {
           model: json.model_used,
           remaining: json.remaining,
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "generate",
+            errorType: "none",
+            code: "ok",
+            status: res.status,
+            retryable: false,
+            source: "server",
+          }),
+          blocking: false,
+          ...fileTelemetry(file, processed),
         });
         setStage({
           kind: "result",
@@ -457,9 +681,23 @@ export default function TransformClient() {
         return;
       }
 
-      const err = (await res.json().catch(() => ({}))) as ErrorResponse;
+      const err = errorResponse(await errorResponseJson(res));
       if (res.status === 429) {
-        track("bt_tool_rate_limited", { kind: err.error });
+        track("bt_tool_rate_limited", {
+          kind: err.error,
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "generate",
+            errorType: "rate_limit",
+            code: err.error,
+            status: res.status,
+            retryable: err.error !== "lifetime_limited",
+            source: "server",
+          }),
+          blocking: true,
+          ...fileTelemetry(file, processed),
+        });
         setStage({
           kind: "rate_limited",
           canUnlock: err.can_unlock === true,
@@ -470,8 +708,21 @@ export default function TransformClient() {
             "You've used your free render. The GainFrame app has no limits.",
         });
       } else if (res.status === 422) {
+        const reason = err.reason ?? err.error ?? "photo_unusable";
         track("bt_tool_unusable", {
-          reason: (err as { reason?: string }).reason ?? "unknown",
+          reason,
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "generate",
+            errorType: "unusable_photo",
+            code: reason,
+            status: res.status,
+            retryable: true,
+            source: "server",
+          }),
+          blocking: true,
+          ...fileTelemetry(file, processed),
         });
         setStage({
           kind: "unusable",
@@ -479,17 +730,62 @@ export default function TransformClient() {
             "We can't render that photo. Use a clear, recent photo of yourself with at least your torso visible.",
         });
       } else {
-        track("bt_tool_error", { status: res.status, code: err.error });
+        const common = {
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "generate",
+            errorType: "http",
+            code: err.error,
+            status: res.status,
+            retryable: res.status >= 500 || res.status === 408,
+            source: "server",
+          }),
+          blocking: true,
+          ...fileTelemetry(file, processed),
+        };
+        track("bt_tool_error", { ...common, status: res.status, code: err.error });
+        captureException(
+          new Error(`Transformation request failed with HTTP ${res.status}`),
+          { tool: "body_transformation", ...common },
+        );
         setStage({
           kind: "error",
           message: "Something went wrong. Your render wasn't used — try again.",
         });
       }
     } catch (err) {
-      track("bt_tool_error", { error: (err as Error).message });
+      const failure = asToolClientError(err);
+      const common = {
+        ...terminalTelemetry({
+          attemptId,
+          startedAt,
+          phase,
+          errorType: failure.errorType,
+          code: failure.code,
+          status: failure.status,
+          retryable: failure.retryable,
+          source: "client",
+        }),
+        blocking: true,
+        ...fileTelemetry(file, processed),
+      };
+      if (["unsupported_format", "corrupt_image", "decode_failed_large"].includes(
+        failure.code,
+      )) {
+        track("bt_tool_unusable", { ...common, reason: failure.code });
+        setStage({ kind: "unusable", message: failure.message });
+        return;
+      }
+      track("bt_tool_error", { ...common, error: failure.message });
+      if (shouldCaptureTechnicalError(failure.code)) {
+        captureException(err, { tool: "body_transformation", ...common });
+      }
       setStage({
         kind: "error",
-        message: (err as Error).message ?? "Network error. Please try again.",
+        message: failure.errorType === "timeout"
+          ? "That render took too long. Please try again."
+          : "Something went wrong preparing that photo. Please try again.",
       });
     } finally {
       submittingRef.current = false;
@@ -498,36 +794,118 @@ export default function TransformClient() {
 
   async function submitUnlock() {
     if (unlockSubmittingRef.current) return;
+    const attemptId = createAttemptId();
+    const startedAt = toolNow();
     const trimmed = email.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+      track("bt_tool_email_submitted", {
+        outcome: "validation_failed",
+        ...terminalTelemetry({
+          attemptId,
+          startedAt,
+          phase: "unlock",
+          errorType: "validation",
+          code: "invalid_email",
+          retryable: true,
+          source: "client",
+        }),
+        blocking: true,
+      });
       setUnlockStage("error");
       return;
     }
     unlockSubmittingRef.current = true;
     setUnlockStage("sending");
-    track("bt_tool_email_submitted", {});
+    track("bt_tool_email_submitted", {
+      outcome: "requested",
+      attempt_id: attemptId,
+      source: "client",
+    });
     try {
-      const res = await fetch(FUNCTION_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "unlock",
-          client_id: clientIdRef.current ?? getOrCreateClientId(),
-          email: trimmed,
-          posthog_distinct_id: posthogDistinctId(),
-        }),
-      });
+      const clientId = clientIdRef.current ?? getOrCreateClientId();
+      clientIdRef.current = clientId;
+      const res = await fetchWithTimeout(
+        FUNCTION_URL,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action: "unlock",
+            client_id: clientId,
+            email: trimmed,
+            posthog_distinct_id: getPosthogDistinctId(),
+            request_id: attemptId,
+            attempt_id: attemptId,
+          }),
+        },
+        UNLOCK_TIMEOUT_MS,
+      );
       if (res.ok) {
-        track("bt_tool_second_run_unlocked", {});
+        track("bt_tool_second_run_unlocked", {
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "unlock",
+            errorType: "none",
+            code: "ok",
+            status: res.status,
+            retryable: false,
+            source: "server",
+          }),
+          blocking: false,
+        });
         setUnlockStage("idle");
         setUnlockedNote(true);
         setEmail("");
         // Back to the form with the photo still loaded — one tap to re-render.
         setStage({ kind: "idle" });
       } else {
+        const err = errorResponse(await errorResponseJson(res));
+        const common = {
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "unlock",
+            errorType: "http",
+            code: err.error,
+            status: res.status,
+            retryable: res.status >= 500 || res.status === 408 || res.status === 429,
+            source: "server",
+          }),
+          blocking: true,
+        };
+        track("bt_tool_unlock_error", {
+          ...common,
+          status: res.status,
+          code: err.error,
+        });
+        if (res.status !== 422 && res.status !== 429) {
+          track("bt_tool_error", { ...common, status: res.status, code: err.error });
+          captureException(
+            new Error(`Transformation unlock failed with HTTP ${res.status}`),
+            { tool: "body_transformation", ...common },
+          );
+        }
         setUnlockStage("error");
       }
-    } catch {
+    } catch (error) {
+      const failure = asToolClientError(error);
+      const common = {
+        ...terminalTelemetry({
+          attemptId,
+          startedAt,
+          phase: "unlock",
+          errorType: failure.errorType,
+          code: failure.code,
+          status: failure.status,
+          retryable: failure.retryable,
+          source: "client",
+        }),
+        blocking: true,
+      };
+      track("bt_tool_unlock_error", { ...common, error: failure.message });
+      track("bt_tool_error", { ...common, error: failure.message });
+      captureException(error, { tool: "body_transformation", ...common });
       setUnlockStage("error");
     } finally {
       unlockSubmittingRef.current = false;
@@ -535,20 +913,77 @@ export default function TransformClient() {
   }
 
   async function downloadShare() {
-    if (!previewUrl || !afterUrlRef.current) return;
-    track("bt_tool_download_clicked", {});
+    const afterUrl = afterUrlRef.current;
+    if (!previewUrl || !afterUrl) return;
+    const attemptId = createAttemptId();
+    const startedAt = toolNow();
+    track("bt_tool_download_clicked", {
+      attempt_id: attemptId,
+      source: "client",
+    });
+    const triggerDownload = (href: string) => {
+      const anchor = document.createElement("a");
+      anchor.href = href;
+      anchor.download = "gainframe-future-you.jpg";
+      anchor.click();
+    };
     try {
-      const dataUrl = await buildShareImage(previewUrl, afterUrlRef.current);
-      const a = document.createElement("a");
-      a.href = dataUrl;
-      a.download = "gainframe-future-you.jpg";
-      a.click();
-    } catch {
-      // Fallback: download the raw after image.
-      const a = document.createElement("a");
-      a.href = afterUrlRef.current;
-      a.download = "gainframe-future-you.jpg";
-      a.click();
+      const dataUrl = await buildShareImage(previewUrl, afterUrl);
+      triggerDownload(dataUrl);
+      track("bt_tool_download_completed", {
+        format: "composite",
+        ...terminalTelemetry({
+          attemptId,
+          startedAt,
+          phase: "download",
+          errorType: "none",
+          code: "ok",
+          retryable: false,
+          source: "client",
+        }),
+        blocking: false,
+      });
+    } catch (compositeError) {
+      try {
+        triggerDownload(afterUrl);
+        track("bt_tool_download_completed", {
+          format: "raw_fallback",
+          fallback_code: "share_composite_failed",
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "download",
+            errorType: "none",
+            code: "ok",
+            retryable: false,
+            source: "client",
+          }),
+          blocking: false,
+        });
+      } catch (fallbackError) {
+        const failure = asToolClientError(fallbackError);
+        const common = {
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "download",
+            errorType: failure.errorType,
+            code: "download_failed",
+            retryable: true,
+            source: "client",
+          }),
+          blocking: true,
+        };
+        track("bt_tool_download_error", { ...common, error: failure.message });
+        captureException(fallbackError, {
+          tool: "body_transformation",
+          ...common,
+          fallback_code: "share_composite_failed",
+          composite_error_type: compositeError instanceof Error
+            ? compositeError.name
+            : "unknown",
+        });
+      }
     }
   }
 

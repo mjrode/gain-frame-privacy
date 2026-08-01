@@ -6,17 +6,22 @@ import RaterClient from "./RaterClient";
 const PAGE_PATH = "/tools/physique-rater/";
 const PAGE_URL = `${SITE.url}${PAGE_PATH}`;
 
+/* Search targeting: this page deliberately leads on "rate my physique" / "rate
+ * my body" / "body rater" rather than the bare head term "physique rater".
+ * /blog/ai-physique-rating-apps/ already ranks around position 7 for "physique
+ * rater" and carries the impressions; pointing both pages at the same query
+ * splits the signal. The roundup keeps the head term and links down here. */
 const DESCRIPTION =
-  "Free AI physique rater. Upload one photo and get a 1–100 physique score with a breakdown of body fat, muscle, proportions, and goal fit. No signup.";
+  "Rate my physique, free. Upload one photo and an AI body rater returns a 1–100 score broken into body fat, muscle, proportions, and goal fit. Three free ratings, no signup.";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI Physique Rater — Rate My Physique From a Photo, Free | GainFrame",
+    absolute: "Rate My Physique — Free AI Body Rater From One Photo | GainFrame",
   },
   description: DESCRIPTION,
   alternates: { canonical: PAGE_PATH },
   openGraph: {
-    title: "AI Physique Rater — Rate My Physique From a Photo",
+    title: "Rate My Physique — Free AI Body Rater From One Photo",
     description: DESCRIPTION,
     type: "website",
     url: PAGE_URL,
@@ -25,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Physique Rater — Rate My Physique From a Photo",
+    title: "Rate My Physique — Free AI Body Rater From One Photo",
     description: DESCRIPTION,
     images: [SITE.ogImage],
   },
@@ -127,15 +132,15 @@ export default function PhysiqueRaterPage() {
           <div className="pr-hero-inner">
             <span className="pr-eyebrow">
               <span className="dot" aria-hidden />
-              AI physique rater · Free · No signup
+              AI body rater · Free · No signup
             </span>
             <h1>
               Rate my physique, <span className="accent">honestly.</span>
             </h1>
             <p className="pr-hero-sub">
-              Upload one photo and get a 1–100 physique score, broken into body
-              fat, muscle, proportions, and goal fit — with the one change that
-              would move it most.
+              Upload one photo and this free AI body rater returns a 1–100 score,
+              broken into body fat, muscle, proportions, and goal fit — with the
+              one change that would move it most.
             </p>
             <div className="pr-hero-meta">
               <span>3 free ratings</span>

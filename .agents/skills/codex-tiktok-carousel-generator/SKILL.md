@@ -41,7 +41,7 @@ curl -sS -X POST "https://api.openai.com/v1/images/edits" \
   -F "size=1024x1280" \
   -F "quality=medium" \
   -F "output_format=png" \
-  -F "image[]=@/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg" \
+  -F "image[]=@/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/do-you-need-to-deadlift/_art/slide-0-cover.png" \
   -F "image[]=@/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/discipline-not-motivation/slide-1.png" \
   -F "prompt=${PROMPT_TEXT}" \
   | jq -r '.data[0].b64_json' \
@@ -140,7 +140,7 @@ In the top-left corner of the TOP PANEL ONLY, draw a small branding badge: a tin
 ```
 image[] inputs:
 [
-  "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg",
+  "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/do-you-need-to-deadlift/_art/slide-0-cover.png",
   "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/[closest-scene-ref].jpeg"
 ]
 ```
@@ -270,16 +270,16 @@ For each slide, use one GPT Image 2 edits request with this configuration:
 
 **Required reference image inputs:**
 - **Cover Slide (3 references, MANDATORY):** Always include these three exactly:
-  1. `gf-mascot-template.jpeg` — character design reference
+  1. `do-you-need-to-deadlift/_art/slide-0-cover.png` — authoritative muscular character/body reference
   2. `assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png` — **VISUAL STYLE REFERENCE** for the correct cover text treatment (bare Impact text on cream, red accent word, GAINFRAME GUY badge top-left)
   3. `gary-badge.png` — for the top-left corner branding badge
-- **Numbered Slides (2 references):** Include `gf-mascot-template.jpeg` AND `discipline-not-motivation/slide-1.png`. The discipline slide is the **banner style ground truth** — it shows the exact solid black full-width bar with red #N and white title. DO NOT include `gary-badge.png` as numbered slides do not have the badge.
+- **Numbered Slides (2 references):** Include `do-you-need-to-deadlift/_art/slide-0-cover.png` AND `discipline-not-motivation/slide-1.png`. The deadlift art is the muscular body-identity ground truth; the discipline slide is the **banner style ground truth**. DO NOT include `gary-badge.png` as numbered slides do not have the badge.
 
 Example for Numbered Slides:
 ```
 image[] inputs:
 [
-  "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg",
+  "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/do-you-need-to-deadlift/_art/slide-0-cover.png",
   "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/[closest-scene-ref].jpeg"
 ]
 ```
@@ -342,7 +342,7 @@ Clean off-white background (#F5F0EB) below the banner. Clean cartoon style, thic
 
 **Required reference image inputs for Cover Slides (3 images):**
 ```
-["/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg",
+["/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/do-you-need-to-deadlift/_art/slide-0-cover.png",
  "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/discipline-not-motivation/slide-0-cover.png",
  "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gary-badge.png"]
 ```
@@ -350,7 +350,7 @@ The `discipline-not-motivation/slide-0-cover.png` is the **cover style reference
 
 **Required reference image inputs for Numbered Slides (2 images):**
 ```
-["/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg",
+["/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/do-you-need-to-deadlift/_art/slide-0-cover.png",
  "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/comic/discipline-not-motivation/slide-1.png"]
 ```
 The `discipline-not-motivation/slide-1.png` is the **numbered slide banner style reference** — solid black full-width bar, red #N, white Impact title, no rounded corners, no subtitle in the bar. Always include it for numbered slides.
@@ -394,7 +394,7 @@ Clean off-white background (#F5F0EB). Clean cartoon style, thick outlines, flat 
 **IMPORTANT:**
 - Generate ONE image at a time, not in parallel. This lets you course-correct style drift.
 - After each generation, show the result to the user and ask if it matches the style. If not, refine the prompt.
-- Always include `gf-mascot-template.jpeg` as a reference image. Only include `gary-badge.png` for the cover slide.
+- Always include `do-you-need-to-deadlift/_art/slide-0-cover.png` as the muscular body-identity reference. Only include `gary-badge.png` for the cover slide.
 - Keep concurrency ≤ 1 for character consistency. Quality > speed.
 
 #### Save Images
@@ -489,7 +489,8 @@ This step copies the finished slides and `content.md` to a dedicated folder insi
 
 ## Reference Files
 - `docs/assets/gainframe-guy/illustrations/STYLE_GUIDE.md` — **MUST READ FIRST** — Character design, visual constants, typography, badge specs, title patterns, prompt templates
-- `docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg` — Mascot character sheet (neutral standing pose)
+- `docs/assets/tiktok/comic/do-you-need-to-deadlift/_art/slide-0-cover.png` — Authoritative muscular mascot body reference
+- `docs/assets/gainframe-guy/illustrations/gf-mascot-template.jpeg` — Neutral/before-state mascot reference only
 - `docs/assets/gainframe-guy/illustrations/gary-badge.png` — **Head-only badge icon** for top-left branding (include ONLY when generating the cover slide)
 - `docs/assets/gainframe-guy/illustrations/mirror-mascot.jpeg` — Example: mirror reflection scene
 - `docs/assets/gainframe-guy/illustrations/mascot-form.jpeg` — Example: good vs. bad form (✅/❌ comparison)
