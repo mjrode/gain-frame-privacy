@@ -538,9 +538,27 @@ curl -o /dev/null -s -w "%{http_code} %{url_effective}\n" https://gainframe.app/
 
 ## Phase 9 — Indexing
 
+**Check the key file before submitting.** IndexNow authenticates by fetching a key file from the
+site root, and the script reports its own HTTP status but nothing fails loudly when the key 404s —
+submissions just get rejected forever:
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" https://gainframe.app/99929eeb331db70cd363352a87102acf.txt
+# must be 200, and the body must be exactly the 32-char key with no trailing newline
+```
+
+The key must live in **`web/public/`** so the Next.js build copies it into `web/out`. A copy also
+exists in `docs/` (the legacy Jekyll tree) which is **not** served — on 2026-08-01 that was the
+only copy, the URL 404'd, and every submission had been failing with
+`403 UserForbiddedToAccessSite` since at least 2026-04-30. Nobody noticed because the script logs
+the failure to `scripts/indexnow-log.csv` and exits normally.
+
 ```bash
 python3 scripts/indexnow-ping.py https://gainframe.app/blog/<slug>/ https://gainframe.app/blog/<other>/
 ```
+
+**Read the response, do not assume success.** Confirm the tail of `scripts/indexnow-log.csv` shows
+HTTP 200 for the run you just made. Anything else means the engines received nothing.
 
 That fans out to Bing, Yandex, Seznam, and Naver, and logs to `scripts/indexnow-log.csv`.
 **Google does not participate in IndexNow**, and its Indexing API only accepts `JobPosting` and
@@ -629,6 +647,7 @@ Corrections recorded this way so far:
 | 2026-08-01 | Cannibalization flagged a *series* as a duplicate; merging would have deleted a page earning 7,645 impressions | Phase 4 §6 — GSC query check now mandatory before any merge |
 | 2026-08-01 | Link tooling handled one syntax of three, reporting linked posts as orphans | Phase 4 §7 + `content-inventory.mjs` |
 | 2026-08-01 | Draft Quick Answers named apps that were not in the post | Phase 6 — verify every claim against the body first |
+| 2026-08-01 | IndexNow had been failing `403` since ~2026-04-30 — key file was only in the legacy `docs/` tree, so the URL 404'd | Phase 9 — check the key returns 200 before submitting, and read the response |
 
 ## Guardrails
 
