@@ -557,8 +557,16 @@ the failure to `scripts/indexnow-log.csv` and exits normally.
 python3 scripts/indexnow-ping.py https://gainframe.app/blog/<slug>/ https://gainframe.app/blog/<other>/
 ```
 
-**Read the response, do not assume success.** Confirm the tail of `scripts/indexnow-log.csv` shows
-HTTP 200 for the run you just made. Anything else means the engines received nothing.
+**Read the per-engine response, do not assume success.** The script submits to five endpoints and
+reports each. `api.indexnow.org` is Microsoft-operated and shares Bing's authorization state, so a
+Bing rejection takes out the aggregator too — pinging only the aggregator means Yandex, Seznam and
+Naver never hear about the URLs even though they would accept the identical payload.
+
+As of 2026-08-01 the expected result is **3 of 5**: Yandex, Seznam and Naver accept; Bing and the
+aggregator return `403 UserForbiddedToAccessSite` pending `gainframe.app` being verified in **Bing
+Webmaster Tools** (a manual step requiring account access). If Bing starts accepting, note it in
+the audit — it means the verification landed. If an engine that was working starts failing,
+that is a regression worth chasing.
 
 That fans out to Bing, Yandex, Seznam, and Naver, and logs to `scripts/indexnow-log.csv`.
 **Google does not participate in IndexNow**, and its Indexing API only accepts `JobPosting` and
@@ -648,6 +656,7 @@ Corrections recorded this way so far:
 | 2026-08-01 | Link tooling handled one syntax of three, reporting linked posts as orphans | Phase 4 §7 + `content-inventory.mjs` |
 | 2026-08-01 | Draft Quick Answers named apps that were not in the post | Phase 6 — verify every claim against the body first |
 | 2026-08-01 | IndexNow had been failing `403` since ~2026-04-30 — key file was only in the legacy `docs/` tree, so the URL 404'd | Phase 9 — check the key returns 200 before submitting, and read the response |
+| 2026-08-01 | Pinging only the aggregator let Bing's 403 silently suppress Yandex, Seznam and Naver, which accept the same payload | Phase 9 + `indexnow-ping.py` submits per-engine |
 
 ## Guardrails
 
