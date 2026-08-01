@@ -320,10 +320,28 @@ Work out the findings before proposing anything. Cover:
    fix; `Discovered` on a recent URL is queue depth. **Confirm the most recent batch is actually
    indexed before recommending more posts** — writing into an indexing bottleneck is fighting the
    wrong blocker.
-6. **Cannibalization.** Merge the local detector with GSC query×page data. Two posts splitting one
-   query is a merge-or-differentiate decision, never "write a third".
+6. **Cannibalization.** Two posts splitting one query is a merge-or-differentiate decision, never
+   "write a third".
+
+   **Never merge on title overlap alone — confirm shared queries first:**
+
+   ```
+   mcp__gsc__get_search_by_page_query(site_url, page_url=<page A>, days=28)
+   mcp__gsc__get_search_by_page_query(site_url, page_url=<page B>, days=28)
+   ```
+
+   The local detector scores title+description tokens, which makes any *series* look like
+   cannibalization — every "Average [Body Part] Size" page shares a template. On 2026-08-01 the
+   one flagged pair (`average-bicep-size` vs `average-chest-size`, 0.74 overlap) shared **zero**
+   queries: one serves "14.5 inch biceps", the other "40 inch chest". Merging on the score alone
+   would have deleted a page earning 7,645 impressions a month. The detector now labels
+   same-template pairs `likely series`, but the GSC query check is what decides.
 7. **Internal linking.** Every orphan needs a named source post to link from, chosen from the same
-   cluster.
+   cluster. Note that this corpus uses **three** related-block formats — a `post-related` list, a
+   `post-related-grid` of cards, and a trailing markdown list — and **three** link syntaxes
+   (`href="/blog/x/"`, `](../x/)`, `](/blog/x/)`). Any script that edits or counts links must
+   handle all of them; the first version of the inventory tool counted one syntax and reported 10
+   linked posts as orphans.
 8. **AEO.** AI Overview citations from 2b, Quick Answer defects from Phase 3, and whether
    zero-click impression pools are growing.
 
@@ -474,6 +492,14 @@ Non-negotiables that get caught in review otherwise:
   has a scoped CSS rule. A new wrapper class means a new scoped rule in the same commit.
 - Cover images come from the `$image-generate` skill into `docs/blog/<slug>/assets/cover.webp`.
 
+**When writing or rewriting a Quick Answer, verify every claim against that post's own body
+first.** The block summarises the page, so naming a product the page does not actually cover
+creates a contradiction Google may extract verbatim. On 2026-08-01 two drafts needed correcting
+this way: one named Snapsie (present in the meta description, absent from the body) and one named
+Spren in a roundup that never mentions it. Grep the body for each entity you plan to name, and
+count the words before committing — the band is 40–60, and a script that refuses to write outside
+it is better than counting by eye.
+
 A batch in one run is a lot of surface area for voice drift. After writing, re-read the
 **Writing Voice & Style** section of `$blog-post-generator` and audit every post against it.
 
@@ -600,6 +626,9 @@ Corrections recorded this way so far:
 | 2026-08-01 | `compare_search_periods` reports deltas with an inverted sign | Phase 1 |
 | 2026-08-01 | `ranked_keywords` overflows the tool result at limit 30 | Phase 2b, with a jq/python extractor |
 | 2026-08-01 | The SEO Receipts connector reads seoreceipts.com, not this property | Data sources table |
+| 2026-08-01 | Cannibalization flagged a *series* as a duplicate; merging would have deleted a page earning 7,645 impressions | Phase 4 §6 — GSC query check now mandatory before any merge |
+| 2026-08-01 | Link tooling handled one syntax of three, reporting linked posts as orphans | Phase 4 §7 + `content-inventory.mjs` |
+| 2026-08-01 | Draft Quick Answers named apps that were not in the post | Phase 6 — verify every claim against the body first |
 
 ## Guardrails
 
