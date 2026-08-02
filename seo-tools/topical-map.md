@@ -20,7 +20,7 @@ The flagship cluster; drives the majority of non-brand clicks.
 
 The visualizer-asset cluster. Proven play: per-level/per-age standardized renders (chart post: pos 43→10 in 5 days).
 
-body-fat-percentage-chart (hub) · average-body-fat-percentage-by-age · dad-bod-body-fat-percentage · aesthetic-physique-body-fat-percentage · what-would-i-look-like-with-less-body-fat · 10-pounds-fat-vs-muscle · body-fat-percentage-vs-bmi · body-fat-visible-jawline-men · **Tool:** /tools/body-fat-visualizer/
+body-fat-percentage-chart (hub) · body-composition-pictures (Aug 2, 12-render example gallery) · do-i-look-fat (Aug 2, self-assessment lane: "do i look fat" +1312%/yr) · average-body-fat-percentage-by-age · dad-bod-body-fat-percentage · aesthetic-physique-body-fat-percentage · what-would-i-look-like-with-less-body-fat · 10-pounds-fat-vs-muscle · body-fat-percentage-vs-bmi · body-fat-visible-jawline-men · **Tool:** /tools/body-fat-visualizer/
 body-fat-percentage-chart-women (Jul 18, female per-level visuals) · body-fat-percentage-quiz (Jul 18) also live here. **Gaps:** none — female visual family complete; watch chart-women vs unisex chart in GSC for cannibalization.
 
 ## Cluster 3 — Scanning, measurement & hardware alternatives 💰
@@ -34,12 +34,12 @@ best-body-scanning-measurement-apps (hub) · best-inbody-alternatives · best-zo
 
 best-progress-photo-apps · best-free-progress-photo-apps · best-body-transformation-apps · best-before-after-transformations-men · best-before-after-transformation-apps-women · body-transformation-tracker-apps · 5-tips-better-progress-photos · how-often-progress-photos · take-progress-photos-by-yourself · how-to-take-progress-photos-fast · how-to-take-progress-photos-weight-loss · import-progress-photos · before-after-comparing-progress-photos · timeline-tracking-guide · why-do-i-look-smaller-in-photos 📊 · why-abs-show-in-some-lighting 📊
 **Housekeeping:** Snapsie fold-in to best-progress-photo-apps (TODO carry-forward, one line).
-**Gaps:** progress photo poses guide ("which poses show change") — distinct from tips posts.
+**Gaps:** ~~progress photo poses guide~~ (killed 2026-08-02: 30 vol, −33%/yr).
 
 ## Cluster 5 — Recomp / bulk-cut / skinny-fat 💰📊
 
 bulk-cut-or-recomp (hub) · should-i-bulk-or-cut-quiz · best-body-recomposition-apps · body-recomposition-tracker · how-long-does-body-recomposition-take · body-recomposition-before-and-after · track-body-recomposition-photos · how-to-lean-bulk-without-gaining-fat · is-your-lean-bulk-working · how-to-tell-if-skinny-fat · am-i-skinny-fat-quiz · skinny-fat-to-muscular · signs-you-are-building-muscle · how-long-to-see-results-from-lifting · why-weight-goes-up-when-lifting · measure-muscle-gain-without-scale · how-to-track-muscle-gain-progress · stop-weighing-yourself-daily · body-composition-for-lifters · body-composition-experiment · groom-wedding-shred
-**Gaps:** "first cut guide" (beginner head term, competitive — validate SERP) · "mini cut" (niche, lifter-native).
+**Gaps:** ~~first cut guide~~ (killed 2026-08-02: "cutting for beginners" 30 vol −80%/yr, dead market) · "mini cut" (niche, lifter-native). Note: how-to-tell-if-skinny-fat folded into am-i-skinny-fat-quiz 2026-08-02 (zero imp in 28d), 301 in place.
 
 ## Cluster 6 — FFMI & muscle metrics 📊
 
@@ -54,7 +54,7 @@ visceral-fat-level · visceral-fat-appearance · visceral-fat-test · visceral-f
 ## Cluster 8 — GLP-1 / medication audiences 💰📊 (YMYL — always hedged)
 
 best-glp1-muscle-tracking-apps (hub 💰) · glp-1-muscle-loss-tracking · track-body-composition-ozempic · ozempic-bodybuilding-cut-without-losing-muscle · ozempic-before-and-after-photos-men · best-apps-track-weight-loss-ozempic · trt-body-composition-tracking
-**Gaps:** "GLP-1 body recomposition after stopping" (rising queries — validate) · menopause body-composition (NEW female audience, same honest-tracking playbook — biggest untapped audience on this map).
+**Gaps:** ~~GLP-1 after stopping~~ (published 2026-07-18) · ~~menopause body-composition~~ (**published 2026-07-09 as /blog/menopause-body-composition/** — gap line was stale and caused a near-duplicate proposal 2026-08-02; existence-check candidates against web/content/blog, never against this file alone).
 
 ## Cluster 9 — AI coach / trainer apps 💰
 

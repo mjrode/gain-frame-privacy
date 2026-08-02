@@ -22,7 +22,9 @@ schemas:
 ---
 <div className="post-hero-image scroll-reveal" style={{marginBottom: '3rem'}}><img src="assets/cover.webp" alt="Measuring tape wrapped around a male torso at navel height beside a chart of average waist size by age and a waist-to-height ratio scale" loading="lazy" style={{borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)'}} /></div>
 
-<div className="post-callout post-quick-answer"><p><strong>Quick answer:</strong> National health survey data commonly cited puts the average American man's waist around 40 inches measured at the navel. That's also the threshold where health risk rises — most guidance flags waists over 40 inches in men. A better personal target: keep your waist under half your height.</p></div>
+<div className="post-callout post-quick-answer"><p><strong>Quick answer:</strong> NHANES 2015–2018 measurement data puts the average American man's waist at 40.5 inches, measured at the iliac crest. That's also roughly the threshold where health risk rises — most guidance flags waists over 40 inches in men. A better personal target: keep your waist under half your height.</p></div>
+
+<WaistPercentile defaultSex="male" defaultAgeBand="30-39" />
 
 You wear 34-inch pants. Then you wrap a tape measure around your actual waist — at the navel, where every health guideline says to measure — and it reads 39. Five inches appeared out of nowhere, and your first instinct is that you measured wrong.
 
@@ -32,19 +34,23 @@ You didn't. Pants size and waist size are two different measurements of two diff
 
 ## What is the average waist size for men?
 
-Figures commonly cited from US national health survey data put the average adult male waist around 40 inches, measured at the navel. Read that against the clothing rack — where 32 to 36 dominates the shelf space — and the disconnect is obvious. The survey tape and the pants label are not measuring the same thing.
+The most recent US national measurement data — NHANES 2015–2018, published by the National Center for Health Statistics — puts the average adult male waist at **102.9 cm, or 40.5 inches**, measured at the iliac crest. Read that against the clothing rack, where 32 to 36 dominates the shelf space, and the disconnect is obvious. The survey tape and the pants label are not measuring the same thing.
 
-The average also climbs with age. Commonly cited figures by decade look roughly like this:
+The average also climbs with age. These are the actual measured figures, not estimates:
 
-| Age | Commonly cited average waist (navel) |
-|---|---|
-| 20–29 | ~37–38 in |
-| 30–39 | ~39–40 in |
-| 40–49 | ~40–41 in |
-| 50–59 | ~41–42 in |
-| 60+ | ~42 in |
+| Age | Average (mean) | Typical (median) |
+|---|---|---|
+| 20–29 | 37.1 in | 35.7 in |
+| 30–39 | 40.4 in | 39.3 in |
+| 40–49 | 41.0 in | 40.5 in |
+| 50–59 | 41.4 in | 40.7 in |
+| 60–69 | 42.2 in | 41.8 in |
+| 70–79 | 42.3 in | 42.0 in |
+| 80+ | 41.1 in | 41.0 in |
 
-Treat these as orientation, not precision — different surveys and measurement protocols produce slightly different numbers. The pattern is what matters: the average man gains roughly an inch of waist per decade, and by his 40s the average sits at or past the 40-inch mark that health guidance commonly flags as elevated risk.
+Two columns because they answer different questions. The **mean** is the arithmetic average, and it gets dragged upward by the heaviest men in each group. The **median** is the middle man — half of his age group is smaller, half larger — which is the number most people actually mean when they ask what's normal. The gap between them, widest in the 20s, is the shape of the distribution: a long right tail.
+
+The pattern is what matters. The average man gains roughly an inch of waist per decade through his 60s, and by his 40s the average sits past the 40-inch mark that health guidance commonly flags as elevated risk.
 
 Which leads to an uncomfortable arithmetic: the average American man's waist is approximately equal to the risk threshold. Average and fine are not the same thing.
 
@@ -144,8 +150,9 @@ Yes — arguably more. Waist circumference is a proxy for abdominal fat, includi
   <ul>
     <li><a href="/blog/shoulder-to-waist-ratio/">Shoulder-to-Waist Ratio: The V-Taper Math</a></li>
     <li><a href="/blog/body-fat-percentage-chart/">Body Fat Percentage Chart with Photos</a></li>
-    <li><a href="/blog/how-to-tell-if-skinny-fat/">How to Tell If You're Skinny Fat</a></li>
+    <li><a href="/blog/am-i-skinny-fat-quiz/">Am I Skinny Fat? A 60-Second Self-Check</a></li>
     <li><a href="/blog/aesthetic-physique-body-fat-percentage/">The Best Body Fat Percentage for an Aesthetic Physique</a></li>
     <li><a href="/blog/average-neck-size/">Average Neck Size for Men: What's Normal, What's Healthy & When It Matters</a></li>
+      <li><a href="/blog/average-hand-size/">Average Hand Size: Length, Span & What It Means for Grip</a></li>
   </ul>
 </div>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Content Cycle"
+  short_description: "End-to-end SEO content run for gainframe.app: measure, propose,"
+  default_prompt: "Use $seo-content-cycle to run this workflow."

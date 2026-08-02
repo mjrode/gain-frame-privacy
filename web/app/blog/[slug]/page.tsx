@@ -13,13 +13,19 @@ import AuthorByline from "@/components/AuthorByline";
 import ByLine from "@/components/ByLine";
 import PostTable from "@/components/PostTable";
 import BlogArticleCta from "@/components/BlogArticleCta";
+import WaistPercentile from "@/components/WaistPercentile";
 import { getBlogCtaIntent } from "@/lib/blog-cta";
 
 // Markdown pipe tables (GFM) get the same styling as hand-written
 // <table className="post-table"> markup — without this mapping they render
 // unstyled (and without remark-gfm they don't render as tables at all).
+//
+// Interactive widgets are registered here too, so a post can drop one into the
+// body with <WaistPercentile /> — see .waist-tool in blog-post-page.css for the
+// scoped styles that come with it.
 const mdxComponents = {
   PostTable,
+  WaistPercentile,
   table: (props: React.ComponentPropsWithoutRef<"table">) => (
     <div className="post-table-wrapper">
       <table className="post-table" {...props} />

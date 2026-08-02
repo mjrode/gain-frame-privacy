@@ -28,6 +28,12 @@
 /blog/best-gym-progress-photo-app/        /blog/best-progress-photo-apps/   301
 /blog/best-progress-photo-app-iphone/     /blog/best-progress-photo-apps/   301
 
+# Skinny-fat consolidation (2026-08-02): the long-form diagnosis post had zero
+# impressions in 28 days while the quiz page ranked for the whole query family.
+# Signs content folded into the quiz; renders added. Exact-match only — the old
+# post's assets/ dir is still hotlinked by two roundups and must keep serving.
+/blog/how-to-tell-if-skinny-fat/          /blog/am-i-skinny-fat-quiz/       301
+
 # ── Feature requests / feedback board (Featurebase) ─────────────────────────
 # Branded short URL that fronts the public Featurebase board. The same board is
 # embedded in-app (FeaturebaseBoardView). 302 (not 301) because it's an external

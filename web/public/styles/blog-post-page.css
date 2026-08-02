@@ -1347,3 +1347,247 @@
         transition: none !important;
     }
 }
+
+/* ── Waist percentile widget ────────────────────────────────────────────────
+ * Scoped styles for <WaistPercentile />, registered in the MDX component map
+ * (app/blog/[slug]/page.tsx) and embedded above the fold in the
+ * average-waist-size posts. Same scoped-rule contract as the post-caption
+ * wrappers: a new in-body widget ships its rule in the same commit.
+ */
+.blog-post-page .post-body .waist-tool {
+    margin: 2rem 0 2.5rem;
+    padding: 1.5rem;
+    background: var(--post-paper-bright);
+    border: 1px solid var(--post-line);
+    border-radius: 16px;
+    box-shadow: 0 6px 22px rgba(24, 26, 23, 0.06);
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-head {
+    margin-bottom: 1.25rem;
+}
+
+/* The widget heading is UI chrome, not an article heading — it must opt out of
+ * the .post-body h2 display face, huge clamp size and 82px top margin. */
+.blog-post-page .post-body .waist-tool .waist-tool-title {
+    font-family: inherit;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.35rem;
+    color: var(--post-graphite);
+}
+
+/* This <p> is the sibling right after the widget's <h2>, so it also matches
+ * `.post-body h2:first-of-type + p` — the pull-quote lede treatment. Reset the
+ * decoration that rule brings (padding, left rule, paper fill) or the widget
+ * subtitle renders as a bordered lede block. */
+.blog-post-page .post-body .waist-tool .waist-tool-sub {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--post-muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--post-muted);
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-optional {
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-input-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: stretch;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-input,
+.blog-post-page .post-body .waist-tool .waist-tool-select {
+    width: 100%;
+    min-width: 0;
+    padding: 0.6rem 0.7rem;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--post-graphite);
+    background: var(--post-paper);
+    border: 1px solid var(--post-line);
+    border-radius: 10px;
+    appearance: none;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-input:focus-visible,
+.blog-post-page .post-body .waist-tool .waist-tool-select:focus-visible,
+.blog-post-page .post-body .waist-tool .waist-tool-toggle button:focus-visible {
+    outline: 2px solid var(--post-green-deep);
+    outline-offset: 1px;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-toggle {
+    display: flex;
+    flex-shrink: 0;
+    background: var(--post-paper);
+    border: 1px solid var(--post-line);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-toggle button {
+    padding: 0.55rem 0.8rem;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--post-muted);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-toggle button.is-on {
+    background: var(--post-graphite);
+    color: var(--post-paper-bright);
+}
+
+/* A toggle sitting directly in a field (the Man/Woman control) stretches to the
+ * full grid column, which leaves the unselected segment stranded in dead space.
+ * Split the width evenly so it reads as a segmented control and lines up with
+ * the Age select beside it. The unit toggle is nested in .waist-tool-input-row
+ * instead, so the child combinator leaves it hugging its text. */
+.blog-post-page
+    .post-body
+    .waist-tool
+    .waist-tool-field
+    > .waist-tool-toggle
+    button {
+    flex: 1;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-empty,
+.blog-post-page .post-body .waist-tool .waist-tool-note,
+.blog-post-page .post-body .waist-tool .waist-tool-source {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--post-muted);
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-empty {
+    margin: 1.25rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--post-line);
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-result {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--post-line);
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-headline {
+    font-size: 1.1rem;
+    line-height: 1.45;
+    color: var(--post-graphite);
+    margin: 0 0 1rem;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-bar {
+    margin-bottom: 1rem;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-track {
+    position: relative;
+    height: 10px;
+    border-radius: 999px;
+    background: linear-gradient(
+        90deg,
+        var(--post-green) 0%,
+        #e8d76a 55%,
+        #ff5d6c 100%
+    );
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-marker {
+    position: absolute;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    margin-left: -9px;
+    border-radius: 50%;
+    background: var(--post-graphite);
+    border: 3px solid var(--post-paper-bright);
+    box-shadow: 0 2px 6px rgba(24, 26, 23, 0.35);
+    transform: translateY(-50%);
+    transition: left 0.25s ease;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-scale {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.45rem;
+    font-family: var(--post-mono);
+    font-size: 0.7rem;
+    color: var(--post-muted);
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-facts {
+    margin: 0 0 1rem;
+    padding-left: 1.1rem;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-facts li {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 0.35rem;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-note {
+    margin: 0;
+}
+
+.blog-post-page .post-body .waist-tool .waist-tool-source {
+    margin: 1.25rem 0 0;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--post-line);
+    font-size: 0.78rem;
+}
+
+@media (max-width: 640px) {
+    .blog-post-page .post-body .waist-tool {
+        padding: 1.15rem;
+    }
+
+    .blog-post-page .post-body .waist-tool .waist-tool-controls {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blog-post-page .post-body .waist-tool .waist-tool-marker {
+        transition: none;
+    }
+}

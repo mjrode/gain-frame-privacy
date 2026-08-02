@@ -698,6 +698,188 @@
   font-style: normal;
 }
 
+.progressMap {
+  width: min(calc(100% - 48px), 1320px);
+  margin: clamp(86px, 10vw, 144px) auto 92px;
+  scroll-margin-top: 92px;
+}
+
+.progressMapHead {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.42fr) minmax(0, 1.58fr);
+  gap: clamp(30px, 6vw, 88px);
+  align-items: start;
+  margin-bottom: 42px;
+}
+
+.progressMapHead .progressKicker {
+  margin: 4px 0 0;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+}
+
+.progressMapHead h2,
+.receiptsHead h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.4vw, 5.6rem);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.96;
+}
+
+.progressMapHead p,
+.receiptsHead p {
+  max-width: 650px;
+  margin: 22px 0 0;
+  color: var(--ink-muted);
+  font-size: 1.04rem;
+  line-height: 1.65;
+}
+
+.progressRail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2px;
+  margin: 0;
+  padding: 2px;
+  border: 2px solid var(--graphite);
+  background: var(--graphite);
+  box-shadow: 10px 10px 0 var(--green);
+  list-style: none;
+}
+
+.progressRail li {
+  position: relative;
+  min-width: 0;
+  background: var(--paper-bright);
+}
+
+.progressRail li:nth-child(2) {
+  background:
+    linear-gradient(rgba(24, 26, 23, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 26, 23, 0.08) 1px, transparent 1px),
+    var(--green);
+  background-size: 22px 22px;
+}
+
+.progressRail li:last-child {
+  background: var(--graphite);
+  color: var(--paper-bright);
+}
+
+.progressRail li:not(:last-child)::after {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: -17px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 2px solid var(--graphite);
+  border-radius: 50%;
+  background: var(--paper-bright);
+  color: var(--graphite);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  font-weight: 900;
+  content: "→";
+  transform: translateY(-50%);
+}
+
+.progressRail a {
+  display: flex;
+  min-height: 460px;
+  padding: clamp(22px, 3vw, 36px) clamp(20px, 2.4vw, 31px);
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 160ms ease;
+}
+
+.progressRail a:hover {
+  transform: translateY(-5px);
+}
+
+.progressLink {
+  font-family: var(--mono);
+  font-size: 0.61rem;
+  font-weight: 800;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.progressRail strong {
+  margin-top: 0;
+  font-family: var(--font-lab-display), Impact, sans-serif;
+  font-size: clamp(2.5rem, 3.7vw, 4.25rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.progressRail p {
+  margin: 18px 0 28px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.progressMascot {
+  --mascot-size: 210px;
+  position: relative;
+  display: grid;
+  flex: 1;
+  min-height: 210px;
+  margin: -16px 0 2px;
+  place-items: center;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.progressMascot img {
+  position: relative;
+  z-index: 1;
+  width: var(--mascot-size);
+  filter: drop-shadow(2px 3px 0 rgba(24, 26, 23, 0.2));
+  transition: transform 180ms ease;
+}
+
+.progressRail a:hover .progressMascot img {
+  transform: rotate(-2deg) scale(1.035);
+}
+
+.progressRail li:nth-child(even) .progressMascot img {
+  transform: rotate(1.5deg);
+}
+
+.progressRail li:nth-child(even) a:hover .progressMascot img {
+  transform: rotate(3deg) scale(1.035);
+}
+
+.progressMascotDark::before {
+  position: absolute;
+  z-index: 0;
+  width: calc(var(--mascot-size) * 0.76);
+  aspect-ratio: 1;
+  border: 2px solid var(--paper-bright);
+  border-radius: 50% 45% 48% 52%;
+  background: var(--paper);
+  box-shadow: 5px 5px 0 var(--green);
+  content: "";
+  transform: rotate(-5deg);
+}
+
+.progressLink {
+  margin-top: auto;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
 .chapter {
   position: relative;
   display: grid;
@@ -1271,6 +1453,156 @@
   line-height: 1.45;
 }
 
+.receiptsSection {
+  width: min(calc(100% - 48px), 1320px);
+  margin: 120px auto;
+  padding: clamp(34px, 5vw, 66px);
+  overflow: hidden;
+  border: 2px solid var(--graphite);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    var(--graphite);
+  background-size: 28px 28px;
+  color: var(--paper-bright);
+  box-shadow: 12px 12px 0 var(--coral);
+  scroll-margin-top: 92px;
+}
+
+.receiptsHead {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.42fr) minmax(0, 1.58fr);
+  gap: clamp(30px, 6vw, 86px);
+  align-items: start;
+  margin-bottom: 42px;
+}
+
+.receiptsHead .labLabel {
+  margin-bottom: 0;
+}
+
+.receiptsHead .labLabel span:first-child {
+  background: var(--green);
+  color: var(--graphite);
+}
+
+.receiptsHead p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.receiptsTableWrap {
+  overflow-x: auto;
+  border: 2px solid var(--paper-bright);
+  background: var(--paper-bright);
+  color: var(--graphite);
+  scrollbar-color: var(--green) var(--graphite);
+  scrollbar-width: thin;
+}
+
+.receiptsTableWrap:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 5px;
+}
+
+.receiptsTable {
+  width: 100%;
+  min-width: 920px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.82rem;
+}
+
+.receiptsTable caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.receiptsTable th,
+.receiptsTable td {
+  padding: 19px 16px;
+  border-right: 1px solid var(--graphite);
+  border-bottom: 1px solid var(--graphite);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.receiptsTable tr > *:last-child {
+  border-right: 0;
+}
+
+.receiptsTable tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.receiptsTable thead th {
+  background: var(--paper);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.receiptsTable thead th:first-child,
+.receiptsTable tbody th {
+  width: 28%;
+  text-align: left;
+}
+
+.receiptsTable tbody th {
+  background: var(--paper-bright);
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.receiptsTable .gainFrameColumn {
+  background: rgba(52, 210, 111, 0.25);
+}
+
+.receiptsTable thead .gainFrameColumn {
+  background: var(--green);
+}
+
+.statusManual,
+.statusPartial,
+.statusMissing,
+.statusBuilt {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 78px;
+  padding: 6px 8px;
+  border: 1px solid currentColor;
+  font-family: var(--mono);
+  font-size: 0.59rem;
+  font-weight: 900;
+  letter-spacing: 0.055em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.statusManual { color: #785818; }
+.statusPartial { color: #8d3943; }
+.statusMissing { color: var(--ink-muted); }
+.statusBuilt {
+  background: var(--graphite);
+  color: var(--paper-bright);
+}
+
+.receiptsNote {
+  max-width: 780px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.64);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  line-height: 1.55;
+}
+
 .proofStrip {
   display: grid;
   grid-template-columns: minmax(240px, 0.65fr) minmax(0, 1.5fr);
@@ -1542,6 +1874,14 @@
   .historyStage { grid-template-columns: 1fr 1fr; }
   .historySummary { grid-column: 1 / -1; width: min(100%, 500px); justify-self: center; }
 
+  .progressRail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .progressRail li::after {
+    display: none !important;
+  }
+
   .proofStrip { grid-template-columns: 1fr; }
   .proofStrip h2 { max-width: 700px; }
 }
@@ -1564,6 +1904,26 @@
   .heroCopy { padding: 30px 4px 0; }
   .hero h1 { max-width: 660px; font-size: clamp(4.2rem, 15vw, 7rem); }
   .heroFilmShell { margin-top: 72px; }
+
+  .progressMap {
+    width: min(calc(100% - 32px), 720px);
+    margin-block: 82px 62px;
+  }
+
+  .progressMapHead,
+  .receiptsHead {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .progressRail a {
+    min-height: 500px;
+  }
+
+  .progressMascot {
+    --mascot-size: 240px;
+    min-height: 250px;
+  }
 
   .chapter,
   .futureChapter {
@@ -1595,6 +1955,12 @@
 
   .systemGrid { grid-template-columns: 1fr; max-width: 600px; margin-inline: auto; }
   .cardImage { height: 560px; }
+
+  .receiptsSection {
+    width: min(calc(100% - 32px), 720px);
+    margin-block: 88px;
+    padding: 38px 30px;
+  }
 
   .proofItems { grid-template-columns: 1fr; }
 
@@ -1667,6 +2033,35 @@
   .heroMascot span { top: 11px; right: 84%; font-size: 0.5rem; }
 
   .ticker div { min-height: 48px; }
+
+  .progressMap {
+    width: calc(100% - 24px);
+  }
+
+  .progressMapHead h2,
+  .receiptsHead h2 {
+    font-size: clamp(3.2rem, 15vw, 4.8rem);
+  }
+
+  .progressRail {
+    grid-template-columns: 1fr;
+    box-shadow: 7px 7px 0 var(--green);
+  }
+
+  .progressRail a {
+    min-height: 430px;
+    padding: 25px 23px;
+  }
+
+  .progressRail strong {
+    font-size: 3.45rem;
+  }
+
+  .progressMascot {
+    --mascot-size: 200px;
+    min-height: 205px;
+    margin-top: -14px;
+  }
 
   .chapter,
   .futureChapter {
@@ -1760,6 +2155,33 @@
   .systemSection { width: calc(100% - 32px); margin-block: 80px; }
   .systemGrid { margin-top: 38px; }
   .cardImage { height: 420px; }
+
+  .receiptsSection {
+    width: calc(100% - 24px);
+    padding: 34px 18px;
+    box-shadow: 7px 7px 0 var(--coral);
+  }
+
+  .receiptsTableWrap {
+    margin-right: -18px;
+  }
+
+  .receiptsTable th,
+  .receiptsTable td {
+    padding: 17px 13px;
+  }
+
+  .receiptsTable thead th:first-child,
+  .receiptsTable tbody th {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    box-shadow: 1px 0 0 var(--graphite);
+  }
+
+  .receiptsTable thead th:first-child {
+    z-index: 3;
+  }
 
   .proofStrip { padding: 56px 20px; }
   .proofItems article { padding: 25px 22px; }

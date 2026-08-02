@@ -22,7 +22,9 @@ schemas:
 ---
 <div className="post-hero-image scroll-reveal" style={{marginBottom: '3rem'}}><img src="assets/cover.webp" alt="Measuring tape wrapped around a female torso at navel height beside a chart of average waist size for women by age and the 35-inch health threshold" loading="lazy" style={{borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)'}} /></div>
 
-<div className="post-callout post-quick-answer"><p><strong>Quick answer:</strong> US national health survey data commonly cited puts the average American woman's waist around 38–39 inches, measured at the navel. Health guidance commonly flags waists over 35 inches in women as elevated risk — so the average sits above the threshold. A better personal target: keep your waist under half your height.</p></div>
+<div className="post-callout post-quick-answer"><p><strong>Quick answer:</strong> NHANES 2015–2018 measurement data puts the average American woman's waist at 38.7 inches, measured at the iliac crest. Health guidance commonly flags waists over 35 inches in women as elevated risk — so the average sits above the threshold. A better personal target: keep your waist under half your height.</p></div>
+
+<WaistPercentile defaultSex="female" defaultAgeBand="30-39" />
 
 You wear a size 8. Then you wrap a tape measure around your waist at the navel — where every health guideline says to measure — and it reads 37 inches. Nothing in your closet ever mentioned 37, and your first instinct is that the tape is wrong.
 
@@ -32,19 +34,23 @@ The tape is fine. Women's clothing sizes and waist measurements live in two unre
 
 ## What is the average waist size for women?
 
-Figures commonly cited from US national health survey data put the average adult woman's waist around 38 to 39 inches, measured at the navel. If that sounds impossibly high, you're reacting exactly the way most people do — because the only "waist" numbers women ever see are dress sizes and jean labels, and neither is a measurement of the navel line.
+The most recent US national measurement data — NHANES 2015–2018, published by the National Center for Health Statistics — puts the average adult woman's waist at **98.4 cm, or 38.7 inches**, measured at the iliac crest. If that sounds impossibly high, you're reacting exactly the way most people do, because the only "waist" numbers women ever see are dress sizes and jean labels, and neither is a measurement of the navel line.
 
-The average also climbs with age. Commonly cited figures by decade look roughly like this:
+The average also climbs with age. These are the actual measured figures:
 
-| Age | Commonly cited average waist (navel) |
-|---|---|
-| 20–29 | ~36–37 in |
-| 30–39 | ~38 in |
-| 40–49 | ~39 in |
-| 50–59 | ~39–40 in |
-| 60+ | ~39–40 in |
+| Age | Average (mean) | Typical (median) |
+|---|---|---|
+| 20–29 | 36.3 in | 35.0 in |
+| 30–39 | 38.3 in | 37.1 in |
+| 40–49 | 39.2 in | 37.8 in |
+| 50–59 | 39.3 in | 38.5 in |
+| 60–69 | 40.0 in | 39.4 in |
+| 70–79 | 40.0 in | 39.6 in |
+| 80+ | 38.7 in | 38.7 in |
 
-Treat these as orientation rather than precision — different surveys and measurement protocols land on slightly different numbers, and menopause in particular shifts fat storage toward the midsection for many women. The pattern is what matters: the average creeps up roughly an inch per decade, and it crosses the commonly cited 35-inch risk threshold somewhere in the average woman's 20s or 30s.
+Two columns, because they answer different questions. The **mean** is the arithmetic average and gets pulled upward by the largest waists in each group. The **median** is the middle woman — half her age group measures less, half more — which is what most people mean when they ask what's normal. The gap between the two columns is the long right tail of the distribution.
+
+Menopause in particular shifts fat storage toward the midsection for many women, which is visible in the jump between the 40s and 60s rows. The pattern is what matters: the average creeps up roughly an inch per decade, and it crosses the commonly cited 35-inch risk threshold in the average woman's 20s.
 
 That's the uncomfortable arithmetic this page keeps returning to: for American women, average and healthy stopped being the same number a while ago.
 

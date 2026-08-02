@@ -90,3 +90,8 @@
 - Hook: on a GLP-1 the scale drops — but is it fat or muscle? #3 reads both from a photo.
 - 0-shot logo cards: Shotsy (`name` override), MacroFactor. Dropped the smart-scale slot (scale is the hook's foil, not a list item) to cap logo cards at 2.
 - Caption CTA "GainFrame is free on iOS." Status: Done.
+## 2026-07-30 — The Best Gym Apps: Iceberg
+- Slug: gym-apps-iceberg-gainframe
+- Format: two-slide iceberg meme
+- Apps: FitnessAI, Fitbod, Strong, Hevy, GymStreak, GainFrame
+- Status: Done

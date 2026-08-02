@@ -13,6 +13,7 @@
     --about-muted: #5e625d;
     --about-green: #34d26f;
     --about-green-deep: #0f8b43;
+    --about-coral: #ff5d6c;
     --about-line: rgba(24, 26, 23, 0.2);
     --about-mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", monospace;
     min-height: 100vh;
@@ -500,6 +501,109 @@
     text-transform: uppercase;
 }
 
+.about-principles {
+    width: 100%;
+    margin: 76px auto 72px;
+}
+
+.about-principles__header {
+    display: grid;
+    grid-template-columns: minmax(145px, 0.35fr) minmax(280px, 0.75fr) minmax(250px, 0.9fr);
+    gap: clamp(22px, 4vw, 48px);
+    align-items: start;
+    margin-bottom: 32px;
+}
+
+.about-principles__header > span {
+    width: fit-content;
+    padding: 7px 9px;
+    border: 1px solid var(--about-graphite);
+    background: var(--about-green);
+    color: var(--about-graphite);
+    font-family: var(--about-mono);
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.about-page .post-body .about-principles__header h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 4.6vw, 4.4rem);
+    line-height: 0.98;
+}
+
+.about-page .post-body .about-principles__header p {
+    margin: 0;
+    color: var(--about-muted);
+    font-size: 0.94rem;
+    line-height: 1.62;
+}
+
+.about-principles__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2px;
+    padding: 2px;
+    border: 2px solid var(--about-graphite);
+    background: var(--about-graphite);
+    box-shadow: 9px 9px 0 var(--about-green-deep);
+}
+
+.about-principle {
+    display: flex;
+    min-height: 300px;
+    padding: clamp(24px, 3vw, 34px);
+    flex-direction: column;
+    background:
+        linear-gradient(rgba(24, 26, 23, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 26, 23, 0.07) 1px, transparent 1px),
+        var(--about-green);
+    background-size: 22px 22px;
+    color: var(--about-graphite);
+}
+
+.about-principle--coral {
+    background: var(--about-coral);
+}
+
+.about-principle--dark {
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+        var(--about-graphite);
+    background-size: 22px 22px;
+    color: var(--about-paper-bright);
+}
+
+.about-principle__index {
+    font-family: var(--about-mono);
+    font-size: 0.61rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.about-page .post-body .about-principle h3 {
+    max-width: 280px;
+    margin: 42px 0 20px;
+    color: inherit;
+    font-family: "GainFrame Anton", sans-serif;
+    font-size: clamp(2.05rem, 3.2vw, 3.25rem);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 0.98;
+    text-transform: uppercase;
+}
+
+.about-page .post-body .about-principle p {
+    margin: auto 0 0;
+    color: inherit;
+    font-size: 0.88rem;
+    line-height: 1.58;
+}
+
 .about-story-photo {
     margin-top: 32px;
     margin-bottom: 42px;
@@ -920,6 +1024,22 @@
         min-height: 860px;
         height: 860px;
     }
+
+    .about-principles__header {
+        grid-template-columns: 1fr 1.6fr;
+    }
+
+    .about-principles__header p {
+        grid-column: 2;
+    }
+
+    .about-principles__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-principle {
+        min-height: 250px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -992,6 +1112,14 @@
         width: 100%;
     }
 
+    .about-principles__header {
+        grid-template-columns: 1fr;
+    }
+
+    .about-principles__header p {
+        grid-column: auto;
+    }
+
     .about-cta {
         width: calc(100% + 36px);
         margin-inline: -18px;
@@ -1015,6 +1143,19 @@
 
     .about-hero__fact {
         justify-content: center;
+    }
+
+    .about-principles {
+        margin-block: 62px;
+    }
+
+    .about-principles__grid {
+        box-shadow: 6px 6px 0 var(--about-green-deep);
+    }
+
+    .about-principle {
+        min-height: 275px;
+        padding: 25px 22px;
     }
 
     .about-chat-card {

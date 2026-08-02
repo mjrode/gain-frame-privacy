@@ -2,12 +2,43 @@
 
 import { useEffect, useRef, useState } from "react";
 import { APP_STORE_PROVIDER_TOKEN, SITE } from "@/lib/site";
-import { track } from "@/lib/analytics";
+import {
+  captureException,
+  getPosthogDistinctId,
+  track,
+} from "@/lib/analytics";
+import {
+  asToolClientError,
+  createAttemptId,
+  errorResponseJson,
+  fetchWithTimeout,
+  imageMime,
+  isLikelyImageFile,
+  preprocessImageForUpload,
+  terminalTelemetry,
+  toolNow,
+  validatedJson,
+  type PreprocessedImage,
+} from "@/lib/tool-client";
 
 const FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/bf-estimate";
 const REPORT_FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/bf-full-report";
+const ESTIMATE_TIMEOUT_MS = 30_000;
+const REPORT_TIMEOUT_MS = 60_000;
+const BF_RAW_MIMES = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/heic",
+  "image/heif",
+] as const;
+const REPORT_ALREADY_SENT_CODES = new Set([
+  "already_sent",
+  "already_sent_today",
+  "report_already_sent",
+]);
 
 const CTA_CAMPAIGN = "bf_from_photo";
 const MASCOT_SRC = "/assets/gainframe-guy/poses/gainframe-guy-wave.webp";
@@ -44,6 +75,7 @@ type SuccessResponse = {
 type ErrorResponse = {
   error: string;
   message?: string;
+  reason?: string;
 };
 
 const PROCESSING_MESSAGES = [
@@ -108,35 +140,6 @@ function nextRunIndex(): number {
   }
 }
 
-async function preprocessImage(
-  file: File,
-  maxDim = 1024,
-): Promise<{ base64: string; sizeKb: number }> {
-  const url = URL.createObjectURL(file);
-  try {
-    const img = await new Promise<HTMLImageElement>((resolve, reject) => {
-      const el = new Image();
-      el.onload = () => resolve(el);
-      el.onerror = () => reject(new Error("Couldn't read that image."));
-      el.src = url;
-    });
-    const ratio = Math.min(1, maxDim / Math.max(img.width, img.height));
-    const w = Math.round(img.width * ratio);
-    const h = Math.round(img.height * ratio);
-    const canvas = document.createElement("canvas");
-    canvas.width = w;
-    canvas.height = h;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Canvas not supported in this browser.");
-    ctx.drawImage(img, 0, 0, w, h);
-    const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
-    const base64 = dataUrl.split(",")[1] ?? "";
-    return { base64, sizeKb: Math.round((base64.length * 3) / 4 / 1024) };
-  } finally {
-    URL.revokeObjectURL(url);
-  }
-}
-
 function appStoreUrl(content: string): string {
   const params = new URLSearchParams({
     utm_source: "web",
@@ -151,6 +154,53 @@ function appStoreUrl(content: string): string {
     mt: "8",
   });
   return `${SITE.appStoreUrl}?${params.toString()}`;
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === "object";
+}
+
+function isConfidence(value: unknown): value is Confidence {
+  return value === "low" || value === "medium" || value === "high";
+}
+
+function isSuccessResponse(value: unknown): value is SuccessResponse {
+  return isRecord(value) &&
+    typeof value.estimate === "string" && /\d+(?:\.\d+)?/.test(value.estimate) &&
+    isConfidence(value.confidence) &&
+    typeof value.one_line === "string" &&
+    typeof value.model_used === "string";
+}
+
+function errorResponse(value: Record<string, unknown>): ErrorResponse {
+  return {
+    error: typeof value.error === "string" ? value.error : "unknown_error",
+    message: typeof value.message === "string" ? value.message : undefined,
+    reason: typeof value.reason === "string" ? value.reason : undefined,
+  };
+}
+
+function fileTelemetry(file: File, processed?: PreprocessedImage) {
+  return {
+    file_mime: imageMime(file) || "unknown",
+    file_size_kb: Math.round(file.size / 1024),
+    ...(processed
+      ? {
+          preprocessing_method: processed.method,
+          compressed_size_kb: processed.sizeKb,
+          upload_mime: processed.photoMime,
+        }
+      : {}),
+  };
+}
+
+function shouldCaptureTechnicalError(code: string): boolean {
+  return ![
+    "unsupported_format",
+    "corrupt_image",
+    "decode_failed_large",
+    "invalid_email",
+  ].includes(code);
 }
 
 function parseEstimateNumber(estimate: string): number {
@@ -206,6 +256,7 @@ export default function BFEstimatorClient() {
   const [emailStage, setEmailStage] = useState<EmailStage>("idle");
   const estimateClientIdRef = useRef<string | null>(null);
   const photoBase64Ref = useRef<string | null>(null);
+  const photoMimeRef = useRef<string | null>(null);
   const emailSubmittingRef = useRef(false);
 
   useEffect(() => {
@@ -260,63 +311,167 @@ export default function BFEstimatorClient() {
     setEmailStage("idle");
     estimateClientIdRef.current = null;
     photoBase64Ref.current = null;
+    photoMimeRef.current = null;
   }
 
   async function submitReport() {
     if (stage.kind !== "result") return;
     if (emailSubmittingRef.current) return;
+    const attemptId = createAttemptId();
+    const startedAt = toolNow();
     const trimmed = email.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+      track("bf_tool_email_submitted", {
+        outcome: "validation_failed",
+        ...terminalTelemetry({
+          attemptId,
+          startedAt,
+          phase: "report",
+          errorType: "validation",
+          code: "invalid_email",
+          retryable: true,
+          source: "client",
+        }),
+        blocking: true,
+      });
       setEmailStage("error");
       return;
     }
     const photoBase64 = photoBase64Ref.current;
+    const photoMime = photoMimeRef.current;
     const clientId = estimateClientIdRef.current;
-    if (!photoBase64 || !clientId) {
+    if (!photoBase64 || !photoMime || !clientId) {
       // Shouldn't happen (both are set before any result renders), but if
       // the refs are gone there's nothing to analyze — surface the error.
+      const common = {
+        ...terminalTelemetry({
+          attemptId,
+          startedAt,
+          phase: "report",
+          errorType: "unknown",
+          code: "missing_report_context",
+          retryable: false,
+          source: "client",
+        }),
+        blocking: true,
+      };
+      const error = new Error("Body-fat report context was missing.");
+      track("bf_tool_report_error", { ...common, error: error.message });
+      captureException(error, { tool: "body_fat_estimator", ...common });
       setEmailStage("error");
       return;
     }
 
     emailSubmittingRef.current = true;
     setEmailStage("sending");
-    track("bf_tool_email_submitted", {});
+    track("bf_tool_email_submitted", {
+      outcome: "requested",
+      attempt_id: attemptId,
+      source: "client",
+    });
 
     try {
-      const res = await fetch(REPORT_FUNCTION_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          client_id: clientId,
-          email: trimmed,
-          photo_base64: photoBase64,
-          photo_mime: "image/jpeg",
-          sex: sex && sex !== "skip" ? sex : null,
-          estimate: stage.estimate,
-          confidence: stage.confidence,
-          // Lets the server-side bf_tool_report_lead event land on the same
-          // PostHog person as this browser's client-side events.
-          posthog_distinct_id:
-            (window.posthog as unknown as {
-              get_distinct_id?: () => string;
-            })?.get_distinct_id?.() ?? null,
-        }),
-      });
+      const res = await fetchWithTimeout(
+        REPORT_FUNCTION_URL,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            client_id: clientId,
+            email: trimmed,
+            photo_base64: photoBase64,
+            photo_mime: photoMime,
+            sex: sex && sex !== "skip" ? sex : null,
+            estimate: stage.estimate,
+            confidence: stage.confidence,
+            posthog_distinct_id: getPosthogDistinctId(),
+            request_id: attemptId,
+            attempt_id: attemptId,
+          }),
+        },
+        REPORT_TIMEOUT_MS,
+      );
       if (res.ok) {
-        track("bf_tool_report_sent", {});
+        track("bf_tool_report_sent", {
+          outcome: "sent",
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "report",
+            errorType: "none",
+            code: "ok",
+            status: res.status,
+            retryable: false,
+            source: "server",
+          }),
+          blocking: false,
+        });
         setEmailStage("sent");
-      } else if (res.status === 429) {
-        // Already sent today — from the user's perspective that's success.
-        track("bf_tool_report_sent", { already: true });
-        setEmailStage("already");
       } else {
-        const err = (await res.json().catch(() => ({}))) as ErrorResponse;
-        track("bf_tool_report_error", { status: res.status, code: err.error });
+        const err = errorResponse(await errorResponseJson(res));
+        if (res.status === 429 && REPORT_ALREADY_SENT_CODES.has(err.error)) {
+          track("bf_tool_report_sent", {
+            already: true,
+            outcome: "already_sent",
+            ...terminalTelemetry({
+              attemptId,
+              startedAt,
+              phase: "report",
+              errorType: "none",
+              code: err.error,
+              status: res.status,
+              retryable: false,
+              source: "server",
+            }),
+            blocking: false,
+          });
+          setEmailStage("already");
+          return;
+        }
+
+        const common = {
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "report",
+            errorType: "http",
+            code: err.error,
+            status: res.status,
+            retryable: res.status >= 500 || res.status === 408 || res.status === 429,
+            source: "server",
+          }),
+          blocking: true,
+        };
+        track("bf_tool_report_error", {
+          ...common,
+          status: res.status,
+          code: err.error,
+        });
+        if (res.status !== 422 && res.status !== 429) {
+          captureException(
+            new Error(`Body-fat report failed with HTTP ${res.status}`),
+            { tool: "body_fat_estimator", ...common },
+          );
+        }
         setEmailStage("error");
       }
     } catch (err) {
-      track("bf_tool_report_error", { error: (err as Error).message });
+      const failure = asToolClientError(err);
+      const common = {
+        ...terminalTelemetry({
+          attemptId,
+          startedAt,
+          phase: "report",
+          errorType: failure.errorType,
+          code: failure.code,
+          status: failure.status,
+          retryable: failure.retryable,
+          source: "client",
+        }),
+        blocking: true,
+      };
+      track("bf_tool_report_error", { ...common, error: failure.message });
+      captureException(err, { tool: "body_fat_estimator", ...common });
       setEmailStage("error");
     } finally {
       emailSubmittingRef.current = false;
@@ -325,8 +480,27 @@ export default function BFEstimatorClient() {
 
   function onPick(picked: File | null) {
     if (!picked) return;
-    if (!picked.type.startsWith("image/")) {
-      setStage({ kind: "error", message: "Please pick an image file." });
+    if (!isLikelyImageFile(picked)) {
+      const attemptId = createAttemptId();
+      const startedAt = toolNow();
+      track("bf_tool_photo_unusable", {
+        reason: "unsupported_format",
+        ...terminalTelemetry({
+          attemptId,
+          startedAt,
+          phase: "image_select",
+          errorType: "unsupported_image",
+          code: "unsupported_format",
+          retryable: false,
+          source: "client",
+        }),
+        blocking: true,
+        ...fileTelemetry(picked),
+      });
+      setStage({
+        kind: "unusable",
+        message: "That file isn't a supported image. Use JPEG, PNG, WebP, HEIC, or HEIF.",
+      });
       return;
     }
     if (previewUrl) URL.revokeObjectURL(previewUrl);
@@ -349,33 +523,65 @@ export default function BFEstimatorClient() {
     if (submittingRef.current) return;
     submittingRef.current = true;
     setStage({ kind: "processing" });
+    const attemptId = createAttemptId();
+    const startedAt = toolNow();
+    let phase = "preprocess";
+    let processed: PreprocessedImage | undefined;
     track("bf_tool_estimate_requested", {
       sex: sex ?? "skip",
       run_index: nextRunIndex(),
+      attempt_id: attemptId,
+      source: "client",
+      ...fileTelemetry(file),
     });
 
     try {
-      const { base64 } = await preprocessImage(file);
+      processed = await preprocessImageForUpload(file, {
+        allowedRawMimes: BF_RAW_MIMES,
+      });
       const clientId = getOrCreateClientId();
       estimateClientIdRef.current = clientId;
-      photoBase64Ref.current = base64;
+      photoBase64Ref.current = processed.base64;
+      photoMimeRef.current = processed.photoMime;
       const payload = {
         client_id: clientId,
-        photo_base64: base64,
-        photo_mime: "image/jpeg",
+        photo_base64: processed.base64,
+        photo_mime: processed.photoMime,
         sex: sex && sex !== "skip" ? sex : null,
+        posthog_distinct_id: getPosthogDistinctId(),
+        request_id: attemptId,
+        attempt_id: attemptId,
       };
-      const res = await fetch(FUNCTION_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      phase = "estimate";
+      const res = await fetchWithTimeout(
+        FUNCTION_URL,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        },
+        ESTIMATE_TIMEOUT_MS,
+      );
 
       if (res.ok) {
-        const json = (await res.json()) as SuccessResponse;
+        phase = "response_parse";
+        const json = await validatedJson(res, isSuccessResponse);
         track("bf_tool_result_shown", {
           estimate: json.estimate,
           confidence: json.confidence,
+          model: json.model_used,
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "estimate",
+            errorType: "none",
+            code: "ok",
+            status: res.status,
+            retryable: false,
+            source: "server",
+          }),
+          blocking: false,
+          ...fileTelemetry(file, processed),
         });
         setStage({
           kind: "result",
@@ -386,10 +592,25 @@ export default function BFEstimatorClient() {
         return;
       }
 
-      const err = (await res.json().catch(() => ({}))) as ErrorResponse;
+      const err = errorResponse(await errorResponseJson(res));
       if (res.status === 429) {
         const lifetime = err.error === "lifetime_limited";
-        track("bf_tool_rate_limited", { kind: lifetime ? "lifetime" : "daily" });
+        track("bf_tool_rate_limited", {
+          kind: lifetime ? "lifetime" : "daily",
+          raw_kind: err.error,
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "estimate",
+            errorType: "rate_limit",
+            code: err.error,
+            status: res.status,
+            retryable: !lifetime,
+            source: "server",
+          }),
+          blocking: true,
+          ...fileTelemetry(file, processed),
+        });
         setStage({
           kind: "rate_limited",
           lifetime,
@@ -398,7 +619,22 @@ export default function BFEstimatorClient() {
             "You've used your free estimate for today. Try GainFrame for unlimited weekly check-ins.",
         });
       } else if (res.status === 422) {
-        track("bf_tool_photo_unusable", { reason: err.message ?? "unknown" });
+        const reason = err.reason ?? err.error ?? "photo_unusable";
+        track("bf_tool_photo_unusable", {
+          reason,
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "estimate",
+            errorType: "unusable_photo",
+            code: reason,
+            status: res.status,
+            retryable: true,
+            source: "server",
+          }),
+          blocking: true,
+          ...fileTelemetry(file, processed),
+        });
         setStage({
           kind: "unusable",
           message:
@@ -406,17 +642,62 @@ export default function BFEstimatorClient() {
             "Couldn't analyze that photo. Try a clearer, well-lit shot.",
         });
       } else {
-        track("bf_tool_error", { status: res.status, code: err.error });
+        const common = {
+          ...terminalTelemetry({
+            attemptId,
+            startedAt,
+            phase: "estimate",
+            errorType: "http",
+            code: err.error,
+            status: res.status,
+            retryable: res.status >= 500 || res.status === 408,
+            source: "server",
+          }),
+          blocking: true,
+          ...fileTelemetry(file, processed),
+        };
+        track("bf_tool_error", { ...common, status: res.status, code: err.error });
+        captureException(
+          new Error(`Body-fat estimate failed with HTTP ${res.status}`),
+          { tool: "body_fat_estimator", ...common },
+        );
         setStage({
           kind: "error",
           message: "Something went wrong. Please try again.",
         });
       }
     } catch (err) {
-      track("bf_tool_error", { error: (err as Error).message });
+      const failure = asToolClientError(err);
+      const common = {
+        ...terminalTelemetry({
+          attemptId,
+          startedAt,
+          phase,
+          errorType: failure.errorType,
+          code: failure.code,
+          status: failure.status,
+          retryable: failure.retryable,
+          source: "client",
+        }),
+        blocking: true,
+        ...fileTelemetry(file, processed),
+      };
+      if (["unsupported_format", "corrupt_image", "decode_failed_large"].includes(
+        failure.code,
+      )) {
+        track("bf_tool_photo_unusable", { ...common, reason: failure.code });
+        setStage({ kind: "unusable", message: failure.message });
+        return;
+      }
+      track("bf_tool_error", { ...common, error: failure.message });
+      if (shouldCaptureTechnicalError(failure.code)) {
+        captureException(err, { tool: "body_fat_estimator", ...common });
+      }
       setStage({
         kind: "error",
-        message: (err as Error).message ?? "Network error. Please try again.",
+        message: failure.errorType === "timeout"
+          ? "That scan took too long. Please try again."
+          : "Something went wrong preparing that photo. Please try again.",
       });
     } finally {
       // Release the guard so a legitimate retry (after error / unusable / rate

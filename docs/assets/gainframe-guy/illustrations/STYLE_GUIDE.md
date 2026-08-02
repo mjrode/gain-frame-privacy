@@ -4,8 +4,8 @@
 
 - **Name:** GainFrame Guy (used in branding badge on every slide)
 - **Head:** GainFrame scan-frame logo (bracket corners in black, with the "S"-curve nose, two googly eyes, and a red bracket accent in the bottom-right)
-- **Body:** Solid black/dark charcoal silhouette figure wearing olive/army-green shorts and gray/brown chunky sneakers
-- **Build:** Can range from average (template pose) to muscular (gym scenes) depending on the slide context
+- **Body:** Solid black/dark charcoal athletic figure wearing fitted olive/army-green shorts and compact gray/brown sneakers
+- **Build:** Default to the muscular deadlift-post physique: broad delts and chest, defined arms and legs, narrow waist, and a clean V-taper. Use the neutral/average template only when a scene explicitly calls for an untrained or before-state body.
 - **Expression:** Conveyed through the googly eyes and nose position — curious, strained, happy, sleeping, etc.
 
 ## Visual Style Constants
@@ -57,6 +57,7 @@ The GainFrame Guy branding badge should ONLY appear on the **cover slide**. Do n
 
 | Scenario | Description | File Reference |
 |----------|-------------|----------------|
+| Muscular Default | Athletic V-taper, hands on hips; authoritative body-identity reference for gym, progress, and marketing scenes | `docs/assets/tiktok/comic/do-you-need-to-deadlift/_art/slide-0-cover.png` |
 | Template/Neutral | Standing front-facing, arms at sides | `gf-mascot-template.jpeg` |
 | Mirror Reflection | Flexing in front of mirror, thought bubble with muscular version | `mirror-mascot.jpeg` |
 | Good vs Bad Form | Two mascots squatting — one correct (✅), one wrong (❌) | `mascot-form.jpeg` |
@@ -136,13 +137,13 @@ These are proven high-engagement title formats from similar mascot-style fitness
 ```
 Tool: generate_image
 ImagePaths: [
-  "assets/gf-mascot/gf-mascot-template.jpeg",   # ALWAYS include template
+  "docs/assets/tiktok/comic/do-you-need-to-deadlift/_art/slide-0-cover.png", # ALWAYS include muscular body identity
   "assets/gf-mascot/gary-badge.png",              # ALWAYS include badge ref
   "assets/gf-mascot/mascot-pictures.jpeg"         # Include 1 scene ref
 ]
 ```
 
-Use absolute paths when calling the tool. Pick 1 scene reference image from the Scene Reference Library that is closest to the scene you're generating. **Always include both the template AND the badge reference.**
+Use absolute paths when calling the tool. Pick 1 scene reference image from the Scene Reference Library that is closest to the scene you're generating. **For gym, progress, and marketing scenes, always include both the muscular default AND the badge reference.**
 
 **Cover Slide Prompt Base:**
 ```
@@ -150,6 +151,10 @@ A cartoon illustration of this exact character from the reference images in a ne
 CRITICAL: The head is NOT a solid square — it is four separate corner brackets floating 
 in space with the background visible between them. The eyes and S-curve nose float inside 
 the bracket frame with NO background fill.
+
+BODY IDENTITY: Match the muscular default reference: broad defined deltoids and chest, thick
+muscular arms, narrow waist, defined thighs and calves, fitted olive shorts, and compact flat
+gray-brown sneakers. Do not soften the torso into a round or average build.
 
 In the top-left corner, draw a small branding badge: a tiny version of the character's 
 bracket-frame head icon (matching the badge reference image) next to bold sans-serif text 
@@ -183,6 +188,10 @@ A cartoon illustration of this exact character from the reference images in a ne
 CRITICAL: The head is NOT a solid square — it is four separate corner brackets floating 
 in space with the background visible between them. The eyes and S-curve nose float inside 
 the bracket frame with NO background fill.
+
+BODY IDENTITY: Match the muscular default reference: broad defined deltoids and chest, thick
+muscular arms, narrow waist, defined thighs and calves, fitted olive shorts, and compact flat
+gray-brown sneakers. Do not soften the torso into a round or average build.
 
 Scene: [SCENE DESCRIPTION HERE]
 

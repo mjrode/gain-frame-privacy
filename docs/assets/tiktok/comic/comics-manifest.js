@@ -2,6 +2,96 @@
 // To change comics, edit the .mjs file and run `npm run build:comics-manifest`.
 const COMICS_MANIFEST = [
   {
+    "slug": "do-you-need-to-deadlift",
+    "title": "Do You Need to Deadlift?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "does-full-range-of-motion-matter",
+    "title": "Does Full Range Actually Matter?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "does-muscle-weigh-more-than-fat",
+    "title": "Does Muscle Weigh More Than Fat?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "build-muscle-after-40",
+    "title": "Can You Build Muscle After 40?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "are-bcaas-a-scam",
+    "title": "Are BCAAs a Scam?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "should-you-train-when-sore",
+    "title": "Should You Train When Sore?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "does-the-sauna-do-anything",
+    "title": "Does the Sauna Do Anything?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "is-the-smith-machine-a-joke",
+    "title": "Is the Smith Machine a Joke?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "are-eggs-actually-bad",
+    "title": "Are Eggs Actually Bad?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "do-you-need-10k-steps",
+    "title": "Do You Really Need 10K Steps?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "is-bmi-useless-if-you-lift",
+    "title": "Is BMI Useless if You Lift?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "are-seed-oils-killing-gains",
+    "title": "Are Seed Oils Killing Gains?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "out-train-a-bad-diet",
+    "title": "Can You Out-Train a Bad Diet?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "is-pre-workout-worth-it",
+    "title": "Is Pre-Workout Worth It?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
+    "slug": "is-stretching-a-waste",
+    "title": "Is Stretching a Waste of Time?",
+    "date": "2026-07-26",
+    "ext": "webp"
+  },
+  {
     "slug": "fasted-cardio-myth",
     "title": "Fasted Cardio Burns More Fat?",
     "date": "2026-07-20",

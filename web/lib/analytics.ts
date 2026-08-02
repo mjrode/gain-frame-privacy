@@ -13,6 +13,11 @@ declare global {
     dataLayer?: unknown[];
     posthog?: {
       capture?: (eventName: string, params?: Record<string, unknown>) => void;
+      captureException?: (
+        error: unknown,
+        additionalProperties?: Record<string, unknown>,
+      ) => void;
+      get_distinct_id?: () => string;
     };
   }
 }
@@ -33,6 +38,7 @@ export type AnalyticsEvent =
   | "bf_tool_report_error"
   // Body transformation tool
   | "bt_tool_view"
+  | "bt_tool_status_failed"
   | "bt_tool_photo_uploaded"
   | "bt_tool_generate_requested"
   | "bt_tool_result_shown"
@@ -40,9 +46,18 @@ export type AnalyticsEvent =
   | "bt_tool_rate_limited"
   | "bt_tool_email_submitted"
   | "bt_tool_second_run_unlocked"
+  | "bt_tool_unlock_error"
   | "bt_tool_download_clicked"
+  | "bt_tool_download_completed"
+  | "bt_tool_download_error"
   | "bt_tool_cta_clicked"
   | "bt_tool_error"
+  // Body fat visualizer (static calc body — instrumented by VisualizerAnalytics)
+  | "bfv_tool_view"
+  | "bfv_slider_engaged"
+  | "bfv_cta_clicked"
+  // Waist percentile widget (embedded in the average-waist-size posts)
+  | "waist_tool_calculated"
   // Physique rater tool
   | "physique_rater_requested"
   | "physique_rater_scored"
@@ -57,13 +72,50 @@ export type AnalyticsEvent =
 export function track(
   event: AnalyticsEvent,
   params: Record<string, unknown> = {},
-): void {
-  if (typeof window === "undefined") return;
+): boolean {
+  if (typeof window === "undefined") return false;
+  let delivered = false;
   if (typeof window.gtag === "function") {
-    window.gtag("event", event, params);
+    try {
+      window.gtag("event", event, params);
+      delivered = true;
+    } catch {
+      // Analytics must never interrupt the product flow. PostHog still gets a
+      // chance below when GA is unavailable or a third-party wrapper throws.
+    }
   }
   if (typeof window.posthog?.capture === "function") {
-    window.posthog.capture(event, params);
+    try {
+      window.posthog.capture(event, params);
+      delivered = true;
+    } catch {
+      // Best-effort telemetry only; never fail a user action for analytics.
+    }
+  }
+  return delivered;
+}
+
+export function captureException(
+  error: unknown,
+  properties: Record<string, unknown> = {},
+): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    if (typeof window.posthog?.captureException !== "function") return false;
+    window.posthog.captureException(error, properties);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export function getPosthogDistinctId(): string | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const id = window.posthog?.get_distinct_id?.();
+    return typeof id === "string" && id.length > 0 ? id : null;
+  } catch {
+    return null;
   }
 }
 
@@ -99,19 +151,26 @@ export function trackOncePerDay(
 
   const dedupKey = `gf_dedup:${event}:${key}`;
   const today = dayStamp();
+  const now = Date.now();
+  const last = memoryDedup.get(dedupKey) ?? 0;
+  if (now - last < RAPID_WINDOW_MS) return false;
+
+  let store: Storage | null = null;
+  try {
+    store = window.localStorage;
+    if (store.getItem(dedupKey) === today) return false;
+  } catch {
+    // Persistent storage is optional; the in-memory guard above still works.
+  }
+
+  const delivered = track(event, params);
+  if (!delivered) return false;
 
   try {
-    const store = window.localStorage;
-    if (store.getItem(dedupKey) === today) return false;
-    store.setItem(dedupKey, today);
-    track(event, params);
-    return true;
+    store?.setItem(dedupKey, today);
   } catch {
-    const now = Date.now();
-    const last = memoryDedup.get(dedupKey) ?? 0;
-    if (now - last < RAPID_WINDOW_MS) return false;
-    memoryDedup.set(dedupKey, now);
-    track(event, params);
-    return true;
+    // Fall through to the in-memory guard when persistent storage rejects.
   }
+  memoryDedup.set(dedupKey, now);
+  return true;
 }

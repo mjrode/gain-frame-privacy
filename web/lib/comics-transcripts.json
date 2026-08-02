@@ -5803,5 +5803,530 @@
     "alt": "The GainFrame mascot places a dumbbell into a red toolbox, symbolizing that exercises are merely tools to be selected based on your individual body frame."
    }
   ]
+ },
+ "does-full-range-of-motion-matter": {
+  "summary": "Training through a full range of motion maximizes muscle growth by prioritizing tension at lengthened positions. Reducing load allows proper movement quality over partial reps. Individual anatomy dictates personal depth, so full range should always match individual joint limits.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "1/6 Does full range actually matter?",
+    "alt": "The GainFrame mascot compares deep and shallow barbell movements to introduce the importance of range of motion."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "2/6 1. The stretched half does the work. Muscle grows most under lengthened load. The bottom of the rep is the point.",
+    "alt": "The GainFrame mascot holds dumbbells at the bottom of an incline press, illustrating maximum muscle tension in the stretched position."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "3/6 2. Half reps build half the range. Strength shows up where you trained it. Skip the bottom and stay weak there.",
+    "alt": "The GainFrame mascot performs a shallow squat next to a red X, showing that avoiding full depth limits overall strength."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "4/6 3. If you cut reps, cut the top. Lengthened partials beat short ones. Stay where the muscle is stretched.",
+    "alt": "The GainFrame mascot performs lat pulldowns emphasizing the overhead stretch position, marked with a green checkmark."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "5/6 4. Drop the weight to get the range. Full reps at sixty percent beat quarters at ninety. The muscle counts tension, not plates.",
+    "alt": "The GainFrame mascot unloads weight from a leg press machine to emphasize quality depth over heavy partial reps."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "6/6 5. Your range is not their range. Hip and shoulder shape set the limit. Full means full for your joints.",
+    "alt": "Two GainFrame mascots perform squats at different depths based on joint structure, both marked with green checkmarks."
+   }
+  ]
+ },
+ "should-you-train-when-sore": {
+  "summary": "Mild soreness is usually fine to train through, as light activity and blood flow can help recovery if strength holds during your warm-up sets. However, sharp or one-sided joint pain requires immediate rest. Soreness lasting four days or longer indicates excessive volume that needs to be scaled back in future sessions.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "1/6 Should you train when sore?",
+    "alt": "The GainFrame mascot walks up a set of metal stairs, introducing the comic's question about training through muscle soreness."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "2/6 1. Mild soreness is a green light. Training often makes it feel better. Blood flow beats lying still.",
+    "alt": "The GainFrame mascot uses a leg press machine with a green checkmark nearby, showing that mild soreness improves with increased blood flow."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "3/6 2. Sore is not the same as weak. Test the first set, then decide. If strength holds, the session is on.",
+    "alt": "The GainFrame mascot holds a loaded barbell in front of a squat rack with an open notebook nearby, illustrating how to test strength on the initial set."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "4/6 3. Sharp and one sided means stop. Joint pain and pinching are different signals that one is not soreness.",
+    "alt": "The GainFrame mascot holds a painful shoulder near a red warning icon while preparing to deadlift, signaling that sharp joint pain means you must stop."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "5/6 4. Four days sore means too much. You overshot the volume last session. Cut a set and add it back slowly.",
+    "alt": "The GainFrame mascot sits thoughtfully on a bench holding a notebook next to a calendar with four red Xs, indicating overshooting training volume."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "6/6 Log what you trained so you can spot the pattern. GainFrame",
+    "alt": "A hand holds a smartphone showing the GainFrame app interface alongside the GainFrame logo, emphasizing the importance of tracking workouts."
+   }
+  ]
+ },
+ "are-bcaas-a-scam": {
+  "summary": "BCAA supplements are redundant for muscle building because complete protein sources provide all nine essential amino acids. Meeting daily protein targets through whole foods or whey protein renders separate BCAA products ineffective and overpriced. Spending supplement money on quality food yields significantly better fitness results.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Are BCAAs a scam?",
+    "alt": "The GainFrame mascot holds a shaker cup beneath the headline questioning if BCAAs are a scam."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. You need all nine, not three. Muscle needs the full amino set. Three alone cannot build anything.",
+    "alt": "The GainFrame mascot stands above incomplete amino acid boxes, showing three amino acids cannot build muscle without all nine."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Whey already contains them. One scoop beats a whole tub of BCAAs and it costs less per gram.",
+    "alt": "The GainFrame mascot holds whey protein and a BCAA jar to demonstrate whey contains complete aminos cheaper."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Hit your protein and you are done. Enough daily protein makes them pointless. No study shows extra growth on top.",
+    "alt": "The GainFrame mascot holds a meal of chicken and rice with a checkmark, emphasizing daily protein intake makes BCAAs useless."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. It is a flavored drink. If it gets you sipping water, fine. Just do not call it a muscle builder.",
+    "alt": "The GainFrame mascot sits on a bench drinking from a cup, indicating BCAAs act primarily as flavored hydration."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Spend it on food instead. Forty dollars is a lot of chicken and eggs that actually moves the needle.",
+    "alt": "The GainFrame mascot carries a grocery bag with chicken and eggs, recommending spending money on real food instead."
+   }
+  ]
+ },
+ "build-muscle-after-40": {
+  "summary": "Building muscle after age 40 is fully supported by research, as older muscles remain responsive to weight training. Optimization requires higher protein intake per meal, prioritizing recovery time over workout frequency, and selecting joint-friendly exercises.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Can you build muscle after 40?",
+    "alt": "The GainFrame mascot performs a dumbbell row on a gym bench to demonstrate building muscle after age 40."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Yes, and the studies are clear. Trained sixty year olds gain real muscle the machinery still works fine.",
+    "alt": "The GainFrame mascot flexes its muscles to show that older adults can still effectively build muscle."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. You need more protein, not less. Older muscle responds slower to a meal forty grams per meal beats twenty.",
+    "alt": "The GainFrame mascot holds a plate with steak and vegetables to highlight the need for higher protein per meal."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Recovery is the real limit. Same growth, longer turnaround three hard days beats six rushed ones.",
+    "alt": "The GainFrame mascot stands beside an alarm clock to illustrate that longer recovery time is needed between workouts."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Joints decide the exercise list. Swap the lift, keep the stimulus machines are not a downgrade.",
+    "alt": "The GainFrame mascot uses a shoulder press machine to show how choosing joint-friendly exercises maintains muscle growth."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Proof it still works photo next to photo. GainFrame. Compare. Smart filters. Side by side. Slider. Aug 19, 32 BF ~25%. Jul 29, 25 BF ~15%. 2 yr 11mo 17d. Adjust. Swap. Auto. Blur. Background. Deep dive analysis. Home. Compare. Insights.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app with a side-by-side photo comparison of physique progress."
+   }
+  ]
+ },
+ "does-muscle-weigh-more-than-fat": {
+  "summary": "Muscle is denser than fat, meaning a pound of muscle takes up less physical space than a pound of fat. Because gaining muscle and losing fat simultaneously can cause scale weight to stay the same, progress is best measured using body measurements, photos, and strength improvements rather than the scale alone.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Does muscle weigh more than fat?",
+    "alt": "The GainFrame mascot holds a compact dumbbell in one hand and a large inflatable ball in the other, asking if muscle weighs more than fat."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. A pound is a pound. The phrase is wrong as written. What changes is the space it takes.",
+    "alt": "The GainFrame mascot stands beside a balance scale showing a small dark cube balancing out a much larger light cube to demonstrate that equal weight takes up different volume."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Muscle is denser, so it is smaller. Same weight, less room on your frame. That is why the mirror moves first.",
+    "alt": "The GainFrame mascot flexes in front of a mirror while imagining a larger muscular physique, showing how increased muscle density refines your appearance before the scale changes."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. The scale can stall while you change. Losing fat and gaining muscle cancel out. Flat weight is not flat progress.",
+    "alt": "The GainFrame mascot shrugs while standing on a weight scale next to a flat progress graph to illustrate body recomposition."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Measure what the scale misses. Photos, waist and strength tell the story. One number cannot do this job.",
+    "alt": "The GainFrame mascot measures his waist with a tape measure while posing in front of a phone on a tripod to record progress photos."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Same weight, completely different body. GainFrame. 10:22. Overview, muscles, plan. Front, back. Before, after. Needs work, developing, solid, strong, elite. Muscle comparison. Front delts, side/rear delts, upper chest, mid/lower chest, biceps, abs, obliques.",
+    "alt": "A hand holds a smartphone displaying the GainFrame application showing before and after muscle breakdown and comparison radar charts."
+   }
+  ]
+ },
+ "do-you-need-to-deadlift": {
+  "summary": "While deadlifts are highly efficient for targeting the back, glutes, and hamstrings, no single exercise is strictly required for muscle growth. Alternatives like trap bar deadlifts and RDLs hit the same muscle groups with a lower risk of back strain and less systemic fatigue. Prioritizing pain-free progress with exercise variations you can consistently overload leads to better long-term results.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Do you need to deadlift?",
+    "alt": "The GainFrame mascot stands confidently behind a loaded barbell under a title asking if deadlifts are necessary."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. No single lift is required. The back does not know exercise names it only knows tension and recovery.",
+    "alt": "The GainFrame mascot performs a seated cable row to show that muscles respond to mechanical tension rather than specific exercise names."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. It is the most efficient option. One lift hits hamstrings, glutes and back hard to beat on a short session.",
+    "alt": "The GainFrame mascot holds a heavy barbell at lockout to highlight how deadlifts efficiently train multiple muscle groups at once."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. It also costs the most recovery. Heavy pulls tax the whole system that is why they go wrong first.",
+    "alt": "The GainFrame mascot sits sweating on the floor exhausted next to weights to show that deadlifts impose a high systemic recovery cost."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Trap bar and RDLs cover it. Same muscles, friendlier back position swapping is not quitting.",
+    "alt": "The GainFrame mascot lifts a trap bar alongside a green checkmark to demonstrate that alternative lifts target the same muscles with better back positioning."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. If it hurts, it is not mandatory. Pain free progress beats a PR you dread pick the pull you can keep adding to.",
+    "alt": "The GainFrame mascot performs dumbbell RDLs to illustrate that choosing pain-free pulling variations ensures consistent long-term progress."
+   }
+  ]
+ },
+ "is-the-smith-machine-a-joke": {
+  "summary": "The Smith machine is a valuable exercise tool because its fixed movement path reduces stability demands to focus load directly on targeted muscles. Built-in safety hooks allow solo lifters to safely push sets to failure without needing a spotter. It is best utilized for exercises like presses, rows, and shrugs rather than squatting movements, and weight used should be tracked against previous Smith machine sets rather than barbell weights.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is the Smith machine a joke?",
+    "alt": "The GainFrame mascot stands with arms crossed next to a loaded Smith machine, asking if the machine is actually a joke."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. The fixed bar path is the feature\nLess balancing means more load on the muscle\nThat is the whole point of a machine",
+    "alt": "The GainFrame mascot stands beside gym equipment, explaining that a fixed bar path maximizes load on target muscles by reducing the need to balance."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. It is the safest way to push\nThe hooks catch the bar with no spotter\nYou can actually go to the edge",
+    "alt": "The GainFrame mascot rests a hand on a empty Smith machine frame, demonstrating how built-in hooks let lifters safely train to failure without a spotter."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Stop comparing the number\nSmith weight is not barbell weight\nCompare it to your last Smith set",
+    "alt": "The GainFrame mascot reads a logbook while standing between a Smith machine and a barbell setup, advising lifters to only track progression against previous Smith machine performances."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. It is not a squat replacement\nThe fixed path fights your hips on squats\nUse it for presses, rows and shrugs",
+    "alt": "The GainFrame mascot performs an overhead press marked with a green checkmark next to a squat attempt marked with a red X, illustrating that the Smith machine should be used for upper body pressing rather than traditional squats."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Use it when the rack is taken\nA decent set beats waiting fifteen minutes\nThe best machine is the free one",
+    "alt": "The GainFrame mascot walks towards available equipment, emphasizing that utilizing an open Smith machine is better than waiting around for a squat rack."
+   }
+  ]
+ },
+ "are-eggs-actually-bad": {
+  "summary": "Eggs remain a highly nutritious, affordable food providing six grams of protein along with essential nutrients like choline and vitamin D in the yolk. Dietary cholesterol from eggs has minimal impact on blood cholesterol levels for most healthy individuals, making up to three whole eggs daily a safe choice. What you pair with eggs, such as vegetables versus processed meats, has a much larger effect on overall health.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Are eggs actually bad?",
+    "alt": "The GainFrame mascot holds a skillet with fried eggs and bacon next to an egg carton, introducing the topic of whether eggs are actually bad for health."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Dietary cholesterol barely moves blood. Your liver makes most of it anyway. It dials down when you eat more.",
+    "alt": "The GainFrame mascot holds up a single brown egg, illustrating that dietary cholesterol barely impacts blood cholesterol levels."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. The yolk is the nutrient part. Choline, vitamin D and half the protein. Binning it bins the point.",
+    "alt": "The GainFrame mascot holds a bowl of whole eggs next to a red X over a trash bin containing egg yolks, illustrating that discarding yolks wastes essential nutrients."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Three a day is fine for most. Guidelines dropped the hard limit years ago. If you have a condition, ask your doctor.",
+    "alt": "The GainFrame mascot holds a plate containing three fried eggs and a fork, conveying that eating three eggs a day is fine for most people."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. What they come with matters more. Eggs and spinach is not eggs and bacon. The side dish runs the numbers.",
+    "alt": "The GainFrame mascot balances a plate of eggs and spinach with a green checkmark against a plate of bacon with a red X, demonstrating that side dishes matter more than the eggs themselves."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Six grams of protein each. Cheap, fast and easy to digest. Still one of the best foods going.",
+    "alt": "The GainFrame mascot lifts a large carton of eggs overhead like a weight, showing that each egg provides six grams of digestible protein."
+   }
+  ]
+ },
+ "does-the-sauna-do-anything": {
+  "summary": "Sauna use promotes muscle relaxation, improved recovery, and cardiovascular health, but weight loss from sweating is purely temporary water loss. Unlike ice baths immediately after lifting, heat from a sauna does not blunt muscle growth signals, though replenishing lost fluids and electrolytes is essential.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Does the sauna do anything?",
+    "alt": "The GainFrame mascot sits on a wooden bench inside a sauna, sweating profusely as heat waves rise around it."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. The weight loss is water. It comes back with your next drink. The scale drops, body fat does not.",
+    "alt": "The GainFrame mascot stands sweating on a scale holding a water bottle, illustrating that sauna weight loss is only temporary water loss."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. It is real for recovery feel. Heat relaxes muscle and helps sleep. Feeling better is a legitimate win.",
+    "alt": "The GainFrame mascot lies peacefully on a sauna bench with steam rising, illustrating how heat relaxes muscles and improves recovery."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Regular heat helps the heart. Finnish data links frequent sauna to lower risk. It is still not a cardio replacement.",
+    "alt": "The GainFrame mascot sits calmly on a sauna bench with a towel over its shoulder, illustrating the heart health benefits of heat exposure."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Cold blunts gains, heat does not. Ice right after lifting can cut growth signals. Sauna does not carry that penalty.",
+    "alt": "The GainFrame mascot is shown in an ice tub marked with a red X next to a sauna bench marked with a green checkmark, demonstrating that heat does not hinder muscle growth like cold water immersion."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Drink and salt afterwards. You lose more than water in there. Going in dehydrated is the real risk.",
+    "alt": "The GainFrame mascot drinks from a water bottle near a salt shaker, emphasizing the need to replenish water and electrolytes after a sauna session."
+   }
+  ]
+ },
+ "do-you-need-10k-steps": {
+  "summary": "The popular 10,000-step goal originated from a 1960s marketing campaign rather than scientific research, with most health benefits actually plateauing around 7,000 steps daily. Increasing steps from a low baseline yields the greatest return on effort without compromising workout recovery. Setting an easily achievable daily minimum step count encourages long-term consistency over unrealistic targets.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Do you really need 10k steps?",
+    "alt": "The GainFrame mascot checks a smartwatch while walking to question whether 10,000 daily steps are actually necessary."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. 10000 came from an ad. It was a 1960s pedometer slogan, not one study behind the number.",
+    "alt": "The GainFrame mascot inspects a vintage pedometer to explain that the 10,000-step target originated from a marketing slogan rather than scientific studies."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. The curve bends at 7000. Most of the health benefit lands by then, more helps, just less per step.",
+    "alt": "The GainFrame mascot walks along a line graph that levels off to illustrate how health benefits plateau around 7,000 steps."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Steps are free fat loss. Walking burns without wrecking recovery, it will not cost you a leg day.",
+    "alt": "The GainFrame mascot walks confidently past a heavy barbell to show that walking aids fat loss without ruining recovery or leg day performance."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Going from 3k to 6k is the win. The jump off the floor matters most, chasing 12k is not where the gain is.",
+    "alt": "The GainFrame mascot steps up onto a block to demonstrate that moving from a sedentary step count to 6,000 provides the biggest gain in health."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Pick a floor you hit daily. Consistent beats impressive, set it low enough to never miss.",
+    "alt": "The GainFrame mascot walks beside a calendar filled with checkmarks to highlight the importance of setting an easily achievable daily step goal for consistency."
+   }
+  ]
+ },
+ "are-seed-oils-killing-gains": {
+  "summary": "Seed oils do not block muscle growth or hinder fitness progress, as claims against them lack scientific evidence from clinical trials. The primary nutrition concerns stem from high-calorie processed foods and insufficient omega-3 intake rather than seed oils. Focusing on adequate protein, fiber, and whole foods has a much greater impact on body composition than choice of cooking oil.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Are seed oils killing gains?",
+    "alt": "The GainFrame mascot holds out a bottle of cooking oil with a worried expression, asking if seed oils harm muscle growth."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. No trial shows they block muscle. Linoleic acid does not stop hypertrophy. The claim started on a podcast.",
+    "alt": "The GainFrame mascot lifts dumbbells next to an oil bottle, illustrating that no scientific trials show seed oils stop muscle hypertrophy."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. The problem is the food around it. Fries and chips are not just oil. Calorie density is the real issue.",
+    "alt": "The GainFrame mascot holds a basket of french fries and a bottle of oil, showing that calorie density in junk food is the real dietary issue."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Omega 3 is the actual gap. Most lifters undereat fish. Add salmon before you ban canola.",
+    "alt": "The GainFrame mascot holds a plate with cooked salmon under a green checkmark, showing that increasing omega-3 intake is more critical than cutting canola oil."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Olive oil is still the easy win. Better flavor and a better fat profile. Swap for taste, not for fear.",
+    "alt": "The GainFrame mascot pours olive oil into a skillet, demonstrating that choosing olive oil should be based on flavor and quality rather than fear."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Chase protein and fiber first. Those two move body composition. Oil brand is a rounding error.",
+    "alt": "The GainFrame mascot gives a thumbs-up while holding a plate of chicken breast, rice, and broccoli, emphasizing that protein and fiber drive body composition results."
+   }
+  ]
+ },
+ "is-bmi-useless-if-you-lift": {
+  "summary": "BMI can be misleading for individuals who lift weights because it only accounts for height and weight, failing to distinguish muscle mass from body fat. Rather than relying on BMI, lifters should use metrics like Fat-Free Mass Index (FFMI), body fat percentage, and visual mirror progress to track body composition changes.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is BMI useless if you lift?",
+    "alt": "The GainFrame mascot stands shrugging on a scale next to a clipboard, questioning whether BMI is useful for lifters."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. BMI cannot see muscle. It is height and weight, nothing else. A lean lifter reads as overweight.",
+    "alt": "The GainFrame mascot holds a dumbbell while standing on a weighing scale, showing that BMI misclassifies muscular lifters as overweight."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. It was built for populations. Designed to describe groups, not you. One person is the wrong unit.",
+    "alt": "The GainFrame mascot points to a population bar chart on an easel, explaining that BMI was designed for groups rather than individuals."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. FFMI is the lifter version. It scales lean mass to your height. That number moves with training.",
+    "alt": "The GainFrame mascot flexes its biceps next to a height ruler, introducing Fat-Free Mass Index as a tool to measure muscle growth relative to height."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Track body fat and the mirror. Same weight can look completely different. Composition is the whole point.",
+    "alt": "The GainFrame mascot flexes its muscles above a measuring tape, emphasizing that tracking body composition matters more than scale weight."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "BMI cannot tell muscle from fat. GainFrame. FFMI. Done. Your ffmi is Excellent 23.0. Below Avg 0-19. Average 18-26. Above Avg 20-23. Excellent >28. What is FFMI? FFMI measures your lean (fat-free) mass relative to height, giving a more accurate picture of muscularity than BMI alone. Why does FFMI matter? FFMI helps you track muscular development independent of body fat changes. It's particularly useful during body recomposition when your weight may stay the same but your muscle-to-fat ratio is improving. Disclaimer: FFMI relies on body fat estimates which may vary. Use this as a directional indicator rather than a precise measurement. Values above 25 are extremely rare naturally. Source.",
+    "alt": "A hand holds a smartphone showing the GainFrame app screen displaying an FFMI score alongside the GainFrame mascot."
+   }
+  ]
+ },
+ "out-train-a-bad-diet": {
+  "summary": "Exercise alone cannot offset a poor diet because workout sessions burn fewer calories than expected while triggering an increase in appetite. While diet controls total calorie intake and overall weight, resistance training directs muscle growth and determines body composition shape. Prioritizing protein in main meals and tracking progress ensures both diet and exercise work together effectively.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Can you out-train a bad diet?",
+    "alt": "The GainFrame mascot runs sweatily on a treadmill beside a stack of donuts and a burger, questioning whether exercise can make up for a poor diet."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. An hour burns less than you think. A hard session is 300 to 500 calories that is one muffin and a latte.",
+    "alt": "The GainFrame mascot stands next to a treadmill and a table with a muffin and latte, illustrating that workouts burn fewer calories than expected."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Training makes you hungrier. Appetite rises to meet the burn the body balances the books for you.",
+    "alt": "The GainFrame mascot stands before an open refrigerator holding a steak plate, showing that exercise increases appetite to compensate for calories burned."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Lifting decides where the weight goes. Diet sets the amount, training sets the shape you need both jobs done.",
+    "alt": "The GainFrame mascot performs a dumbbell row next to a healthy meal, demonstrating that resistance training shapes the body while diet regulates overall weight."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Fix the three biggest meals. Nobody gets fat on the side salad protein first, then cut the extras.",
+    "alt": "The GainFrame mascot points to three healthy, protein-rich plates, highlighting the importance of focusing on key meals first."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See if the training is actually showing up. GainFrame.",
+    "alt": "A hand holds a smartphone showing body composition metrics on the GainFrame app next to the brand logo, encouraging progress tracking."
+   }
+  ]
+ },
+ "is-pre-workout-worth-it": {
+  "summary": "Pre-workout supplements rely primarily on caffeine for their performance benefits, which means regular coffee can offer the same effects at a fraction of the cost. To maximize results, consume caffeine approximately 45 minutes before training so peak energy aligns with your workout. Reserving pre-workout for heavy training days prevents tolerance from diminishing its impact.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is pre-workout worth it?",
+    "alt": "The GainFrame mascot holds a tub of pre-workout powder and a scoop, questioning whether pre-workout supplements are worth buying."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Caffeine is the only star. 3 to 6 mg per kg lifts reps and mood. Most of the label is filler.",
+    "alt": "The GainFrame mascot holds a cup of hot coffee and a scoop of powder, emphasizing that caffeine is the primary active ingredient in pre-workout."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. The tingles are not the work. The beta alanine itch means nothing today. It only matters after weeks of use.",
+    "alt": "The GainFrame mascot scratches an itchy arm from beta-alanine, explaining that immediate tingling does not mean the pre-workout is actively building muscle today."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Coffee does the same job. Two cups costs pennies, not fifty dollars. Same drug, no proprietary blend.",
+    "alt": "The GainFrame mascot drinks coffee on a gym bench, demonstrating that regular coffee provides the same caffeine benefits without the high price tag."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Time it 45 minutes out. Peak caffeine lands about an hour later. Slamming it in the car is too late.",
+    "alt": "The GainFrame mascot holds a shaker bottle beside a clock, illustrating the need to drink caffeine 45 minutes before exercise for peak timing."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Tolerance eats the effect. Daily scoops become your new baseline. Save it for the heavy days.",
+    "alt": "The GainFrame mascot sits sweaty on a gym bench with a shaker bottle, advising lifters to limit pre-workout use to heavy training days to avoid tolerance."
+   }
+  ]
+ },
+ "is-stretching-a-waste": {
+  "summary": "Stretching is most effective when done after lifting, while pre-workout warm-ups should focus on dynamic movements to raise body temperature. Mobility issues are often resolved by strengthening muscles at full range of motion under load rather than passive holding. To avoid injury, focus on sensible load management and target only the specific tight spots that limit your movement.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is stretching a waste of time?",
+    "alt": "The GainFrame mascot stretches their leg near a clock while questioning if stretching is a waste of time."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Save static stretching for after. Long holds before a set can cut strength stretch when the lifting is done.",
+    "alt": "The GainFrame mascot sits on the floor doing a hamstring stretch next to a barbell, demonstrating that static stretching belongs after a workout."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Warm up by moving. Leg swings and empty bar sets beat toe touches raise the temperature, not the splits.",
+    "alt": "The GainFrame mascot holds onto a power rack while swinging a leg, showing how dynamic movement warms up the body."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Tight hips are often weak hips. Strength at length beats passive holding train the end range under load.",
+    "alt": "The GainFrame mascot performs a deep squat while holding a heavy dumbbell to illustrate strengthening end-range movement."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Stretch the two spots blocking you. Pick what actually limits your lifts ten minutes beats a routine you skip.",
+    "alt": "The GainFrame mascot performs a targeted calf stretch against a wall, demonstrating a focused mobility approach."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Flexibility will not stop injury. Reviews do not show stretching prevents injury loading sensibly does that job.",
+    "alt": "The GainFrame mascot squats a barbell with controlled form, highlighting that sensible loading prevents injury better than flexibility."
+   }
+  ]
  }
 }
