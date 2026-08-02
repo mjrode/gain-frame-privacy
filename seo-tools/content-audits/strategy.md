@@ -1,7 +1,7 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-01** (baseline) · Data through 2026-07-29 · Property `sc-domain:gainframe.app`
+> Last run: **2026-08-02** (review — gaps/next-keywords/almost-top-10) · Data through 2026-07-31 · Property `sc-domain:gainframe.app`
 
 ---
 
@@ -62,6 +62,16 @@ Meanwhile the physique-rating lane is the only thing growing:
    them.
 
 ---
+
+## New finding (2026-08-02): the self-assessment lane
+
+LeanLens gap analysis + keyword scoring converge on a cluster GainFrame has no page for:
+"do i look fat" (480 vol, **+1312%/yr**, KD 10), "am i fat" (5,400, +124%, KD 77 head term),
+"ai body rater" (+57%), "body composition pictures" (KD 10). GSC shows "am i fat ai" queries
+already hitting the site (55 imp @ 8.3) with no dedicated page. Proposed as P1 2026-08-02.
+Killed the same day: first-cut guide (−80%), progress-photo poses (30 vol), withings review
+(−19% + hardware reviews underperform), mogged/looksmaxxing lane (volatile, off-positioning) —
+prune these from topical-map gap lines when next edited.
 
 ## Cluster bets
 
@@ -132,6 +142,11 @@ No metadata edits were made in this run, so no 7–10 day metadata windows are o
 ---
 
 ## Proposed but not built
+
+From 2026-08-02 (awaiting approval): P1 do-i-look-fat self-assessment (+1312% kw), P2 menopause
+body composition (+53% kw, new-audience bet), P3 body-composition-pictures (borderline);
+F1 quiz-page render treatment, F2 ideal-body-measurements-women retitle→"average",
+F3 fold dead how-to-tell-if-skinny-fat into the quiz page.
 
 From 2026-08-01 (`fixes all` approved; both posts declined that cycle):
 
