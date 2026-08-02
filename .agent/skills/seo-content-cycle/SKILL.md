@@ -380,6 +380,15 @@ returned no data, write "no data" — do not fill the cell with a guess.
 position, a competitor-gap row, a hub gap, a cannibalization resolution. "Rounds out the cluster"
 is not evidence. If fewer than ten have real evidence, **propose fewer and say why**.
 
+**Before a post makes the proposal table, grep `web/content/blog/` for its keyword family** —
+`ls web/content/blog/ | grep -iE '<stem1>|<stem2>'` plus a content grep for the exact phrase. The
+topical map's gap lines go stale the moment a parallel session ships, and Phase 0's directory
+re-listing does not protect you unless you actually match each candidate against it. On
+2026-08-02 the map still listed menopause body composition as the "biggest untapped audience" gap
+and it was proposed and approved — the post had existed since 2026-07-09 with 4 inbound links.
+Writing it would have created a straight duplicate. Existence is checked per-candidate,
+mechanically, at proposal time; never from the map's gap line alone.
+
 **Skill** is which downstream generator writes it: `blog-post-generator` (guides, roundups,
 stats pages), `comparison-article-generator` (X vs Y), `feature-page-generator` (tool/feature
 pages).
@@ -664,6 +673,7 @@ Corrections recorded this way so far:
 | 2026-08-01 | Draft Quick Answers named apps that were not in the post | Phase 6 — verify every claim against the body first |
 | 2026-08-01 | IndexNow had been failing `403` since ~2026-04-30 — key file was only in the legacy `docs/` tree, so the URL 404'd | Phase 9 — check the key returns 200 before submitting, and read the response |
 | 2026-08-01 | Pinging only the aggregator let Bing's 403 silently suppress Yandex, Seznam and Naver, which accept the same payload | Phase 9 + `indexnow-ping.py` submits per-engine |
+| 2026-08-02 | Proposed a post that already existed (menopause, shipped Jul 9 by a parallel session) because the topical map's gap line was stale | Phase 5 §3 — mechanical per-candidate existence grep before any post enters the proposal table |
 
 ## Guardrails
 

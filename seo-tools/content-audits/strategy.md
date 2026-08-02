@@ -1,7 +1,7 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-02** (review — gaps/next-keywords/almost-top-10) · Data through 2026-07-31 · Property `sc-domain:gainframe.app`
+> Last run: **2026-08-02** (shipped: do-i-look-fat + body-composition-pictures + quiz render treatment + skinny-fat consolidation + women's-measurements retitle) · Data through 2026-07-31
 
 ---
 
@@ -136,6 +136,9 @@ That page is worth defending and deepening.
 |---|---|---|
 | Everything published 2026-07-23 → 2026-07-26 | New post, 28d | ~2026-08-20 to 2026-08-23 |
 | Everything published 2026-07-16 → 2026-07-19 | New post, 28d | ~2026-08-13 to 2026-08-16 |
+| `do-i-look-fat`, `body-composition-pictures` | New post, 28d | 2026-08-30 |
+| `am-i-skinny-fat-quiz` (renders + fold-in), `ideal-body-measurements-women` (retitle) | Content/metadata | ~2026-08-12 |
+| `menopause-body-composition` (pre-existing) | New post, 28d | ~2026-08-06 — judge next run |
 
 No metadata edits were made in this run, so no 7–10 day metadata windows are open.
 
@@ -143,10 +146,10 @@ No metadata edits were made in this run, so no 7–10 day metadata windows are o
 
 ## Proposed but not built
 
-From 2026-08-02 (awaiting approval): P1 do-i-look-fat self-assessment (+1312% kw), P2 menopause
-body composition (+53% kw, new-audience bet), P3 body-composition-pictures (borderline);
-F1 quiz-page render treatment, F2 ideal-body-measurements-women retitle→"average",
-F3 fold dead how-to-tell-if-skinny-fat into the quiz page.
+From 2026-08-02: everything approved shipped same day EXCEPT the P2 menopause post, which turned
+out to already exist (published 2026-07-09 by a parallel session — stale topical-map gap line;
+skill now requires per-candidate existence grep). Still held: "rate my body" sibling post until
+rate-my-physique's window opens Aug 20.
 
 From 2026-08-01 (`fixes all` approved; both posts declined that cycle):
 
