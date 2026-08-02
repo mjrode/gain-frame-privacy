@@ -50,6 +50,13 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 - [x] **Average waist size for men (by age/height)** — published 2026-07-07 as /blog/average-waist-size-men/ — stats-page format; feeds shoulder-to-waist + measurement cluster. Validate SERP first. — added 2026-07-07
 - [x] **"Dad bod body fat percentage"** — published 2026-07-07 as /blog/dad-bod-body-fat-percentage/ — playful definitional + visualizer renders; debate-bait shareability (TikTok crossover potential). Validate volume. — added 2026-07-07
 
+### Aug 2 cycle — self-assessment lane (seo-content-cycle run)
+
+- [x] **Do I Look Fat? (honest self-assessment)** — published 2026-08-02 as /blog/do-i-look-fat/ — targets "do i look fat" (480 vol, +1312%/yr, KD 10, LeanLens gap) + "am i fat ai" long-tail already hitting the site; visualizer renders; body-image-sensitive framing with NEDA pointer. — source: seo-tools/content-audits/2026-08-02.md
+- [x] **Body Composition Pictures gallery** — published 2026-08-02 as /blog/body-composition-pictures/ — 12 standardized renders (male 8–33%, female 18–42%); targets "body composition pictures" (260, KD 10, LeanLens rank 13); framed as example gallery to avoid cannibalizing body-fat-percentage-chart. — source: same audit
+- [x] **Fixes:** am-i-skinny-fat-quiz render treatment + how-to-tell-if-skinny-fat folded in w/ 301 (zero imp in 28d) — 2026-08-02; ideal-body-measurements-women retitled to "Averages, Ratios & What They Mean" + average-measurements H2 (was surfacing for "average measurements for women" at pos ~12) — 2026-08-02
+- [ ] **HOLD: "rate my body" sibling post** — do NOT write until rate-my-physique measurement window opens 2026-08-20; re-check its position first (cannibalization risk). — added 2026-08-02
+
 ### Carry-forward (still genuine, re-added from reset — not yet done)
 
 - [ ] **Fold Snapsie into `/blog/best-progress-photo-apps/`** as the "best free option (not updated since 2017)" with the abandoned caveat — one-line roundup edit, no standalone post. — re-added 2026-06-28
