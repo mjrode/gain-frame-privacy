@@ -4,6 +4,7 @@ import path from "path";
 import matter from "gray-matter";
 import { SITE } from "@/lib/site";
 import { COMICS_MANIFEST } from "@/lib/comics-manifest.mjs";
+import { BF_GALLERY_PAGES } from "@/lib/body-fat-gallery";
 
 export const dynamic = "force-static";
 
@@ -110,6 +111,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${SITE.url}/body-fat/`,
+      lastModified: today(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE.url}/privacy/`,
       lastModified: today(),
       changeFrequency: "yearly",
@@ -119,6 +126,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const calcEntries: MetadataRoute.Sitemap = CALC_SLUGS.map((slug) => ({
     url: `${SITE.url}/tools/${slug}/`,
+    lastModified: today(),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  const bodyFatEntries: MetadataRoute.Sitemap = BF_GALLERY_PAGES.map((p) => ({
+    url: `${SITE.url}/body-fat/${p.slug}/`,
     lastModified: today(),
     changeFrequency: "monthly",
     priority: 0.7,
@@ -140,5 +154,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }));
 
-  return [...staticEntries, ...calcEntries, ...blogEntries, ...comicEntries];
+  return [
+    ...staticEntries,
+    ...calcEntries,
+    ...bodyFatEntries,
+    ...blogEntries,
+    ...comicEntries,
+  ];
 }
