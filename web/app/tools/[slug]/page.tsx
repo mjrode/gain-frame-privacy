@@ -20,7 +20,13 @@ const CALC_SLUGS = [
   "tdee-calculator",
 ] as const;
 
-type RelatedTool = { slug: string; title: string; blurb: string };
+type RelatedTool = {
+  slug: string;
+  title: string;
+  blurb: string;
+  /** Overrides the default /tools/<slug>/ link target. */
+  href?: string;
+};
 
 // Curated cross-link set surfaced at the bottom of every calculator page,
 // excluding self. Body-fat-from-photo always present (no CSS class needed —
@@ -63,6 +69,13 @@ const ALL_TOOLS: RelatedTool[] = [
     title: "FFMI Calculator",
     blurb:
       "Fat-Free Mass Index — the natty-limit metric for evaluating muscle relative to height.",
+  },
+  {
+    slug: "body-fat-gallery",
+    href: "/body-fat/",
+    title: "Body Fat Percentage Pictures",
+    blurb:
+      "What each body fat percentage actually looks like — men 8–30%, women 18–40%, with references at every age.",
   },
 ];
 
@@ -202,7 +215,7 @@ function RelatedToolsFooter({ currentSlug }: { currentSlug: string }) {
             }}
           >
             <a
-              href={`/tools/${t.slug}/`}
+              href={t.href ?? `/tools/${t.slug}/`}
               style={{
                 display: "block",
                 textDecoration: "none",
