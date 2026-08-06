@@ -98,6 +98,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${SITE.url}/tools/body-visualizer/`,
+      lastModified: today(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE.url}/tools/physique-rater/`,
       lastModified: today(),
       changeFrequency: "weekly",

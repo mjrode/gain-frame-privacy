@@ -57,9 +57,16 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 - [x] **Fixes:** am-i-skinny-fat-quiz render treatment + how-to-tell-if-skinny-fat folded in w/ 301 (zero imp in 28d) — 2026-08-02; ideal-body-measurements-women retitled to "Averages, Ratios & What They Mean" + average-measurements H2 (was surfacing for "average measurements for women" at pos ~12) — 2026-08-02
 - [ ] **HOLD: "rate my body" sibling post** — do NOT write until rate-my-physique measurement window opens 2026-08-20; re-check its position first (cannibalization risk). — added 2026-08-02
 
+### Aug 6 cycle — body-visualizer opportunity (seo-content-cycle run)
+
+- [x] **Body Visualizer tool** — shipped 2026-08-06 as `/tools/body-visualizer/` — targets `body visualizer` (40,500 volume, +22%, KD 4–8) and the ~86K height/weight/BMI visualizer family while preserving `/tools/body-fat-visualizer/` for its proven body-fat intent. Interactive adult BMI result, male/female standardized reference sets, explicit non-predictive limitations, FAQ/WebApplication schema, tool-directory and calculator cross-links, sitemap entry, and App Store CTA. — source: `seo-tools/content-audits/2026-08-06.md`
+- [x] **F1: interactive waist-to-height-ratio calculator** — shipped 2026-08-06 on `/blog/waist-to-height-ratio/`; keeps title/metadata, adds height + waist unit conversion, exact result bands, validation, and accessible live results. Baseline: position 13.2 / 2,542 impressions on a 12,100-volume +49% keyword. — source: same audit
+- [x] **F3: topical-map backfill** — completed 2026-08-06; exhaustive reconciliation classified all 82 omitted Jul 9–23 parallel-session posts and corrected stale gaps that pointed at already-live pages. — source: same audit
+- [ ] **HOLD: menopause body-composition visual/PAA expansion** — reassess only after `/blog/menopause-body-composition/` clears the 30-impression reliability threshold; current exhaustive report is 14 impressions at position 9.0. — added 2026-08-06
+
 ### Carry-forward (still genuine, re-added from reset — not yet done)
 
-- [ ] **Fold Snapsie into `/blog/best-progress-photo-apps/`** as the "best free option (not updated since 2017)" with the abandoned caveat — one-line roundup edit, no standalone post. — re-added 2026-06-28
+- [x] **Fold Snapsie into `/blog/best-progress-photo-apps/`** as the "best free option (not updated since 2017)" with the abandoned caveat — completed in the 2026-07-21 batch; verified during the 2026-08-06 topical-map reconciliation. — re-added 2026-06-28
 
 ---
 

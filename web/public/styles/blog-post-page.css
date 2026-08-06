@@ -1591,3 +1591,263 @@
         transition: none;
     }
 }
+
+/* ── Waist-to-height calculator ────────────────────────────────────────────
+ * Extends the shared in-article waist widget shell while keeping calculator-
+ * specific states and result styling scoped to <WaistToHeightRatioCalculator />.
+ */
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-unit-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--post-line);
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-hint,
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-error {
+    display: block;
+    font-size: 0.76rem;
+    line-height: 1.4;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-hint {
+    color: var(--post-muted);
+}
+
+.blog-post-page .post-body .whtr-calculator .waist-tool-input {
+    min-height: 46px;
+}
+
+.blog-post-page
+    .post-body
+    .whtr-calculator
+    .whtr-calculator-unit-row
+    .waist-tool-toggle
+    button {
+    min-height: 44px;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-error {
+    color: #9d2635;
+    font-weight: 700;
+}
+
+.blog-post-page
+    .post-body
+    .whtr-calculator
+    .waist-tool-input[aria-invalid="true"] {
+    border-color: #b32d3d;
+    box-shadow: 0 0 0 1px #b32d3d;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-submit {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--post-graphite);
+    border-radius: 10px;
+    background: var(--post-graphite);
+    color: var(--post-paper-bright);
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-submit:hover {
+    background: var(--post-green);
+    color: var(--post-graphite);
+    transform: translateY(-1px);
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-empty {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-top: 1.25rem;
+    padding: 1rem;
+    border: 1px dashed var(--post-line);
+    border-radius: 10px;
+    color: var(--post-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-empty strong {
+    color: var(--post-graphite);
+    font-size: 0.9rem;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-result {
+    padding: 1.25rem;
+    border: 1px solid var(--post-line);
+    border-left: 5px solid var(--post-green-deep);
+    border-radius: 12px;
+    background: rgba(52, 210, 111, 0.08);
+}
+
+.blog-post-page
+    .post-body
+    .whtr-calculator
+    .whtr-calculator-result.is-low {
+    border-left-color: #6296ad;
+    background: rgba(98, 150, 173, 0.08);
+}
+
+.blog-post-page
+    .post-body
+    .whtr-calculator
+    .whtr-calculator-result.is-increased {
+    border-left-color: #b58b16;
+    background: rgba(232, 215, 106, 0.14);
+}
+
+.blog-post-page
+    .post-body
+    .whtr-calculator
+    .whtr-calculator-result.is-high {
+    border-left-color: #b32d3d;
+    background: rgba(255, 93, 108, 0.08);
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-result-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-result-label,
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-band span {
+    display: block;
+    color: var(--post-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-ratio {
+    display: block;
+    margin-top: 0.1rem;
+    color: var(--post-graphite);
+    font-family: var(--post-mono);
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.08em;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-band {
+    text-align: right;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-band strong {
+    display: block;
+    margin-bottom: 0.15rem;
+    font-size: 1rem;
+    line-height: 1.25;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-gauge {
+    margin: 1.25rem 0;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-gauge-track {
+    position: relative;
+    height: 12px;
+    border-radius: 999px;
+    background: linear-gradient(
+        90deg,
+        #7ba8bb 0 25%,
+        var(--post-green) 25% 50%,
+        #e8d76a 50% 75%,
+        #ff5d6c 75% 100%
+    );
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-gauge-marker {
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    border: 3px solid var(--post-paper-bright);
+    border-radius: 50%;
+    background: var(--post-graphite);
+    box-shadow: 0 2px 7px rgba(24, 26, 23, 0.35);
+    transform: translateY(-50%);
+    transition: left 0.25s ease;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-gauge-scale {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.45rem;
+    color: var(--post-muted);
+    font-family: var(--post-mono);
+    font-size: 0.66rem;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-explanation,
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-threshold {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.blog-post-page .post-body .whtr-calculator .whtr-calculator-threshold {
+    margin-top: 0.55rem;
+    font-weight: 700;
+}
+
+.blog-post-page .post-body .whtr-calculator .waist-tool-note {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--post-line);
+    font-family: var(--post-mono);
+    font-size: 0.75rem;
+}
+
+@media (max-width: 480px) {
+    .blog-post-page .post-body .whtr-calculator .whtr-calculator-unit-row,
+    .blog-post-page .post-body .whtr-calculator .whtr-calculator-result-top {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .blog-post-page
+        .post-body
+        .whtr-calculator
+        .whtr-calculator-unit-row
+        .waist-tool-toggle {
+        width: 100%;
+    }
+
+    .blog-post-page
+        .post-body
+        .whtr-calculator
+        .whtr-calculator-unit-row
+        .waist-tool-toggle
+        button {
+        flex: 1;
+    }
+
+    .blog-post-page .post-body .whtr-calculator .whtr-calculator-band {
+        text-align: left;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blog-post-page .post-body .whtr-calculator .whtr-calculator-submit,
+    .blog-post-page .post-body .whtr-calculator .whtr-calculator-gauge-marker {
+        transition: none;
+    }
+}

@@ -153,7 +153,7 @@ That page is worth defending and deepening.
 | Everything published 2026-07-16 → 2026-07-19 | New post, 28d | ~2026-08-13 to 2026-08-16 |
 | `do-i-look-fat`, `body-composition-pictures` | New post, 28d | 2026-08-30 |
 | `am-i-skinny-fat-quiz` (renders + fold-in), `ideal-body-measurements-women` (retitle) | Content/metadata | ~2026-08-12 |
-| `menopause-body-composition` (pre-existing) | New post, 28d | ~2026-08-06 — judge next run |
+| `menopause-body-composition` (pre-existing) | New post, 28d | 14 impressions at position 9.0; still below the ≥30 reliability threshold |
 
 No metadata edits were made in this run, so no 7–10 day metadata windows are open.
 
@@ -167,8 +167,11 @@ From 2026-08-06 (review run, pending approval):
 |---|---|---|
 | P1 body-visualizer tool page | "body visualizer" 40,500 vol +22% KD 4–8 + ~86K family | Needs owner variant call: new tool page vs extend existing |
 | F1 `waist-to-height-ratio` WHtR calculator widget | pos 13.2, 2,542 imp, 12,100 vol **+49%/yr** | Rising exception to stats freeze; no open windows |
-| F2 menopause post "what does menopause belly look like" H2 + 4-render figure | indexed, 0 imp in 28d; head term YMYL-locked | Visual long-tail/AEO rescue only |
-| F3 topical-map backfill (~45 Jul 9–23 parallel-session posts) | Aug 2 duplicate near-miss root cause | Hygiene |
+| F3 topical-map backfill (82 omitted Jul 9–23 parallel-session posts) | Exhaustive git-to-map reconciliation; Aug 2 duplicate near-miss root cause | Hygiene |
+
+Held from the 2026-08-06 review: the menopause visual/PAA expansion. The exhaustive page report
+shows 14 impressions at position 9.0; the top-50 report hid the page and was initially mistaken
+for zero. Wait for ≥30 impressions before treating its position or targeting diagnosis as real.
 
 From 2026-08-02: everything approved shipped same day EXCEPT the P2 menopause post, which turned
 out to already exist (published 2026-07-09 by a parallel session — stale topical-map gap line;
@@ -194,5 +197,6 @@ their own.
 | `rate-my-physique` after de-orphaning | position + clicks | 2026-08-20 |
 | `/tools/physique-rater/` | position (currently 7.0) on "physique rater" | 2026-08-15 |
 | `dexa-scan-alternative` | holds AI Overview rank 2 | 2026-08-15 |
+| `menopause-body-composition` | visual/PAA expansion decision after ≥30 impressions | next cycle with enough signal |
 | Stats-cluster CTR | whether 0.3–1.0% is stable or still falling | 2026-09-01 |
 | Sitewide CTR | 1.98% and falling as impressions scale — expected, confirm it stabilises | 2026-09-01 |

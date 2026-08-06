@@ -133,7 +133,10 @@ Pull, at minimum:
   latest date present is `END`.
 - **Queries**, 28d and prior 28d, `dimensions="query"`, row_limit 200. Pull once sorted by clicks
   and once by impressions; the second pull surfaces the zero-click AEO pools the first hides.
-- **Pages**, 28d and prior 28d, `dimensions="page"`, row_limit 50.
+- **Pages**, 28d and prior 28d, `dimensions="page"`, row_limit 50. This is the top-page report,
+  not an exhaustive coverage list. Before calling an omitted page "zero impressions," pull pages
+  with `row_limit=25000` or filter that exact URL; on 2026-08-06 a top-50 pull hid
+  `menopause-body-composition` even though the exhaustive report showed 14 impressions.
 - **Query × page** (`mcp__gsc__get_search_by_page_query`) for any page you suspect of splitting a
   query with another page.
 - `mcp__gsc__compare_search_periods` for the 28d-vs-prior view. **Its `Change` and `%` columns
@@ -667,6 +670,7 @@ Corrections recorded this way so far:
 | 2026-08-01 | IndexNow had been failing `403` since ~2026-04-30 — key file was only in the legacy `docs/` tree, so the URL 404'd | Phase 9 — check the key returns 200 before submitting, and read the response |
 | 2026-08-01 | Pinging only the aggregator let Bing's 403 silently suppress Yandex, Seznam and Naver, which accept the same payload | Phase 9 + `indexnow-ping.py` submits per-engine |
 | 2026-08-02 | Proposed a post that already existed (menopause, shipped Jul 9 by a parallel session) because the topical map's gap line was stale | Phase 5 §3 — mechanical per-candidate existence grep before any post enters the proposal table |
+| 2026-08-06 | A page omitted from the top-50 page report was reported as zero impressions even though the exhaustive report showed 14 | Phase 1 — exact/exhaustive page pull required before declaring zero |
 
 ## Guardrails
 

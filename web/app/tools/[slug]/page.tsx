@@ -29,6 +29,12 @@ type RelatedTool = { slug: string; title: string; blurb: string };
 // links inside the standard prose container).
 const ALL_TOOLS: RelatedTool[] = [
   {
+    slug: "body-visualizer",
+    title: "BMI Body Visualizer",
+    blurb:
+      "Enter height and weight for an adult BMI result plus an illustrative male or female body-shape reference.",
+  },
+  {
     slug: "body-fat-from-photo",
     title: "AI Body Fat from a Photo",
     blurb:

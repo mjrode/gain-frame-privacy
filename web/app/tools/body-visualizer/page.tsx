@@ -1,0 +1,292 @@
+import type { Metadata } from "next";
+import BlogNav from "@/components/BlogNav";
+import { appStoreUrlWithCampaign, SITE } from "@/lib/site";
+import BodyVisualizerClient from "./BodyVisualizerClient";
+import styles from "./page.module.css";
+
+const PAGE_PATH = "/tools/body-visualizer/";
+const PAGE_URL = `${SITE.url}${PAGE_PATH}`;
+const DESCRIPTION =
+  "Free body visualizer: enter height and weight to calculate BMI and see an illustrative male or female body-shape reference. No signup. BMI is not body fat.";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Body Visualizer — Free BMI & Body Shape Visualizer | GainFrame",
+  },
+  description: DESCRIPTION,
+  keywords: [
+    "body visualizer",
+    "body shape visualizer",
+    "female body visualizer",
+    "BMI visualizer",
+    "male body visualizer",
+    "masculine body visualizer",
+    "weight visualizer",
+    "3D body visualizer",
+  ],
+  alternates: { canonical: PAGE_PATH },
+  openGraph: {
+    title: "Body Visualizer — Free BMI & Body Shape Reference",
+    description: DESCRIPTION,
+    type: "website",
+    url: PAGE_URL,
+    siteName: "GainFrame",
+    images: [{ url: SITE.ogImage }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Body Visualizer — Free BMI & Body Shape Reference",
+    description: DESCRIPTION,
+    images: [SITE.ogImage],
+  },
+};
+
+const FAQS = [
+  {
+    question: "What does the body visualizer calculate?",
+    answer:
+      "It calculates adult BMI from height and weight, assigns the standard adult BMI category, and selects one standardized body-shape illustration from GainFrame's reference atlas. The image is an illustrative band, not a prediction of your appearance.",
+  },
+  {
+    question: "Is a BMI visualizer the same as a body fat visualizer?",
+    answer:
+      "No. BMI uses only height and weight. It cannot separate fat mass from muscle or bone, so it does not calculate body fat percentage. Use a body fat estimator when body composition—not weight relative to height—is the question.",
+  },
+  {
+    question: "Why can people with the same BMI look different?",
+    answer:
+      "The same weight can be distributed differently across muscle, fat, and bone. Height proportions, frame size, age, and where a person carries fat also change visible body shape. That is why every physique render on this page is labeled illustrative.",
+  },
+  {
+    question: "Does selecting male or female change the BMI result?",
+    answer:
+      "No. Standard adult BMI uses the same formula and categories regardless of sex. The selection changes only whether the page shows the male or female standardized illustration set.",
+  },
+  {
+    question: "Is this a 3D body visualizer?",
+    answer:
+      "It is a responsive visual reference, not a rotatable 3D scan or custom avatar. It uses consistent front-view physique renders so changes between BMI bands are easier to compare, while avoiding the false precision of pretending to recreate your exact body.",
+  },
+  {
+    question: "Who should not use this adult BMI visualizer?",
+    answer:
+      "The categories on this page are for adults age 20 and older. Children and teens need age- and sex-specific BMI percentiles. Pregnancy, high muscularity, and some health conditions can also make adult BMI categories less useful; ask a qualified clinician for an individual assessment.",
+  },
+] as const;
+
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "GainFrame Body Visualizer",
+  alternateName: "BMI Body Shape Visualizer",
+  url: PAGE_URL,
+  applicationCategory: "HealthApplication",
+  operatingSystem: "All",
+  browserRequirements: "Requires JavaScript",
+  description: DESCRIPTION,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  publisher: { "@type": "Organization", name: "GainFrame", url: SITE.url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+export default function BodyVisualizerPage() {
+  return (
+    <div className={styles.page}>
+      <link rel="stylesheet" href="/styles.css" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <BlogNav />
+      <main>
+        <header className={styles.hero}>
+          <div className={styles.heroGrid}>
+            <div>
+              <span className={styles.eyebrow}>Free tool · Private · No signup</span>
+              <h1>Body Visualizer</h1>
+            </div>
+            <div className={styles.heroCopy}>
+              <p>
+                Turn height and weight into a clear BMI readout and an
+                illustrative body-shape reference. Choose male or female, switch
+                units, and see the result instantly.
+              </p>
+              <div className={styles.heroFacts}>
+                <span>Height + weight</span>
+                <span>Adult BMI</span>
+                <span>Male + female references</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div className={styles.toolWrap}>
+          <BodyVisualizerClient />
+        </div>
+
+        <section className={styles.editorialSection}>
+          <div className={styles.sectionKicker}>Read the result correctly</div>
+          <div className={styles.editorialGrid}>
+            <h2>A body shape visualizer, not a body-fat estimate.</h2>
+            <div className={styles.prose}>
+              <p>
+                BMI is weight divided by height squared. It is useful as a quick
+                screening measure, but it does not measure body fat and cannot
+                distinguish fat from muscle or bone. A muscular lifter and a
+                sedentary person can share a BMI while having visibly different
+                bodies.
+              </p>
+              <p>
+                That limitation matters on a weight visualizer. The render above
+                is selected from a standardized physique library to make broad
+                bands easier to picture; it is not generated from your
+                measurements and it should never be treated as a forecast of how
+                you do—or should—look.
+              </p>
+              <p className={styles.sourceNote}>
+                Method and categories follow the{" "}
+                <a
+                  href="https://www.cdc.gov/bmi/faq/index.html"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  CDC adult BMI guidance
+                </a>
+                . This tool is for adults 20 and older and is not a diagnosis.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.differenceSection}>
+          <div className={styles.sectionHeading}>
+            <span className={styles.sectionKicker}>Same number, different body</span>
+            <h2>Why the visual can only be illustrative.</h2>
+            <p>
+              Three things BMI leaves out can completely change the body in the
+              mirror.
+            </p>
+          </div>
+          <div className={styles.factorGrid}>
+            <article>
+              <span>01</span>
+              <h3>Muscle &amp; bone</h3>
+              <p>
+                BMI counts every kilogram the same. It cannot tell a bigger
+                muscle cross-section from additional fat mass.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Fat distribution</h3>
+              <p>
+                Two people can carry the same amount of fat in different places,
+                changing waist, hip, chest, and limb shape.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Frame &amp; proportions</h3>
+              <p>
+                Limb length, shoulder width, pelvis shape, age, and posture all
+                alter appearance without changing the BMI equation.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section className={styles.compareSection}>
+          <div className={styles.sectionHeading}>
+            <span className={styles.sectionKicker}>Choose the right tool</span>
+            <h2>BMI, body fat, and visual change answer different questions.</h2>
+          </div>
+          <div className={styles.toolCards}>
+            <a href="/tools/body-fat-visualizer/">
+              <span>Reference atlas</span>
+              <strong>Body Fat Visualizer</strong>
+              <p>
+                Compare male and female body-fat reference images across ages
+                and percentages.
+              </p>
+              <em>Explore the atlas →</em>
+            </a>
+            <a href="/tools/body-fat-from-photo/">
+              <span>Photo analysis</span>
+              <strong>AI Body Fat Estimator</strong>
+              <p>
+                Upload one clear photo for a directional body-fat estimate—no
+                tape or calipers.
+              </p>
+              <em>Estimate from a photo →</em>
+            </a>
+            <a href="/tools/ffmi-calculator/">
+              <span>Lean mass</span>
+              <strong>FFMI Calculator</strong>
+              <p>
+                Add body-fat percentage to evaluate lean mass relative to your
+                height.
+              </p>
+              <em>Calculate FFMI →</em>
+            </a>
+          </div>
+        </section>
+
+        <section className={styles.faqSection}>
+          <div className={styles.faqIntro}>
+            <span className={styles.sectionKicker}>Body visualizer FAQ</span>
+            <h2>The useful questions, answered plainly.</h2>
+          </div>
+          <div className={styles.faqList}>
+            {FAQS.map((faq, index) => (
+              <details key={faq.question} open={index === 0}>
+                <summary>
+                  {faq.question}
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.appCta}>
+          <div className={styles.appCtaCopy}>
+            <span className={styles.sectionKicker}>Beyond BMI</span>
+            <h2>Your body changes deserve more than one number.</h2>
+            <p>
+              GainFrame turns consistent progress photos into body-composition
+              estimates, muscle scores, and comparisons you can actually track.
+            </p>
+          </div>
+          <div className={styles.appCtaAction}>
+            <a
+              href={appStoreUrlWithCampaign("web-body-visualizer")}
+              target="_blank"
+              rel="noopener"
+              data-cta-source="body_visualizer"
+              data-cta-content="closing_app_store"
+            >
+              Get GainFrame on the App Store
+              <span aria-hidden="true">↗</span>
+            </a>
+            <small>iPhone · Free to start · App ID 6759252082</small>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
