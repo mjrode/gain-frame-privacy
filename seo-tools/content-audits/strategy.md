@@ -1,7 +1,7 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-06** (review — proposed body-visualizer tool play + WHtR fix; nothing shipped, pending approval) · Data through 2026-08-04
+> Last run: **2026-08-06** (review → execution; P1 + F1 + F3 shipped after owner approved `all`) · Data through 2026-08-04
 > Prior run: 2026-08-02 (shipped: do-i-look-fat + body-composition-pictures + quiz render treatment + skinny-fat consolidation + women's-measurements retitle)
 
 ## New finding (2026-08-06): the body-visualizer family
@@ -12,9 +12,10 @@ medical or editorial lockout. Head term **"body visualizer" 40,500 vol, +22%/yr,
 includes female body visualizer (12.1K, KD 9), body shape visualizer (12.1K, KD 12), bmi
 visualizer (6.6K, **+124%**), masculine body visualizer (4.4K), 3d body visualizer (1.9K), weight
 visualizer (1K, KD 7). The site already ranks 4.8 for "body fat visualizer" with the exact asset.
-Proposed 2026-08-06 as P1 (new `/tools/body-visualizer/` with height/weight/BMI input, or extend
-the existing tool — owner call required per the tools quality-over-count rule). **Pending
-approval.** Also killed the same run: menopause head term (YMYL SERP lockout verified live —
+Approved and shipped 2026-08-06 as a new `/tools/body-visualizer/` with height/weight/BMI input,
+male/female standardized reference art, careful non-predictive limitations, and distinct metadata.
+The separate route preserves the existing pos-4.8 ranking for the exact body-fat query. Also
+killed the same run: menopause head term (YMYL SERP lockout verified live —
 rescue is visual long-tail only), `resistance-training-guidelines` CTR (6.8K impressions are
 LLM-grounding machine queries, not human demand).
 
@@ -155,19 +156,20 @@ That page is worth defending and deepening.
 | `am-i-skinny-fat-quiz` (renders + fold-in), `ideal-body-measurements-women` (retitle) | Content/metadata | ~2026-08-12 |
 | `menopause-body-composition` (pre-existing) | New post, 28d | 14 impressions at position 9.0; still below the ≥30 reliability threshold |
 
-No metadata edits were made in this run, so no 7–10 day metadata windows are open.
+No existing-page metadata was edited. The new body visualizer's 28-day window opens 2026-09-03;
+the WHtR calculator's earliest directional read is 2026-08-16, with a full read on 2026-09-03.
 
 ---
 
-## Proposed but not built
+## 2026-08-06 shipped / held
 
-From 2026-08-06 (review run, pending approval):
+Owner approved `all` after the review, choosing the separate-page variant for P1:
 
 | Item | Evidence | Note |
 |---|---|---|
-| P1 body-visualizer tool page | "body visualizer" 40,500 vol +22% KD 4–8 + ~86K family | Needs owner variant call: new tool page vs extend existing |
-| F1 `waist-to-height-ratio` WHtR calculator widget | pos 13.2, 2,542 imp, 12,100 vol **+49%/yr** | Rising exception to stats freeze; no open windows |
-| F3 topical-map backfill (82 omitted Jul 9–23 parallel-session posts) | Exhaustive git-to-map reconciliation; Aug 2 duplicate near-miss root cause | Hygiene |
+| P1 body-visualizer tool page | "body visualizer" 40,500 vol +22% KD 4–8 + ~86K family | **Shipped** as separate `/tools/body-visualizer/`; 28d window 2026-09-03 |
+| F1 `waist-to-height-ratio` WHtR calculator widget | pos 13.2, 2,542 imp, 12,100 vol **+49%/yr** | **Shipped** without metadata change; directional read 2026-08-16 |
+| F3 topical-map backfill (82 omitted Jul 9–23 parallel-session posts) | Exhaustive git-to-map reconciliation; Aug 2 duplicate near-miss root cause | **Completed**; all 98 period posts now represented |
 
 Held from the 2026-08-06 review: the menopause visual/PAA expansion. The exhaustive page report
 shows 14 impressions at position 9.0; the top-50 report hid the page and was initially mistaken
@@ -198,5 +200,7 @@ their own.
 | `/tools/physique-rater/` | position (currently 7.0) on "physique rater" | 2026-08-15 |
 | `dexa-scan-alternative` | holds AI Overview rank 2 | 2026-08-15 |
 | `menopause-body-composition` | visual/PAA expansion decision after ≥30 impressions | next cycle with enough signal |
+| `/tools/body-visualizer/` | indexation, impressions, ranking across the ~86K family, engagement | 2026-09-03 |
+| `waist-to-height-ratio` calculator | rank vs 13.2; clicks/CTR vs 2,542-impression baseline | 2026-08-16 directional; 2026-09-03 full |
 | Stats-cluster CTR | whether 0.3–1.0% is stable or still falling | 2026-09-01 |
 | Sitewide CTR | 1.98% and falling as impressions scale — expected, confirm it stabilises | 2026-09-01 |
