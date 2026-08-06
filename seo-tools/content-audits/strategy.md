@@ -1,7 +1,22 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-02** (shipped: do-i-look-fat + body-composition-pictures + quiz render treatment + skinny-fat consolidation + women's-measurements retitle) · Data through 2026-07-31
+> Last run: **2026-08-06** (review — proposed body-visualizer tool play + WHtR fix; nothing shipped, pending approval) · Data through 2026-08-04
+> Prior run: 2026-08-02 (shipped: do-i-look-fat + body-composition-pictures + quiz render treatment + skinny-fat consolidation + women's-measurements retitle)
+
+## New finding (2026-08-06): the body-visualizer family
+
+≈86K monthly searches at KD ≤17, mostly rising, transactional-leaning, and the SERP is held by a
+Max-Planck research demo + thin single-purpose tool sites (bmivisualizer.com, howheight.com) — no
+medical or editorial lockout. Head term **"body visualizer" 40,500 vol, +22%/yr, KD 4–8**; family
+includes female body visualizer (12.1K, KD 9), body shape visualizer (12.1K, KD 12), bmi
+visualizer (6.6K, **+124%**), masculine body visualizer (4.4K), 3d body visualizer (1.9K), weight
+visualizer (1K, KD 7). The site already ranks 4.8 for "body fat visualizer" with the exact asset.
+Proposed 2026-08-06 as P1 (new `/tools/body-visualizer/` with height/weight/BMI input, or extend
+the existing tool — owner call required per the tools quality-over-count rule). **Pending
+approval.** Also killed the same run: menopause head term (YMYL SERP lockout verified live —
+rescue is visual long-tail only), `resistance-training-guidelines` CTR (6.8K impressions are
+LLM-grounding machine queries, not human demand).
 
 ---
 
@@ -145,6 +160,15 @@ No metadata edits were made in this run, so no 7–10 day metadata windows are o
 ---
 
 ## Proposed but not built
+
+From 2026-08-06 (review run, pending approval):
+
+| Item | Evidence | Note |
+|---|---|---|
+| P1 body-visualizer tool page | "body visualizer" 40,500 vol +22% KD 4–8 + ~86K family | Needs owner variant call: new tool page vs extend existing |
+| F1 `waist-to-height-ratio` WHtR calculator widget | pos 13.2, 2,542 imp, 12,100 vol **+49%/yr** | Rising exception to stats freeze; no open windows |
+| F2 menopause post "what does menopause belly look like" H2 + 4-render figure | indexed, 0 imp in 28d; head term YMYL-locked | Visual long-tail/AEO rescue only |
+| F3 topical-map backfill (~45 Jul 9–23 parallel-session posts) | Aug 2 duplicate near-miss root cause | Hygiene |
 
 From 2026-08-02: everything approved shipped same day EXCEPT the P2 menopause post, which turned
 out to already exist (published 2026-07-09 by a parallel session — stale topical-map gap line;
