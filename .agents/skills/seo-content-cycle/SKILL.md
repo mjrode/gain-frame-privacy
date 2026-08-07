@@ -54,7 +54,7 @@ section in the same commit.
 
 | Source | Status | Use for |
 |---|---|---|
-| `mcp__gsc__*` | **Working.** `sc-domain:gainframe.app` shows as `siteFullUser` | All GSC performance, queries, pages, index verdicts, URL inspection. **This is the performance source for this site** |
+| `mcp__gsc__*` | **Works when connected**, but the server (`pipx run mcp-gsc`, defined in `~/.claude.json`) is **absent from some sessions** (first seen 2026-08-07). `sc-domain:gainframe.app` shows as `siteFullUser` | All GSC performance, queries, pages, index verdicts, URL inspection. **This is the performance source for this site.** If the tools are missing (ToolSearch finds nothing for `select:mcp__gsc__*`), do NOT stop and do NOT touch the SEO Receipts connector — call the Search Console API directly: the service account key is `~/.config/gainframe/gsc-service-account.json`, scope `https://www.googleapis.com/auth/webmasters`, `google-auth` is installed for system python3. POST `searchAnalytics/query` on `sites/sc-domain%3Againframe.app` for analytics and `v1/urlInspection/index:inspect` for verdicts — a ~40-line scratchpad helper covers the whole phase (see `seo-tools/content-audits/2026-08-07.md`) |
 | `mcp__e6e8a8f4-…__*` (DataForSEO) | **Working.** Live, paid, per-call | Real search volume, keyword difficulty, search intent, 12-month trend, SERP composition, competitor keyword gaps, AI Overview presence, backlinks |
 | `mcp__2676e48c-…__*` (SEO Receipts connector) | **Bound to `sc-domain:seoreceipts.com`, NOT gainframe.app** | **Nothing in this skill.** Every number it returns is a different website. Do not call it here |
 | `mcp__analytics-mcp__*` (GA4) | Available | Sessions/engagement by landing page, when a GSC click number needs a behavioural counterpart |
@@ -671,6 +671,7 @@ Corrections recorded this way so far:
 | 2026-08-01 | Pinging only the aggregator let Bing's 403 silently suppress Yandex, Seznam and Naver, which accept the same payload | Phase 9 + `indexnow-ping.py` submits per-engine |
 | 2026-08-02 | Proposed a post that already existed (menopause, shipped Jul 9 by a parallel session) because the topical map's gap line was stale | Phase 5 §3 — mechanical per-candidate existence grep before any post enters the proposal table |
 | 2026-08-06 | A page omitted from the top-50 page report was reported as zero impressions even though the exhaustive report showed 14 | Phase 1 — exact/exhaustive page pull required before declaring zero |
+| 2026-08-07 | The `gsc` MCP server was absent from the session entirely; the run would have stalled at Phase 1 | Data sources table — direct Search Console API fallback via the service account, with key path, scope, and endpoints |
 
 ## Guardrails
 
