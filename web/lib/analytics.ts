@@ -18,9 +18,27 @@ declare global {
         additionalProperties?: Record<string, unknown>,
       ) => void;
       get_distinct_id?: () => string;
+      get_property?: (propertyName: string) => unknown;
+      get_session_id?: () => string;
     };
   }
 }
+
+export type WebAnalyticsContext = {
+  referrer: string;
+  referring_domain: string;
+  landing_path: string;
+  current_path: string;
+  browser: string;
+  os: string;
+  device_type: string;
+  search_engine?: string;
+  session_id?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+};
 
 export type AnalyticsEvent =
   // BF estimator tool
@@ -117,6 +135,116 @@ export function getPosthogDistinctId(): string | null {
   } catch {
     return null;
   }
+}
+
+function contextString(value: unknown, maxLength = 300): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const cleaned = Array.from(value)
+    .filter((character) => {
+      const codePoint = character.codePointAt(0) ?? 0;
+      return codePoint > 31 && codePoint !== 127;
+    })
+    .join("")
+    .trim();
+  return cleaned ? cleaned.slice(0, maxLength) : undefined;
+}
+
+function safeAttributionUrl(value: unknown): string | undefined {
+  const raw = contextString(value, 1_000);
+  if (!raw || raw === "$direct") return raw;
+  try {
+    const url = new URL(raw);
+    if (url.protocol !== "http:" && url.protocol !== "https:") return undefined;
+    // Referrers can carry search terms, email addresses, or auth tokens. The
+    // origin + path preserves useful acquisition context without forwarding
+    // query strings or fragments into server events and Slack.
+    return `${url.origin}${url.pathname}`.slice(0, 500);
+  } catch {
+    return undefined;
+  }
+}
+
+function domainFromUrl(value: string | undefined): string | undefined {
+  if (!value || value === "$direct") return value;
+  try {
+    return new URL(value).hostname.slice(0, 255);
+  } catch {
+    return undefined;
+  }
+}
+
+function posthogProperty(name: string): unknown {
+  try {
+    return window.posthog?.get_property?.(name);
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * Captures the small, privacy-safe slice of browser context that a server-side
+ * completion event cannot infer. Values are forwarded with public web-tool
+ * requests so ad-blocker-proof Slack alerts still retain acquisition context.
+ */
+export function getWebAnalyticsContext(): WebAnalyticsContext {
+  const initialReferrer = safeAttributionUrl(
+    posthogProperty("$initial_referrer"),
+  );
+  const currentReferrer = safeAttributionUrl(
+    posthogProperty("$referrer") ?? window.document?.referrer,
+  );
+  const referrer = initialReferrer ?? currentReferrer ?? "$direct";
+  const referringDomain = contextString(
+    posthogProperty("$initial_referring_domain") ??
+      posthogProperty("$referring_domain"),
+    255,
+  ) ?? domainFromUrl(referrer) ?? "$direct";
+
+  const initialPath = contextString(
+    posthogProperty("$initial_pathname"),
+    500,
+  );
+  const initialUrl = safeAttributionUrl(
+    posthogProperty("$initial_current_url"),
+  );
+  const landingPath = initialPath ?? (() => {
+    try {
+      return initialUrl ? new URL(initialUrl).pathname : undefined;
+    } catch {
+      return undefined;
+    }
+  })() ?? window.location.pathname;
+
+  const params = new URLSearchParams(window.location.search);
+  const utm = (name: string) =>
+    contextString(params.get(name) ?? posthogProperty(name), 120);
+
+  let sessionId: string | undefined;
+  try {
+    sessionId = contextString(window.posthog?.get_session_id?.(), 200);
+  } catch {
+    // Session context is useful but optional; acquisition should never block a
+    // tool request when the analytics SDK is unavailable.
+  }
+
+  return {
+    referrer,
+    referring_domain: referringDomain,
+    landing_path: landingPath.slice(0, 500),
+    current_path: window.location.pathname.slice(0, 500),
+    browser: contextString(posthogProperty("$browser"), 120) ?? "unknown",
+    os: contextString(posthogProperty("$os"), 120) ?? "unknown",
+    device_type: contextString(posthogProperty("$device_type"), 120) ??
+      "unknown",
+    ...(contextString(posthogProperty("$search_engine"), 120)
+      ? { search_engine: contextString(posthogProperty("$search_engine"), 120) }
+      : {}),
+    ...(sessionId ? { session_id: sessionId } : {}),
+    ...(utm("utm_source") ? { utm_source: utm("utm_source") } : {}),
+    ...(utm("utm_medium") ? { utm_medium: utm("utm_medium") } : {}),
+    ...(utm("utm_campaign") ? { utm_campaign: utm("utm_campaign") } : {}),
+    ...(utm("utm_content") ? { utm_content: utm("utm_content") } : {}),
+  };
 }
 
 // In-memory fallback guard for browsers where localStorage is unavailable

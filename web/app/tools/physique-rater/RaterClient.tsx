@@ -2,7 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import { APP_STORE_PROVIDER_TOKEN, SITE } from "@/lib/site";
-import { getPosthogDistinctId, track } from "@/lib/analytics";
+import {
+  getPosthogDistinctId,
+  getWebAnalyticsContext,
+  track,
+} from "@/lib/analytics";
 
 const FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/physique-rate";
@@ -241,6 +245,7 @@ export default function RaterClient() {
           sex: sex === "skip" ? null : sex,
           goal: goal === "skip" ? null : goal,
           posthog_distinct_id: getPosthogDistinctId(),
+          analytics_context: getWebAnalyticsContext(),
         }),
       });
 

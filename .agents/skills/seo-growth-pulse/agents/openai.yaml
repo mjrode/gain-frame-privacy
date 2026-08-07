@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Growth Pulse"
+  short_description: "Connect search visibility to product growth"
+  default_prompt: "Use $seo-growth-pulse to compare the last 28 complete days with the prior 28 days."

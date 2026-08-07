@@ -1,0 +1,62 @@
+{
+  "format": "ranked",
+  "slug": "5-body-recomp-apps-ranked-2026",
+  "cover": {
+    "kicker": "Ranked 2026",
+    "title": "5 Body Recomp Apps, Ranked",
+    "accent_word": "Recomp",
+    "subtitle": "Fat down. Muscle up. Track both."
+  },
+  "apps": [
+    {
+      "query": "id:1553503471",
+      "name": "MacroFactor",
+      "screenshots": [0],
+      "rank": 1,
+      "tagline": "Adaptive nutrition that works",
+      "callouts": ["Adaptive calorie targets", "Fast macro logging", "Weekly expenditure updates"],
+      "cons": ["Subscription only", "Requires daily logging"],
+      "description": "The sharpest nutrition tool for keeping a recomp's calorie and protein targets honest."
+    },
+    {
+      "query": "id:1458862350",
+      "name": "Hevy",
+      "screenshots": [0],
+      "rank": 2,
+      "tagline": "Progressive overload, proven",
+      "callouts": ["Sets, reps & RPE", "Volume and PR charts", "Strong free tier"],
+      "cons": ["Training data only", "No physique analysis"],
+      "description": "A fast strength log that proves whether the muscle-building side of the recomp is progressing."
+    },
+    {
+      "query": "id:6759252082",
+      "local_screenshots": ["docs/assets/tiktok-screenshots/dashboard.png", "docs/assets/tiktok-screenshots/deep-dive-compare-newui.png"],
+      "rank": 3,
+      "tagline": "Reads the visible change",
+      "callouts": ["Body-fat estimate", "Scores 12 muscles", "Compares progress photos"],
+      "cons": ["Doesn't log meals", "iOS only"],
+      "description": "Turns consistent progress photos into body-fat and muscle estimates so slow recomp changes stop hiding."
+    },
+    {
+      "query": "id:6752960004",
+      "name": "Recomp AI",
+      "screenshots": [0],
+      "rank": 4,
+      "tagline": "AI nutrition in chat",
+      "callouts": ["Voice and photo logging", "Daily AI reviews", "Remembers your context"],
+      "cons": ["Nutrition only", "No lift tracking"],
+      "description": "Conversational food logging and coaching for people who want guidance without another spreadsheet."
+    },
+    {
+      "query": "id:6444131195",
+      "name": "BodyRecomp",
+      "rank": 5,
+      "tagline": "The all-in-one plan",
+      "callouts": ["Meal plans", "Workout plans", "Recomp-focused structure"],
+      "cons": ["Pricey subscription", "Tiny review base"],
+      "description": "A bundled meal-and-workout plan for beginners who would rather follow one system than build a stack."
+    }
+  ],
+  "caption": "recomp is three jobs pretending to be one 🥲",
+  "hashtags": ["bodyrecomp", "fitnessapps", "gymtok", "progressphotos", "gainframe"]
+}

@@ -72,7 +72,8 @@ Copy conventions the existing entries follow — match them:
 - `headline` / `accent` / `sub1` / `sub2` are ALL CAPS, **no apostrophes**
   (write `CANT`, `ISNT`, `WILL NOT`), and US spelling (`FIBER`, `FLAVOR`).
 - `accent` must be a verbatim substring of `headline` or it won't colour.
-- 6 slides per carousel: cover + 5 tips, or cover + 4 tips + plug.
+- 6 slides per carousel: cover + 4 tips + plug. Every carousel gets a plug
+  (changed 2026-08-01 — it used to be 1 in 3).
 
 ---
 
@@ -176,6 +177,18 @@ cooperate:
   machine, a cable stack — must be placed "entirely to his left/right" or it
   ends up behind the head and forces an opaque head.
 - Prefer "floating beside him" over "on a table/counter" for objects.
+- **Always say what the hands hold, even when the answer is nothing.** A scene
+  reading "standing with both arms out to the sides, a treadmill to his left and
+  a dumbbell to his right" came back as an overhead barbell press with the bar
+  running straight through the head. Idle hands invite the model to fill them
+  with the nearest gym prop. Write "both arms hanging relaxed at his sides and
+  holding NOTHING" and pin each prop to a height ("at knee height").
+- **Never write an action that brings a prop to the head.** "Drinking from a
+  cup", "biting a bar", "wearing headphones" all fail the same way: the mascot
+  has no mouth or ears, so the model improvises one and mangles the brackets. A
+  drinking scene once passed the QA gate with the head rotated and the red
+  bracket pinched behind the cup. Write "holding the cup at waist height,
+  looking down at it" instead.
 - A soft grey ellipse shadow under the feet is the only thing allowed beneath
   the character.
 
@@ -209,7 +222,7 @@ Three carousel formats — pick one before Phase 0:
 
 2. Confirm the angle. Ask: *"What's the one thing you want someone to walk away knowing?"*
 
-3. **GainFrame mention — 1 in 3 cadence.** Do NOT include a GainFrame promo slide in every carousel. When included, place it on the final slide only. Most carousels should end on a strong tip.
+3. **GainFrame mention — every carousel.** Every post ends on a GainFrame promo slide, final slide only. Pick the screenshot that reinforces what the carousel just taught (see the screenshot library table below). This replaced the old 1-in-3 cadence on 2026-08-01.
 
 ---
 
@@ -240,7 +253,7 @@ Three carousel formats — pick one before Phase 0:
 ### Phase 2: Slide Text
 
 **Slide count:** 5–6 numbered slides.
-**"TOP X" rule:** If promising N tips, deliver exactly N slides of tips PLUS an optional GainFrame slide. A "Top 5" post = 5 tip slides + 1 plug slide (if using it).
+**"TOP X" rule:** If promising N tips, deliver exactly N slides of tips PLUS the GainFrame slide. A "Top 5" post = 5 tip slides + 1 plug slide.
 
 For each slide draft:
 - **Title:** Short bold statement (3–8 words) — goes in the black number banner
@@ -690,6 +703,15 @@ The library lives at `/Users/michael.rode/code/project/gain-frame-privacy/docs/a
 
 Always pick the screenshot that **directly reinforces what the carousel taught**. If the post is about overtraining, use `check-ins.png` to show streaks; if it's about jawline body fat, use `post-check-in-photo-score.png` to show the BF% number, etc.
 
+Other raw screens in the library that work as plugs: `macros.png` (daily
+calorie/protein targets), `muscle-compare.png` (before/after body map + radar),
+`ffmi.png`, `throwback.png`, `compare.png`.
+
+**Not every file in the library is a raw screen.** `ai-coach.png` (and any other
+App Store marketing asset) already contains a device frame and headline copy —
+passing one as the screenshot reference renders a phone inside a phone. Open the
+file before using it; only pass edge-to-edge screen captures.
+
 ### References (2 images)
 
 ```
@@ -734,7 +756,8 @@ The screenshot library is **versioned by app release** (`/docs/app-screenshots/1
 - **Always check for `.error` in the API response** — Gemini returns errors as JSON on HTTP 200.
 - **File names use hyphens, never underscores.** `slide-1.png` not `slide_1.png`.
 - **Cover gets 3 references (template + cover style + badge). Numbered gets 2 (template + banner style).**
-- **GainFrame mention: 1 in every 3 carousels.** Final slide only. Value-first.
+- **GainFrame mention: every carousel.** Final slide only. Value-first — the
+  four tips still have to stand alone without the plug.
 - **Base64 encode with `| tr -d '\n'`** — removes line breaks that corrupt the JSON.
 - **Use `--rawfile` from temp files, never `--arg "$BASE64"` inline.** Any cover with 3+ reference images blows past macOS ARG_MAX when you pass base64 strings via `--arg`, and jq fails with "argument list too long" — the API then receives an empty body and rejects with `INVALID_ARGUMENT`. The Core Image Generation Function above already does this correctly; never refactor it back to `--arg` for image data.
 - **MIME types:** `.jpeg` → `image/jpeg`, `.png` → `image/png`. Match the actual file extension.

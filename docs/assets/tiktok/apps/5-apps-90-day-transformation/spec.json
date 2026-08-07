@@ -1,0 +1,53 @@
+{
+  "format": "editorial",
+  "slug": "5-apps-90-day-transformation",
+  "cover": {
+    "kicker": "The 90-Day Stack",
+    "title": "5 Apps for a 90-Day Transformation",
+    "accent_word": "90-Day",
+    "subtitle": "Plan it. Fuel it. Prove it."
+  },
+  "apps": [
+    {
+      "query": "id:1041517543",
+      "name": "Fitbod",
+      "screenshots": [0, 1],
+      "tagline": "Writes each workout",
+      "callouts": ["Equipment-aware plans", "Adapts each session", "Large exercise library"],
+      "description": "Generates strength sessions from your history, available equipment, and recovered muscle groups."
+    },
+    {
+      "query": "id:1145935738",
+      "name": "Cronometer",
+      "screenshots": [0, 1],
+      "tagline": "Keeps nutrition honest",
+      "callouts": ["Calories and macros", "Micronutrient detail", "Verified food data"],
+      "description": "A detailed food log for keeping protein, calories, and micronutrients visible through the full 90 days."
+    },
+    {
+      "query": "id:6759252082",
+      "local_screenshots": ["docs/assets/tiktok-screenshots/dashboard.png", "docs/assets/tiktok-screenshots/deep-dive-compare-newui.png"],
+      "tagline": "Shows the visible change",
+      "callouts": ["Body-fat estimate", "Scores 12 muscles", "Compare day 1 to 90"],
+      "description": "GainFrame turns repeat progress photos into a visual trend so the transformation has more proof than scale weight."
+    },
+    {
+      "query": "id:320606217",
+      "name": "Sleep Cycle",
+      "screenshots": [0],
+      "tagline": "Protects the recovery",
+      "callouts": ["Sleep trend tracking", "Smart alarm window", "Nightly consistency"],
+      "description": "A low-friction sleep tracker for catching the recovery habit that usually disappears first."
+    },
+    {
+      "query": "id:532430574",
+      "name": "Happy Scale",
+      "screenshots": [0, 1],
+      "tagline": "Smooths noisy weigh-ins",
+      "callouts": ["Moving weight trend", "Milestone forecasts", "Less daily panic"],
+      "description": "Turns volatile daily weigh-ins into a calmer moving trend that is easier to judge over 90 days."
+    }
+  ],
+  "caption": "day 1 motivation is cute. day 60 data is better.",
+  "hashtags": ["transformation", "fitnessapps", "gymtok", "progresstracking", "gainframe"]
+}

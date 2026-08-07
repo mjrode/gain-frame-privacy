@@ -1,5 +1,70 @@
 # TikTok Carousel Post Log
 
+## 2026-08-06 — NICHE MUSCLE MYTH MICRO-CAROUSEL BATCH (10 posts)
+
+Format: two-slide myth-vs-reality infographics inspired by the supplied recovery
+reference. Each post contrasts three common assumptions with three muscle-specific
+training choices, then closes with a topic-matched GainFrame progress card.
+
+- what-builds-upper-chest — 2 slides — GainFrame: Yes (slide 2 — muscle-map.png)
+- what-builds-side-delts — 2 slides — GainFrame: Yes (slide 2 — muscle-compare.png)
+- what-builds-rear-delts — 2 slides — GainFrame: Yes (slide 2 — compare.png)
+- what-builds-long-head-triceps — 2 slides — GainFrame: Yes (slide 2 — muscle-map.png)
+- what-builds-arm-thickness — 2 slides — GainFrame: Yes (slide 2 — muscle-compare.png)
+- what-builds-lat-width — 2 slides — GainFrame: Yes (slide 2 — muscle-map.png)
+- what-builds-hamstrings — 2 slides — GainFrame: Yes (slide 2 — muscle-map.png)
+- what-builds-calves — 2 slides — GainFrame: Yes (slide 2 — muscle-compare.png)
+- what-builds-serratus — 2 slides — GainFrame: Yes (slide 2 — compare.png)
+- what-builds-forearms — 2 slides — GainFrame: Yes (slide 2 — compare.png)
+- Status: Complete
+
+## 2026-08-05 — VARIED FITNESS FORMAT BATCH (2 comic posts)
+
+Two structurally different posts created for the five-post trend-remix batch:
+an interactive visual diagnostic and a relatable camera-roll meme. These avoid
+the batch's transformation timeline, receipt reveal, and sole app ranking.
+
+- guess-what-changed — 5 slides — visual diagnostic / comment-bait test — GainFrame: Yes
+- gym-bro-camera-roll — 5 slides — relatable meme escalation — GainFrame: Yes
+- Status: Complete
+
+## 2026-08-01 — MYTH-BUST QUESTION-HOOK BATCH #3 (10 posts)
+Same question-hook myth-bust DNA as the 07-20 and 07-26 batches, with three
+changes. **Every post now carries a GainFrame plug** (the 1-in-3 cadence is
+retired) — each is cover + 4 tips + plug, with a different screenshot per post
+so a viewer scrolling the profile does not see the same slide ten times.
+Headlines are capped near 30 characters so the Impact compositor keeps them at
+full size instead of shrinking to three lines, and every scene names prop height
+and side ("floating beside him at waist height", "entirely to his right") to
+cut head-clearance rejections.
+
+- what-takes-longer-fat-or-muscle — 6 slides — GainFrame: Yes (slide 5 — weight-chart.png)
+- is-fasting-better-for-fat-loss — 6 slides — GainFrame: Yes (slide 5 — macros.png)
+- does-a-belt-make-you-weak — 6 slides — GainFrame: Yes (slide 5 — dashboard.png)
+- is-soy-bad-for-men — 6 slides — GainFrame: Yes (slide 5 — muscle-compare.png)
+- is-12-3-30-actually-good — 6 slides — GainFrame: Yes (slide 5 — check-ins.png)
+- is-running-bad-for-your-knees — 6 slides — GainFrame: Yes (slide 5 — muscle-map.png)
+- is-muscle-confusion-real — 6 slides — GainFrame: Yes (slide 5 — compare.png)
+- are-protein-bars-junk-food — 6 slides — GainFrame: Yes (slide 5 — post-check-in-photo-score.png)
+- can-you-tell-who-is-natty — 6 slides — GainFrame: Yes (slide 5 — ffmi.png)
+- is-sugar-really-the-enemy — 6 slides — GainFrame: Yes (slide 5 — throwback.png)
+
+Build notes: 6 head-QA rejections across the batch, all recovered on retry. One
+slide (`is-running-bad-for-your-knees/slide-1`) skipped the gate on a network
+timeout and was checked by eye instead — clean. `is-sugar-really-the-enemy/slide-2`
+passed the gate with a genuinely broken head (brackets rotated, red bracket
+pinched behind a cup); the scene asked the mascot to *drink*, which pulls a straw
+into a head that has no mouth. Rewritten to hold the cup at waist height and
+re-rolled. **Never write a scene where a prop reaches the head.**
+
+The `--verify` audit then passed 59/60 and flagged `is-12-3-30-actually-good/slide-4`.
+The head glyph was actually fine (the usual false positive from shoulders behind
+the lower brackets), but the slide had a different real defect: the scene said
+"arms out to the sides" and the model filled the empty hands with an overhead
+barbell whose bar ran straight through the head. Re-rolled with the hands
+explicitly holding NOTHING and both props pinned to knee height. **State what the
+hands hold even when the answer is nothing.**
+
 ## 2026-07-20 — MYTH-BUST QUESTION-HOOK BATCH (10 posts)
 Format: debate-bait myth-busts with question-fear cover hooks (the winning "WILL CARDIO KILL YOUR GAINS?" DNA). Built via `_pipeline/` (deterministic Pillow text, badge-free covers); specs in `_pipeline/posts.json`. Covers use short stacked lines so the compositor renders them at max font size, red scare-word accent.
 

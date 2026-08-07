@@ -1,0 +1,53 @@
+{
+  "format": "editorial",
+  "slug": "5-fitness-apps-for-women-2026",
+  "cover": {
+    "kicker": "The 2026 Stack",
+    "title": "5 Fitness Apps for Women",
+    "accent_word": "Women",
+    "subtitle": "One app for every part of the plan."
+  },
+  "apps": [
+    {
+      "query": "id:1502936453",
+      "name": "Ladder",
+      "screenshots": [0, 1],
+      "tagline": "Coach-built strength plans",
+      "callouts": ["Multi-week programs", "Video form demos", "Team accountability"],
+      "description": "Structured strength programs from real coaches for anyone who wants the plan written before entering the gym."
+    },
+    {
+      "query": "id:1553503471",
+      "name": "MacroFactor",
+      "screenshots": [0],
+      "tagline": "Nutrition that adapts",
+      "callouts": ["Adaptive calorie targets", "Fast food logging", "Protein made visible"],
+      "description": "A calm nutrition tracker that adjusts targets from your real weight trend instead of a static calculator."
+    },
+    {
+      "query": "id:6759252082",
+      "local_screenshots": ["docs/assets/tiktok-screenshots/dashboard.png", "docs/assets/tiktok-screenshots/deep-dive-compare-newui.png"],
+      "tagline": "See the visible change",
+      "callouts": ["Body-fat estimate", "Scores 12 muscles", "Side-by-side compare"],
+      "description": "GainFrame reads consistent progress photos so recomposition still shows up when body weight barely moves."
+    },
+    {
+      "query": "id:1482294997",
+      "name": "Wild.AI",
+      "screenshots": [0],
+      "tagline": "Notice cycle patterns",
+      "callouts": ["Cycle context", "Recovery guidance", "Tracks personal patterns"],
+      "description": "Uses cycle and symptom data to suggest training and recovery adjustments—best treated as patterns to test, not rules."
+    },
+    {
+      "query": "id:1043837948",
+      "name": "Oura",
+      "screenshots": [0],
+      "tagline": "Sleep without friction",
+      "callouts": ["Sleep and readiness", "Temperature trends", "Long battery life"],
+      "description": "A ring-based recovery tracker for sleep and long-run readiness trends, with hardware and membership costs attached."
+    }
+  ],
+  "caption": "the gym stack that actually respects the assignment",
+  "hashtags": ["womensfitness", "fitnessapps", "gymtok", "strengthtraining", "gainframe"]
+}

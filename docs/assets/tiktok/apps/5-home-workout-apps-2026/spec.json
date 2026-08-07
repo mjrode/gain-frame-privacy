@@ -1,0 +1,53 @@
+{
+  "format": "editorial",
+  "slug": "5-home-workout-apps-2026",
+  "cover": {
+    "kicker": "No Gym Required",
+    "title": "5 Apps for Training at Home",
+    "accent_word": "Home",
+    "subtitle": "Training, mobility, progress, classes."
+  },
+  "apps": [
+    {
+      "query": "id:301521403",
+      "name": "Nike Training Club",
+      "screenshots": [0, 1],
+      "tagline": "The free starting point",
+      "callouts": ["Guided strength sessions", "Mobility and conditioning", "Multi-week programs"],
+      "description": "A deep library of polished strength, mobility, and conditioning sessions that remains free."
+    },
+    {
+      "query": "id:983693694",
+      "name": "Down Dog",
+      "screenshots": [0],
+      "tagline": "Mobility without repeats",
+      "callouts": ["Fresh yoga sequences", "Control pace and focus", "Great recovery days"],
+      "description": "Generates a new yoga sequence around your time, difficulty, pace, and mobility focus."
+    },
+    {
+      "query": "id:6759252082",
+      "local_screenshots": ["docs/assets/tiktok-screenshots/dashboard.png", "docs/assets/tiktok-screenshots/deep-dive-compare-newui.png"],
+      "tagline": "Track the visible result",
+      "callouts": ["Progress photo scores", "Body-fat estimate", "Compare over time"],
+      "description": "GainFrame shows whether the living-room routine is changing your physique, even without a gym log."
+    },
+    {
+      "query": "id:1442473191",
+      "name": "FitOn",
+      "screenshots": [0, 1],
+      "tagline": "Follow-along variety",
+      "callouts": ["Strength and cardio", "Trainer-led sessions", "Works with little gear"],
+      "description": "A huge follow-along workout library for days when choosing the session is harder than doing it."
+    },
+    {
+      "query": "id:792750948",
+      "name": "Peloton",
+      "screenshots": [0, 1],
+      "tagline": "Classes create momentum",
+      "callouts": ["Strength and cardio", "Live instructor energy", "No bike required"],
+      "description": "Instructor-led strength, running, cycling, and yoga classes in the app, even without Peloton hardware."
+    }
+  ],
+  "caption": "turns out the living room has a full tech stack",
+  "hashtags": ["homeworkout", "fitnessapps", "fitnesstech", "progresspics", "gainframe"]
+}

@@ -1,0 +1,265 @@
+{
+  "batch_date": "2026-08-06",
+  "posts": [
+    {
+      "slug": "what-builds-upper-chest",
+      "title": "What Actually Builds Upper Chest?",
+      "think_title": "WHAT PEOPLE THINK BUILDS UPPER CHEST",
+      "actual_title": "WHAT ACTUALLY BUILDS UPPER CHEST",
+      "think_labels": ["45° Incline", "Flat Bench PRs", "More Push-Ups"],
+      "actual_labels": ["15–30° Incline", "Low-To-High Fly", "Progressive Load"],
+      "think_art": [
+        "an extremely steep incline bench beside two dumbbells, emphasizing the bench angle",
+        "a heavily loaded flat bench press barbell with oversized plates",
+        "a simple push-up station with many repeated motion marks"
+      ],
+      "actual_art": [
+        "GainFrame Guy performing a controlled low-incline dumbbell press on a bench set to a shallow angle",
+        "two low cable handles traveling upward toward chest height with clean green arrows",
+        "three progressively larger dumbbells arranged left-to-right with one green upward arrow"
+      ],
+      "plug": {
+        "screenshot": "docs/app-screenshots/1.21/muscle-map.png",
+        "screen_name": "muscle map",
+        "h1": "Measure upper-chest",
+        "h2": "change over time"
+      },
+      "caption": "your upper chest did not ask for a 60-degree shoulder press 😭",
+      "hashtags": "#gymtok #upperchest #chestworkout #hypertrophy #gainframe"
+    },
+    {
+      "slug": "what-builds-side-delts",
+      "title": "What Actually Builds Side Delts?",
+      "think_title": "WHAT PEOPLE THINK BUILDS SIDE DELTS",
+      "actual_title": "WHAT ACTUALLY BUILDS SIDE DELTS",
+      "think_labels": ["Overhead Press", "Front Raises", "Heavy Shrugs"],
+      "actual_labels": ["Cable Laterals", "Machine Laterals", "Near-Failure Sets"],
+      "think_art": [
+        "a barbell locked out overhead with the front shoulder area emphasized",
+        "two dumbbells being lifted straight forward",
+        "a very heavy shrug bar with oversized plates and upward shrug arrows"
+      ],
+      "actual_art": [
+        "GainFrame Guy performing a one-arm cable lateral raise with the cable starting behind his hip",
+        "a clean lateral-raise machine with padded arm supports",
+        "a dumbbell lateral raise beside a nearly empty effort gauge with one rep still visible"
+      ],
+      "plug": {
+        "screenshot": "docs/app-screenshots/1.21/muscle-compare.png",
+        "screen_name": "muscle comparison",
+        "h1": "Track shoulder balance",
+        "h2": "across check-ins"
+      },
+      "caption": "front delts stealing credit again",
+      "hashtags": "#gymtok #sidedelts #shoulderworkout #bodybuilding #gainframe"
+    },
+    {
+      "slug": "what-builds-rear-delts",
+      "title": "What Actually Builds Rear Delts?",
+      "think_title": "WHAT PEOPLE THINK BUILDS REAR DELTS",
+      "actual_title": "WHAT ACTUALLY BUILDS REAR DELTS",
+      "think_labels": ["Rows Alone", "Face Pulls Only", "Heavy Shrugs"],
+      "actual_labels": ["Reverse Pec Deck", "Cable Rear Fly", "Elbows-Out Row"],
+      "think_art": [
+        "a generic close-grip rowing handle pulling toward a torso silhouette",
+        "a rope attachment at face height with too many repeated motion marks",
+        "a heavily loaded shrug bar with the upper traps highlighted"
+      ],
+      "actual_art": [
+        "GainFrame Guy seated backward on a reverse pec-deck machine opening both arms under control",
+        "two crossed cable handles opening outward at shoulder height",
+        "a wide-grip row handle moving toward upper chest height with elbows flared outward"
+      ],
+      "plug": {
+        "screenshot": "docs/app-screenshots/1.21/compare.png",
+        "screen_name": "photo comparison",
+        "h1": "Compare the angles",
+        "h2": "mirrors never show"
+      },
+      "caption": "your rear delts cannot survive on face pulls alone",
+      "hashtags": "#gymtok #reardelts #shouldertraining #liftingtips #gainframe"
+    },
+    {
+      "slug": "what-builds-long-head-triceps",
+      "title": "What Builds the Long Head of Your Triceps?",
+      "think_title": "WHAT PEOPLE THINK BUILDS LONG-HEAD TRICEPS",
+      "actual_title": "WHAT ACTUALLY BUILDS LONG-HEAD TRICEPS",
+      "think_labels": ["Pushdowns Only", "Dips Only", "Close-Grip Bench"],
+      "actual_labels": ["Overhead Cable", "Incline Skull Crusher", "Full-Stretch Reps"],
+      "think_art": [
+        "a straight cable pushdown bar held beside a small stack of repeated copies",
+        "parallel dip bars with only short shallow motion arrows",
+        "a narrow-grip barbell hovering above a flat bench"
+      ],
+      "actual_art": [
+        "GainFrame Guy performing a two-hand overhead cable triceps extension with elbows high and controlled form",
+        "an EZ curl bar above a shallow incline bench moving behind head position, with no person shown",
+        "a simple upper-arm anatomy icon with the long head highlighted red and a long green stretch arrow"
+      ],
+      "plug": {
+        "screenshot": "docs/app-screenshots/1.21/muscle-map.png",
+        "screen_name": "muscle map",
+        "h1": "See arm development",
+        "h2": "check-in by check-in"
+      },
+      "caption": "put the cable overhead and suddenly the long head has a job",
+      "hashtags": "#gymtok #triceps #armworkout #hypertrophy #gainframe"
+    },
+    {
+      "slug": "what-builds-arm-thickness",
+      "title": "What Actually Builds Arm Thickness?",
+      "think_title": "WHAT PEOPLE THINK BUILDS ARM THICKNESS",
+      "actual_title": "WHAT ACTUALLY BUILDS ARM THICKNESS",
+      "think_labels": ["Barbell Curls", "Chasing The Peak", "Curling Daily"],
+      "actual_labels": ["Hammer Curls", "Reverse Curls", "Progressive Load"],
+      "think_art": [
+        "a straight bar curl station surrounded by several identical curl bars",
+        "a flexed biceps icon with an exaggerated sharp mountain-shaped peak",
+        "seven small dumbbells arranged around a weekly calendar with every day marked"
+      ],
+      "actual_art": [
+        "GainFrame Guy performing strict alternating hammer curls with neutral palms",
+        "an EZ curl bar held palms-down with a clear upward curl arrow and no person",
+        "three progressively larger dumbbells arranged left-to-right with a green upward arrow"
+      ],
+      "plug": {
+        "screenshot": "docs/app-screenshots/1.21/muscle-compare.png",
+        "screen_name": "muscle comparison",
+        "h1": "Turn arm growth",
+        "h2": "into a visible trend"
+      },
+      "caption": "the brachialis would like one set please",
+      "hashtags": "#gymtok #armtraining #hammercurls #musclegrowth #gainframe"
+    },
+    {
+      "slug": "what-builds-lat-width",
+      "title": "What Actually Builds Lat Width?",
+      "think_title": "WHAT PEOPLE THINK BUILDS LAT WIDTH",
+      "actual_title": "WHAT ACTUALLY BUILDS LAT WIDTH",
+      "think_labels": ["Deadlifts", "Heavy Shrugs", "Any Row"],
+      "actual_labels": ["Neutral Pulldown", "One-Arm Pulldown", "Cable Pullover"],
+      "think_art": [
+        "a heavily loaded barbell resting on the floor for a deadlift",
+        "a shrug bar with oversized plates and arrows pointing toward the neck",
+        "a random close-grip row handle pulling horizontally"
+      ],
+      "actual_art": [
+        "GainFrame Guy performing a neutral-grip lat pulldown with elbows traveling toward his hips",
+        "a single high cable handle traveling down beside a torso silhouette toward one hip",
+        "a straight cable bar traveling in an arc from overhead toward the thighs"
+      ],
+      "plug": {
+        "screenshot": "docs/app-screenshots/1.21/muscle-map.png",
+        "screen_name": "muscle map",
+        "h1": "Track your V-taper",
+        "h2": "from every angle"
+      },
+      "caption": "deadlifts are great but they are not a lat-width subscription",
+      "hashtags": "#gymtok #lats #backworkout #vtaper #gainframe"
+    },
+    {
+      "slug": "what-builds-hamstrings",
+      "title": "What Actually Builds Hamstrings?",
+      "think_title": "WHAT PEOPLE THINK BUILDS HAMSTRINGS",
+      "actual_title": "WHAT ACTUALLY BUILDS HAMSTRINGS",
+      "think_labels": ["Squats", "Leg Press", "Leg Extensions"],
+      "actual_labels": ["Romanian Deadlift", "Seated Leg Curl", "Nordic Curl"],
+      "think_art": [
+        "a standard back-squat rack with a barbell across shoulder height",
+        "a forty-five-degree leg press sled loaded with plates",
+        "a seated leg-extension machine with the shin pad moving upward"
+      ],
+      "actual_art": [
+        "GainFrame Guy performing a controlled Romanian deadlift with hips pushed back and bar close to legs",
+        "a seated leg-curl machine with the knee pad and ankle pad clearly visible",
+        "a compact Nordic curl bench with a torso silhouette lowering forward under control"
+      ],
+      "plug": {
+        "screenshot": "docs/app-screenshots/1.21/muscle-map.png",
+        "screen_name": "muscle map",
+        "h1": "Your progress is",
+        "h2": "more than front shots"
+      },
+      "caption": "leg day had quads doing all the group project again",
+      "hashtags": "#gymtok #hamstrings #legday #strengthtraining #gainframe"
+    },
+    {
+      "slug": "what-builds-calves",
+      "title": "What Actually Builds Calves?",
+      "think_title": "WHAT PEOPLE THINK BUILDS CALVES",
+      "actual_title": "WHAT ACTUALLY BUILDS CALVES",
+      "think_labels": ["Bouncy Reps", "Toe Angles", "One Set Weekly"],
+      "actual_labels": ["Deep Stretch", "Straight-Knee Raises", "Bent-Knee Raises"],
+      "think_art": [
+        "a pair of feet bouncing rapidly on the toes with many short motion marks",
+        "three shoes pointed inward, forward and outward like a fan",
+        "one lonely calf-raise machine beside a weekly calendar with only one day marked"
+      ],
+      "actual_art": [
+        "GainFrame Guy performing a slow standing calf raise on a step with the heel lowered deeply below the edge",
+        "a straight-leg standing calf-raise machine with a clean full-range vertical arrow",
+        "a seated calf-raise machine with knees bent and a clean full-range vertical arrow"
+      ],
+      "plug": {
+        "screenshot": "docs/app-screenshots/1.21/muscle-compare.png",
+        "screen_name": "muscle comparison",
+        "h1": "Track the muscles",
+        "h2": "most people forget"
+      },
+      "caption": "calves finally got more than twelve bouncy reps",
+      "hashtags": "#gymtok #calves #legworkout #hypertrophy #gainframe"
+    },
+    {
+      "slug": "what-builds-serratus",
+      "title": "What Actually Builds the Serratus?",
+      "think_title": "WHAT PEOPLE THINK BUILDS THE SERRATUS",
+      "actual_title": "WHAT ACTUALLY BUILDS THE SERRATUS",
+      "think_labels": ["More Bench", "Crunches", "Lateral Raises"],
+      "actual_labels": ["Push-Up Plus", "Cable Punch", "Wall Slide"],
+      "think_art": [
+        "a heavily loaded flat bench press setup",
+        "a small ab-crunch mat with a curled torso silhouette",
+        "two dumbbells moving outward in a lateral raise arc"
+      ],
+      "actual_art": [
+        "GainFrame Guy at the top of a push-up actively pushing the floor away with shoulder blades protracted",
+        "a single cable handle punching forward from chest height with a long green arrow",
+        "two forearms sliding upward against a wall outline with a foam roller between them"
+      ],
+      "plug": {
+        "screenshot": "docs/app-screenshots/1.21/compare.png",
+        "screen_name": "photo comparison",
+        "h1": "Catch small changes",
+        "h2": "before the scale does"
+      },
+      "caption": "the tiny rib muscles finally entered the chat",
+      "hashtags": "#gymtok #serratus #upperbodyworkout #fitnesseducation #gainframe"
+    },
+    {
+      "slug": "what-builds-forearms",
+      "title": "What Actually Builds Forearms?",
+      "think_title": "WHAT PEOPLE THINK BUILDS FOREARMS",
+      "actual_title": "WHAT ACTUALLY BUILDS FOREARMS",
+      "think_labels": ["Grippers Only", "No Straps Ever", "Heavy Curls"],
+      "actual_labels": ["Wrist Flexion", "Reverse Curls", "Loaded Carries"],
+      "think_art": [
+        "a hand gripper surrounded by several identical hand grippers",
+        "lifting straps crossed out beside a heavy pulling bar",
+        "an oversized dumbbell curl emphasizing only the upper arm"
+      ],
+      "actual_art": [
+        "GainFrame Guy performing a seated wrist curl with forearms supported on his thighs",
+        "an EZ curl bar moving upward with palms facing down and a clean green arrow",
+        "two heavy farmer-carry handles beside walking footprints"
+      ],
+      "plug": {
+        "screenshot": "docs/app-screenshots/1.21/compare.png",
+        "screen_name": "photo comparison",
+        "h1": "Progress photos",
+        "h2": "prove the details"
+      },
+      "caption": "using straps did not delete your forearms, promise",
+      "hashtags": "#gymtok #forearms #gripstrength #armworkout #gainframe"
+    }
+  ]
+}

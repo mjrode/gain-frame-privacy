@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok Trend Remix"
+  short_description: "Find fresh viral formats without recycling"
+  default_prompt: "Use $tiktok-trend-remix to research external viral fitness slideshow formats, reject anything already used in the GainFrame archive, and create a greenfield GainFrame batch with new visual systems."

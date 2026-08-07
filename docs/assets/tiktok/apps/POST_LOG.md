@@ -95,3 +95,33 @@
 - Format: two-slide iceberg meme
 - Apps: FitnessAI, Fitbod, Strong, Hevy, GymStreak, GainFrame
 - Status: Done
+
+## 2026-08-05 — 5 Body Recomp Apps, Ranked
+- Slug: 5-body-recomp-apps-ranked-2026
+- Format: ranked
+- Apps: 5 (GainFrame at #3) — MacroFactor, Hevy, GainFrame, Recomp AI, BodyRecomp
+- Status: Done
+
+## 2026-08-05 — 5 Fitness Apps for Women
+- Slug: 5-fitness-apps-for-women-2026
+- Format: editorial
+- Apps: 5 (GainFrame at #3) — Ladder, MacroFactor, GainFrame, Wild.AI, Oura
+- Status: Done
+
+## 2026-08-05 — 5 Fitness Apps for Men
+- Slug: 5-fitness-apps-for-men-2026
+- Format: editorial
+- Apps: 5 (GainFrame at #3) — Hevy, MacroFactor, GainFrame, WHOOP, Strava
+- Status: Done
+
+## 2026-08-05 — 5 Home Workout Apps
+- Slug: 5-home-workout-apps-2026
+- Format: editorial
+- Apps: 5 (GainFrame at #3) — Nike Training Club, Down Dog, GainFrame, FitOn, Peloton
+- Status: Done
+
+## 2026-08-05 — 5 Apps for a 90-Day Transformation
+- Slug: 5-apps-90-day-transformation
+- Format: editorial
+- Apps: 5 (GainFrame at #3) — Fitbod, Cronometer, GainFrame, Sleep Cycle, Happy Scale
+- Status: Done

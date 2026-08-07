@@ -288,6 +288,138 @@ def _render_plug(spec, art_path):
     return img
 
 
+def _draw_micro_heading(draw, text, y, accent=""):
+    tokens = _accent_tokens(text, accent)
+    font, lines, _ = _fit_block(draw, tokens, IMPACT, 78, 58, 2)
+    lh = _line_h(draw, font)
+    for line in lines:
+        _draw_centered_line(draw, y, line, font)
+        y += lh * 1.01
+    return y
+
+
+def _draw_micro_label(draw, text, center_x, y):
+    max_w = 286
+    words = text.split()
+    for size in range(32, 23, -2):
+        font = _font(ARIAL_BOLD, size)
+        lines = []
+        current = ""
+        for word in words:
+            candidate = f"{current} {word}".strip()
+            if current and _text_size(draw, candidate, font)[0] > max_w:
+                lines.append(current)
+                current = word
+            else:
+                current = candidate
+        if current:
+            lines.append(current)
+        if len(lines) <= 2:
+            break
+    line_h = _line_h(draw, font)
+    for line in lines:
+        bbox = draw.textbbox((0, 0), line, font=font)
+        width = bbox[2] - bbox[0]
+        draw.text((center_x - width / 2 - bbox[0], y - bbox[1]),
+                  line, font=font, fill=NEAR_BLACK)
+        y += line_h + 5
+
+
+def _render_micro(spec, art_path):
+    """Two-row myth-vs-reality infographic matching the supplied TikTok ref.
+
+    Gemini draws the six isolated vignettes in fixed art bands. We clear every
+    typography band before compositing so a slightly misplaced prop can never
+    collide with the deterministic headings or labels.
+    """
+    img = _canvas()
+    if art_path:
+        art = Image.open(art_path).convert("RGB")
+        source_w, source_h = art.size
+        ink = art.convert("L").point(lambda pixel: 255 if pixel < 248 else 0)
+
+        def empty_run(values, start, end, threshold=3):
+            """Return the widest nearly-empty run inside an expected gap."""
+            best = None
+            run_start = None
+            for position in range(start, end):
+                if values[position] <= threshold:
+                    if run_start is None:
+                        run_start = position
+                elif run_start is not None:
+                    candidate = (run_start, position)
+                    if best is None or candidate[1] - candidate[0] > best[1] - best[0]:
+                        best = candidate
+                    run_start = None
+            if run_start is not None:
+                candidate = (run_start, end)
+                if best is None or candidate[1] - candidate[0] > best[1] - best[0]:
+                    best = candidate
+            if best:
+                return best
+            minimum = min(range(start, end), key=lambda position: values[position])
+            return minimum, minimum + 1
+
+        # Find the real whitespace divider instead of assuming both model rows
+        # occupy identical fractions. Some scenes (notably calves) start the
+        # lower mascot much higher than others.
+        row_density = list(ink.resize((1, source_h), Image.Resampling.BOX).getdata())
+        row_gap = empty_run(row_density, int(source_h * 0.27), int(source_h * 0.64))
+        source_rows = (
+            (int(source_h * 0.08), row_gap[0]),
+            (row_gap[1], int(source_h * 0.95)),
+        )
+        # Gemini supplies one clean 3x2 art board. Extract each third separately,
+        # trim its white space, and fit the entire vignette into a known-safe cell.
+        # This avoids the old white-band approach, which visibly chopped benches,
+        # arrows, machines and mascot feet whenever an illustration ran tall.
+        target_rows = ((292, 505), (824, 1080))
+        target_centers = (180, 540, 900)
+        for row, ((source_top, source_bottom), (target_top, target_bottom)) in enumerate(
+                zip(source_rows, target_rows)):
+            # Locate each row's two actual vertical whitespace gutters. This
+            # keeps a wide mascot foot or barbell plate out of its neighbor.
+            column_density = list(
+                ink.crop((0, source_top, source_w, source_bottom))
+                .resize((source_w, 1), Image.Resampling.BOX)
+                .getdata()
+            )
+            first_gap = empty_run(column_density, int(source_w * 0.24), int(source_w * 0.43))
+            second_gap = empty_run(column_density, int(source_w * 0.57), int(source_w * 0.76))
+            first_split = (first_gap[0] + first_gap[1]) // 2
+            second_split = (second_gap[0] + second_gap[1]) // 2
+            source_columns = ((0, first_split), (first_split, second_split), (second_split, source_w))
+            for (source_left, source_right), center_x in zip(source_columns, target_centers):
+                cell = art.crop((source_left, source_top, source_right, source_bottom))
+                mask = cell.convert("L").point(lambda pixel: 255 if pixel < 248 else 0)
+                bbox = mask.getbbox()
+                if not bbox:
+                    continue
+                content = cell.crop(bbox)
+                content_w, content_h = content.size
+                max_w = 320 if row else 300
+                max_h = target_bottom - target_top
+                scale = min(max_w / content_w, max_h / content_h)
+                output_w = max(1, int(content_w * scale))
+                output_h = max(1, int(content_h * scale))
+                content = content.resize((output_w, output_h), Image.LANCZOS)
+                x = int(center_x - output_w / 2)
+                y = target_top + (max_h - output_h) // 2
+                img.paste(content, (x, y))
+    draw = ImageDraw.Draw(img)
+
+    _draw_micro_heading(draw, spec["think_title"], 116)
+    for x, label in zip((180, 540, 900), spec["think_labels"]):
+        _draw_micro_label(draw, label, x, 530)
+
+    _draw_micro_heading(draw, spec["actual_title"], 650, accent="ACTUALLY")
+    for x, label in zip((180, 540, 900), spec["actual_labels"]):
+        _draw_micro_label(draw, label, x, 1112)
+
+    _draw_page_pill(draw, spec.get("page"))
+    return img
+
+
 def compose(spec, art_path, out_path):
     t = spec["type"]
     if t == "cover":
@@ -296,6 +428,8 @@ def compose(spec, art_path, out_path):
         img = _render_numbered(spec, art_path)
     elif t == "plug":
         img = _render_plug(spec, art_path)
+    elif t == "micro":
+        img = _render_micro(spec, art_path)
     else:
         raise ValueError(f"unknown slide type {t}")
     img.save(out_path)

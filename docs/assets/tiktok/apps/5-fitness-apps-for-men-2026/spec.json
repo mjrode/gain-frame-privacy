@@ -1,0 +1,52 @@
+{
+  "format": "editorial",
+  "slug": "5-fitness-apps-for-men-2026",
+  "cover": {
+    "kicker": "The 2026 Stack",
+    "title": "5 Fitness Apps for Men",
+    "accent_word": "Men",
+    "subtitle": "Lifts, food, physique, recovery, cardio."
+  },
+  "apps": [
+    {
+      "query": "id:1458862350",
+      "name": "Hevy",
+      "screenshots": [0, 1],
+      "tagline": "Prove progressive overload",
+      "callouts": ["Sets, reps & RPE", "Volume and PR charts", "Strong free tier"],
+      "description": "A fast workout log that makes it obvious whether your lifts are progressing or only feeling harder."
+    },
+    {
+      "query": "id:1553503471",
+      "name": "MacroFactor",
+      "screenshots": [0],
+      "tagline": "Eat for the goal",
+      "callouts": ["Adaptive calorie targets", "Fast macro logging", "Weekly expenditure updates"],
+      "description": "A nutrition tracker that recalculates targets from your actual intake and weight trend."
+    },
+    {
+      "query": "id:6759252082",
+      "local_screenshots": ["docs/assets/tiktok-screenshots/dashboard.png", "docs/assets/tiktok-screenshots/deep-dive-compare-newui.png"],
+      "tagline": "See if it worked",
+      "callouts": ["Body-fat estimate", "Scores 12 muscles", "Tracks visible change"],
+      "description": "GainFrame turns consistent progress photos into estimates and trends that show whether the plan changed your physique."
+    },
+    {
+      "query": "id:933944389",
+      "name": "WHOOP",
+      "tagline": "Recovery under load",
+      "callouts": ["Sleep and HRV", "Daily recovery score", "Strain tracking"],
+      "description": "A screenless band for lifters whose training volume is high enough that recovery is the actual constraint."
+    },
+    {
+      "query": "id:426826309",
+      "name": "Strava",
+      "screenshots": [0, 1],
+      "tagline": "Cardio with a crew",
+      "callouts": ["Run and ride routes", "Segments and trends", "Social accountability"],
+      "description": "The default social log for running and cycling, with routes, segments, and enough peer pressure to get outside."
+    }
+  ],
+  "caption": "five apps, zero room left on the home screen",
+  "hashtags": ["mensfitness", "fitnessapps", "gymtok", "bodycomposition", "gainframe"]
+}

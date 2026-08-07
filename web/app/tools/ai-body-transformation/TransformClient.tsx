@@ -5,6 +5,7 @@ import { APP_STORE_PROVIDER_TOKEN, SITE } from "@/lib/site";
 import {
   captureException,
   getPosthogDistinctId,
+  getWebAnalyticsContext,
   track,
 } from "@/lib/analytics";
 import {
@@ -643,6 +644,7 @@ export default function TransformClient() {
             zones,
             intensity: INTENSITY_STOPS[intensityIdx].key,
             posthog_distinct_id: getPosthogDistinctId(),
+            analytics_context: getWebAnalyticsContext(),
             request_id: attemptId,
             attempt_id: attemptId,
           }),

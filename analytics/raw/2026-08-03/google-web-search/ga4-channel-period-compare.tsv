@@ -1,0 +1,9 @@
+channel	recent_newUsers	prior_newUsers	recent_per_day	prior_per_day	newUsers_per_day_delta_pct	recent_sessions	prior_sessions
+Organic Search	1761	1640	251.6	234.3	7.4	2190	1981
+Direct	956	836	136.6	119.4	14.4	1013	907
+Organic Social	132	203	18.9	29.0	-35.0	210	291
+AI Assistant	66	54	9.4	7.7	22.2	72	61
+Unassigned	23	7	3.3	1.0	228.6	433	132
+Referral	6	10	0.9	1.4	-40.0	6	21
+Cross-network	2	0	0.3	0.0	0	2	0
+Email	0	0	0.0	0.0	0	0	0

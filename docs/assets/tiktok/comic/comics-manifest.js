@@ -2,6 +2,138 @@
 // To change comics, edit the .mjs file and run `npm run build:comics-manifest`.
 const COMICS_MANIFEST = [
   {
+    "slug": "what-builds-upper-chest",
+    "title": "What Actually Builds Upper Chest?",
+    "date": "2026-08-06",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-builds-side-delts",
+    "title": "What Actually Builds Side Delts?",
+    "date": "2026-08-06",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-builds-rear-delts",
+    "title": "What Actually Builds Rear Delts?",
+    "date": "2026-08-06",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-builds-long-head-triceps",
+    "title": "What Builds the Long Head of Your Triceps?",
+    "date": "2026-08-06",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-builds-arm-thickness",
+    "title": "What Actually Builds Arm Thickness?",
+    "date": "2026-08-06",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-builds-lat-width",
+    "title": "What Actually Builds Lat Width?",
+    "date": "2026-08-06",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-builds-hamstrings",
+    "title": "What Actually Builds Hamstrings?",
+    "date": "2026-08-06",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-builds-calves",
+    "title": "What Actually Builds Calves?",
+    "date": "2026-08-06",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-builds-serratus",
+    "title": "What Actually Builds the Serratus?",
+    "date": "2026-08-06",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-builds-forearms",
+    "title": "What Actually Builds Forearms?",
+    "date": "2026-08-06",
+    "ext": "webp"
+  },
+  {
+    "slug": "guess-what-changed",
+    "title": "Can You Spot What Changed?",
+    "date": "2026-08-05",
+    "ext": "webp"
+  },
+  {
+    "slug": "gym-bro-camera-roll",
+    "title": "A Gym Bro's Camera Roll",
+    "date": "2026-08-05",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-takes-longer-fat-or-muscle",
+    "title": "What Takes Longer, Fat or Muscle?",
+    "date": "2026-08-01",
+    "ext": "webp"
+  },
+  {
+    "slug": "is-fasting-better-for-fat-loss",
+    "title": "Is Fasting Better for Fat Loss?",
+    "date": "2026-08-01",
+    "ext": "webp"
+  },
+  {
+    "slug": "does-a-belt-make-you-weak",
+    "title": "Does a Lifting Belt Make You Weak?",
+    "date": "2026-08-01",
+    "ext": "webp"
+  },
+  {
+    "slug": "is-soy-bad-for-men",
+    "title": "Is Soy Actually Bad for Men?",
+    "date": "2026-08-01",
+    "ext": "webp"
+  },
+  {
+    "slug": "is-12-3-30-actually-good",
+    "title": "Is the 12-3-30 Workout Good?",
+    "date": "2026-08-01",
+    "ext": "webp"
+  },
+  {
+    "slug": "is-running-bad-for-your-knees",
+    "title": "Is Running Bad for Your Knees?",
+    "date": "2026-08-01",
+    "ext": "webp"
+  },
+  {
+    "slug": "is-muscle-confusion-real",
+    "title": "Is Muscle Confusion Real?",
+    "date": "2026-08-01",
+    "ext": "webp"
+  },
+  {
+    "slug": "are-protein-bars-junk-food",
+    "title": "Are Protein Bars Just Candy?",
+    "date": "2026-08-01",
+    "ext": "webp"
+  },
+  {
+    "slug": "can-you-tell-who-is-natty",
+    "title": "Can You Tell Who Is Natty?",
+    "date": "2026-08-01",
+    "ext": "webp"
+  },
+  {
+    "slug": "is-sugar-really-the-enemy",
+    "title": "Is Sugar Really the Enemy?",
+    "date": "2026-08-01",
+    "ext": "webp"
+  },
+  {
     "slug": "do-you-need-to-deadlift",
     "title": "Do You Need to Deadlift?",
     "date": "2026-07-26",

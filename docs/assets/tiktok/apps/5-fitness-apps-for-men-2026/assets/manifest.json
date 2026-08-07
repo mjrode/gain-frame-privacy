@@ -1,0 +1,152 @@
+{
+  "format": "editorial",
+  "slug": "5-fitness-apps-for-men-2026",
+  "cover": {
+    "kicker": "The 2026 Stack",
+    "title": "5 Fitness Apps for Men",
+    "accent_word": "Men",
+    "subtitle": "Lifts, food, physique, recovery, cardio."
+  },
+  "caption": "five apps, zero room left on the home screen",
+  "hashtags": [
+    "mensfitness",
+    "fitnessapps",
+    "gymtok",
+    "bodycomposition",
+    "gainframe"
+  ],
+  "apps": [
+    {
+      "query": "id:1458862350",
+      "name": "Hevy - Workout Tracker Gym Log",
+      "short_name": "Hevy",
+      "id": 1458862350,
+      "genre": "Health & Fitness",
+      "rating": 4.92,
+      "rating_count": 84202,
+      "store_desc": "** Featured by Apple ** Join +10 million users!\nHevy is the most intuitive workout tracker & planner in the world. No ads and free. Plan your weight lifting routines, log your workouts and track your exercise progress. Join a growing community and get started today - for free!\n\nWHAT USERS ARE SAYING\n\u2022  \"Seriously the best workout tracker I've ever used. Simple. Free. Tons of graphs. Amazing quality videos\" - Sam Ilelaboye\n\u2022  \"Seeing what my friends and other athletes are working out at the gym h",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/hevy/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/hevy/shot-0.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/hevy/shot-1.png"
+      ],
+      "tagline": "Prove progressive overload",
+      "callouts": [
+        "Sets, reps & RPE",
+        "Volume and PR charts",
+        "Strong free tier"
+      ],
+      "cons": [],
+      "description": "A fast workout log that makes it obvious whether your lifts are progressing or only feeling harder.",
+      "bullets": [],
+      "rank": null
+    },
+    {
+      "query": "id:1553503471",
+      "name": "MacroFactor - Macro Tracker",
+      "short_name": "MacroFactor",
+      "id": 1553503471,
+      "genre": "Health & Fitness",
+      "rating": 4.84,
+      "rating_count": 20331,
+      "store_desc": "MacroFactor combines innovative coaching algorithms with proven nutrition and behavioral science to help you reach your diet goals and achieve empowering, sustainable results.\n\nMacroFactor uses a dynamic algorithm to adapt to changes in your metabolism and personalize your macro plan to keep you on track.\n\nDownload to start your 7-day trial of this premium, ad-free macro tracker app. \n\nDIET SMARTER\n\nUsing a best-in-class expenditure estimate, MacroFactor\u2019s nutrition coach algorithm adapts to cha",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/macrofactor/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/macrofactor/shot-0.png"
+      ],
+      "tagline": "Eat for the goal",
+      "callouts": [
+        "Adaptive calorie targets",
+        "Fast macro logging",
+        "Weekly expenditure updates"
+      ],
+      "cons": [],
+      "description": "A nutrition tracker that recalculates targets from your actual intake and weight trend.",
+      "bullets": [],
+      "rank": null
+    },
+    {
+      "query": "id:6759252082",
+      "name": "GainFrame: Gym Progress Photos",
+      "short_name": "GainFrame",
+      "id": 6759252082,
+      "genre": "Health & Fitness",
+      "rating": 4.95,
+      "rating_count": 41,
+      "store_desc": "See what\u2019s actually changing in your physique.\n\nGainFrame turns progress photos into body-fat estimates, muscle-group insights, side-by-side comparisons, and an AI Coach grounded in your real check-ins\u2014not generic fitness advice.\n\nFROM PHOTO TO PROOF\n\n\u2022 Compare any two check-ins side by side\n\u2022 See body-fat, weight, and physique-score changes together\n\u2022 Open an AI Deep Dive that explains what changed\u2014and why\n\u2022 Review 12 muscle groups across front and back poses\n\nAN AI COACH THAT KNOWS YOUR DATA\n\n",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/gainframe/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/gainframe/shot-0.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/gainframe/shot-1.png"
+      ],
+      "tagline": "See if it worked",
+      "callouts": [
+        "Body-fat estimate",
+        "Scores 12 muscles",
+        "Tracks visible change"
+      ],
+      "cons": [],
+      "description": "GainFrame turns consistent progress photos into estimates and trends that show whether the plan changed your physique.",
+      "bullets": [],
+      "rank": null
+    },
+    {
+      "query": "id:933944389",
+      "name": "WHOOP",
+      "short_name": "WHOOP",
+      "id": 933944389,
+      "genre": "Health & Fitness",
+      "rating": 4.78,
+      "rating_count": 53836,
+      "store_desc": "WHOOP is the leading wearable that turns comprehensive health insights into daily action. By capturing dozens of data points every second, WHOOP delivers personalized Sleep, Strain, Recovery, Stress, and health insights\u201424/7. WHOOP uses those insights to provide coaching based on your body\u2019s unique physiology and recommends everything from when to go to bed to new daily behaviors that will help you reach your goals.\n\nIf you\u2019re new to WHOOP, you can try both the wearable and app free for 1 month.",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/whoop/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/whoop/shot-0.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/whoop/shot-1.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/whoop/shot-2.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/whoop/shot-3.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/whoop/shot-4.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/whoop/shot-5.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/whoop/shot-6.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/whoop/shot-7.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/whoop/shot-8.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/whoop/shot-9.png"
+      ],
+      "tagline": "Recovery under load",
+      "callouts": [
+        "Sleep and HRV",
+        "Daily recovery score",
+        "Strain tracking"
+      ],
+      "cons": [],
+      "description": "A screenless band for lifters whose training volume is high enough that recovery is the actual constraint.",
+      "bullets": [],
+      "rank": null
+    },
+    {
+      "query": "id:426826309",
+      "name": "Strava: Run, Bike, Walk",
+      "short_name": "Strava",
+      "id": 426826309,
+      "genre": "Health & Fitness",
+      "rating": 4.81,
+      "rating_count": 366393,
+      "store_desc": "*App Store Award Winner -Apple Watch App of the Year*\n\nStrava makes fitness tracking social. We house your entire active journey in one spot \u2013 and you get to share it with friends. Here\u2019s how:\n\n\u2022 Record everything \u2013 runs, rides, hikes, yoga and over 50+ other sport types. Think of Strava as the homebase of your movement.\n\n\u2022 See the full story of your strength training \u2013 Lifting in the gym weekly, doing HIIT workouts, and showing up to your group weight training classes? Use your favorite device ",
+      "logo": "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/strava/logo.png",
+      "screenshots": [
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/strava/shot-0.png",
+        "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/tiktok/apps/5-fitness-apps-for-men-2026/assets/strava/shot-1.png"
+      ],
+      "tagline": "Cardio with a crew",
+      "callouts": [
+        "Run and ride routes",
+        "Segments and trends",
+        "Social accountability"
+      ],
+      "cons": [],
+      "description": "The default social log for running and cycling, with routes, segments, and enough peer pressure to get outside.",
+      "bullets": [],
+      "rank": null
+    }
+  ]
+}

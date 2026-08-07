@@ -6328,5 +6328,565 @@
     "alt": "The GainFrame mascot squats a barbell with controlled form, highlighting that sensible loading prevents injury better than flexibility."
    }
   ]
+ },
+ "is-soy-bad-for-men": {
+  "summary": "Soy phytoestrogens are distinct from human estrogen and do not decrease testosterone when consumed in moderate amounts. As a complete protein source, soy effectively aids in muscle growth and fitness goals. Most health concerns around soy stem from rare cases of extreme daily overconsumption rather than typical diet intake.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is soy actually bad for men?",
+    "alt": "The GainFrame mascot holds a small carton of soy milk while introducing the topic of whether soy is bad for men."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Soy estrogen is not human estrogen. Isoflavones bind far weaker receptors. Same nickname, different molecule.",
+    "alt": "The GainFrame mascot holds two mismatched puzzle pieces to represent that soy phytoestrogens differ from human estrogen and bind weakly to receptors."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. The reviews found no drop. Meta analyses show testosterone unchanged in men eating normal amounts.",
+    "alt": "The GainFrame mascot stands confidently with arms crossed beside a barbell, highlighting that normal soy intake does not decrease testosterone."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Soy protein still builds muscle. It is a complete protein source slightly behind whey, not useless.",
+    "alt": "The GainFrame mascot presents a block of tofu on a plate with a green checkmark, showing that soy protein is effective for building muscle."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. The scare came from one guy. He drank three litres of soy milk a day. That is not your tofu stir fry.",
+    "alt": "The GainFrame mascot carries a gigantic carton of soy milk, demonstrating that fears about soy came from an extreme case of drinking three liters daily."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See which muscles actually grew. GainFrame.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app body map interface for tracking muscle growth."
+   }
+  ]
+ },
+ "is-running-bad-for-your-knees": {
+  "summary": "Running is not inherently bad for knee joint health, as recreational runners show lower rates of arthritis and cartilage relies on compression to receive nutrients. Most running-related knee issues are caused by sudden spikes in training volume rather than the activity itself. Strength training surrounding muscles like quads and glutes absorbs impact forces and protects knees.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is running bad for your knees?",
+    "alt": "The GainFrame mascot runs while holding its knee in pain under the title asking if running is bad for your knees."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Runners get less arthritis. Recreational runners beat couch sitters. The data points the other way.",
+    "alt": "The GainFrame mascot runs smoothly next to a green downward arrow, illustrating that recreational runners have lower rates of arthritis than non-runners."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Cartilage likes being loaded. It has no blood supply of its own. Compression is how it gets fed.",
+    "alt": "The GainFrame mascot squats with dumbbells near a leg press machine, showing how loading and compression deliver nutrients to joint cartilage."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Too much too soon is the problem. Zero to ten miles is what hurts. Add ten percent a week instead.",
+    "alt": "The GainFrame mascot climbs a step-like block chart representing a gradual ten percent weekly increase in running distance."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Strong legs are the insurance. Quads and glutes absorb the landing. Lifters make better runners.",
+    "alt": "The GainFrame mascot stands confidently next to a leg press machine, highlighting how strong legs protect knees from impact."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See if the cardio is costing you muscle. GainFrame",
+    "alt": "A hand holds a smartphone displaying the GainFrame app interface that tracks muscle balance and cardio effects."
+   }
+  ]
+ },
+ "does-a-belt-make-you-weak": {
+  "summary": "Lifting belts do not weaken your core; EMG research shows abdominal activation actually increases when bracing against a belt. Belts should be reserved for heavy top sets over eighty percent of your max, while warm-ups are best done beltless to master proper bracing.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Does a lifting belt make you weak?",
+    "alt": "The GainFrame mascot holds up a brown leather lifting belt while asking if using one weakens the core."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. A belt is a brace, not a crutch. It gives your abs something to push into you brace harder, not less.",
+    "alt": "The GainFrame mascot wears a tight lifting belt while bracing its abs outward against it to show how belts provide resistance to push into."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Core activity goes up not down. EMG work shows more ab activation the weak core story never held up.",
+    "alt": "The GainFrame mascot stands with a lifting belt next to a green upward-pointing arrow to show that core muscle activation increases with a belt."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. It is for heavy sets only. Top sets above eighty percent belting curls is the actual joke.",
+    "alt": "The GainFrame mascot wears a lifting belt while standing next to heavy gym equipment to emphasize using belts only for heavy top sets."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Learn to brace without it first. Run your warm up sets beltless strap in when the weight gets real.",
+    "alt": "The GainFrame mascot performs a barbell squat beltless with its lifting belt placed on the floor to show warm-up sets should be done without equipment."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See if the heavy work is actually showing up. GainFrame",
+    "alt": "A hand holds a smartphone displaying workout metrics inside the GainFrame application next to the brand logo."
+   }
+  ]
+ },
+ "is-fasting-better-for-fat-loss": {
+  "summary": "Intermittent fasting promotes fat loss primarily by creating a calorie deficit through fewer meals rather than triggering a unique metabolic switch. When calorie intake is equal, fasting yields the same results as regular meal timing, though fitting high daily protein goals into a small window can be challenging. Dietary adherence and personal preference are ultimately the key drivers of success.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is fasting better for fat loss?",
+    "alt": "The GainFrame mascot holds a large clock in front of its torso next to an empty plate, asking if intermittent fasting is superior for fat loss."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. It only works by eating less. A shorter window means fewer meals. The deficit is still doing the work.",
+    "alt": "The GainFrame mascot holds a plate with chicken and broccoli next to a clock, showing that fasting works by reducing total calorie intake."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Matched calories, matched results. Studies tie when intake is equal. There is no fat burning switch.",
+    "alt": "The GainFrame mascot balances a scale comparing meal timing, illustrating that equal calorie intake yields equal fat loss regardless of fasting."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. It can cost you protein. Two meals makes 160 grams hard. Muscle pays for what you miss.",
+    "alt": "The GainFrame mascot stands beside a red X next to a single meal, showing that restricted eating windows make meeting full protein goals harder."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Pick it only if it suits you. Some people love two big meals. Adherence beats the protocol.",
+    "alt": "The GainFrame mascot happily sits with a huge feast plate next to a green checkmark, highlighting that adherence to your preferred diet structure matters most."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See the protein target your window has to hit. GainFrame",
+    "alt": "The GainFrame mascot holds a smartphone displaying daily calorie and protein target metrics within the GainFrame app interface."
+   }
+  ]
+ },
+ "is-12-3-30-actually-good": {
+  "summary": "The 12-3-30 workout is simply standard incline treadmill walking, which burns around 300 calories but requires hands-free form to be fully effective. It serves best as a cardio supplement alongside weight lifting three days a week and proper diet control.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is the 12-3-30 workout good?",
+    "alt": "The GainFrame mascot sweats while walking on an inclined treadmill under a title asking if the 12-3-30 workout is good."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. It is just incline walking. The name is the only new part. People have done it for decades.",
+    "alt": "The GainFrame mascot walks comfortably on an inclined treadmill to illustrate that 12-3-30 is just traditional incline walking."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. It burns about 300 calories. Real, but one donut is 300 too. The kitchen still runs the deficit.",
+    "alt": "The GainFrame mascot holds up a chocolate donut to demonstrate that burning 300 calories can easily be wiped out by diet."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Holding the rails kills it. Leaning on the bars cuts the cost. Drop the speed and let go.",
+    "alt": "A side-by-side diagram showing the GainFrame mascot incorrectly leaning on treadmill rails vs correctly walking hands-free to show proper form."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. It is cardio, not a program. It builds nothing on its own. Lift three days and walk the rest.",
+    "alt": "The GainFrame mascot holds a barbell over its head next to a treadmill to emphasize combining strength training with treadmill cardio."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See if the walking is actually consistent. GainFrame Check-In Streak.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app tracking weekly workout consistency and streaks."
+   }
+  ]
+ },
+ "what-takes-longer-fat-or-muscle": {
+  "summary": "Building muscle takes significantly longer than losing fat due to a ten-to-one rate ratio. Muscle requires building new tissue, whereas fat loss utilizes existing stored fuel, making it best to focus on one goal at a time.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What takes longer fat or muscle?",
+    "alt": "The GainFrame mascot holds a dumbbell next to an hourglass, introducing the comparison between muscle gain and fat loss rates."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Muscle is the slow one. A great year is ten pounds of muscle. Ten pounds of fat can go in ten weeks.",
+    "alt": "The GainFrame mascot walks forward confidently, highlighting that building muscle is a much slower process than losing fat."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Fat loss is borrowed energy. You already carry the fuel around muscle has to be built from scratch.",
+    "alt": "The GainFrame mascot stacks building blocks next to a red fuel container to show muscle must be built from scratch."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. The rate gap is ten to one. Half a pound of fat a week is normal. Half a pound of muscle a month is good.",
+    "alt": "The GainFrame mascot stands beside a tall stack of blocks and a small stack, demonstrating the ten-to-one rate difference."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. So do not do both at once. Pick the one your photos need first chasing both usually gives you neither.",
+    "alt": "The GainFrame mascot lifts a dumbbell near opposing direction arrows, advising viewers to focus on one fitness goal at a time."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "GainFrame. See which direction you are actually going.",
+    "alt": "A hand holds a smartphone showing weight trajectory tracking on the GainFrame app."
+   }
+  ]
+ },
+ "is-muscle-confusion-real": {
+  "summary": "Muscle confusion is a myth because muscles only respond to mechanical tension and load, not novelty. Switching workouts too often causes unnecessary soreness and prevents tracking real progress over time. Effective muscle growth relies on progressive overload by consistently increasing weight or repetitions.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is muscle confusion real?",
+    "alt": "The GainFrame mascot stands shrugging with arms open near floating dumbbells, introducing the question of whether muscle confusion is real."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Muscle cannot get confused. It only responds to tension and load it does not know what day it is.",
+    "alt": "The GainFrame mascot flexes a bicep while holding a heavy dumbbell, illustrating that muscles respond only to physical load and tension."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. New moves just make you sore. Unfamiliar exercises always hurt more soreness is not a growth receipt.",
+    "alt": "The GainFrame mascot holds their sore lower back while walking past a leg press machine, showing that soreness from new movements is not proof of muscle growth."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Progressive overload is the engine. More weight or more reps than last time that is the whole mechanism.",
+    "alt": "The GainFrame mascot adds an extra weight plate to a barbell, demonstrating that progressive overload is the primary key to building muscle."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Random means you cannot track it. A new workout weekly has no baseline you cannot beat a number you never wrote.",
+    "alt": "The GainFrame mascot holds a notepad next to a red X mark, highlighting that constantly changing workouts prevents tracking baseline progress."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See if you are really beating last month. GainFrame.",
+    "alt": "A hand holds a smartphone displaying the GainFrame progress tracking app next to the GainFrame mascot and brand name."
+   }
+  ]
+ },
+ "are-protein-bars-junk-food": {
+  "summary": "Protein bars should be evaluated by checking for at least 10 grams of protein per 100 calories to avoid nutrient-poor snacks disguised as health food. Sugar alcohols still contain calories and can cause digestive distress, while whole food meals offer far greater satiety. Use protein bars as convenient backups when stuck rather than relying on them as regular meal replacements.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Are protein bars just candy?",
+    "alt": "The GainFrame mascot holds a protein bar in one hand and a chocolate bar in the other, questioning if protein bars are just candy."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Check protein per 100 calories. Under ten grams and it is a snack. The front of the wrapper is marketing.",
+    "alt": "The GainFrame mascot holds up a protein bar wrapper to emphasize inspecting nutrition facts for at least 10 grams of protein per 100 calories."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Sugar alcohols are still calories. Net carb math hides real energy and your stomach will tell you.",
+    "alt": "The muscular GainFrame mascot holds its stomach in discomfort beside a bitten protein bar, illustrating that sugar alcohols add calories and can upset digestion."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. They do not fill you up. 300 calories of bar versus a real meal only one of them keeps you full.",
+    "alt": "Two GainFrame mascots compare an empty plate to a full plate of chicken and rice, demonstrating that real food provides better satiety than protein bars."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. They are a backup, not a meal. Great in a bag, bad as a habit. Real food first, bar when stuck.",
+    "alt": "The GainFrame mascot packs a protein bar into a duffel bag to show bars should be an emergency backup rather than a daily meal."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See what the snacks do to your score. GainFrame.",
+    "alt": "A hand holds a smartphone showing health and body composition metrics inside the GainFrame app interface."
+   }
+  ]
+ },
+ "can-you-tell-who-is-natty": {
+  "summary": "Online speculation about whether a physique is natural is usually inaccurate because real proof requires blood work. True natural progress develops over years, with a Fat-Free Mass Index (FFMI) near 25 serving as a general natural limit. Individuals should focus on measuring their own personal progress rather than comparing themselves to others.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Can you tell who is natty?",
+    "alt": "The GainFrame mascot stands with arms crossed and question marks floating nearby, posing the question of whether a natural physique can be spotted."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Most people guess wrong. Natty or not is a comment section sport. Nobody in there ran blood work.",
+    "alt": "The GainFrame mascot looks at a smartphone beside a red cross mark, showing that social media opinions about natural status lack real proof like blood work."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. The real tell is the clock. Most natty gains take five plus years. Overnight size is the actual flag.",
+    "alt": "The GainFrame mascot holds an hourglass, illustrating that natural muscular gains take years of dedicated time rather than happening overnight."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. FFMI around 25 is the ceiling. It is a rough guide, not a law. A few outliers go past it clean.",
+    "alt": "A muscular GainFrame mascot stands next to a measurement scale, highlighting that an FFMI around 25 represents the typical upper limit for natural lifters."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Comparing costs you progress. You cannot see their sleep or their decade. You can only beat your own last photo.",
+    "alt": "The GainFrame mascot holds up a framed picture of itself lifting weights, emphasizing that you should only compare your progress against your past self."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See your own FFMI before you guess theirs. 8:01. FFMI. Done. Your ffmi is Excellent. 23.0. Below Avg 0–18. Average 18–20. Above Avg 20–23. Excellent >23. What is FFMI? FFMI measures your lean (fat-free) mass relative to height, giving a more accurate picture of muscularity than BMI alone. Why does FFMI matter? FFMI helps you track muscular development independent of body fat changes. It's particularly useful during body recomposition when your weight may stay the same but your muscle-to-fat ratio is improving. Disclaimer: FFMi relies on body fat estimates which may vary. Use this as a directional indicator rather than a precise measurement. Values above 25 are extremely rare naturally. Source",
+    "alt": "A hand holds a phone showing an FFMI score of 23.0, encouraging lifters to assess their own muscularity metrics."
+   }
+  ]
+ },
+ "is-sugar-really-the-enemy": {
+  "summary": "Sugar alone does not cause weight gain; fat gain is driven by a caloric surplus regardless of the food source. Liquid sugars make overeating easy, but fruit remains beneficial due to its fiber and water content. Restricting treats entirely can trigger binges, so allocating up to ten percent of daily intake for treats supports long-term consistency.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is sugar really the enemy?",
+    "alt": "The GainFrame mascot holds a white sugar cube next to a green check mark and a red cross, introducing the question of whether sugar is truly harmful."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Sugar alone does not make fat. A surplus does, whatever the source. The total is what lands on you.",
+    "alt": "The GainFrame mascot holds a weighing balance with sugar cubes on one side, illustrating that calorie surpluses cause weight gain rather than sugar alone."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. It is just easy to overeat. Liquid sugar goes down with no brakes. That is the real problem.",
+    "alt": "The GainFrame mascot drinks a soda through a straw, depicting how liquid sugar easily leads to excess calorie intake."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Fruit is not the same thing. Fiber and water slow the whole hit. Nobody got fat on apples.",
+    "alt": "The GainFrame mascot holds a red apple with a green check mark in one hand and a chocolate bar in the other, showing that fruit contains fiber and water to aid satiety."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Ten percent is the room you have. Keep treats under a tenth of intake. Banning it is why the binge comes.",
+    "alt": "The GainFrame mascot holds a small slice of cake with a green check mark, demonstrating that keeping treats under ten percent of total intake prevents bingeing."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. See if the treats actually cost you. GainFrame. Throwback. 1 month ago. Then Mar 31, 26. Now Apr 25, 26. Weight +10 lbs gained. GF score +16 improvement. Preview & share.",
+    "alt": "A hand holds a smartphone displaying fitness progress in the GainFrame app, showing how to track body composition while incorporating treats."
+   }
+  ]
+ },
+ "guess-what-changed": {
+  "summary": "Scale weight can be misleading during body recomposition because muscle gain and fat loss often balance out on the scale. Taking progress photos with consistent lighting, distance, and posing converts visual snapshots into reliable tracking data. Comparing baseline photos directly against recent photos reveals body composition progress that scale weight fails to show.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Can you spot what changed?",
+    "alt": "The GainFrame mascot is shown in two versions side-by-side—one with higher body fat and one muscular—asking viewers to identify how body composition changes."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Pick a side before you swipe. Left or right — which one made progress. The scale gave them the same number.",
+    "alt": "The GainFrame mascot presents two contrasting body shapes that weigh the same, emphasizing that scale numbers do not tell the whole story."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Right — but the scale tied. Fat fell while muscle rose. Body weight canceled the change.",
+    "alt": "The GainFrame mascot stands with a scale holding a weight sphere on one side and a dumbbell on the other, showing how gaining muscle while losing fat keeps total weight constant."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Your eyes need a control. Same light, same distance, same pose. Consistency turns photos into data.",
+    "alt": "The GainFrame mascot sets up a smartphone on a tripod over tape markers on the floor to show how consistent photography setup creates reliable progress tracking."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "Put the first photo beside the latest. GainFrame. Compare. Smart filters. Side by side. Slider. Deep dive analysis. See what changed and what to focus on next. Home. Compare. Insights.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app showing a side-by-side physique photo comparison to track fitness changes over time."
+   }
+  ]
+ },
+ "gym-bro-camera-roll": {
+  "summary": "This comic humorously breaks down the typical contents of a gym-goer's camera roll, including unlabeled selfies, blurry lifting videos, and unused meal prep screenshots. It concludes by highlighting how finding your original day-one photo puts all your hard work and progress into perspective.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "A gym bro's camera roll",
+    "alt": "The GainFrame mascot sits among a pile of photo prints while looking at a smartphone, introducing a comic about a gym bro's camera roll."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Forty seven mirror selfies. Same pose, different lighting, none are labeled.",
+    "alt": "The GainFrame mascot takes a mirror selfie with a smartphone, illustrating taking dozens of unlabeled mirror selfies in varying light."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. One blurry PR video. The plate count is somewhere in there, so is half a thumb.",
+    "alt": "The GainFrame mascot flexes next to a heavy barbell while a phone camera blocked by a thumb captures a blurry PR attempt."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. A meal prep screenshot. Saved once, never cooked, chicken and rice live in theory.",
+    "alt": "The GainFrame mascot holds a cooking pot and smartphone while looking at floating chicken and rice, representing unused meal prep screenshots."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. The photo from day one. Buried between memes and parking spots, suddenly the whole year makes sense.",
+    "alt": "The GainFrame mascot kneels to inspect a day-one progress photo found in a pile of pictures, reflecting on a year of fitness effort."
+   }
+  ]
+ },
+ "what-builds-side-delts": {
+  "summary": "To effectively build side delts, replace overhead presses, front raises, and shrugs with direct isolation exercises. Cable laterals, machine laterals, and taking sets close to failure provide the necessary stimulus for side deltoid growth.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What people think builds side delts. Overhead press. Front raises. Heavy shrugs. What actually builds side delts. Cable laterals. Machine laterals. Near-failure sets.",
+    "alt": "The GainFrame mascot demonstrates that cable laterals, machine laterals, and near-failure sets build side delts better than compound presses or shrugs."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "Track shoulder balance across check-ins. GainFrame.",
+    "alt": "The GainFrame mascot holds a smartphone showing muscle tracking features in the GainFrame app."
+   }
+  ]
+ },
+ "what-builds-rear-delts": {
+  "summary": "Building rear deltoids effectively requires direct isolation exercises such as the reverse pec deck, cable rear fly, and elbows-out row rather than relying solely on general back rows or shrugs. Tracking physical changes over time helps assess rear shoulder development from angles standard mirrors miss.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What people think builds rear delts\n\nRows alone\nFace pulls only\nHeavy shrugs\n\nWhat actually builds rear delts\n\nReverse pec deck\nCable rear fly\nElbows-out row",
+    "alt": "A comparison showing that targeting rear delts effectively requires exercises like the reverse pec deck, cable rear fly, and elbows-out row rather than just general rows or shrugs."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "Compare the angles mirrors never show\n\nGainFrame",
+    "alt": "The GainFrame mascot holds a smartphone demonstrating the GainFrame app's side-by-side progress comparison feature."
+   }
+  ]
+ },
+ "what-builds-upper-chest": {
+  "summary": "Building the upper chest effectively requires targeted movements such as a slight 15–30° incline dumbbell press, low-to-high cable flies, and progressive overload. Traditional approaches like a steep 45° incline bench, flat bench pressing, and standard push-ups are far less effective for upper chest isolation.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What people think builds upper chest\n45° incline\nFlat bench PRs\nMore push-ups\nWhat actually builds upper chest\n15–30° incline\nLow-to-high fly\nProgressive load",
+    "alt": "The GainFrame mascot presses dumbbells on a slight incline bench, highlighting effective upper chest exercises like a 15–30° incline, low-to-high cable flies, and progressive loading instead of steep 45° inclines or flat benches."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "Measure upper-chest change over time\nGainFrame",
+    "alt": "The GainFrame mascot holds a smartphone displaying a muscle-tracking app with radar charts and front body visualizers comparing upper chest progress before and after training."
+   }
+  ]
+ },
+ "what-builds-arm-thickness": {
+  "summary": "Building arm thickness requires focusing on targeted exercises such as hammer curls and reverse curls alongside progressive overload. Popular approaches like chasing a bicep peak or curling daily are less effective for developing overall arm width.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What people think builds arm thickness. Barbell curls. Chasing the peak. Curling daily. What actually builds arm thickness. Hammer curls. Reverse curls. Progressive load.",
+    "alt": "An infographic featuring the GainFrame mascot comparing common arm training misconceptions with effective methods like hammer curls, reverse curls, and progressive overload for arm thickness."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "Turn arm growth into a visible trend. GainFrame.",
+    "alt": "A hand holds a smartphone illustrating body map muscle progress charts within the GainFrame app beside the GainFrame logo."
+   }
+  ]
+ },
+ "what-builds-lat-width": {
+  "summary": "Building lat width requires targeted vertical pulling movements rather than general back exercises. Exercises like neutral pulldowns, single-arm pulldowns, and cable pullovers effectively target the lats compared to deadlifts, shrugs, or standard rows.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What people think builds lat width. Deadlifts. Heavy shrugs. Any row. What actually builds lat width. Neutral pulldown. One-arm pulldown. Cable pullover.",
+    "alt": "An infographic featuring the GainFrame mascot comparing ineffective lat exercises like deadlifts and shrugs with effective options like neutral pulldowns and cable pullovers."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "Track your V-taper from every angle. GainFrame",
+    "alt": "A hand holding a smartphone displaying the GainFrame app interface for tracking physique and V-taper progress."
+   }
+  ]
+ },
+ "what-builds-calves": {
+  "summary": "Building calf muscle requires proper execution rather than common gimmicks. Growth is driven by performing exercises with a deep stretch, straight-knee raises, and bent-knee raises rather than relying on bouncy reps or toe angles.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What people think builds calves. Bouncy reps. Toe angles. One set weekly. What actually builds calves. Deep stretch. Straight-knee raises. Bent-knee raises.",
+    "alt": "Infographic contrasting ineffective calf exercise myths with effective methods like deep stretches, straight-knee raises, and bent-knee raises."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "Track the muscles most people forget. GainFrame.",
+    "alt": "A hand holds a smartphone displaying muscle tracking on the GainFrame app alongside the GainFrame logo."
+   }
+  ]
+ },
+ "what-builds-hamstrings": {
+  "summary": "Many common leg exercises like squats and leg presses do not effectively target the hamstrings. Instead, movements like Romanian deadlifts, seated leg curls, and Nordic curls are necessary for hamstring growth. Comprehensive tracking helps monitor progress across all muscle groups.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What people think builds hamstrings. Squats. Leg press. Leg extensions. What actually builds hamstrings. Romanian deadlift. Seated leg curl. Nordic curl.",
+    "alt": "An infographic featuring the GainFrame mascot illustrates that Romanian deadlifts, seated leg curls, and Nordic curls build hamstrings, unlike squats or leg presses."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "Your progress is more than front shots. GainFrame. Overview. Muscles. Plan. Front. Back. Before. After. Needs work. Developing. Solid. Strong. Elite. Muscle comparison. Front delts. Side/rear delts. Upper chest. Mid/lower chest. Biceps. Abs. Obliques. Before. After.",
+    "alt": "The GainFrame mascot holds a phone displaying the app's muscle tracking interface to highlight that fitness progress extends beyond basic front photos."
+   }
+  ]
+ },
+ "what-builds-serratus": {
+  "summary": "Standard exercises like bench presses, crunches, and lateral raises do not directly target the serratus anterior. To effectively build the serratus, focus on scapular protraction exercises such as push-up plus, cable punches, and wall slides.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What people think builds the serratus. More bench. Crunches. Lateral raises. What actually builds the serratus. Push-up plus. Cable punch. Wall slide.",
+    "alt": "The GainFrame mascot illustrates ineffective exercises like bench pressing alongside effective serratus movements like push-up plus, cable punches, and wall slides."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "Catch small changes before the scale does. GainFrame. Compare. Front. Smart filters. 10 new filters available. Side by side. Slider. Aug 12, 22. Jul 29, 25. BF ~15%. 2yr 11mo 17d. Adjust. Swap. Auto. Blur. Background. Deep dive analysis. See what changed and what to focus on next. Home. Compare. Insights.",
+    "alt": "The GainFrame mascot holds a smartphone demonstrating the app's photo comparison feature for tracking body composition changes over time."
+   }
+  ]
+ },
+ "what-builds-long-head-triceps": {
+  "summary": "Building the long head of the triceps requires exercises that place the muscle under a full stretch. Movements such as overhead cable extensions, incline skull crushers, and full-stretch reps are more effective for targeting the long head than traditional pushdowns, dips, or close-grip bench presses.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What people think builds long-head triceps. Pushdowns only. Dips only. Close-grip bench. What actually builds long-head triceps. Overhead cable. Incline skull crusher. Full-stretch reps.",
+    "alt": "An infographic featuring the GainFrame mascot showing overhead cable extensions, incline skull crushers, and full-stretch reps build the long head of the triceps better than pushdowns, dips, or close-grip bench presses."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "See arm development check-in by check-in. GainFrame. 10:22. Overview. Muscles. Plan. Front. Back. Before. After. Needs work. Developing. Solid. Strong. Elite. Muscle comparison. Front delts. Side/rear delts. Upper chest. Mid/lower chest. Biceps. Abs. Obliques.",
+    "alt": "A hand holds a smartphone displaying muscle growth tracking features inside the GainFrame application."
+   }
+  ]
+ },
+ "what-builds-forearms": {
+  "summary": "Building forearms requires direct training like wrist flexion, reverse curls, and loaded carries rather than relying solely on grippers or avoiding straps. Tracking muscle development with progress photos helps confirm physical changes over time.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What people think builds forearms. Grippers only. No straps ever. Heavy curls. What actually builds forearms. Wrist flexion. Reverse curls. Loaded carries.",
+    "alt": "An illustration contrasting ineffective forearm training myths with effective exercises like wrist flexion, reverse curls, and loaded carries."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "Progress photos prove the details. GainFrame. Compare. Smart filters. Side by side. Slider. Deep dive analysis. See what changed and what to focus on next. Home. Compare. Insights.",
+    "alt": "The GainFrame mascot holds a smartphone displaying a side-by-side body comparison in the GainFrame app."
+   }
+  ]
  }
 }
