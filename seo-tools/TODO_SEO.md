@@ -62,7 +62,12 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 - [x] **Body Visualizer tool** — shipped 2026-08-06 as `/tools/body-visualizer/` — targets `body visualizer` (40,500 volume, +22%, KD 4–8) and the ~86K height/weight/BMI visualizer family while preserving `/tools/body-fat-visualizer/` for its proven body-fat intent. Interactive adult BMI result, male/female standardized reference sets, explicit non-predictive limitations, FAQ/WebApplication schema, tool-directory and calculator cross-links, sitemap entry, and App Store CTA. — source: `seo-tools/content-audits/2026-08-06.md`
 - [x] **F1: interactive waist-to-height-ratio calculator** — shipped 2026-08-06 on `/blog/waist-to-height-ratio/`; keeps title/metadata, adds height + waist unit conversion, exact result bands, validation, and accessible live results. Baseline: position 13.2 / 2,542 impressions on a 12,100-volume +49% keyword. — source: same audit
 - [x] **F3: topical-map backfill** — completed 2026-08-06; exhaustive reconciliation classified all 82 omitted Jul 9–23 parallel-session posts and corrected stale gaps that pointed at already-live pages. — source: same audit
-- [ ] **HOLD: menopause body-composition visual/PAA expansion** — reassess only after `/blog/menopause-body-composition/` clears the 30-impression reliability threshold; current exhaustive report is 14 impressions at position 9.0. — added 2026-08-06
+- [ ] **HOLD: menopause body-composition visual/PAA expansion** — reassess only after `/blog/menopause-body-composition/` clears the 30-impression reliability threshold; current exhaustive report is 15 impressions (2026-08-07). — added 2026-08-06
+
+### Aug 7 cycle — chart revert + WHR calculator (seo-content-cycle run)
+
+- [x] **F1: revert Jul 18 chart CTR title test** — shipped 2026-08-07 on `/blog/body-fat-percentage-chart/`; test failed (0.52% CTR post-change vs ~0.7–1.0% before at unchanged position ~11); restored control title "Body Fat Percentage Chart with Photos: Visual Guide for Men & Women" + matching descriptions. New 7–10d window to ~Aug 17. — source: `seo-tools/content-audits/2026-08-07.md`
+- [x] **F2: interactive waist-to-hip-ratio calculator** — shipped 2026-08-07 on `/blog/waist-to-hip-ratio/`; waist+hip inputs, in/cm conversion, men's/women's cutoff toggle, bands matching the post's chart. Baseline: pos 14.7 / 871 imp on 18,100-vol flat head term. Directional read ~Aug 17, full ~Sep 4. — source: same audit
 
 ### Carry-forward (still genuine, re-added from reset — not yet done)
 

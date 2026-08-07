@@ -1,7 +1,7 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-07** (review; proposed chart-title revert F1 + held WHR calculator F2; zero posts) · Data through 2026-08-05
+> Last run: **2026-08-07** (review → execution; owner approved `all`: F1 chart-title revert + F2 WHR calculator both shipped; zero posts) · Data through 2026-08-05
 > Prior run: 2026-08-06 (review → execution; body-visualizer tool + WHtR calculator + topical-map backfill shipped after owner approved `all`)
 
 ## New findings (2026-08-07)
@@ -14,9 +14,10 @@
   workout/nutrition intent (killed wholesale); Spren = local DEXA navigational + gynoid/android
   fat (1,000 / 720 vol, definitional zero-click — killed under the stats freeze). Do not re-run
   these three intersections without a reason; the lane is clean.
-- **WHR opportunity, gated**: `waist-to-hip-ratio` page is pos 14.7 / 871 imp, long-tail only, on
-  an 18,100-vol flat KD-29 head term. Same pre-fix shape as WHtR. Calculator fix (F2) proposed
-  but **held until the WHtR F1 read on Aug 16** validates the play.
+- **WHR opportunity**: `waist-to-hip-ratio` page was pos 14.7 / 871 imp, long-tail only, on an
+  18,100-vol flat KD-29 head term. Same pre-fix shape as WHtR. Calculator (F2) was proposed with
+  a hold-until-Aug-16 recommendation; **owner approved `all` and it shipped 2026-08-07** —
+  directional read ~Aug 17, full read ~Sep 4, against the 14.7 / 871-imp baseline.
 - `/tools/body-visualizer/` indexed within ~1 day of ship (crawled 2026-08-07).
 - Tooling: the `gsc` MCP server can be absent from a session; the skill now records the direct
   Search Console API fallback via the service account.
@@ -172,7 +173,8 @@ That page is worth defending and deepening.
 | `do-i-look-fat`, `body-composition-pictures` | New post, 28d | 2026-08-30 |
 | `am-i-skinny-fat-quiz` (renders + fold-in), `ideal-body-measurements-women` (retitle) | Content/metadata | ~2026-08-12 |
 | `menopause-body-composition` (pre-existing) | New post, 28d | 15 impressions at position ~8.6; still below the ≥30 reliability threshold |
-| ~~`body-fat-percentage-chart` Jul 18 CTR test~~ | Metadata | **Closed 2026-08-07: test failed** (0.52% vs ~0.7–1.0%); revert proposed. If reverted, new 7–10d window from revert date |
+| ~~`body-fat-percentage-chart` Jul 18 CTR test~~ | Metadata | **Closed 2026-08-07: test failed** (0.52% vs ~0.7–1.0%); reverted to control same day — new 7–10d window to ~2026-08-17 |
+| `waist-to-hip-ratio` WHR calculator (F2) | Content | Directional ~2026-08-17; full ~2026-09-04 (baseline pos 14.7 / 871 imp) |
 
 No existing-page metadata was edited. The new body visualizer's 28-day window opens 2026-09-03;
 the WHtR calculator's earliest directional read is 2026-08-16, with a full read on 2026-09-03.
