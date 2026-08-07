@@ -144,6 +144,20 @@ export function whtrBand(ratio: number): WhtrBand {
   return "high";
 }
 
+export type WhrBand = "favorable" | "moderate" | "elevated";
+
+/**
+ * WHO-style waist-to-hip screening bands, matching the chart published in
+ * /blog/waist-to-hip-ratio/: men <0.90 / 0.90–0.99 / 1.0+, women <0.80 /
+ * 0.80–<0.85 / 0.85+.
+ */
+export function whrBand(ratio: number, sex: Sex): WhrBand {
+  const [moderateAt, elevatedAt] = sex === "male" ? [0.9, 1.0] : [0.8, 0.85];
+  if (ratio < moderateAt) return "favorable";
+  if (ratio < elevatedAt) return "moderate";
+  return "elevated";
+}
+
 export const WHTR_COPY: Record<WhtrBand, string> = {
   low: "Below the usual healthy range — worth a sanity check on how you measured.",
   healthy: "Inside the commonly used healthy range (under 0.5).",

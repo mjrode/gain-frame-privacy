@@ -15,6 +15,7 @@ import PostTable from "@/components/PostTable";
 import BlogArticleCta from "@/components/BlogArticleCta";
 import WaistPercentile from "@/components/WaistPercentile";
 import WaistToHeightRatioCalculator from "@/components/WaistToHeightRatioCalculator";
+import WaistToHipRatioCalculator from "@/components/WaistToHipRatioCalculator";
 import { getBlogCtaIntent } from "@/lib/blog-cta";
 
 // Markdown pipe tables (GFM) get the same styling as hand-written
@@ -28,6 +29,7 @@ const mdxComponents = {
   PostTable,
   WaistPercentile,
   WaistToHeightRatioCalculator,
+  WaistToHipRatioCalculator,
   table: (props: React.ComponentPropsWithoutRef<"table">) => (
     <div className="post-table-wrapper">
       <table className="post-table" {...props} />
