@@ -1,0 +1,188 @@
+---
+title: "My SEO Is a Weekly Audit Loop Now. Organic Clicks Tripled in a Month."
+description: "My iOS app went from 2,153 to 7,205 organic clicks a month. The weekly SEO audit loop behind it: real Search Console data, real keyword volume, and the mistakes it caught."
+slug: seo-weekly-audit-loop
+canonical: "https://gainframe.app/blog/seo-weekly-audit-loop/"
+ogTitle: "My SEO Is a Weekly Audit Loop Now. Organic Clicks Tripled in a Month."
+ogDescription: "From 2,153 to 7,205 organic clicks a month. The measure-validate-propose-approve loop my iOS app's SEO runs on, with real Search Console and DataForSEO numbers."
+ogImage: "https://gainframe.app/blog/seo-weekly-audit-loop/assets/daily-clicks.webp"
+ogType: article
+twitterTitle: "My SEO Is a Weekly Audit Loop Now. Organic Clicks Tripled in a Month."
+twitterDescription: "From 2,153 to 7,205 organic clicks a month. The measure-validate-propose-approve loop my iOS app's SEO runs on, with real numbers."
+twitterImage: "https://gainframe.app/blog/seo-weekly-audit-loop/assets/daily-clicks.webp"
+breadcrumbCategory: Founder Story
+displayCategory: Founder Story
+displayDate: Aug 8, 2026
+readTime: 10 min read
+subtitle: "Real Search Console and DataForSEO numbers on the measure, propose, approve, ship loop that took my iOS app from 2,153 to 7,205 organic clicks a month."
+schemas:
+  - {"@context":"https://schema.org","@type":"BlogPosting","headline":"My SEO Is a Weekly Audit Loop Now. Organic Clicks Tripled in a Month.","description":"My iOS app went from 2,153 to 7,205 organic clicks a month. The weekly SEO audit loop behind it: real Search Console data, real keyword volume, and the mistakes it caught.","image":"https://gainframe.app/blog/seo-weekly-audit-loop/assets/daily-clicks.webp","datePublished":"2026-08-08","dateModified":"2026-08-08","author":{"@type":"Person","name":"Michael Rode","url":"https://gainframe.app/about"},"publisher":{"@type":"Organization","name":"GainFrame","url":"https://gainframe.app","logo":{"@type":"ImageObject","url":"https://gainframe.app/assets/favicons/favicon.webp"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gainframe.app/blog/seo-weekly-audit-loop/"},"articleSection":"Founder Story","keywords":"app SEO, SEO audit process, indie app marketing, search console, DataForSEO, keyword research, SEO case study, build in public, content strategy, AI agents"}
+  - {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gainframe.app/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://gainframe.app/blog/"},{"@type":"ListItem","position":3,"name":"My SEO Is a Weekly Audit Loop Now","item":"https://gainframe.app/blog/seo-weekly-audit-loop/"}]}
+---
+<div className="post-hero-image scroll-reveal" style={{marginBottom: '3rem'}}>
+  <img src="assets/cover.webp" alt="Line-art illustration of a circular feedback loop connecting a magnifying glass over a rising chart, a checklist, and a published document" loading="lazy" style={{borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.3)'}} />
+</div>
+
+A month ago I [wrote about growing my app's organic traffic 15x in 90 days](/blog/organic-traffic-15x-90-days/). That post ended at about 100 organic clicks a day, and the honest summary of my process back then was "write comparison posts, watch Search Console, repeat."
+
+Since then the traffic tripled again — **2,153 clicks in the prior 28 days, 7,205 in the last 28** — and the process turned into something I can actually describe: a written audit loop that runs before anything gets published. This post is a breakdown of that loop, the numbers it produced, and the four times it caught me about to do something dumb.
+
+Everything below is from Google Search Console and DataForSEO, stamped with dates. GSC data lags about two days, so "now" means through August 6.
+
+<hr className="post-divider" />
+
+## The Traffic First
+
+<figure className="post-figure" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/daily-clicks.webp" alt="Line chart of daily organic clicks from Google Search Console, March 1 to August 6, 2026. Clicks hover under 25 a day through May, pass 97 the day the 15x post published on July 3, then climb steeply after the July publishing push to a record 400 on August 4." loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>The day the 15x post went out was a 97-click day. A month later the record is 400.</figcaption></figure>
+
+The last 28 days (July 10 – August 6) against the prior 28:
+
+<div className="post-table-wrapper scroll-reveal">
+    <table className="post-table no-highlight">
+        <thead>
+            <tr><th></th><th>Prior 28 days</th><th>Last 28 days</th><th>Change</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Clicks</td><td>2,153</td><td><strong>7,205</strong></td><td>+235%</td></tr>
+            <tr><td>Impressions</td><td>86,078</td><td><strong>381,564</strong></td><td>+343%</td></tr>
+            <tr><td>Avg position</td><td>9.7</td><td><strong>8.4</strong></td><td>improved</td></tr>
+        </tbody>
+    </table>
+</div>
+
+Two hedges before anyone gets excited on my behalf. Branded searches ("gainframe" and friends) are about 9.6% of those clicks — people finding me from TikTok and Reddit and typing the name into Google. I pull those out before judging the SEO, because counting them would flatter the numbers. And sitewide CTR is falling as impressions scale (2.5% down to 1.9%), which is the expected math of ranking for more queries you're not top-3 for yet. I watch it anyway.
+
+The other honest driver: I published a lot. Git says about 130 new posts went live in July. AI agents draft them from a written spec, I review, edit, and kill the ones that miss. Volume alone doesn't explain the growth though — I published plenty in April too, and you can see on the chart what that earned. The difference is what the loop told me to write, which is the rest of this post.
+
+<hr className="post-divider" />
+
+## The Loop Itself
+
+The whole system is a written procedure that a coding agent (Claude Code) executes end to end. I wrote down every step, every data source, and every mistake it's ever made, and the agent runs the file. A run takes it about 20 minutes; reading its proposal takes me five.
+
+Each run does six things, in order:
+
+<div className="post-steps">
+
+1.  **Pull Search Console.** What earned clicks, what's sitting at positions 5–20 with impressions (the "striking distance" list), what Google crawled and declined to index. Queries and pages, this 28 days against the last.
+
+2.  **Score every candidate keyword against real market data.** [DataForSEO](https://dataforseo.com/) returns actual search volume, keyword difficulty, search intent, and the 12-month volume trend. This is the step that stopped me from guessing.
+
+3.  **Audit the site itself.** A local script walks all 232 posts and reports orphan pages with no internal links, near-duplicate titles, stale posts, and broken links. No network calls, just the repo.
+
+4.  **Propose.** Numbered posts and numbered fixes, each with the evidence attached — the query, its impressions, its position, its volume, its trend. A proposal without evidence doesn't make the table.
+
+5.  **Wait for me.** I reply with something like "posts 1,3, fixes all." Approval is scoped: approving five posts is approving five posts.
+
+6.  **Ship and record.** Write, build, deploy, ping the index APIs, then write an audit file for the run and update a rolling strategy doc. The next run reads that doc first so it doesn't re-derive last week's conclusions.
+
+</div>
+
+The record-keeping sounds like bureaucracy until you skip it. Early on, every session would rediscover the same insights and re-propose the same posts, because nothing remembered what had been tried. The strategy doc is the memory: which clusters are bets, which are frozen, what's inside a measurement window and until when.
+
+The measurement windows are the part I'd defend hardest. A title change gets 7–10 days before anyone is allowed to judge it or touch that page again. A new post gets 28 days before its position means anything. Before those rules existed I was re-editing metadata every few days and had no idea which change did what.
+
+<hr className="post-divider" />
+
+## Clicks and Impressions Come From Different Pages
+
+The single most useful thing the loop surfaced: my traffic is two completely different populations, and they barely overlap.
+
+<figure className="post-figure" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/two-kinds-of-page.webp" alt="Horizontal bar chart of click-through rate by page from Search Console, July 10 to August 6, 2026. The Physique Rater tool converts at 25.9 percent, the homepage at 16.8, the body fat from photo tool at 10.7, and the best AI body fat apps roundup at 5.9. Three stats pages sit at 0.63, 0.49, and 0.41 percent despite tens of thousands of impressions." loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>Tools and roundups get clicked. Stats pages pile up impressions and send almost nobody.</figcaption></figure>
+
+The [free body-fat-from-photo tool](/tools/body-fat-from-photo/), the homepage, and the [AI body fat apps roundup](/blog/best-ai-body-fat-apps/) produce most of the real traffic. Meanwhile [my "average chest size" post](/blog/average-chest-size/) sits at **position 6.7** — front page, above the fold — and converts **0.49%** of 12,174 impressions into clicks. A page at position 6 or 7 normally earns several percent.
+
+The gap is the SERP answering the question in place. "Average chest size" is a number. Google shows the number, or an AI Overview reads it out, and the click never happens. I wrote about this pattern in the 15x post; what's new is that the loop proved it's structural rather than fixable. Which brings me to the chart that changed my roadmap.
+
+<hr className="post-divider" />
+
+## The Market Was Leaving Some of My Keywords
+
+GSC tells you what happened on your site. It cannot tell you that the keyword itself is dying. DataForSEO's 12-month trend data can, and when the loop scored my whole keyword list, the picture was uncomfortable:
+
+<figure className="post-figure" style={{margin: 'var(--sp-lg) 0'}}><img src="assets/keyword-market-trend.webp" alt="Diverging bar chart of 12-month search volume trends from DataForSEO. Rising: bmi visualizer +124%, rate my physique +108%, physique rater +85%, dexa scan alternatives +80%, body visualizer +22%. Declining: how to get a smaller waist −33%, body fat percentage chart −45%, ai personal trainer −63%, average bicep size −66%." loading="lazy" style={{width: '100%', borderRadius: '12px', border: '1px solid var(--color-border)'}} /><figcaption style={{textAlign: 'center', fontSize: '0.85rem', color: 'var(--color-text-secondary)', marginTop: '8px'}}>Search demand by keyword, year over year. I had eleven posts built on the orange side.</figcaption></figure>
+
+"Body fat percentage chart" still gets 14,800 searches a month, and it's shedding 45% of them a year. "Average bicep size" is down 66%. I had built an eleven-post cluster on measurement-stats keywords that were declining 33–66% a year while also being zero-click. The posts weren't broken. The market was leaving.
+
+So the loop's standing plan now has stances per cluster: that one is frozen. No new stats pages, no CTR rescue attempts on a shrinking asset. The physique-rating lane got the opposite call — "rate my physique" is up 108% year over year at keyword difficulty 8, and my [free Physique Rater tool](/tools/physique-rater/) was already ranking. We pressed it, and that page now sits at **position 4.1 with a 25.9% CTR**, the best-converting page on the site.
+
+The same scoring pass kills ideas before they cost a week. "Best cutting apps" looked adjacent and reasonable; the SERP is nutrition trackers, which is the wrong shopper for a photo-analysis app. Intent mismatch, dead on arrival, zero words written. My competitor-gap scans mostly return the same verdict — one competitor's entire keyword list turned out to be workout content I'd never convert from.
+
+And occasionally the market data finds something genuinely open. "Body visualizer" gets 40,500 searches a month, rising 22% a year, at keyword difficulty 4–8 — and the SERP was a university research demo plus a few thin single-purpose sites. The whole family of related terms is roughly 86K searches a month. I shipped a [free body visualizer tool](/tools/body-visualizer/) on August 6; Google had it indexed in under a day. Too early to know if it ranks. The 28-day verdict lands September 3, and per the loop's own rules I don't get to call it before then.
+
+<hr className="post-divider" />
+
+## Four Times the Loop Caught Me
+
+The proposals are nice. The saves are why I trust it.
+
+**It almost merged two healthy pages, then checked.** The duplicate detector flagged my "average bicep size" and "average chest size" posts as 74% similar — same template, near-identical titles. The obvious fix is merging them. Before any merge, the procedure requires pulling the actual queries each page ranks for, and the two pages shared **zero queries**. One serves "14.5 inch biceps," the other "40 inch chest." Merging on the similarity score would have deleted a page currently pulling 24,673 impressions a month.
+
+**It caught me approving a duplicate.** On August 2 a run proposed a menopause body-composition post, backed by a gap in my topic map. I approved it. The pre-write existence check found the post already live — published July 9 by a parallel work session, while the topic map went stale. The rule now is a mechanical filename-and-content grep for every candidate before it enters a proposal, because my memory of what I've published stopped being reliable somewhere around post 150.
+
+**It found an indexing pipeline that had been silently failing for three months.** My IndexNow submissions — the ping that tells Bing, Yandex, and friends about new URLs — had been rejected with a 403 since at least April 30. The authentication key file was sitting in a legacy folder that stopped being deployed, so the URL returned a 404 and every submission bounced. Nothing ever errored loudly; the script logged the failure to a CSV nobody read and exited clean. The loop's rule now checks that the key URL returns 200 before submitting anything.
+
+**It ended a test I would have kept running.** On July 18 I tested a curiosity-style title on the body-fat chart page ("What 10–40% Actually Looks Like"). Ten days of data later: **0.52% CTR against roughly 0.7–1.0% before**, position unchanged. The test lost, plainly. Reverted August 7. Without a defined window and a written baseline I'd have squinted at the graph for another month and convinced myself it was working.
+
+Every one of those became a written rule in the procedure the same day it happened. The file has 13 of these corrections encoded now. That's the actual moat of the system, I think — the loop gets harder to fool every time it embarrasses itself, and it never needs to be taught twice. Same idea as [reading your data before building features](/blog/stop-building-features-start-reading-data/), just pointed at marketing.
+
+<hr className="post-divider" />
+
+## Cleanup That Compounds Quietly
+
+Less dramatic, still real: the first audit found **46 posts with zero internal links pointing at them** — orphans that get no link equity and are harder for crawlers to find. The loop generated the pairings mechanically (which established post should link to which orphan, scored by title overlap) and the fixes took internal links from 929 to 1,279 in one pass. Orphans are down to 8, and those are founder posts like this one, which get judged on social traffic anyway.
+
+The AEO side gets measured now too. GainFrame is cited inside Google AI Overviews for **30+ keywords**, at rank 1 for a few of them ("progress photos app," "body composition app"). Those citations come from the same short direct-answer blocks and honest comparison posts [I described in the GEO write-up](/blog/generative-engine-optimization-case-study/) — the loop just tracks which pages hold the citations so I don't accidentally rewrite one.
+
+<hr className="post-divider" />
+
+## What It Did to the Business
+
+Traffic is an input. As of August 7, [GainFrame](https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082) is at **$1,591 MRR** — an all-time high — with **302 active subscriptions**. That's up from $845 MRR when the 15x post went out five weeks ago. Live numbers are on [RevenueCat's verified page](https://verified.revenuecat.com/gainframe) if you want to check my math, and the fuller revenue story is in [the $1,500 MRR post](/blog/1500-mrr-better-problems/).
+
+I can't cleanly attribute the MRR to SEO. TikTok is still running, Reddit posts spike downloads, and a click on a blog post is several steps removed from a subscription. What I can say is that organic search is now the biggest single source of new people finding the site, it costs me API fees and review time, and it doesn't stop when I stop — the opposite of [the $5,674 I burned on ads](/blog/spent-5k-on-app-ads/).
+
+The loop itself is nearly free to run. The expensive-sounding part, DataForSEO, is metered per call — the August 7 run made four calls. The discipline is the cost: reading the proposal, approving less than it proposes, and not touching pages inside their windows.
+
+<hr className="post-divider" />
+
+## What I'd Copy If I Were Starting Today
+
+<div className="post-steps">
+
+1.  **Pull Search Console before writing anything.** Your next post is usually already visible in the data — a query at position 8 with impressions beats a fresh idea with none.
+
+2.  **Check the 12-month volume trend before targeting a keyword.** A keyword can decay 45% a year underneath a well-ranked page, and no amount of on-page work brings back demand that left the market.
+
+3.  **Judge pages on clicks, and check the SERP for why clicks are missing.** Position 6 with 0.5% CTR usually means the SERP answers the question in place. Write for shoppers and comparisons instead; that's where clicks still exist.
+
+4.  **One change per page per measurement window.** Titles get 7–10 days, new posts get 28. Overlapping changes make every result unreadable.
+
+5.  **Write each run down, including the failures.** The audit file that says "this test lost" is worth more than the one that says "shipped 5 posts." It's the only thing standing between you and re-running the same failed experiment in October.
+
+6.  **Turn every mistake into a written rule.** A checklist that grows one line per screwup outperforms judgment that has to remember. This works whether a human or an agent executes the checklist.
+
+</div>
+
+The traffic tripled in a month and my main job in that was reading six proposals and saying no to most of them. The posts did the ranking. The loop decided which posts deserved to exist. I mostly stayed out of the way.
+
+> If you're running SEO for your own app and want to compare notes on any of this — the audit loop, the data sources, what I'd skip — I'm happy to go deeper. And if you lift, the app that funds these experiments is below.
+
+<div className="blog-post-cta scroll-reveal">
+  <h3>Track your progress with GainFrame</h3>
+  <p>Take or import a gym photo and get an AI body fat estimate, physique score, FFMI, and per-muscle breakdown, plus a Coach that explains what changed using your photos, weight, and workouts. Free to start, no account required.</p>
+  <a href="https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082" className="cta-button" target="_blank" rel="noopener">Download GainFrame Free</a>
+</div>
+
+<hr className="post-divider" />
+
+<div className="post-related scroll-reveal">
+  <h3>Related Articles</h3>
+  <ul>
+    <li><a href="/blog/organic-traffic-15x-90-days/">How I Grew My App's Organic Traffic 15x in 90 Days</a></li>
+    <li><a href="/blog/spent-5k-on-app-ads/">I Spent $5,674 on App Ads. Here's Why I Stopped.</a></li>
+    <li><a href="/blog/1500-mrr-better-problems/">I Thought $1,500 MRR Meant I'd Figured It Out. It Just Gave Me Better Problems.</a></li>
+    <li><a href="/blog/generative-engine-optimization-case-study/">How GainFrame Gets Recommended by ChatGPT and Claude</a></li>
+    <li><a href="/blog/stop-building-features-start-reading-data/">Stop Building Features. Start Reading Your Data.</a></li>
+  </ul>
+</div>
