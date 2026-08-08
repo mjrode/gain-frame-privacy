@@ -1,8 +1,23 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-07** (review → execution; owner approved `all`: F1 chart-title revert + F2 WHR calculator both shipped; zero posts) · Data through 2026-08-05
-> Prior run: 2026-08-06 (review → execution; body-visualizer tool + WHtR calculator + topical-map backfill shipped after owner approved `all`)
+> Last run: **2026-08-08** (review, body-rater focus; **proposed, awaiting approval**: P1 "rate my body" post + F1–F3 cluster link fixes) · GSC data through 2026-08-05 (no fresh pull — remote container, see audit)
+> Prior run: 2026-08-07 (review → execution; owner approved `all`: F1 chart-title revert + F2 WHR calculator both shipped; zero posts)
+
+## New findings (2026-08-08, body-rater focus run)
+
+- **`best-body-rating-apps` ranks 9 live for "body rater"** (260 vol, KD 4, rising 170→260/12mo)
+  — the only editorial result on a tool-dominated page 1 (LeanLens `/ai-physique-rater` is #1) —
+  **with only 1 inbound internal link.** F1 (de-orphan it) is the highest-leverage body-rater move.
+- Family scored fresh: "rate my body" 880 (+39% qtr, navigational, no page — the held sibling),
+  "ai body rater" 140 (+57%), "rate my physique app" 70 but **+1200%/yr** (navigational to the
+  Play-Store app our roundup reviews), "body rating" 70 (+29%, we rank 7). Declining sub-terms
+  ("rate my body ai" −18%, "rate my physique ai" −36%) already covered — no new pages against them.
+- `/tools/physique-rater/page.tsx` documents a deliberate split: roundup keeps head terms, tool
+  takes "rate my physique"/"AI body rater" long-tail. A third page against "body rater" would
+  split signal — head term is a fix, not a post. Tool metadata left alone (4.2 pos, 25% CTR).
+- P1 proposal overrides the standing rate-my-body hold (Aug 20); flagged as owner's call.
+- Remote-container caveat: no `gsc` MCP and no service-account key → no fresh GSC this run.
 
 ## New findings (2026-08-07)
 
