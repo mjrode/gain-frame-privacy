@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "test:tools": "node --test --experimental-strip-types lib/analytics.test.mjs lib/tool-client.test.mjs lib/waist-percentiles.test.mjs",
+    "test:worker": "node --test --experimental-strip-types ../worker/api/leaderboard.test.mjs",
     "deploy": "next build && cd .. && npx wrangler deploy",
     "build:blog-grid": "node scripts/generate-blog-grid.mjs",
     "build:images": "node scripts/optimize-images.mjs",

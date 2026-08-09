@@ -6,6 +6,7 @@
 // routing API requests or returning a static asset.
 
 import { handleStats, type StatsEnv } from "./api/stats";
+import { handleLeaderboard, type LeaderboardEnv } from "./api/leaderboard";
 import {
   CORS_HEADERS,
   handleTrainerWaitlist,
@@ -13,7 +14,7 @@ import {
 } from "./api/trainer-waitlist";
 import type { AssetFetcher, Ctx } from "./types";
 
-interface Env extends StatsEnv, TrainerWaitlistEnv {
+interface Env extends StatsEnv, TrainerWaitlistEnv, LeaderboardEnv {
   ASSETS: AssetFetcher;
 }
 
@@ -50,6 +51,13 @@ export default {
         return methodNotAllowed("GET, HEAD");
       }
       return handleStats(request, env, ctx);
+    }
+
+    if (pathname === "/api/leaderboard") {
+      if (request.method !== "GET" && request.method !== "HEAD") {
+        return methodNotAllowed("GET, HEAD");
+      }
+      return handleLeaderboard(request, env, ctx);
     }
 
     if (pathname === "/api/trainer-waitlist") {
