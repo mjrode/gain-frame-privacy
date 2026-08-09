@@ -1,12 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
-import { trackOncePerDay } from "@/lib/analytics";
+import { track, trackOncePerDay } from "@/lib/analytics";
 import {
   APP_STORE_APP_ID,
   APP_STORE_PROVIDER_TOKEN,
   campaignForPath,
 } from "@/lib/site";
+import {
+  buildWebAttributionLink,
+  isGainFrameDownloadUrl,
+  rememberAcquisitionParams,
+} from "@/lib/web-attribution";
 
 /**
  * Site-wide delegated listener that fires `outbound_app_store_click` for any
@@ -38,12 +43,12 @@ import {
  */
 export default function AppStoreClickTracker() {
   useEffect(() => {
+    rememberAcquisitionParams(window.location.search);
+
     const onClick = (event: MouseEvent) => {
       const target = event.target as Element | null;
-      const anchor = target?.closest?.<HTMLAnchorElement>(
-        'a[href*="apps.apple.com"]',
-      );
-      if (!anchor || anchor.hasAttribute("data-track-exempt")) return;
+      const anchor = target?.closest?.<HTMLAnchorElement>("a[href]");
+      if (!anchor || !isGainFrameDownloadUrl(anchor.href)) return;
 
       const source =
         anchor.getAttribute("data-cta-source") ??
@@ -80,26 +85,39 @@ export default function AppStoreClickTracker() {
       let ct = fallbackCt;
       try {
         const url = new URL(anchor.href);
-        if (url.pathname.includes(APP_STORE_APP_ID)) {
-          const declaredCt = url.searchParams.get("ct");
-          if (declaredCt) {
-            ct = declaredCt;
-          } else {
-            url.searchParams.set("pt", APP_STORE_PROVIDER_TOKEN);
-            url.searchParams.set("ct", ct);
-            url.searchParams.set("mt", "8");
-            anchor.href = url.toString();
-          }
+        const declaredCt = url.searchParams.get("ct");
+        if (declaredCt) {
+          ct = declaredCt;
+        } else if (url.pathname.includes(APP_STORE_APP_ID)) {
+          url.searchParams.set("pt", APP_STORE_PROVIDER_TOKEN);
+          url.searchParams.set("ct", ct);
+          url.searchParams.set("mt", "8");
+          anchor.href = url.toString();
         }
       } catch {
         // Malformed href — leave the anchor untouched and report the fallback.
       }
 
-      trackOncePerDay(
-        "outbound_app_store_click",
-        { source, cta_content: ctaContent, ct },
-        `${source}:${ctaContent}`,
-      );
+      const attribution = buildWebAttributionLink({
+        campaign: ct,
+        cta: ctaContent,
+      });
+      anchor.href = attribution.href;
+
+      // This event deliberately is not deduplicated: web_click_id must match
+      // the exact OneLink click that later resolves in the app.
+      track("web_download_clicked", {
+        ...attribution.payload,
+        destination: "app_store",
+      });
+
+      if (!anchor.hasAttribute("data-track-exempt")) {
+        trackOncePerDay(
+          "outbound_app_store_click",
+          { source, cta_content: ctaContent, ct },
+          `${source}:${ctaContent}`,
+        );
+      }
     };
 
     document.addEventListener("click", onClick, true);

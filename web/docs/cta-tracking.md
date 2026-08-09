@@ -3,12 +3,13 @@
 How download CTAs are instrumented, and the two traps that make naive reads wrong.
 Written 2026-07-29 after a false alarm (see "Worked example" at the bottom).
 
-## The two events
+## The three events
 
 | Event | Fired when | Where |
 |---|---|---|
 | `outbound_app_store_click` | Any click on an `apps.apple.com` anchor | `AppStoreClickTracker` — site-wide delegated capture-phase listener |
 | `cta_platform_alternative_click` | An **Android** user clicks a download CTA | `PlatformDownloadLink` — routes them to `/tools/body-fat-from-photo/` instead |
+| `web_download_clicked` | Every GainFrame App Store/OneLink click, with a unique click ID and page-level attribution | `AppStoreClickTracker` — site-wide delegated capture-phase listener |
 
 GainFrame is an **iOS-only** app. `PlatformDownloadLink` detects Android and swaps the
 destination to the web body-fat tool, because an Android user cannot install from an App
@@ -106,3 +107,36 @@ take the web-tool offer at roughly double the rate.
 
 Cost of the mistake: a "highest ROI, fix this first" recommendation in the 2026-07-29 MRR
 audit that pointed at a healthy component. Both rules above exist to prevent a repeat.
+
+## Website → install → subscription attribution
+
+Every GainFrame App Store destination is rewritten at click time to the branded AppsFlyer
+OneLink template `https://go.gainframe.app/WufP`. The download URL preserves the landing-page
+acquisition context. It also retains the placement campaign as `ct`, so a repeat click on
+the same already-rewritten anchor keeps the same PostHog/App Store campaign classification.
+The following deferred-deep-link payload travels into a same-device iOS install:
+
+| OneLink field | Meaning |
+|---|---|
+| `deep_link_value` | Constant `web_attribution` routing marker |
+| `deep_link_sub1` | First website page in the session |
+| `deep_link_sub2` | Page containing the clicked download CTA |
+| `deep_link_sub3` | CTA placement/content |
+| `deep_link_sub4` | Original source: UTM source, search engine, referrer, or direct |
+| `deep_link_sub5` | UTM campaign or `organic`/`referral`/`direct` fallback |
+| `deep_link_sub6` | Random `web_click_id` shared by PostHog, AppsFlyer, and the app |
+| `deep_link_sub7` | Anonymous PostHog website distinct ID |
+| `deep_link_sub8` | PostHog website session ID |
+| `deep_link_sub9` | UTM medium |
+| `deep_link_sub10` | Click timestamp (ISO 8601) |
+
+The URL also retains supported ad click IDs (`gclid`, `gbraid`, `wbraid`, `fbclid`,
+`ttclid`, `twclid`, and `ScCid`). On first app open, GainFrame stores this first touch,
+links the anonymous website identity to the app identity in PostHog, and mirrors the
+fields to RevenueCat subscriber attributes. RevenueCat subscription webhooks then add
+the page, CTA, source, campaign, onboarding state, plan, and click-to-event time to Slack.
+
+Use `web_download_clicked` for raw download attempts and join on `web_click_id` when
+checking a specific journey. Keep using the two legacy CTA events for historical trend
+continuity. Desktop-to-phone behavior still requires a QR scan carrying the same OneLink
+payload; Apple privacy controls mean attribution will be actionable rather than complete.

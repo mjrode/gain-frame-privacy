@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { APP_STORE_PROVIDER_TOKEN, SITE } from "@/lib/site";
+import DownloadQr from "@/components/DownloadQr";
+import PlatformDownloadLink from "@/components/PlatformDownloadLink";
+import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 import {
   getPosthogDistinctId,
   getWebAnalyticsContext,
@@ -47,6 +49,7 @@ type Stage =
   | { kind: "error"; message: string };
 
 type ErrorResponse = { error: string; message?: string };
+type ConversionPlacement = "result" | "daily_limit" | "lifetime_limit";
 
 const PROCESSING_MESSAGES = [
   "Reading the photo",
@@ -127,29 +130,6 @@ async function preprocessImage(
   }
 }
 
-function appStoreUrl(content: string): string {
-  const params = new URLSearchParams({
-    utm_source: "web",
-    utm_medium: "tool",
-    utm_campaign: CTA_CAMPAIGN,
-    utm_content: content,
-    // Apple campaign tokens — UTM params never reach App Store Connect.
-    pt: APP_STORE_PROVIDER_TOKEN,
-    ct: "web-rater",
-    mt: "8",
-  });
-  return `${SITE.appStoreUrl}?${params.toString()}`;
-}
-
-function trackAppStoreClick(placement: string): void {
-  track("physique_rater_cta_click", { placement });
-  track("outbound_app_store_click", {
-    source: CTA_CAMPAIGN,
-    cta_content: placement,
-    ct: "web-rater",
-  });
-}
-
 function ScoreRing({ score, band }: { score: number; band: string }) {
   const CIRC = 2 * Math.PI * 54;
   const dash = (Math.min(100, Math.max(0, score)) / 100) * CIRC;
@@ -170,6 +150,69 @@ function ScoreRing({ score, band }: { score: number; band: string }) {
         <span className="pr-ring-of">/ 100</span>
       </div>
     </div>
+  );
+}
+
+function ConversionCard({ placement }: { placement: ConversionPlacement }) {
+  const platform = useDownloadPlatform();
+  const isAndroid = platform === "android";
+  const isDesktop = platform === "desktop";
+  const titleId = `pr-conversion-title-${placement}`;
+
+  return (
+    <aside
+      className="pr-conversion-card"
+      data-platform={platform}
+      aria-labelledby={titleId}
+      onClick={(event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        if (!isAndroid && target?.closest("a")) {
+          // AppStoreClickTracker owns download/outbound events. This keeps the
+          // rater-specific intent event without double-counting the same click.
+          track("physique_rater_cta_click", { placement, platform });
+        }
+      }}
+    >
+      <div className="pr-conversion-copy">
+        <span className="pr-conversion-eyebrow">
+          {placement === "result" ? "Keep the momentum" : "Keep scoring"}
+        </span>
+        <h3 id={titleId}>Want to rate another angle?</h3>
+        <p>
+          {isAndroid
+            ? "GainFrame is currently iPhone-only. You can still use our free body-fat photo tool on this device."
+            : isDesktop
+              ? "Scan with your iPhone for unlimited ratings, body fat %, FFMI, and a 12-muscle breakdown — free to start."
+              : "Get unlimited ratings, body fat %, FFMI, and a 12-muscle breakdown in GainFrame — free to start."}
+        </p>
+      </div>
+
+      <div className="pr-conversion-actions">
+        <PlatformDownloadLink
+          className="pr-conversion-primary"
+          source={CTA_CAMPAIGN}
+          content={placement}
+          campaign="web-rater"
+          androidLabel="GainFrame is iPhone-only — try the web tool"
+        >
+          {isDesktop ? "Open GainFrame in the App Store" : "Rate every angle in GainFrame"}
+          <span aria-hidden>→</span>
+        </PlatformDownloadLink>
+        <DownloadQr
+          className="pr-conversion-qr"
+          source={CTA_CAMPAIGN}
+          content={placement}
+          campaign="web-rater"
+          label="Scan with iPhone"
+        />
+      </div>
+
+      <p className="pr-conversion-proof">
+        {isAndroid
+          ? "No Android app yet · The web tool works on this device"
+          : "iPhone app · Free to start · Built for progress photos"}
+      </p>
+    </aside>
   );
 }
 
@@ -265,10 +308,14 @@ export default function RaterClient() {
         return;
       }
       if (res.status === 429) {
+        const lifetime = err.error === "lifetime_limited";
+        track("physique_rater_rate_limited", {
+          limit_type: lifetime ? "lifetime" : "daily",
+        });
         setStage({
           kind: "rate_limited",
           message: err.message ?? "You've used your free rating.",
-          lifetime: err.error === "lifetime_limited",
+          lifetime,
         });
         return;
       }
@@ -396,6 +443,10 @@ export default function RaterClient() {
 
           <p className="pr-headline">{stage.rating.headline}</p>
 
+          <ConversionCard placement="result" />
+
+          <p className="pr-breakdown-label">Your full breakdown</p>
+
           <div className="pr-subs">
             {SUBSCORE_LABELS.map(({ key, label, hint }) => (
               <SubscoreBar
@@ -423,23 +474,13 @@ export default function RaterClient() {
             which is the whole point of scoring every check-in instead of once.
           </p>
 
-          <div className="pr-cta">
-            <a
-              className="pr-cta-primary"
-              href={appStoreUrl("result")}
-              target="_blank"
-              rel="noopener"
-              data-track-exempt
-              onClick={() => trackAppStoreClick("result")}
-            >
-              Score every check-in — GainFrame free on iOS
-            </a>
-            <button type="button" className="pr-cta-secondary" onClick={reset}>
-              Rate another photo
+          <div className="pr-rating-return" role="status">
+            <span className="pr-rating-return-label">Free web ratings</span>
+            <p>
               {stage.rating.remaining_lifetime > 0
-                ? ` (${stage.rating.remaining_lifetime} left)`
-                : ""}
-            </button>
+                ? `Come back tomorrow — ${stage.rating.remaining_lifetime} free ${stage.rating.remaining_lifetime === 1 ? "rating" : "ratings"} left`
+                : "You’ve used all 3 free ratings"}
+            </p>
           </div>
         </div>
       )}
@@ -455,23 +496,12 @@ export default function RaterClient() {
       )}
 
       {stage.kind === "rate_limited" && (
-        <div className="pr-state">
+        <div className="pr-state pr-state--limit">
           <h3>{stage.lifetime ? "That's all 3 free ratings" : "Back tomorrow"}</h3>
           <p>{stage.message}</p>
-          <a
-            className="pr-cta-primary"
-            href={appStoreUrl(stage.lifetime ? "lifetime_limit" : "daily_limit")}
-            target="_blank"
-            rel="noopener"
-            data-track-exempt
-            onClick={() =>
-              trackAppStoreClick(
-                stage.lifetime ? "lifetime_limit" : "daily_limit",
-              )
-            }
-          >
-            Get unlimited scoring on iOS
-          </a>
+          <ConversionCard
+            placement={stage.lifetime ? "lifetime_limit" : "daily_limit"}
+          />
         </div>
       )}
     </div>

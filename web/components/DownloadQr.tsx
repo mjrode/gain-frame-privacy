@@ -1,7 +1,8 @@
 "use client";
 
 import { QRCodeSVG } from "qrcode.react";
-import { appStoreUrlWithCampaign } from "@/lib/site";
+import { useRef } from "react";
+import { buildWebAttributionLink } from "@/lib/web-attribution";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 
 type DownloadQrProps = {
@@ -20,10 +21,15 @@ export default function DownloadQr({
   source,
 }: DownloadQrProps) {
   const platform = useDownloadPlatform();
+  const hrefRef = useRef<string | null>(null);
 
   if (platform !== "desktop") return null;
 
-  const href = appStoreUrlWithCampaign(campaign);
+  hrefRef.current ??= buildWebAttributionLink({
+    campaign,
+    cta: content,
+  }).href;
+  const href = hrefRef.current;
 
   return (
     <div className={className} data-download-qr>
