@@ -16,9 +16,9 @@ interface LeaderboardEntry {
 
 const GOAL_FILTERS: Array<{ value: GoalFilter; label: string }> = [
   { value: "all", label: "All goals" },
-  { value: "Lose Weight", label: "Lose weight" },
-  { value: "Gain Muscle", label: "Gain muscle" },
-  { value: "Body Recomp", label: "Body recomp" },
+  { value: "Lose Weight", label: "Lose" },
+  { value: "Gain Muscle", label: "Build" },
+  { value: "Body Recomp", label: "Recomp" },
 ];
 
 const PERIODS: Array<{ value: Period; label: string }> = [
@@ -43,8 +43,8 @@ function initials(username: string): string {
 }
 
 function formatDate(value: string): string {
-  const date = new Date(value);
-  return Number.isNaN(date.getTime())
+  const date = publicDate(value);
+  return !date
     ? "Date unavailable"
     : new Intl.DateTimeFormat(undefined, {
       month: "short",
@@ -53,8 +53,28 @@ function formatDate(value: string): string {
     }).format(date);
 }
 
+function publicDate(value: string): Date | null {
+  const match = /^(\\d{4})-(\\d{2})-(\\d{2})$/.exec(value);
+  if (!match) return null;
+
+  const date = new Date(
+    Number(match[1]),
+    Number(match[2]) - 1,
+    Number(match[3]),
+  );
+  return date.getFullYear() === Number(match[1]) &&
+      date.getMonth() === Number(match[2]) - 1 &&
+      date.getDate() === Number(match[3])
+    ? date
+    : null;
+}
+
 function rankLabel(rank: number): string {
   return `#${String(rank).padStart(2, "0")}`;
+}
+
+function friendlyGoal(goal: Goal): string {
+  return goal === "Body Recomp" ? "Lose Fat, Build Muscle" : goal;
 }
 
 export default function LeaderboardClient() {
@@ -92,10 +112,14 @@ export default function LeaderboardClient() {
     const periodStart = startOfPeriod(period, new Date());
     return entries
       .filter((entry) => goal === "all" || entry.goal === goal)
-      .filter((entry) => !periodStart || new Date(entry.score_date) >= periodStart)
+      .filter((entry) => {
+        const scoreDate = publicDate(entry.score_date);
+        return scoreDate !== null && (!periodStart || scoreDate >= periodStart);
+      })
       .sort((left, right) => (
         right.score - left.score ||
-        new Date(left.score_date).getTime() - new Date(right.score_date).getTime() ||
+        (publicDate(left.score_date)?.getTime() ?? 0) -
+          (publicDate(right.score_date)?.getTime() ?? 0) ||
         left.username.localeCompare(right.username)
       ));
   }, [entries, goal, period]);
@@ -175,7 +199,7 @@ export default function LeaderboardClient() {
                     <span className="leaderboard-avatar" aria-hidden="true">{initials(entry.username)}</span>
                     <span>
                       <strong>@{entry.username}</strong>
-                      <small>{entry.goal} <b aria-hidden="true">·</b> {formatDate(entry.score_date)}</small>
+                      <small>{friendlyGoal(entry.goal)} <b aria-hidden="true">·</b> {formatDate(entry.score_date)}</small>
                     </span>
                   </span>
                   <span className="leaderboard-score" aria-label={`${entry.score} GainFrame Score`}>{entry.score}</span>

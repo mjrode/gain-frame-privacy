@@ -22,7 +22,7 @@ test("normalizeEntries keeps only the public leaderboard contract", () => {
     username: "ironatlas",
     score: 96,
     goal: "Gain Muscle",
-    score_date: "2026-08-09T12:00:00.000Z",
+    score_date: "2026-08-09",
   }]);
 });
 
@@ -40,21 +40,23 @@ test("handleLeaderboard queries only the safe Supabase projection", async () => 
   let upstreamUrl;
   globalThis.fetch = async (input) => {
     upstreamUrl = new URL(String(input));
-    return Response.json([{
-      user_id: "must-not-leak",
-      username: "nova_lifts",
-      score: 93,
-      goal: "Body Recomp",
-      score_date: "2026-08-08T12:00:00.000Z",
-      joined_at: "must-not-leak",
-    }]);
+    return Response.json({
+      entries: [{
+        user_id: "must-not-leak",
+        username: "nova_lifts",
+        score: 93,
+        goal: "Body Recomp",
+        score_date: "2026-08-08T12:00:00.000Z",
+        joined_at: "must-not-leak",
+      }],
+    });
   };
 
   try {
     const pending = [];
     const response = await handleLeaderboard(
       new Request("https://gainframe.app/api/leaderboard"),
-      { SUPABASE_URL: "https://example.supabase.co", SUPABASE_SECRET_KEY: "secret" },
+      { SUPABASE_URL: "https://example.supabase.co" },
       { waitUntil: (promise) => pending.push(promise) },
     );
     await Promise.all(pending);
@@ -65,13 +67,10 @@ test("handleLeaderboard queries only the safe Supabase projection", async () => 
         username: "nova_lifts",
         score: 93,
         goal: "Body Recomp",
-        score_date: "2026-08-08T12:00:00.000Z",
+        score_date: "2026-08-08",
       }],
     });
-    assert.equal(upstreamUrl.pathname, "/rest/v1/leaderboard_profiles");
-    assert.equal(upstreamUrl.searchParams.get("select"), "username,score,goal,score_date");
-    assert.equal(upstreamUrl.searchParams.get("order"), "score.desc,score_date.asc,username.asc");
-    assert.equal(upstreamUrl.searchParams.get("limit"), "500");
+    assert.equal(upstreamUrl.pathname, "/functions/v1/leaderboard-standings");
     assert.equal(cachePuts.length, 1);
   } finally {
     globalThis.fetch = originalFetch;
@@ -79,7 +78,7 @@ test("handleLeaderboard queries only the safe Supabase projection", async () => 
   }
 });
 
-test("handleLeaderboard fails closed without its service credentials", async () => {
+test("handleLeaderboard fails closed without its source configuration", async () => {
   const response = await handleLeaderboard(
     new Request("https://gainframe.app/api/leaderboard"),
     {},

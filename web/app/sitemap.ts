@@ -81,6 +81,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${SITE.url}/leaderboard/`,
+      lastModified: today(),
+      changeFrequency: "daily",
+      priority: 0.8,
+    },
+    {
       url: `${SITE.url}/comics/`,
       lastModified: today(),
       changeFrequency: "weekly",

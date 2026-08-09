@@ -1,18 +1,17 @@
 // GET /api/leaderboard
 //
 // The iOS app keeps leaderboard rows behind authenticated Supabase RLS. This
-// endpoint is the deliberately narrow public read projection for gainframe.app:
-// it never returns user IDs, emails, profile data, avatar paths, or photos.
+// endpoint proxies its deliberately narrow public Edge Function projection for
+// gainframe.app; it never returns user IDs, emails, profile data, avatar paths,
+// or photos.
 //
-// Required Worker secrets:
+// Required Worker configuration:
 //   - SUPABASE_URL
-//   - SUPABASE_SECRET_KEY
 
 import type { Ctx } from "../types";
 
 export interface LeaderboardEnv {
   SUPABASE_URL?: string;
-  SUPABASE_SECRET_KEY?: string;
 }
 
 export interface PublicLeaderboardEntry {
@@ -41,13 +40,19 @@ function jsonResponse(body: unknown, init: ResponseInit = {}): Response {
   });
 }
 
-function validDate(value: unknown): value is string {
-  return typeof value === "string" && Number.isFinite(Date.parse(value));
+function publicScoreDate(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return null;
+
+  // The Edge Function already returns a date-only value. Reapply the
+  // projection here so an upstream change cannot expose a check-in time.
+  return date.toISOString().slice(0, 10);
 }
 
 /**
- * Defense in depth for the service-role fetch: even if the upstream query is
- * changed accidentally, the public response remains a four-field projection.
+ * Defense in depth for the public Edge Function: even if its upstream query is
+ * changed accidentally, the site response remains a four-field projection.
  */
 export function normalizeEntries(value: unknown): PublicLeaderboardEntry[] {
   if (!Array.isArray(value)) return [];
@@ -55,15 +60,17 @@ export function normalizeEntries(value: unknown): PublicLeaderboardEntry[] {
   return value.flatMap((entry) => {
     if (!entry || typeof entry !== "object") return [];
     const row = entry as Record<string, unknown>;
+    const scoreDate = publicScoreDate(row.score_date);
     if (
       typeof row.username !== "string" ||
       !USERNAME_PATTERN.test(row.username) ||
+      typeof row.score !== "number" ||
       !Number.isInteger(row.score) ||
       row.score < 1 ||
       row.score > 100 ||
       typeof row.goal !== "string" ||
       !GOALS.has(row.goal as PublicLeaderboardEntry["goal"]) ||
-      !validDate(row.score_date)
+      !scoreDate
     ) {
       return [];
     }
@@ -72,7 +79,7 @@ export function normalizeEntries(value: unknown): PublicLeaderboardEntry[] {
       username: row.username,
       score: row.score,
       goal: row.goal as PublicLeaderboardEntry["goal"],
-      score_date: row.score_date,
+      score_date: scoreDate,
     }];
   });
 }
@@ -89,7 +96,7 @@ export async function handleLeaderboard(
   env: LeaderboardEnv,
   ctx: Ctx,
 ): Promise<Response> {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SECRET_KEY) {
+  if (!env.SUPABASE_URL) {
     return jsonResponse(
       { error: "Leaderboard is not configured yet." },
       { status: 503, headers: { "Cache-Control": "no-store" } },
@@ -101,19 +108,13 @@ export async function handleLeaderboard(
   const cached = await cache.match(cacheKey);
   if (cached) return cached;
 
-  const upstream = new URL("/rest/v1/leaderboard_profiles", env.SUPABASE_URL);
-  upstream.searchParams.set("select", "username,score,goal,score_date");
-  upstream.searchParams.set("order", "score.desc,score_date.asc,username.asc");
-  upstream.searchParams.set("limit", "500");
+  const upstream = new URL("/functions/v1/leaderboard-standings", env.SUPABASE_URL);
 
   let upstreamResponse: Response;
   try {
     upstreamResponse = await fetch(upstream, {
       headers: {
         Accept: "application/json",
-        // Supabase's current `sb_secret_` keys must stay in `apikey`; sending
-        // one as a bearer JWT makes the Data API reject it.
-        apikey: env.SUPABASE_SECRET_KEY,
       },
     });
   } catch (error) {
@@ -142,7 +143,10 @@ export async function handleLeaderboard(
     );
   }
 
-  const response = publicCacheResponse(normalizeEntries(data));
+  const entries = data && typeof data === "object"
+    ? (data as { entries?: unknown }).entries
+    : undefined;
+  const response = publicCacheResponse(normalizeEntries(entries));
   ctx.waitUntil(cache.put(cacheKey, response.clone()));
   return response;
 }
