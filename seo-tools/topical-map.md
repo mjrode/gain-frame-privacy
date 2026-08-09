@@ -67,7 +67,7 @@ best-glp1-muscle-tracking-apps (hub 💰) · glp-1-muscle-loss-tracking · track
 
 ## Cluster 9 — AI coach / trainer apps 💰
 
-best-ai-personal-trainer-apps (striking-distance, links-only until plateau) · ray-fitness-app-review · gainframe-vs-fitbod-ray-gymstreak · ai-fitness-coach-vs-chatgpt · chatgpt-workout-plan · do-ai-fitness-trainers-work · personalized-ai-fitness-coach · gainframe-coach · ai-fitness-coach-strava-integration
+best-ai-personal-trainer-apps (striking-distance, links-only until plateau) · ray-fitness-app-review · thelo-app-review (Aug 9; "thelo app reviews" 65 imp @ 6.5, brand-new app, profile in competitor-research/thelo.md) · gainframe-vs-fitbod-ray-gymstreak · ai-fitness-coach-vs-chatgpt · chatgpt-workout-plan · do-ai-fitness-trainers-work · personalized-ai-fitness-coach · gainframe-coach · ai-fitness-coach-strava-integration
 **Gaps:** Fitbod review? GymStreak review? (only if 4-way post shows brand-query impressions in GSC first).
 
 ## Cluster 10 — Workout-tracker adjacency (top-of-funnel lifters) 💰

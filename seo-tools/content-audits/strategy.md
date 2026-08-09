@@ -1,8 +1,29 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-07** (review → execution; owner approved `all`: F1 chart-title revert + F2 WHR calculator both shipped; zero posts) · Data through 2026-08-05
-> Prior run: 2026-08-06 (review → execution; body-visualizer tool + WHtR calculator + topical-map backfill shipped after owner approved `all`)
+> Last run: **2026-08-09** (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; **F2 body-composition 301 approved but GATED — re-verify with post-Aug-11 data ~Aug 13, then ship**) · Data through 2026-08-07
+> Prior run: 2026-08-07 (review → execution; owner approved `all`: F1 chart-title revert + F2 WHR calculator both shipped; zero posts)
+
+## New findings (2026-08-09)
+
+- **Physique-rater breakout**: `/tools/physique-rater/` went 0 clicks ever → 277/wk (Aug 1–7) at
+  pos 2.7–4.4 across the query family, starting Jul 31 — now the #2 tool by clicks. Timing
+  coincides with the Aug 1 de-orphaning batch (causation not claimed). The "press C11" bet is
+  paying off ahead of the Aug 20 reads.
+- **`/body-fat/` gallery is content-graph-orphaned**: indexed, ~2,758 imp at pos 8–17, 19 clicks,
+  and zero links from any blog post. Proposed F1 (8 named source posts; chart hub excluded until
+  its window closes ~Aug 17).
+- **`best-ai-body-composition-app` is the losing twin**: 42→15 clicks; on the "body composition
+  app" family Google serves `best-body-composition-apps` at 7.4 vs this page at 41–50; its unique
+  keywords are micro-volume ("ai body analyzer" 70). Proposed F2: 301 fold-in, re-verify Aug 11.
+- **`best-body-fat-calculator-from-photo` decay (38→6) explained, no action**: its query family
+  consolidated onto `/tools/body-fat-from-photo/` (152→1,302 clicks) — a net win.
+- **Thelo** (new AI fitness app): "thelo app reviews" 65 imp @ 6.5 via the track-body roundup
+  only; DataForSEO data starts May 2026 (brand-new). Proposed P1 dedicated review,
+  competitor-scan first.
+- Killed this run: "ai body editor" 1,600/KD 12 (already served at pos 6.0 by the vs-real-analysis
+  page — do not cannibalize), "body fat percentage pictures" 2,900 (−45%/yr + pages in window),
+  "normal hip size for female" (frozen zero-click stats), "average waist size women" (170 vol).
 
 ## New findings (2026-08-07)
 
@@ -175,6 +196,9 @@ That page is worth defending and deepening.
 | `menopause-body-composition` (pre-existing) | New post, 28d | 15 impressions at position ~8.6; still below the ≥30 reliability threshold |
 | ~~`body-fat-percentage-chart` Jul 18 CTR test~~ | Metadata | **Closed 2026-08-07: test failed** (0.52% vs ~0.7–1.0%); reverted to control same day — new 7–10d window to ~2026-08-17 |
 | `waist-to-hip-ratio` WHR calculator (F2) | Content | Directional ~2026-08-17; full ~2026-09-04 (baseline pos 14.7 / 871 imp) |
+| `thelo-app-review` | New post, 28d | 2026-09-06 (baseline: "thelo app reviews" 65 imp @ 6.5 via the roundup) |
+| `/body-fat/` gallery post-link boost (Aug 9) | Content | Directional ~2026-08-19; gallery's own 28d window ~2026-09-01 (baseline 19 clicks / ~2,758 imp / pos 8–17) |
+| `best-body-scanning-measurement-apps` "body scan app" anchors | Content | Directional ~2026-08-19 (baseline pos 6.8 / 343 imp on the query) |
 
 No existing-page metadata was edited. The new body visualizer's 28-day window opens 2026-09-03;
 the WHtR calculator's earliest directional read is 2026-08-16, with a full read on 2026-09-03.
