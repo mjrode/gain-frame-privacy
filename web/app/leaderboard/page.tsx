@@ -32,6 +32,7 @@ export const metadata: Metadata = {
 export default function LeaderboardPage() {
   return (
     <div className="leaderboard-page">
+      <link rel="stylesheet" href="/styles-clean.css" />
       <link rel="stylesheet" href="/styles.css" />
       <link rel="stylesheet" href="/styles/leaderboard.css" />
       <Nav />
