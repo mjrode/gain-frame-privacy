@@ -8,8 +8,6 @@
 // Required Worker configuration:
 //   - SUPABASE_URL
 
-import type { Ctx } from "../types";
-
 export interface LeaderboardEnv {
   SUPABASE_URL?: string;
 }
@@ -21,7 +19,6 @@ export interface PublicLeaderboardEntry {
   score_date: string;
 }
 
-const CACHE_SECONDS = 300;
 const USERNAME_PATTERN = /^[a-z0-9][a-z0-9_]{2,19}$/;
 const GOALS = new Set<PublicLeaderboardEntry["goal"]>([
   "Lose Weight",
@@ -84,17 +81,18 @@ export function normalizeEntries(value: unknown): PublicLeaderboardEntry[] {
   });
 }
 
-function publicCacheResponse(entries: PublicLeaderboardEntry[]): Response {
+function liveResponse(entries: PublicLeaderboardEntry[]): Response {
   return jsonResponse(
     { entries },
-    { headers: { "Cache-Control": `public, max-age=0, s-maxage=${CACHE_SECONDS}` } },
+    // A user can join or update their score in the app at any time. Do not
+    // serve an empty or stale cross-POP cache entry after that action.
+    { headers: { "Cache-Control": "no-store" } },
   );
 }
 
 export async function handleLeaderboard(
   request: Request,
   env: LeaderboardEnv,
-  ctx: Ctx,
 ): Promise<Response> {
   if (!env.SUPABASE_URL) {
     return jsonResponse(
@@ -102,11 +100,6 @@ export async function handleLeaderboard(
       { status: 503, headers: { "Cache-Control": "no-store" } },
     );
   }
-
-  const cache = (caches as unknown as { default: Cache }).default;
-  const cacheKey = new Request(new URL(request.url).toString(), { method: "GET" });
-  const cached = await cache.match(cacheKey);
-  if (cached) return cached;
 
   const upstream = new URL("/functions/v1/leaderboard-standings", env.SUPABASE_URL);
 
@@ -146,7 +139,5 @@ export async function handleLeaderboard(
   const entries = data && typeof data === "object"
     ? (data as { entries?: unknown }).entries
     : undefined;
-  const response = publicCacheResponse(normalizeEntries(entries));
-  ctx.waitUntil(cache.put(cacheKey, response.clone()));
-  return response;
+  return liveResponse(normalizeEntries(entries));
 }

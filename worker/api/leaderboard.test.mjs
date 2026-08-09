@@ -28,14 +28,6 @@ test("normalizeEntries keeps only the public leaderboard contract", () => {
 
 test("handleLeaderboard queries only the safe Supabase projection", async () => {
   const originalFetch = globalThis.fetch;
-  const originalCaches = globalThis.caches;
-  const cachePuts = [];
-  globalThis.caches = {
-    default: {
-      match: async () => undefined,
-      put: async (key, response) => cachePuts.push([key, response]),
-    },
-  };
 
   let upstreamUrl;
   globalThis.fetch = async (input) => {
@@ -53,15 +45,13 @@ test("handleLeaderboard queries only the safe Supabase projection", async () => 
   };
 
   try {
-    const pending = [];
     const response = await handleLeaderboard(
       new Request("https://gainframe.app/api/leaderboard"),
       { SUPABASE_URL: "https://example.supabase.co" },
-      { waitUntil: (promise) => pending.push(promise) },
     );
-    await Promise.all(pending);
 
     assert.equal(response.status, 200);
+    assert.equal(response.headers.get("Cache-Control"), "no-store");
     assert.deepEqual(await response.json(), {
       entries: [{
         username: "nova_lifts",
@@ -71,10 +61,8 @@ test("handleLeaderboard queries only the safe Supabase projection", async () => 
       }],
     });
     assert.equal(upstreamUrl.pathname, "/functions/v1/leaderboard-standings");
-    assert.equal(cachePuts.length, 1);
   } finally {
     globalThis.fetch = originalFetch;
-    globalThis.caches = originalCaches;
   }
 });
 
@@ -82,7 +70,6 @@ test("handleLeaderboard fails closed without its source configuration", async ()
   const response = await handleLeaderboard(
     new Request("https://gainframe.app/api/leaderboard"),
     {},
-    { waitUntil() {} },
   );
 
   assert.equal(response.status, 503);
