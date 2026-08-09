@@ -87,6 +87,7 @@ export default function LeaderboardClient() {
     setStatus("loading");
     try {
       const response = await fetch("/api/leaderboard", {
+        cache: "no-store",
         headers: { Accept: "application/json" },
         signal,
       });

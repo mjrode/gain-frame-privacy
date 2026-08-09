@@ -57,7 +57,7 @@ export default {
       if (request.method !== "GET" && request.method !== "HEAD") {
         return methodNotAllowed("GET, HEAD");
       }
-      return handleLeaderboard(request, env, ctx);
+      return handleLeaderboard(request, env);
     }
 
     if (pathname === "/api/trainer-waitlist") {
