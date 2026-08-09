@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { SITE } from "@/lib/site";
+import { publicLeaderboardDate } from "./leaderboard-date";
 
 type Goal = "Lose Weight" | "Gain Muscle" | "Body Recomp";
 type GoalFilter = "all" | Goal;
@@ -43,7 +44,7 @@ function initials(username: string): string {
 }
 
 function formatDate(value: string): string {
-  const date = publicDate(value);
+  const date = publicLeaderboardDate(value);
   return !date
     ? "Date unavailable"
     : new Intl.DateTimeFormat(undefined, {
@@ -51,22 +52,6 @@ function formatDate(value: string): string {
       day: "numeric",
       year: "numeric",
     }).format(date);
-}
-
-function publicDate(value: string): Date | null {
-  const match = /^(\\d{4})-(\\d{2})-(\\d{2})$/.exec(value);
-  if (!match) return null;
-
-  const date = new Date(
-    Number(match[1]),
-    Number(match[2]) - 1,
-    Number(match[3]),
-  );
-  return date.getFullYear() === Number(match[1]) &&
-      date.getMonth() === Number(match[2]) - 1 &&
-      date.getDate() === Number(match[3])
-    ? date
-    : null;
 }
 
 function rankLabel(rank: number): string {
@@ -114,13 +99,13 @@ export default function LeaderboardClient() {
     return entries
       .filter((entry) => goal === "all" || entry.goal === goal)
       .filter((entry) => {
-        const scoreDate = publicDate(entry.score_date);
+        const scoreDate = publicLeaderboardDate(entry.score_date);
         return scoreDate !== null && (!periodStart || scoreDate >= periodStart);
       })
       .sort((left, right) => (
         right.score - left.score ||
-        (publicDate(left.score_date)?.getTime() ?? 0) -
-          (publicDate(right.score_date)?.getTime() ?? 0) ||
+        (publicLeaderboardDate(left.score_date)?.getTime() ?? 0) -
+          (publicLeaderboardDate(right.score_date)?.getTime() ?? 0) ||
         left.username.localeCompare(right.username)
       ));
   }, [entries, goal, period]);
