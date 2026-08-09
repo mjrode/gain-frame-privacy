@@ -3,7 +3,7 @@
   //
   // The site is a static Next.js export (`cd web && npm run build` → web/out)
   // served by Workers Static Assets. `worker/index.ts` runs first to enforce
-  // HTTP -> HTTPS canonicalization and handle the two dynamic endpoints, then
+  // HTTP -> HTTPS canonicalization and handle the three dynamic endpoints, then
   // delegates all other requests to the asset binding.
   //
   // This file must live at the repo root — that's the Root directory
@@ -11,6 +11,9 @@
   "name": "gain-frame-privacy",
   "main": "worker/index.ts",
   "compatibility_date": "2026-07-24",
+  "vars": {
+    "SUPABASE_URL": "https://qpctmhhnomeeyajbivne.supabase.co"
+  },
   "assets": {
     "directory": "web/out",
     "binding": "ASSETS",
