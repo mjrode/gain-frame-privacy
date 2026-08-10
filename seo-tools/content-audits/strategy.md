@@ -1,7 +1,8 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-09** (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; **F2 body-composition 301 approved but GATED — re-verify with post-Aug-11 data ~Aug 13, then ship**) · Data through 2026-08-07
+> Last run: **2026-08-10** (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed; next decision run ~Aug 13) · Data through 2026-08-08
+> Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; **F2 body-composition 301 approved but GATED — re-verify with post-Aug-11 data ~Aug 13, then ship**)
 > Prior run: 2026-08-07 (review → execution; owner approved `all`: F1 chart-title revert + F2 WHR calculator both shipped; zero posts)
 
 ## New findings (2026-08-09)
