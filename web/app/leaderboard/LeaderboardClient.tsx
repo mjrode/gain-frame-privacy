@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { SITE } from "@/lib/site";
 import { publicLeaderboardDate } from "./leaderboard-date";
@@ -55,11 +56,13 @@ function formatDate(value: string): string {
 }
 
 function rankLabel(rank: number): string {
-  return `#${String(rank).padStart(2, "0")}`;
+  return String(rank);
 }
 
 function friendlyGoal(goal: Goal): string {
-  return goal === "Body Recomp" ? "Lose Fat, Build Muscle" : goal;
+  if (goal === "Body Recomp") return "Recomp";
+  if (goal === "Gain Muscle") return "Build";
+  return "Lose";
 }
 
 export default function LeaderboardClient() {
@@ -115,40 +118,75 @@ export default function LeaderboardClient() {
 
   return (
     <div className="leaderboard-wrap">
-      <header className="leaderboard-hero">
-        <p className="leaderboard-kicker"><span aria-hidden="true" /> COMMUNITY STANDINGS</p>
-        <h1>GainFrame <em>Leaderboard</em></h1>
-        <p>
-          A public benchmark for people doing the work. Every row is opt-in;
-          progress photos and private profile details stay out of view.
-        </p>
+      <header className="leaderboard-header">
+        <div className="leaderboard-title-row">
+          <div className="leaderboard-heading-lockup">
+            <span className="leaderboard-gary" aria-hidden="true">
+              <Image
+                src="/assets/gainframe-guy/poses/gainframe-guy-wave.webp"
+                alt=""
+                width={60}
+                height={66}
+                priority
+              />
+            </span>
+
+            <div>
+              <h1 id="standings-heading">Leaderboard</h1>
+              <p aria-live="polite" className="leaderboard-count">
+                {status === "ready"
+                  ? rankedEntries.length + " " + (rankedEntries.length === 1 ? "member" : "members")
+                  : ""}
+              </p>
+            </div>
+          </div>
+
+          <details className="leaderboard-privacy">
+            <summary>
+              <svg aria-hidden="true" viewBox="0 0 20 20">
+                <path d="M6.5 8V6.3a3.5 3.5 0 0 1 7 0V8" />
+                <rect x="4.5" y="8" width="11" height="8" rx="2.2" />
+              </svg>
+              Opt-in
+            </summary>
+            <p>
+              <strong>Photos stay private.</strong> This page receives only a chosen
+              username, score, goal, and check-in date—never real names, emails,
+              account IDs, uploaded avatars, or progress photos.
+            </p>
+          </details>
+        </div>
+
+        <div className="leaderboard-controls">
+          <div className="leaderboard-filters" aria-label="Filter leaderboard">
+            <label>
+              <span>Goal</span>
+              <select aria-label="Goal" value={goal} onChange={(event) => setGoal(event.target.value as GoalFilter)}>
+                {GOAL_FILTERS.map((filter) => <option key={filter.value} value={filter.value}>{filter.label}</option>)}
+              </select>
+            </label>
+            <label>
+              <span>Period</span>
+              <select aria-label="Period" value={period} onChange={(event) => setPeriod(event.target.value as Period)}>
+                {PERIODS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+              </select>
+            </label>
+          </div>
+
+          <a
+            className="leaderboard-join"
+            href={SITE.appStoreUrl}
+            target="_blank"
+            rel="noopener"
+            data-cta-source="leaderboard"
+            data-cta-content="mobile_join"
+          >
+            Join in the app <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </header>
 
       <section className="leaderboard-board" aria-labelledby="standings-heading">
-        <div className="leaderboard-board-heading">
-          <div>
-            <p className="leaderboard-eyebrow">LIVE LEDGER</p>
-            <h2 id="standings-heading">Community standings</h2>
-          </div>
-          <p aria-live="polite" className="leaderboard-count">
-            {status === "ready" ? `${rankedEntries.length} ${rankedEntries.length === 1 ? "member" : "members"}` : ""}
-          </p>
-        </div>
-
-        <div className="leaderboard-filters" aria-label="Filter leaderboard">
-          <label>
-            <span>Goal</span>
-            <select value={goal} onChange={(event) => setGoal(event.target.value as GoalFilter)}>
-              {GOAL_FILTERS.map((filter) => <option key={filter.value} value={filter.value}>{filter.label}</option>)}
-            </select>
-          </label>
-          <label>
-            <span>Score date</span>
-            <select value={period} onChange={(event) => setPeriod(event.target.value as Period)}>
-              {PERIODS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
-            </select>
-          </label>
-        </div>
 
         {status === "loading" && (
           <div className="leaderboard-state" role="status">
@@ -173,19 +211,19 @@ export default function LeaderboardClient() {
 
         {status === "ready" && rankedEntries.length > 0 && (
           <ol className="leaderboard-ledger" aria-label="Ranked GainFrame Scores">
-            <li className="leaderboard-ledger-heading" aria-hidden="true">
-              <span>Rank</span><span>Member</span><span>Score</span>
-            </li>
             {rankedEntries.map((entry, index) => {
               const rank = index + 1;
               return (
-                <li className={`leaderboard-row${rank === 1 ? " leaderboard-row--first" : ""}`} key={`${entry.username}-${entry.score_date}`}>
+                <li className={"leaderboard-row" + (rank === 1 ? " leaderboard-row--first" : "")} key={entry.username + "-" + entry.score_date}>
                   <span className="leaderboard-rank">{rankLabel(rank)}</span>
                   <span className="leaderboard-member">
                     <span className="leaderboard-avatar" aria-hidden="true">{initials(entry.username)}</span>
                     <span>
                       <strong>@{entry.username}</strong>
-                      <small>{friendlyGoal(entry.goal)} <b aria-hidden="true">·</b> {formatDate(entry.score_date)}</small>
+                      <small>
+                        {goal === "all" && <>{friendlyGoal(entry.goal)} <b aria-hidden="true">·</b> </>}
+                        {formatDate(entry.score_date)}
+                      </small>
                     </span>
                   </span>
                   <span className="leaderboard-score" aria-label={`${entry.score} GainFrame Score`}>{entry.score}</span>
@@ -194,26 +232,6 @@ export default function LeaderboardClient() {
             })}
           </ol>
         )}
-      </section>
-
-      <aside className="leaderboard-privacy" aria-label="Leaderboard privacy">
-        <span aria-hidden="true">⌁</span>
-        <p><strong>Private by default, competitive by choice.</strong> This page receives only an opted-in username, GainFrame Score, goal, and selected check-in date. It never receives progress photos, real names, emails, account IDs, or uploaded avatars.</p>
-      </aside>
-
-      <section className="leaderboard-cta">
-        <p className="leaderboard-eyebrow">YOUR POSITION</p>
-        <h2>Want a place on the board?</h2>
-        <p>Download GainFrame, score a check-in, then decide whether to share a username and score.</p>
-        <a
-          href={SITE.appStoreUrl}
-          target="_blank"
-          rel="noopener"
-          data-cta-source="leaderboard"
-          data-cta-content="download_join"
-        >
-          Download GainFrame <span aria-hidden="true">→</span>
-        </a>
       </section>
     </div>
   );
