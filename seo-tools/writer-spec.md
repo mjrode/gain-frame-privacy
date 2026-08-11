@@ -24,6 +24,7 @@ No inline styles needed — the class handles centering, sizing, caption styling
 - Authority first. GainFrame max twice (once in body, once CTA). Honest limits: iOS only; estimates from photos; free tier 25 photos lifetime; Pro $5.99/mo or $39.99/yr.
 - Hedge every stat: "commonly cited", "survey data generally reports". NEVER invent studies or precise figures. Reference ranges from existing posts must stay consistent (men athletic 6–13 / fitness 14–17 / average 18–24 / obese 25+; women 14–20 / 21–24 / 25–31 / 32+).
 - GainFrame facts allowed: AI photo → BF%, BMI, FFMI, 1–100 score, 12 muscle ratings; Deep Dive Compare; Future Physique (with its "Illustrative AI projection" disclaimer); Smart Import; Hevy integration; on-device, no account, photos never stored on a server.
+- Reader-visible copy must contain no U+2013 en dashes or U+2014 em dashes. Rewrite with a period, comma, parentheses, a plain hyphen, or the word "to". This is a voice rule, not an SEO claim.
 
 ## Visualizer renders (the differentiating asset)
 Source: `docs/tools/body-fat-visualizer/assets/physiques/{male,female}-age{20s,30s,40s,50s,60s}-bf{male: 8,13,18,23,28,33 | female: 18,22,27,32,37,42}.webp` (1792×2400, standardized).
@@ -37,3 +38,6 @@ App screenshots (copy with cp): score-card.webp & muscle-map.webp from docs/blog
 
 ## Return format
 Final message = ONLY: file paths created + one line per post: slug | quick-answer word count | FAQ count | assets. No prose.
+
+## Strict launch check
+After adding the approved inbound links, run `node seo-tools/content-inventory.mjs --check --slug <slug>` and `rg -n '[—–]' web/content/blog/<slug>.mdx`. The inventory command validates JSON-LD parity, the author and publisher entities, canonical and breadcrumb URLs, FAQ text parity, two inbound links, and at least one contextual inbound link. The `rg` command must return no matches.

@@ -11,6 +11,7 @@
  *   node seo-tools/content-inventory.mjs --markdown   # human-readable report
  *   node seo-tools/content-inventory.mjs --check      # gate: exit 1 on hard failures
  *   node seo-tools/content-inventory.mjs --slug foo   # one post's row
+ *   node seo-tools/content-inventory.mjs --check --slug foo # strict new/modified-post gate
  *
  * What it reports:
  *   - link graph      inbound/outbound internal links between posts (orphans)
@@ -18,7 +19,7 @@
  *   - freshness       posts whose dateModified is older than 180 days
  *   - quick answer    the 40-60 word AEO block, counted
  *   - assets          cover.webp presence for every post that references one
- *   - hygiene         canonical, description length, FAQPage schema presence
+ *   - hygiene         canonical, description length, structured-data contract, long dashes
  */
 
 import { promises as fs } from "node:fs";
@@ -35,6 +36,20 @@ const QUICK_ANSWER_MIN = 40;
 const QUICK_ANSWER_MAX = 60;
 const DESC_MIN = 70;
 const DESC_MAX = 165;
+const AUTHOR = {
+  "@type": "Person",
+  name: "Michael Rode",
+  url: "https://gainframe.app/about",
+};
+const PUBLISHER = {
+  "@type": "Organization",
+  name: "GainFrame",
+  url: "https://gainframe.app",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://gainframe.app/assets/favicons/favicon.webp",
+  },
+};
 
 // The founder / product-announcement lane (topical map cluster 12-13) is judged
 // on sessions and social traction, never on GSC. Those posts do not need a
@@ -119,6 +134,101 @@ function daysSince(iso) {
   return Math.floor((Date.now() - then) / 86_400_000);
 }
 
+function normalizeText(text) {
+  return String(text ?? "")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/[*_`#>]/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#(?:39|x27);/gi, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function extractSchemas(schemaBlock) {
+  const schemas = [];
+  const errors = [];
+  for (const [index, line] of schemaBlock.split("\n").entries()) {
+    const match = /^\s*-\s*(\{.*\})\s*$/.exec(line);
+    if (!match) continue;
+    try {
+      schemas.push(JSON.parse(match[1]));
+    } catch (error) {
+      errors.push(`schema line ${index + 1} is invalid JSON: ${error.message}`);
+    }
+  }
+  return { schemas, errors };
+}
+
+function blogLinks(text) {
+  return new Set([
+    ...[...text.matchAll(/href="\/blog\/([a-z0-9-]+)\/?"/g)].map((m) => m[1]),
+    ...[...text.matchAll(/\]\(\.\.\/([a-z0-9-]+)\/?\)/g)].map((m) => m[1]),
+    ...[...text.matchAll(/\]\(\/blog\/([a-z0-9-]+)\/?\)/g)].map((m) => m[1]),
+  ]);
+}
+
+function validateSchemaContract(post) {
+  const errors = [...post.schemaParseErrors];
+  const expectedCanonical = `https://gainframe.app/blog/${post.slug}/`;
+  const article = post.schemas.find((schema) =>
+    ["BlogPosting", "Article"].includes(schema["@type"]),
+  );
+  const breadcrumb = post.schemas.find((schema) => schema["@type"] === "BreadcrumbList");
+  const faq = post.schemas.find((schema) => schema["@type"] === "FAQPage");
+
+  if (post.canonical !== expectedCanonical) {
+    errors.push(`canonical must be ${expectedCanonical}`);
+  }
+  if (!article) {
+    errors.push("missing BlogPosting or Article schema");
+  } else {
+    if (article["@context"] !== "https://schema.org") errors.push("Article @context must be https://schema.org");
+    if (article.headline !== post.title) errors.push("Article headline must match frontmatter title");
+    if (article.description !== post.description) errors.push("Article description must match frontmatter description");
+    if (article.image !== `${expectedCanonical}assets/cover.webp`) errors.push("Article image must use the canonical cover.webp URL");
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(article.datePublished ?? "")) errors.push("Article datePublished must be YYYY-MM-DD");
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(article.dateModified ?? "")) errors.push("Article dateModified must be YYYY-MM-DD");
+    if ((article.dateModified ?? "") < (article.datePublished ?? "")) errors.push("Article dateModified cannot precede datePublished");
+    if (JSON.stringify(article.author) !== JSON.stringify(AUTHOR)) errors.push("Article author does not match the canonical Michael Rode entity");
+    if (JSON.stringify(article.publisher) !== JSON.stringify(PUBLISHER)) errors.push("Article publisher does not match the canonical GainFrame entity");
+    if (article.mainEntityOfPage?.["@id"] !== expectedCanonical) errors.push("Article mainEntityOfPage must match canonical");
+    if (article.articleSection !== post.category) errors.push("Article articleSection must match the display category");
+  }
+
+  if (!breadcrumb) {
+    errors.push("missing BreadcrumbList schema");
+  } else {
+    const items = breadcrumb.itemListElement;
+    if (!Array.isArray(items) || !items.length) {
+      errors.push("BreadcrumbList must contain itemListElement entries");
+    } else {
+      const finalItem = items.at(-1);
+      if (finalItem?.item !== expectedCanonical) errors.push("final breadcrumb URL must match canonical");
+      if (finalItem?.position !== items.length) errors.push("final breadcrumb position must match the item count");
+    }
+  }
+
+  if (!post.seoExempt && !faq) {
+    errors.push("SEO-lane post is missing FAQPage schema");
+  }
+  if (faq) {
+    if (!Array.isArray(faq.mainEntity) || !faq.mainEntity.length) {
+      errors.push("FAQPage must contain mainEntity questions");
+    } else {
+      for (const [index, entity] of faq.mainEntity.entries()) {
+        const question = normalizeText(entity.name);
+        const answer = normalizeText(entity.acceptedAnswer?.text);
+        if (!question || !post.visibleBody.includes(question)) errors.push(`FAQ question ${index + 1} does not appear in the visible body`);
+        if (!answer || !post.visibleBody.includes(answer)) errors.push(`FAQ answer ${index + 1} does not match the visible body`);
+      }
+    }
+  }
+
+  return errors;
+}
+
 // ------------------------------------------------------------------ load ----
 
 async function loadPosts() {
@@ -130,17 +240,18 @@ async function loadPosts() {
       const raw = await fs.readFile(path.join(BLOG_DIR, file), "utf8");
       const { data, body } = parseFrontmatter(raw);
       const schemaBlock = data.__schemaBlock ?? "";
+      const { schemas, errors: schemaParseErrors } = extractSchemas(schemaBlock);
 
       // Two link styles coexist in this corpus and both count as real internal
       // links. Newer posts use absolute hrefs; older ones use markdown
       // relative links (189 of them as of 2026-08-01). Counting only the first
       // style reported linked posts as orphans.
-      const outbound = new Set([
-        ...[...body.matchAll(/href="\/blog\/([a-z0-9-]+)\/?"/g)].map((m) => m[1]),
-        ...[...body.matchAll(/\]\(\.\.\/([a-z0-9-]+)\/?\)/g)].map((m) => m[1]),
-        ...[...body.matchAll(/\]\(\/blog\/([a-z0-9-]+)\/?\)/g)].map((m) => m[1]),
-      ]);
+      const outbound = blogLinks(body);
       outbound.delete(slug);
+      const relatedStart = body.search(/<div\s+class(?:Name)?=["']post-related/);
+      const contextualBody = relatedStart === -1 ? body : body.slice(0, relatedStart);
+      const contextualOutbound = blogLinks(contextualBody);
+      contextualOutbound.delete(slug);
 
       const toolLinks = new Set(
         [...body.matchAll(/href="\/tools\/([a-z0-9-]+)\/?"/g)].map((m) => m[1]),
@@ -159,15 +270,24 @@ async function loadPosts() {
         canonical: data.canonical ?? "",
         datePublished: firstMatch(/"datePublished":"([\d-]+)"/, schemaBlock),
         dateModified: firstMatch(/"dateModified":"([\d-]+)"/, schemaBlock),
+        schemas,
+        schemaParseErrors,
         outbound: [...outbound],
+        contextualOutbound: [...contextualOutbound],
         toolLinks: [...toolLinks],
         inbound: [],
+        contextualInbound: [],
         quickAnswerWords: quickAnswer ? words(quickAnswer).length : 0,
         hasQuickAnswer: Boolean(quickAnswer),
         hasFaqSchema: schemaBlock.includes('"@type":"FAQPage"'),
         hasBreadcrumbSchema: schemaBlock.includes('"@type":"BreadcrumbList"'),
         referencesCover: body.includes("assets/cover.webp"),
         bodyWords: words(body.replace(/<[^>]+>/g, " ")).length,
+        visibleBody: normalizeText(body),
+        longDashCount: (raw.match(/[—–]/g) ?? []).length,
+        seoExempt: SEO_EXEMPT_CATEGORIES.has(
+          (data.displayCategory ?? data.breadcrumbCategory ?? "").trim().toLowerCase(),
+        ),
       };
     }),
   );
@@ -198,7 +318,10 @@ function buildInventory(posts) {
   for (const post of posts) {
     for (const target of post.outbound) {
       const dest = bySlug.get(target);
-      if (dest) dest.inbound.push(post.slug);
+      if (dest) {
+        dest.inbound.push(post.slug);
+        if (post.contextualOutbound.includes(target)) dest.contextualInbound.push(post.slug);
+      }
       else brokenLinks.push({ from: post.slug, to: target });
     }
   }
@@ -243,6 +366,8 @@ function buildInventory(posts) {
   const seoPosts = posts.filter(
     (p) => !SEO_EXEMPT_CATEGORIES.has(p.category.trim().toLowerCase()),
   );
+
+  for (const post of posts) post.schemaContractIssues = validateSchemaContract(post);
 
   const quickAnswerIssues = seoPosts
     .filter(
@@ -292,6 +417,15 @@ function buildInventory(posts) {
       .filter((p) => !p.hasBreadcrumbSchema)
       .map((p) => p.slug),
     missingCanonical: posts.filter((p) => !p.canonical).map((p) => p.slug),
+    malformedSchema: posts
+      .filter((p) => p.schemaParseErrors.length)
+      .map((p) => ({ slug: p.slug, issues: p.schemaParseErrors })),
+    schemaContractIssues: posts
+      .filter((p) => p.schemaContractIssues.length)
+      .map((p) => ({ slug: p.slug, issues: p.schemaContractIssues })),
+    longDashIssues: posts
+      .filter((p) => p.longDashCount)
+      .map((p) => ({ slug: p.slug, count: p.longDashCount })),
     missingCover: posts
       .filter((p) => p.referencesCover && p.coverOnDisk === false)
       .map((p) => p.slug),
@@ -303,9 +437,12 @@ function buildInventory(posts) {
         published: p.datePublished,
         modified: p.dateModified,
         inbound: p.inbound.length,
+        contextualInbound: p.contextualInbound.length,
         outbound: p.outbound.length,
         bodyWords: p.bodyWords,
         quickAnswerWords: p.quickAnswerWords,
+        schemaContractIssues: p.schemaContractIssues,
+        longDashCount: p.longDashCount,
       }))
       .sort((a, b) => (a.published ?? "").localeCompare(b.published ?? "")),
   };
@@ -386,6 +523,9 @@ function toMarkdown(inv) {
   lines.push(`- Missing BreadcrumbList schema: ${inv.missingBreadcrumbSchema.length}`);
   lines.push(`- Missing canonical: ${inv.missingCanonical.length}`);
   lines.push(`- Cover referenced but absent on disk: ${inv.missingCover.length}`);
+  lines.push(`- Malformed JSON-LD: ${inv.malformedSchema.length}`);
+  lines.push(`- Structured-data contract drift: ${inv.schemaContractIssues.length}`);
+  lines.push(`- Posts with reader-visible long dashes: ${inv.longDashIssues.length}`);
   if (inv.missingCover.length) {
     lines.push(...inv.missingCover.map((s) => `  - \`${s}\``));
   }
@@ -395,7 +535,7 @@ function toMarkdown(inv) {
 }
 
 // Hard failures only — things that are broken, versus things worth reviewing.
-function runCheck(inv) {
+function runCheck(inv, selectedPost) {
   const failures = [];
   if (inv.brokenLinks.length) {
     failures.push(
@@ -412,12 +552,37 @@ function runCheck(inv) {
   if (inv.missingCanonical.length) {
     failures.push(`${inv.missingCanonical.length} post(s) missing canonical: ${inv.missingCanonical.join(", ")}`);
   }
+  if (inv.malformedSchema.length) {
+    failures.push(
+      `${inv.malformedSchema.length} post(s) contain malformed JSON-LD: ` +
+        inv.malformedSchema.map((p) => p.slug).join(", "),
+    );
+  }
+
+  if (selectedPost) {
+    if (selectedPost.schemaContractIssues.length) {
+      failures.push(
+        `${selectedPost.slug} structured-data contract: ${selectedPost.schemaContractIssues.join("; ")}`,
+      );
+    }
+    if (selectedPost.longDashCount) {
+      failures.push(`${selectedPost.slug} contains ${selectedPost.longDashCount} en/em dash(es)`);
+    }
+    if (selectedPost.inbound.length < 2) {
+      failures.push(`${selectedPost.slug} needs at least 2 inbound links; found ${selectedPost.inbound.length}`);
+    }
+    if (selectedPost.contextualInbound.length < 1) {
+      failures.push(`${selectedPost.slug} needs at least 1 contextual inbound link; found ${selectedPost.contextualInbound.length}`);
+    }
+  }
 
   const warnings = [
     `${inv.orphans.length} orphan(s)`,
     `${inv.cannibalization.length} cannibalization pair(s)`,
     `${inv.quickAnswerIssues.length} Quick Answer issue(s)`,
     `${inv.stale.length} stale post(s)`,
+    `${inv.schemaContractIssues.length} structured-data contract issue(s)`,
+    `${inv.longDashIssues.length} post(s) with legacy long dashes`,
   ];
 
   if (failures.length) {
@@ -426,7 +591,10 @@ function runCheck(inv) {
     console.error(`  review: ${warnings.join(" · ")}`);
     return 1;
   }
-  console.log(`PASS — ${inv.totals.posts} posts, no broken links or missing assets`);
+  console.log(
+    `PASS — ${inv.totals.posts} posts, no broken links, missing assets, or malformed JSON-LD` +
+      (selectedPost ? `; ${selectedPost.slug} passes strict launch checks` : ""),
+  );
   console.log(`  review: ${warnings.join(" · ")}`);
   return 0;
 }
@@ -447,7 +615,22 @@ if (slugIndex !== -1) {
     process.exit(1);
   }
   const full = posts.find((p) => p.slug === wanted);
-  console.log(JSON.stringify({ ...row, inboundFrom: full.inbound, outboundTo: full.outbound }, null, 2));
+  if (args.includes("--check")) {
+    process.exit(runCheck(inventory, full));
+  }
+  console.log(
+    JSON.stringify(
+      {
+        ...row,
+        inboundFrom: full.inbound,
+        contextualInboundFrom: full.contextualInbound,
+        outboundTo: full.outbound,
+        contextualOutboundTo: full.contextualOutbound,
+      },
+      null,
+      2,
+    ),
+  );
 } else if (args.includes("--check")) {
   process.exit(runCheck(inventory));
 } else if (args.includes("--markdown")) {

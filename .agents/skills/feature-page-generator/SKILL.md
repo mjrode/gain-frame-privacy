@@ -75,6 +75,7 @@ Feature pages are NOT blog posts. They are product marketing pages — visual, s
 - **Short punchy declarations > long complex sentences.**
 - **Second-person address.** Write "you" directly.
 - **No filler.** Every sentence must either show value, describe the workflow, or provide a concrete detail.
+- **No long dashes in reader-visible copy.** Do not use U+2013 en dashes or U+2014 em dashes in metadata, headings, prose, captions, or CTA text. Rewrite with punctuation, parentheses, a plain hyphen, or the word "to".
 
 ## HTML Template
 
