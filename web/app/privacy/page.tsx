@@ -57,7 +57,7 @@ export default function PrivacyPage() {
         <div className="privacy-container">
           <h1>Privacy Policy</h1>
           <p className="privacy-subtitle">
-            GainFrame: Progress Photos — Last updated February 20, 2026
+            GainFrame: Progress Photos — Last updated August 11, 2026
           </p>
 
           <p>
@@ -69,9 +69,10 @@ export default function PrivacyPage() {
 
           <h2>1. Data Stored on Your Device</h2>
           <p>
-            GainFrame is a <strong>local-first</strong> app. The following data
-            is stored exclusively on your iPhone — we do not operate a cloud
-            database and none of this data is stored on our servers:
+            GainFrame is a <strong>local-first</strong> app. Unless you
+            deliberately use an opt-in community publishing feature, the
+            following data is stored on your iPhone and is not copied to the
+            GainFrame community database:
           </p>
           <ul>
             <li>Progress photos and camera roll imports</li>
@@ -85,11 +86,16 @@ export default function PrivacyPage() {
             are transmitted to Google&rsquo;s Gemini API for analysis (see
             Section 2). They are not retained by Google or by us — they are
             processed and discarded, and the only persistent copy remains on
-            your device.
+            your device unless you separately approve a sanitized community
+            scan-image copy as described in Section 6.
           </p>
           <p>
-            We do not have access to your photos or personal data. If you
-            delete the app, all local data is permanently removed.
+            We do not receive your original photo library or private GainFrame
+            history. Publishing to the community sends only the fields and
+            separate image copy shown on the final approval screen. Deleting
+            the app removes local data from that device, but does not by itself
+            withdraw content you previously published; use the community
+            controls in the app first.
           </p>
 
           <h2>2. AI Image Analysis</h2>
@@ -112,7 +118,10 @@ export default function PrivacyPage() {
                 Google&rsquo;s API Terms of Service
               </a>
             </li>
-            <li>We do not store your images on any server</li>
+            <li>
+              We do not persist the image sent for AI analysis; community scan-image
+              publishing is a separate, optional action described in Section 6
+            </li>
           </ul>
 
           <h2>3. Apple Health</h2>
@@ -167,7 +176,60 @@ export default function PrivacyPage() {
             third party.
           </p>
 
-          <h2>6. No Tracking or Advertising</h2>
+          <h2>6. Optional Community Profiles and Leaderboard</h2>
+          <p>
+            Community participation is off by default. If you opt in, GainFrame
+            stores an opaque public profile identifier, your chosen username,
+            visibility choice, and only the profile fields you choose to share,
+            such as a short bio, training-since year, favorite lift, broad
+            region, or approved avatar.
+          </p>
+          <p>
+            Each score you publish becomes a separate community entry containing
+            its score, goal, chosen calendar date, scoring-contract version,
+            verification state, and the maximum audience you approved. Changing
+            the profile later can narrow an older entry but cannot silently make
+            it available to a broader audience. Your public profile can show all
+            eligible entries you have not withdrawn. Ranked standings show only
+            your highest eligible listed entry for the selected goal and period.
+          </p>
+          <p>
+            A shared scan image is optional and requires an additional approval. The
+            app creates a separate, cropped and resized copy, automatically
+            blurs faces it detects, and shows you the exact preview for approval
+            before publishing. The original GainFrame photo stays in local
+            storage and is not uploaded as the public asset. Approved scan-image
+            copies are held in private object storage and delivered to viewers
+            using links that expire within approximately five minutes.
+          </p>
+          <p>
+            You can withdraw a profile, entry, or shared scan image in the app.
+            Withdrawal stops GainFrame from issuing new public access and takes
+            the associated scan-image copy out of active public delivery. A
+            delivery link already issued may continue working until its short
+            expiration, and we cannot retrieve copies another person saved while
+            the content was public. Security, backup, or moderation records may
+            persist when reasonably necessary.
+          </p>
+          <p>
+            Members can report profiles, entries, and scan images and can block
+            other community profiles. Reports may include the target identifiers,
+            selected reason, optional details, workflow status, and moderator
+            notes. Automated checks and authorized human reviewers may evaluate
+            published content and reports. Blocking affects the in-app experience
+            but cannot prevent anonymous access to a public web page. See the{" "}
+            <a href="/community-guidelines/">Community Guidelines</a>.
+          </p>
+          <p>
+            For public-web reports, the canonical network address is converted
+            into a salted, one-way abuse-prevention fingerprint for rate
+            limiting. Browser user-agent text is not part of that quota identity,
+            and the raw address is not stored in the leaderboard report row. The
+            fingerprint and report may be retained with moderation and security
+            records when reasonably necessary.
+          </p>
+
+          <h2>7. No Tracking or Advertising</h2>
           <p>
             GainFrame does <strong>not</strong>:
           </p>
@@ -176,30 +238,37 @@ export default function PrivacyPage() {
             <li>Use cross-app tracking</li>
             <li>Collect device advertising identifiers (IDFA)</li>
             <li>Share data with data brokers</li>
-            <li>Require an account or login</li>
+            <li>Require an email-based account for core local photo features</li>
           </ul>
 
-          <h2>7. Analytics</h2>
+          <h2>8. Analytics</h2>
           <p>
-            We may collect anonymized, aggregated usage data (such as which
-            features are used most frequently) to improve the app. This data
-            cannot be used to identify individual users.
+            We collect product analytics and diagnostics, such as feature
+            interactions, app and device information, crash and performance
+            data, and installation or session identifiers. We use this
+            information to operate, secure, and improve GainFrame. When you
+            sign in, some analytics may be associated with a pseudonymous
+            account identifier so activity can be understood across sessions.
+            Analytics providers include PostHog and Firebase. We do not use
+            this data for third-party advertising or sell it to data brokers.
           </p>
 
-          <h2>8. Children&rsquo;s Privacy</h2>
+          <h2>9. Children&rsquo;s Privacy</h2>
           <p>
-            GainFrame is rated 4+ and does not knowingly collect data from
-            children under 13. The app does not require any personal
-            information to function.
+            GainFrame is not directed to children under 13. Community
+            publishing requires an identified account and is unavailable to
+            children under 13. GainFrame&rsquo;s age rating is the rating shown
+            in its current App Store listing; that rating does not mean the
+            community service is intended for children.
           </p>
 
-          <h2>9. Changes to This Policy</h2>
+          <h2>10. Changes to This Policy</h2>
           <p>
             We may update this privacy policy from time to time. Any changes
             will be posted on this page with an updated revision date.
           </p>
 
-          <h2>10. Contact</h2>
+          <h2>11. Contact</h2>
           <p>
             If you have questions about this privacy policy, contact us at:
             <br />

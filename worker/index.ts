@@ -6,13 +6,20 @@
 // routing API requests or returning a static asset.
 
 import { handleStats, type StatsEnv } from "./api/stats";
-import { handleLeaderboard, type LeaderboardEnv } from "./api/leaderboard";
+import {
+  handleLeaderboard,
+  handleLeaderboardProfile,
+  handleLeaderboardProfileMedia,
+  handleLeaderboardReport,
+  type LeaderboardEnv,
+} from "./api/leaderboard";
 import {
   CORS_HEADERS,
   handleTrainerWaitlist,
   type TrainerWaitlistEnv,
 } from "./api/trainer-waitlist";
 import type { AssetFetcher, Ctx } from "./types";
+import { profileShellRequest } from "./routes";
 
 interface Env extends StatsEnv, TrainerWaitlistEnv, LeaderboardEnv {
   ASSETS: AssetFetcher;
@@ -60,6 +67,27 @@ export default {
       return handleLeaderboard(request, env);
     }
 
+    if (pathname === "/api/leaderboard/profile") {
+      if (request.method !== "GET" && request.method !== "HEAD") {
+        return methodNotAllowed("GET, HEAD");
+      }
+      return handleLeaderboardProfile(request, env);
+    }
+
+    if (pathname === "/api/leaderboard/profile/media") {
+      if (request.method !== "GET" && request.method !== "HEAD") {
+        return methodNotAllowed("GET, HEAD");
+      }
+      return handleLeaderboardProfileMedia(request, env);
+    }
+
+    if (pathname === "/api/leaderboard/report") {
+      if (request.method !== "POST") {
+        return methodNotAllowed("POST");
+      }
+      return handleLeaderboardReport(request, env);
+    }
+
     if (pathname === "/api/trainer-waitlist") {
       if (request.method === "OPTIONS") {
         return new Response(null, { status: 204, headers: CORS_HEADERS });
@@ -77,7 +105,8 @@ export default {
       });
     }
 
-    // All non-/api requests are served from the static asset binding.
-    return env.ASSETS.fetch(request);
+    // Canonical profile URLs share one export-safe client shell. Every other
+    // non-/api request is served directly from the static asset binding.
+    return env.ASSETS.fetch(profileShellRequest(request) || request);
   },
 };

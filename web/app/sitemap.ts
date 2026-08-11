@@ -134,6 +134,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    {
+      url: `${SITE.url}/community-guidelines/`,
+      lastModified: today(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ];
 
   const calcEntries: MetadataRoute.Sitemap = CALC_SLUGS.map((slug) => ({

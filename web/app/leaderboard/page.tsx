@@ -9,12 +9,12 @@ const PAGE_PATH = "/leaderboard/";
 export const metadata: Metadata = {
   title: "GainFrame Leaderboard",
   description:
-    "See opt-in GainFrame Scores from the community. Only usernames, scores, goals, and chosen check-in dates are shown.",
+    "See opt-in GainFrame Scores, published score histories, and member-approved scan images from the community.",
   alternates: { canonical: PAGE_PATH },
   openGraph: {
     title: "GainFrame Leaderboard",
     description:
-      "See opt-in GainFrame Scores from the community while progress photos stay private.",
+      "See opt-in community scores. Photos appear only when a member explicitly publishes a sanitized scan copy.",
     url: `${SITE.url}${PAGE_PATH}`,
     type: "website",
     siteName: "GainFrame",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GainFrame Leaderboard",
     description:
-      "See opt-in GainFrame Scores from the community while progress photos stay private.",
+      "See opt-in community scores. Photos appear only when a member explicitly publishes a sanitized scan copy.",
     images: [SITE.ogImage],
   },
 };
