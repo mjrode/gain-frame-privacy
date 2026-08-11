@@ -5,7 +5,8 @@ description: "End-to-end SEO content run for gainframe.app: pull Search Console 
 
 # SEO Content Cycle (GainFrame)
 
-Closes the loop: **measure → validate against real market data → propose → approve → write → ship → index → record**.
+Closes the loop: **load business context → measure → inspect the live SERP → propose → approve →
+write → ship → index → measure business outcomes → record**.
 
 This skill is the orchestrator. It does not restate the editorial rules — `$blog-post-generator`
 and `seo-tools/writer-spec.md` own those, and every post written here must follow them verbatim.
@@ -57,8 +58,8 @@ section in the same commit.
 | `mcp__gsc__*` | **Works when connected**, but the server (`pipx run mcp-gsc`, defined in `~/.claude.json`) is **absent from some sessions** (first seen 2026-08-07). `sc-domain:gainframe.app` shows as `siteFullUser` | All GSC performance, queries, pages, index verdicts, URL inspection. **This is the performance source for this site.** If the tools are missing (ToolSearch finds nothing for `select:mcp__gsc__*`), do NOT stop and do NOT touch the SEO Receipts connector — call the Search Console API directly: the service account key is `~/.config/gainframe/gsc-service-account.json`, scope `https://www.googleapis.com/auth/webmasters`, `google-auth` is installed for system python3. POST `searchAnalytics/query` on `sites/sc-domain%3Againframe.app` for analytics and `v1/urlInspection/index:inspect` for verdicts — a ~40-line scratchpad helper covers the whole phase (see `seo-tools/content-audits/2026-08-07.md`) |
 | `mcp__e6e8a8f4-…__*` (DataForSEO) | **Working.** Live, paid, per-call | Real search volume, keyword difficulty, search intent, 12-month trend, SERP composition, competitor keyword gaps, AI Overview presence, backlinks |
 | `mcp__2676e48c-…__*` (SEO Receipts connector) | **Bound to `sc-domain:seoreceipts.com`, NOT gainframe.app** | **Nothing in this skill.** Every number it returns is a different website. Do not call it here |
-| `mcp__analytics-mcp__*` (GA4) | Available | Sessions/engagement by landing page, when a GSC click number needs a behavioural counterpart |
-| PostHog (`mcp__c90fac73-…__*`) | Available, project `seoreceipts` by default — **switch to GainFrame before querying** | On-site conversion from organic (tool runs, download clicks) |
+| `mcp__analytics-mcp__*` (GA4) | Available | Organic sessions and engagement by landing page. Use as a separate behavioural layer in every decision run; never substitute it for GSC clicks |
+| PostHog (`mcp__c90fac73-…__*`) | Available, project `seoreceipts` by default — **switch to GainFrame before querying** | Landing-page conversion paths: tool results, email submissions, and App Store clicks. Use in every decision run when available |
 | `seo-tools/content-inventory.mjs` | **Working.** No network, no model | Every local fact: link graph, orphans, cannibalization, freshness, Quick Answer lengths |
 
 The most common way to waste a run is to call the SEO Receipts connector, get clean-looking data,
@@ -109,12 +110,26 @@ correct, honest finding, and it belongs in the audit file and in the proposal.
 3. Read `seo-tools/topical-map.md` — the cluster map and the standing gap list. **Check this
    before proposing any keyword.** Update it in Phase 10 when posts ship.
 4. Read the ACTIVE section of `seo-tools/TODO_SEO.md` for open backlog items.
-5. Read `seo-tools/product-context.md` (positioning, tier boundaries, claim limits) and
-   `seo-tools/writer-spec.md` (hard invariants for any post that gets written).
-6. **Re-list `web/content/blog/` before briefing anything.** Other sessions publish into this
+5. Read `seo-tools/product-context.md` (positioning, tier boundaries, claim limits),
+   `../gain-frame/app-marketing-context.md` (business model, operational goals, current conversion
+   constraints), and `seo-tools/writer-spec.md` (hard invariants for any post that gets written).
+   If the marketing context is stale, say so. Do not silently treat an old MRR, download, or
+   conversion value as current.
+6. Define the business-outcome map for this run before looking at keywords:
+   - **Commercial posts and landing pages:** `outbound_app_store_click` is the primary web
+     conversion. App Store downloads or paid subscriptions are separate downstream metrics and
+     require App Store Connect or RevenueCat evidence.
+   - **Interactive tools:** a successful tool result is the activation event; an email submission
+     or App Store click is the next conversion. Use the tool-specific events in `web/lib/analytics.ts`.
+   - **Informational/AEO posts:** the page must name the commercial or tool page it supports. Its
+     direct job may be qualified discovery, internal-link authority, or an AI citation rather than
+     an immediate install.
+   - **Founder/social posts:** sessions and social distribution remain the primary outcome unless
+     the post contains a deliberate commercial CTA.
+7. **Re-list `web/content/blog/` before briefing anything.** Other sessions publish into this
    repo in parallel; the topical map records a 2026-07-13 near-miss where a batch nearly
    duplicated pages another session had shipped two days earlier.
-7. Note which posts are inside a measurement window:
+8. Note which posts are inside a measurement window:
    - **Metadata/title/meta-description changes: 7–10 days.** Never touch a page's metadata twice
      inside that window, and never propose doing so.
    - **New posts: 28 days** before their position is fair to judge.
@@ -163,6 +178,25 @@ social halo, not SEO. Reporting them mixed into organic wins overstates the SEO 
 in the window. 10–30 is directional. Under 10 is an anecdote — never present it as a rank. GSC
 averages only the impressions that occurred, so a 2-impression "position 1" is usually one
 personalized result or a single AI Overview citation.
+
+### Phase 1b — Pull business and engagement evidence
+
+Run this in every decision cycle after the Search Console pull. An unavailable connector is a
+reported limitation, not permission to invent a conversion story.
+
+1. In GA4, pull organic landing-page sessions and engagement for the same 28-day and prior-28-day
+   windows. Keep sessions and engagement separate from GSC clicks.
+2. In PostHog, switch to the GainFrame project, then inspect the conversion events appropriate to
+   each candidate's page type. At minimum check successful tool results, email submissions, and
+   `outbound_app_store_click`, segmented by landing path or the most specific available source
+   property.
+3. For pages without enough conversions to calculate a stable rate, report the raw numerator and
+   denominator and label the result directional. Do not rank two pages on a one-event difference.
+4. Reconcile current operational priorities against `../gain-frame/app-marketing-context.md`.
+   Search volume is not business value: a large informational query can be a worse bet than a
+   smaller commercial query that reaches an App Store click or a high-intent tool run.
+5. Record `unavailable` when GA4, PostHog, App Store Connect, or RevenueCat evidence cannot be
+   accessed. Never use one system as a proxy for another.
 
 ## Phase 2 — Layer on DataForSEO market data
 
@@ -253,6 +287,25 @@ Note `serp_item_types` on every shortlisted keyword. An `ai_overview` present me
 Quick Answer block for extraction and expect the click-through to be lower than the position
 implies. That is worth saying out loud in the proposal rather than promising clicks that a
 zero-click SERP will never deliver.
+
+For every final candidate, save a **live SERP brief** in the dated audit. It must contain:
+
+- observation date, location, language, and the exact keyword;
+- dominant intent and the page format Google rewards (tool, roundup, comparison, guide, forum,
+  marketplace, institutional reference, or mixed);
+- the leading result URLs, their publish/update freshness when visible, and the standard a new
+  page must beat;
+- SERP features: AI Overview, featured snippet, PAA, video, image pack, app pack, local pack, and
+  other elements that affect click potential;
+- recurring subtopics and questions across the results;
+- the visual standard set by the ranking pages;
+- the specific information, first-party asset, tool, or point of view GainFrame can add that the
+  current results do not; and
+- a plain decision: `write`, `fix existing`, `hold`, or `kill`, with the reason.
+
+The brief is part of the approved content specification. Phase 6 must reread it rather than
+reconstructing the SERP from memory. A provider's intent label does not replace looking at the
+actual results.
 
 ### 2d. Competitor gaps
 
@@ -347,6 +400,10 @@ Work out the findings before proposing anything. Cover:
    linked posts as orphans.
 8. **AEO.** AI Overview citations from 2b, Quick Answer defects from Phase 3, and whether
    zero-click impression pools are growing.
+9. **Business outcome.** Join the search opportunity to the Phase 1b evidence. Name the intended
+   conversion, the page that completes it, and whether comparable pages have produced that action.
+   Informational content without a commercial bridge must have a deliberate non-conversion job
+   such as citation capture, proprietary visual discovery, or support for a proven money page.
 
 ## Phase 5 — Break it down and propose
 
@@ -366,15 +423,22 @@ Stamp it with the data-through date, and keep brand queries out of the organic c
 
 Up to ten, numbered, strongest first:
 
-| # | Working title | Target keyword | Volume | KD | Intent | Trend | Cluster | Evidence | Skill | Links from |
-|---:|---|---|---:|---:|---|---|---|---|---|---|
+| # | Working title | Target keyword | Volume | KD | Intent | Trend | Cluster | Funnel role | Target conversion | Business evidence | Search evidence | Skill | Inbound plan |
+|---:|---|---|---:|---:|---|---|---|---|---|---|---|---|---|
 
 **Volume, KD, intent and trend come from DataForSEO and are never estimated.** If a keyword
 returned no data, write "no data" — do not fill the cell with a guess.
 
-**Evidence** is the specific reason this post should exist: a named query with its impressions and
-position, a competitor-gap row, a hub gap, a cannibalization resolution. "Rounds out the cluster"
-is not evidence. If fewer than ten have real evidence, **propose fewer and say why**.
+**Search evidence** is the specific reason this post should exist: a named query with its
+impressions and position, a competitor-gap row, a hub gap, a cannibalization resolution, plus the
+live SERP brief from Phase 2c. "Rounds out the cluster" is not evidence. If fewer than ten have
+real evidence, **propose fewer and say why**.
+
+**Funnel role, target conversion, and business evidence are mandatory.** Business evidence is a
+named comparable landing page and its measured behaviour, an observed commercial cluster pattern,
+or an explicit product-strategy priority. If the intended result is not a direct conversion, say
+what the page supports and name the destination page. Do not use CPC, volume, or intent labels as
+proof that a keyword will make money.
 
 **Before a post makes the proposal table, grep `web/content/blog/` for its keyword family** —
 `ls web/content/blog/ | grep -iE '<stem1>|<stem2>'` plus a content grep for the exact phrase. The
@@ -392,6 +456,15 @@ pages).
 Bias toward **deepening a cluster with existing traction** over opening a new one, and toward
 roundup and brand-"alternatives" formats over informational ones, because that is what converts
 to clicks on this site.
+
+**Inbound link contract for every proposed post:** the `Inbound plan` cell names two or three
+established, topically relevant source pages and the descriptive anchor text each will use. At
+least one link must be contextual inside the source article body rather than appearing only in a
+Related Articles block. Prefer sources that already have at least two inbound links, and include
+the cluster hub when it is genuinely relevant. The new post must also link back to its hub or the
+commercial/tool destination named in its funnel role. If the corpus cannot support this contract,
+hold the proposal or explain the exception before approval. Internal links support discovery,
+crawling, and topical understanding; they do not guarantee indexation.
 
 ### 4. Proposed fixes
 
@@ -497,6 +570,10 @@ Non-negotiables that get caught in review otherwise:
   ("The Honest Part", "The Real Story"). Both are flagged AI tells.
 - **No lead-ins that rank their own section's importance** ("the caveats, because these matter
   more than the wins"). Label the section plainly and start.
+- **No long dashes in reader-visible copy.** Do not use U+2013 en dashes or U+2014 em dashes in
+  frontmatter, article prose, captions, FAQs, tables, or CTA copy. Rewrite with a period, comma,
+  parentheses, a plain hyphen, or the word `to`. This is a GainFrame voice rule, not a ranking
+  claim.
 - **Roundup entries are all first-class:** every ranked app gets a real screenshot converted to
   WebP, a site link, an App Store link, and ratings verified live from the iTunes API at write
   time. Never screenshot one favoured entry and leave the rest as text.
@@ -533,8 +610,22 @@ cd web && npm run build
 Other sessions share this checkout. If the build fails on files this run did not touch, say so
 explicitly and confirm the failure exists without your changes before shipping past it.
 
-Confirm every new post is linked **from** an existing post, not only **to** existing posts — a new
-post with zero inbound links starts life as an orphan. The `--check` output will tell you.
+For every new or modified post, run strict structured-data and style validation:
+
+```bash
+node seo-tools/content-inventory.mjs --check --slug <slug>
+rg -n '[—–]' web/content/blog/<slug>.mdx
+```
+
+The strict slug check must find valid JSON-LD, the canonical author/publisher contract, matching
+frontmatter and Article fields, a correct final breadcrumb, and FAQ schema text that appears in the
+visible body. The `rg` command must produce no output; exit status 1 means the file is clean.
+
+Confirm every new post receives the approved two or three inbound links from existing posts, with
+at least one contextual in-body link and the approved anchor text. Also confirm the new post links
+to its named hub or commercial/tool destination. Use `--slug <slug>` to inspect the inbound source
+list, then inspect the source passages themselves; a Related Articles link alone does not satisfy
+the contextual requirement.
 
 ## Phase 8 — Ship
 
@@ -608,6 +699,10 @@ Write `seo-tools/content-audits/YYYY-MM-DD.md`:
 ## Performance
 28d vs prior 28d, 90d direction, brand vs non-brand split, honest note on sample size.
 
+## Business outcomes
+GA4 organic landing sessions/engagement and PostHog conversion events, kept separate. Current
+business priority, target conversion by page type, unavailable sources, and directional samples.
+
 ## Cluster health
 Cluster table: clicks / delta / impressions / hub position / posts / direction vs last run.
 
@@ -615,11 +710,16 @@ Cluster table: clicks / delta / impressions / hub position / posts / direction v
 Keywords scored this run: volume, KD, intent, yearly trend. Which were killed on intent
 mismatch or market decline, and why.
 
+## Live SERP briefs
+One brief per final candidate: observed intent and format, ranking URLs, SERP features, recurring
+coverage, visual standard, unique GainFrame contribution, and write/fix/hold/kill decision.
+
 ## Proposed
 The numbered posts and fixes exactly as presented, so a later run can pick up what was skipped.
 
 ## Shipped
-New posts (slug, keyword, cluster) and fixes (slug, what changed, why). Empty in a review run.
+New posts (slug, keyword, cluster, funnel role, target conversion), exact inbound source/anchor
+pairs, commercial or hub destination, and fixes (slug, what changed, why). Empty in a review run.
 
 ## Indexing
 IndexNow submissions. Paste-ready Google list. Not-yet-indexed, split by verdict.
@@ -633,8 +733,9 @@ Named queries and URLs with the metric and the date each becomes measurable.
 
 Then update:
 
-- `seo-tools/content-audits/strategy.md` — cluster bets, target keywords, what was tried and what
-  it produced, hypotheses ruled out, proposed-but-not-built items, and every post inside a
+- `seo-tools/content-audits/strategy.md` — cluster bets, target keywords, live SERP decisions,
+  funnel roles, target conversions, comparable-page business evidence, what was tried and what it
+  produced, hypotheses ruled out, proposed-but-not-built items, and every post inside a
   measurement window with the date it becomes fair to judge.
 - `seo-tools/topical-map.md` — add each shipped post to its cluster and revise that cluster's gap
   line.
@@ -672,6 +773,7 @@ Corrections recorded this way so far:
 | 2026-08-02 | Proposed a post that already existed (menopause, shipped Jul 9 by a parallel session) because the topical map's gap line was stale | Phase 5 §3 — mechanical per-candidate existence grep before any post enters the proposal table |
 | 2026-08-06 | A page omitted from the top-50 page report was reported as zero impressions even though the exhaustive report showed 14 | Phase 1 — exact/exhaustive page pull required before declaring zero |
 | 2026-08-07 | The `gsc` MCP server was absent from the session entirely; the run would have stalled at Phase 1 | Data sources table — direct Search Console API fallback via the service account, with key path, scope, and endpoints |
+| 2026-08-11 | The cycle could find traffic opportunities without proving their business job, SERP briefs were not persisted, one inbound link could satisfy the gate, structured data was checked mostly for presence, and long dashes were not banned | Phases 0, 1b, 2c, 4–7, 10 and `content-inventory.mjs` |
 
 ## Guardrails
 
@@ -685,6 +787,15 @@ Corrections recorded this way so far:
 - **Confirm indexing before recommending more content.** More posts do not fix a crawl backlog.
 - **Never blend metrics.** GSC clicks are not GA4 sessions are not PostHog events. Brand queries
   are not organic SEO wins.
+- **Every proposal has a business job.** Traffic volume without a funnel role, target conversion,
+  or deliberate non-conversion purpose is vanity traffic and does not enter the table.
+- **Every final candidate has a saved live SERP brief.** A provider label or remembered SERP is
+  not enough.
+- **Every new SEO post launches with the approved inbound-link contract.** Links improve discovery
+  and understanding; never promise that they guarantee indexing.
+- **Reader-visible copy contains no en or em dashes.** Treat this as a deterministic style check.
+- **New or modified posts pass strict structured-data validation.** Do not waive malformed or
+  drifting schema because older posts contain legacy markup.
 - **Never state a search volume, difficulty, or third-party statistic from memory.** It comes from
   DataForSEO or the iTunes API at run time, or it gets hedged explicitly.
 - **Never claim causation.** A post published and a position that improved are two facts.

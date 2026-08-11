@@ -127,6 +127,7 @@ These rules define GainFrame's editorial voice. Every blog post MUST follow them
   - ✅ *"Same number, completely different appearance."*
   - ❌ *"This means that a female at 20% body fat looks vastly different — and is significantly leaner relative to her gender — than a male at 20% body fat."*
 - **Second-person address.** Write "you" directly. Avoid "users" or "one."
+- **No long dashes in reader-visible copy.** Do not use U+2013 en dashes or U+2014 em dashes in frontmatter, prose, captions, tables, FAQs, or CTA text. Rewrite with punctuation, parentheses, a plain hyphen, or the word "to". This is a GainFrame voice rule, not a ranking claim.
 - **BANNED: "not X, but Y" antithesis constructions** (all variants: *"Not X — Y."*, *"X, not Y"*, *"Not because X…"*). Michael has explicitly flagged this as an AI tell he hates. State the positive fact directly instead of defining it against its negation.
   - ❌ *"Not users — competitors."* / ❌ *"It is verifiable, not vibes."* / ❌ *"Not because it's magic — most of it is boring."*
   - ✅ *"Some of them are competitors."* / ✅ *"You can verify it yourself."* / ✅ *"Most of it is boring project context anyway."*
@@ -161,7 +162,7 @@ Every blog post emits two entity declarations inside its `BlogPosting` JSON-LD: 
     "url": "https://gainframe.app",
     "logo": {
         "@type": "ImageObject",
-        "url": "https://gainframe.app/assets/favicon.webp"
+        "url": "https://gainframe.app/assets/favicons/favicon.webp"
     }
 }
 ```
