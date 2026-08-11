@@ -1,9 +1,40 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-10** (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed; next decision run ~Aug 13) · Data through 2026-08-08
-> Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; **F2 body-composition 301 approved but GATED — re-verify with post-Aug-11 data ~Aug 13, then ship**)
-> Prior run: 2026-08-07 (review → execution; owner approved `all`: F1 chart-title revert + F2 WHR calculator both shipped; zero posts)
+> Last run: **2026-08-11** (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**) · Data through 2026-08-09
+> Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
+> Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
+
+## New findings (2026-08-11)
+
+- **Traffic set another record**: 7,902 clicks / 422,057 impressions in 28d (+209% / +300%
+  versus prior), with 7,208 residual non-brand clicks (+231%). Aug 9 reached 448 clicks and
+  23,597 impressions. GA4 separately showed 8,765 organic sessions (+199%), 65.2% engagement,
+  and 181-second average session duration.
+- **Conversion evidence remains missing**: the correct PostHog project has no events in the last
+  30 days, and App Store Connect / RevenueCat were unavailable. Do not translate GA4 engagement
+  into App Store clicks, downloads, or subscriptions. The operational figures in
+  `app-marketing-context.md` are stale (Apr 20 metrics; May 20 goals).
+- **Indexing is healthy at corpus scale**: 254 of 257 inspected URLs are submitted and indexed.
+  The only mature rejection is `smart-integrations-hevy` (Feb 21, 557 words, crawled Jul 5),
+  which substantially overlaps the indexed `hevy-app-gainframe-integration` page. Proposed F1:
+  preserve the unique Album Sync section on the survivor, repoint four external inbound sources,
+  remove the survivor's reciprocal link, 301, and remove the rejected page. Two Aug 6 gallery
+  URLs are unknown but already in the sitemap and
+  hub; judge them Sep 3 rather than treating them as a crawl problem.
+- **Body-composition F2 remains supported but the approval gate is not open**: loser
+  `best-ai-body-composition-app` fell 43→14 clicks and pos 11.03→17.22; winner held 49→50 clicks
+  and pos 8.58→8.27. They share 10 visible queries, with the winner at 7.78 vs loser at 37.4 on
+  `body composition app`. The explicit approval still requires data through Aug 11 (~Aug 13).
+- **Women-chart overlap is real but gated**: the unisex and women-only chart pages share 46
+  visible queries, and the unisex page currently dominates female-picture variants. The women
+  page's 28-day window opens Aug 15; no merge or retarget before then.
+- **The `rate my body` decision reset**: a parallel-session Aug 11 refresh changed
+  `rate-my-physique` specifically for that query and added an inbound link. Recheck around Aug 21;
+  do not create the sibling page at the old Aug 20 gate.
+- **DataForSEO was absent from the session**: 0 calls; no prior volume/KD/intent/trend or AI
+  Overview result was represented as fresh, and no post dependent on missing market/SERP evidence
+  was proposed.
 
 ## New findings (2026-08-09)
 
@@ -145,12 +176,17 @@ prune these from topical-map gap lines when next edited.
 
 ## Structural debt
 
-**Largely cleared 2026-08-01.** Internal links 929 → 1,279; orphans 46 → 8; median inbound 3 → 4.
+**Largely cleared 2026-08-01.** As of 2026-08-11: 1,318 internal links, 7 orphans, median inbound 4.
 
-- **8 orphans remain**, 6 of them founder-lane (exempt — judged on sessions, not GSC).
-- **51 Quick Answer defects remain**, all in the frozen stats lane. Deliberately skipped: better
-  AI-Overview extraction for a keyword losing 45–66% of volume a year is effort on a shrinking
-  asset. The 9 that mattered (converting pages + AI-Overview-cited pages) are fixed.
+- **7 orphans remain**, all founder/product-lane (exempt — judged on sessions/distribution, not
+  GSC link equity).
+- **51 Quick Answer defects remain.** They include frozen stats pages and a smaller set of
+  commercial pages. Fresh AI Overview citation data was unavailable 2026-08-11, so do not bulk
+  prioritize from the local count alone. Pages inside a measurement window remain untouched.
+- The stricter Aug 11 checker establishes a legacy baseline of **100 structured-data contract
+  drifts** and **234 posts with reader-visible long dashes**. These are not a blanket rewrite
+  mandate; every newly modified post must pass the strict gate, and legacy work needs a
+  leverage-ranked scope.
 - **Cannibalization: none real.** The one flagged pair was a false positive (see below).
 
 ---
@@ -200,9 +236,25 @@ That page is worth defending and deepening.
 | `thelo-app-review` | New post, 28d | 2026-09-06 (baseline: "thelo app reviews" 65 imp @ 6.5 via the roundup) |
 | `/body-fat/` gallery post-link boost (Aug 9) | Content | Directional ~2026-08-19; gallery's own 28d window ~2026-09-01 (baseline 19 clicks / ~2,758 imp / pos 8–17) |
 | `best-body-scanning-measurement-apps` "body scan app" anchors | Content | Directional ~2026-08-19 (baseline pos 6.8 / 343 imp on the query) |
+| `body-fat-percentage-chart-women` vs unisex chart | New post / shared-query diagnosis | 2026-08-15 (46 visible shared queries; hold merge/retarget until then) |
+| `rate-my-physique` Aug 11 query refresh + new inbound link | Content | ~2026-08-21; resets the `rate my body` sibling decision |
+| `aesthetic-physique-body-fat-percentage` → `rate-my-physique` inbound link | Content | ~2026-08-21 directional |
+| Approved F2 `best-ai-body-composition-app` fold-in | Explicit approval gate | Recheck with data through Aug 11, expected ~2026-08-13; do not ship sooner |
+| `/body-fat/12-percent-body-fat-male/`, `/30-percent-body-fat-male/` | New gallery URLs, unknown to Google Aug 11 | 2026-09-03; sitemap + hub links already verified |
 
-No existing-page metadata was edited. The new body visualizer's 28-day window opens 2026-09-03;
-the WHtR calculator's earliest directional read is 2026-08-16, with a full read on 2026-09-03.
+No existing-page metadata was edited in the Aug 11 refresh, but the exact-query body copy and an
+inbound link changed. The new body visualizer's 28-day window opens 2026-09-03; the WHtR
+calculator's earliest directional read is 2026-08-16, with a full read on 2026-09-03.
+
+---
+
+## 2026-08-11 proposed / gated
+
+| Item | Evidence | State |
+|---|---|---|
+| F1 fold `smart-integrations-hevy` into `hevy-app-gainframe-integration` | Mature `Crawled - currently not indexed` verdict; thin 557-word page; generic description + schema drift; substantial feature overlap; 0 current organic sessions on either page | **Proposed, not approved**. Preserve Album Sync section/screenshot, repoint four external inbound sources, remove the survivor's reciprocal link, add 301, remove rejected MDX |
+| F2 fold `best-ai-body-composition-app` into `best-body-composition-apps` | Loser 43→14 clicks / pos 17.22; winner 49→50 / pos 8.27; 10 shared queries; winner 7.78 vs loser 37.4 on head term | **Already approved 2026-08-09, still gated** until data through Aug 11 arrives ~Aug 13 |
+| New posts | DataForSEO unavailable; current GSC candidates are served or in windows | **None proposed** |
 
 ---
 
@@ -241,7 +293,9 @@ their own.
 
 | What | Metric | When |
 |---|---|---|
-| `rate-my-physique` after de-orphaning | position + clicks | 2026-08-20 |
+| Approved F2 body-composition fold-in | loser vs winner on shared queries with data through Aug 11 | ~2026-08-13 |
+| `body-fat-percentage-chart-women` vs unisex chart | shared-query split; differentiate/merge decision | 2026-08-15 |
+| `rate-my-physique` after Aug 11 exact-query refresh | `rate my body` position + clicks; sibling-page go/no-go | ~2026-08-21 |
 | `/tools/physique-rater/` | position (currently 7.0) on "physique rater" | 2026-08-15 |
 | `dexa-scan-alternative` | holds AI Overview rank 2 | 2026-08-15 |
 | `menopause-body-composition` | visual/PAA expansion decision after ≥30 impressions | next cycle with enough signal |
@@ -249,3 +303,5 @@ their own.
 | `waist-to-height-ratio` calculator | rank vs 13.2; clicks/CTR vs 2,542-impression baseline | 2026-08-16 directional; 2026-09-03 full |
 | Stats-cluster CTR | whether 0.3–1.0% is stable or still falling | 2026-09-01 |
 | Sitewide CTR | 1.98% and falling as impressions scale — expected, confirm it stabilises | 2026-09-01 |
+| Two unknown male gallery URLs | discovery / index verdict | 2026-09-03 |
+| `thelo-app-review` | 28-day brand-query verdict | 2026-09-06 |
