@@ -1,19 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { SITE } from "@/lib/site";
 import { publicLeaderboardDate } from "./leaderboard-date";
+import { appendUniqueStandings } from "./leaderboard-pagination";
 
 type Goal = "Lose Weight" | "Gain Muscle" | "Body Recomp";
 type GoalFilter = "all" | Goal;
-type Period = "all" | "year" | "month" | "week";
+type Period = "all_time" | "year" | "month" | "week";
 
 interface LeaderboardEntry {
+  profile_id: string;
+  entry_id: string;
+  rank: number;
   username: string;
   score: number;
   goal: Goal;
   score_date: string;
+  avatar_url?: string;
+  has_proof_media: boolean;
+  profile_available: boolean;
 }
 
 const GOAL_FILTERS: Array<{ value: GoalFilter; label: string }> = [
@@ -24,21 +31,11 @@ const GOAL_FILTERS: Array<{ value: GoalFilter; label: string }> = [
 ];
 
 const PERIODS: Array<{ value: Period; label: string }> = [
-  { value: "all", label: "All time" },
+  { value: "all_time", label: "All time" },
   { value: "year", label: "This year" },
   { value: "month", label: "This month" },
   { value: "week", label: "This week" },
 ];
-
-function startOfPeriod(period: Period, now: Date): Date | null {
-  if (period === "all") return null;
-  if (period === "year") return new Date(now.getFullYear(), 0, 1);
-  if (period === "month") return new Date(now.getFullYear(), now.getMonth(), 1);
-
-  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  start.setDate(start.getDate() - start.getDay());
-  return start;
-}
 
 function initials(username: string): string {
   return username.replace(/_/g, " ").slice(0, 2).toUpperCase();
@@ -52,11 +49,8 @@ function formatDate(value: string): string {
       month: "short",
       day: "numeric",
       year: "numeric",
+      timeZone: "UTC",
     }).format(date);
-}
-
-function rankLabel(rank: number): string {
-  return String(rank);
 }
 
 function friendlyGoal(goal: Goal): string {
@@ -67,51 +61,54 @@ function friendlyGoal(goal: Goal): string {
 
 export default function LeaderboardClient() {
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
+  const [nextCursor, setNextCursor] = useState<string>();
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  const [loadingMore, setLoadingMore] = useState(false);
   const [goal, setGoal] = useState<GoalFilter>("all");
-  const [period, setPeriod] = useState<Period>("all");
+  const [period, setPeriod] = useState<Period>("all_time");
 
-  const load = useCallback(async (signal?: AbortSignal) => {
-    setStatus("loading");
+  const load = useCallback(async ({
+    cursor,
+    append = false,
+    signal,
+  }: {
+    cursor?: string;
+    append?: boolean;
+    signal?: AbortSignal;
+  } = {}) => {
+    if (append) setLoadingMore(true);
+    else setStatus("loading");
     try {
-      const response = await fetch("/api/leaderboard", {
+      const params = new URLSearchParams({ goal, period, limit: "50" });
+      if (cursor) params.set("cursor", cursor);
+      const response = await fetch("/api/leaderboard?" + params.toString(), {
         cache: "no-store",
         headers: { Accept: "application/json" },
         signal,
       });
-      if (!response.ok) throw new Error(`Leaderboard request failed: ${response.status}`);
+      if (!response.ok) throw new Error("Leaderboard request failed: " + response.status);
 
-      const body = await response.json() as { entries?: unknown };
+      const body = await response.json() as { entries?: unknown; next_cursor?: unknown };
       if (!Array.isArray(body.entries)) throw new Error("Invalid leaderboard response");
-      setEntries(body.entries as LeaderboardEntry[]);
+      const incoming = body.entries as LeaderboardEntry[];
+      setEntries((current) => append
+        ? appendUniqueStandings(current, incoming)
+        : appendUniqueStandings([], incoming));
+      setNextCursor(typeof body.next_cursor === "string" ? body.next_cursor : undefined);
       setStatus("ready");
     } catch (error) {
       if ((error as Error).name === "AbortError") return;
-      setStatus("error");
+      if (!append) setStatus("error");
+    } finally {
+      if (append) setLoadingMore(false);
     }
-  }, []);
+  }, [goal, period]);
 
   useEffect(() => {
     const controller = new AbortController();
-    void load(controller.signal);
+    void load({ signal: controller.signal });
     return () => controller.abort();
   }, [load]);
-
-  const rankedEntries = useMemo(() => {
-    const periodStart = startOfPeriod(period, new Date());
-    return entries
-      .filter((entry) => goal === "all" || entry.goal === goal)
-      .filter((entry) => {
-        const scoreDate = publicLeaderboardDate(entry.score_date);
-        return scoreDate !== null && (!periodStart || scoreDate >= periodStart);
-      })
-      .sort((left, right) => (
-        right.score - left.score ||
-        (publicLeaderboardDate(left.score_date)?.getTime() ?? 0) -
-          (publicLeaderboardDate(right.score_date)?.getTime() ?? 0) ||
-        left.username.localeCompare(right.username)
-      ));
-  }, [entries, goal, period]);
 
   const selectedGoalLabel = GOAL_FILTERS.find((filter) => filter.value === goal)?.label;
   const selectedPeriodLabel = PERIODS.find((item) => item.value === period)?.label;
@@ -132,10 +129,12 @@ export default function LeaderboardClient() {
             </span>
 
             <div>
+              <span className="leaderboard-kicker">Community scorebook</span>
               <h1 id="standings-heading">Leaderboard</h1>
               <p aria-live="polite" className="leaderboard-count">
                 {status === "ready"
-                  ? rankedEntries.length + " " + (rankedEntries.length === 1 ? "member" : "members")
+                  ? String(entries.length) + (nextCursor ? "+" : "") + " " +
+                    (entries.length === 1 && !nextCursor ? "member" : "members")
                   : ""}
               </p>
             </div>
@@ -150,9 +149,10 @@ export default function LeaderboardClient() {
               Opt-in
             </summary>
             <p>
-              <strong>Photos stay private.</strong> This page receives only a chosen
-              username, score, goal, and check-in date—never real names, emails,
-              account IDs, uploaded avatars, or progress photos.
+              <strong>Shared by choice.</strong> Members choose their public
+              profile fields and entries. Any scan image is a separately
+              approved, cropped public copy—not the original stored in GainFrame.{" "}
+              <a href="/privacy/">Privacy details</a>
             </p>
           </details>
         </div>
@@ -187,7 +187,6 @@ export default function LeaderboardClient() {
       </header>
 
       <section className="leaderboard-board" aria-labelledby="standings-heading">
-
         {status === "loading" && (
           <div className="leaderboard-state" role="status">
             <span className="leaderboard-spinner" aria-hidden="true" /> Loading standings…
@@ -202,37 +201,83 @@ export default function LeaderboardClient() {
           </div>
         )}
 
-        {status === "ready" && rankedEntries.length === 0 && (
+        {status === "ready" && entries.length === 0 && (
           <div className="leaderboard-state">
             <strong>No scores in this division yet</strong>
             <p>Try {selectedGoalLabel?.toLowerCase()} from {selectedPeriodLabel?.toLowerCase()}, or check back after the next opt-in score is shared.</p>
           </div>
         )}
 
-        {status === "ready" && rankedEntries.length > 0 && (
-          <ol className="leaderboard-ledger" aria-label="Ranked GainFrame Scores">
-            {rankedEntries.map((entry, index) => {
-              const rank = index + 1;
-              return (
-                <li className={"leaderboard-row" + (rank === 1 ? " leaderboard-row--first" : "")} key={entry.username + "-" + entry.score_date}>
-                  <span className="leaderboard-rank">{rankLabel(rank)}</span>
-                  <span className="leaderboard-member">
-                    <span className="leaderboard-avatar" aria-hidden="true">{initials(entry.username)}</span>
-                    <span>
-                      <strong>@{entry.username}</strong>
-                      <small>
-                        {goal === "all" && <>{friendlyGoal(entry.goal)} <b aria-hidden="true">·</b> </>}
-                        {formatDate(entry.score_date)}
-                      </small>
+        {status === "ready" && entries.length > 0 && (
+          <>
+            <ol className="leaderboard-ledger" aria-label="Ranked GainFrame Scores">
+              {entries.map((entry) => {
+                const rank = entry.rank;
+                const rowContents = (
+                  <>
+                    <span className="leaderboard-rank">{rank}</span>
+                    <span className="leaderboard-member">
+                      <span className="leaderboard-avatar" aria-hidden="true">
+                        {entry.avatar_url
+                          ? <img src={entry.avatar_url} alt="" referrerPolicy="no-referrer" />
+                          : initials(entry.username)}
+                      </span>
+                      <span>
+                        <strong>@{entry.username}</strong>
+                        <small>
+                          {goal === "all" && <>{friendlyGoal(entry.goal)} <b aria-hidden="true">·</b> </>}
+                          {formatDate(entry.score_date)}
+                          {entry.has_proof_media && <span className="leaderboard-proof-mark">Scan image shared</span>}
+                        </small>
+                      </span>
                     </span>
-                  </span>
-                  <span className="leaderboard-score" aria-label={`${entry.score} GainFrame Score`}>{entry.score}</span>
-                </li>
-              );
-            })}
-          </ol>
+                    <span
+                      className="leaderboard-score"
+                      aria-hidden={entry.profile_available ? true : undefined}
+                      aria-label={entry.profile_available ? undefined : entry.score + " GainFrame Score"}
+                    >
+                      {entry.score}
+                    </span>
+                    {entry.profile_available && <span className="leaderboard-row-arrow" aria-hidden="true">↗</span>}
+                  </>
+                );
+                return (
+                  <li className={"leaderboard-row" + (rank === 1 ? " leaderboard-row--first" : "")} key={entry.entry_id}>
+                    {entry.profile_available ? (
+                      <a
+                        className="leaderboard-row-link"
+                        href={"/leaderboard/u/" + entry.profile_id + "/"}
+                        aria-label={"View @" + entry.username + "'s profile, ranked " + rank + " with a score of " + entry.score}
+                      >
+                        {rowContents}
+                      </a>
+                    ) : (
+                      <div className="leaderboard-row-link leaderboard-row-link--static">
+                        {rowContents}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+            {nextCursor && (
+              <div className="leaderboard-more">
+                <button
+                  type="button"
+                  disabled={loadingMore}
+                  onClick={() => void load({ cursor: nextCursor, append: true })}
+                >
+                  {loadingMore ? "Loading…" : "Show more standings"}
+                </button>
+              </div>
+            )}
+          </>
         )}
       </section>
+      <p className="leaderboard-community-note">
+        Progress over popularity. Read the{" "}
+        <a href="/community-guidelines/">community guidelines</a>.
+      </p>
     </div>
   );
 }
