@@ -6888,5 +6888,355 @@
     "alt": "The GainFrame mascot holds a smartphone displaying a side-by-side body comparison in the GainFrame app."
    }
   ]
+ },
+ "how-long-should-you-rest": {
+  "summary": "Rest times significantly impact workout performance and muscle growth. Compound exercises like squats require 2 to 3 minutes of rest, whereas isolation moves like curls require 60 to 90 seconds. Resting sufficiently between sets prevents fatigue from cutting total volume and gains.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "How long should you rest?",
+    "alt": "The GainFrame mascot sits on a gym bench beside a clock for a comic about optimal workout rest times."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Big lifts get 2 to 3 minutes. Squats and presses need full tanks rushing them cuts your reps.",
+    "alt": "The GainFrame mascot rests on a bench next to a barbell squat rack to show compound lifts need 2 to 3 minutes of rest."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Curls get 60 to 90 seconds. Isolation recovers fast go when you feel ready.",
+    "alt": "The GainFrame mascot gives a thumbs-up while holding a dumbbell, highlighting that isolation moves need 60 to 90 seconds of rest."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Short rest cuts your gains. Fewer reps every set after fatigue is not intensity.",
+    "alt": "A fatigued GainFrame mascot marked with a red X is contrasted with a recovered mascot lifting a barbell marked with a green checkmark to warn against short rest."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Rest more, lift more, grow more. Total reps drive growth rest is part of the set.",
+    "alt": "The GainFrame mascot flexes his biceps next to rising green arrows to demonstrate how longer rest leads to more growth."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See if your sessions are actually working. GainFrame.",
+    "alt": "A hand holds a smartphone displaying fitness tracking charts in the GainFrame app."
+   }
+  ]
+ },
+ "how-many-sets-do-you-need": {
+  "summary": "To maximize muscle growth, aim for 10 to 20 hard sets per muscle group each week while leaving 1 to 3 reps in reserve. Exceeding 20 sets often leads to diminishing returns because recovery limits overall progress. Beginners should start near 10 sets per week and slowly increase volume only when muscle growth stalls.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "How many sets do you need?",
+    "alt": "The GainFrame mascot stands next to a stack of barbell weight plates while asking how many training sets are needed."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. 10 to 20 sets a week. Per muscle, hard sets only. That is the whole secret.",
+    "alt": "The GainFrame mascot points to a calendar with tally marks, highlighting that 10 to 20 hard sets per muscle each week is the ideal target."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Hard sets are the only sets. Leave 1 to 3 reps in the tank. Warmups do not count.",
+    "alt": "The GainFrame mascot curls dumbbells with effort, illustrating that only challenging sets with 1 to 3 reps left in reserve count toward volume."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. More is not always better. Past 20 sets returns fall off. Recovery is the ceiling.",
+    "alt": "The GainFrame mascot compares an exhausted lifter marked with a red cross to a well-rested lifter with a green checkmark, demonstrating that recovery limits useful set volume."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Start low and add slowly. Begin near 10 and earn more. Add sets when progress stalls.",
+    "alt": "The GainFrame mascot climbs a set of stairs leading to heavier weights, illustrating how lifters should start near 10 sets and add volume gradually."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See which muscles need more sets.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app muscle comparison interface, showing how to track weekly set needs across different body parts."
+   }
+  ]
+ },
+ "what-to-eat-around-lifting": {
+  "summary": "Fueling before a workout with carbs and protein supports performance, though training fasted is optional. Post-workout protein timing spans several hours, so hitting total daily intake matters most. Whole foods and protein shakes are equally effective for recovery.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "1/6 What to eat around lifting",
+    "alt": "The GainFrame mascot sits at a table with rice and protein, introducing pre- and post-workout nutrition tips."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "2/6 1. Before: carbs plus protein 1 to 2 hours out is plenty fuel beats running on empty",
+    "alt": "The GainFrame mascot holds a banana and coffee next to a gym bag to show that carbs and protein before lifting provide energy."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "3/6 2. Train fasted if you want It does not burn more fat It just feels worse for some",
+    "alt": "Two identical GainFrame mascots lift weights side-by-side, one fasted and one fed, highlighting that fasted training does not increase fat loss."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "4/6 3. After: protein, no panic The window is hours not minutes Total daily protein wins",
+    "alt": "The GainFrame mascot walks with a gym bag and meal prep box, illustrating that post-workout protein timing lasts hours."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "5/6 4. The shake is optional Food works exactly as well Shakes are just convenient",
+    "alt": "The GainFrame mascot stands beside a protein shaker and a plate of chicken and rice with checkmarks above both, indicating shakes are optional."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "6/6 See the macros your training needs G'F",
+    "alt": "The GainFrame mascot displays a smartphone showing a macro tracking app to help calculate nutrition needs."
+   }
+  ]
+ },
+ "cutting-in-4-rules": {
+  "summary": "Cutting effectively requires a moderate daily deficit of 300 to 500 calories to target 0.5 to 1 percent body weight loss weekly. Eating roughly one gram of protein per pound of body weight and continuing heavy strength training preserves muscle. Progress photos help track body composition changes when scale updates plateau.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "1/6 Cutting in 4 rules",
+    "alt": "The GainFrame mascot stands with hands on hips introducing four rules for cutting body fat."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "2/6 1. Go 300 to 500 under. Small deficit, steady loss. Crash cuts cost muscle.",
+    "alt": "The GainFrame mascot stands next to a balance scale weighing food, emphasizing a 300 to 500 calorie daily deficit."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "3/6 2. Keep protein high. Around 1 gram per pound. It guards muscle in a deficit.",
+    "alt": "The GainFrame mascot holds a plate with a chicken breast beside a protective shield, highlighting high protein intake."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "4/6 3. Keep lifting heavy. Lifting tells muscle to stay. Cardio alone melts both.",
+    "alt": "The GainFrame mascot deadlifts a barbell with a checkmark next to treadmill running marked with an X, illustrating heavy lifting over cardio alone."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "5/6 4. Expect 0.5 to 1 percent a week. Of bodyweight, not more. Faster is just muscle loss.",
+    "alt": "The GainFrame mascot stands on a bathroom scale next to a downward trend chart showing a target rate of 0.5 to 1 percent weekly weight loss."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "6/6 See the cut working when the scale stalls. GainFrame",
+    "alt": "A hand holds a smartphone displaying side-by-side visual progress photos in the GainFrame app."
+   }
+  ]
+ },
+ "80-20-of-building-muscle": {
+  "summary": "Building muscle effectively relies on fundamental habits like lifting hard three to five days a week, consuming adequate daily protein, and sleeping seven to nine hours. Maintaining long-term consistency over years yields the majority of results compared to minor routine tweaks.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "The 80/20 of building muscle",
+    "alt": "The GainFrame mascot stands with arms crossed beside a pie chart, introducing muscle building fundamentals."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Train hard 3 to 5 days. Progressive overload on big lifts, everything else is seasoning.",
+    "alt": "The GainFrame mascot performs a barbell squat to show the importance of heavy compound lifts."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Eat enough protein daily. Roughly 1 gram per pound, no powder required.",
+    "alt": "The GainFrame mascot holds a plate of eggs and chicken breast to emphasize meeting daily protein goals."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Sleep 7 to 9 hours. Growth happens between sessions, tired lifters plateau.",
+    "alt": "The GainFrame mascot sits in bed at night to highlight proper recovery through sleep."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Repeat for years not weeks. Consistency is the whole 80, tweaks are the 20.",
+    "alt": "The GainFrame mascot walks along a long path with flag markers representing multi-year consistency."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See if the basics are building muscle. GainFrame. Messages, Overview, Muscles, Plan, Body Map, Front, Back, Before, After, Needs Work, Developing, Solid, Strong, Elite, Muscle Comparison, Front Delts, Side/Rear Delts, Upper Chest, Mid/Lower Chest, Triceps, Abs, Obliques.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app progress tracking interface."
+   }
+  ]
+ },
+ "how-heavy-should-you-lift": {
+  "summary": "Building muscle effectively can be done within a 5 to 30 rep range as long as sets are brought close to failure. Good form dictates when a set should end, and weight should be increased gradually as reps become easier. Tracking your strength over time confirms if your training load is effective.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "How heavy should you lift?",
+    "alt": "The GainFrame mascot stands between a light dumbbell and a heavy barbell, asking how heavy you should lift."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. 5 to 30 reps all build muscle. If the set gets near failure effort matters more than range",
+    "alt": "The GainFrame mascot performs a dumbbell row, illustrating that 5 to 30 reps build muscle when taken near failure."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Close to failure is the rule. 1 to 3 reps left when you stop easy sets build nothing",
+    "alt": "The GainFrame mascot squats a heavy barbell, demonstrating that sets should finish within 1 to 3 reps of failure."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Form sets your limit. If form breaks the weight won drop it and own the rep",
+    "alt": "The GainFrame mascot compares poor rounded-back form with correct straight-back form to emphasize maintaining proper technique."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Add weight when reps get easy. Top of the range, add a little that is progressive overload",
+    "alt": "The GainFrame mascot loads a plate onto a barbell to demonstrate progressive overload."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See if the weights move your score. GainFrame",
+    "alt": "A hand holds a smartphone showing the GainFrame app beside the GainFrame logo."
+   }
+  ]
+ },
+ "is-your-workout-too-long": {
+  "summary": "Workouts are most effective when kept between 45 and 75 minutes of hard effort. Cutting redundant exercises prevents fatigue and helps build long-term consistency.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Is your workout too long?",
+    "alt": "The GainFrame mascot sits on a bench beside a clock to ask if your workout is too long."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. 45 to 75 minutes is plenty. Past that, effort usually drops. Quality falls before you do.",
+    "alt": "The GainFrame mascot lifts dumbbells to illustrate that 45 to 75 minutes is plenty for a workout."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Count hard sets not minutes. Sessions are measured in effort not in hours survived.",
+    "alt": "The GainFrame mascot contrasts phone browsing with lifting weights to emphasize tracking effort over time."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Cut the redundant lifts. Three chest presses is one lift. Pick one and push it.",
+    "alt": "The GainFrame mascot points at redundant chest machines to demonstrate focusing on one primary movement."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Shorter sticks better. A plan you repeat beats a marathon. Consistency loves short.",
+    "alt": "The GainFrame mascot leaves the gym with a thumbs-up to show that shorter workouts build consistency."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See if shorter sessions keep you consistent. GainFrame.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app to track consistency with shorter sessions."
+   }
+  ]
+ },
+ "the-only-6-lifts-you-need": {
+  "summary": "Focusing on six core movement patterns—pushing, pulling, squatting, and hinging—provides a full-body strength foundation. Mastering key exercises like bench press, overhead press, rows, pull-ups, squats, and deadlifts over a year optimizes muscle growth before adding accessory work. Documenting physical progress from day one helps track long-term gains.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "The only 6 lifts you need",
+    "alt": "The GainFrame mascot stands confidently beside a barbell and dumbbell, introducing the essential six strength training lifts."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Push: bench and overhead press. Chest, shoulders, triceps done. Barbell or dumbbell, your call.",
+    "alt": "The GainFrame mascot lies on a weight bench performing dumbbell presses, showing the primary push exercises for upper body training."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Pull: row and pull-up. Back width and thickness, biceps come along free.",
+    "alt": "The GainFrame mascot executes a bent-over barbell row to illustrate effective pull movements for back and biceps development."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Legs: squat and hinge. Squat pattern plus a deadlift, half your muscle lives here.",
+    "alt": "The GainFrame mascot demonstrates both a barbell squat and a deadlift, highlighting crucial leg and posterior chain movements."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Master these before adding. Progress them for a year, accessories are dessert.",
+    "alt": "The GainFrame mascot affectionately wipes down a barbell racked on a squat rack, promoting long-term commitment to foundational lifts."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Start the timeline on day one. GainFrame.",
+    "alt": "A hand holds a smartphone displaying fitness progress photos within the GainFrame application, emphasizing early progress tracking."
+   }
+  ]
+ },
+ "how-much-muscle-in-a-year": {
+  "summary": "Beginners can gain up to 20 pounds of muscle in their first year of training, but this rate decreases by half in the second year. Because daily scale weight fluctuates with water and food, taking consistent progress photos and using tools like FFMI provide a clearer picture of actual muscle growth.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "How much muscle in one year?",
+    "alt": "The GainFrame mascot flexes an arm beside a large question mark to introduce the comic about yearly muscle growth expectations."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Year one: Up to 20 pounds. Beginner gains are real. Men the high end, women about half.",
+    "alt": "The GainFrame mascot stands next to a rising bar chart illustrating that beginners can gain up to 20 pounds of muscle in year one."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Year two: About half that. The curve bends fast. Patience becomes the program.",
+    "alt": "The GainFrame mascot points to a line graph that plateaus to show that muscle gain slows dramatically in the second year."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. The scale will lie to you. Water and food swing daily. Muscle hides inside the noise.",
+    "alt": "The GainFrame mascot shrugs while standing on a bathroom scale, highlighting how daily weight fluctuations obscure muscle progress."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Photos catch what scales miss. Same pose, same light, monthly. Proof beats feelings.",
+    "alt": "The GainFrame mascot poses in front of a camera on a tripod to emphasize taking consistent monthly progress photos."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See how much muscle you actually added. GainFrame. FFMI. Done. Your FFMI is Excellent: 23.0. Below Avg 0-18. Average 18-20. Above Avg 20-23. Excellent >23. What is FFMI? FFMI measures your lean (fat-free) mass relative to height, giving a more accurate picture of muscularity than BMI alone. Why does FFMI matter? FFMI helps you track muscular development independent of body fat changes. It's particularly useful during body recomposition when your weight may stay the same but your muscle-to-fat ratio is improving. Disclaimer: FFMI relies on body fat estimates which may vary. Use this as a directional indicator rather than a precise measurement. Values above 25 are extremely rare naturally. Source.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app's FFMI tracking screen to measure true muscle addition."
+   }
+  ]
+ },
+ "grow-with-just-dumbbells": {
+  "summary": "Muscle growth depends on mechanical tension and training effort rather than specialized equipment. By adding reps, slowing exercise tempo, utilizing unilateral movements, and taking sets close to failure, dumbbells can effectively build muscle.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Can you grow with just dumbbells?",
+    "alt": "GainFrame mascot holding dumbbells, introducing whether dumbbells alone can build muscle."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Muscle only knows tension. It cant read equipment labels. Hard sets are hard sets.",
+    "alt": "GainFrame mascot with a barbell shown as equal to one holding dumbbells, illustrating that muscles only respond to tension."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Progress in reps not plates. Fixed weights, moving targets. Add reps, slow the tempo.",
+    "alt": "Sweating GainFrame mascot curling a dumbbell next to tally marks, showing progression by increasing reps and slowing tempo."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Go unilateral to go heavy. One limb makes light weight heavy. Split squats humble everyone.",
+    "alt": "GainFrame mascot performing a dumbbell Bulgarian split squat to demonstrate unilateral training."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. The limit is effort not gear. Most never outgrow dumbbells. Take sets near failure.",
+    "alt": "GainFrame mascot bench pressing dumbbells near failure, illustrating that effort drives muscle growth."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See where dumbbells can take you. GainFrame. 10:37. Lose fat, build muscle. Your goal preview. Your movie-cover outcome. Now. +6 months. Slider. Split. Illustrative AI projection — not a prediction or medical advice. Intensity. Synced. Fantasy. Stylized and dramatic. No realism constraints. Save. Share.",
+    "alt": "A silhouette hand holding a smartphone displaying the GainFrame app fitness projection preview."
+   }
+  ]
  }
 }

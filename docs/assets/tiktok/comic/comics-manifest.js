@@ -2,6 +2,66 @@
 // To change comics, edit the .mjs file and run `npm run build:comics-manifest`.
 const COMICS_MANIFEST = [
   {
+    "slug": "how-many-sets-do-you-need",
+    "title": "How Many Sets Do You Need?",
+    "date": "2026-08-12",
+    "ext": "webp"
+  },
+  {
+    "slug": "how-long-should-you-rest",
+    "title": "How Long Should You Rest?",
+    "date": "2026-08-12",
+    "ext": "webp"
+  },
+  {
+    "slug": "how-heavy-should-you-lift",
+    "title": "How Heavy Should You Lift?",
+    "date": "2026-08-12",
+    "ext": "webp"
+  },
+  {
+    "slug": "what-to-eat-around-lifting",
+    "title": "What to Eat Around Lifting",
+    "date": "2026-08-12",
+    "ext": "webp"
+  },
+  {
+    "slug": "cutting-in-4-rules",
+    "title": "Cutting in 4 Rules",
+    "date": "2026-08-12",
+    "ext": "webp"
+  },
+  {
+    "slug": "80-20-of-building-muscle",
+    "title": "The 80/20 of Building Muscle",
+    "date": "2026-08-12",
+    "ext": "webp"
+  },
+  {
+    "slug": "is-your-workout-too-long",
+    "title": "Is Your Workout Too Long?",
+    "date": "2026-08-12",
+    "ext": "webp"
+  },
+  {
+    "slug": "grow-with-just-dumbbells",
+    "title": "Can You Grow With Just Dumbbells?",
+    "date": "2026-08-12",
+    "ext": "webp"
+  },
+  {
+    "slug": "the-only-6-lifts-you-need",
+    "title": "The Only 6 Lifts You Need",
+    "date": "2026-08-12",
+    "ext": "webp"
+  },
+  {
+    "slug": "how-much-muscle-in-a-year",
+    "title": "How Much Muscle in One Year?",
+    "date": "2026-08-12",
+    "ext": "webp"
+  },
+  {
     "slug": "what-builds-upper-chest",
     "title": "What Actually Builds Upper Chest?",
     "date": "2026-08-06",

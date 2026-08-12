@@ -4,9 +4,7 @@
 
 New made-simple cheat-sheet lane from the Aug 2026 strategy doc: one
 intimidating topic per post compressed to 4 rules. Copy authored in
-`_pipeline/posts.json`; art NOT yet generated (no GEMINI_API_KEY in the cloud
-session). To build: `python3 docs/assets/tiktok/comic/_pipeline/build.py --post <slug>`
-per slug below, then manifest + transcripts + iCloud sync per the skill.
+`_pipeline/posts.json`; art built 2026-08-12 on the Mac.
 
 - how-many-sets-do-you-need — 6 slides — GainFrame: Yes (slide 5 — muscle-map.png)
 - how-long-should-you-rest — 6 slides — GainFrame: Yes (slide 5 — dashboard.png)
@@ -18,7 +16,12 @@ per slug below, then manifest + transcripts + iCloud sync per the skill.
 - grow-with-just-dumbbells — 6 slides — GainFrame: Yes (slide 5 — future-you.png)
 - the-only-6-lifts-you-need — 6 slides — GainFrame: Yes (slide 5 — photo-gallery.png)
 - how-much-muscle-in-a-year — 6 slides — GainFrame: Yes (slide 5 — ffmi.png)
-- Status: Copy authored — art build pending (run build.py on the Mac)
+- Status: Complete — art built, gallery + transcripts + iCloud synced (2026-08-12)
+- Re-rolls: how-heavy-should-you-lift slides 1 & 2 (head drift, gate auto-retry);
+  grow-with-just-dumbbells slide 4 (red bracket wrong corner, gate auto-retry);
+  80-20-of-building-muscle slide 3 failed the gate 3× (head rendered as a solid
+  panel against the pillow) — scene rewritten in posts.json to sit him upright
+  with nothing behind the head, then re-rolled clean with --force
 
 ## 2026-08-06 — NICHE MUSCLE MYTH MICRO-CAROUSEL BATCH (10 posts)
 
