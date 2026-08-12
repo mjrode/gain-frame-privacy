@@ -1,5 +1,25 @@
 # TikTok Carousel Post Log
 
+## 2026-08-12 — "THE SIMPLE VERSION" BATCH (10 posts, copy authored)
+
+New made-simple cheat-sheet lane from the Aug 2026 strategy doc: one
+intimidating topic per post compressed to 4 rules. Copy authored in
+`_pipeline/posts.json`; art NOT yet generated (no GEMINI_API_KEY in the cloud
+session). To build: `python3 docs/assets/tiktok/comic/_pipeline/build.py --post <slug>`
+per slug below, then manifest + transcripts + iCloud sync per the skill.
+
+- how-many-sets-do-you-need — 6 slides — GainFrame: Yes (slide 5 — muscle-map.png)
+- how-long-should-you-rest — 6 slides — GainFrame: Yes (slide 5 — dashboard.png)
+- how-heavy-should-you-lift — 6 slides — GainFrame: Yes (slide 5 — post-check-in-photo-score.png)
+- what-to-eat-around-lifting — 6 slides — GainFrame: Yes (slide 5 — macros.png)
+- cutting-in-4-rules — 6 slides — GainFrame: Yes (slide 5 — compare.png)
+- 80-20-of-building-muscle — 6 slides — GainFrame: Yes (slide 5 — muscle-compare.png)
+- is-your-workout-too-long — 6 slides — GainFrame: Yes (slide 5 — check-ins.png)
+- grow-with-just-dumbbells — 6 slides — GainFrame: Yes (slide 5 — future-you.png)
+- the-only-6-lifts-you-need — 6 slides — GainFrame: Yes (slide 5 — photo-gallery.png)
+- how-much-muscle-in-a-year — 6 slides — GainFrame: Yes (slide 5 — ffmi.png)
+- Status: Copy authored — art build pending (run build.py on the Mac)
+
 ## 2026-08-06 — NICHE MUSCLE MYTH MICRO-CAROUSEL BATCH (10 posts)
 
 Format: two-slide myth-vs-reality infographics inspired by the supplied recovery
