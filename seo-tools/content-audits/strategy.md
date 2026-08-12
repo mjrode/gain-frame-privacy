@@ -1,9 +1,35 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-11** (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**) · Data through 2026-08-09
+> Last run: **2026-08-11 run 2** (review; owner-directed smart-scale/RENPHO focus; DataForSEO available this session — 3 posts + 2 fixes proposed, see below) · Data through 2026-08-09
+> Same-day run 1: 2026-08-11 (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**)
 > Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
 > Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
+
+## New findings (2026-08-11 run 2 — smart-scale / RENPHO focus)
+
+- **Product change**: GainFrame now reads weight, body fat, and lean mass from RENPHO scales via
+  Apple Health (on-device, no direct scale/account connection). This gives the previously
+  click-poor smart-scale lane (C3 hardware sub-lane) a real commercial bridge. Owner supplied two
+  in-app screenshots (Integrations screen, Weight/trajectory screen) as first-party assets; they
+  exist only as chat images until saved to disk.
+- **"best smart scale" (5,400 vol, +23%/yr, KD 4) and "best body composition scale" (4,400, +24%,
+  KD 3) are one SERP** (serp_competitors verified). The site has no page on the former; writing
+  one would cannibalize `best-body-composition-scales` (pos 14.6). Proposed F1: retitle + extend
+  that page to chase both.
+- **"are smart scales worth it" (210, +91%/yr, KD 12) is the only rising query in the scale lane.**
+  Its SERP has an AI Overview with a pros/cons block and no lifter-specific result. Proposed P1.
+- **Apple Health scale family (~930/mo combined, KD 1-8, all declining)**: no ranking page covers
+  the post-sync app workflow. Proposed P2 roundup as a strategic-fit (not volume) bet, stated
+  honestly.
+- **`renpho-scale-review` is the lane's biggest waste**: 748 impressions, 0 clicks, pos 16-31 on
+  its query family; "renpho scale accuracy" is 880 vol at KD 3. Proposed F2 (integration section +
+  accuracy Quick Answer + meta description).
+- Killed this run: "best time to weigh yourself" (3,600, -18%), "how often should you weigh
+  yourself" (1,300, -19%), "renpho health app" (navigational), standalone "how do smart scales
+  work" (declining; folded into P1), "renpho vs withings" (40 vol; comparison lane held).
+- DataForSEO WAS available this session (6 calls) despite being absent in run 1 the same morning —
+  connector availability varies per session, so recheck each run before recording unavailable.
 
 ## New findings (2026-08-11)
 
@@ -247,6 +273,17 @@ inbound link changed. The new body visualizer's 28-day window opens 2026-09-03; 
 calculator's earliest directional read is 2026-08-16, with a full read on 2026-09-03.
 
 ---
+
+## 2026-08-11 run 2 proposed (smart-scale series) — awaiting approval
+
+| Item | Target | Evidence | State |
+|---|---|---|---|
+| P1 worth-it post | are smart scales worth it (210, +91%, KD 12) | live SERP brief in audit; AEO pros/cons citation shape; no existing page | Proposed |
+| P2 Apple Health scale roundup | family ~930/mo, KD 1-8, declining | brief in audit; unique post-sync angle; proven roundup format | Proposed |
+| P3 RENPHO-GainFrame sync guide | ~40/mo; product-education (Hevy-integration template) | in-app "RENPHO Setup Guide" row needs a destination; converts review readers | Proposed (product grounds) |
+| F1 retitle best-body-composition-scales | best smart scale 5,400 +23% KD 4 (shared SERP) | one-SERP proof via serp_competitors; page at 14.6 | Proposed |
+| F2 renpho-scale-review refresh | renpho scale accuracy 880 KD 3 | 748 imp / 0 clicks; integration is new first-party content | Proposed |
+| Interlink exclusion | are-smart-scales-accurate | inside Aug 9 anchor-read window | Add P1 link ~Aug 19 |
 
 ## 2026-08-11 proposed / gated
 
