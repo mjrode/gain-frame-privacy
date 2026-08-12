@@ -9,6 +9,8 @@ sizes, colours and positions so every slide in every post is pixel-consistent.
 
 Public entry point:  compose(spec, art_path, out_path)
 """
+import os
+
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1080, 1350
@@ -19,8 +21,36 @@ CHARCOAL = (40, 40, 40)
 PILL_BG = (60, 63, 68)           # dark gray pill
 PILL_TXT = (255, 255, 255)
 
-IMPACT = "/System/Library/Fonts/Supplemental/Impact.ttf"
-ARIAL_BOLD = "/Users/michael.rode/Library/Fonts/Arial Bold.ttf"
+def _first_font(env_var, candidates):
+    # Env override first, then the first candidate present on this machine.
+    # Keeps the exact macOS fonts on the primary machine while letting the
+    # pipeline run on Linux/cloud boxes with metrically-similar substitutes.
+    override = os.environ.get(env_var)
+    if override:
+        return override
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+    raise FileNotFoundError(
+        f"No font found for {env_var}; tried: {candidates}. "
+        f"Set ${env_var} to a .ttf path."
+    )
+
+
+IMPACT = _first_font("GF_IMPACT_FONT", [
+    "/System/Library/Fonts/Supplemental/Impact.ttf",
+    "/usr/share/fonts/truetype/msttcorefonts/Impact.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Bold.ttf",
+    "/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+])
+ARIAL_BOLD = _first_font("GF_BODY_FONT", [
+    os.path.expanduser("~/Library/Fonts/Arial Bold.ttf"),
+    "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+    "/usr/share/fonts/truetype/msttcorefonts/Arial_Bold.ttf",
+    "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+])
 
 # ---- shared geometry (identical across all posts) ----
 SIDE_MARGIN = 70

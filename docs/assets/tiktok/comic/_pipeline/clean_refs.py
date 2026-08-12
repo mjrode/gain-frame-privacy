@@ -22,7 +22,11 @@ from collections import deque
 
 from PIL import Image
 
-ILLUS = "/Users/michael.rode/code/project/gain-frame-privacy/docs/assets/gainframe-guy/illustrations"
+ROOT = os.environ.get(
+    "GAINFRAME_ROOT",
+    os.path.abspath(os.path.join(os.path.dirname(__file__), *[".."] * 5)),
+)
+ILLUS = f"{ROOT}/docs/assets/gainframe-guy/illustrations"
 OUT_DIR = f"{ILLUS}/_white"
 
 # gary-badge.png is already pure white and is the canonical head — copied as-is.
