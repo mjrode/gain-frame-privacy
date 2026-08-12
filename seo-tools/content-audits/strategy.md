@@ -1,7 +1,7 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-11 run 2** (review; owner-directed smart-scale/RENPHO focus; DataForSEO available this session — 3 posts + 2 fixes proposed, see below) · Data through 2026-08-09
+> Last run: **2026-08-11 run 2** (owner approved `all`; smart-scale/RENPHO series SHIPPED: 3 posts + retitle + review refresh + interlinks, commit 9698973) · Data through 2026-08-09
 > Same-day run 1: 2026-08-11 (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**)
 > Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
 > Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
@@ -266,6 +266,8 @@ That page is worth defending and deepening.
 | `rate-my-physique` Aug 11 query refresh + new inbound link | Content | ~2026-08-21; resets the `rate my body` sibling decision |
 | `aesthetic-physique-body-fat-percentage` → `rate-my-physique` inbound link | Content | ~2026-08-21 directional |
 | Approved F2 `best-ai-body-composition-app` fold-in | Explicit approval gate | Recheck with data through Aug 11, expected ~2026-08-13; do not ship sooner |
+| `best-body-composition-scales` retitle + `renpho-scale-review` refresh (Aug 11) | Metadata | ~2026-08-21; position reads ~Sep 10 |
+| `are-smart-scales-worth-it`, `best-smart-scales-apple-health`, `renpho-gainframe-integration` | New posts, 28d | ~2026-09-08 |
 | `/body-fat/12-percent-body-fat-male/`, `/30-percent-body-fat-male/` | New gallery URLs, unknown to Google Aug 11 | 2026-09-03; sitemap + hub links already verified |
 
 No existing-page metadata was edited in the Aug 11 refresh, but the exact-query body copy and an
@@ -274,16 +276,17 @@ calculator's earliest directional read is 2026-08-16, with a full read on 2026-0
 
 ---
 
-## 2026-08-11 run 2 proposed (smart-scale series) — awaiting approval
+## 2026-08-11 run 2 shipped (smart-scale series)
 
 | Item | Target | Evidence | State |
 |---|---|---|---|
-| P1 worth-it post | are smart scales worth it (210, +91%, KD 12) | live SERP brief in audit; AEO pros/cons citation shape; no existing page | Proposed |
-| P2 Apple Health scale roundup | family ~930/mo, KD 1-8, declining | brief in audit; unique post-sync angle; proven roundup format | Proposed |
-| P3 RENPHO-GainFrame sync guide | ~40/mo; product-education (Hevy-integration template) | in-app "RENPHO Setup Guide" row needs a destination; converts review readers | Proposed (product grounds) |
-| F1 retitle best-body-composition-scales | best smart scale 5,400 +23% KD 4 (shared SERP) | one-SERP proof via serp_competitors; page at 14.6 | Proposed |
-| F2 renpho-scale-review refresh | renpho scale accuracy 880 KD 3 | 748 imp / 0 clicks; integration is new first-party content | Proposed |
-| Interlink exclusion | are-smart-scales-accurate | inside Aug 9 anchor-read window | Add P1 link ~Aug 19 |
+| P1 `are-smart-scales-worth-it` | are smart scales worth it (210, +91%, KD 12) | live SERP brief in audit; AEO pros/cons citation shape | **Shipped 2026-08-11**; 28d window ~Sep 8 |
+| P2 `best-smart-scales-apple-health` | family ~930/mo, KD 1-8, declining (strategic-fit bet) | brief in audit; unique post-sync angle; proven roundup format | **Shipped 2026-08-11**; 28d window ~Sep 8 |
+| P3 `renpho-gainframe-integration` | ~40/mo; Integration page (Hevy template) | destination for the in-app "RENPHO Setup Guide" row | **Shipped 2026-08-11**; judged on product job, not GSC |
+| F1 retitle best-body-composition-scales | best smart scale 5,400 +23% KD 4 (shared SERP) | one-SERP proof via serp_competitors; page was 14.6 | **Shipped**; metadata window to ~Aug 21, position read ~Sep 10 |
+| F2 renpho-scale-review refresh | renpho scale accuracy 880 KD 3 | was 748 imp / 0 clicks at pos 16-31 | **Shipped**; window to ~Aug 21, read ~Sep 10 |
+| Interlink exclusion | are-smart-scales-accurate | inside Aug 9 anchor-read window | Still pending: add P1 link ~Aug 19 |
+| Strict-gate cleanup | 9 touched posts pass no-dash + schema gates | sitewide legacy-dash count 234 → 228 | Done in the same commit |
 
 ## 2026-08-11 proposed / gated
 
@@ -342,3 +345,7 @@ their own.
 | Sitewide CTR | 1.98% and falling as impressions scale — expected, confirm it stabilises | 2026-09-01 |
 | Two unknown male gallery URLs | discovery / index verdict | 2026-09-03 |
 | `thelo-app-review` | 28-day brand-query verdict | 2026-09-06 |
+| Smart-scale series (P1/P2/P3) | indexation, then 28d positions; P1 AI Overview citation check | index check next run; 2026-09-08 |
+| `best-body-composition-scales` | "best smart scale" + "best body composition scale" positions vs 14.6 baseline | 2026-08-21 CTR; 2026-09-10 position |
+| `renpho-scale-review` | "renpho scale accuracy" family vs 16-31 / 748 imp / 0 clicks baseline | 2026-09-10 |
+| `are-smart-scales-accurate` | after Aug 9 anchor read, add contextual link → are-smart-scales-worth-it | ~2026-08-19 |
