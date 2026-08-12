@@ -1,10 +1,43 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-11 run 2** (owner approved `all`; smart-scale/RENPHO series SHIPPED: 3 posts + retitle + review refresh + interlinks, commit 9698973) · Data through 2026-08-09
+> Last run: **2026-08-12** (review; App Store advice reconciliation; zero posts, one progress-focused hidden-keyword-field fix + the existing Hevy consolidation proposed) · Data through 2026-08-09
+> Prior run: **2026-08-11 run 2** (owner approved `all`; smart-scale/RENPHO series SHIPPED: 3 posts + retitle + review refresh + interlinks, commit 9698973) · Data through 2026-08-09
 > Same-day run 1: 2026-08-11 (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**)
 > Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
 > Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
+
+## New findings (2026-08-12 — App Store progress-keyword reconciliation)
+
+- **The current ASO advice mostly confirms the strategy.** `progress photo tracker` is #6
+  (popularity 68 / difficulty 22), `progress photos` is #8 in the supplied provider and #9 in a
+  fresh Apple Search API proxy, and broad `progress` is #127-129 at difficulty 70. Protect the
+  progress-photo lane; do not chase the broad word.
+- **The claim that a tiny metadata edit should produce #1 is too strong.** The title already has
+  `Gym Progress Photos` and the subtitle has `Tracker`, so the phrase is already covered in the
+  two highest-weight visible fields. The prior Jul 21 API proxy was #4 and the fresh one is #6;
+  metadata inclusion is not the missing variable.
+- **`body measurement tracker` is a product mismatch despite the attractive App Store score.**
+  GainFrame does not log tape/circumference measurements. Its live Google SERP is dedicated
+  measurement loggers, templates, and tape-tracking guides. The existing honest measurement-app
+  roundup already surfaces directionally at ~position 2; do not add `measurement` to store copy
+  until the feature exists.
+- **`fitness progress tracker` remains workout-log intent.** The live SERP is Hevy, Strong,
+  JEFIT, Google Fit, StrengthLog, and templates. Keep GainFrame complementary through the Hevy
+  integration rather than rewriting the listing around a term that promises workout logging.
+- **C4 progress photos is healthy and complete:** 459 clicks / 27,679 impressions (+34% / +83%
+  versus prior), main hub position 6.47, and rank-1 AI Overview citations for `progress photos
+  app`, `progress pics app`, and `picture progression app`. No new post proposed.
+- **Proposed ASO F1:** keep title/subtitle fixed and change only the 99-character hidden field from
+  `...dexa,hrv,sleep,coach,visual` to `...dexa,coach,pic,compare,pose`. This expands relevant
+  progress-photo compounds without adding the mismatched `measurement` or `fitness` terms. Ship
+  only with a planned version and freeze indexed metadata for 14 days.
+- **Business evidence remains unavailable:** GainFrame PostHog returned zero because the website
+  project has not ingested events; GA4, App Store Connect, and RevenueCat were unavailable. The
+  operational marketing context is stale (it says v2.32 staged; Apple's live lookup shows v3.0
+  released Aug 6 with 45 US ratings).
+- **Indexing is still healthy:** all three Aug 11 smart-scale pages are already indexed. The mature
+  `smart-integrations-hevy` rejection and two too-new male gallery unknowns are unchanged.
 
 ## New findings (2026-08-11 run 2 — smart-scale / RENPHO focus)
 
