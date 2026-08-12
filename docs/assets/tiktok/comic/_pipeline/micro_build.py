@@ -16,7 +16,7 @@ import build
 import compose
 
 
-ROOT = "/Users/michael.rode/code/project/gain-frame-privacy"
+ROOT = build.ROOT
 PIPELINE_DIR = f"{ROOT}/docs/assets/tiktok/comic/_pipeline"
 COMIC_DIR = f"{ROOT}/docs/assets/tiktok/comic"
 STYLE_SOURCE = (

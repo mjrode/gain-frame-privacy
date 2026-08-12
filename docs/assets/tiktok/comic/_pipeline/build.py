@@ -27,7 +27,12 @@ import urllib.request
 
 import compose
 
-ROOT = "/Users/michael.rode/code/project/gain-frame-privacy"
+# Repo root: env override, else derived from this file's location
+# (_pipeline lives at docs/assets/tiktok/comic/_pipeline).
+ROOT = os.environ.get(
+    "GAINFRAME_ROOT",
+    os.path.abspath(os.path.join(os.path.dirname(__file__), *[".."] * 5)),
+)
 COMIC_DIR = f"{ROOT}/docs/assets/tiktok/comic"
 ILLUS = f"{ROOT}/docs/assets/gainframe-guy/illustrations"
 SHOTS = f"{ROOT}/docs/app-screenshots/1.21"
