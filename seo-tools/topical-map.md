@@ -1,7 +1,7 @@
 # GainFrame Topical Map
 
 > **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-08-06 (Jul 9–23 parallel-session backfill complete; 82 previously omitted posts classified).
-> **Current inventory after remote-main integration:** 232 blog posts · 12 tools · 4 landing pages · 15 body-fat gallery URLs (263 indexable URLs).
+> **Current inventory:** 239 blog posts · 14 tools · 4 landing pages · 15 body-fat gallery URLs (272 indexable URLs).
 > **Intent legend:** 💰 commercial (drives installs/clicks) · 📊 informational (impressions/AEO/links) · 🤝 brand/social (founder lane, not SEO) · 🔧 tool.
 > **Programmatic SEO:** broad page factories remain deferred. One finite 14-page body-fat picture gallery plus its hub shipped 2026-08-06 around the proprietary standardized render library; do not expand it without query evidence and a strategy update.
 
@@ -85,7 +85,7 @@ ai-physique-rating-apps · apps-like-umax · understanding-ai-physique-score · 
 
 ## Cluster 12 — Founder / build-in-public 🤝 (social + AI-referral lane, NOT SEO)
 
-spent-5k-on-app-ads · organic-traffic-15x-90-days · generative-engine-optimization-case-study · getting-user-feedback · idea-validator-scored-my-live-app · out-of-the-box-marketing-experiments · paid-49-for-promo-video · trial-conversion-21-to-44 · two-months-launching-second-app · stop-building-features-start-reading-data · the-velocity-advantage · from-score-to-action-target-training · in-app-chat · meet-gainframe-guy
+spent-5k-on-app-ads · organic-traffic-15x-90-days · generative-engine-optimization-case-study · getting-user-feedback · idea-validator-scored-my-live-app · out-of-the-box-marketing-experiments · paid-49-for-promo-video · trial-conversion-21-to-44 · two-months-launching-second-app · stop-building-features-start-reading-data · the-velocity-advantage · from-score-to-action-target-training · in-app-chat · meet-gainframe-guy · first-1000-mrr-next-920
 **Jul 9–23 backfill:** 1000-mrr-five-months · ai-costs-half-my-revenue · almost-quit-in-may-12-month-goals · best-app-store-screenshot-tools · ios-app-playbook-2026 · moving-the-goalposts · my-app-has-copycats-now · retention-hardest-problem · verified-seo-traffic-seo-receipts
 **Cadence:** 1–2/week, driven by real milestones. Judged on sessions + Reddit/HN/X traction, never GSC.
 
