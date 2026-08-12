@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Generate the four source-backed charts for the $1,920 MRR founder post."""
+"""Generate four full-width, shareable charts for the $1,920 MRR founder post."""
 
 from __future__ import annotations
 
+import html
 import math
 import subprocess
 import tempfile
@@ -19,7 +20,7 @@ MUTED = "#71717a"
 SUBTLE = "#a1a1aa"
 BORDER = "#e4e4e7"
 GRID = "#e4e4e7"
-CARD = "#fdfdfc"
+CARD = "#ffffff"
 TEAL = "#0f766e"
 TEAL_SOFT = "#ccfbf1"
 BLUE = "#2563eb"
@@ -27,37 +28,57 @@ BLUE_SOFT = "#dbeafe"
 ORANGE = "#ea580c"
 ORANGE_SOFT = "#ffedd5"
 FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+WIDTH = 1200
+HEIGHT = 675
+HEADER = 128
 
 
-def text(x: float, y: float, value: str, *, size: int = 13, color: str = FG,
-         weight: int = 400, anchor: str = "start") -> str:
+def svg_text(
+    x: float,
+    y: float,
+    value: str,
+    *,
+    size: int = 16,
+    color: str = FG,
+    weight: int = 400,
+    anchor: str = "start",
+) -> str:
     return (
         f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="{anchor}" '
-        f'font-size="{size}" font-weight="{weight}" fill="{color}">{value}</text>'
+        f'font-size="{size}" font-weight="{weight}" fill="{color}">'
+        f'{html.escape(value)}</text>'
     )
 
 
-def html_card(title: str, description: str, stats: list[tuple[str, str, str]],
-              svg: str, *, width: int, height: int) -> str:
+def html_card(
+    title: str,
+    description: str,
+    stats: list[tuple[str, str, str]],
+    svg: str,
+    *,
+    width: int = WIDTH,
+    height: int = HEIGHT,
+) -> str:
     stat_html = "".join(
-        f'<div class="stat"><b class="{tone}">{value}</b><span>{label}</span></div>'
+        f'<div class="stat"><b class="{tone}">{html.escape(value)}</b>'
+        f'<span>{html.escape(label)}</span></div>'
         for value, label, tone in stats
     )
     return f"""<!doctype html><html><head><meta charset="utf-8"><style>
 * {{ margin:0; padding:0; box-sizing:border-box; }}
-body {{ width:{width}px; height:{height}px; background:#fafaf9; font-family:{FONT}; }}
-.card {{ width:100%; height:100%; overflow:hidden; border:1px solid {BORDER}; border-radius:18px; background:{CARD}; }}
-.header {{ height:116px; display:flex; justify-content:space-between; align-items:flex-start; padding:29px 36px 0; }}
-h1 {{ font-size:21px; line-height:1.15; font-weight:650; letter-spacing:-0.018em; color:{FG}; }}
-.desc {{ margin-top:7px; font-size:13.5px; color:{MUTED}; }}
-.stats {{ display:flex; gap:32px; text-align:right; }}
-.stat b {{ display:block; font-size:23px; line-height:1; font-weight:650; letter-spacing:-0.025em; color:{FG}; }}
+body {{ width:{width}px; height:{height}px; background:#fafafa; font-family:{FONT}; }}
+.card {{ width:100%; height:100%; overflow:hidden; border:1px solid {BORDER}; border-radius:24px; background:{CARD}; }}
+.header {{ height:{HEADER}px; display:flex; justify-content:space-between; align-items:flex-start; padding:32px 40px 0; }}
+h1 {{ font-size:29px; line-height:1.08; font-weight:650; letter-spacing:-0.025em; color:{FG}; }}
+.desc {{ margin-top:10px; font-size:15px; line-height:1.2; color:{MUTED}; }}
+.stats {{ display:flex; gap:34px; padding-top:2px; text-align:right; }}
+.stat b {{ display:block; font-size:27px; line-height:1; font-weight:680; letter-spacing:-0.025em; color:{FG}; }}
 .stat b.teal {{ color:{TEAL}; }} .stat b.blue {{ color:{BLUE}; }} .stat b.orange {{ color:{ORANGE}; }}
-.stat span {{ display:block; margin-top:7px; font-size:12px; color:{MUTED}; }}
+.stat span {{ display:block; margin-top:8px; font-size:13px; color:{MUTED}; white-space:nowrap; }}
 svg text {{ font-family:{FONT}; }}
 </style></head><body><div class="card">
-<div class="header"><div><h1>{title}</h1><p class="desc">{description}</p></div><div class="stats">{stat_html}</div></div>
-<svg width="{width}" height="{height - 116}" viewBox="0 116 {width} {height - 116}">{svg}</svg>
+<div class="header"><div><h1>{html.escape(title)}</h1><p class="desc">{html.escape(description)}</p></div><div class="stats">{stat_html}</div></div>
+<svg width="{width}" height="{height - HEADER}" viewBox="0 {HEADER} {width} {height - HEADER}" role="img">{svg}</svg>
 </div></body></html>"""
 
 
@@ -90,7 +111,6 @@ def monotone_path(xs: list[float], ys: list[float]) -> str:
 
 
 def mrr_chart() -> tuple[str, str, int, int]:
-    width, height = 1120, 660
     points = [
         (date(2026, 3, 8), 47.75), (date(2026, 3, 15), 70.14), (date(2026, 3, 22), 90.11),
         (date(2026, 3, 29), 133.95), (date(2026, 4, 5), 182.33), (date(2026, 4, 12), 229.42),
@@ -98,21 +118,10 @@ def mrr_chart() -> tuple[str, str, int, int]:
         (date(2026, 5, 10), 581.06), (date(2026, 5, 17), 605.68), (date(2026, 5, 24), 630.68),
         (date(2026, 5, 31), 649.44), (date(2026, 6, 7), 651.88), (date(2026, 6, 14), 684.83),
         (date(2026, 6, 21), 796.60), (date(2026, 6, 28), 797.00), (date(2026, 7, 5), 895.19),
-        (date(2026, 7, 6), 919.83), (date(2026, 7, 7), 941.60), (date(2026, 7, 8), 939.84),
-        (date(2026, 7, 9), 943.96), (date(2026, 7, 10), 945.15), (date(2026, 7, 11), 992.05),
-        (date(2026, 7, 12), 1004.34), (date(2026, 7, 13), 1008.61), (date(2026, 7, 14), 1055.21),
-        (date(2026, 7, 15), 1074.79), (date(2026, 7, 16), 1114.11), (date(2026, 7, 17), 1122.94),
-        (date(2026, 7, 18), 1130.35), (date(2026, 7, 19), 1148.83), (date(2026, 7, 20), 1192.43),
-        (date(2026, 7, 21), 1216.40), (date(2026, 7, 22), 1255.50), (date(2026, 7, 23), 1296.14),
-        (date(2026, 7, 24), 1322.71), (date(2026, 7, 25), 1362.26), (date(2026, 7, 26), 1392.89),
-        (date(2026, 7, 27), 1402.70), (date(2026, 7, 28), 1418.68), (date(2026, 7, 29), 1471.99),
-        (date(2026, 7, 30), 1476.74), (date(2026, 7, 31), 1515.98), (date(2026, 8, 1), 1529.33),
-        (date(2026, 8, 2), 1528.14), (date(2026, 8, 3), 1542.04), (date(2026, 8, 4), 1577.57),
-        (date(2026, 8, 5), 1565.64), (date(2026, 8, 6), 1586.82), (date(2026, 8, 7), 1600.28),
-        (date(2026, 8, 8), 1698.70), (date(2026, 8, 9), 1746.02), (date(2026, 8, 10), 1796.41),
-        (date(2026, 8, 11), 1891.44), (date(2026, 8, 12), 1920.18),
+        (date(2026, 7, 12), 1004.34), (date(2026, 7, 19), 1148.83), (date(2026, 7, 26), 1392.89),
+        (date(2026, 8, 2), 1528.14), (date(2026, 8, 9), 1746.02), (date(2026, 8, 12), 1920.18),
     ]
-    left, right, top, bottom = 72, width - 44, 152, height - 62
+    left, right, top, bottom = 84, 1146, 164, 612
     d0, d1 = points[0][0].toordinal(), points[-1][0].toordinal()
     x = lambda d: left + (d.toordinal() - d0) / (d1 - d0) * (right - left)
     y = lambda v: bottom - (v / 2000) * (bottom - top)
@@ -121,174 +130,198 @@ def mrr_chart() -> tuple[str, str, int, int]:
     path = monotone_path(xs, ys)
     area = path + f" L {xs[-1]:.1f} {bottom} L {xs[0]:.1f} {bottom} Z"
     svg = [
-        f'<defs><linearGradient id="mrrFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="{TEAL}" stop-opacity="0.25"/><stop offset="100%" stop-color="{TEAL}" stop-opacity="0.015"/></linearGradient></defs>'
+        f'<defs><linearGradient id="mrrFill" x1="0" y1="0" x2="0" y2="1">'
+        f'<stop offset="0%" stop-color="{TEAL}" stop-opacity="0.25"/>'
+        f'<stop offset="100%" stop-color="{TEAL}" stop-opacity="0.01"/></linearGradient></defs>'
     ]
     for value in (0, 500, 1000, 1500, 2000):
         yy = y(value)
-        svg.append(f'<line x1="{left}" y1="{yy:.1f}" x2="{right}" y2="{yy:.1f}" stroke="{GRID}" stroke-dasharray="3 4"/>')
-        svg.append(text(left - 12, yy + 4, f"${value:,}", size=12, color=MUTED, anchor="end"))
-    for month in range(3, 9):
-        xx = x(date(2026, month, 8 if month == 3 else 1))
-        svg.append(text(xx, bottom + 27, date(2026, month, 1).strftime("%b"), size=12, color=MUTED, anchor="middle"))
+        svg.append(f'<line x1="{left}" y1="{yy:.1f}" x2="{right}" y2="{yy:.1f}" stroke="{GRID}" stroke-dasharray="4 5"/>')
+        svg.append(svg_text(left - 14, yy + 5, f"${value:,}", size=14, color=MUTED, anchor="end"))
+    for tick in (date(2026, 3, 8), date(2026, 4, 1), date(2026, 5, 1), date(2026, 6, 1), date(2026, 7, 1), date(2026, 8, 1)):
+        svg.append(svg_text(x(tick), bottom + 32, tick.strftime("%b"), size=14, color=MUTED, anchor="middle"))
     milestone_x = x(date(2026, 7, 12))
-    svg.append(f'<line x1="{milestone_x:.1f}" y1="{top}" x2="{milestone_x:.1f}" y2="{bottom}" stroke="{BLUE}" stroke-dasharray="5 5" stroke-opacity="0.55"/>')
-    svg.append(text(milestone_x + 9, top + 20, "$1K crossed", size=12, color=BLUE, weight=650))
-    svg.append(text(milestone_x + 9, top + 38, "Jul 12", size=11, color=MUTED))
+    svg.append(f'<line x1="{milestone_x:.1f}" y1="{top}" x2="{milestone_x:.1f}" y2="{bottom}" stroke="{BLUE}" stroke-dasharray="6 6" stroke-opacity="0.55"/>')
+    svg.append(svg_text(milestone_x + 12, top + 24, "$1K crossed", size=15, color=BLUE, weight=650))
+    svg.append(svg_text(milestone_x + 12, top + 46, "July 12", size=13, color=MUTED))
     svg.append(f'<path d="{area}" fill="url(#mrrFill)"/>')
-    svg.append(f'<path d="{path}" fill="none" stroke="{TEAL}" stroke-width="3" stroke-linecap="round"/>')
-    svg.append(f'<circle cx="{xs[0]:.1f}" cy="{ys[0]:.1f}" r="4" fill="{CARD}" stroke="{TEAL}" stroke-width="2"/>')
-    svg.append(text(xs[0] + 9, ys[0] - 10, "Launch", size=11, color=MUTED))
-    svg.append(f'<circle cx="{xs[-1]:.1f}" cy="{ys[-1]:.1f}" r="8" fill="{TEAL}" fill-opacity="0.18"/>')
-    svg.append(f'<circle cx="{xs[-1]:.1f}" cy="{ys[-1]:.1f}" r="4.5" fill="{TEAL}"/>')
-    svg.append(text(xs[-1] - 9, ys[-1] - 13, "$1,920.18", size=14, color=TEAL, weight=700, anchor="end"))
+    svg.append(f'<path d="{path}" fill="none" stroke="{TEAL}" stroke-width="4" stroke-linecap="round"/>')
+    svg.append(f'<circle cx="{xs[-1]:.1f}" cy="{ys[-1]:.1f}" r="7" fill="{TEAL}" stroke="{CARD}" stroke-width="4"/>')
+    svg.append(svg_text(xs[-1] - 12, ys[-1] - 17, "$1,920.18", size=18, color=TEAL, weight=700, anchor="end"))
     return (
         "mrr-acceleration",
         html_card(
-            "The second leg of MRR moved much faster",
-            "RevenueCat  •  Mar 8 to Aug 12, 2026",
-            [("$1,920.18", "MRR now", "teal"), ("126 days", "launch to $1K", ""), ("31 days", "$1K to now", "blue")],
-            "".join(svg), width=width, height=height,
-        ), width, height,
+            "The next $920 came 3.7× faster",
+            "RevenueCat  •  March 8–August 12, 2026",
+            [("$1,920", "MRR now", "teal"), ("126 days", "first $1K", ""), ("31 days", "next $920", "blue")],
+            "".join(svg),
+        ), WIDTH, HEIGHT,
     )
 
 
 def tool_clicks_chart() -> tuple[str, str, int, int]:
-    width, height = 1120, 590
-    labels = ["Jun 15", "Jun 22", "Jun 29", "Jul 6", "Jul 13", "Jul 20", "Jul 27", "Aug 3"]
-    values = [19, 28, 42, 209, 316, 528, 642, 1013]
-    left, right, top, bottom = 74, width - 42, 158, height - 58
-    bar_space = (right - left) / len(values)
-    bar_width = 67
-    y = lambda v: bottom - (v / 1100) * (bottom - top)
-    svg = []
-    for value in (0, 250, 500, 750, 1000):
-        yy = y(value)
-        svg.append(f'<line x1="{left}" y1="{yy:.1f}" x2="{right}" y2="{yy:.1f}" stroke="{GRID}" stroke-dasharray="3 4"/>')
-        svg.append(text(left - 12, yy + 4, f"{value:,}", size=12, color=MUTED, anchor="end"))
-    boundary = left + bar_space * 4
-    svg.append(f'<rect x="{boundary:.1f}" y="{top}" width="{right - boundary:.1f}" height="{bottom - top}" fill="{TEAL_SOFT}" fill-opacity="0.22" rx="10"/>')
-    svg.append(f'<line x1="{boundary:.1f}" y1="{top}" x2="{boundary:.1f}" y2="{bottom}" stroke="{BLUE}" stroke-dasharray="5 5" stroke-opacity="0.6"/>')
-    svg.append(text(boundary + 10, top + 18, "After the $1K milestone", size=12, color=BLUE, weight=650))
-    for i, (label, value) in enumerate(zip(labels, values)):
-        xx = left + bar_space * i + (bar_space - bar_width) / 2
-        yy = y(value)
-        color = TEAL if i >= 4 else SUBTLE
-        svg.append(f'<rect x="{xx:.1f}" y="{yy:.1f}" width="{bar_width}" height="{bottom - yy:.1f}" rx="7" fill="{color}"/>')
-        svg.append(text(xx + bar_width / 2, yy - 11, f"{value:,}", size=12, color=color, weight=650, anchor="middle"))
-        svg.append(text(xx + bar_width / 2, bottom + 25, label, size=11, color=MUTED, anchor="middle"))
+    tool_clicks = [
+        42, 34, 33, 35, 43, 38, 55, 78, 56, 74, 78, 86, 74, 73, 87, 96,
+        85, 76, 82, 101, 107, 95, 106, 154, 136, 146, 135, 163, 173, 171, 129,
+    ]
+    mrr = [
+        1004.34, 1008.61, 1055.21, 1074.79, 1114.11, 1122.94, 1130.35, 1148.83,
+        1192.43, 1216.40, 1255.50, 1296.14, 1322.71, 1362.26, 1392.89, 1402.70,
+        1418.68, 1471.99, 1476.74, 1515.98, 1529.33, 1528.14, 1542.04, 1577.57,
+        1565.64, 1586.82, 1600.28, 1698.70, 1746.02, 1796.41, 1891.44, 1920.18,
+    ]
+    d0, d1 = date(2026, 7, 12), date(2026, 8, 12)
+    left, right, top, bottom = 82, 1126, 212, 612
+    x = lambda d: left + (d.toordinal() - d0.toordinal()) / (d1.toordinal() - d0.toordinal()) * (right - left)
+    yc = lambda v: bottom - (v / 180) * (bottom - top)
+    ym = lambda v: bottom - ((v - 950) / 1000) * (bottom - top)
+    bar_step = (right - left) / 32
+    bar_w = bar_step * 0.62
+    svg = [
+        f'<defs><linearGradient id="mrrMonthFill" x1="0" y1="0" x2="0" y2="1">'
+        f'<stop offset="0%" stop-color="{BLUE}" stop-opacity="0.17"/>'
+        f'<stop offset="100%" stop-color="{BLUE}" stop-opacity="0.01"/></linearGradient></defs>'
+    ]
+    for value in (0, 60, 120, 180):
+        yy = yc(value)
+        svg.append(f'<line x1="{left}" y1="{yy:.1f}" x2="{right}" y2="{yy:.1f}" stroke="{GRID}" stroke-dasharray="4 5"/>')
+        svg.append(svg_text(left - 14, yy + 5, str(value), size=14, color=MUTED, anchor="end"))
+    for value in (1000, 1300, 1600, 1900):
+        svg.append(svg_text(right + 14, ym(value) + 5, f"${value / 1000:.1f}K", size=14, color=MUTED))
+    svg.append(svg_text(left, top - 22, "Organic tool clicks / day", size=14, color=TEAL, weight=650))
+    svg.append(svg_text(right, top - 22, "MRR", size=14, color=BLUE, weight=650, anchor="end"))
+    for i, value in enumerate(tool_clicks):
+        xx = left + i * bar_step + (bar_step - bar_w) / 2
+        yy = yc(value)
+        svg.append(f'<rect x="{xx:.1f}" y="{yy:.1f}" width="{bar_w:.1f}" height="{bottom - yy:.1f}" rx="5" fill="{TEAL}" fill-opacity="0.72"/>')
+    mrr_xs = [x(date.fromordinal(d0.toordinal() + i)) for i in range(len(mrr))]
+    mrr_ys = [ym(value) for value in mrr]
+    mrr_path = monotone_path(mrr_xs, mrr_ys)
+    mrr_area = mrr_path + f" L {mrr_xs[-1]:.1f} {bottom} L {mrr_xs[0]:.1f} {bottom} Z"
+    svg.append(f'<path d="{mrr_area}" fill="url(#mrrMonthFill)"/>')
+    svg.append(f'<path d="{mrr_path}" fill="none" stroke="{BLUE}" stroke-width="4" stroke-linecap="round"/>')
+    events = [
+        (date(2026, 7, 13), "Funnel rebuild", 156),
+        (date(2026, 7, 18), "Transformation", 181),
+        (date(2026, 7, 23), "Rater + links", 156),
+        (date(2026, 7, 30), "Hub + queries", 181),
+        (date(2026, 8, 6), "Body visualizer", 156),
+    ]
+    for event_date, label, label_y in events:
+        xx = x(event_date)
+        svg.append(f'<line x1="{xx:.1f}" y1="{label_y + 10}" x2="{xx:.1f}" y2="{bottom}" stroke="{SUBTLE}" stroke-dasharray="4 5" stroke-opacity="0.65"/>')
+        svg.append(f'<circle cx="{xx:.1f}" cy="{label_y + 7}" r="5" fill="{CARD}" stroke="{ORANGE}" stroke-width="3"/>')
+        svg.append(svg_text(xx, label_y, label, size=13, color=FG, weight=600, anchor="middle"))
+    for tick in (date(2026, 7, 12), date(2026, 7, 18), date(2026, 7, 24), date(2026, 7, 30), date(2026, 8, 5), date(2026, 8, 11)):
+        svg.append(svg_text(x(tick), bottom + 32, tick.strftime("%b %-d"), size=14, color=MUTED, anchor="middle"))
+    svg.append(f'<circle cx="{mrr_xs[-1]:.1f}" cy="{mrr_ys[-1]:.1f}" r="7" fill="{BLUE}" stroke="{CARD}" stroke-width="4"/>')
+    svg.append(svg_text(mrr_xs[-1] - 12, mrr_ys[-1] - 15, "$1,920", size=17, color=BLUE, weight=700, anchor="end"))
     return (
         "tool-clicks-by-week",
         html_card(
-            "Organic clicks to free tools",
-            "Weekly clicks  •  Google Search Console  •  final data through Aug 9",
-            [("298", "prior 28 days", ""), ("2,499", "next 28 days", "teal"), ("+739%", "matched-window growth", "blue")],
-            "".join(svg), width=width, height=height,
-        ), width, height,
+            "Free-tool traffic rose with MRR",
+            "Search Console fresh through Aug 11  •  RevenueCat through Aug 12",
+            [("+827%", "tool clicks", "teal"), ("$1K → $1.92K", "MRR", "blue"), ("5", "shipping events", "orange")],
+            "".join(svg),
+        ), WIDTH, HEIGHT,
     )
 
 
 def tool_winners_chart() -> tuple[str, str, int, int]:
-    width, height = 1120, 600
     rows = [
-        ("Body fat from photo", 203, 1376, "+578%"),
-        ("Body fat visualizer", 12, 446, "+3,617%"),
-        ("Physique rater", 0, 419, "new"),
-        ("Tools directory", 78, 203, "+160%"),
+        ("Body fat from photo", 206, 1486, "+1,280 clicks"),
+        ("Physique rater", 0, 538, "new tool"),
+        ("Body fat visualizer", 12, 480, "+468 clicks"),
+        ("Tools directory", 79, 222, "+143 clicks"),
     ]
-    left, right, top = 244, width - 74, 164
-    row_h, bar_h, max_value = 91, 20, 1400
+    left, right, top = 304, 1126, 202
+    row_h, bar_h, max_value = 94, 22, 1500
     sx = lambda v: left + (v / max_value) * (right - left)
     svg = []
-    for value in (0, 350, 700, 1050, 1400):
+    for value in (0, 500, 1000, 1500):
         xx = sx(value)
-        svg.append(f'<line x1="{xx:.1f}" y1="{top - 16}" x2="{xx:.1f}" y2="{top + row_h * len(rows) - 16}" stroke="{GRID}" stroke-dasharray="3 4"/>')
-        svg.append(text(xx, top + row_h * len(rows) + 8, f"{value:,}", size=11, color=MUTED, anchor="middle"))
+        svg.append(f'<line x1="{xx:.1f}" y1="{top - 20}" x2="{xx:.1f}" y2="{top + row_h * len(rows) - 22}" stroke="{GRID}" stroke-dasharray="4 5"/>')
+        svg.append(svg_text(xx, top + row_h * len(rows) + 10, f"{value:,}", size=14, color=MUTED, anchor="middle"))
+    svg.append(f'<rect x="{right - 230}" y="{top - 50}" width="13" height="13" rx="4" fill="{TEAL}"/>')
+    svg.append(svg_text(right - 208, top - 39, "Jul 13–Aug 11", size=14, color=MUTED))
+    svg.append(f'<rect x="{right - 82}" y="{top - 50}" width="13" height="13" rx="4" fill="{SUBTLE}"/>')
+    svg.append(svg_text(right - 60, top - 39, "prior 30d", size=14, color=MUTED))
     for i, (label, before, after, delta) in enumerate(rows):
         yy = top + i * row_h
-        svg.append(text(left - 20, yy + 22, label, size=13, color=FG, weight=600, anchor="end"))
-        svg.append(text(left - 20, yy + 42, delta, size=11, color=TEAL if delta != "new" else BLUE, weight=650, anchor="end"))
-        before_w = max(2, sx(before) - left)
-        after_w = max(2, sx(after) - left)
-        svg.append(f'<rect x="{left}" y="{yy}" width="{after_w:.1f}" height="{bar_h}" rx="6" fill="{TEAL}"/>')
-        svg.append(text(left + after_w + 10, yy + 15, f"{after:,}", size=12, color=TEAL, weight=650))
-        svg.append(f'<rect x="{left}" y="{yy + 30}" width="{before_w:.1f}" height="{bar_h}" rx="6" fill="{SUBTLE}"/>')
-        svg.append(text(left + before_w + 10, yy + 45, f"{before:,}", size=12, color=MUTED, weight=600))
-    svg.append(f'<rect x="{width - 272}" y="{top - 28}" width="10" height="10" rx="3" fill="{TEAL}"/>')
-    svg.append(text(width - 254, top - 18, "Jul 13 to Aug 9", size=11, color=MUTED))
-    svg.append(f'<rect x="{width - 154}" y="{top - 28}" width="10" height="10" rx="3" fill="{SUBTLE}"/>')
-    svg.append(text(width - 136, top - 18, "prior 28d", size=11, color=MUTED))
+        svg.append(svg_text(left - 24, yy + 22, label, size=17, color=FG, weight=650, anchor="end"))
+        svg.append(svg_text(left - 24, yy + 48, delta, size=14, color=BLUE if before == 0 else TEAL, weight=650, anchor="end"))
+        after_w = max(3, sx(after) - left)
+        before_w = max(3, sx(before) - left)
+        svg.append(f'<rect x="{left}" y="{yy}" width="{after_w:.1f}" height="{bar_h}" rx="7" fill="{TEAL}"/>')
+        svg.append(svg_text(left + after_w + 12, yy + 17, f"{after:,}", size=16, color=TEAL, weight=700))
+        svg.append(f'<rect x="{left}" y="{yy + 34}" width="{before_w:.1f}" height="{bar_h}" rx="7" fill="{SUBTLE}"/>')
+        svg.append(svg_text(left + before_w + 12, yy + 51, f"{before:,}", size=15, color=MUTED, weight=650))
     return (
         "tool-page-winners",
         html_card(
-            "Specific tools carried almost all the growth",
-            "Organic clicks by landing page  •  matched 28-day windows",
-            [("98%", "of tool clicks from top four", "teal"), ("23.7%", "physique rater CTR", "blue")],
-            "".join(svg), width=width, height=height,
-        ), width, height,
+            "Existing tools produced 76% of the added clicks",
+            "Organic clicks by landing page  •  matched 30-day windows",
+            [("76%", "from existing pages", "teal"), ("97%", "from top four", "blue")],
+            "".join(svg),
+        ), WIDTH, HEIGHT,
     )
 
 
 def repo_timeline_chart() -> tuple[str, str, int, int]:
-    width, height = 1120, 620
-    cards = [
-        ("Live tools", "11", "14", "+3", BLUE, BLUE_SOFT),
-        ("Internal links", "929", "1,353", "+424", TEAL, TEAL_SOFT),
-        ("Orphan pages", "46", "7", "-39", ORANGE, ORANGE_SOFT),
-    ]
-    svg = []
-    card_y, card_h, card_w, gap = 150, 142, 312, 28
-    start_x = (width - (card_w * 3 + gap * 2)) / 2
-    for i, (label, before, after, delta, color, soft) in enumerate(cards):
-        xx = start_x + i * (card_w + gap)
-        svg.append(f'<rect x="{xx:.1f}" y="{card_y}" width="{card_w}" height="{card_h}" rx="14" fill="{soft}" fill-opacity="0.42" stroke="{BORDER}"/>')
-        svg.append(text(xx + 22, card_y + 30, label, size=12, color=MUTED, weight=600))
-        svg.append(text(xx + 22, card_y + 82, before, size=26, color=SUBTLE, weight=650))
-        svg.append(text(xx + 92, card_y + 79, "→", size=23, color=MUTED, weight=500))
-        svg.append(text(xx + 132, card_y + 82, after, size=34, color=color, weight=700))
-        svg.append(text(xx + 22, card_y + 119, delta + " during the window", size=11, color=color, weight=650))
     events = [
-        ("Jul 13", "Estimator funnel"),
-        ("Jul 18", "Transformation tool"),
-        ("Jul 23", "Physique rater"),
-        ("Jul 29", "Hub reorder"),
-        ("Aug 1", "Link cleanup"),
-        ("Aug 6", "Body visualizer"),
+        ("Jul 13", "Estimator result", "One clear next step"),
+        ("Jul 18", "Transformation", "New tool + 8 links"),
+        ("Jul 23", "Physique rater", "New tool + 20 links"),
+        ("Jul 29", "Tools hub", "Reordered by traffic"),
+        ("Jul 31", "Search rewrite", "Used real queries"),
+        ("Aug 6", "Body visualizer", "New tool"),
     ]
-    line_y, x0, x1 = 406, 86, width - 86
-    svg.append(f'<line x1="{x0}" y1="{line_y}" x2="{x1}" y2="{line_y}" stroke="{BORDER}" stroke-width="3" stroke-linecap="round"/>')
-    for i, (when, label) in enumerate(events):
+    x0, x1, line_y = 92, 1108, 380
+    svg = [f'<line x1="{x0}" y1="{line_y}" x2="{x1}" y2="{line_y}" stroke="{BORDER}" stroke-width="4" stroke-linecap="round"/>']
+    for i, (when, label, detail) in enumerate(events):
         xx = x0 + i * (x1 - x0) / (len(events) - 1)
-        color = TEAL if i in (2, 4, 5) else BLUE
-        svg.append(f'<circle cx="{xx:.1f}" cy="{line_y}" r="8" fill="{CARD}" stroke="{color}" stroke-width="3"/>')
-        svg.append(text(xx, line_y - 24, when, size=11, color=color, weight=700, anchor="middle"))
-        svg.append(text(xx, line_y + 31, label, size=11, color=MUTED, weight=600, anchor="middle"))
+        above = i % 2 == 0
+        stem_end = line_y - 74 if above else line_y + 74
+        svg.append(f'<line x1="{xx:.1f}" y1="{line_y}" x2="{xx:.1f}" y2="{stem_end}" stroke="{SUBTLE}" stroke-width="2"/>')
+        svg.append(f'<circle cx="{xx:.1f}" cy="{line_y}" r="10" fill="{CARD}" stroke="{TEAL if i in (2, 4, 5) else BLUE}" stroke-width="4"/>')
+        if above:
+            svg.append(svg_text(xx, stem_end - 38, when, size=14, color=TEAL if i in (2, 4, 5) else BLUE, weight=700, anchor="middle"))
+            svg.append(svg_text(xx, stem_end - 14, label, size=16, color=FG, weight=650, anchor="middle"))
+            svg.append(svg_text(xx, stem_end + 9, detail, size=13, color=MUTED, anchor="middle"))
+        else:
+            svg.append(svg_text(xx, stem_end + 27, when, size=14, color=TEAL if i in (2, 4, 5) else BLUE, weight=700, anchor="middle"))
+            svg.append(svg_text(xx, stem_end + 53, label, size=16, color=FG, weight=650, anchor="middle"))
+            svg.append(svg_text(xx, stem_end + 76, detail, size=13, color=MUTED, anchor="middle"))
     return (
         "repo-changes-timeline",
         html_card(
-            "The repo changed as much as the traffic did",
-            "Git history and content inventory  •  Jul 12 to Aug 12",
-            [("6", "meaningful shipping events", "blue"), ("31 days", "from $1K to $1.92K", "teal")],
-            "".join(svg), width=width, height=height,
-        ), width, height,
+            "What changed between $1K and $1.92K MRR",
+            "Git history  •  July 12–August 12, 2026",
+            [("11 → 14", "free tools", "blue"), ("+424", "internal links", "teal"), ("46 → 7", "orphan pages", "orange")],
+            "".join(svg),
+        ), WIDTH, HEIGHT,
     )
 
 
-def render(name: str, html: str, width: int, height: int) -> None:
+def render(name: str, chart_html: str, width: int, height: int) -> None:
     ASSETS.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="gainframe-founder-chart-") as tmp:
         tmp_path = Path(tmp)
         html_path = tmp_path / f"{name}.html"
         png_path = tmp_path / f"{name}.png"
-        html_path.write_text(html, encoding="utf-8")
+        html_path.write_text(chart_html, encoding="utf-8")
         subprocess.run(
             [
                 str(CHROME), "--headless=new", "--hide-scrollbars", "--disable-gpu",
                 "--force-device-scale-factor=2", f"--window-size={width},{height}",
                 f"--screenshot={png_path}", html_path.as_uri(),
-            ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+            ],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
         )
         subprocess.run(
-            ["cwebp", "-quiet", "-q", "88", str(png_path), "-o", str(ASSETS / f"{name}.webp")],
+            ["cwebp", "-quiet", "-q", "90", str(png_path), "-o", str(ASSETS / f"{name}.webp")],
             check=True,
         )
 

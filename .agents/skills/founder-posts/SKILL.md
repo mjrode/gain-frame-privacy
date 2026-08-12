@@ -12,8 +12,8 @@ Founder stories are the top-performing lane on the gainframe.app blog and on Red
 What makes this lane work (bake ALL of these in, every time):
 
 1. **Specific numbers beat everything.** More specific data = more views. Numerator/denominator ("46 of 104 trials"), dollar amounts to the dollar ($5,674 not "$5K+"), dated timelines, week-by-week series. Never round a real number into a vaguer claim.
-2. **The outcome is the story; failures are texture.** Title and narrative spine = the result the reader wants (the number that moved, the milestone hit). Confessions and embarrassing bugs are supporting details woven into the timeline — they build trust, they don't get the headline or the first section, UNLESS the failure itself is the whole story ("I Spent $5,674 on App Ads. Here's Why I Stopped.") or Michael explicitly picks the confession angle. Carry every caveat the data demands (small cohorts, confounds, unproven attribution) — the hedging is the trust engine, not a weakness.
-3. **Still celebrate the win.** Honest ≠ mopey. State plainly what worked and what it's worth now. Close on the earned, understated win ("Slower, but it compounds, and it's mine.").
+2. **The outcome is the story; failures are texture.** Title and narrative spine = the result the reader wants (the number that moved, the milestone hit). Confessions and embarrassing bugs are supporting details woven into the timeline. They do not get the headline or first section unless the failure itself is the story ("I Spent $5,674 on App Ads. Here's Why I Stopped.") or Michael explicitly picks that angle. Keep material uncertainty, but state it once in ordinary language beside the number it affects. Never turn attribution limits into a legal disclaimer or a performance of honesty.
+3. **Still celebrate the win.** State plainly what worked and what it is worth now. Close on the earned, understated win ("Slower, but it compounds, and it's mine.").
 4. **Charts pull the scroll.** 2–4 brand-styled charts per post (see Chart Style below). Every chart shows a real number the post quotes.
 
 ## Inputs
@@ -28,7 +28,7 @@ Either a **brief file** (preferred — e.g. `analytics/trial-conversion-post-bri
 List `web/content/blog/*.mdx`, confirm this story isn't already told. Founder stories that overlap an existing post should LINK to it, not re-tell it (e.g. the paid-ads prologue links to `spent-5k-on-app-ads`).
 
 ### Phase 1 — Voice
-Apply the **mike-writes** skill (`~/.agents/skills/mike-writes/SKILL.md`) in full: lead with the fact, backstory and motivation, honest hedging, mechanism over outcome, second-order lessons, blunt headers, loose human grammar, run the Removal Checklist (no teaser hooks, no "what actually worked", no manufactured aphorisms, no AI-polish tells).
+Apply the **mike-writes** skill (`~/.agents/skills/mike-writes/SKILL.md`) in full: lead with the fact, backstory and motivation, mechanism over outcome, second-order lessons, blunt headers, loose human grammar, and run the Removal Checklist. Pay special attention to manufactured personal reactions and courtroom-style attribution disclaimers. Say an unknown once in normal language, then move on.
 
 **No growth jargon — describe what the user sees.** Terms like "value-anchored", "value stack", "trial-timeline paywall", "activation lever" read like garbage to the actual audience (Michael flagged this on the trial-conversion post). Translate every one into the concrete thing: not "the variant leads with a value stack and a per-month price anchor derived from the yearly plan" but "the new paywall leads with what you get when you upgrade, and shows the yearly plan as $3.33/mo instead of $39.99/year. Same price, different frame." If a sentence needs a growth-marketing glossary, rewrite it. Titles are flat declaratives with a real number — offer 2–3 options, pattern-matched to the winners:
 - "I Spent $5,674 on App Ads. Here's Why I Stopped."
@@ -77,14 +77,14 @@ Write the companion Reddit post to `marketing/reddit/[slug].md`. ⚠️ NEVER pu
 - **Self-contained value.** The full story with the real numbers lives IN the post — Reddit punishes link-bait. Someone who never clicks still gets everything.
 - Same mike-writes voice; even looser than the blog (it's a forum comment, not an essay).
 - Title: flat declarative with the number, no hooks — and include the app's total revenue or MRR in the title (e.g. "My $1,096 MRR app…"), it measurably pulls more clicks (Michael, Jul 2026). Offer 2–3 options tuned per subreddit if they differ (milestone framing for r/appledevelopers, lesson framing for r/AppBusiness / r/iOSAppsMarketing).
-- Every failure/caveat from the blog post survives the compression — Reddit's first comment WILL be the caveat you omitted. Preempt it.
+- Keep every material limitation from the blog, but state each one once beside the relevant number. Do not collect them into a defensive honesty section.
 - **Never a wall of text — format for the skim.** Markdown that has proven out in Michael's editing passes:
   - Paragraphs of 1–3 sentences with blank lines between. Split anything longer.
   - **Bold the lead-in sentence of each change/step** ("**Re-gated features that had quietly become free.** While building fast…") so the post scans as a list without being one.
-  - A bolded one-line header before each section: "**What I changed, roughly in order:**", "**The numbers:**", "**The caveats, because these matter more than the wins:**".
+  - Use a bolded one-line header only when it helps the skim: "**What I changed:**", "**The numbers:**", or a literal subject such as "**The website tracking is missing:**". Never use a generic honesty/caveats header or explain why a section matters.
   - Bold the handful of numbers that carry the story (the before %, the after %, the key predictor) — a handful, not every figure.
   - Markdown table for the before/after numbers.
-  - Caveats as a short dash list, one caveat per item.
+  - When several limits need a list, label it with the actual subject and keep one fact per line. Do not call it a caveats or honesty section.
   - Inline markdown links early: the app's App Store page on first mention (Reddit renders a preview card), and the benchmark/data source. RevenueCat verified link near the end.
   - Attach the strongest chart as the post image where the sub allows image+text — the top-performing posts led with a dark chart.
 - **The blog link comes last**, framed as optional extra: "Full write-up with the charts: [link]" — one line, with `?utm_source=reddit&utm_medium=social&utm_campaign=[slug]`.
