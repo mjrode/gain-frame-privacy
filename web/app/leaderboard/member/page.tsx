@@ -18,6 +18,7 @@ export default function LeaderboardMemberPage() {
       <link rel="stylesheet" href="/styles-clean.css" />
       <link rel="stylesheet" href="/styles.css" />
       <link rel="stylesheet" href="/styles/leaderboard-profile.css" />
+      <link rel="stylesheet" href="/styles/leaderboard-share.css" />
       <Nav />
       <main className="member-profile-main">
         <MemberProfileClient />

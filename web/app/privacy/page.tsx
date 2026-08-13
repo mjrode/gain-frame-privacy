@@ -318,6 +318,15 @@ export default function PrivacyPage() {
             addresses are excluded from this event and notification.
           </p>
           <p>
+            If you choose to share or download a public leaderboard card while
+            optional analytics are enabled, GainFrame records a share-intent
+            event and may send a private Slack notification. It contains only
+            the platform, selected card style, share-button placement, a broad
+            rank range, goal filter, and leaderboard period. It does not
+            contain a username, profile or entry identifier, profile details,
+            photos, or scan media.
+          </p>
+          <p>
             The public AI Ab Analyzer also uses server-keyed HMAC fingerprints
             of a browser identifier and request address to enforce its free-use
             and provider-cost limits. GainFrame retains a content-free keyed

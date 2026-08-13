@@ -165,6 +165,42 @@
   text-transform: uppercase;
 }
 
+.member-profile-share-button {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, .23);
+  border-radius: 999px;
+  padding: 0 14px;
+  background: #f7f2e9;
+  color: #2f4935;
+  font: 850 11px/1 var(--font-body);
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.member-profile-share-button svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.member-profile-share-button:hover {
+  background: #fff;
+  color: #1e3524;
+  transform: translateY(-1px);
+}
+
+.member-profile-share-button:focus-visible {
+  outline: 3px solid rgba(165, 197, 171, .54);
+  outline-offset: 3px;
+}
+
 .member-profile-gary {
   position: absolute;
   top: 25px;

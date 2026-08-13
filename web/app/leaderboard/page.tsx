@@ -35,6 +35,7 @@ export default function LeaderboardPage() {
       <link rel="stylesheet" href="/styles-clean.css" />
       <link rel="stylesheet" href="/styles.css" />
       <link rel="stylesheet" href="/styles/leaderboard.css" />
+      <link rel="stylesheet" href="/styles/leaderboard-share.css" />
       <Nav />
       <main className="leaderboard-main">
         <LeaderboardClient />

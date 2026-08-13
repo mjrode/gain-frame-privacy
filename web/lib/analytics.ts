@@ -87,6 +87,10 @@ export type AnalyticsEvent =
   // Homepage promo film
   | "promo_film_sound_on"
   | "promo_film_watched_75"
+  // Public leaderboard sharing
+  | "leaderboard_share_previewed"
+  | "leaderboard_share_template_selected"
+  | "leaderboard_share_clicked"
   // Generic
   | "cta_platform_alternative_click"
   | "web_download_clicked"

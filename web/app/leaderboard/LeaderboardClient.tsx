@@ -3,25 +3,22 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { SITE } from "@/lib/site";
+import LeaderboardShareDialog from "./LeaderboardShareDialog";
 import { publicLeaderboardDate } from "./leaderboard-date";
 import { appendUniqueStandings } from "./leaderboard-pagination";
+import {
+  buildShareContext,
+  type LeaderboardGoal,
+  type LeaderboardGoalFilter,
+  type LeaderboardPeriod,
+  type LeaderboardShareContext,
+  type LeaderboardShareEntry,
+} from "./leaderboard-share";
 
-type Goal = "Lose Weight" | "Gain Muscle" | "Body Recomp";
-type GoalFilter = "all" | Goal;
-type Period = "all_time" | "year" | "month" | "week";
-
-interface LeaderboardEntry {
-  profile_id: string;
-  entry_id: string;
-  rank: number;
-  username: string;
-  score: number;
-  goal: Goal;
-  score_date: string;
-  avatar_url?: string;
-  has_proof_media: boolean;
-  profile_available: boolean;
-}
+type Goal = LeaderboardGoal;
+type GoalFilter = LeaderboardGoalFilter;
+type Period = LeaderboardPeriod;
+type LeaderboardEntry = LeaderboardShareEntry;
 
 const GOAL_FILTERS: Array<{ value: GoalFilter; label: string }> = [
   { value: "all", label: "All goals" },
@@ -66,6 +63,7 @@ export default function LeaderboardClient() {
   const [loadingMore, setLoadingMore] = useState(false);
   const [goal, setGoal] = useState<GoalFilter>("all");
   const [period, setPeriod] = useState<Period>("all_time");
+  const [shareContext, setShareContext] = useState<LeaderboardShareContext>();
 
   const load = useCallback(async ({
     cursor,
@@ -112,6 +110,9 @@ export default function LeaderboardClient() {
 
   const selectedGoalLabel = GOAL_FILTERS.find((filter) => filter.value === goal)?.label;
   const selectedPeriodLabel = PERIODS.find((item) => item.value === period)?.label;
+  const openShare = (entry: LeaderboardEntry) => setShareContext(
+    buildShareContext(entries, entry, goal, period),
+  );
 
   return (
     <div className="leaderboard-wrap">
@@ -256,6 +257,20 @@ export default function LeaderboardClient() {
                         {rowContents}
                       </div>
                     )}
+                    <button
+                      className="leaderboard-row-share"
+                      type="button"
+                      onClick={() => openShare(entry)}
+                      aria-label={"Create a share card for @" + entry.username + " at rank " + rank}
+                      title="Share standing"
+                    >
+                      <svg aria-hidden="true" viewBox="0 0 24 24">
+                        <circle cx="18" cy="5" r="2.5" />
+                        <circle cx="6" cy="12" r="2.5" />
+                        <circle cx="18" cy="19" r="2.5" />
+                        <path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5" />
+                      </svg>
+                    </button>
                   </li>
                 );
               })}
@@ -278,6 +293,13 @@ export default function LeaderboardClient() {
         Progress over popularity. Read the{" "}
         <a href="/community-guidelines/">community guidelines</a>.
       </p>
+      {shareContext && (
+        <LeaderboardShareDialog
+          context={shareContext}
+          placement="leaderboard"
+          onClose={() => setShareContext(undefined)}
+        />
+      )}
     </div>
   );
 }

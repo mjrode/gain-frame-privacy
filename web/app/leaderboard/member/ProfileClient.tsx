@@ -1,7 +1,13 @@
 "use client";
 
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import LeaderboardShareDialog from "../LeaderboardShareDialog";
 import { publicLeaderboardDate } from "../leaderboard-date";
+import {
+  buildShareContext,
+  type LeaderboardShareContext,
+  type LeaderboardShareEntry,
+} from "../leaderboard-share";
 import {
   nextMediaRetryAttempt,
   profileMediaRefreshSearch,
@@ -366,6 +372,8 @@ export default function MemberProfileClient() {
   const [loadingOlder, setLoadingOlder] = useState(false);
   const [olderError, setOlderError] = useState("");
   const [olderAnnouncement, setOlderAnnouncement] = useState("");
+  const [shareContext, setShareContext] = useState<LeaderboardShareContext>();
+  const [shareOpen, setShareOpen] = useState(false);
   const mediaRetryAttempts = useRef<Map<string, number>>(new Map());
   const closeReport = useCallback(() => setReportTarget(undefined), []);
 
@@ -424,6 +432,48 @@ export default function MemberProfileClient() {
     });
     return () => controller.abort();
   }, [profileId]);
+
+  useEffect(() => {
+    if (
+      status !== "ready" ||
+      !payload ||
+      payload.profile.visibility !== "listed"
+    ) {
+      setShareContext(undefined);
+      return;
+    }
+
+    const controller = new AbortController();
+    const params = new URLSearchParams({
+      goal: "all",
+      period: "all_time",
+      limit: "100",
+    });
+    void fetch("/api/leaderboard?" + params.toString(), {
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+      signal: controller.signal,
+    }).then(async (response) => {
+      if (!response.ok) return;
+      const body = await response.json() as { entries?: unknown };
+      if (!Array.isArray(body.entries)) return;
+      const standings = body.entries as LeaderboardShareEntry[];
+      const selected = standings.find(
+        (entry) => entry.profile_id === payload.profile.profile_id,
+      );
+      if (selected) {
+        setShareContext(buildShareContext(
+          standings,
+          selected,
+          "all",
+          "all_time",
+        ));
+      }
+    }).catch((error: Error) => {
+      if (error.name !== "AbortError") setShareContext(undefined);
+    });
+    return () => controller.abort();
+  }, [payload, status]);
 
   async function loadOlderEntries() {
     if (!payload?.next_cursor || loadingOlder) return;
@@ -652,6 +702,21 @@ export default function MemberProfileClient() {
           {profile.region && (
             <span><b>Region</b> {profile.region}</span>
           )}
+          {shareContext && (
+            <button
+              className="member-profile-share-button"
+              type="button"
+              onClick={() => setShareOpen(true)}
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <circle cx="18" cy="5" r="2.5" />
+                <circle cx="6" cy="12" r="2.5" />
+                <circle cx="18" cy="19" r="2.5" />
+                <path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5" />
+              </svg>
+              Share standing
+            </button>
+          )}
         </div>
 
         <div className="member-profile-gary" aria-hidden="true">
@@ -847,6 +912,13 @@ export default function MemberProfileClient() {
 
       {reportTarget && (
         <ReportDialog target={reportTarget} onClose={closeReport} />
+      )}
+      {shareOpen && shareContext && (
+        <LeaderboardShareDialog
+          context={shareContext}
+          placement="member_profile"
+          onClose={() => setShareOpen(false)}
+        />
       )}
     </div>
   );
