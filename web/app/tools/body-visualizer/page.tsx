@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BlogNav from "@/components/BlogNav";
-import { appStoreUrlWithCampaign, SITE } from "@/lib/site";
+import PlatformDownloadLink from "@/components/PlatformDownloadLink";
+import { SITE } from "@/lib/site";
 import BodyVisualizerClient from "./BodyVisualizerClient";
 import styles from "./page.module.css";
 
@@ -273,16 +274,14 @@ export default function BodyVisualizerPage() {
             </p>
           </div>
           <div className={styles.appCtaAction}>
-            <a
-              href={appStoreUrlWithCampaign("web-body-visualizer")}
-              target="_blank"
-              rel="noopener"
-              data-cta-source="body_visualizer"
-              data-cta-content="closing_app_store"
+            <PlatformDownloadLink
+              campaign="web-body-visualizer"
+              content="closing_app_store"
+              source="body_visualizer"
             >
               Get GainFrame on the App Store
               <span aria-hidden="true">↗</span>
-            </a>
+            </PlatformDownloadLink>
             <small>iPhone · Free to start · App ID 6759252082</small>
           </div>
         </section>

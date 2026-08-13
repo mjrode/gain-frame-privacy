@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { APP_STORE_PROVIDER_TOKEN, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import {
   captureException,
   getPosthogDistinctId,
   getWebAnalyticsContext,
   track,
 } from "@/lib/analytics";
+import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
 import {
   asToolClientError,
   createAttemptId,
@@ -137,38 +138,7 @@ const PROCESSING_MESSAGES = [
   "Final pass — keeping it realistic",
 ];
 
-// Same dev bypass contract as the BF tool (?dev=gainframe), except the UUID
-// is held in sessionStorage instead of minted per call: the unlock flow needs
-// the same client_id across generate → unlock → generate, so per-call UUIDs
-// would 403 the unlock gate mid-test.
-const DEV_BYPASS_TOKEN = "gainframe";
-
-function isDevBypass(): boolean {
-  if (typeof window === "undefined") return false;
-  try {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("dev") === DEV_BYPASS_TOKEN) return true;
-  } catch {
-    /* ignore */
-  }
-  return Boolean(
-    (window as unknown as { GF_DEV_BYPASS?: boolean }).GF_DEV_BYPASS,
-  );
-}
-
 function getOrCreateClientId(): string {
-  if (isDevBypass()) {
-    const KEY = "gf_bt_dev_tid";
-    try {
-      const existing = sessionStorage.getItem(KEY);
-      if (existing) return existing;
-      const id = crypto.randomUUID();
-      sessionStorage.setItem(KEY, id);
-      return id;
-    } catch {
-      return crypto.randomUUID();
-    }
-  }
   const KEY = "gf_tid";
   try {
     const existing = localStorage.getItem(KEY);
@@ -185,17 +155,9 @@ function getOrCreateClientId(): string {
   return id;
 }
 
-function appStoreUrl(content: string): string {
-  const params = new URLSearchParams({
-    utm_source: "web",
-    utm_medium: "tool",
-    utm_campaign: CTA_CAMPAIGN,
-    utm_content: content,
-    pt: APP_STORE_PROVIDER_TOKEN,
-    ct: "web-bttool",
-    mt: "8",
-  });
-  return `${SITE.appStoreUrl}?${params.toString()}`;
+function appStoreUrl(): string {
+  // The delegated click tracker adds an AppsFlyer link only after consent.
+  return SITE.appStoreUrl;
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -629,6 +591,9 @@ export default function TransformClient() {
       const clientId = clientIdRef.current ?? getOrCreateClientId();
       clientIdRef.current = clientId;
       phase = "generate";
+      const analyticsConsent = documentAnalyticsConsentGranted(
+        document.documentElement,
+      );
       const res = await fetchWithTimeout(
         FUNCTION_URL,
         {
@@ -643,8 +608,13 @@ export default function TransformClient() {
             goal,
             zones,
             intensity: INTENSITY_STOPS[intensityIdx].key,
-            posthog_distinct_id: getPosthogDistinctId(),
-            analytics_context: getWebAnalyticsContext(),
+            analytics_consent: analyticsConsent,
+            ...(analyticsConsent
+              ? {
+                  posthog_distinct_id: getPosthogDistinctId(),
+                  analytics_context: getWebAnalyticsContext(),
+                }
+              : {}),
             request_id: attemptId,
             attempt_id: attemptId,
           }),
@@ -826,6 +796,9 @@ export default function TransformClient() {
     try {
       const clientId = clientIdRef.current ?? getOrCreateClientId();
       clientIdRef.current = clientId;
+      const analyticsConsent = documentAnalyticsConsentGranted(
+        document.documentElement,
+      );
       const res = await fetchWithTimeout(
         FUNCTION_URL,
         {
@@ -835,7 +808,10 @@ export default function TransformClient() {
             action: "unlock",
             client_id: clientId,
             email: trimmed,
-            posthog_distinct_id: getPosthogDistinctId(),
+            analytics_consent: analyticsConsent,
+            ...(analyticsConsent
+              ? { posthog_distinct_id: getPosthogDistinctId() }
+              : {}),
             request_id: attemptId,
             attempt_id: attemptId,
           }),
@@ -1196,7 +1172,7 @@ export default function TransformClient() {
           </p>
           <a
             className="btf-cta-download"
-            href={appStoreUrl("cta_primary")}
+            href={appStoreUrl()}
             target="_blank"
             rel="noopener"
             data-track-exempt="true"
@@ -1295,9 +1271,7 @@ export default function TransformClient() {
                 ? undefined
                 : { maxWidth: 300, margin: "0 auto", textDecoration: "none", textAlign: "center" }
             }
-            href={appStoreUrl(
-              stage.canUnlock ? "cta_rate_limited" : "cta_lifetime_limited",
-            )}
+            href={appStoreUrl()}
             target="_blank"
             rel="noopener"
             data-cta-source={CTA_CAMPAIGN}

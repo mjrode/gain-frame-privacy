@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { APP_STORE_PROVIDER_TOKEN, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import {
   captureException,
   getPosthogDistinctId,
   getWebAnalyticsContext,
   track,
 } from "@/lib/analytics";
+import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
 import {
   asToolClientError,
   createAttemptId,
@@ -86,30 +87,7 @@ const PROCESSING_MESSAGES = [
   "Crunching the numbers",
 ];
 
-// Secret URL bypass for the per-day rate limit. When the page is loaded with
-// `?dev=gainframe` (or window.GF_DEV_BYPASS = true is set in the console),
-// every estimate uses a fresh UUID, so the (ip + client_id) fingerprint
-// is unique per call and never collides with today's rate-limit row.
-// The function itself still rate-limits — we just dodge the bucket on the
-// client side so internal testing isn't blocked.
-const DEV_BYPASS_TOKEN = "gainframe";
-
-function isDevBypass(): boolean {
-  if (typeof window === "undefined") return false;
-  try {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("dev") === DEV_BYPASS_TOKEN) return true;
-  } catch {
-    /* ignore */
-  }
-  // Allow toggling from DevTools without a reload.
-  return Boolean((window as unknown as { GF_DEV_BYPASS?: boolean }).GF_DEV_BYPASS);
-}
-
 function getOrCreateClientId(): string {
-  // Dev bypass: fresh UUID every call → rate limit never collides.
-  if (isDevBypass()) return crypto.randomUUID();
-
   const KEY = "gf_tid";
   try {
     const existing = localStorage.getItem(KEY);
@@ -141,20 +119,9 @@ function nextRunIndex(): number {
   }
 }
 
-function appStoreUrl(content: string): string {
-  const params = new URLSearchParams({
-    utm_source: "web",
-    utm_medium: "tool",
-    utm_campaign: CTA_CAMPAIGN,
-    utm_content: content,
-    // Apple campaign tokens — UTM params never reach App Store Connect, so
-    // these are what tie a BF-tool install to the web funnel there. The CTAs
-    // are data-track-exempt, so the global tracker won't re-rewrite them.
-    pt: APP_STORE_PROVIDER_TOKEN,
-    ct: "web-bftool",
-    mt: "8",
-  });
-  return `${SITE.appStoreUrl}?${params.toString()}`;
+function appStoreUrl(): string {
+  // The delegated click tracker adds an AppsFlyer link only after consent.
+  return SITE.appStoreUrl;
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -372,6 +339,9 @@ export default function BFEstimatorClient() {
     });
 
     try {
+      const analyticsConsent = documentAnalyticsConsentGranted(
+        document.documentElement,
+      );
       const res = await fetchWithTimeout(
         REPORT_FUNCTION_URL,
         {
@@ -385,7 +355,10 @@ export default function BFEstimatorClient() {
             sex: sex && sex !== "skip" ? sex : null,
             estimate: stage.estimate,
             confidence: stage.confidence,
-            posthog_distinct_id: getPosthogDistinctId(),
+            analytics_consent: analyticsConsent,
+            ...(analyticsConsent
+              ? { posthog_distinct_id: getPosthogDistinctId() }
+              : {}),
             request_id: attemptId,
             attempt_id: attemptId,
           }),
@@ -544,13 +517,21 @@ export default function BFEstimatorClient() {
       estimateClientIdRef.current = clientId;
       photoBase64Ref.current = processed.base64;
       photoMimeRef.current = processed.photoMime;
+      const analyticsConsent = documentAnalyticsConsentGranted(
+        document.documentElement,
+      );
       const payload = {
         client_id: clientId,
         photo_base64: processed.base64,
         photo_mime: processed.photoMime,
         sex: sex && sex !== "skip" ? sex : null,
-        posthog_distinct_id: getPosthogDistinctId(),
-        analytics_context: getWebAnalyticsContext(),
+        analytics_consent: analyticsConsent,
+        ...(analyticsConsent
+          ? {
+              posthog_distinct_id: getPosthogDistinctId(),
+              analytics_context: getWebAnalyticsContext(),
+            }
+          : {}),
         request_id: attemptId,
         attempt_id: attemptId,
       };
@@ -816,7 +797,7 @@ export default function BFEstimatorClient() {
           </p>
           <a
             className="bff-cta-download"
-            href={appStoreUrl("cta_primary")}
+            href={appStoreUrl()}
             target="_blank"
             rel="noopener"
             // Fires its own outbound event below with the campaign source —
@@ -1054,7 +1035,7 @@ export default function BFEstimatorClient() {
           <a
             className="bff-submit"
             style={{ maxWidth: 280, margin: "0 auto", textDecoration: "none", textAlign: "center" }}
-            href={appStoreUrl(stage.lifetime ? "cta_lifetime_limited" : "cta_rate_limited")}
+            href={appStoreUrl()}
             target="_blank"
             rel="noopener"
             // outbound_app_store_click comes from the global tracker; these

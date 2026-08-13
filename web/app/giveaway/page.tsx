@@ -14,8 +14,9 @@ const geist = Geist({
 const PAGE_PATH = "/giveaway/";
 const PAGE_URL = `${SITE.url}${PAGE_PATH}`;
 
-const CAMPAIGN_URL =
-  "https://apps.apple.com/app/apple-store/id6759252082?pt=128456047&ct=giveaway-2026-07&mt=8";
+// The site-wide click handler adds consented attribution at click time. The
+// rendered URL must remain the ordinary App Store destination by default.
+const CAMPAIGN_URL = SITE.appStoreUrl;
 
 export const metadata: Metadata = {
   title: {

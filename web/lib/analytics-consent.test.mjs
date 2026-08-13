@@ -4,6 +4,7 @@ import test from "node:test";
 const {
   combinedStoredAnalyticsConsent,
   documentAnalyticsConsentDecision,
+  documentAnalyticsConsentGranted,
   isProductionAnalyticsHost,
   resolveAnalyticsConsent,
   resolveAnalyticsConsentState,
@@ -63,4 +64,8 @@ test("optional analytics require a resolved grant published by the manager", () 
   assert.equal(documentAnalyticsConsentDecision(root("denied")), "denied");
   assert.equal(documentAnalyticsConsentDecision(root("granted")), "granted");
   assert.equal(documentAnalyticsConsentDecision(root("invalid")), "pending");
+  assert.equal(documentAnalyticsConsentGranted(null), false);
+  assert.equal(documentAnalyticsConsentGranted(root("pending")), false);
+  assert.equal(documentAnalyticsConsentGranted(root("denied")), false);
+  assert.equal(documentAnalyticsConsentGranted(root("granted")), true);
 });

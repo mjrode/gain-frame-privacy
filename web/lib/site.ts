@@ -25,23 +25,14 @@ export const SITE = {
 export const APP_STORE_APP_ID = "6759252082";
 export const APP_STORE_PROVIDER_TOKEN = "128456047";
 
-/** App Store URL carrying Apple campaign tokens for a given campaign name. */
-export function appStoreUrlWithCampaign(ct: string): string {
-  return `${SITE.appStoreUrl}?pt=${APP_STORE_PROVIDER_TOKEN}&ct=${ct}&mt=8`;
-}
-
 /**
- * Coarse per-surface campaign token for a page path — the FALLBACK for anchors
- * that don't declare their own `ct`. Kept to a handful of values so the App
- * Store Connect campaign list stays readable; PostHog carries per-page detail
- * via `outbound_app_store_click`'s `source` property.
+ * Coarse per-surface campaign token for a page path. The delegated click
+ * handler uses it only after analytics consent is granted; rendered anchors
+ * themselves stay as the direct App Store destination.
  *
- * Components that build their own App Store URL (`PlatformDownloadLink`,
- * `DownloadQr`, via `appStoreUrlWithCampaign`) declare finer placement-level
- * tokens — `web-home-hero`, `web-home-nav`, `web-home-qr`, `web-home-closing`,
- * `web-blog-<intent>` — and those win. `AppStoreClickTracker` reads the
- * anchor's existing `ct` so PostHog reports the same token ASC attributes the
- * install to. See web/docs/cta-tracking.md.
+ * Components declare finer placement-level campaign values through their
+ * `data-cta-*` attributes, so `AppStoreClickTracker` can use them when it
+ * constructs the consented OneLink. See web/docs/cta-tracking.md.
  */
 export function campaignForPath(pathname: string): string {
   const p = pathname.replace(/\/+$/, "") || "/";

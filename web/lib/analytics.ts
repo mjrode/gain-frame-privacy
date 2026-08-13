@@ -78,6 +78,7 @@ export type AnalyticsEvent =
   // Physique rater tool
   | "physique_rater_requested"
   | "physique_rater_scored"
+  | "physique_rater_rate_limited"
   | "physique_rater_cta_click"
   // Ab analyzer tool
   | "ab_tool_requested"
@@ -88,6 +89,7 @@ export type AnalyticsEvent =
   | "promo_film_watched_75"
   // Generic
   | "cta_platform_alternative_click"
+  | "web_download_clicked"
   | "outbound_app_store_click";
 
 export function track(

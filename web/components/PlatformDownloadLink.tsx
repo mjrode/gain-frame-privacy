@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { trackOncePerDay } from "@/lib/analytics";
-import { appStoreUrlWithCampaign } from "@/lib/site";
+import { ANALYTICS_CONSENT_STATE_EVENT } from "@/lib/analytics-consent";
+import { SITE } from "@/lib/site";
+import { buildWebAttributionLink } from "@/lib/web-attribution";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 
 type PlatformDownloadLinkProps = {
@@ -24,6 +26,18 @@ export default function PlatformDownloadLink({
   source,
 }: PlatformDownloadLinkProps) {
   const platform = useDownloadPlatform();
+  const [href, setHref] = useState<string>(() => SITE.appStoreUrl);
+
+  useEffect(() => {
+    const updateHref = () => {
+      setHref(buildWebAttributionLink({ campaign, cta: content }).href);
+    };
+    updateHref();
+    window.addEventListener(ANALYTICS_CONSENT_STATE_EVENT, updateHref);
+    return () => {
+      window.removeEventListener(ANALYTICS_CONSENT_STATE_EVENT, updateHref);
+    };
+  }, [campaign, content]);
 
   if (platform === "android") {
     return (
@@ -53,11 +67,12 @@ export default function PlatformDownloadLink({
   return (
     <a
       className={className}
-      href={appStoreUrlWithCampaign(campaign)}
+      href={href}
       target="_blank"
       rel="noopener"
       data-cta-source={source}
       data-cta-content={content}
+      data-cta-campaign={campaign}
       data-cta-platform={platform === "unknown" ? "apple" : platform}
     >
       {children}

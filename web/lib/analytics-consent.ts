@@ -63,6 +63,12 @@ export function documentAnalyticsConsentDecision(
   ) ?? "pending";
 }
 
+export function documentAnalyticsConsentGranted(
+  root: Pick<HTMLElement, "getAttribute"> | null | undefined,
+): boolean {
+  return documentAnalyticsConsentDecision(root) === "granted";
+}
+
 export function isProductionAnalyticsHost(hostname: string): boolean {
   return /^(?:www\.)?gainframe\.app$/i.test(hostname);
 }

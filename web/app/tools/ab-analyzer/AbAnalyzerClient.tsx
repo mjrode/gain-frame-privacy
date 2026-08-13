@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { APP_STORE_PROVIDER_TOKEN, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import {
   getPosthogDistinctId,
   getWebAnalyticsContext,
   track,
 } from "@/lib/analytics";
+import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
 import { reportWebToolCompletion } from "@/lib/web-tool-usage";
 
 const FUNCTION_URL =
@@ -64,25 +65,7 @@ const REGION_LABELS: Array<{ key: keyof Regions; label: string; hint: string }> 
   { key: "obliques", label: "Obliques", hint: "The side wall, visible only when genuinely lean" },
 ];
 
-// Secret URL bypass for the per-day rate limit, mirroring the physique rater:
-// `?dev=gainframe` (or window.GF_DEV_BYPASS = true) uses a fresh UUID per
-// run so the (ip + client_id) fingerprint never collides during testing.
-const DEV_BYPASS_TOKEN = "gainframe";
-
-function isDevBypass(): boolean {
-  if (typeof window === "undefined") return false;
-  try {
-    if (new URLSearchParams(window.location.search).get("dev") === DEV_BYPASS_TOKEN) {
-      return true;
-    }
-  } catch {
-    /* ignore */
-  }
-  return Boolean((window as unknown as { GF_DEV_BYPASS?: boolean }).GF_DEV_BYPASS);
-}
-
 function getOrCreateClientId(): string {
-  if (isDevBypass()) return crypto.randomUUID();
   // Shared with the BF tool and physique rater on purpose: same browser, same
   // anonymous id. Quotas stay separate because the function salts per tool.
   const KEY = "gf_tid";
@@ -129,18 +112,9 @@ async function preprocessImage(
   }
 }
 
-function appStoreUrl(content: string): string {
-  const params = new URLSearchParams({
-    utm_source: "web",
-    utm_medium: "tool",
-    utm_campaign: CTA_CAMPAIGN,
-    utm_content: content,
-    // Apple campaign tokens. UTM params never reach App Store Connect.
-    pt: APP_STORE_PROVIDER_TOKEN,
-    ct: "web-abs",
-    mt: "8",
-  });
-  return `${SITE.appStoreUrl}?${params.toString()}`;
+function appStoreUrl(): string {
+  // The delegated click tracker adds an AppsFlyer link only after consent.
+  return SITE.appStoreUrl;
 }
 
 function trackAppStoreClick(placement: string): void {
@@ -243,6 +217,9 @@ export default function AbAnalyzerClient() {
         sex: sex === "skip" ? "unknown" : sex,
       });
 
+      const analyticsConsent = documentAnalyticsConsentGranted(
+        document.documentElement,
+      );
       const res = await fetch(FUNCTION_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -251,8 +228,13 @@ export default function AbAnalyzerClient() {
           photo_base64: base64,
           photo_mime: "image/jpeg",
           sex: sex === "skip" ? null : sex,
-          posthog_distinct_id: getPosthogDistinctId(),
-          analytics_context: getWebAnalyticsContext(),
+          analytics_consent: analyticsConsent,
+          ...(analyticsConsent
+            ? {
+                posthog_distinct_id: getPosthogDistinctId(),
+                analytics_context: getWebAnalyticsContext(),
+              }
+            : {}),
         }),
       });
 
@@ -431,7 +413,7 @@ export default function AbAnalyzerClient() {
           <div className="pr-cta">
             <a
               className="pr-cta-primary"
-              href={appStoreUrl("result")}
+              href={appStoreUrl()}
               target="_blank"
               rel="noopener"
               data-track-exempt
@@ -465,7 +447,7 @@ export default function AbAnalyzerClient() {
           <p>{stage.message}</p>
           <a
             className="pr-cta-primary"
-            href={appStoreUrl(stage.lifetime ? "lifetime_limit" : "daily_limit")}
+            href={appStoreUrl()}
             target="_blank"
             rel="noopener"
             data-track-exempt

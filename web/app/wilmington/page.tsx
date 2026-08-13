@@ -17,8 +17,9 @@ const PAGE_URL = `${SITE.url}${PAGE_PATH}`;
 
 const REDEEM_URL =
   "https://apps.apple.com/redeem?ctx=offercodes&id=6759252082&code=CASHSTASH";
-const CAMPAIGN_URL =
-  "https://apps.apple.com/app/apple-store/id6759252082?pt=128456047&ct=cashstash-wilm&mt=8";
+// The site-wide click handler adds consented attribution at click time. The
+// rendered URL must remain the ordinary App Store destination by default.
+const CAMPAIGN_URL = SITE.appStoreUrl;
 
 export const metadata: Metadata = {
   title: {

@@ -74,12 +74,12 @@ export default function PrivacyPage() {
         <div className="privacy-container">
           <h1>Privacy Policy</h1>
           <p className="privacy-subtitle">
-            GainFrame: Progress Photos — Last updated August 12, 2026
+            GainFrame: Progress Photos — Last updated August 13, 2026
           </p>
 
           <p>
             GainFrame (&ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;the
-            app&rdquo;) is a fitness progress photo tracking app built by
+            app&rdquo;) is a fitness progress photo tracking app and website built by
             Michael Rode. Your privacy is important to us. This policy explains
             what data the app collects, how it&rsquo;s used, and your rights.
           </p>
@@ -140,6 +140,15 @@ export default function PrivacyPage() {
               publishing is a separate, optional action described in Section 6
             </li>
           </ul>
+          <p>
+            The public AI tools on gainframe.app similarly send the photo you
+            choose through a GainFrame Supabase Edge Function to the configured
+            AI provider so the requested result can be returned. Tool-completion
+            notifications never contain the uploaded photo, calculator inputs,
+            or generated result. If you request an emailed report or unlock,
+            the email address is used to fulfill that request and is excluded
+            from optional analytics and Slack notifications.
+          </p>
 
           <h2>3. Apple Health</h2>
           <p>
@@ -170,10 +179,15 @@ export default function PrivacyPage() {
               An anonymous user identifier (not linked to your real identity)
             </li>
             <li>Subscription status and purchase history</li>
+            <li>
+              App onboarding state and, when attribution is available, bounded
+              campaign fields such as source, campaign, landing/download page,
+              CTA placement, anonymous click/session identifiers, and click time
+            </li>
           </ul>
           <p>
-            No personal information (name, email, etc.) is shared with
-            RevenueCat. See{" "}
+            We do not send your name, email address, photos, fitness results, or
+            website form entries to RevenueCat as subscriber attributes. See{" "}
             <a
               href="https://www.revenuecat.com/privacy"
               target="_blank"
@@ -246,17 +260,32 @@ export default function PrivacyPage() {
             records when reasonably necessary.
           </p>
 
-          <h2>7. No Tracking or Advertising</h2>
+          <h2>7. Advertising and Tracking Choices</h2>
           <p>
             GainFrame does <strong>not</strong>:
           </p>
           <ul>
             <li>Display advertisements</li>
-            <li>Use cross-app tracking</li>
-            <li>Collect device advertising identifiers (IDFA)</li>
+            <li>Access the IDFA without your iOS tracking permission</li>
             <li>Share data with data brokers</li>
             <li>Require an email-based account for core local photo features</li>
           </ul>
+          <p>
+            The app uses AppsFlyer to measure installation and campaign
+            attribution. iOS asks for permission before GainFrame can use the
+            IDFA or track activity across other companies&rsquo; apps and websites.
+            If permission is denied, GainFrame does not access the IDFA;
+            privacy-preserving attribution mechanisms made available by Apple
+            may still provide aggregated campaign measurement. See{" "}
+            <a
+              href="https://www.appsflyer.com/legal/privacy-policy/"
+              target="_blank"
+              rel="noopener"
+            >
+              AppsFlyer&rsquo;s Privacy Policy
+            </a>
+            .
+          </p>
 
           <h2>8. Analytics</h2>
           <p>
@@ -266,13 +295,40 @@ export default function PrivacyPage() {
             this information to operate, secure, and improve GainFrame. When
             you sign in, some analytics may be associated with a pseudonymous
             account identifier so activity can be understood across sessions.
-            App analytics providers include PostHog and Firebase.
+            App analytics providers include PostHog, Firebase, and AppsFlyer.
           </p>
           <p>
             On <strong>gainframe.app</strong>, we use Google Analytics and
             PostHog for website measurement. We also use Microsoft Clarity for
             heatmaps and session replay across the website. Form fields are
             masked from Clarity.
+          </p>
+          <p>
+            When optional website analytics are enabled and you successfully
+            use a public tool, the site may send a completion event containing
+            the tool name, an anonymous completion identifier, and sanitized
+            acquisition/device context to a GainFrame Supabase Edge Function.
+            Supabase keeps short-lived deduplication receipts and a
+            server-keyed HMAC fingerprint of the request address for abuse rate
+            limiting; the raw address is not stored in those records, and the
+            records are retained for no more than approximately seven days.
+            The completion event is recorded in PostHog and may produce a
+            private GainFrame Slack notification. Calculator inputs and
+            results, uploaded photos, email addresses, and raw network
+            addresses are excluded from this event and notification.
+          </p>
+          <p>
+            After optional website analytics consent is granted, App Store
+            download links may use a branded AppsFlyer OneLink. The link can
+            carry the first website page, download page, CTA placement, source,
+            campaign, an anonymous click ID, anonymous PostHog/session IDs,
+            medium, click time, and supported advertising click identifiers.
+            If the app is installed or opened from that link, GainFrame may
+            store this first-touch attribution and mirror bounded fields to
+            PostHog and RevenueCat to understand website-to-subscription
+            conversion. While consent is pending or denied, the site uses the
+            direct App Store destination and does not create this OneLink
+            payload.
           </p>
           <p>
             Cloudflare classifies the request country at the edge only to

@@ -3,12 +3,13 @@
 How download CTAs are instrumented, and the two traps that make naive reads wrong.
 Written 2026-07-29 after a false alarm (see "Worked example" at the bottom).
 
-## The two events
+## The three events
 
 | Event | Fired when | Where |
 |---|---|---|
 | `outbound_app_store_click` | Any click on an `apps.apple.com` anchor | `AppStoreClickTracker` — site-wide delegated capture-phase listener |
 | `cta_platform_alternative_click` | An **Android** user clicks a download CTA | `PlatformDownloadLink` — routes them to `/tools/body-fat-from-photo/` instead |
+| `web_download_clicked` | A consented GainFrame App Store/OneLink click, with a unique click ID and page-level attribution | `AppStoreClickTracker` — site-wide delegated capture-phase listener |
 
 GainFrame is an **iOS-only** app. `PlatformDownloadLink` detects Android and swaps the
 destination to the web body-fat tool, because an Android user cannot install from an App
@@ -47,21 +48,22 @@ GROUP BY d, os ORDER BY d, n DESC
 An iOS-only view is the right denominator for "did the App Store CTA get worse":
 filter `properties.$os = 'iOS'`. Mixing platforms hides mix shift.
 
-## Rule 2 — `ct` is placement-level, not page-level
+## Rule 2 — campaign is placement-level, not page-level
 
-Two layers set the Apple campaign token:
+Every rendered destination starts as the direct App Store URL. After optional analytics
+consent, `AppStoreClickTracker` turns the click into the branded AppsFlyer OneLink and
+uses a campaign value in this order:
 
-1. **Component-declared (preferred).** `PlatformDownloadLink` and `DownloadQr` build the URL
-   via `appStoreUrlWithCampaign(campaign)`, so the anchor ships with its own `ct`. The
-   homepage alone emits four: `web-home-hero`, `web-home-nav`, `web-home-qr`,
-   `web-home-closing`. Blog CTAs emit `web-blog-<intent>`, `web-blog-qr`, `web-blog-nav`,
-   `web-blog-index`.
-2. **Path fallback.** For plain `apps.apple.com` anchors in static blog bodies,
-   `AppStoreClickTracker` appends `campaignForPath(pathname)` at click time —
-   `web-home`, `web-blog`, `web-bftool`, and friends (see `web/lib/site.ts`).
+1. **Component-declared (preferred).** `PlatformDownloadLink` and `DownloadQr` expose a
+   `data-cta-campaign` value, so the homepage can distinguish `web-home-hero`,
+   `web-home-nav`, `web-home-qr`, and `web-home-closing`; blog CTAs can use
+   `web-blog-<intent>`, `web-blog-qr`, `web-blog-nav`, and `web-blog-index`.
+2. **Path fallback.** Plain App Store anchors in static blog bodies use
+   `campaignForPath(pathname)` — `web-home`, `web-blog`, `web-bftool`, and friends
+   (see `web/lib/site.ts`).
 
-`AppStoreClickTracker` reads the anchor's existing `ct` when one is present and reports
-**that** value on the event, so PostHog and App Store Connect agree.
+The same value is sent in `web_download_clicked` and the OneLink `ct` field, so consented
+PostHog and AppsFlyer analysis agree. Pending or denied visitors have no campaign token.
 
 > **Historical gap:** before 2026-07-29 the tracker always recomputed
 > `campaignForPath(pathname)` and ignored the declared token. Every homepage CTA reported
@@ -106,3 +108,42 @@ take the web-tool offer at roughly double the rate.
 
 Cost of the mistake: a "highest ROI, fix this first" recommendation in the 2026-07-29 MRR
 audit that pointed at a healthy component. Both rules above exist to prevent a repeat.
+
+## Website → install → subscription attribution
+
+After a visitor grants optional analytics consent, GainFrame App Store
+destinations are rewritten at click time to the branded AppsFlyer OneLink
+template `https://go.gainframe.app/WufP`. Pending or denied visitors keep the
+direct App Store destination; the site does not create an AppsFlyer payload,
+persist ad click IDs, or emit `web_download_clicked` for those visits.
+
+For a consented click, the OneLink retains the placement campaign as `ct` and
+can carry the following deferred-deep-link payload into a same-device iOS
+install:
+
+| OneLink field | Meaning |
+|---|---|
+| `deep_link_value` | Constant `web_attribution` routing marker |
+| `deep_link_sub1` | First website page in the session |
+| `deep_link_sub2` | Page containing the clicked download CTA |
+| `deep_link_sub3` | CTA placement/content |
+| `deep_link_sub4` | Original source: UTM source, search engine, referrer, or direct |
+| `deep_link_sub5` | UTM campaign or owned-web fallback |
+| `deep_link_sub6` | Random `web_click_id` shared by PostHog, AppsFlyer, and the app |
+| `deep_link_sub7` | Anonymous PostHog website distinct ID |
+| `deep_link_sub8` | PostHog website session ID |
+| `deep_link_sub9` | UTM medium |
+| `deep_link_sub10` | Click timestamp (ISO 8601) |
+
+The consented URL can also retain supported ad click IDs (`gclid`, `gbraid`,
+`wbraid`, `fbclid`, `ttclid`, `twclid`, and `ScCid`). On first app open,
+GainFrame stores this first touch, links the anonymous website identity to the
+app identity in PostHog, and mirrors bounded attribution fields to RevenueCat
+subscriber attributes. RevenueCat subscription webhooks can then associate a
+subscription event with the page, CTA, source, campaign, and click time.
+
+Use `web_download_clicked` for consented download attempts and join on
+`web_click_id` when checking a specific journey. Keep using the two legacy CTA
+events for historical trend continuity. Desktop-to-phone behavior requires a
+QR scan carrying the same consented OneLink payload; Apple privacy controls
+mean attribution will be actionable rather than complete.
