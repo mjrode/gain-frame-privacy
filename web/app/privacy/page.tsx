@@ -318,13 +318,12 @@ export default function PrivacyPage() {
             addresses are excluded from this event and notification.
           </p>
           <p>
-            Public AI photo tools also use server-keyed HMAC fingerprints of a
-            browser identifier and request address to enforce free-use and
-            provider-cost limits. For tools that advertise a lifetime free-use
-            allowance, GainFrame retains content-free keyed quota records while
-            that allowance is enforced. These records never contain the
-            uploaded photo, prompt, analysis result, raw browser identifier, or
-            raw network address.
+            The public AI Ab Analyzer also uses server-keyed HMAC fingerprints
+            of a browser identifier and request address to enforce its free-use
+            and provider-cost limits. GainFrame retains a content-free keyed
+            quota record while its advertised lifetime allowance is enforced.
+            These records never contain the uploaded photo, prompt, analysis
+            result, raw browser identifier, or raw network address.
           </p>
           <p>
             After optional website analytics consent is granted, App Store
