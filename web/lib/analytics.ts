@@ -5,12 +5,9 @@
 
 declare global {
   interface Window {
-    gtag?: (
-      command: "event",
-      eventName: string,
-      params?: Record<string, unknown>,
-    ) => void;
+    gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    clarity?: (...args: unknown[]) => void;
     posthog?: {
       capture?: (eventName: string, params?: Record<string, unknown>) => void;
       captureException?: (
@@ -20,6 +17,8 @@ declare global {
       get_distinct_id?: () => string;
       get_property?: (propertyName: string) => unknown;
       get_session_id?: () => string;
+      opt_in_capturing?: () => void;
+      opt_out_capturing?: () => void;
     };
   }
 }

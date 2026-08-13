@@ -67,3 +67,12 @@ instead of erroring when one is missing, but the feature is inert without it:
 | `POSTHOG_PERSONAL_API_KEY` | `/api/stats` | lifter count falls back to 5,000 |
 | `RESEND_API_KEY` | `/api/trainer-waitlist` | signups return 503 |
 | `RESEND_TRAINER_AUDIENCE_ID` | `/api/trainer-waitlist` | signups return 503 |
+
+### Website analytics consent
+
+`/api/privacy-region` uses Cloudflare's request country only to return a
+yes-or-no consent requirement; the country code is not exposed to the static
+site. The website's GA4, PostHog, and Microsoft Clarity loading rules live in
+`web/components/AnalyticsConsentManager.tsx`. Clarity loads on every production
+website route after consent is granted or implied. See
+`web/docs/analytics-consent.md` before changing analytics loading behavior.

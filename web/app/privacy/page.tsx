@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import AnalyticsPreferencesButton from "@/components/AnalyticsPreferencesButton";
 
 export const metadata: Metadata = {
   title: { absolute: "GainFrame — Privacy Policy" },
   description:
-    "Privacy policy for GainFrame: how progress photo and body composition data is handled. Local-first storage, AI image analysis details, no advertising or tracking.",
+    "Privacy policy for GainFrame: local-first progress photos, AI analysis, community publishing, and website analytics choices.",
   alternates: { canonical: "/privacy/" },
 };
 
@@ -40,6 +41,22 @@ const styles = `
   .privacy-container li { margin-bottom: 0.4rem; }
   .privacy-container strong { color: #222; }
   .privacy-container a { color: #E8836B; }
+  .privacy-choice-button {
+    appearance: none;
+    border: 1px solid #E8836B;
+    border-radius: 999px;
+    background: transparent;
+    color: #9f3f2e;
+    padding: 0.65rem 1rem;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .privacy-choice-button:focus-visible {
+    outline: 3px solid rgba(232, 131, 107, 0.35);
+    outline-offset: 3px;
+  }
   .privacy-footer {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
@@ -57,7 +74,7 @@ export default function PrivacyPage() {
         <div className="privacy-container">
           <h1>Privacy Policy</h1>
           <p className="privacy-subtitle">
-            GainFrame: Progress Photos — Last updated August 11, 2026
+            GainFrame: Progress Photos — Last updated August 12, 2026
           </p>
 
           <p>
@@ -243,15 +260,41 @@ export default function PrivacyPage() {
 
           <h2>8. Analytics</h2>
           <p>
-            We collect product analytics and diagnostics, such as feature
-            interactions, app and device information, crash and performance
-            data, and installation or session identifiers. We use this
-            information to operate, secure, and improve GainFrame. When you
-            sign in, some analytics may be associated with a pseudonymous
+            In the app, we collect product analytics and diagnostics, such as
+            feature interactions, app and device information, crash and
+            performance data, and installation or session identifiers. We use
+            this information to operate, secure, and improve GainFrame. When
+            you sign in, some analytics may be associated with a pseudonymous
             account identifier so activity can be understood across sessions.
-            Analytics providers include PostHog and Firebase. We do not use
-            this data for third-party advertising or sell it to data brokers.
+            App analytics providers include PostHog and Firebase.
           </p>
+          <p>
+            On <strong>gainframe.app</strong>, we use Google Analytics and
+            PostHog for website measurement. We also use Microsoft Clarity for
+            heatmaps and session replay across the website. Form fields are
+            masked from Clarity.
+          </p>
+          <p>
+            Cloudflare classifies the request country at the edge only to
+            decide whether the website must display an analytics-consent
+            prompt. The website receives only the resulting yes-or-no decision;
+            we do not return or store the country code for this purpose.
+            Visitors in the EEA, United Kingdom, and Switzerland can accept or
+            decline non-essential analytics. In those regions, Google
+            Analytics, PostHog, and Microsoft Clarity do not load unless the
+            visitor accepts. A saved decline also keeps them off elsewhere.
+            Visitors elsewhere can use the control below to save the same
+            preference at any time. We save that choice in browser storage,
+            with a first-party preference cookie as a fallback. If Cloudflare
+            cannot classify a request country, analytics run without showing
+            the regional prompt unless the visitor has previously declined.
+          </p>
+          <p>
+            Analytics are used to understand acquisition and improve the
+            product, not for third-party advertising, and we do not sell this
+            information to data brokers.
+          </p>
+          <AnalyticsPreferencesButton />
 
           <h2>9. Children&rsquo;s Privacy</h2>
           <p>

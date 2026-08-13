@@ -1,0 +1,92 @@
+.banner {
+  position: fixed;
+  z-index: 10000;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem 1.1rem;
+  color: #f8f8f8;
+  background: rgba(24, 24, 27, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.copy {
+  min-width: 0;
+}
+
+.copy strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.copy p {
+  margin: 0;
+  color: #d4d4d8;
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.copy a {
+  color: #f2a38f;
+  text-underline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.65rem;
+}
+
+.actions button {
+  min-height: 42px;
+  padding: 0.65rem 0.95rem;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.decline {
+  color: #f4f4f5;
+  background: transparent;
+  border: 1px solid #71717a;
+}
+
+.accept {
+  color: #18181b;
+  background: #f2a38f;
+  border: 1px solid #f2a38f;
+}
+
+.actions button:focus-visible,
+.copy a:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 680px) {
+  .banner {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions button {
+    flex: 1;
+  }
+}

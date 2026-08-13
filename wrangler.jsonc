@@ -3,7 +3,7 @@
   //
   // The site is a static Next.js export (`cd web && npm run build` → web/out)
   // served by Workers Static Assets. `worker/index.ts` runs first to enforce
-  // HTTP -> HTTPS canonicalization and handle the three dynamic endpoints, then
+  // HTTP -> HTTPS canonicalization and handle dynamic endpoints, then
   // delegates all other requests to the asset binding.
   //
   // This file must live at the repo root — that's the Root directory

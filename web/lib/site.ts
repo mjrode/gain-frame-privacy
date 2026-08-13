@@ -4,6 +4,7 @@ export const SITE = {
   appStoreUrl:
     "https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082",
   ga4Id: "G-N6YPFBB8JE",
+  clarityId: "y0oh5t64bn",
   // PostHog project token (publishable) — same project as the iOS app so
   // site + app analytics live in one place.
   posthogKey: "phc_qaY5cwxVEdsFMD240oLruxYUHhhx3ORlvTXUepqEk8S",

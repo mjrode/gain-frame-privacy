@@ -247,7 +247,7 @@
             <span class="gf-bar-message">${config.message}</span>
         </div>
         <div class="gf-bar-action">
-            <form class="gf-bar-form" novalidate>
+            <form class="gf-bar-form" data-clarity-mask="true" novalidate>
                 <input type="hidden" name="${config.hiddenField.name}" value="${config.hiddenField.value}">
                 <input
                     class="gf-bar-input"

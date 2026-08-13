@@ -18,6 +18,7 @@ import {
   handleTrainerWaitlist,
   type TrainerWaitlistEnv,
 } from "./api/trainer-waitlist";
+import { handlePrivacyRegion } from "./api/privacy-region";
 import type { AssetFetcher, Ctx } from "./types";
 import { profileShellRequest } from "./routes";
 
@@ -52,6 +53,13 @@ export default {
     }
 
     const { pathname } = url;
+
+    if (pathname === "/api/privacy-region") {
+      if (request.method !== "GET" && request.method !== "HEAD") {
+        return methodNotAllowed("GET, HEAD");
+      }
+      return handlePrivacyRegion(request);
+    }
 
     if (pathname === "/api/stats") {
       if (request.method !== "GET" && request.method !== "HEAD") {
