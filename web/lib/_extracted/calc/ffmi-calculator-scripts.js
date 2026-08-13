@@ -157,6 +157,7 @@
                 document.getElementById('resultDetail').textContent = cat.detail;
 
                 resultCard.classList.add('show');
+                window.dispatchEvent(new CustomEvent('gainframe:web-tool-completed'));
                 resultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
 

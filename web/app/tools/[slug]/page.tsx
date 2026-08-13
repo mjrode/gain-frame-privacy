@@ -6,6 +6,7 @@ import BlogNav from "@/components/BlogNav";
 import BlogScrollReveal from "@/components/BlogScrollReveal";
 import CalcEmbed from "@/components/CalcEmbed";
 import VisualizerAnalytics from "@/components/VisualizerAnalytics";
+import type { ClientReportedWebTool } from "@/lib/web-tool-usage";
 
 const CALC_SLUGS = [
   "body-fat-estimator",
@@ -174,7 +175,11 @@ export default async function CalculatorPage({
       ))}
       <BlogNav />
       <BlogScrollReveal />
-      <CalcEmbed html={bodyHtml} script={scriptJs} />
+      <CalcEmbed
+        html={bodyHtml}
+        script={scriptJs}
+        tool={slug as ClientReportedWebTool}
+      />
       {slug === "body-fat-visualizer" && <VisualizerAnalytics />}
       <RelatedToolsFooter currentSlug={slug} />
     </>

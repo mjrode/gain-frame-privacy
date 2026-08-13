@@ -98,5 +98,6 @@
             document.getElementById('fatCal').textContent = fatCalories + ' cal';
 
             document.getElementById('result').classList.add('show');
+            window.dispatchEvent(new CustomEvent('gainframe:web-tool-completed'));
             document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }

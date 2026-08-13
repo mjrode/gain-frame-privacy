@@ -7,6 +7,7 @@ import {
   getWebAnalyticsContext,
   track,
 } from "@/lib/analytics";
+import { reportWebToolCompletion } from "@/lib/web-tool-usage";
 
 const FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/ab-analyze";
@@ -263,6 +264,7 @@ export default function AbAnalyzerClient() {
           months_low: data.months_to_visible_low,
           months_high: data.months_to_visible_high,
         });
+        void reportWebToolCompletion("ab-analyzer");
         setStage({ kind: "result", analysis: data });
         return;
       }

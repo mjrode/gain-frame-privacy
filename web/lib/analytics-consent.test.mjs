@@ -3,6 +3,7 @@ import test from "node:test";
 
 const {
   combinedStoredAnalyticsConsent,
+  documentAnalyticsConsentDecision,
   isProductionAnalyticsHost,
   resolveAnalyticsConsent,
   resolveAnalyticsConsentState,
@@ -49,4 +50,17 @@ test("analytics scripts run only on the production domain", () => {
   assert.equal(isProductionAnalyticsHost("app.gainframe.app"), false);
   assert.equal(isProductionAnalyticsHost("localhost"), false);
   assert.equal(isProductionAnalyticsHost("gainframe.app.example.com"), false);
+});
+
+test("optional analytics require a resolved grant published by the manager", () => {
+  const root = (value) => ({
+    getAttribute: () => value,
+  });
+
+  assert.equal(documentAnalyticsConsentDecision(null), "pending");
+  assert.equal(documentAnalyticsConsentDecision(root(null)), "pending");
+  assert.equal(documentAnalyticsConsentDecision(root("pending")), "pending");
+  assert.equal(documentAnalyticsConsentDecision(root("denied")), "denied");
+  assert.equal(documentAnalyticsConsentDecision(root("granted")), "granted");
+  assert.equal(documentAnalyticsConsentDecision(root("invalid")), "pending");
 });

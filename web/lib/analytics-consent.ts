@@ -2,6 +2,10 @@ export const ANALYTICS_CONSENT_STORAGE_KEY =
   "gainframe_analytics_consent_v1";
 export const OPEN_ANALYTICS_PREFERENCES_EVENT =
   "gainframe:open-analytics-preferences";
+export const ANALYTICS_CONSENT_DOCUMENT_ATTRIBUTE =
+  "data-gainframe-analytics-consent";
+export const ANALYTICS_CONSENT_STATE_EVENT =
+  "gainframe:analytics-consent-state";
 
 export type AnalyticsConsent = "granted" | "denied";
 export type AnalyticsConsentDecision = AnalyticsConsent | "pending";
@@ -46,6 +50,17 @@ export function resolveAnalyticsConsentState(
     requiresConsent ?? false,
   );
   return { decision };
+}
+
+/** Optional analytics remain off until the consent manager publishes a
+ * resolved grant. Missing state is deliberately treated as pending so a tool
+ * completion cannot race the privacy-region lookup. */
+export function documentAnalyticsConsentDecision(
+  root: Pick<HTMLElement, "getAttribute"> | null | undefined,
+): AnalyticsConsentDecision {
+  return storedAnalyticsConsent(
+    root?.getAttribute(ANALYTICS_CONSENT_DOCUMENT_ATTRIBUTE),
+  ) ?? "pending";
 }
 
 export function isProductionAnalyticsHost(hostname: string): boolean {

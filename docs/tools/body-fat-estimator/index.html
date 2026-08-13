@@ -1160,6 +1160,7 @@
                 }
 
                 resultCard.classList.add('show');
+                window.dispatchEvent(new CustomEvent('gainframe:web-tool-completed'));
 
                 // Scroll to result
                 resultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });

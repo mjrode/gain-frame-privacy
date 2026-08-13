@@ -3,6 +3,8 @@
 import Script from "next/script";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
+  ANALYTICS_CONSENT_DOCUMENT_ATTRIBUTE,
+  ANALYTICS_CONSENT_STATE_EVENT,
   ANALYTICS_CONSENT_STORAGE_KEY,
   OPEN_ANALYTICS_PREFERENCES_EVENT,
   type AnalyticsConsent,
@@ -227,6 +229,31 @@ export default function AnalyticsConsentManager() {
 
     return () => controller.abort();
   }, []);
+
+  useEffect(() => {
+    const publishedDecision = production && regionResolved
+      ? decision
+      : "pending";
+    document.documentElement.setAttribute(
+      ANALYTICS_CONSENT_DOCUMENT_ATTRIBUTE,
+      publishedDecision,
+    );
+    window.dispatchEvent(new CustomEvent(
+      ANALYTICS_CONSENT_STATE_EVENT,
+      { detail: publishedDecision },
+    ));
+
+    return () => {
+      document.documentElement.setAttribute(
+        ANALYTICS_CONSENT_DOCUMENT_ATTRIBUTE,
+        "pending",
+      );
+      window.dispatchEvent(new CustomEvent(
+        ANALYTICS_CONSENT_STATE_EVENT,
+        { detail: "pending" },
+      ));
+    };
+  }, [decision, production, regionResolved]);
 
   useEffect(() => {
     const openPreferences = () => {

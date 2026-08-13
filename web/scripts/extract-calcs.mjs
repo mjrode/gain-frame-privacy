@@ -97,6 +97,7 @@ async function processOne(slug) {
 
   // Pull out inline <script> blocks BEFORE stripping
   const scriptMatches = [];
+  const dataScriptMatches = [];
   body = body.replace(
     /<script\b([^>]*)>([\s\S]*?)<\/script>/gi,
     (_full, attrs, content) => {
@@ -104,6 +105,17 @@ async function processOne(slug) {
       if (/\bsrc\s*=/.test(attrs)) return "";
       // skip JSON-LD ld+json type scripts
       if (/type=["']application\/ld\+json["']/.test(attrs)) return "";
+      // Preserve embedded data blocks such as the calories-burned CSV. They
+      // are DOM input for the executable script, not JavaScript themselves.
+      const declaredType = /\btype=["']([^"']+)["']/i.exec(attrs)?.[1];
+      if (
+        declaredType &&
+        !/^(?:text|application)\/javascript$/i.test(declaredType) &&
+        declaredType.toLowerCase() !== "module"
+      ) {
+        dataScriptMatches.push(_full);
+        return "";
+      }
       // skip TikTok/CF analytics (recognized by content keywords)
       const c = content.trim();
       if (/TiktokAnalyticsObject|cloudflareinsights/i.test(c)) return "";
@@ -126,6 +138,12 @@ async function processOne(slug) {
     .replace(/(\b(?:src|href))=["']\.\.\//g, `$1="/tools/`)
     .replace(/(\b(?:src|href))=["']\.\//g, `$1="/tools/${slug}/`)
     .replace(/(\b(?:src|href))=["']assets\//g, `$1="/tools/${slug}/assets/`);
+
+  // Data scripts must remain in the DOM, and prepending them preserves the
+  // generated-body contract that calculator scripts already rely on.
+  if (dataScriptMatches.length > 0) {
+    body = `${dataScriptMatches.join("\n")}\n${body}`;
+  }
 
   const scripts = scriptMatches.join("\n\n;//---next-script-block---\n\n");
 

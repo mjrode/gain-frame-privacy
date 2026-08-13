@@ -10,6 +10,7 @@
             // State
             let weightUnit = 'imperial';
             let weeklyRate = 0.5; // in lb by default (0.5 lb/week moderate)
+            let hasUserInteracted = false;
 
             // Rate options
             const RATES = {
@@ -320,6 +321,9 @@
                 }
 
                 resultCard.classList.add('show');
+                if (hasUserInteracted) {
+                    window.dispatchEvent(new CustomEvent('gainframe:web-tool-completed'));
+                }
             }
 
             /* ---------- Events ---------- */
@@ -328,6 +332,7 @@
             document.querySelectorAll('.tool-unit-toggle-standalone').forEach(toggle => {
                 toggle.querySelectorAll('.tool-unit-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
+                        hasUserInteracted = true;
                         toggle.querySelectorAll('.tool-unit-btn').forEach(b => b.classList.remove('active'));
                         btn.classList.add('active');
 
@@ -370,6 +375,7 @@
             rateGridEl.addEventListener('click', e => {
                 const pill = e.target.closest('.rate-pill');
                 if (!pill) return;
+                hasUserInteracted = true;
                 weeklyRate = parseFloat(pill.dataset.rate);
                 renderRatePills();
                 calculate();
@@ -378,6 +384,7 @@
             // Live inputs
             [currentWeightInput, targetWeightInput, tdeeInput].forEach(el => {
                 el.addEventListener('input', () => {
+                    hasUserInteracted = true;
                     renderRatePills(); // refresh "recommended" based on current weight
                     calculate();
                 });

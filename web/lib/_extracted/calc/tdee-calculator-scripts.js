@@ -54,5 +54,6 @@
             document.getElementById('bulkValue').textContent = (tdee + 300).toLocaleString();
             document.getElementById('bmrValue').textContent = bmr.toLocaleString();
             document.getElementById('result').classList.add('show');
+            window.dispatchEvent(new CustomEvent('gainframe:web-tool-completed'));
             document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }

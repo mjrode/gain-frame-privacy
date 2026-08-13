@@ -92,6 +92,7 @@
             let currentCategory = 'All';
             let currentSearch = '';
             let selectedActivity = null;
+            let hasUserInteracted = false;
 
             // DOM
             const weightInput = document.getElementById('weight');
@@ -193,6 +194,9 @@
                 document.getElementById('statHour').textContent = Math.round(calPerHr).toLocaleString();
 
                 renderFoodGrid(totalCal);
+                if (hasUserInteracted) {
+                    window.dispatchEvent(new CustomEvent('gainframe:web-tool-completed'));
+                }
             }
 
             /* ---------- Event wiring ---------- */
@@ -200,6 +204,7 @@
             document.querySelectorAll('.tool-unit-toggle').forEach(toggle => {
                 toggle.querySelectorAll('.tool-unit-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
+                        hasUserInteracted = true;
                         toggle.querySelectorAll('.tool-unit-btn').forEach(b => b.classList.remove('active'));
                         btn.classList.add('active');
                         weightUnit = btn.dataset.unit;
@@ -208,8 +213,14 @@
                 });
             });
 
-            weightInput.addEventListener('input', recalculate);
-            durationInput.addEventListener('input', recalculate);
+            weightInput.addEventListener('input', () => {
+                hasUserInteracted = true;
+                recalculate();
+            });
+            durationInput.addEventListener('input', () => {
+                hasUserInteracted = true;
+                recalculate();
+            });
 
             searchInput.addEventListener('input', () => {
                 currentSearch = searchInput.value.trim().toLowerCase();
@@ -241,7 +252,8 @@
                 document.querySelectorAll('.popular-chip').forEach(c => c.classList.toggle('active', c.dataset.name === activity.name));
             });
 
-            function selectActivity(activity) {
+            function selectActivity(activity, reportUsage = true) {
+                hasUserInteracted = reportUsage;
                 selectedActivity = activity;
                 renderActivityList();
                 recalculate();
@@ -276,7 +288,8 @@
             // Pre-select a sensible default
             const defaultActivity = ACTIVITIES.find(a => a.name === 'Walking 3.0 mph, moderate');
             if (defaultActivity) {
-                selectActivity(defaultActivity);
+                selectActivity(defaultActivity, false);
+                hasUserInteracted = false;
                 const chip = document.querySelector('.popular-chip[data-name="' + escapeAttr(defaultActivity.name).replace(/"/g,'\\"') + '"]');
                 if (chip) chip.classList.add('active');
             }

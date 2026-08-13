@@ -507,6 +507,7 @@
             document.getElementById('builderNav').innerHTML =
                 `<button class="btn-back" onclick="builderBack()">Start Over</button>`;
             document.getElementById('builderDots').innerHTML = steps.map(() => '<div class="builder-dot done"></div>').join('');
+            window.dispatchEvent(new CustomEvent('gainframe:web-tool-completed'));
         }
 
         window.builderSelect = function(i) { choices[steps[current].key] = i; render(); };
@@ -611,6 +612,7 @@
                 <div class="score-number" id="scoreNum">0</div>
                 <div class="score-label" style="color:${cat.color}">${cat.label}</div>
                 ${tipsHtml}`;
+            window.dispatchEvent(new CustomEvent('gainframe:web-tool-completed'));
 
             // Animate
             requestAnimationFrame(() => {

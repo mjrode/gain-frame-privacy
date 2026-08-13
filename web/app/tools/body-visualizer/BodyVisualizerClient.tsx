@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState, type CSSProperties } from "react";
+import { useMemo, useRef, useState, type CSSProperties } from "react";
 import styles from "./page.module.css";
+import { reportWebToolCompletion } from "@/lib/web-tool-usage";
 
 type UnitSystem = "metric" | "us";
 type ReferenceSex = "male" | "female";
@@ -127,6 +128,7 @@ function compactNumber(value: number, decimals = 0): string {
 }
 
 export default function BodyVisualizerClient() {
+  const reportedUsage = useRef(false);
   const [unit, setUnit] = useState<UnitSystem>("metric");
   const [referenceSex, setReferenceSex] =
     useState<ReferenceSex>("female");
@@ -164,8 +166,25 @@ export default function BodyVisualizerClient() {
     "--marker-position": `${markerPosition}%`,
   } as CSSProperties;
 
+  function markUsed() {
+    if (reportedUsage.current) return;
+    reportedUsage.current = true;
+    void reportWebToolCompletion("body-visualizer");
+  }
+
+  function updateMetric(key: keyof MetricInputs, value: string) {
+    markUsed();
+    setMetric((current) => ({ ...current, [key]: value }));
+  }
+
+  function updateUs(key: keyof UsInputs, value: string) {
+    markUsed();
+    setUs((current) => ({ ...current, [key]: value }));
+  }
+
   function switchUnit(nextUnit: UnitSystem) {
     if (nextUnit === unit) return;
+    markUsed();
     const current = measurementsFrom(unit, metric, us);
     if (current) {
       if (nextUnit === "metric") {
@@ -243,10 +262,7 @@ export default function BodyVisualizerClient() {
                       value={metric.heightCm}
                       aria-describedby="measurement-limits"
                       onChange={(event) =>
-                        setMetric((current) => ({
-                          ...current,
-                          heightCm: event.target.value,
-                        }))
+                        updateMetric("heightCm", event.target.value)
                       }
                     />
                     <span>cm</span>
@@ -264,10 +280,7 @@ export default function BodyVisualizerClient() {
                       value={metric.weightKg}
                       aria-describedby="measurement-limits"
                       onChange={(event) =>
-                        setMetric((current) => ({
-                          ...current,
-                          weightKg: event.target.value,
-                        }))
+                        updateMetric("weightKg", event.target.value)
                       }
                     />
                     <span>kg</span>
@@ -290,10 +303,7 @@ export default function BodyVisualizerClient() {
                         aria-label="Height in feet"
                         aria-describedby="measurement-limits"
                         onChange={(event) =>
-                          setUs((current) => ({
-                            ...current,
-                            feet: event.target.value,
-                          }))
+                          updateUs("feet", event.target.value)
                         }
                       />
                       <span>ft</span>
@@ -309,10 +319,7 @@ export default function BodyVisualizerClient() {
                         aria-label="Additional height in inches"
                         aria-describedby="measurement-limits"
                         onChange={(event) =>
-                          setUs((current) => ({
-                            ...current,
-                            inches: event.target.value,
-                          }))
+                          updateUs("inches", event.target.value)
                         }
                       />
                       <span>in</span>
@@ -331,10 +338,7 @@ export default function BodyVisualizerClient() {
                       value={us.pounds}
                       aria-describedby="measurement-limits"
                       onChange={(event) =>
-                        setUs((current) => ({
-                          ...current,
-                          pounds: event.target.value,
-                        }))
+                        updateUs("pounds", event.target.value)
                       }
                     />
                     <span>lb</span>
@@ -359,7 +363,10 @@ export default function BodyVisualizerClient() {
                   className={
                     referenceSex === value ? styles.referenceActive : undefined
                   }
-                  onClick={() => setReferenceSex(value)}
+                  onClick={() => {
+                    markUsed();
+                    setReferenceSex(value);
+                  }}
                 >
                   {value === "female" ? "Female" : "Male"}
                 </button>

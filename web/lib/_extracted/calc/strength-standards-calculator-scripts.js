@@ -278,6 +278,7 @@
                 }
 
                 resultCard.classList.add('show');
+                window.dispatchEvent(new CustomEvent('gainframe:web-tool-completed'));
 
                 // Render comparison + reference
                 renderComparisonTable(bw, exercise, ratio);

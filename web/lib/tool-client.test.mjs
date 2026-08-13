@@ -8,6 +8,106 @@ import {
   preprocessImageForUpload,
   validatedJson,
 } from "./tool-client.ts";
+import {
+  buildWebToolUsagePayload,
+  reportWebToolCompletion,
+} from "./web-tool-usage.ts";
+
+test("web tool usage payload contains only completion metadata", () => {
+  assert.deepEqual(
+    buildWebToolUsagePayload({
+      tool: "ffmi-calculator",
+      usageId: "11111111-1111-4111-8111-111111111111",
+      distinctId: "anonymous-browser",
+      analyticsContext: {
+        referrer: "$direct",
+        referring_domain: "$direct",
+        landing_path: "/tools/ffmi-calculator/",
+        current_path: "/tools/ffmi-calculator/",
+        browser: "Safari",
+        os: "iOS",
+        device_type: "Mobile",
+      },
+    }),
+    {
+      tool: "ffmi-calculator",
+      usage_id: "11111111-1111-4111-8111-111111111111",
+      posthog_distinct_id: "anonymous-browser",
+      analytics_context: {
+        referrer: "$direct",
+        referring_domain: "$direct",
+        landing_path: "/tools/ffmi-calculator/",
+        current_path: "/tools/ffmi-calculator/",
+        browser: "Safari",
+        os: "iOS",
+        device_type: "Mobile",
+      },
+    },
+  );
+});
+
+test("web tool usage reporting honors optional analytics consent", async (t) => {
+  const originalWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
+  const originalFetch = Object.getOwnPropertyDescriptor(globalThis, "fetch");
+  t.after(() => {
+    if (originalWindow) {
+      Object.defineProperty(globalThis, "window", originalWindow);
+    } else {
+      delete globalThis.window;
+    }
+    if (originalFetch) {
+      Object.defineProperty(globalThis, "fetch", originalFetch);
+    } else {
+      delete globalThis.fetch;
+    }
+  });
+
+  let consent = "pending";
+  const fetchCalls = [];
+  const consentListeners = new Set();
+  Object.defineProperty(globalThis, "window", {
+    configurable: true,
+    value: {
+      document: {
+        documentElement: {
+          getAttribute: () => consent,
+        },
+        referrer: "",
+      },
+      location: {
+        pathname: "/tools/ffmi-calculator/",
+        search: "",
+      },
+      addEventListener: (name, listener) => {
+        if (name === "gainframe:analytics-consent-state") {
+          consentListeners.add(listener);
+        }
+      },
+      removeEventListener: (_name, listener) => {
+        consentListeners.delete(listener);
+      },
+    },
+  });
+  Object.defineProperty(globalThis, "fetch", {
+    configurable: true,
+    value: async (...args) => {
+      fetchCalls.push(args);
+      return { ok: true };
+    },
+  });
+
+  const pendingReport = reportWebToolCompletion("ffmi-calculator");
+  assert.equal(fetchCalls.length, 0);
+
+  consent = "granted";
+  for (const listener of consentListeners) listener(new Event("consent"));
+  await pendingReport;
+  assert.equal(fetchCalls.length, 1);
+
+  consent = "denied";
+  await reportWebToolCompletion("ffmi-calculator");
+  assert.equal(fetchCalls.length, 1);
+});
 
 test("fetchWithTimeout classifies a timed-out request", async () => {
   const neverCompletes = (_input, init) =>
