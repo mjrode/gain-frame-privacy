@@ -1,7 +1,8 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-13** (review; M1 merge gate OPEN and verified, F1 shoulder-to-waist calculator + F2 Hevy consolidation proposed — awaiting approval) · Data through 2026-08-11
+> Last run: **2026-08-13** (review → execution; owner approved `all` AND directed a new abs tool: M1 body-composition 301 + F2 Hevy 301 + F1 shoulder-to-waist calculator + **NEW `/tools/ab-analyzer/`** all shipped) · Data through 2026-08-11
+> Ab-analyzer bet: "do i have abs" 260 vol +529%/yr · "six pack calculator" thin-tool SERP (KD 5-6) · timeline FAQs (6,600+2,400 family). Windows: calculator directional ~Aug 23; ab-analyzer 28d ~Sep 10. "ab scanner" (720) excluded from titles — likely automotive-diagnostic ambiguity, verify SERP live before ever chasing it.
 > **Correction (2026-08-13): PostHog conversion evidence EXISTS.** Project 357433 (GainFrame org) holds app AND web events — outbound_app_store_click 671/14d (homepage 238, bf-photo tool 68, best-ai-body-fat-apps 48), bf_tool uploads 2,658, physique_rater requests 1,091, waist_tool_calculated 83. The 2026-08-11/12 "zero events" findings were wrong-scope queries; the skill's data-sources table now records the REST fallback.
 > Prior run: **2026-08-12** (review; App Store advice reconciliation; zero posts, one progress-focused hidden-keyword-field fix + the existing Hevy consolidation proposed) · Data through 2026-08-09
 > Prior run: **2026-08-11 run 2** (owner approved `all`; smart-scale/RENPHO series SHIPPED: 3 posts + retitle + review refresh + interlinks, commit 9698973) · Data through 2026-08-09

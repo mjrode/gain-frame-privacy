@@ -14,6 +14,7 @@ import ByLine from "@/components/ByLine";
 import PostTable from "@/components/PostTable";
 import BlogArticleCta from "@/components/BlogArticleCta";
 import WaistPercentile from "@/components/WaistPercentile";
+import ShoulderToWaistRatioCalculator from "@/components/ShoulderToWaistRatioCalculator";
 import WaistToHeightRatioCalculator from "@/components/WaistToHeightRatioCalculator";
 import WaistToHipRatioCalculator from "@/components/WaistToHipRatioCalculator";
 import { getBlogCtaIntent } from "@/lib/blog-cta";
@@ -28,6 +29,7 @@ import { getBlogCtaIntent } from "@/lib/blog-cta";
 const mdxComponents = {
   PostTable,
   WaistPercentile,
+  ShoulderToWaistRatioCalculator,
   WaistToHeightRatioCalculator,
   WaistToHipRatioCalculator,
   table: (props: React.ComponentPropsWithoutRef<"table">) => (

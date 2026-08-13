@@ -79,6 +79,10 @@ export type AnalyticsEvent =
   | "physique_rater_requested"
   | "physique_rater_scored"
   | "physique_rater_cta_click"
+  // Ab analyzer tool
+  | "ab_tool_requested"
+  | "ab_tool_scored"
+  | "ab_tool_cta_click"
   // Homepage promo film
   | "promo_film_sound_on"
   | "promo_film_watched_75"

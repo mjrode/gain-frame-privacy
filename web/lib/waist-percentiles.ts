@@ -158,6 +158,33 @@ export function whrBand(ratio: number, sex: Sex): WhrBand {
   return "elevated";
 }
 
+export type SwrBand = "minimal" | "some" | "clear" | "strong" | "golden";
+
+/**
+ * Shoulder-to-waist (circumference) bands matching the chart published in
+ * /blog/shoulder-to-waist-ratio/: <1.3 minimal, 1.3–1.44 some taper,
+ * 1.45–1.54 clear V-taper, 1.55–1.617 strong, 1.618+ golden ratio.
+ */
+export function swrBand(ratio: number): SwrBand {
+  if (ratio < 1.3) return "minimal";
+  if (ratio < 1.45) return "some";
+  if (ratio < 1.55) return "clear";
+  if (ratio < 1.618) return "strong";
+  return "golden";
+}
+
+export type SwrWomenBand = "below" | "target" | "above";
+
+/**
+ * Women's interpretation from the same post's FAQ: ~1.3–1.4 is the commonly
+ * cited target zone; 1.45+ reads more bodybuilder-proportioned.
+ */
+export function swrWomenBand(ratio: number): SwrWomenBand {
+  if (ratio < 1.3) return "below";
+  if (ratio < 1.45) return "target";
+  return "above";
+}
+
 export const WHTR_COPY: Record<WhtrBand, string> = {
   low: "Below the usual healthy range — worth a sanity check on how you measured.",
   healthy: "Inside the commonly used healthy range (under 0.5).",

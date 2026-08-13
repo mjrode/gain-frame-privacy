@@ -50,15 +50,16 @@ const itemListSchema = {
     { "@type": "ListItem", position: 3, name: "Body Fat Percentage at Each Age", url: "https://gainframe.app/tools/body-fat-visualizer/" },
     { "@type": "ListItem", position: 4, name: "AI Body Transformation Generator", url: "https://gainframe.app/tools/ai-body-transformation/" },
     { "@type": "ListItem", position: 5, name: "AI Physique Rater", url: "https://gainframe.app/tools/physique-rater/" },
-    { "@type": "ListItem", position: 6, name: "Body Fat Calculator", url: "https://gainframe.app/tools/body-fat-estimator/" },
-    { "@type": "ListItem", position: 7, name: "FFMI Calculator", url: "https://gainframe.app/tools/ffmi-calculator/" },
-    { "@type": "ListItem", position: 8, name: "TDEE Calculator", url: "https://gainframe.app/tools/tdee-calculator/" },
-    { "@type": "ListItem", position: 9, name: "Macro Calculator", url: "https://gainframe.app/tools/macro-calculator/" },
-    { "@type": "ListItem", position: 10, name: "Calorie Deficit Calculator", url: "https://gainframe.app/tools/calorie-deficit-calculator/" },
-    { "@type": "ListItem", position: 11, name: "1RM Calculator", url: "https://gainframe.app/tools/one-rep-max-calculator/" },
-    { "@type": "ListItem", position: 12, name: "Strength Standards Calculator", url: "https://gainframe.app/tools/strength-standards-calculator/" },
-    { "@type": "ListItem", position: 13, name: "Calories Burned Calculator", url: "https://gainframe.app/tools/calories-burned-calculator/" },
-    { "@type": "ListItem", position: 14, name: "Progress Photo Setup Tool", url: "https://gainframe.app/tools/progress-photo-setup/" },
+    { "@type": "ListItem", position: 6, name: "AI Ab Analyzer", url: "https://gainframe.app/tools/ab-analyzer/" },
+    { "@type": "ListItem", position: 7, name: "Body Fat Calculator", url: "https://gainframe.app/tools/body-fat-estimator/" },
+    { "@type": "ListItem", position: 8, name: "FFMI Calculator", url: "https://gainframe.app/tools/ffmi-calculator/" },
+    { "@type": "ListItem", position: 9, name: "TDEE Calculator", url: "https://gainframe.app/tools/tdee-calculator/" },
+    { "@type": "ListItem", position: 10, name: "Macro Calculator", url: "https://gainframe.app/tools/macro-calculator/" },
+    { "@type": "ListItem", position: 11, name: "Calorie Deficit Calculator", url: "https://gainframe.app/tools/calorie-deficit-calculator/" },
+    { "@type": "ListItem", position: 12, name: "1RM Calculator", url: "https://gainframe.app/tools/one-rep-max-calculator/" },
+    { "@type": "ListItem", position: 13, name: "Strength Standards Calculator", url: "https://gainframe.app/tools/strength-standards-calculator/" },
+    { "@type": "ListItem", position: 14, name: "Calories Burned Calculator", url: "https://gainframe.app/tools/calories-burned-calculator/" },
+    { "@type": "ListItem", position: 15, name: "Progress Photo Setup Tool", url: "https://gainframe.app/tools/progress-photo-setup/" },
   ],
 };
 
@@ -520,6 +521,38 @@ export default function ToolsPage() {
                     Upload one photo, get a 1–100 physique score with body fat,
                     muscle, proportions, and goal-fit sub-scores. Three free
                     ratings.
+                  </p>
+                  <span className="cl-card-link">Open →</span>
+                </a>
+
+                <a
+                  href="/tools/ab-analyzer/"
+                  className="cl-card"
+                  data-search="ab analyzer abs six pack scanner do i have abs rating timeline free"
+                >
+                  <div className="cl-card-icon ic-bf">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect x="8" y="4" width="8" height="16" rx="3" />
+                      <path d="M12 4v16" />
+                      <path d="M8 9h8" />
+                      <path d="M8 14h8" />
+                    </svg>
+                  </div>
+                  <h3>AI Ab Analyzer</h3>
+                  <p className="cl-card-desc">
+                    Scan your abs from one photo: a 1-100 six pack score, upper
+                    and lower ab reads, and a months-to-visible-abs estimate.
+                    Three free scans.
                   </p>
                   <span className="cl-card-link">Open →</span>
                 </a>

@@ -225,7 +225,8 @@
   padding: 5px 12px; border-radius: 999px;
   background: var(--pr-amber-50); color: #9a6416;
 }
-.pr-band[data-band="elite"], .pr-band[data-band="impressive"] {
+.pr-band[data-band="elite"], .pr-band[data-band="impressive"],
+.pr-band[data-band="defined"], .pr-band[data-band="shredded"] {
   background: rgba(52, 210, 111, 0.12); color: #1b7a43;
 }
 .pr-conf {

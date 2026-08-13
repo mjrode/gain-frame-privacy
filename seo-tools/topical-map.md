@@ -1,7 +1,7 @@
 # GainFrame Topical Map
 
 > **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-08-06 (Jul 9–23 parallel-session backfill complete; 82 previously omitted posts classified).
-> **Current inventory:** 239 blog posts · 14 tools · 4 landing pages · 15 body-fat gallery URLs (272 indexable URLs).
+> **Current inventory:** 237 blog posts (Aug 13: two 301 consolidations removed best-ai-body-composition-app and smart-integrations-hevy) · 13 tools · 4 landing pages · 15 body-fat gallery URLs (272 indexable URLs).
 > **Intent legend:** 💰 commercial (drives installs/clicks) · 📊 informational (impressions/AEO/links) · 🤝 brand/social (founder lane, not SEO) · 🔧 tool.
 > **Programmatic SEO:** broad page factories remain deferred. One finite 14-page body-fat picture gallery plus its hub shipped 2026-08-06 around the proprietary standardized render library; do not expand it without query evidence and a strategy update.
 
@@ -94,9 +94,9 @@ spent-5k-on-app-ads · organic-traffic-15x-90-days · generative-engine-optimiza
 gainframe-is-live · deep-dive-compare · gainframe-widgets · gainframe-coach · how-ai-body-composition-analysis-works (dual-listed)
 **Rule:** product posts only for shipped features (3.0 embargo until release).
 
-## Tools 🔧 (12)
+## Tools 🔧 (13 pages)
 
-body-fat-from-photo (134 sessions/wk, growing) · body-fat-visualizer (body-fat-specific asset factory for Cluster 2) · body-visualizer (height/weight/BMI visual-reference tool; shipped 2026-08-06) · body-fat-estimator · ffmi-calculator · calorie-deficit-calculator · calories-burned-calculator · macro-calculator · one-rep-max-calculator · strength-standards-calculator · tdee-calculator · progress-photo-setup
+body-fat-from-photo (134 sessions/wk, growing) · ab-analyzer (Aug 13; "do i have abs" +529%/yr assessment lane, six-pack timeline output) · body-fat-visualizer (body-fat-specific asset factory for Cluster 2) · body-visualizer (height/weight/BMI visual-reference tool; shipped 2026-08-06) · body-fat-estimator · ffmi-calculator · calorie-deficit-calculator · calories-burned-calculator · macro-calculator · one-rep-max-calculator · strength-standards-calculator · tdee-calculator · progress-photo-setup
 **Rule (per owner):** quality over count — improve/interlink existing before adding new. Every tool links related posts and vice versa.
 
 ## Landing / commercial pages 💰

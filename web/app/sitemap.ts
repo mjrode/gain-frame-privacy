@@ -117,6 +117,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${SITE.url}/tools/ab-analyzer/`,
+      lastModified: today(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE.url}/tools/ai-body-transformation/`,
       lastModified: today(),
       changeFrequency: "weekly",

@@ -28,6 +28,18 @@
 /blog/best-gym-progress-photo-app/        /blog/best-progress-photo-apps/   301
 /blog/best-progress-photo-app-iphone/     /blog/best-progress-photo-apps/   301
 
+# Body-composition roundup consolidation (2026-08-13): two roundups split the
+# "body composition app" query family; Google served the winner at ~8-9 and this
+# page at 41-50, and its clicks fell 42->15 over two 28d windows. Approved
+# 2026-08-09, gate-verified with post-Aug-11 data. Authority consolidates into
+# the established winner.
+/blog/best-ai-body-composition-app/       /blog/best-body-composition-apps/ 301
+
+# Hevy integration consolidation (2026-08-13): /blog/smart-integrations-hevy/
+# (Feb 21, 557 words) is the corpus's only mature "Crawled - currently not
+# indexed" rejection and substantially duplicates the indexed integration page.
+/blog/smart-integrations-hevy/            /blog/hevy-app-gainframe-integration/ 301
+
 # Skinny-fat consolidation (2026-08-02): the long-form diagnosis post had zero
 # impressions in 28 days while the quiz page ranked for the whole query family.
 # Signs content folded into the quiz; renders added. Exact-match only — the old
