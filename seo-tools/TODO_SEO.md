@@ -99,6 +99,12 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 - [x] **F2: average-waist-size-women size-8 chart section** — shipped 2026-08-14 (retitle proposal was moot — title already led with the head term since Jul 16). Dress-size ↔ waist chart + FAQ + dash cleanup; no metadata change. Targets "waist size for size 8" 1,600 KD 17 @ rank 12. — source: same audit
 - [x] **F3: ideal-body-measurements-men bodybuilding-measurements section** — shipped 2026-08-14. Exact-phrase H2 + FAQ + SWR calculator link + dash cleanup. Targets "bodybuilding measurements" 8,100 KD 4 @ 15, "bodybuilding measurement chart" 3,600 KD 5 @ 12. — source: same audit
 
+### Aug 17 cycle — experiment audit + chart gallery link (seo-content-cycle run)
+
+- [x] **F1: chart -> gallery links** — shipped 2026-08-17 (the piece deferred from Aug 9 while the revert window ran). Hub + 15/25% male + 25/35% female links after each render section on `body-fat-percentage-chart`; body-only long-dash cleanup (frontmatter deliberately untouched to preserve the keep-control CTR baseline recorded this run). — source: `seo-tools/content-audits/2026-08-17.md`
+- [ ] **APPROVED, SCHEDULED Aug 19: Hume retitle** — owner approved 2026-08-17; ships when the metadata window opens Aug 19. New title: "Hume Body Pod Review (2026): Accuracy, Price & Subscription" + description naming the subscription answer. Evidence: new section already ranks "subscription cost" @ 7 / "accuracy 2026" @ 8 / "price official 2026" @ 9 on the 65K/mo family. — added 2026-08-17
+- Verdicts recorded this run: chart revert CLOSED (keep control, 0.60% CTR @ 9.3); WHR WIN (14.7->9.8); WHtR MIXED (imp 2.4x, pos 13.2->16.4, no action); women-chart overlap NOT FOUND (leave both); rate-my-physique trending GO for Aug 21.
+
 ### Carry-forward (still genuine, re-added from reset — not yet done)
 
 - [x] **Fold Snapsie into `/blog/best-progress-photo-apps/`** as the "best free option (not updated since 2017)" with the abandoned caveat — completed in the 2026-07-21 batch; verified during the 2026-08-06 topical-map reconciliation. — re-added 2026-06-28
