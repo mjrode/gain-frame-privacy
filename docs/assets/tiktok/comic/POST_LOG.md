@@ -1,5 +1,36 @@
 # TikTok Carousel Post Log
 
+## 2026-08-15 — "THE SIMPLE VERSION" BATCH #2 (20 posts)
+
+Expanded the winning made-simple cheat-sheet lane with training, nutrition,
+recovery, and progress-tracking topics. Every post is a six-slide carousel;
+seven use a contextual GainFrame product close and thirteen remain pure value.
+
+- how-often-should-you-train — 6 slides — GainFrame: Yes (slide 5 — check-ins.png)
+- how-many-exercises-do-you-need — 6 slides — GainFrame: No
+- how-many-warm-up-sets — 6 slides — GainFrame: No
+- how-close-to-failure — 6 slides — GainFrame: Yes (slide 5 — muscle-compare.png)
+- how-fast-should-reps-move — 6 slides — GainFrame: No
+- build-a-workout-in-4-steps — 6 slides — GainFrame: No
+- the-only-4-numbers-to-track — 6 slides — GainFrame: Yes (slide 5 — dashboard.png)
+- can-3-days-build-muscle — 6 slides — GainFrame: No
+- what-counts-as-a-hard-set — 6 slides — GainFrame: No
+- are-you-recovered-yet — 6 slides — GainFrame: Yes (slide 5 — check-ins.png)
+- what-to-do-between-sets — 6 slides — GainFrame: No
+- how-long-should-a-cut-last — 6 slides — GainFrame: No
+- how-fast-should-you-bulk — 6 slides — GainFrame: Yes (slide 5 — weight-chart.png)
+- maintenance-in-4-rules — 6 slides — GainFrame: No
+- how-much-cardio-do-you-need — 6 slides — GainFrame: No
+- 150g-protein-made-simple — 6 slides — GainFrame: Yes (slide 5 — macros.png)
+- break-a-fat-loss-plateau — 6 slides — GainFrame: No
+- fix-muscle-imbalances-in-4-steps — 6 slides — GainFrame: Yes (slide 5 — muscle-map.png)
+- when-should-you-use-straps — 6 slides — GainFrame: No
+- do-you-need-a-spotter — 6 slides — GainFrame: No
+- Status: Complete — art built and full QA audit passed 120/120 slides; gallery,
+  transcripts, and iCloud sync completed 2026-08-15
+- Manual re-rolls: how-many-warm-up-sets slide 2, are-you-recovered-yet slide 1,
+  when-should-you-use-straps slide 4, and do-you-need-a-spotter slide 2
+
 ## 2026-08-12 — "THE SIMPLE VERSION" BATCH (10 posts, copy authored)
 
 New made-simple cheat-sheet lane from the Aug 2026 strategy doc: one

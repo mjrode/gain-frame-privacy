@@ -7238,5 +7238,705 @@
     "alt": "A silhouette hand holding a smartphone displaying the GainFrame app fitness projection preview."
    }
   ]
+ },
+ "how-many-warm-up-sets": {
+  "summary": "An effective warm-up begins with a few minutes of light movement before ramping up the specific exercise with lighter loads. Performing two to four warm-up sets is typically ideal, with more sets allocated for heavy compound lifts. Warm-up sets should prepare the body for working sets without causing fatigue or burning out your energy.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "How many warm-up sets?",
+    "alt": "The GainFrame mascot stands holding a dumbbell next to a leg press machine beneath the title asking how many warm-up sets to perform."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Move for a few minutes. Walk, bike, or row until your body feels ready.",
+    "alt": "The GainFrame mascot pedals on a stationary exercise bike, demonstrating the step to perform light cardio before lifting."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Ramp the exact lift. Practice the movement light before you load it.",
+    "alt": "The GainFrame mascot performs a bodyweight squat to illustrate practicing the specific movement pattern with light weight first."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Two to four sets works. More ramps for heavy compounds fewer for small lifts.",
+    "alt": "The GainFrame mascot holds a barbell next to progressive stacks of weight plates, highlighting that two to four ramp-up sets are ideal."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Never burn out warming up. Warm-ups prepare the work set they should not feel like one.",
+    "alt": "An exhausted, sweating GainFrame mascot marked with a red X is contrasted against an energetic mascot marked with a green checkmark next to dumbbells, showing warm-ups should not cause fatigue."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Save your best reps. Finish ready to attack not ready to go home.",
+    "alt": "The GainFrame mascot performs a heavy barbell lift, reinforcing the goal of preserving energy for the main working sets."
+   }
+  ]
+ },
+ "how-often-should-you-train": {
+  "summary": "Training each muscle twice per week serves as an ideal baseline for most lifters, though total weekly volume ultimately drives muscle growth. Allowing 48 to 72 hours of recovery between intense sessions ensures optimal repair and performance. Choose a repeatable workout split that you can consistently sustain over time.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "How often should you train?",
+    "alt": "The GainFrame mascot marks days on a calendar while squatting to introduce the guide on workout frequency."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Train each muscle twice. Twice a week is a great default once can work, three can too. 1. 2.",
+    "alt": "The GainFrame mascot performs dumbbell rows with numbered bubbles to illustrate training each muscle group twice weekly."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Weekly work matters more. Your hard sets drive growth frequency just spreads them out.",
+    "alt": "The GainFrame mascot contrasts an unbalanced lift with a balanced barbell squat to emphasize that total weekly hard sets matter most."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Leave time to recover. Wait 48 to 72 hours after a hard muscle session.",
+    "alt": "The GainFrame mascot rests on a gym bench next to a clock to demonstrate the necessity of taking 48 to 72 hours between workouts."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Pick a repeatable split. Full body, upper lower, or PPL all work when you keep showing up.",
+    "alt": "The GainFrame mascot gestures toward split templates with a thumbs-up to show that any consistent routine works."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See the weeks you stayed consistent. GainFrame. Check-in streak. Today. Week secured. 2 weeks active. Goal met this week. This week is locked in. Your streak is safe. Any extra check-ins this week are pure bonus momentum. M T W T F S S 20 21 22 23 24 25 19. Today's log 239 lbs 1 photo · front. Overview 8 wks best 3 this month 33 total. Home Compare Insights.",
+    "alt": "A hand holds a phone displaying workout streaks and logged weight progress in the GainFrame app."
+   }
+  ]
+ },
+ "how-fast-should-reps-move": {
+  "summary": "Proper lifting tempo requires lowering weights under control for about two seconds and driving upward with explosive intent. lifters should prioritize full range of motion and eliminate bouncing momentum through brief pauses. Maintaining a consistent tempo across workouts ensures strength progress is accurately tracked.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "How fast should reps move?",
+    "alt": "The GainFrame mascot curls a dumbbell alongside a fast turtle to introduce proper rep speed guidelines."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Lower under control. Take about two seconds down. Do not let gravity own the rep.",
+    "alt": "The GainFrame mascot demonstrates a controlled eccentric curl compared to dropping the weight quickly."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Lift with fast intent. Try to move it powerfully even when heavy reps move slow.",
+    "alt": "The GainFrame mascot squats with a barbell to show explosive intent on the upward phase of a lift."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Pause where momentum cheats. A brief stop exposes muscle versus bounce.",
+    "alt": "The GainFrame mascot pauses during a dumbbell curl next to a stop hand icon to highlight eliminating momentum."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Full range beats slow motion. Do not shrink the rep just to make tempo perfect.",
+    "alt": "The GainFrame mascot performs full-range dumbbell squats beside a leg press machine to show full depth matters more than artificial tempo."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Keep tempo consistent. Reps only prove progress when execution stays the same.",
+    "alt": "The GainFrame mascot checks a workout tracking clipboard to emphasize keeping rep execution consistent."
+   }
+  ]
+ },
+ "how-close-to-failure": {
+  "summary": "Effective muscle growth does not require taking every exercise to complete failure. Compound lifts are best stopped one to three reps short of failure, whereas isolation movements can be safely pushed further. In all cases, a set should conclude as soon as proper lifting technique breaks down.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "1/6\n\nHow close to failure?",
+    "alt": "The sweating GainFrame mascot curls a heavy dumbbell, introducing the question of training proximity to failure."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "2/6\n\n1. Learn three reps in reserve\n\nStop, then ask yourself were three clean reps really left",
+    "alt": "The GainFrame mascot holds a barbell beside three floating weight plates, illustrating how to gauge having three reps left in reserve."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "3/6\n\n2. Compounds stop one to three short\n\nSquats and presses still grow without turning into a rescue",
+    "alt": "The GainFrame mascot performs a barbell squat inside a power rack, showing that compound exercises should stop one to three reps short of failure."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "4/6\n\n3. Isolations can go further\n\nCurls and laterals are safer places to test true failure",
+    "alt": "The GainFrame mascot strains during a seated cable curl, demonstrating that isolation movements can safely be pushed to true failure."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "5/6\n\n4. Form failure still counts\n\nWhen technique breaks the target muscle is done",
+    "alt": "The GainFrame mascot illustrates poor lifting form marked with a red cross alongside clean form marked with a green checkmark to show that technique breakdown ends a set."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "6/6\n\nSee what hard sets actually built\n\nGainFrame",
+    "alt": "A hand holds a smartphone displaying muscle growth tracking within the GainFrame app."
+   }
+  ]
+ },
+ "build-a-workout-in-4-steps": {
+  "summary": "Building an effective workout requires choosing a single primary goal and covering major movement patterns across the week. Prioritize heavy compound exercises early in each session, and use accessory movements to target secondary muscles. Stay consistent with your routine for at least eight weeks before making adjustments.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Build a workout in 4 steps",
+    "alt": "The GainFrame mascot kneels to assemble colorful puzzle pieces, illustrating how to construct a complete workout routine."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Start with one clear goal\nStrength, muscle, or conditioning\nOne session cannot max everything",
+    "alt": "The GainFrame mascot points toward a single target icon, emphasizing the need to focus on one main training goal per session."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Cover the big patterns\nSquat, hinge, push, and pull across the week",
+    "alt": "The GainFrame mascot stands with hands on hips surrounded by gym equipment, representing the core movement patterns needed in a training week."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Put hard skills first\nHeavy compounds go early before fatigue taxes technique",
+    "alt": "The GainFrame mascot performs a heavy barbell lift, illustrating that technically demanding compound movements should be completed first."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Accessories fill the gaps\nAdd one or two small moves for muscles the big lifts miss",
+    "alt": "The GainFrame mascot performs dumbbell curls in front of a weight bench, showing how accessory work targets smaller muscle groups."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Run it before editing it\nEight consistent weeks beat a new perfect plan every Monday",
+    "alt": "The GainFrame mascot rejects discarding workout plans and sticks to one routine, demonstrating the importance of multi-week consistency."
+   }
+  ]
+ },
+ "how-many-exercises-do-you-need": {
+  "summary": "Most effective workouts require only four to six total exercises, typically consisting of one main compound movement and one accessory lift per muscle group. Duplicating similar movement patterns adds unnecessary fatigue rather than distinct results. Sticking to a small selection of lifts and consistently progressing them leads to better long-term gains.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "1/6. How many exercises do you need?",
+    "alt": "The GainFrame mascot shrugs while surrounded by scattered gym equipment, introducing the question of exercise selection."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "2/6. 1. Four to six is plenty. Most good workouts fit inside six. More is not more.",
+    "alt": "The muscular GainFrame mascot stands above a lineup of five exercise tools, illustrating that four to six exercises are sufficient for a workout."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "3/6. 2. Use one or two per muscle. One big move, one accessory. That usually covers the job.",
+    "alt": "The GainFrame mascot performs an incline barbell bench press near a cable machine, demonstrating the balance of one main lift and one accessory move per muscle."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "4/6. 3. Stop duplicating movements. Three similar presses add fatigue not three different results.",
+    "alt": "The GainFrame mascot compares redundant leg press setups against varied movements, highlighting the mistake of duplicating movement patterns."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "5/6. 4. Add only with a reason. Fill a real gap. Do not add exercises for time.",
+    "alt": "The GainFrame mascot holds a puzzle piece next to a nearly complete puzzle, showing that new exercises should only be added to target specific gaps."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "6/6. 5. Repeat and progress them. Five lifts you improve beat ten you barely remember.",
+    "alt": "The GainFrame mascot chooses a smartphone workout log over a confusing stack of cards, emphasizing the value of repeating and progressing a few key lifts."
+   }
+  ]
+ },
+ "what-counts-as-a-hard-set": {
+  "summary": "A hard set requires sufficient training intensity with clean technique rather than warm-up exertion. Effective sets typically conclude within zero to three reps of failure, causing movement speed to naturally slow down. Only these true working sets with repeatable form should be tracked and logged.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What counts as a hard set?",
+    "alt": "The GainFrame mascot strains while performing a heavy dumbbell row over a bench, introducing what qualifies as a hard set."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Warm-ups do not count. A set that prepares you is not a hard growth set.",
+    "alt": "The GainFrame mascot contrasts an effortless warm-up curl with a challenging heavy lift to show warm-ups do not count as work sets."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. The last reps slow down. High effort makes clean reps grind even when you push hard.",
+    "alt": "The GainFrame mascot strains on a leg press machine to illustrate how true high-effort reps naturally slow down."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Stop zero to three reps short. Five more reps possible was probably too easy to call hard.",
+    "alt": "The GainFrame mascot stands with heavy dumbbells to demonstrate stopping sets zero to three reps shy of failure."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Form must stay repeatable. Cheating the weight up does not help the target muscle.",
+    "alt": "The GainFrame mascot shows poor form with a red cross compared to strict barbell form with a green checkmark."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Log your work sets only. Heavy enough, clean enough and hard enough to count.",
+    "alt": "The GainFrame mascot tracks completed sets on a clipboard beside a weight rack to emphasize recording only true working sets."
+   }
+  ]
+ },
+ "what-to-do-between-sets": {
+  "summary": "Optimize your rest intervals by using a real timer, logging your weight and reps immediately, and preparing your equipment for the next set. Avoid adding extra fatigue with intense cardio or deep stretching during your downtime. Begin your next set only when your breathing, focus, and strength have fully recovered.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "What to do between sets",
+    "alt": "The GainFrame mascot sits resting on a workout bench next to a clock, introducing tips on what to do between lifting sets."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Start a real timer. Rest enough to repeat performance not until you feel guilty.",
+    "alt": "The GainFrame mascot starts a timer on a phone mounted to a tripod to ensure adequate rest between sets."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Write down the set. Log weight, reps, and effort before your memory starts lying.",
+    "alt": "The GainFrame mascot records reps and weight on a clipboard to accurately log performance right after the set."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Set up the next weight. Change plates and fix the bench make the next set easy to start.",
+    "alt": "The GainFrame mascot loads weight plates onto a barbell rack to prepare for the upcoming set."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Do not add more fatigue. Long hard stretches or exercise can cost reps on the next set.",
+    "alt": "The GainFrame mascot contrasts running on a treadmill with resting calmly on a bench, highlighting the need to avoid extra fatigue."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Go when performance is back. Start when breathing and focus are ready, not when shamed.",
+    "alt": "The GainFrame mascot holds a heavy dumbbell by a bench, ready to begin the next set once fully recovered."
+   }
+  ]
+ },
+ "can-3-days-build-muscle": {
+  "summary": "Training three days per week can effectively build muscle by utilizing full-body workouts with four to six key exercises per session. Incorporating built-in rest days between sessions optimizes recovery while gradual weekly progression drives continuous gains. A sustainable three-day routine consistently outperforms erratic, high-frequency schedules.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Can 3 days build muscle?",
+    "alt": "The GainFrame mascot stands with hands on hips in front of three calendar sheets, questioning if three workout days can build muscle."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Full body wins here\n\nTrain every major muscle so nothing waits a full week",
+    "alt": "The muscular GainFrame mascot performs a squat surrounded by flexed bicep icons, illustrating the efficiency of full-body workouts."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Do four to six lifts\n\nSquat, hinge, push, pull then one or two extras",
+    "alt": "The GainFrame mascot points toward exercise equipment, recommending four to six core lifts per workout."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Rest a day between\n\nMonday, Wednesday, Friday works because recovery is built in",
+    "alt": "The GainFrame mascot sits resting on an exercise bench, emphasizing the importance of built-in recovery days."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Progress one thing weekly\n\nAdd a rep, a little weight or cleaner execution",
+    "alt": "The GainFrame mascot lifts a barbell beside a green progress arrow, showing how to progressively overload weekly."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Three hard days beat six random\n\nThe best schedule is the one you can repeat for years",
+    "alt": "The GainFrame mascot contrasts an erratic six-day schedule with a sustainable, consistent three-day routine."
+   }
+  ]
+ },
+ "are-you-recovered-yet": {
+  "summary": "Proper workout recovery is characterized by normal warm-up strength, manageable soreness that does not alter movement, and restored sleep and energy levels. It also requires an absence of sharp joint pain, distinguishing normal fatigue from injury. Monitoring these signals allows you to balance training intensity with adequate rest.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "1/6 Are you recovered yet?",
+    "alt": "The GainFrame mascot shrugs beside a partially charged battery icon, posing the question of whether you are fully recovered."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "2/6 1. Performance feels normal. Usual warm-ups feel heavy when recovery is still behind.",
+    "alt": "The GainFrame mascot struggles and sweats while curling a light dumbbell with a red X overhead, illustrating that heavy-feeling warm-ups signal incomplete recovery."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "3/6 2. Soreness is manageable. You do not need zero soreness it just should not change movement.",
+    "alt": "The GainFrame mascot squats smoothly, demonstrating that manageable muscle soreness should not restrict normal movement patterns."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "4/6 3. Sleep and energy are back. Bad sleep is a recovery signal not a character flaw.",
+    "alt": "The GainFrame mascot sits awake on a bed next to an alarm clock and a charging battery icon, highlighting that good sleep reflects recovery status."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "5/6 4. Your joints feel quiet. Muscle fatigue is normal sharp or worsening pain is not.",
+    "alt": "The GainFrame mascot contrasts joint discomfort marked with a red X against smooth cable exercise performance marked with a green checkmark."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "6/6 See recovery beside progress. GainFrame. 7:08. Check-in streak. Today. Week secured. 2 weeks active. Goal met this week. This week is locked in. Your streak is safe. Any extra check-ins this week are pure bonus momentum. M, T, W, T, F, S, S. 20, 21, 22, 23, 24, 25, 19. Today's log. Apr 25. 239 lbs. Edit. Delete. 1 photo · front. Overview. 3 stats. 8 wks best. 3 this month. 33 total. Home. Compare. Insights. Next. 4 weeks.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app check-in streak and progress tracking screen."
+   }
+  ]
+ },
+ "how-long-should-a-cut-last": {
+  "summary": "A typical fat loss cut should last between 8 and 16 weeks with a target rate of losing 0.5 to 1 percent of body weight per week. Diet breaks at maintenance can preserve adherence, but a cut should end immediately if recovery, sleep, or strength decline drastically. Maintain the new weight and review progress photos before deciding to cut again.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "How long should a cut last?",
+    "alt": "The GainFrame mascot flexes an arm beside progress charts to introduce a guide on cutting duration."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Plan eight to sixteen weeks. Long enough to see change short enough to see the end.",
+    "alt": "The GainFrame mascot points toward a series of calendar sheets, illustrating the recommendation to plan cuts for 8 to 16 weeks."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Lose half to one percent weekly. Faster loss raises the chance of losing muscle with fat.",
+    "alt": "The GainFrame mascot contrasts slipping down a steep drop with walking safely along a gentle downward slope to highlight losing 0.5 to 1 percent weekly."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Use maintenance when needed. A short break can restore training, hunger, and adherence.",
+    "alt": "The GainFrame mascot sits behind a balanced meal next to a pause icon to show the benefit of taking maintenance breaks."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. End when recovery craters. Constant hunger and poor sleep plus falling strength cost too much.",
+    "alt": "The GainFrame mascot sits exhausted on a weight bench next to low battery and sleep icons, signaling it is time to stop the cut when recovery suffers."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Review before cutting again. Hold the result, check photos then decide if more is worth it.",
+    "alt": "The GainFrame mascot stands on a scale while checking progress photos on a smartphone to review results before cutting again."
+   }
+  ]
+ },
+ "the-only-4-numbers-to-track": {
+  "summary": "Tracking fitness progress effectively comes down to four core metrics: workout load and reps, weekly average body weight, waist circumference, and monthly photos. Using weekly averages and tape measurements filters out daily fluctuations and distinguishes lean muscle gain from fat. Maintaining consistent photo conditions and logging all metrics in one place ensures reliable feedback on your training.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "The only 4 numbers to track",
+    "alt": "The GainFrame mascot stands with a clipboard alongside icons for dumbbells, a bathroom scale, a measuring tape, and a camera to introduce key progress metrics."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Track load and reps\n\nPerformance up with clean form means training is working",
+    "alt": "The GainFrame mascot logs workout data on a phone next to a loaded barbell, demonstrating that increasing load and reps with proper form indicates muscle growth."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Use weekly weight averages\n\nOne morning is noise\nSeven days show the direction",
+    "alt": "The GainFrame mascot demonstrates that single-day scale spikes cause unnecessary stress, while a seven-day rolling average reveals true weight trends."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Measure your waist\n\nThe tape helps separate muscle gain from a fast bulk",
+    "alt": "The GainFrame mascot measures their waist with a tape measure to track fat gain versus lean muscle during a bulk."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Take monthly photos\n\nMatch pose, light, and distance\nConsistency makes them useful",
+    "alt": "The GainFrame mascot uses a phone mounted on a tripod to capture consistent, comparable monthly physique check-in photos."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Keep every signal in one place\n\nGainFrame",
+    "alt": "A hand holds a smartphone displaying the GainFrame app interface, unifying strength logs, body weight trends, and progress photos in one dashboard."
+   }
+  ]
+ },
+ "maintenance-in-4-rules": {
+  "summary": "Successful weight maintenance relies on managing an acceptable weight range rather than fixating on a single daily number. To preserve muscle and prevent unintended weight shifts, keep daily protein intake consistent, continue training hard, and maintain steady activity levels. Implementing maintenance periods between diet phases helps sustain progress before pursuing new fitness goals.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Maintenance in 4 rules",
+    "alt": "The GainFrame mascot stands beside a scale with hands out between an up arrow and a down arrow, introducing the guide to weight maintenance."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Find your weight range. Maintenance is a band not one perfect morning number.",
+    "alt": "The GainFrame mascot stands stably inside a defined box with a checkmark rather than chasing a bouncing dot marked with red crosses, illustrating that maintenance is a range rather than a single number."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Keep protein the same. Muscle still needs the same building material.",
+    "alt": "The GainFrame mascot holds a plate filled with protein sources including chicken, eggs, and yogurt, showing the importance of keeping protein intake steady."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Keep training hard. Maintenance builds performance and protects what you earned.",
+    "alt": "A muscular GainFrame mascot lifts a heavy barbell from the floor, illustrating that training intensity should remain high during maintenance."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Hold your steps steady. Big activity swings can create a surprise bulk or cut.",
+    "alt": "The GainFrame mascot maintains steady steps on a stepper rather than fluctuating between sitting on a couch and sprinting on a treadmill, highlighting daily activity consistency."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Use it between phases. Learn to keep results before chasing new ones.",
+    "alt": "The GainFrame mascot stands with hands on hips between two calendar pads, demonstrating the value of holding a maintenance phase between diet cycles."
+   }
+  ]
+ },
+ "how-fast-should-you-bulk": {
+  "summary": "Effective bulking requires a modest daily calorie surplus of 150 to 300 calories to support muscle growth without excessive fat gain. Tracking strength increases alongside minimal waist growth ensures quality progress. Nutritional adjustments should be made based on multi-week trends rather than daily scale weight fluctuations.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "1/6 How fast should you bulk?",
+    "alt": "The GainFrame mascot stands on a weight scale holding a plate next to a rising green trend arrow to introduce bulking speed advice."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "2/6 1. Start 150 to 300 above. A small daily surplus fuels muscle without forcing scale.",
+    "alt": "The GainFrame mascot sits at a table eating a small portion, demonstrating that a modest 150 to 300 calorie surplus effectively builds muscle."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "3/6 2. Aim for a slow trend. Rapid weight gain mostly buys your next cut sooner.",
+    "alt": "A comparison showing the GainFrame mascot overwhelmed by excessive junk food marked with a red cross versus holding a balanced meal marked with a green check."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "4/6 3. Let your waist guard the bulk. Strength up, waist moving slow is the trend you want.",
+    "alt": "The GainFrame mascot measures its waist with a tape measure to show that slow waist expansion alongside strength gains indicates a successful bulk."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "5/6 4. Adjust monthly, not daily. Water hides the signal. Use weeks before changing food.",
+    "alt": "The GainFrame mascot rejects daily scale readings on the left and endorses a multi-week trend chart on the right to account for water weight fluctuations."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "6/6 Follow the trend ignore the noise. GainFrame. Weight 239.0 lbs, -12.8 from start. Start 251.0, Goal 229.0. Next: 2.7 lbs to Milestone 2 (236.3 lbs). 1 of 3 milestones - Goal 229.0lbs, Edit Goal. Trajectory 30D, 90D, 1Y, All. +3.0 / 90D. Rate of change. Home, Compare, Insights.",
+    "alt": "A hand holds a smartphone displaying the GainFrame app interface tracking weight trajectory trends over time."
+   }
+  ]
+ },
+ "how-much-cardio-do-you-need": {
+  "summary": "Aim for about 150 minutes of mostly low-intensity cardio each week to support cardiovascular health without impairing recovery. Prioritize lifting before strenuous conditioning, and schedule intense cardio and heavy leg workouts hours or days apart. Increase training volume gradually so fitness gains stay aligned with your body's ability to recover.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "How much cardio do you need?",
+    "alt": "The GainFrame mascot stands shrugging between a stationary bike and a barbell, introducing the topic of finding the right amount of cardio."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Aim for 150 minutes weekly. Brisk walking, cycling, or easy cardio builds the health base.",
+    "alt": "The GainFrame mascot walks forward beside habit-tracking boxes, illustrating the recommendation to target 150 minutes of low-intensity cardio per week."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Keep most of it easy. Finish most sessions better not completely emptied.",
+    "alt": "The GainFrame mascot casually rides a bicycle beneath a green heart icon, showing that most cardio sessions should feel manageable rather than exhausting."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Lift before hard cardio. When both happen together prioritize your main goal.",
+    "alt": "A comparison shows an exhausted mascot trying to bench press after running marked with a red X, versus an energized mascot lifting weights before biking marked with a green checkmark."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Separate hard sessions. Heavy legs and hard intervals need hours or days apart.",
+    "alt": "The muscular GainFrame mascot holds two calendar pages representing weightlifting and running, emphasizing the need to space out intense workouts."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Add cardio slowly. Start with two or three sessions earn more through recovery.",
+    "alt": "The GainFrame mascot climbs a set of stairs lined with small hearts, showing the importance of progressing cardio volume gradually over time."
+   }
+  ]
+ },
+ "break-a-fat-loss-plateau": {
+  "summary": "To overcome a fat-loss plateau, track weekly weight averages over two weeks rather than reacting to daily scale fluctuations. Keep daily activity levels steady and audit untracked calories from snacks, drinks, and sauces. Only reduce food intake by 100 to 200 calories if progress remains stalled after two consistent weeks.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Break a fat-loss plateau",
+    "alt": "The GainFrame mascot steps onto a scale while pushing against a horizontal bar, introducing tips to break a weight-loss plateau."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Wait for fourteen days\nA few flat mornings are water not a broken diet",
+    "alt": "The GainFrame mascot lifts a barbell under a downward dotted progress curve, illustrating that brief stalls are usually water weight."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Check weekly averages\nCompare weeks, not extremes lightest versus heaviest lies",
+    "alt": "The GainFrame mascot struggles under a spiky graph marked with an X but stands easily under smooth weekly averages marked with a checkmark."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Audit the missed calories\nBites, drinks, sauces, weekends can quietly close the deficit",
+    "alt": "The GainFrame mascot turns out his empty pockets to reveal hidden snacks, drinks, and sauces that quietly ruin a calorie deficit."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Hold your steps steady\nDieting often makes you move less without noticing",
+    "alt": "The GainFrame mascot compares slumping in an armchair under a declining activity chart to actively walking to maintain energy expenditure."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Cut calories last\nIf two honest weeks are flat trim 100 to 200 and recheck",
+    "alt": "The GainFrame mascot removes a small portion of food from his meal plate, advising to trim 100 to 200 calories only as a last resort."
+   }
+  ]
+ },
+ "150g-protein-made-simple": {
+  "summary": "Reaching a daily target of 150 grams of protein is easiest when distributed across four meals containing 35 to 40 grams each. Prioritize lean protein sources like chicken, fish, and egg whites when planning meals to keep calories in check. Protein shakes should be used as a convenient supplement to bridge nutritional gaps rather than replace whole food meals.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "150g protein made simple",
+    "alt": "The GainFrame mascot stands behind four meal prep containers, introducing a simple guide to eating 150g of daily protein."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Split it across four meals. Aim for 35 to 40 grams each without a food challenge.",
+    "alt": "The GainFrame mascot rejects a massive single feast in favor of dividing protein evenly across four manageable meals."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Anchor every meal. Pick the protein first then build the rest around it.",
+    "alt": "The GainFrame mascot carries a cooked chicken breast on a plate, demonstrating how to choose the protein source before adding other foods."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Use lean sources often. Chicken, fish, lean beef yogurt and egg whites leave room.",
+    "alt": "The GainFrame mascot points to a table of lean protein and fruit, illustrating how lean options keep calories under control."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Shakes only fill gaps. Powder is convenient food not a requirement or superpower.",
+    "alt": "The GainFrame mascot shows that protein shakes should supplement balanced meals rather than replace them entirely."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "See your protein target each day. GainFrame. Overview Muscles Plan. Add 3-4 sets of cable lateral raises twice a week. Keeping constant tension on the side delt will widen your frame further, making your waist look even leaner by comparison. Estimated daily targets. Adjust intake based on your physique goals. Cut 2,722 -500. Maintain 3,222 ±0. Bulk 3,722 +500. 3,222 kcal. Base RMIT: ~2,078. Protein 211g. Carbs 393g. Fat 89g. Based on your body composition and fitness goal. Adjust to your needs. Your priority. Your midsection is responding well to the recomp; the vertical lines of your rectus addominis are becoming more distinct. To accelerate this, focus on weighted cable crunches to increase the actual thickness of the abdominal muscles, making them visible even at your current 17% body fat.",
+    "alt": "A hand holds a phone displaying the GainFrame app interface with daily macronutrient targets and physique feedback."
+   }
+  ]
+ },
+ "fix-muscle-imbalances-in-4-steps": {
+  "summary": "Correct muscle imbalances by first verifying discrepancies using consistent lighting and objective performance metrics. Train the weaker side first during unilateral exercises and limit the stronger side's repetitions to match. Emphasize single-limb movements like split squats and single-arm rows to ensure balanced development.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Fix muscle imbalances in 4 steps",
+    "alt": "The GainFrame mascot stands before a mirror holding dumbbells to introduce four steps for correcting muscle imbalances."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Confirm the gap is real. Match photos and performance. Pose, light, and angle can fake it.",
+    "alt": "The GainFrame mascot sets up a phone on a tripod to accurately verify physical asymmetries under controlled conditions."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Start with the weak side. Train it first while focus and energy are highest.",
+    "alt": "The GainFrame mascot trains their weaker side first using a cable machine to maximize focus and effort."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Match its reps. When the weak side stops the strong side stops too.",
+    "alt": "The GainFrame mascot stops lifting on the strong side once the weak side reaches its repetition limit."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Use unilateral moves. Dumbbell presses, split squats and single-arm rows let sides work.",
+    "alt": "The GainFrame mascot performs split squats with dumbbells to demonstrate using unilateral exercises to train each side independently."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Compare every muscle group. GainFrame. Overview. Muscles. Plan. Front. Back. Before. After. Needs work. Developing. Solid. Strong. Elite. Muscle comparison: front delts, side/rear delts, upper chest, mid/lower chest, biceps, abs, obliques.",
+    "alt": "A smartphone displays the GainFrame app analyzing muscle symmetry and progress across various muscle groups."
+   }
+  ]
+ },
+ "when-should-you-use-straps": {
+  "summary": "Lifting straps should be used when grip fatigue limits heavy pulling exercises like rows, deadlifts, and pulldowns. To preserve hand strength, warm up without straps and avoid using them on light sets, presses, or curls. Dedicated exercises like farmer carries and timed holds should be used to train grip separately.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "When should you use straps?",
+    "alt": "The GainFrame mascot stands beside a heavy barbell holding lifting straps, introducing a guide on when to use them."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Use them when grip fails first. Your back should not lose a set because your fingers quit early.",
+    "alt": "The GainFrame mascot compares failing a cable row due to hand fatigue against successfully finishing the movement with straps attached."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Warm up without them. Let lighter sets train your natural grip first.",
+    "alt": "The GainFrame mascot lifts a light barbell with bare hands, demonstrating the importance of warming up without straps to build grip strength."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Strap your heaviest pulls. Rows, RDLs, and pulldowns are where straps earn a place.",
+    "alt": "The GainFrame mascot performs a heavy barbell lift using wrist straps, illustrating their use on demanding pulling movements."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Do not use them everywhere. Presses, curls, and light sets rarely need straps.",
+    "alt": "The GainFrame mascot curls a dumbbell with bare hands while straps sit on the floor, emphasizing that exercises like curls do not need straps."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Train grip separately. Farmer carries and timed holds let back and hands both progress.",
+    "alt": "The GainFrame mascot performs a farmer carry with heavy dumbbells to build grip strength through dedicated isolation work."
+   }
+  ]
+ },
+ "do-you-need-a-spotter": {
+  "summary": "Lifting safely requires setting safety pins properly and using machines or dumbbells when training alone. When working with a spotter, communicate rep targets and liftoff preferences clearly before beginning the set. Never attempt an uncertain failure rep on free weights without a spotter or safety mechanism in place.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "Do you need a spotter?",
+    "alt": "The GainFrame mascot spots a lifter on the bench press under the title asking whether you need a spotter."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "1. Set the safeties first. Rack pins should catch the bar before it can pin you.",
+    "alt": "The GainFrame mascot stands between an unsafe rack and a rack with properly set safety pins to emphasize preventing getting pinned."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "2. Ask for a clean liftoff. A handoff on heavy bench saves position and shoulder energy.",
+    "alt": "The GainFrame mascot receives a barbell handoff from a spotter to preserve shoulder positioning on heavy bench press."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "3. Explain the set first. Say your rep target and when you want help.",
+    "alt": "The GainFrame mascot holds up fingers to demonstrate communicating target reps clearly to a spotter before starting a set."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "4. Use safer options alone. Dumbbells, machines, and racks let you train hard without rescue.",
+    "alt": "The GainFrame mascot stands beside dumbbells and a leg press machine to highlight safer solo training alternatives."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "5. Never gamble a failure rep. If escape is uncertain leave one rep or get a spotter.",
+    "alt": "The GainFrame mascot contrasts a dangerous pinned bench press with a safe, spotted setup to discourage gambling on failure reps."
+   }
+  ]
  }
 }
