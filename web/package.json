@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "test:tools": "node --test --experimental-strip-types lib/analytics.test.mjs lib/analytics-consent.test.mjs lib/web-attribution.test.mjs lib/tool-client.test.mjs lib/waist-percentiles.test.mjs",
-    "test:worker": "node --test --experimental-strip-types ../worker/api/leaderboard.test.mjs ../worker/api/privacy-region.test.mjs",
+    "test:worker": "node --test --experimental-strip-types ../worker/api/leaderboard.test.mjs ../worker/api/privacy-region.test.mjs ../worker/api/android-waitlist.test.mjs",
     "test:leaderboard": "node --test --experimental-strip-types app/leaderboard/leaderboard-date.test.mjs app/leaderboard/leaderboard-share.test.mjs",
     "deploy": "next build && cd .. && npx wrangler deploy",
     "build:blog-grid": "node scripts/generate-blog-grid.mjs",

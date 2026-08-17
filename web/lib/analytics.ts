@@ -80,6 +80,7 @@ export type AnalyticsEvent =
   | "physique_rater_scored"
   | "physique_rater_rate_limited"
   | "physique_rater_cta_click"
+  | "physique_rater_android_email_submitted"
   // Ab analyzer tool
   | "ab_tool_requested"
   | "ab_tool_scored"

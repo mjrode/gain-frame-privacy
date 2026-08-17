@@ -65,8 +65,9 @@ instead of erroring when one is missing, but the feature is inert without it:
 | Name | Used by | Missing behaviour |
 |------|---------|-------------------|
 | `POSTHOG_PERSONAL_API_KEY` | `/api/stats` | lifter count falls back to 5,000 |
-| `RESEND_API_KEY` | `/api/trainer-waitlist` | signups return 503 |
+| `RESEND_API_KEY` | `/api/trainer-waitlist`, `/api/android-waitlist` | signups return 503 |
 | `RESEND_TRAINER_AUDIENCE_ID` | `/api/trainer-waitlist` | signups return 503 |
+| `RESEND_ANDROID_AUDIENCE_ID` | `/api/android-waitlist` | link email still sends; address just isn't kept on a list |
 
 ### Website analytics consent
 

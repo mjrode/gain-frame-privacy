@@ -18,11 +18,19 @@ import {
   handleTrainerWaitlist,
   type TrainerWaitlistEnv,
 } from "./api/trainer-waitlist";
+import {
+  handleAndroidWaitlist,
+  type AndroidWaitlistEnv,
+} from "./api/android-waitlist";
 import { handlePrivacyRegion } from "./api/privacy-region";
 import type { AssetFetcher, Ctx } from "./types";
 import { profileShellRequest } from "./routes";
 
-interface Env extends StatsEnv, TrainerWaitlistEnv, LeaderboardEnv {
+interface Env
+  extends StatsEnv,
+    TrainerWaitlistEnv,
+    AndroidWaitlistEnv,
+    LeaderboardEnv {
   ASSETS: AssetFetcher;
 }
 
@@ -104,6 +112,16 @@ export default {
         return methodNotAllowed("POST, OPTIONS", CORS_HEADERS);
       }
       return handleTrainerWaitlist(request, env);
+    }
+
+    if (pathname === "/api/android-waitlist") {
+      if (request.method === "OPTIONS") {
+        return new Response(null, { status: 204, headers: CORS_HEADERS });
+      }
+      if (request.method !== "POST") {
+        return methodNotAllowed("POST, OPTIONS", CORS_HEADERS);
+      }
+      return handleAndroidWaitlist(request, env);
     }
 
     if (pathname.startsWith("/api/")) {

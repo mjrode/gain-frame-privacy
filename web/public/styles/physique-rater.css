@@ -337,6 +337,67 @@
   color: var(--pr-faint);
   text-align: center;
 }
+
+/* Desktop: the QR is the hero — scanning is the path that actually installs,
+   so the App Store link demotes to an outline secondary. */
+.pr-conversion-card[data-platform="desktop"] .pr-conversion-actions {
+  align-items: center;
+}
+.pr-conversion-card[data-platform="desktop"] .pr-conversion-qr {
+  order: -1;
+  padding: 10px 12px;
+  border-color: rgba(232, 149, 43, 0.4);
+}
+.pr-conversion-card[data-platform="desktop"] .pr-conversion-qr svg {
+  width: 104px; height: 104px;
+}
+.pr-conversion-card[data-platform="desktop"] .pr-conversion-primary {
+  flex: 1;
+  background: transparent;
+  color: var(--pr-ink);
+  border: 1px solid var(--pr-line-2);
+  font-weight: 600;
+}
+.pr-conversion-card[data-platform="desktop"] .pr-conversion-primary:hover {
+  background: var(--pr-paper-2);
+  transform: none;
+}
+
+/* Android: email capture instead of a link to another free tool. */
+.pr-android-form {
+  position: relative; z-index: 1;
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 14px;
+}
+.pr-android-form input {
+  flex: 1; min-width: 0;
+  border: 1px solid var(--pr-line-2);
+  border-radius: 999px;
+  padding: 12px 16px;
+  font: inherit; font-size: 0.92rem;
+  background: #fff;
+}
+.pr-android-form input:focus-visible {
+  outline: 3px solid rgba(232, 149, 43, 0.42);
+  outline-offset: 1px;
+}
+.pr-android-form button {
+  border: 0; border-radius: 999px;
+  min-height: 48px; padding: 12px 18px;
+  background: var(--pr-ink); color: #fff;
+  font: inherit; font-weight: 650; cursor: pointer;
+}
+.pr-android-form button:disabled { opacity: 0.6; cursor: default; }
+.pr-android-error {
+  flex-basis: 100%;
+  margin: 4px 0 0;
+  font-size: 0.82rem; color: #a13c2e;
+}
+.pr-android-sent {
+  position: relative; z-index: 1;
+  margin: 14px 0 0;
+  font-weight: 600;
+}
 .pr-breakdown-label {
   margin: 26px 0 -10px;
   font-family: var(--pr-mono);
@@ -385,26 +446,6 @@
   text-align: center;
 }
 
-.pr-rating-return {
-  display: flex; align-items: center; justify-content: center; gap: 9px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  border: 1px solid var(--pr-line);
-  border-radius: var(--pr-radius-sm);
-  padding: 11px 14px;
-  background: var(--pr-paper-2);
-  text-align: center;
-}
-.pr-rating-return-label {
-  font-family: var(--pr-mono);
-  font-size: 9px; letter-spacing: 0.09em; text-transform: uppercase;
-  color: #9a6416;
-  border-radius: 999px;
-  padding: 4px 8px;
-  background: var(--pr-amber-50);
-}
-.pr-rating-return p { margin: 0; font-size: 0.85rem; color: var(--pr-muted); }
-
 .pr-cta { display: grid; gap: 10px; margin-top: 22px; }
 .pr-cta-primary {
   display: block; text-align: center;
@@ -432,6 +473,7 @@
   .pr-conversion-primary { width: 100%; }
   .pr-conversion-qr { justify-content: center; }
   .pr-conversion-proof { line-height: 1.45; }
+  .pr-android-form { display: grid; }
 }
 
 /* ---------------- Content sections ---------------- */
