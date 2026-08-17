@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
-import DownloadQr from "@/components/DownloadQr";
-import PlatformDownloadLink from "@/components/PlatformDownloadLink";
-import { useDownloadPlatform } from "@/components/useDownloadPlatform";
+import { useEffect, useRef, useState } from "react";
+import ToolConversionCard from "@/components/ToolConversionCard";
 import {
   getPosthogDistinctId,
   getWebAnalyticsContext,
@@ -50,7 +48,6 @@ type Stage =
   | { kind: "error"; message: string };
 
 type ErrorResponse = { error: string; message?: string };
-type ConversionPlacement = "result" | "daily_limit" | "lifetime_limit";
 
 const PROCESSING_MESSAGES = [
   "Reading the photo",
@@ -136,141 +133,6 @@ function ScoreRing({ score, band }: { score: number; band: string }) {
   );
 }
 
-function AndroidLinkForm({ placement }: { placement: ConversionPlacement }) {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle",
-  );
-
-  async function submit(event: FormEvent) {
-    event.preventDefault();
-    if (!email || status === "sending") return;
-    setStatus("sending");
-    track("physique_rater_android_email_submitted", { placement });
-    try {
-      const res = await fetch("/api/android-waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: `physique_rater_${placement}` }),
-      });
-      setStatus(res.ok ? "sent" : "error");
-    } catch {
-      setStatus("error");
-    }
-  }
-
-  if (status === "sent") {
-    return (
-      <p className="pr-android-sent" role="status">
-        Sent — the App Store link is in your inbox.
-      </p>
-    );
-  }
-
-  return (
-    <form className="pr-android-form" onSubmit={submit}>
-      <input
-        type="email"
-        required
-        inputMode="email"
-        autoComplete="email"
-        placeholder="you@email.com"
-        aria-label="Email address"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <button type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Sending…" : "Email me the link"}
-      </button>
-      {status === "error" && (
-        <p className="pr-android-error" role="alert">
-          Couldn&apos;t send that. Search &ldquo;GainFrame&rdquo; on the App
-          Store from an iPhone instead.
-        </p>
-      )}
-    </form>
-  );
-}
-
-function ConversionCard({
-  placement,
-  score,
-}: {
-  placement: ConversionPlacement;
-  score?: number;
-}) {
-  const platform = useDownloadPlatform();
-  const isAndroid = platform === "android";
-  const isDesktop = platform === "desktop";
-  const titleId = `pr-conversion-title-${placement}`;
-
-  return (
-    <aside
-      className="pr-conversion-card"
-      data-platform={platform}
-      aria-labelledby={titleId}
-      onClick={(event) => {
-        const target = event.target instanceof Element ? event.target : null;
-        if (!isAndroid && target?.closest("a")) {
-          // AppStoreClickTracker owns download/outbound events. This keeps the
-          // rater-specific intent event without double-counting the same click.
-          track("physique_rater_cta_click", { placement, platform });
-        }
-      }}
-    >
-      <div className="pr-conversion-copy">
-        <span className="pr-conversion-eyebrow">
-          {isAndroid
-            ? "iPhone-only for now"
-            : placement === "result"
-              ? "Unlimited in the app"
-              : "Keep scoring"}
-        </span>
-        <h3 id={titleId}>
-          {placement === "result" && score != null
-            ? `${score} is a snapshot. Score every check-in in GainFrame.`
-            : "Unlimited ratings in GainFrame."}
-        </h3>
-        <p>
-          {isAndroid
-            ? "No Android app yet. Leave your email and we'll send you the App Store link for later — and you'll be first to know if Android ships."
-            : isDesktop
-              ? "Scan with your iPhone to score every check-in — body fat %, FFMI, and a 12-muscle breakdown. Free to start."
-              : "Score every check-in — body fat %, FFMI, and a 12-muscle breakdown. Free to start."}
-        </p>
-      </div>
-
-      {isAndroid ? (
-        <AndroidLinkForm placement={placement} />
-      ) : (
-        <div className="pr-conversion-actions">
-          <PlatformDownloadLink
-            className="pr-conversion-primary"
-            source={CTA_CAMPAIGN}
-            content={placement}
-            campaign="web-rater"
-          >
-            {isDesktop ? "Or open the App Store" : "Get GainFrame free"}
-            <span aria-hidden>→</span>
-          </PlatformDownloadLink>
-          <DownloadQr
-            className="pr-conversion-qr"
-            source={CTA_CAMPAIGN}
-            content={placement}
-            campaign="web-rater"
-            label="Scan with iPhone"
-          />
-        </div>
-      )}
-
-      <p className="pr-conversion-proof">
-        {isAndroid
-          ? "One email, just the link · No spam"
-          : "iPhone app · Free to start · Built for progress photos"}
-      </p>
-    </aside>
-  );
-}
 
 function SubscoreBar({ label, hint, value }: { label: string; hint: string; value: number }) {
   return (
@@ -507,7 +369,17 @@ export default function RaterClient() {
 
           <p className="pr-headline">{stage.rating.headline}</p>
 
-          <ConversionCard placement="result" score={stage.rating.score} />
+          <ToolConversionCard
+            tool={CTA_CAMPAIGN}
+            campaign="web-rater"
+            placement="result"
+            headline={`${stage.rating.score} is a snapshot. Score every check-in in GainFrame.`}
+            body="Score every check-in — body fat %, FFMI, and a 12-muscle breakdown. Free to start."
+            desktopBody="Scan with your iPhone to score every check-in — body fat %, FFMI, and a 12-muscle breakdown. Free to start."
+            onCtaClick={(platform) =>
+              track("physique_rater_cta_click", { placement: "result", platform })
+            }
+          />
 
           <p className="pr-breakdown-label">Your full breakdown</p>
 
@@ -562,8 +434,20 @@ export default function RaterClient() {
               ? "The web tool caps at three. The app doesn't cap at all."
               : "Unlimited in the app — no daily cap, no waiting."}
           </p>
-          <ConversionCard
+          <ToolConversionCard
+            tool={CTA_CAMPAIGN}
+            campaign="web-rater"
             placement={stage.lifetime ? "lifetime_limit" : "daily_limit"}
+            headline="Unlimited ratings in GainFrame."
+            eyebrow="Keep scoring"
+            body="Score every check-in — body fat %, FFMI, and a 12-muscle breakdown. Free to start."
+            desktopBody="Scan with your iPhone to score every check-in — body fat %, FFMI, and a 12-muscle breakdown. Free to start."
+            onCtaClick={(platform) =>
+              track("physique_rater_cta_click", {
+                placement: stage.lifetime ? "lifetime_limit" : "daily_limit",
+                platform,
+              })
+            }
           />
         </div>
       )}

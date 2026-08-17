@@ -1,0 +1,187 @@
+/* ================================================================
+   TOOL CONVERSION CARD — the shared result-to-app bridge used by every
+   free tool (components/ToolConversionCard.tsx). Extracted from the
+   physique rater's conversion card, whose personalized framing converts
+   2–3× the generic "Download GainFrame" blocks it replaces.
+
+   Self-contained: pages load this alongside their own tool stylesheet,
+   so every value the card needs is defined here.
+   ================================================================ */
+
+:root {
+  --tcc-ink: #171717;
+  --tcc-muted: #777774;
+  --tcc-faint: #a6a6a2;
+  --tcc-line: rgba(23, 23, 23, 0.09);
+  --tcc-line-2: rgba(23, 23, 23, 0.16);
+  --tcc-paper-2: #f6f6f4;
+  --tcc-amber: #e8952b;
+  --tcc-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+.tcc-card {
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid rgba(232, 149, 43, 0.32);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(232, 149, 43, 0.14), transparent 15rem),
+    linear-gradient(135deg, #fffdf9, #fff 62%);
+  box-shadow: 0 12px 32px rgba(111, 71, 18, 0.08);
+  text-align: left;
+  color: var(--tcc-ink);
+}
+.tcc-card::after {
+  content: "";
+  position: absolute;
+  width: 78px; height: 78px;
+  top: -48px; right: -36px;
+  border: 1px solid rgba(232, 149, 43, 0.26);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.tcc-copy { position: relative; z-index: 1; max-width: 540px; }
+.tcc-eyebrow {
+  display: block;
+  font-family: var(--tcc-mono);
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #9a6416;
+  margin-bottom: 5px;
+}
+.tcc-card h3 {
+  margin: 0;
+  font-size: 1.18rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+.tcc-card .tcc-copy p {
+  margin: 7px 0 0;
+  max-width: 56ch;
+  color: var(--tcc-muted);
+  font-size: 0.9rem;
+}
+.tcc-actions {
+  position: relative; z-index: 1;
+  display: flex; align-items: stretch; gap: 10px;
+  margin-top: 14px;
+}
+.tcc-primary {
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+  min-height: 48px;
+  flex: 1;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: var(--tcc-ink);
+  color: #fff;
+  font-weight: 650;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+}
+.tcc-primary:hover { background: #000; transform: translateY(-1px); }
+.tcc-primary:focus-visible,
+.tcc-qr a:focus-visible {
+  outline: 3px solid rgba(232, 149, 43, 0.42);
+  outline-offset: 3px;
+}
+.tcc-qr {
+  display: flex; align-items: center; gap: 9px;
+  flex: 0 0 auto;
+  border: 1px solid var(--tcc-line);
+  border-radius: 12px;
+  padding: 7px 9px;
+  background: rgba(255, 255, 255, 0.84);
+}
+.tcc-qr svg {
+  display: block;
+  width: 58px; height: 58px;
+  padding: 3px;
+  border-radius: 7px;
+  background: #fffdf7;
+}
+.tcc-qr > span { display: grid; gap: 2px; }
+.tcc-qr strong { font-size: 0.76rem; line-height: 1.25; }
+.tcc-qr a {
+  color: var(--tcc-muted);
+  font-size: 0.72rem;
+  text-underline-offset: 2px;
+}
+.tcc-proof {
+  position: relative; z-index: 1;
+  margin: 10px 0 0;
+  font-family: var(--tcc-mono);
+  font-size: 10px;
+  color: var(--tcc-faint);
+  text-align: center;
+}
+
+/* Desktop: the QR is the hero — scanning is the path that actually installs,
+   so the App Store link demotes to an outline secondary. */
+.tcc-card[data-platform="desktop"] .tcc-actions {
+  align-items: center;
+}
+.tcc-card[data-platform="desktop"] .tcc-qr {
+  order: -1;
+  padding: 10px 12px;
+  border-color: rgba(232, 149, 43, 0.4);
+}
+.tcc-card[data-platform="desktop"] .tcc-qr svg {
+  width: 104px; height: 104px;
+}
+.tcc-card[data-platform="desktop"] .tcc-primary {
+  flex: 1;
+  background: transparent;
+  color: var(--tcc-ink);
+  border: 1px solid var(--tcc-line-2);
+  font-weight: 600;
+}
+.tcc-card[data-platform="desktop"] .tcc-primary:hover {
+  background: var(--tcc-paper-2);
+  transform: none;
+}
+
+/* Android: email capture instead of a link to another free tool. */
+.tcc-android-form {
+  position: relative; z-index: 1;
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 14px;
+}
+.tcc-android-form input {
+  flex: 1; min-width: 0;
+  border: 1px solid var(--tcc-line-2);
+  border-radius: 999px;
+  padding: 12px 16px;
+  font: inherit; font-size: 0.92rem;
+  background: #fff;
+}
+.tcc-android-form input:focus-visible {
+  outline: 3px solid rgba(232, 149, 43, 0.42);
+  outline-offset: 1px;
+}
+.tcc-android-form button {
+  border: 0; border-radius: 999px;
+  min-height: 48px; padding: 12px 18px;
+  background: var(--tcc-ink); color: #fff;
+  font: inherit; font-weight: 650; cursor: pointer;
+}
+.tcc-android-form button:disabled { opacity: 0.6; cursor: default; }
+.tcc-android-error {
+  flex-basis: 100%;
+  margin: 4px 0 0;
+  font-size: 0.82rem; color: #a13c2e;
+}
+.tcc-android-sent {
+  position: relative; z-index: 1;
+  margin: 14px 0 0;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .tcc-actions { display: grid; }
+  .tcc-primary { width: 100%; }
+  .tcc-qr { justify-content: center; }
+  .tcc-proof { line-height: 1.45; }
+  .tcc-android-form { display: grid; }
+}

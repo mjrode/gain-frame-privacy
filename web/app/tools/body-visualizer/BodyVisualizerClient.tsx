@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useMemo, useRef, useState, type CSSProperties } from "react";
 import styles from "./page.module.css";
+import ToolConversionCard from "@/components/ToolConversionCard";
 import { reportWebToolCompletion } from "@/lib/web-tool-usage";
 
 type UnitSystem = "metric" | "us";
@@ -459,6 +460,19 @@ export default function BodyVisualizerClient() {
           </div>
         </div>
       </div>
+
+      <ToolConversionCard
+        tool="body_visualizer"
+        campaign="web-body-visualizer"
+        placement="result"
+        headline={
+          bmi !== null
+            ? `BMI ${bmi.toFixed(1)} is one number. GainFrame tracks the body behind it.`
+            : "BMI is one number. GainFrame tracks the body behind it."
+        }
+        body="Progress photos become body-composition estimates, muscle scores, and comparisons you can actually track — free to start."
+        desktopBody="Scan with your iPhone to turn progress photos into body-composition estimates and muscle scores — free to start."
+      />
     </section>
   );
 }

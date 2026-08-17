@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { SITE } from "@/lib/site";
+import ToolConversionCard from "@/components/ToolConversionCard";
 import {
   getPosthogDistinctId,
   getWebAnalyticsContext,
@@ -110,20 +110,6 @@ async function preprocessImage(
   } finally {
     URL.revokeObjectURL(url);
   }
-}
-
-function appStoreUrl(): string {
-  // The delegated click tracker adds an AppsFlyer link only after consent.
-  return SITE.appStoreUrl;
-}
-
-function trackAppStoreClick(placement: string): void {
-  track("ab_tool_cta_click", { placement });
-  track("outbound_app_store_click", {
-    source: CTA_CAMPAIGN,
-    cta_content: placement,
-    ct: "web-abs",
-  });
 }
 
 function timelineHeadline(analysis: Analysis): string {
@@ -410,24 +396,17 @@ export default function AbAnalyzerClient() {
             The useful version is the same scan on the same pose every week.
           </p>
 
-          <div className="pr-cta">
-            <a
-              className="pr-cta-primary"
-              href={appStoreUrl()}
-              target="_blank"
-              rel="noopener"
-              data-track-exempt
-              onClick={() => trackAppStoreClick("result")}
-            >
-              Track the cut to visible abs, free on iOS
-            </a>
-            <button type="button" className="pr-cta-secondary" onClick={reset}>
-              Scan another photo
-              {stage.analysis.remaining_lifetime > 0
-                ? ` (${stage.analysis.remaining_lifetime} left)`
-                : ""}
-            </button>
-          </div>
+          <ToolConversionCard
+            tool={CTA_CAMPAIGN}
+            campaign="web-abs"
+            placement="result"
+            headline={`${stage.analysis.score} is a snapshot. Track the cut to visible abs in GainFrame.`}
+            body="Unlimited scans, body fat %, and a 12-muscle breakdown — free to start."
+            desktopBody="Scan with your iPhone for unlimited scans, body fat %, and a 12-muscle breakdown — free to start."
+            onCtaClick={() =>
+              track("ab_tool_cta_click", { placement: "result" })
+            }
+          />
         </div>
       )}
 
@@ -443,22 +422,30 @@ export default function AbAnalyzerClient() {
 
       {stage.kind === "rate_limited" && (
         <div className="pr-state">
-          <h3>{stage.lifetime ? "That's all 3 free scans" : "Back tomorrow"}</h3>
-          <p>{stage.message}</p>
-          <a
-            className="pr-cta-primary"
-            href={appStoreUrl()}
-            target="_blank"
-            rel="noopener"
-            data-track-exempt
-            onClick={() =>
-              trackAppStoreClick(
-                stage.lifetime ? "lifetime_limit" : "daily_limit",
-              )
+          <h3>
+            {stage.lifetime
+              ? "That's all 3 free scans"
+              : "That's today's free scan"}
+          </h3>
+          <p>
+            {stage.lifetime
+              ? "The web tool caps at three. The app doesn't cap at all."
+              : "Unlimited in the app — no daily cap, no waiting."}
+          </p>
+          <ToolConversionCard
+            tool={CTA_CAMPAIGN}
+            campaign="web-abs"
+            placement={stage.lifetime ? "lifetime_limit" : "daily_limit"}
+            headline="Unlimited ab analysis in GainFrame."
+            eyebrow="Keep scanning"
+            body="Unlimited scans, body fat %, and a 12-muscle breakdown — free to start."
+            desktopBody="Scan with your iPhone for unlimited scans, body fat %, and a 12-muscle breakdown — free to start."
+            onCtaClick={() =>
+              track("ab_tool_cta_click", {
+                placement: stage.lifetime ? "lifetime_limit" : "daily_limit",
+              })
             }
-          >
-            Get unlimited analysis on iOS
-          </a>
+          />
         </div>
       )}
     </div>

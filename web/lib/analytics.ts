@@ -80,7 +80,12 @@ export type AnalyticsEvent =
   | "physique_rater_scored"
   | "physique_rater_rate_limited"
   | "physique_rater_cta_click"
-  | "physique_rater_android_email_submitted"
+  // Shared ToolConversionCard events (components/ToolConversionCard.tsx):
+  // impression, click, and Android email capture, all carrying {tool,
+  // placement, platform} so CTA impression → click is measurable per tool.
+  | "tool_cta_viewed"
+  | "tool_cta_clicked"
+  | "tool_android_email_submitted"
   // Ab analyzer tool
   | "ab_tool_requested"
   | "ab_tool_scored"
@@ -196,6 +201,32 @@ function posthogProperty(name: string): unknown {
  * completion event cannot infer. Values are forwarded with public web-tool
  * requests so ad-blocker-proof Slack alerts still retain acquisition context.
  */
+/**
+ * User-agent fallback for os/device_type, mirroring PostHog's value names
+ * ("iOS", "Android", "Mac OS X", …) so downstream breakdowns stay in one
+ * vocabulary regardless of which source supplied the value.
+ */
+function platformFromUserAgent(): { os: string; device_type: string } {
+  const ua = window.navigator?.userAgent ?? "";
+  const touchMac =
+    /Macintosh/i.test(ua) && (window.navigator?.maxTouchPoints ?? 0) > 1;
+  if (/iPhone|iPod/i.test(ua)) return { os: "iOS", device_type: "Mobile" };
+  if (/iPad/i.test(ua) || touchMac) return { os: "iOS", device_type: "Tablet" };
+  if (/Android/i.test(ua)) {
+    return {
+      os: "Android",
+      device_type: /Mobile/i.test(ua) ? "Mobile" : "Tablet",
+    };
+  }
+  if (/Windows/i.test(ua)) return { os: "Windows", device_type: "Desktop" };
+  if (/Macintosh|Mac OS X/i.test(ua)) {
+    return { os: "Mac OS X", device_type: "Desktop" };
+  }
+  if (/CrOS/i.test(ua)) return { os: "Chrome OS", device_type: "Desktop" };
+  if (/Linux/i.test(ua)) return { os: "Linux", device_type: "Desktop" };
+  return { os: "unknown", device_type: "unknown" };
+}
+
 export function getWebAnalyticsContext(): WebAnalyticsContext {
   const initialReferrer = safeAttributionUrl(
     posthogProperty("$initial_referrer"),
@@ -237,15 +268,20 @@ export function getWebAnalyticsContext(): WebAnalyticsContext {
     // tool request when the analytics SDK is unavailable.
   }
 
+  const uaPlatform = platformFromUserAgent();
+
   return {
     referrer,
     referring_domain: referringDomain,
     landing_path: landingPath.slice(0, 500),
     current_path: window.location.pathname.slice(0, 500),
     browser: contextString(posthogProperty("$browser"), 120) ?? "unknown",
-    os: contextString(posthogProperty("$os"), 120) ?? "unknown",
+    // PostHog's $os/$device_type only exist after consent, which left
+    // server-side web_tool_completed events with platform "unknown" for
+    // pre-consent users — fall back to a user-agent read.
+    os: contextString(posthogProperty("$os"), 120) ?? uaPlatform.os,
     device_type: contextString(posthogProperty("$device_type"), 120) ??
-      "unknown",
+      uaPlatform.device_type,
     ...(contextString(posthogProperty("$search_engine"), 120)
       ? { search_engine: contextString(posthogProperty("$search_engine"), 120) }
       : {}),

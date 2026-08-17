@@ -124,6 +124,7 @@ export default function AbAnalyzerPage() {
     <>
       <link rel="stylesheet" href="/styles.css" />
       <link rel="stylesheet" href="/styles/physique-rater.css" />
+      <link rel="stylesheet" href="/styles/tool-conversion-card.css" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}

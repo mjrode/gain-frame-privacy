@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { SITE } from "@/lib/site";
+import ToolConversionCard from "@/components/ToolConversionCard";
 import {
   captureException,
   getPosthogDistinctId,
@@ -153,11 +153,6 @@ function getOrCreateClientId(): string {
     /* ignore */
   }
   return id;
-}
-
-function appStoreUrl(): string {
-  // The delegated click tracker adds an AppsFlyer link only after consent.
-  return SITE.appStoreUrl;
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -1160,43 +1155,25 @@ export default function TransformClient() {
           </p>
         </div>
 
-        <div className="btf-cta-block">
-          <span className="btf-cta-glow" aria-hidden />
-          <p className="btf-cta-block-title">
-            Make that render the actual outcome
-          </p>
-          <p className="btf-cta-block-sub">
-            The app tracks your real progress photos against this projection,
-            re-renders at any intensity, and the AI coach adjusts the plan as
-            your body changes — free to start.
-          </p>
-          <a
-            className="btf-cta-download"
-            href={appStoreUrl()}
-            target="_blank"
-            rel="noopener"
-            data-track-exempt="true"
-            onClick={() => {
-              track("bt_tool_cta_clicked", { cta_content: "cta_primary" });
-              track("outbound_app_store_click", {
-                source: CTA_CAMPAIGN,
-                cta_content: "cta_primary",
-                ct: "web-bttool",
-              });
-            }}
-          >
-            Download GainFrame on iOS <span aria-hidden>→</span>
-          </a>
+        <ToolConversionCard
+          tool={CTA_CAMPAIGN}
+          campaign="web-bttool"
+          placement="result"
+          headline="That render is the preview. Track the real thing in GainFrame."
+          body="The app tracks your real progress photos against this projection, re-renders at any intensity, and the AI coach adjusts as your body changes — free to start."
+          desktopBody="Scan with your iPhone to track your real progress photos against this projection — free to start."
+          onCtaClick={() =>
+            track("bt_tool_cta_clicked", { cta_content: "cta_primary" })
+          }
+        />
 
-          {stage.remaining === 0 && stage.canUnlock && (
-            <>
-              <div className="btf-cta-divider" aria-hidden>
-                or unlock one more render
-              </div>
-              {unlockForm("Unlock render")}
-            </>
-          )}
-        </div>
+        {stage.remaining === 0 && stage.canUnlock && (
+          <div className="btf-cta-block">
+            <span className="btf-cta-glow" aria-hidden />
+            <p className="btf-cta-block-title">Or unlock one more render</p>
+            {unlockForm("Unlock render")}
+          </div>
+        )}
 
         <p className="btf-retry-note">
           {stage.remaining > 0
@@ -1264,32 +1241,22 @@ export default function TransformClient() {
             <div className="btf-msg-unlock">{unlockForm("Unlock one more")}</div>
           ) : null}
 
-          <a
-            className={stage.canUnlock ? "btf-msg-applink" : "btf-submit"}
-            style={
-              stage.canUnlock
-                ? undefined
-                : { maxWidth: 300, margin: "0 auto", textDecoration: "none", textAlign: "center" }
-            }
-            href={appStoreUrl()}
-            target="_blank"
-            rel="noopener"
-            data-cta-source={CTA_CAMPAIGN}
-            data-cta-content={
-              stage.canUnlock ? "cta_rate_limited" : "cta_lifetime_limited"
-            }
-            onClick={() =>
+          <ToolConversionCard
+            tool={CTA_CAMPAIGN}
+            campaign="web-bttool"
+            placement={stage.canUnlock ? "daily_limit" : "lifetime_limit"}
+            headline="Unlimited AI transformations in GainFrame."
+            eyebrow="Keep rendering"
+            body="Render at any intensity and track real progress photos against the projection — free to start."
+            desktopBody="Scan with your iPhone for unlimited renders and real progress tracking — free to start."
+            onCtaClick={() =>
               track("bt_tool_cta_clicked", {
                 cta_content: stage.canUnlock
                   ? "cta_rate_limited"
                   : "cta_lifetime_limited",
               })
             }
-          >
-            {stage.canUnlock
-              ? "Or get unlimited AI transformations in the app →"
-              : "Get GainFrame on iOS — unlimited AI transformations"}
-          </a>
+          />
         </div>
       </div>
     );

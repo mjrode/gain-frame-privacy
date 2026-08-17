@@ -85,6 +85,11 @@ export default function AppStoreClickTracker() {
         track("web_download_clicked", {
           ...attribution.payload,
           destination: "app_store",
+          // Tool/placement/campaign directly on the event so funnels don't
+          // have to reconstruct them from the attribution payload.
+          source,
+          cta_content: ctaContent,
+          ct,
         });
       }
 

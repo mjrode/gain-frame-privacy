@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import BlogNav from "@/components/BlogNav";
 import BlogScrollReveal from "@/components/BlogScrollReveal";
 import CalcEmbed from "@/components/CalcEmbed";
+import ToolConversionCard from "@/components/ToolConversionCard";
 import VisualizerAnalytics from "@/components/VisualizerAnalytics";
 import type { ClientReportedWebTool } from "@/lib/web-tool-usage";
 
@@ -166,6 +167,9 @@ export default async function CalculatorPage({
     <>
       <link rel="stylesheet" href="/styles.css" />
       <link rel="stylesheet" href={`/styles/calc/${slug}.css`} />
+      {slug === "body-fat-visualizer" && (
+        <link rel="stylesheet" href="/styles/tool-conversion-card.css" />
+      )}
       {meta.schemas.map((schema, i) => (
         <script
           key={i}
@@ -181,6 +185,26 @@ export default async function CalculatorPage({
         tool={slug as ClientReportedWebTool}
       />
       {slug === "body-fat-visualizer" && <VisualizerAnalytics />}
+      {slug === "body-fat-visualizer" && (
+        // The atlas's only app CTA used to sit below the FAQ, past the moment
+        // of value — this puts the conversion card right under the tool.
+        <div
+          style={{
+            maxWidth: "780px",
+            margin: "0 auto",
+            padding: "0 1.25rem",
+          }}
+        >
+          <ToolConversionCard
+            tool="body_fat_visualizer"
+            campaign="web-bfviz"
+            placement="result"
+            headline="Found your level? GainFrame reads yours from a photo."
+            body="Upload one photo in the app for body fat %, muscle scores, and weekly trends — free to start."
+            desktopBody="Scan with your iPhone to read your body fat from a photo — muscle scores and weekly trends included, free to start."
+          />
+        </div>
+      )}
       <RelatedToolsFooter currentSlug={slug} />
     </>
   );

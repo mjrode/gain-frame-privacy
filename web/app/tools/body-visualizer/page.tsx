@@ -103,6 +103,7 @@ export default function BodyVisualizerPage() {
   return (
     <div className={styles.page}>
       <link rel="stylesheet" href="/styles.css" />
+      <link rel="stylesheet" href="/styles/tool-conversion-card.css" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}

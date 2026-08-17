@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { SITE } from "@/lib/site";
+import ToolConversionCard from "@/components/ToolConversionCard";
+import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 import {
   captureException,
   getPosthogDistinctId,
@@ -119,11 +120,6 @@ function nextRunIndex(): number {
   }
 }
 
-function appStoreUrl(): string {
-  // The delegated click tracker adds an AppsFlyer link only after consent.
-  return SITE.appStoreUrl;
-}
-
 function isRecord(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === "object";
 }
@@ -205,6 +201,11 @@ function ConfidenceChip({ value }: { value: Confidence }) {
 
 export default function BFEstimatorClient() {
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
+  // Android (~half of this tool's users) can't install — the result screen
+  // reframes the existing email report as the capture instead of showing an
+  // iOS download button.
+  const downloadPlatform = useDownloadPlatform();
+  const isAndroid = downloadPlatform === "android";
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [sex, setSex] = useState<Sex | null>(null);
@@ -785,39 +786,36 @@ export default function BFEstimatorClient() {
           </div>
         </div>
 
-        {/* One block, both asks — the page's single conversion unit. Green
-            download is the loudest element; the email row sits below an
-            "or get it in writing" divider, zero taps to reach the field. */}
+        {/* The conversion unit: the app card leads with the user's actual
+            number (the physique-rater framing that out-converts generic
+            download copy). The email report follows as its own card — and
+            becomes the primary capture on Android, where the app card
+            hides itself. */}
+        <ToolConversionCard
+          tool={CTA_CAMPAIGN}
+          campaign="web-bftool"
+          placement="result"
+          headline={`${stage.estimate}% is one snapshot. Compare every check-in in GainFrame.`}
+          body="Precise multi-photo body fat, 12 muscle scores, weekly trends — free to start."
+          desktopBody="Scan with your iPhone for precise multi-photo body fat, 12 muscle scores, and weekly trends — free to start."
+          hideOnAndroid
+          onCtaClick={() =>
+            track("bf_tool_cta_clicked", { cta_content: "cta_primary" })
+          }
+        />
+
         <div className="bff-cta-block">
           <span className="bff-cta-glow" aria-hidden />
-          <p className="bff-cta-block-title">Take this past a one-off guess</p>
-          <p className="bff-cta-block-sub">
-            Precise multi-photo body fat, 12 muscle scores, weekly trends —
-            free to start.
+          <p className="bff-cta-block-title">
+            {isAndroid
+              ? "No Android app yet — get your result in writing"
+              : "Or get it in writing"}
           </p>
-          <a
-            className="bff-cta-download"
-            href={appStoreUrl()}
-            target="_blank"
-            rel="noopener"
-            // Fires its own outbound event below with the campaign source —
-            // exempt from the global AppStoreClickTracker to avoid double counts.
-            data-track-exempt="true"
-            onClick={() => {
-              track("bf_tool_cta_clicked", { cta_content: "cta_primary" });
-              track("outbound_app_store_click", {
-                source: CTA_CAMPAIGN,
-                cta_content: "cta_primary",
-                ct: "web-bftool",
-              });
-            }}
-          >
-            Download GainFrame on iOS <span aria-hidden>→</span>
-          </a>
-
-          <div className="bff-cta-divider" aria-hidden>
-            or get it in writing
-          </div>
+          <p className="bff-cta-block-sub">
+            {isAndroid
+              ? "GainFrame is iPhone-only right now. Email yourself the full breakdown — what the AI saw, strengths, focus areas, timeline."
+              : "The full written breakdown — what the AI saw, strengths, focus areas, timeline."}
+          </p>
 
           {emailStage === "sent" || emailStage === "already" ? (
             <div className="bff-cta-sent">
@@ -874,9 +872,7 @@ export default function BFEstimatorClient() {
                 </p>
               )}
               <p className="bff-cta-note">
-                Full written breakdown — what the AI saw, strengths, focus
-                areas, timeline. We store your email and the report, never
-                your photo.
+                We store your email and the report, never your photo.
               </p>
             </>
           )}
@@ -1029,27 +1025,26 @@ export default function BFEstimatorClient() {
             height={96}
           />
           <p className="bff-msg-title">
-            {stage.lifetime ? "You've used your 3 free scans" : "Daily limit reached"}
+            {stage.lifetime
+              ? "You've used your 3 free scans"
+              : "That's today's free scan"}
           </p>
-          <p className="bff-msg-sub">{stage.message}</p>
-          <a
-            className="bff-submit"
-            style={{ maxWidth: 280, margin: "0 auto", textDecoration: "none", textAlign: "center" }}
-            href={appStoreUrl()}
-            target="_blank"
-            rel="noopener"
-            // outbound_app_store_click comes from the global tracker; these
-            // attributes keep its source consistent with the other BF CTAs.
-            data-cta-source={CTA_CAMPAIGN}
-            data-cta-content={stage.lifetime ? "cta_lifetime_limited" : "cta_rate_limited"}
-            onClick={() =>
+          <ToolConversionCard
+            tool={CTA_CAMPAIGN}
+            campaign="web-bftool"
+            placement={stage.lifetime ? "lifetime_limit" : "daily_limit"}
+            headline="Unlimited scans in GainFrame."
+            eyebrow="Keep scanning"
+            body="No daily cap — precise multi-photo body fat, 12 muscle scores, weekly trends. Free to start."
+            desktopBody="Scan with your iPhone for unlimited scans, 12 muscle scores, and weekly trends — free to start."
+            onCtaClick={() =>
               track("bf_tool_cta_clicked", {
-                cta_content: stage.lifetime ? "cta_lifetime_limited" : "cta_rate_limited",
+                cta_content: stage.lifetime
+                  ? "cta_lifetime_limited"
+                  : "cta_rate_limited",
               })
             }
-          >
-            Get GainFrame on iOS <span className="arrow" aria-hidden>→</span>
-          </a>
+          />
         </div>
       </div>
     );
