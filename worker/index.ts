@@ -23,6 +23,11 @@ import {
   type AndroidWaitlistEnv,
 } from "./api/android-waitlist";
 import { handlePrivacyRegion } from "./api/privacy-region";
+import {
+  handleAdminAiFlows,
+  verifyAdmin,
+  type AdminEnv,
+} from "./api/admin";
 import type { AssetFetcher, Ctx } from "./types";
 import { profileShellRequest } from "./routes";
 
@@ -30,7 +35,8 @@ interface Env
   extends StatsEnv,
     TrainerWaitlistEnv,
     AndroidWaitlistEnv,
-    LeaderboardEnv {
+    LeaderboardEnv,
+    AdminEnv {
   ASSETS: AssetFetcher;
 }
 
@@ -124,10 +130,36 @@ export default {
       return handleAndroidWaitlist(request, env);
     }
 
+    if (pathname === "/api/admin/ai-flows") {
+      if (request.method !== "GET") {
+        return methodNotAllowed("GET");
+      }
+      return handleAdminAiFlows(request, env);
+    }
+
     if (pathname.startsWith("/api/")) {
       return new Response(JSON.stringify({ error: "Not found." }), {
         status: 404,
         headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    // The prompt-template snapshot ships as a static asset but is product
+    // IP — never serve it unauthenticated. run_worker_first guarantees this
+    // check runs before the asset binding.
+    if (pathname.startsWith("/admin-data/")) {
+      if (!(await verifyAdmin(request, env))) {
+        return new Response(JSON.stringify({ error: "Unauthorized." }), {
+          status: 401,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+      const assetResponse = await env.ASSETS.fetch(request);
+      const headers = new Headers(assetResponse.headers);
+      headers.set("Cache-Control", "no-store");
+      return new Response(assetResponse.body, {
+        status: assetResponse.status,
+        headers,
       });
     }
 

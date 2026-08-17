@@ -12,7 +12,10 @@
   "main": "worker/index.ts",
   "compatibility_date": "2026-07-24",
   "vars": {
-    "SUPABASE_URL": "https://qpctmhhnomeeyajbivne.supabase.co"
+    "SUPABASE_URL": "https://qpctmhhnomeeyajbivne.supabase.co",
+    // Publishable key — public by design; used to verify admin bearer
+    // tokens against GoTrue for /api/admin/* and /admin-data/*.
+    "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_6kXa8qaaix3McgqohdzCkw_HNoZFlKw"
   },
   "assets": {
     "directory": "web/out",

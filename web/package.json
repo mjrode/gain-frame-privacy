@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "test:tools": "node --test --experimental-strip-types lib/analytics.test.mjs lib/analytics-consent.test.mjs lib/web-attribution.test.mjs lib/tool-client.test.mjs lib/waist-percentiles.test.mjs",
-    "test:worker": "node --test --experimental-strip-types ../worker/api/leaderboard.test.mjs ../worker/api/privacy-region.test.mjs ../worker/api/android-waitlist.test.mjs",
+    "test:worker": "node --test --experimental-strip-types ../worker/api/leaderboard.test.mjs ../worker/api/privacy-region.test.mjs ../worker/api/android-waitlist.test.mjs ../worker/api/admin.test.mjs",
     "test:leaderboard": "node --test --experimental-strip-types app/leaderboard/leaderboard-date.test.mjs app/leaderboard/leaderboard-share.test.mjs",
     "deploy": "next build && cd .. && npx wrangler deploy",
     "build:blog-grid": "node scripts/generate-blog-grid.mjs",
@@ -16,6 +16,7 @@
     "build:comics-manifest": "node scripts/generate-comics-manifest-js.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.112.3",
     "gray-matter": "^4.0.3",
     "next": "16.2.4",
     "next-mdx-remote": "^6.0.0",

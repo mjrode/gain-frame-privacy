@@ -33,12 +33,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: "/v2/",
+        disallow: ["/v2/", "/admin/", "/admin-data/"],
       },
       ...AI_BOTS.map((userAgent) => ({
         userAgent,
         allow: "/",
-        disallow: "/v2/",
+        disallow: ["/v2/", "/admin/", "/admin-data/"],
       })),
     ],
     sitemap: `${SITE.url}/sitemap.xml`,
