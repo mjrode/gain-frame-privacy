@@ -50,15 +50,15 @@ re-derive them from scratch.
 
 ## Data sources, and what actually works
 
-Verified 2026-08-01. Re-check at the start of every run; if the picture has changed, fix this
+Verified 2026-08-18. Re-check at the start of every run; if the picture has changed, fix this
 section in the same commit.
 
 | Source | Status | Use for |
 |---|---|---|
 | `mcp__gsc__*` | **Works when connected**, but the server (`pipx run mcp-gsc`, defined in `~/.claude.json`) is **absent from some sessions** (first seen 2026-08-07). `sc-domain:gainframe.app` shows as `siteFullUser` | All GSC performance, queries, pages, index verdicts, URL inspection. **This is the performance source for this site.** If the tools are missing (ToolSearch finds nothing for `select:mcp__gsc__*`), do NOT stop and do NOT touch the SEO Receipts connector — call the Search Console API directly: the service account key is `~/.config/gainframe/gsc-service-account.json`, scope `https://www.googleapis.com/auth/webmasters`, `google-auth` is installed for system python3. POST `searchAnalytics/query` on `sites/sc-domain%3Againframe.app` for analytics and `v1/urlInspection/index:inspect` for verdicts — a ~40-line scratchpad helper covers the whole phase (see `seo-tools/content-audits/2026-08-07.md`) |
-| `mcp__dataforseo__*` (official DataForSEO remote MCP) | **Registered in Codex as `dataforseo` at `https://mcp.dataforseo.com/mcp` and authenticated with OAuth.** Live, paid, per-call. The former `mcp__e6e8a8f4-…__*` name was a stale hashed connector reference, not a local registration. At the start of a run, check `codex mcp get dataforseo`; if missing, add that official URL, run `codex mcp login dataforseo`, and start a fresh task so its tools are loaded. If it is registered but absent, inspect `codex mcp list` for disabled or logged-out state before continuing. Only after repair attempts fail should the run record the source as unavailable. Never reuse prior volume/KD as current-run data or propose a post whose case depends on missing market/SERP evidence | Real search volume, keyword difficulty, search intent, 12-month trend, SERP composition, competitor keyword gaps, AI Overview presence, backlinks |
+| `mcp__dataforseo__*` (official DataForSEO remote MCP) | **Registered in Codex as `dataforseo` at `https://mcp.dataforseo.com/mcp` and authenticated with OAuth.** Cursor sessions often have **no DataForSEO tools in the MCP catalog** (confirmed 2026-08-18). At the start of a run, `GetMcpTools` with pattern `dataforseo` (Cursor) or `codex mcp get dataforseo` (Codex). If missing in Cursor, do not stall and do not backfill: GSC still runs via the service-account fallback, and **every post whose case needs volume/KD/SERP is withheld**. If it is registered in Codex but absent, inspect `codex mcp list` for disabled or logged-out state before continuing. Only after repair attempts fail should the run record the source as unavailable. Never reuse prior volume/KD as current-run data | Real search volume, keyword difficulty, search intent, 12-month trend, SERP composition, competitor keyword gaps, AI Overview presence, backlinks |
 | `mcp__2676e48c-…__*` (SEO Receipts connector) | **Bound to `sc-domain:seoreceipts.com`, NOT gainframe.app** | **Nothing in this skill.** Every number it returns is a different website. Do not call it here |
-| `mcp__analytics-mcp__*` (GA4) | Available | Organic sessions and engagement by landing page. Use as a separate behavioural layer in every decision run; never substitute it for GSC clicks |
+| `mcp__analytics-mcp__*` (GA4) | Available when the connector is up; this Cursor session used on-disk `analytics/raw/YYYY-MM-DD/` TSVs instead. **Stamp each file's window.** A 21-day GA4 export is not comparable to the GSC 28d/prior-28d pair (seen 2026-08-18) | Organic sessions and engagement by landing page. Use as a separate behavioural layer in every decision run; never substitute it for GSC clicks |
 | PostHog (`mcp__c90fac73-…__*`) | Available, project `seoreceipts` by default — **switch to GainFrame before querying**. **The GainFrame data lives in project `357433` ("Default project", GainFrame org) and contains BOTH app and website events** — verified 2026-08-13 with `outbound_app_store_click` (671/14d), `bf_tool_*`, `physique_rater_*`, `waist_tool_calculated` all present. The 2026-08-11/12 runs recorded "zero events" — that was a wrong-scope query, not missing instrumentation. If the MCP connector only exposes render-ui, query the REST API directly: `POSTHOG_PERSONAL_API_KEY` in `~/.zshrc`, `POST us.posthog.com/api/projects/357433/query/` with a HogQLQuery (build the JSON in a python file — nested bash quoting corrupts `$pathname` escapes). Never record PostHog as unavailable without querying project 357433 via REST first | Landing-page conversion paths: tool results, email submissions, and App Store clicks. Use in every decision run when available |
 | `seo-tools/content-inventory.mjs` | **Working.** No network, no model | Every local fact: link graph, orphans, cannibalization, freshness, Quick Answer lengths |
 
@@ -197,6 +197,10 @@ reported limitation, not permission to invent a conversion story.
    smaller commercial query that reaches an App Store click or a high-intent tool run.
 5. Record `unavailable` when GA4, PostHog, App Store Connect, or RevenueCat evidence cannot be
    accessed. Never use one system as a proxy for another.
+6. **Do not credit a tool CTA or conversion-card change from a sitewide store-click spike.** Split
+   `outbound_app_store_click` by `$pathname` and `$referring_domain` (or equivalent). On 2026-08-18
+   a homepage Reddit/`$direct` surge landed in the same window as an Aug 17 tool card; tool-path
+   store clicks were flat at ~11/day. Credit the path that actually moved.
 
 ## Phase 2 — Layer on DataForSEO market data
 
@@ -448,6 +452,14 @@ re-listing does not protect you unless you actually match each candidate against
 and it was proposed and approved — the post had existed since 2026-07-09 with 4 inbound links.
 Writing it would have created a straight duplicate. Existence is checked per-candidate,
 mechanically, at proposal time; never from the map's gap line alone.
+
+**Before proposing a sibling for a query the site already ranks, pull query×page across the
+existing blog AND the matching tool.** On 2026-08-18 `rate my body` looked like a GO for a new
+post until the split showed `rate-my-physique` at pos 8.4, `/tools/physique-rater/` at pos 4.8,
+and `ai-physique-rating-apps` already in the SERP. AI variants (`rate my body ai`, `physique rater`)
+resolved to the tool. A third URL is a split, not a deepening. The fix in that shape is a
+contextual CTA from the ranking blog to the converting tool — and `rate-my-physique` was still
+pointing at `/tools/body-fat-from-photo/`. Check that commercial-bridge before writing.
 
 **Skill** is which downstream generator writes it: `$blog-post-generator` (guides, roundups,
 stats pages), `$comparison-article-generator` (X vs Y), `$feature-page-generator` (tool/feature
@@ -776,6 +788,10 @@ Corrections recorded this way so far:
 | 2026-08-11 | The cycle could find traffic opportunities without proving their business job, SERP briefs were not persisted, one inbound link could satisfy the gate, structured data was checked mostly for presence, and long dashes were not banned | Phases 0, 1b, 2c, 4–7, 10 and `content-inventory.mjs` |
 | 2026-08-11 | The DataForSEO connector was absent from a session even though GA4 and PostHog were available; silently reusing prior market figures would make them look fresh | Data sources table — mark unavailable, never backfill volume/KD from memory, and withhold dependent post proposals |
 | 2026-08-11 | A missing DataForSEO connector was recorded as a limitation instead of being diagnosed and repaired first; Codex had no `dataforseo` MCP registration and the skill referenced a stale hashed connector name | Data sources table — official remote MCP URL, OAuth login, fresh-task reload, and registration/authentication checks are now explicit |
+| 2026-08-18 | Cursor often has no DataForSEO MCP even when Codex does; stalling or backfilling would fake freshness | Data sources table — Cursor catalog check, withhold volume-dependent posts, keep GSC fallback |
+| 2026-08-18 | A sitewide store-click spike was almost credited to an Aug 17 tool card; path+referrer showed homepage Reddit/direct | Phase 1b item 6 |
+| 2026-08-18 | Rate-my-body sibling trending GO until query×page showed the tool already taking AI variants, and the blog CTAd the wrong tool | Phase 5 §3 sibling/tool split + commercial-bridge check |
+| 2026-08-18 | On-disk GA4 TSVs used a 21d window next to GSC 28d | Data sources GA4 row |
 
 ## Guardrails
 

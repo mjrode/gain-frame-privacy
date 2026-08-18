@@ -1,7 +1,8 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-17** (review; full experiment audit — chart revert CLOSED keep-control at 0.60% CTR / pos 9.3; WHR WIN 14.7→9.8; WHtR MIXED (imp 2.4× but pos 13.2→16.4); rate-my-physique trending GO for the Aug 21 sibling at 7.3 / 4.2% CTR; Hume long-tail already ranking (price @ 9, subscription @ 7) with retitle proposed for Aug 19; women-chart overlap NOT found — leave; F1 chart→gallery link SHIPPED same day + F2 Hume retitle APPROVED-SCHEDULED for Aug 19, zero posts until the Aug 21 gate) · Data through 2026-08-15
+> Last run: **2026-08-18** (review; 9,268 clicks / 530,287 imp through Aug 16, +142%/+203%; Aug 16 record 502 clicks; tools 3,061c @ 12.23% CTR vs blog 0.98%; PostHog store clicks 1,229 vs 679 but Aug 17 card NOT credited — homepage Reddit/direct; rate-my-body sibling FLIPPED to HOLD because physique-rater already takes AI variants and rate-my-physique CTAs the BF tool; DataForSEO unavailable so zero new posts; F1 Hume retitle still ships Aug 19; F2 accurate→worth-it Aug 19; F3 rater CTA Aug 21; F4 absmaxx inbound now) · Data through 2026-08-16
+> Prior run: **2026-08-17** (review; full experiment audit — chart revert CLOSED keep-control at 0.60% CTR / pos 9.3; WHR WIN 14.7→9.8; WHtR MIXED (imp 2.4× but pos 13.2→16.4); rate-my-physique trending GO for the Aug 21 sibling at 7.3 / 4.2% CTR; Hume long-tail already ranking (price @ 9, subscription @ 7) with retitle proposed for Aug 19; women-chart overlap NOT found — leave; F1 chart→gallery link SHIPPED same day + F2 Hume retitle APPROVED-SCHEDULED for Aug 19, zero posts until the Aug 21 gate) · Data through 2026-08-15
 > Prior run: **2026-08-14** (review → execution; owner approved `all`: Hume strengthen + waist size-8 chart + bodybuilding-measurements section SHIPPED same day; Hume retitle decision remains for ~Aug 19; F2's proposed retitle was already live since Jul 16 — only the chart section was needed) · **HUME FINDING**: 65K/mo brand family at KD 1-10 with hume-body-pod-review at rank 17-23 — F1 content strengthen proposed, retitle gated to ~Aug 19 by the Aug 11 og/subtitle dash-cleanup window; F2 average-waist-size-women retitle, F3 bodybuilding-measurements section; zero posts, competitors_domain sweep found no new brand targets) · Data through 2026-08-12
 > Prior run: **2026-08-13** (review → execution; owner approved `all` AND directed a new abs tool: M1 body-composition 301 + F2 Hevy 301 + F1 shoulder-to-waist calculator + **NEW `/tools/ab-analyzer/`** all shipped) · Data through 2026-08-11
 > Ab-analyzer bet: "do i have abs" 260 vol +529%/yr · "six pack calculator" thin-tool SERP (KD 5-6) · timeline FAQs (6,600+2,400 family). Windows: calculator directional ~Aug 23; ab-analyzer 28d ~Sep 10. "ab scanner" (720) excluded from titles — likely automotive-diagnostic ambiguity, verify SERP live before ever chasing it.
@@ -11,6 +12,36 @@
 > Same-day run 1: 2026-08-11 (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**)
 > Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
 > Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
+
+## New findings (2026-08-18 — tools, conversion, next-blog HOLD)
+
+- **Traffic is still compounding.** 9,268 clicks / 530,287 impressions in 28d (+142% / +203%),
+  non-brand ~8,581. Aug 16 set a new click record at 502 / 31,894. Sitewide CTR 1.75% (was 2.19%)
+  from impression dilution, not a rank drop (position 8.45 vs 8.50).
+- **Tools are the working surface.** 3,061 clicks at 12.23% CTR vs blog 4,891 at 0.98%.
+  `/tools/body-fat-from-photo/` 1,539c (was 425); `/tools/physique-rater/` 826c / **23.67% CTR** /
+  pos 4.0 (new); `/tools/body-fat-visualizer/` 573c. Body-visualizer is still an impression-expansion
+  play (77c / pos 33.9, judge Sep 3). Ab-analyzer is 13c, all in the last 7d (judge Sep 10).
+- **Conversion picked up at the 28d grain, not from the Aug 17 tool card.** PostHog
+  `outbound_app_store_click` 1,229 vs 679 (+81%). Tool completions 3-4x'd (`bf_tool_result_shown`
+  2,658 vs 691; `physique_rater_scored` 924 vs 0). Tool-path store clicks stayed ~11/day across
+  Aug 10-16 and Aug 17-18. Aug 18 homepage is Reddit + `$direct`. Split path and referrer before
+  crediting a tool CTA change.
+- **Working blogs are still roundups.** `best-ai-body-fat-apps` 479c (down from 573 as the tool
+  absorbed the family — net win), scanning hub 436c (was 143), editor roundup 237c / 54 store
+  clicks, transformation roundup 229c. Stats pages (`average-bicep-size` 197c / 49k imp / 0.40%
+  CTR) remain zero-click AEO. Do not expand the stats factory.
+- **Rate-my-body sibling is HOLD, not GO.** Query×page on `rate my body`: blog 12c pos 8.4, tool
+  6c pos 4.8, `ai-physique-rating-apps` 1c pos 19.6. AI variants already resolve to the tool.
+  `rate-my-physique` still CTAs `/tools/body-fat-from-photo/`. Next move is F3 (swap CTA Aug 21),
+  not a third URL.
+- **No new blog areas this run.** DataForSEO unavailable in Cursor; no volume/KD/SERP briefs.
+  Do not open a cluster. Next fair content decisions: Hume retitle Aug 19, then Sep 3-10 windows
+  (visualizer, WHR/WHtR, Thelo, scales, ab-analyzer).
+- **Indexing is healthy.** 10 inspected recent URLs are Submitted and indexed. One SEO-lane
+  orphan: `absmaxx-vs-gainframe` (F4 inbound from `recomp-ai-vs-gainframe`). Founder orphans skipped.
+- **F1 Hume retitle remains approved-scheduled for Aug 19.** Last 7d the page is 1c / 364i /
+  pos 13.9; head terms still missing from the top-250 7d query report.
 
 ## New findings (2026-08-12 — App Store progress-keyword reconciliation)
 
@@ -301,7 +332,7 @@ That page is worth defending and deepening.
 | `/body-fat/` gallery post-link boost (Aug 9) | Content | Directional ~2026-08-19; gallery's own 28d window ~2026-09-01 (baseline 19 clicks / ~2,758 imp / pos 8–17) |
 | `best-body-scanning-measurement-apps` "body scan app" anchors | Content | Directional ~2026-08-19 (baseline pos 6.8 / 343 imp on the query) |
 | `body-fat-percentage-chart-women` vs unisex chart | New post / shared-query diagnosis | 2026-08-15 (46 visible shared queries; hold merge/retarget until then) |
-| `rate-my-physique` Aug 11 query refresh + new inbound link | Content | ~2026-08-21; resets the `rate my body` sibling decision |
+| `rate-my-physique` Aug 11 query refresh + new inbound link | Content | 2026-08-21; sibling HOLD; F3 is CTA to `/tools/physique-rater/` |
 | `aesthetic-physique-body-fat-percentage` → `rate-my-physique` inbound link | Content | ~2026-08-21 directional |
 | Approved F2 `best-ai-body-composition-app` fold-in | Explicit approval gate | Recheck with data through Aug 11, expected ~2026-08-13; do not ship sooner |
 | `best-body-composition-scales` retitle + `renpho-scale-review` refresh (Aug 11) | Metadata | ~2026-08-21; position reads ~Sep 10 |
@@ -352,8 +383,9 @@ for zero. Wait for ≥30 impressions before treating its position or targeting d
 
 From 2026-08-02: everything approved shipped same day EXCEPT the P2 menopause post, which turned
 out to already exist (published 2026-07-09 by a parallel session — stale topical-map gap line;
-skill now requires per-candidate existence grep). Still held: "rate my body" sibling post until
-rate-my-physique's window opens Aug 20.
+skill now requires per-candidate existence grep). **Rate-my-body sibling: HOLD as of 2026-08-18**
+(tool already ranks the AI variants; next move is the Aug 21 CTA swap on `rate-my-physique`, not a
+new URL).
 
 From 2026-08-01 (`fixes all` approved; both posts declined that cycle):
 
@@ -373,7 +405,7 @@ their own.
 |---|---|---|
 | Approved F2 body-composition fold-in | loser vs winner on shared queries with data through Aug 11 | ~2026-08-13 |
 | `body-fat-percentage-chart-women` vs unisex chart | shared-query split; differentiate/merge decision | 2026-08-15 |
-| `rate-my-physique` after Aug 11 exact-query refresh | `rate my body` position + clicks; sibling-page go/no-go | ~2026-08-21 |
+| `rate-my-physique` after Aug 11 exact-query refresh | sibling HOLD (2026-08-18); F3 CTA swap to physique-rater, not a new URL | 2026-08-21 |
 | `/tools/physique-rater/` | position (currently 7.0) on "physique rater" | 2026-08-15 |
 | `dexa-scan-alternative` | holds AI Overview rank 2 | 2026-08-15 |
 | `menopause-body-composition` | visual/PAA expansion decision after ≥30 impressions | next cycle with enough signal |
@@ -386,4 +418,7 @@ their own.
 | Smart-scale series (P1/P2/P3) | indexation, then 28d positions; P1 AI Overview citation check | index check next run; 2026-09-08 |
 | `best-body-composition-scales` | "best smart scale" + "best body composition scale" positions vs 14.6 baseline | 2026-08-21 CTR; 2026-09-10 position |
 | `renpho-scale-review` | "renpho scale accuracy" family vs 16-31 / 748 imp / 0 clicks baseline | 2026-09-10 |
-| `are-smart-scales-accurate` | after Aug 9 anchor read, add contextual link → are-smart-scales-worth-it | ~2026-08-19 |
+| `are-smart-scales-accurate` | after Aug 9 anchor read, add contextual link → are-smart-scales-worth-it (proposed F2 2026-08-18) | **2026-08-19** |
+| Hume retitle F1 | ship approved title (Accuracy, Price & Subscription) | **2026-08-19** |
+| Tool conversion card | tool-path store clicks vs homepage Reddit/direct | next run with ≥7d after Aug 17 |
+| `absmaxx-vs-gainframe` orphan | inbound from `recomp-ai-vs-gainframe` (proposed F4) | this approval |
