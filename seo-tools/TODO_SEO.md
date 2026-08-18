@@ -55,7 +55,7 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 - [x] **Do I Look Fat? (honest self-assessment)** — published 2026-08-02 as /blog/do-i-look-fat/ — targets "do i look fat" (480 vol, +1312%/yr, KD 10, LeanLens gap) + "am i fat ai" long-tail already hitting the site; visualizer renders; body-image-sensitive framing with NEDA pointer. — source: seo-tools/content-audits/2026-08-02.md
 - [x] **Body Composition Pictures gallery** — published 2026-08-02 as /blog/body-composition-pictures/ — 12 standardized renders (male 8–33%, female 18–42%); targets "body composition pictures" (260, KD 10, LeanLens rank 13); framed as example gallery to avoid cannibalizing body-fat-percentage-chart. — source: same audit
 - [x] **Fixes:** am-i-skinny-fat-quiz render treatment + how-to-tell-if-skinny-fat folded in w/ 301 (zero imp in 28d) — 2026-08-02; ideal-body-measurements-women retitled to "Averages, Ratios & What They Mean" + average-measurements H2 (was surfacing for "average measurements for women" at pos ~12) — 2026-08-02
-- [ ] **HOLD: "rate my body" sibling post** — do NOT write until rate-my-physique measurement window opens 2026-08-20; re-check its position first (cannibalization risk). — added 2026-08-02
+- [x] **HOLD/NO-GO: "rate my body" sibling post** — closed 2026-08-18. Query×page showed `rate-my-physique` (12c pos 8.4), `/tools/physique-rater/` (6c pos 4.8), and `ai-physique-rating-apps` already splitting the family; AI variants resolve to the tool. Next move is F3 CTA swap on Aug 21, not a third URL. — added 2026-08-02
 
 ### Aug 6 cycle — body-visualizer opportunity (seo-content-cycle run)
 
@@ -95,7 +95,7 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 ### Aug 14 cycle — Hume family + bump fixes (seo-content-cycle run)
 
 - [x] **F1: hume-body-pod-review content strengthen** — shipped 2026-08-14. Subscription/pricing section (verified ~$229 / optional ~$9.99mo premium), alternatives table, 2 FAQ updates w/ schema sync, review-intent anchors from are-smart-scales-worth-it + renpho-scale-review (best-body-composition-scales already had one). Baseline: rank 17-23 on 65K/mo family (hume body pod 27.1K KD 1, hume pod 8.1K +4525%, hume health review 8.1K +312%). — source: `seo-tools/content-audits/2026-08-14.md`
-- [ ] **OPEN: Hume retitle decision ~Aug 19** — metadata window from the Aug 11 og/subtitle dash-cleanup closes then; decide whether to broaden title beyond "Worth $229?" toward the review/company intent with fresh position data. — added 2026-08-14
+- [x] **OPEN: Hume retitle decision ~Aug 19** — superseded 2026-08-17: title decided and approved; ships Aug 19 (see Aug 17 F2). — added 2026-08-14
 - [x] **F2: average-waist-size-women size-8 chart section** — shipped 2026-08-14 (retitle proposal was moot — title already led with the head term since Jul 16). Dress-size ↔ waist chart + FAQ + dash cleanup; no metadata change. Targets "waist size for size 8" 1,600 KD 17 @ rank 12. — source: same audit
 - [x] **F3: ideal-body-measurements-men bodybuilding-measurements section** — shipped 2026-08-14. Exact-phrase H2 + FAQ + SWR calculator link + dash cleanup. Targets "bodybuilding measurements" 8,100 KD 4 @ 15, "bodybuilding measurement chart" 3,600 KD 5 @ 12. — source: same audit
 
@@ -103,7 +103,14 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 - [x] **F1: chart -> gallery links** — shipped 2026-08-17 (the piece deferred from Aug 9 while the revert window ran). Hub + 15/25% male + 25/35% female links after each render section on `body-fat-percentage-chart`; body-only long-dash cleanup (frontmatter deliberately untouched to preserve the keep-control CTR baseline recorded this run). — source: `seo-tools/content-audits/2026-08-17.md`
 - [ ] **APPROVED, SCHEDULED Aug 19: Hume retitle** — owner approved 2026-08-17; ships when the metadata window opens Aug 19. New title: "Hume Body Pod Review (2026): Accuracy, Price & Subscription" + description naming the subscription answer. Evidence: new section already ranks "subscription cost" @ 7 / "accuracy 2026" @ 8 / "price official 2026" @ 9 on the 65K/mo family. — added 2026-08-17
-- Verdicts recorded this run: chart revert CLOSED (keep control, 0.60% CTR @ 9.3); WHR WIN (14.7->9.8); WHtR MIXED (imp 2.4x, pos 13.2->16.4, no action); women-chart overlap NOT FOUND (leave both); rate-my-physique trending GO for Aug 21.
+- Verdicts recorded this run: chart revert CLOSED (keep control, 0.60% CTR @ 9.3); WHR WIN (14.7->9.8); WHtR MIXED (imp 2.4x, pos 13.2->16.4, no action); women-chart overlap NOT FOUND (leave both); rate-my-physique sibling later flipped HOLD on 2026-08-18.
+
+### Aug 18 cycle — tools/conversion review (seo-content-cycle run)
+
+- [x] **F4: absmaxx-vs-gainframe inbound** — shipped 2026-08-18. Contextual in-body link from `recomp-ai-vs-gainframe` with anchor "AbsMaxx vs GainFrame" plus a Related Articles row. Source was outside its metadata window (dateModified 2026-07-02). — source: `seo-tools/content-audits/2026-08-18.md`
+- [ ] **APPROVED, SCHEDULED Aug 19: F1 Hume retitle** — carried from Aug 17. Title → "Hume Body Pod Review (2026): Accuracy, Price & Subscription". Do not ship before Aug 19.
+- [ ] **APPROVED, SCHEDULED Aug 19: F2 are-smart-scales-accurate → worth-it** — contextual in-body link to `are-smart-scales-worth-it` (excluded from the Aug 11 interlink batch while the Aug 9 window ran).
+- [ ] **APPROVED, SCHEDULED Aug 21: F3 rate-my-physique CTA** — swap the 30-second CTA from `/tools/body-fat-from-photo/` to `/tools/physique-rater/`. No sibling post.
 
 ### Carry-forward (still genuine, re-added from reset — not yet done)
 
