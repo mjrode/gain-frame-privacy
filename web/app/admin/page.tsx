@@ -15,7 +15,7 @@ export default function AdminPage() {
       style={{
         fontFamily:
           "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-        maxWidth: 1080,
+        maxWidth: 1240,
         margin: "0 auto",
         padding: "40px 24px 96px",
         color: "#1a1a1a",

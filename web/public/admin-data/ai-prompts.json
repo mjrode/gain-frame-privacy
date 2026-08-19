@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-17T23:31:58.744Z",
-  "gain_frame_commit": "beee5b92",
+  "generated_at": "2026-08-19T11:54:30.061Z",
+  "gain_frame_commit": "cf17cb9f",
   "flows": {
     "classify_score": {
       "sources": [

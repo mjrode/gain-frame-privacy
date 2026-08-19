@@ -28,6 +28,14 @@ const GAIN_FRAME_ROOT =
 // same auth check as /api/admin/* (run_worker_first routes every request
 // through the worker before the asset binding).
 const OUT_PATH = path.resolve(__dirname, "../public/admin-data/ai-prompts.json");
+const ROUTES_OUT_PATH = path.resolve(
+  __dirname,
+  "../public/admin-data/ai-routes.json",
+);
+// Applied model-routing configs. Each file is one published config_version;
+// the dashboard picks whichever version live telemetry reports, so the view
+// stays honest even when this snapshot is behind.
+const ROUTES_DIR = "supabase/ai-routes";
 
 // Excerpts shorter than this are almost never prompts (keys, labels, URLs).
 const MIN_EXCERPT_LENGTH = 200;
@@ -143,6 +151,65 @@ function resolveFiles(relPath) {
   return [relPath];
 }
 
+/**
+ * Snapshots every published route config, keyed by its config_version, so the
+ * dashboard can answer "what model *should* serve this flow going forward" —
+ * a question observed traffic cannot answer, since old app versions and cached
+ * responses keep reporting retired models for days after a config change.
+ */
+function writeRouteConfigs(commit) {
+  const dir = path.join(GAIN_FRAME_ROOT, ROUTES_DIR);
+  if (!existsSync(dir)) {
+    console.warn(`WARN route configs: missing ${ROUTES_DIR}`);
+    return;
+  }
+  const configs = {};
+  let latest = null;
+  let latestMtime = 0;
+
+  for (const file of readdirSync(dir).filter((f) => f.endsWith(".json"))) {
+    const abs = path.join(dir, file);
+    let doc;
+    try {
+      doc = JSON.parse(readFileSync(abs, "utf8"));
+    } catch (err) {
+      console.warn(`WARN route configs: ${file} is not valid JSON`);
+      continue;
+    }
+    const version = doc.config_version;
+    if (!version || !doc.routes) continue;
+    configs[version] = {
+      config_version: version,
+      applied_at: doc.applied_at ?? null,
+      reason: doc.reason ?? null,
+      global_enabled: doc.global_enabled ?? null,
+      routes: doc.routes,
+    };
+    const mtime = statSync(abs).mtimeMs;
+    if (mtime > latestMtime) {
+      latestMtime = mtime;
+      latest = version;
+    }
+  }
+
+  writeFileSync(
+    ROUTES_OUT_PATH,
+    `${JSON.stringify(
+      {
+        generated_at: new Date().toISOString(),
+        gain_frame_commit: commit,
+        latest,
+        configs,
+      },
+      null,
+      2,
+    )}\n`,
+  );
+  console.log(
+    `Wrote ${ROUTES_OUT_PATH}\n${Object.keys(configs).length} route configs, latest ${latest}`,
+  );
+}
+
 function main() {
   if (!existsSync(GAIN_FRAME_ROOT)) {
     console.error(
@@ -184,6 +251,7 @@ function main() {
   };
 
   writeFileSync(OUT_PATH, `${JSON.stringify(snapshot, null, 2)}\n`);
+  writeRouteConfigs(commit);
 
   const flowCount = Object.keys(flows).length;
   const excerptCount = Object.values(flows).reduce(

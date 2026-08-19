@@ -28,6 +28,8 @@ import {
   verifyAdmin,
   type AdminEnv,
 } from "./api/admin";
+import { handleAdminMoney } from "./api/admin-money";
+import { handleAdminProduct } from "./api/admin-product";
 import type { AssetFetcher, Ctx } from "./types";
 import { profileShellRequest } from "./routes";
 
@@ -135,6 +137,20 @@ export default {
         return methodNotAllowed("GET");
       }
       return handleAdminAiFlows(request, env);
+    }
+
+    if (pathname === "/api/admin/money") {
+      if (request.method !== "GET") {
+        return methodNotAllowed("GET");
+      }
+      return handleAdminMoney(request, env);
+    }
+
+    if (pathname === "/api/admin/product") {
+      if (request.method !== "GET") {
+        return methodNotAllowed("GET");
+      }
+      return handleAdminProduct(request, env);
     }
 
     if (pathname.startsWith("/api/")) {

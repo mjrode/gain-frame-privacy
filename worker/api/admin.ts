@@ -28,21 +28,56 @@ export interface AdminEnv {
   POSTHOG_PERSONAL_API_KEY?: string;
   POSTHOG_PROJECT_ID?: string;
   POSTHOG_HOST?: string;
+  REVENUECAT_API_KEY?: string;
+  REVENUECAT_PROJECT_ID?: string;
 }
 
 export const ADMIN_EMAILS = ["michaelrode44@gmail.com"];
 
-const JSON_HEADERS = {
+export const JSON_HEADERS = {
   "Content-Type": "application/json",
   "Cache-Control": "no-store",
 };
 
-function deny(status: number, error: string): Response {
+export function deny(status: number, error: string): Response {
   return new Response(JSON.stringify({ error }), {
     status,
     headers: JSON_HEADERS,
   });
 }
+
+export function ok(body: unknown): Response {
+  return new Response(JSON.stringify(body), { headers: JSON_HEADERS });
+}
+
+/**
+ * Runs one HogQL query and returns raw result rows. Throws on any non-200 so
+ * callers surface a real error instead of rendering a silently empty panel.
+ */
+export async function hogql(
+  env: AdminEnv,
+  query: string,
+): Promise<unknown[][]> {
+  const key = env.POSTHOG_PERSONAL_API_KEY;
+  if (!key) throw new Error("POSTHOG_PERSONAL_API_KEY is not configured");
+  const projectId = env.POSTHOG_PROJECT_ID || "357433";
+  const host = env.POSTHOG_HOST || "https://us.posthog.com";
+
+  const res = await fetch(`${host}/api/projects/${projectId}/query/`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${key}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query: { kind: "HogQLQuery", query } }),
+  });
+  if (!res.ok) throw new Error(`posthog ${res.status}`);
+  const data = (await res.json()) as { results?: unknown[][] };
+  return data.results ?? [];
+}
+
+export const num = (v: unknown): number => (typeof v === "number" ? v : 0);
+export const str = (v: unknown): string => (typeof v === "string" ? v : "");
 
 /**
  * Resolves the Bearer token to a verified admin email, or null. Fails closed
@@ -133,11 +168,6 @@ async function queryFlowUsage(
   env: AdminEnv,
   days: number,
 ): Promise<FlowModelRow[]> {
-  const key = env.POSTHOG_PERSONAL_API_KEY;
-  if (!key) throw new Error("POSTHOG_PERSONAL_API_KEY is not configured");
-  const projectId = env.POSTHOG_PROJECT_ID || "357433";
-  const host = env.POSTHOG_HOST || "https://us.posthog.com";
-
   const query = `
     SELECT
       coalesce(nullIf(properties.ai_flow, ''), nullIf(properties.gen_flow, '')) AS flow,
@@ -158,46 +188,68 @@ async function queryFlowUsage(
     LIMIT 500
   `;
 
-  const res = await fetch(`${host}/api/projects/${projectId}/query/`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${key}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query: { kind: "HogQLQuery", query } }),
-  });
-  if (!res.ok) throw new Error(`posthog ${res.status}`);
-  const data = (await res.json()) as {
-    results?: Array<
-      [
-        string | null,
-        string,
-        string,
-        number,
-        number,
-        number,
-        number,
-        string,
-        string | null,
-        string | null,
-      ]
-    >;
-  };
-
-  return (data.results ?? [])
+  const rows = await hogql(env, query);
+  return rows
     .filter((row) => row[0])
     .map((row) => ({
-      flow: normalizeFlow(row[0] as string),
-      model: row[1] || "unknown",
-      provider: row[2] || "unknown",
-      requests: row[3],
-      errors: row[4],
-      costUsd: row[5] ?? 0,
-      fallbackRequests: row[6] ?? 0,
-      lastSeen: row[7],
-      promptVersion: row[8] === "null" ? null : row[8],
-      configVersion: row[9] === "null" ? null : row[9],
+      flow: normalizeFlow(str(row[0])),
+      model: str(row[1]) || "unknown",
+      provider: str(row[2]) || "unknown",
+      requests: num(row[3]),
+      errors: num(row[4]),
+      costUsd: num(row[5]),
+      fallbackRequests: num(row[6]),
+      lastSeen: str(row[7]),
+      promptVersion: str(row[8]) === "null" ? null : str(row[8]) || null,
+      configVersion: str(row[9]) === "null" ? null : str(row[9]) || null,
     }));
+}
+
+/** Daily AI spend, volume, and cache health — the margin trend line. */
+async function queryCostTrend(env: AdminEnv) {
+  const rows = await hogql(
+    env,
+    `SELECT toDate(timestamp) AS day,
+            round(sum(properties.$ai_total_cost_usd), 2) AS cost_usd,
+            count() AS requests,
+            count(DISTINCT person_id) AS users,
+            round(sum(toFloat(properties.cached_tokens)), 0) AS cached_tokens,
+            round(sum(properties.$ai_input_tokens), 0) AS input_tokens
+     FROM events
+     WHERE event = '$ai_generation' AND timestamp > now() - INTERVAL 30 DAY
+     GROUP BY day ORDER BY day DESC LIMIT 30`,
+  );
+  return rows.map((r) => ({
+    day: str(r[0]),
+    costUsd: num(r[1]),
+    requests: num(r[2]),
+    users: num(r[3]),
+    cachedTokens: num(r[4]),
+    inputTokens: num(r[5]),
+  }));
+}
+
+/**
+ * Heaviest AI consumers. person_id is PostHog's opaque UUID — no email or
+ * name is fetched, this is only for spotting a runaway/whale account.
+ */
+async function queryTopSpenders(env: AdminEnv, days: number) {
+  const rows = await hogql(
+    env,
+    `SELECT toString(person_id) AS person,
+            round(sum(properties.$ai_total_cost_usd), 3) AS cost_usd,
+            count() AS requests,
+            count(DISTINCT coalesce(nullIf(properties.ai_flow, ''), nullIf(properties.gen_flow, ''))) AS flows
+     FROM events
+     WHERE event = '$ai_generation' AND timestamp > now() - INTERVAL ${days} DAY
+     GROUP BY person ORDER BY cost_usd DESC LIMIT 10`,
+  );
+  return rows.map((r) => ({
+    person: str(r[0]),
+    costUsd: num(r[1]),
+    requests: num(r[2]),
+    flows: num(r[3]),
+  }));
 }
 
 export async function handleAdminAiFlows(
@@ -209,16 +261,24 @@ export async function handleAdminAiFlows(
   }
 
   const window = new URL(request.url).searchParams.get("window");
-  const days = window === "24h" ? 1 : 7;
+  const days =
+    window === "24h" ? 1 : window === "30d" ? 30 : window === "14d" ? 14 : 7;
 
   try {
-    const rows = await queryFlowUsage(env, days);
-    return new Response(
-      JSON.stringify({ windowDays: days, generatedAt: new Date().toISOString(), rows }),
-      { headers: JSON_HEADERS },
-    );
+    const [rows, costTrend, topSpenders] = await Promise.all([
+      queryFlowUsage(env, days),
+      queryCostTrend(env),
+      queryTopSpenders(env, days),
+    ]);
+    return ok({
+      windowDays: days,
+      generatedAt: new Date().toISOString(),
+      rows,
+      costTrend,
+      topSpenders,
+    });
   } catch (err) {
     console.error("admin ai-flows query failed", err);
-    return deny(502, "Upstream query failed.");
+    return deny(502, `Upstream query failed: ${err instanceof Error ? err.message : "unknown"}`);
   }
 }
