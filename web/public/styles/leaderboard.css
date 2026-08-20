@@ -249,10 +249,10 @@
   position: relative;
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 16px;
   overflow: hidden;
   margin: 0 0 14px;
-  padding: 16px 18px;
+  padding: 19px 20px;
   border: 1px solid rgba(54, 86, 61, .16);
   border-radius: 18px;
   background:
@@ -265,8 +265,8 @@
 .leaderboard-pulse-icon {
   display: grid;
   flex: 0 0 auto;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: rgba(107, 143, 113, .14);
   color: #4f7356;
@@ -276,6 +276,7 @@
 
 .leaderboard-pulse-copy {
   min-width: 0;
+  flex: 1 1 auto;
 }
 
 .leaderboard-pulse::after {
@@ -301,45 +302,47 @@
 .leaderboard-pulse-copy h2 {
   margin: 0;
   color: var(--color-text);
-  font-size: 15px;
-  font-weight: 760;
+  font-size: 17px;
+  font-weight: 780;
   letter-spacing: -.025em;
   line-height: 1.3;
 }
 
 .leaderboard-pulse-copy p {
-  max-width: 440px;
-  margin: 8px 0 0;
+  max-width: 560px;
+  margin: 5px 0 0;
   color: var(--color-text-secondary);
   font-size: 13px;
   line-height: 1.45;
 }
 
 .leaderboard-pulse-metrics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 9px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(82px, 1fr));
+  gap: 14px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(17, 17, 17, .08);
 }
 
 .leaderboard-pulse-metrics > span {
-  display: inline-flex;
-  min-height: 25px;
-  align-items: center;
-  gap: 4px;
-  padding: 0 9px;
-  border: 1px solid rgba(17, 17, 17, .075);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .74);
-  color: #788079;
-  font-size: 10px;
-  font-weight: 720;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  color: #707971;
 }
 
 .leaderboard-pulse-metrics strong {
   color: #3f6547;
-  font: 820 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  font: 840 18px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
   font-variant-numeric: tabular-nums;
+}
+
+.leaderboard-pulse-metrics small {
+  font-size: 10px;
+  font-weight: 720;
+  line-height: 1.25;
 }
 
 .leaderboard-board {
@@ -883,6 +886,7 @@
   }
 
   .leaderboard-pulse-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
   }
 

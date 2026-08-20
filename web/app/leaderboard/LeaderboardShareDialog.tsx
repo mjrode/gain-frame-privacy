@@ -27,14 +27,14 @@ const TEMPLATES: Array<{
 }> = [
   {
     value: "standings",
-    name: "Standings Snapshot",
+    name: "Leaderboard Snapshot",
     description: "The full top-five scorebook",
     swatch: "cream",
   },
   {
     value: "rank_flex",
     name: "Rank Flex",
-    description: "Your position, turned up loud",
+    description: "Your rank, turned up loud",
     swatch: "coral",
   },
   {
@@ -253,7 +253,7 @@ function drawSnapshot(
   drawBrand(context, "#e25548", "#718075");
   context.fillStyle = "#1c211d";
   font(context, 72, 900, "display");
-  context.fillText("STANDINGS", 68, 238);
+  context.fillText("LEADERBOARD", 68, 238);
   context.fillText("SNAPSHOT", 68, 307);
   context.fillStyle = "#667168";
   font(context, 17, 850);
@@ -685,7 +685,7 @@ export default function LeaderboardShareDialog({
       >
         <header className="leaderboard-share-heading">
           <div>
-            <span>Share your standing</span>
+            <span>Share your rank</span>
             <h2 id="leaderboard-share-title">Pick your flex.</h2>
             <p id="leaderboard-share-description">
               Choose a GainFrame card, then share or save a 4:5 PNG.

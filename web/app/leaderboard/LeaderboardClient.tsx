@@ -63,6 +63,18 @@ function friendlyGoal(goal: Goal): string {
   return "Lose";
 }
 
+function rankingRule(period: Period): string {
+  if (period === "all_time") {
+    return "Each member’s best score across all time and goals sets their rank.";
+  }
+  const context = period === "year"
+      ? "this year"
+      : period === "month"
+        ? "this month"
+        : "this week";
+  return `Each member’s best score ${context} across all goals sets their rank.`;
+}
+
 export default function LeaderboardClient() {
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
   const [nextCursor, setNextCursor] = useState<string>();
@@ -151,10 +163,11 @@ export default function LeaderboardClient() {
     [entries, rankMovements, totalMembers],
   );
   const pulseMetrics = useMemo(() => [
-    { value: pulse.totalMembers, label: "members", visible: true },
-    { value: pulse.weeklyCheckIns, label: "fresh", visible: pulse.weeklyCheckIns > 0 },
-    { value: pulse.activeStreaks, label: "streaks", visible: pulse.activeStreaks > 0 },
-    { value: pulse.totalCheers, label: "cheers", visible: pulse.totalCheers > 0 },
+    { value: pulse.totalMembers, label: "Members", visible: true },
+    { value: pulse.weeklyCheckIns, label: "Check-ins", visible: pulse.weeklyCheckIns > 0 },
+    { value: pulse.movingMembers, label: "Rank changes", visible: pulse.movingMembers > 0 },
+    { value: pulse.activeStreaks, label: "Weekly streaks", visible: pulse.activeStreaks > 0 },
+    { value: pulse.totalCheers, label: "Cheers", visible: pulse.totalCheers > 0 },
   ].filter((metric) => metric.visible), [pulse]);
   const openShare = (entry: LeaderboardEntry) => setShareContext(
     buildShareContext(entries, entry, goal, period),
@@ -176,7 +189,7 @@ export default function LeaderboardClient() {
             </span>
 
             <div>
-              <span className="leaderboard-kicker">Community scorebook</span>
+              <span className="leaderboard-kicker">Opt-in GainScores</span>
               <h1 id="standings-heading">Leaderboard</h1>
               <p aria-live="polite" className="leaderboard-count">
                 {status === "ready"
@@ -197,7 +210,7 @@ export default function LeaderboardClient() {
             </summary>
             <p>
               <strong>Shared by choice.</strong> Members choose their public
-              profile fields and entries. Any scan image is a separately
+              profile fields and entries. Any shared check-in photo is a separately
               approved, cropped public copy—not the original stored in GainFrame.{" "}
               <a href="/privacy/">Privacy details</a>
             </p>
@@ -237,11 +250,11 @@ export default function LeaderboardClient() {
         <section className="leaderboard-pulse" aria-labelledby="community-pulse-title">
           <span className="leaderboard-pulse-icon" aria-hidden="true">⌁</span>
           <div className="leaderboard-pulse-copy">
-            <span>Community activity</span>
+            <span>This week on the leaderboard</span>
             <h2 id="community-pulse-title">{pulse.headline}</h2>
             <div className="leaderboard-pulse-metrics" aria-label="Community activity summary">
               {pulseMetrics.map((metric) => (
-                <span key={metric.label}><strong>{metric.value}</strong> {metric.label}</span>
+                <span key={metric.label}><strong>{metric.value}</strong><small>{metric.label}</small></span>
               ))}
             </div>
           </div>
@@ -251,7 +264,7 @@ export default function LeaderboardClient() {
       <section className="leaderboard-board" aria-labelledby="standings-heading">
         {status === "loading" && (
           <div className="leaderboard-state" role="status">
-            <span className="leaderboard-spinner" aria-hidden="true" /> Loading standings…
+            <span className="leaderboard-spinner" aria-hidden="true" /> Loading leaderboard…
           </div>
         )}
 
@@ -266,15 +279,15 @@ export default function LeaderboardClient() {
         {status === "ready" && entries.length === 0 && (
           <div className="leaderboard-state">
             <strong>No scores in this division yet</strong>
-            <p>Try {selectedGoalLabel?.toLowerCase()} from {selectedPeriodLabel?.toLowerCase()}, or check back after the next opt-in score is shared.</p>
+            <p>Try {selectedGoalLabel?.toLowerCase()} from {selectedPeriodLabel?.toLowerCase()}, or check back after someone adds a check-in.</p>
           </div>
         )}
 
         {status === "ready" && entries.length > 0 && (
           <>
             <div className="leaderboard-board-heading">
-              <span>The board</span>
-              <small>Highest eligible score ranks</small>
+              <span>Leaderboard</span>
+              <small>{rankingRule(period)}</small>
             </div>
             <ol className="leaderboard-ledger" aria-label="Ranked GainFrame Scores">
               {entries.map((entry, index) => {
@@ -305,7 +318,7 @@ export default function LeaderboardClient() {
                         <small>
                           {goal === "all" && <>{friendlyGoal(entry.goal)} <b aria-hidden="true">·</b> </>}
                           {formatDate(entry.score_date)}
-                          {entry.has_proof_media && <span className="leaderboard-proof-mark">Scan image shared</span>}
+                          {entry.has_proof_media && <span className="leaderboard-proof-mark">Check-in photo</span>}
                         </small>
                         {(achievements.length > 0 || (entry.cheer_count || 0) > 0) && (
                           <span className="leaderboard-row-signals" aria-label="Public leaderboard highlights">
@@ -358,7 +371,7 @@ export default function LeaderboardClient() {
                       type="button"
                       onClick={() => openShare(entry)}
                       aria-label={"Create a share card for @" + entry.username + " at rank " + rank}
-                      title="Share standing"
+                      title="Share rank"
                     >
                       <svg aria-hidden="true" viewBox="0 0 24 24">
                         <circle cx="18" cy="5" r="2.5" />
@@ -378,7 +391,7 @@ export default function LeaderboardClient() {
                   disabled={loadingMore}
                   onClick={() => void load({ cursor: nextCursor, append: true })}
                 >
-                  {loadingMore ? "Loading…" : "Show more standings"}
+                  {loadingMore ? "Loading…" : "Show more members"}
                 </button>
               </div>
             )}

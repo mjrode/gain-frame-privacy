@@ -41,9 +41,27 @@ test("rank movement and community pulse use the same visit snapshot", () => {
   assert.equal(pulse.movingMembers, 1);
   assert.equal(pulse.biggestMoverUsername, "nova");
   assert.equal(pulse.totalCheers, 5);
+  assert.equal(pulse.headline, "@nova climbed 3 places this week.");
 });
 
-test("standing achievements are public-data only", () => {
+test("community pulse uses add language when no rank changed", () => {
+  const pulse = communityPulse(
+    [entry({ score_date: "2026-08-20" })],
+    {},
+    1,
+    new Date("2026-08-20T12:00:00Z"),
+  );
+
+  assert.equal(pulse.headline, "1 check-in was added this week.");
+});
+
+test("community pulse gives a forward-looking quiet-week message", () => {
+  const pulse = communityPulse([], {}, 10, new Date("2026-08-20T12:00:00Z"));
+
+  assert.equal(pulse.headline, "The first check-in will set the pace this week.");
+});
+
+test("leaderboard achievements are public-data only", () => {
   const achievements = standingAchievements(entry({
     rank: 1,
     streak_weeks: 8,

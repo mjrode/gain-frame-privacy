@@ -205,7 +205,7 @@ function ScoreHistory({
       <figcaption>
         {hasMore
           ? "This trajectory is partial. Load older check-ins to complete it."
-          : "Only check-ins this member chose to publish are shown."}
+          : "Only check-ins this member chose to add are shown."}
       </figcaption>
     </figure>
   );
@@ -319,7 +319,7 @@ function ReportDialog({
           <button ref={closeButtonRef} type="button" onClick={onClose} aria-label="Close report form">×</button>
         </div>
         <h2 id="report-dialog-title">
-          Report {target.media_id ? "this shared scan image" : "@" + target.username}
+          Report {target.media_id ? "this shared check-in photo" : "@" + target.username}
         </h2>
         <p id="report-dialog-description">
           Reports are private. Include only what our moderation team needs to review this public content.
@@ -498,7 +498,7 @@ export default function MemberProfileClient() {
     const requestedCursor = payload.next_cursor;
     setLoadingOlder(true);
     setOlderError("");
-    setOlderAnnouncement("Loading more of this member's published history.");
+    setOlderAnnouncement("Loading more of this member's check-in history.");
     try {
       const response = await fetch(
         "/api/leaderboard/profile?" + profilePageSearch(
@@ -564,7 +564,7 @@ export default function MemberProfileClient() {
         headers: { Accept: "application/json" },
       },
     );
-    if (!response.ok) throw new Error("Scan image refresh failed");
+    if (!response.ok) throw new Error("Check-in photo refresh failed");
     const body = await response.json() as {
       profile_id?: string;
       media?: ProfileMediaWithUrl;
@@ -573,7 +573,7 @@ export default function MemberProfileClient() {
       body.profile_id !== payload.profile.profile_id ||
       body.media?.media_id !== mediaId ||
       typeof body.media.url !== "string"
-    ) throw new Error("Invalid scan image refresh");
+    ) throw new Error("Invalid check-in photo refresh");
 
     const media = body.media;
     setRefreshedMedia((current) => ({
@@ -605,7 +605,7 @@ export default function MemberProfileClient() {
     } catch {
       setMediaState(mediaId, {
         refreshing: false,
-        error: "This scan image could not be refreshed. It may have been withdrawn. Try again.",
+        error: "This check-in photo could not be refreshed. It may have been removed. Try again.",
       });
     }
   }
@@ -622,7 +622,7 @@ export default function MemberProfileClient() {
       });
       setMediaState(mediaId, {
         refreshing: false,
-        error: "The scan image still could not be opened. Try viewing it again.",
+        error: "The check-in photo still could not be opened. Try viewing it again.",
       });
       return;
     }
@@ -640,7 +640,7 @@ export default function MemberProfileClient() {
       });
       setMediaState(mediaId, {
         refreshing: false,
-        error: "The scan image could not be reopened. Try viewing it again.",
+        error: "The check-in photo could not be reopened. Try viewing it again.",
       });
     }
   }
@@ -649,8 +649,8 @@ export default function MemberProfileClient() {
     return (
       <div className="member-profile-shell member-profile-loading" role="status">
         <span className="member-profile-loader" aria-hidden="true" />
-        <strong>Opening community profile…</strong>
-        <p>Gathering the check-ins this member chose to share.</p>
+        <strong>Opening leaderboard profile…</strong>
+        <p>Gathering the check-ins this member chose to add.</p>
       </div>
     );
   }
@@ -664,7 +664,7 @@ export default function MemberProfileClient() {
         <p>
           {status === "not-found"
             ? "The link may be old, or the member may have withdrawn their public profile."
-            : "Try again shortly, or head back to the standings."}
+            : "Try again shortly, or head back to the leaderboard."}
         </p>
         <a href="/leaderboard/">Return to leaderboard</a>
       </div>
@@ -694,7 +694,7 @@ export default function MemberProfileClient() {
   return (
     <div className="member-profile-shell">
       <a className="member-profile-back" href="/leaderboard/">
-        <span aria-hidden="true">←</span> All standings
+        <span aria-hidden="true">←</span> Leaderboard
       </a>
 
       <article className="member-profile-hero">
@@ -706,7 +706,7 @@ export default function MemberProfileClient() {
           </div>
           <div>
             <p className="member-profile-eyebrow">
-              {profile.visibility === "unlisted" ? "Shared by link" : "Community profile"}
+              {profile.visibility === "unlisted" ? "Link-only profile" : "Leaderboard profile"}
             </p>
             <h1>@{profile.username}</h1>
             {profile.bio && <p className="member-profile-bio">{profile.bio}</p>}
@@ -744,7 +744,7 @@ export default function MemberProfileClient() {
                 <circle cx="18" cy="19" r="2.5" />
                 <path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5" />
               </svg>
-              Share standing
+              Share rank
             </button>
           )}
         </div>
@@ -759,11 +759,11 @@ export default function MemberProfileClient() {
         </button>
       </article>
 
-      <section className="member-profile-stats" aria-label="Published score summary">
+      <section className="member-profile-stats" aria-label="Leaderboard score summary">
         <div className="member-profile-best">
           <span>Personal best</span>
           <strong>{summary.best_score ?? "—"}</strong>
-          <small>{summary.best_score === null ? "No published scores" : "Highest shared score"}</small>
+          <small>{summary.best_score === null ? "No check-ins added" : "Highest added score"}</small>
         </div>
         <div>
           <span>Improvement</span>
@@ -774,12 +774,12 @@ export default function MemberProfileClient() {
                 ? "+" + improvement
                 : String(improvement)}
           </strong>
-          <small>Since first shared</small>
+          <small>Since first check-in</small>
         </div>
         <div>
           <span>Check-ins</span>
           <strong>{summary.entry_count}</strong>
-          <small>Published by choice</small>
+          <small>Added by choice</small>
         </div>
       </section>
 
@@ -789,12 +789,12 @@ export default function MemberProfileClient() {
             <span>Performance story</span>
             <h2 id="member-profile-story-title">
               {improvement !== undefined && improvement > 0
-                ? improvement + " points stronger since the first public frame."
+                ? improvement + " points higher since the first added check-in."
                 : currentStreak >= 2
-                  ? "A " + currentStreak + "-week publishing rhythm."
+                  ? "Check-ins added " + currentStreak + " weeks in a row."
                   : summary.best_score !== null
-                    ? "A personal best of " + summary.best_score + ", backed by the public history."
-                    : "The first public frame is still ahead."}
+                    ? "A personal best of " + summary.best_score + ", backed by the full check-in history."
+                    : "The first leaderboard check-in has not been added yet."}
             </h2>
           </div>
           <div className="member-profile-story-rank" aria-label={currentRank ? "Current rank " + currentRank : "Current rank unavailable"}>
@@ -822,8 +822,8 @@ export default function MemberProfileClient() {
       <section className="member-entries" aria-labelledby="member-entries-title">
         <div className="member-entries-heading">
           <div>
-            <span>Public ledger</span>
-            <h2 id="member-entries-title">Shared check-ins</h2>
+            <span>Check-in history</span>
+            <h2 id="member-entries-title">Added check-ins</h2>
           </div>
           <p>
             {payload.entries.length < summary.entry_count
@@ -834,7 +834,7 @@ export default function MemberProfileClient() {
         </div>
 
         {newestFirst.length === 0 ? (
-          <div className="member-entries-none">No published check-ins yet.</div>
+          <div className="member-entries-none">No check-ins added yet.</div>
         ) : (
           <ol>
             {newestFirst.map((entry, index) => (
@@ -872,11 +872,11 @@ export default function MemberProfileClient() {
                             <path d="m6.5 16 4.2-4.3 2.8 2.6 2.2-2.1 2.8 3.8M8.5 9h.01" />
                           </svg>
                           {mediaState?.refreshing
-                            ? "Refreshing scan image…"
+                            ? "Refreshing check-in photo…"
                             : isRevealed
-                              ? "Hide scan image"
-                              : "View scan image"}
-                          <span>Opt-in image</span>
+                              ? "Hide check-in photo"
+                              : "View check-in photo"}
+                          <span>Shared by choice</span>
                         </button>
                         {(mediaState?.refreshing || mediaState?.error) && (
                           <p
@@ -896,7 +896,7 @@ export default function MemberProfileClient() {
                               src={displayMedia.url}
                               width={displayMedia.width}
                               height={displayMedia.height}
-                              alt={"Optional shared scan image for @" + profile.username + "'s " + formatDate(entry.score_date) + " check-in"}
+                              alt={"Optional shared check-in photo for @" + profile.username + "'s " + formatDate(entry.score_date) + " check-in"}
                               loading="lazy"
                               decoding="async"
                               referrerPolicy="no-referrer"
@@ -964,8 +964,8 @@ export default function MemberProfileClient() {
         <div>
           <strong>Progress, not performance.</strong>
           <p>
-            Profiles contain only what members deliberately publish. Scan
-            images stay closed until you choose to view them, and reactions or
+            Profiles contain only what members deliberately add. Check-in
+            photos stay closed until you choose to view them, and reactions or
             popularity rankings are never attached to someone&rsquo;s body.{" "}
             <a href="/community-guidelines/">Community guidelines</a>
           </p>

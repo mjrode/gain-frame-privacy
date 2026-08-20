@@ -84,13 +84,13 @@ export function communityPulse(
   );
   const activeStreaks = entries.filter((entry) => (entry.streak_weeks || 0) >= 2).length;
   const totalCheers = entries.reduce((sum, entry) => sum + (entry.cheer_count || 0), 0);
-  let headline = "The next published check-in can move the board.";
+  let headline = "The first check-in will set the pace this week.";
   if (biggest) {
-    headline = `@${biggest.entry.username} made the biggest move: +${biggest.delta}.`;
+    headline = `@${biggest.entry.username} climbed ${biggest.delta} ${biggest.delta === 1 ? "place" : "places"} this week.`;
   } else if (activeStreaks > 0) {
-    headline = `${activeStreaks} active ${activeStreaks === 1 ? "streak is" : "streaks are"} carrying the board this week.`;
+    headline = `${activeStreaks} ${activeStreaks === 1 ? "member has" : "members have"} an active check-in streak.`;
   } else if (weeklyCheckIns > 0) {
-    headline = `${weeklyCheckIns} ${weeklyCheckIns === 1 ? "fresh score landed" : "fresh scores landed"} this week.`;
+    headline = `${weeklyCheckIns} ${weeklyCheckIns === 1 ? "check-in was" : "check-ins were"} added this week.`;
   }
   return {
     totalMembers: Math.max(totalMembers, entries.length),
@@ -190,22 +190,22 @@ function uniqueAchievements(
 function achievement(id: string): LeaderboardAchievement {
   switch (id) {
     case "board-leader":
-      return { id, title: "Board leader", detail: "Holding the top position", symbol: "01" };
+      return { id, title: "Ranked #01", detail: "Holding the top rank", symbol: "01" };
     case "podium":
       return { id, title: "On the podium", detail: "Ranked in the top three", symbol: "03" };
     case "top-ten":
       return { id, title: "Top ten", detail: "Inside the first ten places", symbol: "10" };
     case "eight-week":
-      return { id, title: "Eight-week run", detail: "Eight straight publishing weeks", symbol: "8W" };
+      return { id, title: "Eight-week run", detail: "Added check-ins eight weeks in a row", symbol: "8W" };
     case "four-week":
-      return { id, title: "Four-week rhythm", detail: "Four straight publishing weeks", symbol: "4W" };
+      return { id, title: "Four-week rhythm", detail: "Added check-ins four weeks in a row", symbol: "4W" };
     case "ten-frames":
-      return { id, title: "Ten frames deep", detail: "Ten public check-ins", symbol: "10" };
+      return { id, title: "Ten check-ins", detail: "Added ten check-ins", symbol: "10" };
     case "five-point":
-      return { id, title: "Five-point climb", detail: "Five points up since the first post", symbol: "+5" };
+      return { id, title: "Five-point climb", detail: "Five points up since the first check-in", symbol: "+5" };
     case "crowd-favorite":
       return { id, title: "Crowd favorite", detail: "Five or more cheers", symbol: "GF" };
     default:
-      return { id: "fresh-pb", title: "Fresh personal best", detail: "The latest post set a new high", symbol: "PB" };
+      return { id: "fresh-pb", title: "New personal best", detail: "The latest check-in set a new high", symbol: "PB" };
   }
 }
