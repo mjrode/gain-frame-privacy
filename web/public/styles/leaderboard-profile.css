@@ -584,6 +584,135 @@
   font-size: 10px;
 }
 
+.rank-journey,
+.member-trophy-shelf {
+  margin: 18px 0 0;
+  border: 1px solid rgba(17, 17, 17, .1);
+  border-radius: 20px;
+  padding: 24px;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 10px 32px rgba(29, 40, 31, .055);
+}
+
+.rank-journey-heading,
+.member-trophy-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.rank-journey-heading span,
+.member-trophy-heading span {
+  color: #527659;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.rank-journey-heading h2,
+.member-trophy-heading h2 {
+  margin: 5px 0 0;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 25px;
+  letter-spacing: -.045em;
+}
+
+.rank-journey-heading > strong {
+  color: #4b7052;
+  font: 880 40px/.9 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: -.07em;
+}
+
+.rank-journey svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 16px;
+  overflow: visible;
+}
+
+.rank-journey-gridline {
+  stroke: rgba(82, 118, 89, .14);
+  stroke-width: 1;
+}
+
+.rank-journey-axis {
+  fill: #778079;
+  font: 720 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.rank-journey-line {
+  fill: none;
+  stroke: #5c8464;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.rank-journey-point {
+  fill: #fff;
+  stroke: #4f7757;
+  stroke-width: 4;
+}
+
+.rank-journey figcaption {
+  margin-top: 9px;
+  color: var(--color-text-tertiary);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.member-trophy-heading > p {
+  margin: 4px 0 0;
+  color: var(--color-text-tertiary);
+  font-size: 11px;
+}
+
+.member-trophy-list {
+  display: grid;
+  grid-auto-columns: minmax(176px, 1fr);
+  grid-auto-flow: column;
+  gap: 10px;
+  overflow-x: auto;
+  margin-top: 18px;
+  padding: 2px 2px 10px;
+  scrollbar-width: thin;
+}
+
+.member-trophy-list article {
+  min-height: 144px;
+  border: 1px solid rgba(82, 118, 89, .17);
+  border-radius: 16px;
+  padding: 16px;
+  background:
+    linear-gradient(rgba(82, 118, 89, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(82, 118, 89, .045) 1px, transparent 1px),
+    #f5f8f4;
+  background-size: 22px 22px;
+}
+
+.member-trophy-list article > span {
+  color: #4d7254;
+  font: 880 24px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.member-trophy-list h3 {
+  margin: 18px 0 4px;
+  color: var(--color-text);
+  font-size: 14px;
+  letter-spacing: -.02em;
+}
+
+.member-trophy-list p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
 .member-entries {
   margin-top: 16px;
   overflow: hidden;
@@ -1159,6 +1288,25 @@
 }
 
 @media (max-width: 760px) {
+  .rank-journey,
+  .member-trophy-shelf {
+    border-radius: 17px;
+    padding: 18px;
+  }
+
+  .rank-journey-heading h2,
+  .member-trophy-heading h2 {
+    font-size: 21px;
+  }
+
+  .rank-journey-heading > strong {
+    font-size: 32px;
+  }
+
+  .member-trophy-heading > p {
+    display: none;
+  }
+
   .member-profile-main {
     padding: 99px 14px 58px;
   }

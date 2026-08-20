@@ -6,6 +6,7 @@ const {
   handleLeaderboardProfile,
   handleLeaderboardProfileMedia,
   handleLeaderboardReport,
+  normalizeConsistencyEntries,
   normalizeEntries,
   normalizeProfile,
 } = await import("./leaderboard.ts");
@@ -104,6 +105,35 @@ test("normalizeEntries keeps only the public standings contract", () => {
   }]);
   assert.equal("user_id" in entries[0], false);
   assert.equal("avatar_path" in entries[0], false);
+});
+
+test("normalizeConsistencyEntries keeps the display-only weekly contract", () => {
+  const entries = normalizeConsistencyEntries([{
+    user_id: "must-not-leak",
+    profile_id: PROFILE_ID,
+    entry_id: ENTRY_ID,
+    rank: 2,
+    username: "steady_set",
+    consistency_points: 34,
+    weekly_check_in_count: 3,
+    streak_weeks: 4,
+    goal: "Body Recomp",
+    score_date: "2026-08-20T13:00:00Z",
+    profile_available: true,
+  }]);
+  assert.deepEqual(entries, [{
+    profile_id: PROFILE_ID,
+    entry_id: ENTRY_ID,
+    rank: 2,
+    username: "steady_set",
+    consistency_points: 34,
+    weekly_check_in_count: 3,
+    streak_weeks: 4,
+    goal: "Body Recomp",
+    score_date: "2026-08-20",
+    profile_available: true,
+  }]);
+  assert.equal("user_id" in entries[0], false);
 });
 
 test("normalizeProfile drops hidden fields and unsafe asset hosts", () => {
@@ -308,6 +338,42 @@ test("handleLeaderboard forwards validated filters and returns a safe projection
     assert.equal(upstreamUrl.searchParams.get("goal"), "Body Recomp");
     assert.equal(upstreamUrl.searchParams.get("period"), "month");
     assert.equal(upstreamUrl.searchParams.get("limit"), "25");
+    assert.equal(upstreamUrl.searchParams.get("board"), "score");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("handleLeaderboard serves consistency as a read-only weekly board", async () => {
+  const originalFetch = globalThis.fetch;
+  let upstreamUrl;
+  globalThis.fetch = async (input) => {
+    upstreamUrl = new URL(String(input));
+    return Response.json({
+      entries: [{
+        profile_id: PROFILE_ID,
+        entry_id: ENTRY_ID,
+        rank: 1,
+        username: "steady_set",
+        consistency_points: 43,
+        weekly_check_in_count: 4,
+        streak_weeks: 3,
+        goal: "Body Recomp",
+        score_date: "2026-08-20",
+        profile_available: true,
+      }],
+      total: 1,
+    });
+  };
+  try {
+    const response = await handleLeaderboard(
+      new Request("https://gainframe.app/api/leaderboard?board=consistency&period=all_time"),
+      { SUPABASE_URL: "https://example.supabase.co" },
+    );
+    assert.equal(response.status, 200);
+    assert.equal(upstreamUrl.searchParams.get("board"), "consistency");
+    assert.equal(upstreamUrl.searchParams.get("period"), "week");
+    assert.equal((await response.json()).entries[0].consistency_points, 43);
   } finally {
     globalThis.fetch = originalFetch;
   }
@@ -365,6 +431,7 @@ test("handleLeaderboardProfile requests only the opaque profile ID", async () =>
     assert.deepEqual([...upstreamUrl.searchParams], [
       ["profile_id", PROFILE_ID],
       ["limit", "50"],
+      ["engagement", "true"],
     ]);
     assert.deepEqual(await response.json(), {
       profile: {
@@ -423,6 +490,7 @@ test("handleLeaderboardProfile forwards validated profile pagination", async () 
     assert.deepEqual([...upstreamUrl.searchParams], [
       ["profile_id", PROFILE_ID],
       ["limit", "25"],
+      ["engagement", "true"],
       ["cursor", "djE6NTA"],
     ]);
     assert.equal((await response.json()).next_cursor, "djE6NzU");

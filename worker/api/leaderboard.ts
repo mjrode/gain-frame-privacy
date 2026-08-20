@@ -37,6 +37,43 @@ export interface PublicLeaderboardEntry {
   previous_score_date?: string;
 }
 
+export interface PublicConsistencyEntry {
+  profile_id: string;
+  entry_id: string;
+  rank: number;
+  username: string;
+  consistency_points: number;
+  weekly_check_in_count: number;
+  streak_weeks: number;
+  goal: LeaderboardGoal;
+  score_date: string;
+  avatar_url?: string;
+  profile_available: boolean;
+  training_since_year?: number;
+  favorite_lift?: string;
+  region?: string;
+  training_style?: string;
+  weekly_sessions?: number;
+  current_phase?: string;
+}
+
+export interface PublicRankHistoryPoint {
+  week_start: string;
+  rank: number;
+  total_count: number;
+  best_score: number;
+  check_in_days: number;
+}
+
+export interface PublicLeaderboardTrophy {
+  id: string;
+  kind: "weekly_champion" | "weekly_podium" | "consistency_three" | "best_rank";
+  title: string;
+  detail: string;
+  week_start: string;
+  symbol: string;
+}
+
 export interface PublicLeaderboardMedia {
   media_id: string;
   entry_id: string;
@@ -89,6 +126,10 @@ export interface PublicLeaderboardProfile {
   entries: PublicLeaderboardProfileEntry[];
   total_entries: number;
   next_cursor?: string;
+  engagement?: {
+    rank_history: PublicRankHistoryPoint[];
+    trophies: PublicLeaderboardTrophy[];
+  };
 }
 
 const USERNAME_PATTERN = /^[a-z0-9][a-z0-9_]{2,19}$/;
@@ -353,6 +394,115 @@ export function normalizeEntries(
   });
 }
 
+export function normalizeConsistencyEntries(
+  value: unknown,
+  allowedAssetHost?: string,
+): PublicConsistencyEntry[] {
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((entry) => {
+    if (!entry || typeof entry !== "object") return [];
+    const row = entry as Record<string, unknown>;
+    const profileId = normalizedProfileId(row.profile_id);
+    const entryId = normalizedProfileId(row.entry_id);
+    const scoreDate = publicScoreDate(row.score_date);
+    const goal = normalizedGoal(row.goal);
+    const points = normalizedBoundedInteger(row.consistency_points, 10, 79);
+    const checkInDays = normalizedBoundedInteger(row.weekly_check_in_count, 1, 7);
+    const streakWeeks = normalizedBoundedInteger(row.streak_weeks, 1, 12);
+    if (
+      !profileId || !entryId || !scoreDate || !goal ||
+      typeof row.username !== "string" || !USERNAME_PATTERN.test(row.username) ||
+      typeof row.rank !== "number" || !Number.isSafeInteger(row.rank) || row.rank < 1 ||
+      points === undefined || checkInDays === undefined || streakWeeks === undefined ||
+      typeof row.profile_available !== "boolean"
+    ) return [];
+    const avatarUrl = row.profile_available
+      ? publicAssetUrl(row.avatar_url, allowedAssetHost, profileId)
+      : undefined;
+    const trainingSinceYear = normalizedBoundedInteger(
+      row.training_since_year,
+      1900,
+      new Date().getUTCFullYear(),
+    );
+    const weeklySessions = normalizedBoundedInteger(row.weekly_sessions, 1, 14);
+    const favoriteLift = publicString(row.favorite_lift, 60);
+    const region = publicString(row.region, 80);
+    const trainingStyle = publicString(row.training_style, 60);
+    const currentPhase = publicString(row.current_phase, 40);
+    return [{
+      profile_id: profileId,
+      entry_id: entryId,
+      rank: row.rank,
+      username: row.username,
+      consistency_points: points,
+      weekly_check_in_count: checkInDays,
+      streak_weeks: streakWeeks,
+      goal,
+      score_date: scoreDate,
+      ...(avatarUrl ? { avatar_url: avatarUrl } : {}),
+      profile_available: row.profile_available,
+      ...(row.profile_available && trainingSinceYear ? { training_since_year: trainingSinceYear } : {}),
+      ...(row.profile_available && favoriteLift ? { favorite_lift: favoriteLift } : {}),
+      ...(row.profile_available && region ? { region } : {}),
+      ...(row.profile_available && trainingStyle ? { training_style: trainingStyle } : {}),
+      ...(row.profile_available && weeklySessions ? { weekly_sessions: weeklySessions } : {}),
+      ...(row.profile_available && currentPhase ? { current_phase: currentPhase } : {}),
+    }];
+  });
+}
+
+function normalizePublicEngagement(value: unknown): PublicLeaderboardProfile["engagement"] {
+  if (!value || typeof value !== "object") return undefined;
+  const row = value as Record<string, unknown>;
+  const rankHistory = Array.isArray(row.rank_history)
+    ? row.rank_history.flatMap((item) => {
+      if (!item || typeof item !== "object") return [];
+      const point = item as Record<string, unknown>;
+      const weekStart = publicScoreDate(point.week_start);
+      const rank = normalizedBoundedInteger(point.rank, 1, 10_000_000);
+      const totalCount = normalizedBoundedInteger(point.total_count, 1, 10_000_000);
+      const bestScore = normalizedScore(point.best_score);
+      const checkInDays = normalizedBoundedInteger(point.check_in_days, 1, 7);
+      if (
+        !weekStart || rank === undefined || totalCount === undefined ||
+        rank > totalCount || bestScore === null || checkInDays === undefined
+      ) return [];
+      return [{
+        week_start: weekStart,
+        rank,
+        total_count: totalCount,
+        best_score: bestScore,
+        check_in_days: checkInDays,
+      } satisfies PublicRankHistoryPoint];
+    })
+    : [];
+  const trophyKinds = new Set(["weekly_champion", "weekly_podium", "consistency_three", "best_rank"]);
+  const trophies = Array.isArray(row.trophies)
+    ? row.trophies.flatMap((item) => {
+      if (!item || typeof item !== "object") return [];
+      const trophy = item as Record<string, unknown>;
+      const id = publicString(trophy.id, 100);
+      const title = publicString(trophy.title, 80);
+      const detail = publicString(trophy.detail, 120);
+      const weekStart = publicScoreDate(trophy.week_start);
+      const symbol = publicString(trophy.symbol, 4);
+      if (
+        !id || !title || !detail || !weekStart || !symbol ||
+        typeof trophy.kind !== "string" || !trophyKinds.has(trophy.kind)
+      ) return [];
+      return [{
+        id,
+        kind: trophy.kind as PublicLeaderboardTrophy["kind"],
+        title,
+        detail,
+        week_start: weekStart,
+        symbol,
+      }];
+    })
+    : [];
+  return { rank_history: rankHistory, trophies };
+}
+
 function normalizeMedia(
   value: unknown,
   allowedAssetHost?: string,
@@ -478,6 +628,7 @@ export function normalizeProfile(
     CURSOR_PATTERN.test(root.next_cursor)
     ? root.next_cursor
     : undefined;
+  const engagement = normalizePublicEngagement(root.engagement);
 
   return {
     profile: {
@@ -497,6 +648,7 @@ export function normalizeProfile(
     entries,
     total_entries: totalEntries,
     ...(nextCursor ? { next_cursor: nextCursor } : {}),
+    ...(engagement ? { engagement } : {}),
   };
 }
 
@@ -546,15 +698,17 @@ export async function handleLeaderboard(
   const requestUrl = new URL(request.url);
   const goal = requestUrl.searchParams.get("goal") || "all";
   const period = requestUrl.searchParams.get("period") || "all_time";
+  const board = requestUrl.searchParams.get("board") || "score";
   const limitValue = Number(requestUrl.searchParams.get("limit") || "50");
   const cursor = requestUrl.searchParams.get("cursor");
   if (
     (goal !== "all" && !GOALS.has(goal as LeaderboardGoal)) ||
+    (board !== "score" && board !== "consistency") ||
     !PERIODS.has(period as LeaderboardPeriod) ||
     !Number.isInteger(limitValue) ||
     limitValue < 1 ||
     limitValue > 100 ||
-    (cursor !== null && !CURSOR_PATTERN.test(cursor))
+    (cursor !== null && (!CURSOR_PATTERN.test(cursor) || board === "consistency"))
   ) {
     return jsonResponse(
       { error: "Invalid leaderboard filters." },
@@ -563,7 +717,8 @@ export async function handleLeaderboard(
   }
 
   upstream.searchParams.set("goal", goal);
-  upstream.searchParams.set("period", period);
+  upstream.searchParams.set("period", board === "consistency" ? "week" : period);
+  upstream.searchParams.set("board", board);
   upstream.searchParams.set("limit", String(limitValue));
   if (cursor) upstream.searchParams.set("cursor", cursor);
 
@@ -582,7 +737,9 @@ export async function handleLeaderboard(
     return unavailable();
   }
   const body = data && typeof data === "object" ? data as Record<string, unknown> : {};
-  const normalizedEntries = normalizeEntries(body.entries, upstreamHost(env));
+  const normalizedEntries = board === "consistency"
+    ? normalizeConsistencyEntries(body.entries, upstreamHost(env))
+    : normalizeEntries(body.entries, upstreamHost(env));
   const nextCursor = typeof body.next_cursor === "string" && CURSOR_PATTERN.test(body.next_cursor)
     ? body.next_cursor
     : undefined;
@@ -636,6 +793,7 @@ export async function handleLeaderboardProfile(
   }
   upstream.searchParams.set("profile_id", profileId);
   upstream.searchParams.set("limit", String(limitValue));
+  upstream.searchParams.set("engagement", "true");
   if (cursor) upstream.searchParams.set("cursor", cursor);
   const upstreamResponse = await fetchUpstream(upstream, {
     headers: { Accept: "application/json" },

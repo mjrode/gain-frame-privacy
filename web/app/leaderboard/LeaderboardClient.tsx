@@ -26,6 +26,20 @@ type Goal = LeaderboardGoal;
 type GoalFilter = LeaderboardGoalFilter;
 type Period = LeaderboardPeriod;
 type LeaderboardEntry = LeaderboardShareEntry;
+type Board = "score" | "consistency";
+interface ConsistencyEntry {
+  profile_id: string;
+  entry_id: string;
+  rank: number;
+  username: string;
+  consistency_points: number;
+  weekly_check_in_count: number;
+  streak_weeks: number;
+  goal: Goal;
+  score_date: string;
+  avatar_url?: string;
+  profile_available: boolean;
+}
 
 const GOAL_FILTERS: Array<{ value: GoalFilter; label: string }> = [
   { value: "all", label: "All goals" },
@@ -77,11 +91,13 @@ function rankingRule(period: Period): string {
 
 export default function LeaderboardClient() {
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
+  const [consistencyEntries, setConsistencyEntries] = useState<ConsistencyEntry[]>([]);
   const [nextCursor, setNextCursor] = useState<string>();
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [loadingMore, setLoadingMore] = useState(false);
   const [goal, setGoal] = useState<GoalFilter>("all");
   const [period, setPeriod] = useState<Period>("all_time");
+  const [board, setBoard] = useState<Board>("score");
   const [shareContext, setShareContext] = useState<LeaderboardShareContext>();
   const [totalMembers, setTotalMembers] = useState(0);
   const [rankMovements, setRankMovements] = useState<Record<string, number>>({});
@@ -99,7 +115,12 @@ export default function LeaderboardClient() {
     if (append) setLoadingMore(true);
     else setStatus("loading");
     try {
-      const params = new URLSearchParams({ goal, period, limit: "50" });
+      const params = new URLSearchParams({
+        board,
+        goal,
+        period: board === "consistency" ? "week" : period,
+        limit: board === "consistency" ? "100" : "50",
+      });
       if (cursor) params.set("cursor", cursor);
       const response = await fetch("/api/leaderboard?" + params.toString(), {
         cache: "no-store",
@@ -114,15 +135,20 @@ export default function LeaderboardClient() {
         total?: unknown;
       };
       if (!Array.isArray(body.entries)) throw new Error("Invalid leaderboard response");
-      const incoming = body.entries as LeaderboardEntry[];
+      const incoming = body.entries as Array<LeaderboardEntry | ConsistencyEntry>;
       const safeTotal = typeof body.total === "number" && Number.isSafeInteger(body.total)
         ? Math.max(incoming.length, body.total)
         : incoming.length;
-      setEntries((current) => append
-        ? appendUniqueStandings(current, incoming)
-        : appendUniqueStandings([], incoming));
+      if (board === "consistency") {
+        setConsistencyEntries(incoming as ConsistencyEntry[]);
+      } else {
+        const scoreEntries = incoming as LeaderboardEntry[];
+        setEntries((current) => append
+          ? appendUniqueStandings(current, scoreEntries)
+          : appendUniqueStandings([], scoreEntries));
+      }
       setTotalMembers((current) => append ? Math.max(current, safeTotal) : safeTotal);
-      if (!append && typeof window !== "undefined") {
+      if (board === "score" && !append && typeof window !== "undefined") {
         const memoryKey = rankMemoryKey(goal, period);
         let previous: Record<string, number> = {};
         try {
@@ -131,16 +157,17 @@ export default function LeaderboardClient() {
         } catch {
           previous = {};
         }
-        setRankMovements(rankDeltas(incoming, previous));
+        const scoreEntries = incoming as LeaderboardEntry[];
+        setRankMovements(rankDeltas(scoreEntries, previous));
         try {
-          window.localStorage.setItem(memoryKey, JSON.stringify(rankSnapshot(incoming)));
+          window.localStorage.setItem(memoryKey, JSON.stringify(rankSnapshot(scoreEntries)));
         } catch {
           // Private browsing may make storage unavailable. Motion still falls
           // back to the first-load reveal without changing leaderboard data.
         }
         setReplayToken((value) => value + 1);
       }
-      setNextCursor(typeof body.next_cursor === "string" ? body.next_cursor : undefined);
+      setNextCursor(board === "score" && typeof body.next_cursor === "string" ? body.next_cursor : undefined);
       setStatus("ready");
     } catch (error) {
       if ((error as Error).name === "AbortError") return;
@@ -148,7 +175,7 @@ export default function LeaderboardClient() {
     } finally {
       if (append) setLoadingMore(false);
     }
-  }, [goal, period]);
+  }, [board, goal, period]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -172,6 +199,7 @@ export default function LeaderboardClient() {
   const openShare = (entry: LeaderboardEntry) => setShareContext(
     buildShareContext(entries, entry, goal, period),
   );
+  const activeCount = board === "score" ? entries.length : consistencyEntries.length;
 
   return (
     <div className="leaderboard-wrap">
@@ -218,6 +246,24 @@ export default function LeaderboardClient() {
         </div>
 
         <div className="leaderboard-controls">
+          <div className="leaderboard-board-switch" aria-label="Leaderboard type">
+            <button
+              type="button"
+              className={board === "score" ? "is-selected" : ""}
+              aria-pressed={board === "score"}
+              onClick={() => setBoard("score")}
+            >
+              GainScore
+            </button>
+            <button
+              type="button"
+              className={board === "consistency" ? "is-selected" : ""}
+              aria-pressed={board === "consistency"}
+              onClick={() => setBoard("consistency")}
+            >
+              Consistency
+            </button>
+          </div>
           <div className="leaderboard-filters" aria-label="Filter leaderboard">
             <label>
               <span>Goal</span>
@@ -225,12 +271,14 @@ export default function LeaderboardClient() {
                 {GOAL_FILTERS.map((filter) => <option key={filter.value} value={filter.value}>{filter.label}</option>)}
               </select>
             </label>
-            <label>
-              <span>Period</span>
-              <select aria-label="Period" value={period} onChange={(event) => setPeriod(event.target.value as Period)}>
-                {PERIODS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
-              </select>
-            </label>
+            {board === "score" ? (
+              <label>
+                <span>Period</span>
+                <select aria-label="Period" value={period} onChange={(event) => setPeriod(event.target.value as Period)}>
+                  {PERIODS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+                </select>
+              </label>
+            ) : <span className="leaderboard-week-reset">Resets Monday</span>}
           </div>
 
           <a
@@ -246,7 +294,7 @@ export default function LeaderboardClient() {
         </div>
       </header>
 
-      {status === "ready" && entries.length > 0 && (
+      {board === "score" && status === "ready" && entries.length > 0 && (
         <section className="leaderboard-pulse" aria-labelledby="community-pulse-title">
           <span className="leaderboard-pulse-icon" aria-hidden="true">⌁</span>
           <div className="leaderboard-pulse-copy">
@@ -276,14 +324,14 @@ export default function LeaderboardClient() {
           </div>
         )}
 
-        {status === "ready" && entries.length === 0 && (
+        {status === "ready" && activeCount === 0 && (
           <div className="leaderboard-state">
             <strong>No scores in this division yet</strong>
             <p>Try {selectedGoalLabel?.toLowerCase()} from {selectedPeriodLabel?.toLowerCase()}, or check back after someone adds a check-in.</p>
           </div>
         )}
 
-        {status === "ready" && entries.length > 0 && (
+        {board === "score" && status === "ready" && entries.length > 0 && (
           <>
             <div className="leaderboard-board-heading">
               <span>Leaderboard</span>
@@ -395,6 +443,67 @@ export default function LeaderboardClient() {
                 </button>
               </div>
             )}
+          </>
+        )}
+
+        {board === "consistency" && status === "ready" && consistencyEntries.length > 0 && (
+          <>
+            <div className="leaderboard-consistency-rule">
+              <span>Consistency league</span>
+              <h2>Showing up counts here.</h2>
+              <p>
+                Earn 10 points for each check-in day this week, plus up to 9 active-streak points.
+                Multiple scores on one day still count once.
+              </p>
+            </div>
+            <div className="leaderboard-board-heading">
+              <span>This week&apos;s league</span>
+              <small>Check-in days first; active streak breaks the tie.</small>
+            </div>
+            <ol className="leaderboard-ledger leaderboard-ledger--consistency" aria-label="Weekly consistency rankings">
+              {consistencyEntries.map((entry, index) => {
+                const rowContents = (
+                  <>
+                    <span className="leaderboard-rank">
+                      {"#" + String(entry.rank).padStart(2, "0")}
+                      {entry.rank === 1 && <small>STEADIEST</small>}
+                    </span>
+                    <span className="leaderboard-member">
+                      <span className="leaderboard-avatar" aria-hidden="true">
+                        {entry.avatar_url
+                          ? <img src={entry.avatar_url} alt="" referrerPolicy="no-referrer" />
+                          : initials(entry.username)}
+                      </span>
+                      <span>
+                        <span className="leaderboard-member-title"><strong>@{entry.username}</strong></span>
+                        <small>{entry.weekly_check_in_count} check-in {entry.weekly_check_in_count === 1 ? "day" : "days"} <b aria-hidden="true">·</b> {entry.streak_weeks}-week streak</small>
+                      </span>
+                    </span>
+                    <span className="leaderboard-consistency-score">
+                      <strong>{entry.consistency_points}</strong>
+                      <small>PTS</small>
+                    </span>
+                  </>
+                );
+                return (
+                  <li
+                    className={"leaderboard-row leaderboard-row--replay" + (entry.rank === 1 ? " leaderboard-row--first" : "")}
+                    key={entry.entry_id}
+                    style={{ "--row-order": Math.min(index, 10), "--rank-shift": 1 } as CSSProperties}
+                  >
+                    {entry.profile_available ? (
+                      <a
+                        className="leaderboard-row-link"
+                        href={"/leaderboard/u/" + entry.profile_id + "/"}
+                        aria-label={"View @" + entry.username + ", ranked " + entry.rank + " with " + entry.consistency_points + " consistency points"}
+                      >
+                        {rowContents}
+                      </a>
+                    ) : <div className="leaderboard-row-link leaderboard-row-link--static">{rowContents}</div>}
+                  </li>
+                );
+              })}
+            </ol>
           </>
         )}
       </section>

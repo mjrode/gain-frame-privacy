@@ -78,6 +78,27 @@ interface ProfilePayload {
   entries: ProfileEntry[];
   total_entries: number;
   next_cursor?: string;
+  engagement?: {
+    rank_history: RankHistoryPoint[];
+    trophies: LeaderboardTrophy[];
+  };
+}
+
+interface RankHistoryPoint {
+  week_start: string;
+  rank: number;
+  total_count: number;
+  best_score: number;
+  check_in_days: number;
+}
+
+interface LeaderboardTrophy {
+  id: string;
+  kind: "weekly_champion" | "weekly_podium" | "consistency_three" | "best_rank";
+  title: string;
+  detail: string;
+  week_start: string;
+  symbol: string;
 }
 
 interface ReportTarget {
@@ -208,6 +229,69 @@ function ScoreHistory({
           : "Only check-ins this member chose to add are shown."}
       </figcaption>
     </figure>
+  );
+}
+
+function RankJourney({ history }: { history: RankHistoryPoint[] }) {
+  if (history.length === 0) return null;
+  const ordered = [...history].sort((left, right) => left.week_start.localeCompare(right.week_start));
+  const width = 720;
+  const height = 170;
+  const insetX = 24;
+  const insetTop = 22;
+  const insetBottom = 28;
+  const maximumRank = Math.max(2, ...ordered.map((point) => point.rank));
+  const points = ordered.map((point, index) => {
+    const x = ordered.length === 1
+      ? width / 2
+      : insetX + index * ((width - insetX * 2) / (ordered.length - 1));
+    const position = maximumRank - point.rank + 1;
+    const y = insetTop + (maximumRank - position) / maximumRank * (height - insetTop - insetBottom);
+    return { x, y, point };
+  });
+  const pointString = points.map((point) => `${point.x},${point.y}`).join(" ");
+  const latest = ordered.at(-1);
+  return (
+    <figure className="rank-journey" aria-labelledby="rank-journey-title">
+      <div className="rank-journey-heading">
+        <div><span>Rank journey</span><h2 id="rank-journey-title">Weekly position</h2></div>
+        <strong>{latest ? "#" + String(latest.rank).padStart(2, "0") : "—"}</strong>
+      </div>
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        role="img"
+        aria-label={ordered.map((point) => `${formatDate(point.week_start, false)}: rank ${point.rank}`).join("; ")}
+      >
+        <line className="rank-journey-gridline" x1={insetX} x2={width - insetX} y1={insetTop} y2={insetTop} />
+        <line className="rank-journey-gridline" x1={insetX} x2={width - insetX} y1={height - insetBottom} y2={height - insetBottom} />
+        <text className="rank-journey-axis" x={width - 2} y={insetTop + 4} textAnchor="end">#01</text>
+        <text className="rank-journey-axis" x={width - 2} y={height - insetBottom + 4} textAnchor="end">#{maximumRank}</text>
+        {points.length > 1 && <polyline className="rank-journey-line" points={pointString} />}
+        {points.map((point) => <circle key={point.point.week_start} className="rank-journey-point" cx={point.x} cy={point.y} r="5" />)}
+      </svg>
+      <figcaption>Higher on the chart means closer to #01. Rankings use only check-ins members chose to add.</figcaption>
+    </figure>
+  );
+}
+
+function TrophyShelf({ trophies }: { trophies: LeaderboardTrophy[] }) {
+  if (trophies.length === 0) return null;
+  return (
+    <section className="member-trophy-shelf" aria-labelledby="member-trophy-title">
+      <div className="member-trophy-heading">
+        <div><span>Weekly wins</span><h2 id="member-trophy-title">Trophy shelf</h2></div>
+        <p>Earned from ranks and consistency</p>
+      </div>
+      <div className="member-trophy-list">
+        {trophies.slice(0, 8).map((trophy) => (
+          <article key={trophy.id}>
+            <span aria-hidden="true">{trophy.symbol}</span>
+            <h3>{trophy.title}</h3>
+            <p>{trophy.detail}</p>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -814,6 +898,9 @@ export default function MemberProfileClient() {
           </div>
         )}
       </section>
+
+      <RankJourney history={payload.engagement?.rank_history || []} />
+      <TrophyShelf trophies={payload.engagement?.trophies || []} />
 
       {payload.entries.length > 0 && (
         <ScoreHistory entries={payload.entries} hasMore={Boolean(payload.next_cursor)} />
