@@ -1,0 +1,27 @@
+GAINFRAME 3.12 — SMARTER FOOD LOGGING & STEADIER SCORING
+
+NUTRITION & VOICE
+
+- Overhauled voice logging: log foods, confirm portions, and fix quantities in one smoother conversation.
+- Fixed voice going quiet after a food lookup, and you can now delete a wrong food by voice or by swiping a diary row.
+- Import recipes with AI (Pro) and log them as meals in a couple of taps.
+- Messy or unusual recipes now import instead of failing, and Retry works again.
+- Drag meals between meal slots and pick exactly where a food lands.
+- Describe any food in your own words and get an AI estimate you can review before saving.
+- Added provider-backed volume units and improved portion accuracy across search, labels, and photos.
+
+SCORING & BODY FAT
+
+- Physique scoring now runs on a calibration-locked AI setup, verified against a reference photo set for steadier, more consistent scores.
+- A smart-scale reading no longer hides your photo-based body fat estimate for the same day.
+- Fixed an import hang when preparing reference images.
+
+TROPHIES & INSIGHTS
+
+- New badge artwork for trophies, with a refreshed achievements preview in Insights.
+
+RELIABILITY
+
+- Fixed freezes when opening the Daily Check-In, a day view, or a Deep Dive report.
+- Coach chat recovers better from sign-in timeouts.
+- Faster, quieter diagnostics behind the scenes and improved crash-and-alert handling.

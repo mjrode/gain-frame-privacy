@@ -150,6 +150,12 @@ export default function LeaderboardClient() {
     () => communityPulse(entries, rankMovements, totalMembers),
     [entries, rankMovements, totalMembers],
   );
+  const pulseMetrics = useMemo(() => [
+    { value: pulse.totalMembers, label: "members", visible: true },
+    { value: pulse.weeklyCheckIns, label: "fresh", visible: pulse.weeklyCheckIns > 0 },
+    { value: pulse.activeStreaks, label: "streaks", visible: pulse.activeStreaks > 0 },
+    { value: pulse.totalCheers, label: "cheers", visible: pulse.totalCheers > 0 },
+  ].filter((metric) => metric.visible), [pulse]);
   const openShare = (entry: LeaderboardEntry) => setShareContext(
     buildShareContext(entries, entry, goal, period),
   );
@@ -229,16 +235,15 @@ export default function LeaderboardClient() {
 
       {status === "ready" && entries.length > 0 && (
         <section className="leaderboard-pulse" aria-labelledby="community-pulse-title">
+          <span className="leaderboard-pulse-icon" aria-hidden="true">⌁</span>
           <div className="leaderboard-pulse-copy">
-            <span>This week on the board</span>
-            <h2 id="community-pulse-title">Community pulse</h2>
-            <p>{pulse.headline}</p>
-          </div>
-          <div className="leaderboard-pulse-metrics" aria-label="Community activity summary">
-            <div><strong>{pulse.totalMembers}</strong><span>Members</span></div>
-            <div><strong>{pulse.weeklyCheckIns}</strong><span>Fresh scores</span></div>
-            <div><strong>{pulse.activeStreaks}</strong><span>Streaks</span></div>
-            <div><strong>{pulse.totalCheers}</strong><span>Cheers</span></div>
+            <span>Community activity</span>
+            <h2 id="community-pulse-title">{pulse.headline}</h2>
+            <div className="leaderboard-pulse-metrics" aria-label="Community activity summary">
+              {pulseMetrics.map((metric) => (
+                <span key={metric.label}><strong>{metric.value}</strong> {metric.label}</span>
+              ))}
+            </div>
           </div>
         </section>
       )}
@@ -267,6 +272,10 @@ export default function LeaderboardClient() {
 
         {status === "ready" && entries.length > 0 && (
           <>
+            <div className="leaderboard-board-heading">
+              <span>The board</span>
+              <small>Highest eligible score ranks</small>
+            </div>
             <ol className="leaderboard-ledger" aria-label="Ranked GainFrame Scores">
               {entries.map((entry, index) => {
                 const rank = entry.rank;
@@ -274,7 +283,10 @@ export default function LeaderboardClient() {
                 const achievements = standingAchievements(entry).slice(0, 2);
                 const rowContents = (
                   <>
-                    <span className="leaderboard-rank">{rank}</span>
+                    <span className="leaderboard-rank">
+                      {"#" + String(rank).padStart(2, "0")}
+                      {rank === 1 && <small>PACESETTER</small>}
+                    </span>
                     <span className="leaderboard-member">
                       <span className="leaderboard-avatar" aria-hidden="true">
                         {entry.avatar_url
@@ -312,7 +324,6 @@ export default function LeaderboardClient() {
                     >
                       {entry.score}
                     </span>
-                    {entry.profile_available && <span className="leaderboard-row-arrow" aria-hidden="true">↗</span>}
                   </>
                 );
                 return (
@@ -320,6 +331,7 @@ export default function LeaderboardClient() {
                     className={
                       "leaderboard-row leaderboard-row--replay" +
                       (rank === 1 ? " leaderboard-row--first" : "") +
+                      (rank > 1 && rank <= 3 ? " leaderboard-row--podium" : "") +
                       (movement > 0 ? " leaderboard-row--up" : movement < 0 ? " leaderboard-row--down" : "")
                     }
                     key={entry.entry_id + "-" + replayToken}

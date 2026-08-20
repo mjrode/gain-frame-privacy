@@ -1,0 +1,55 @@
+See what’s actually changing in your physique.
+
+GainFrame turns progress photos into body-fat estimates, muscle-group insights, side-by-side comparisons, and an AI Coach grounded in your real check-ins—not generic fitness advice.
+
+FROM PHOTO TO PROOF
+
+• Compare any two check-ins side by side
+• See body-fat, weight, and physique-score changes together
+• Open an AI Deep Dive that explains what changed—and why
+• Review 12 muscle groups across front and back poses
+
+AN AI COACH THAT KNOWS YOUR DATA
+
+Ask Coach about your latest check-in, weight trend, training, sleep, or recovery. Responses use the data you choose to connect, so the guidance reflects your actual progress instead of a generic template.
+
+SEE MORE THAN THE SCALE
+
+• Body-fat estimates from progress photos
+• Physique scoring and muscle-group breakdowns
+• Precision estimates from multiple poses
+• BMI and FFMI trends
+• Future You physique projections
+• Weekly and monthly progress chapters
+
+BUILT FOR CONSISTENT CHECK-INS
+
+• Guided pose templates and photo alignment
+• Import existing photos from your camera roll
+• Organize every check-in in a visual timeline
+• Track streaks, milestones, and weight trajectory
+• Create shareable before-and-after cards
+
+CONNECTED TO YOUR ROUTINE
+
+Connect Apple Health, Hevy, and Strava to bring weight, workouts, cardio, sleep, HRV, and recovery into the same progress story.
+
+PRIVATE BY DESIGN
+
+Your progress-photo library is stored on your device, and no account is required to start tracking. When you choose an AI feature, the selected photos are securely processed for analysis and are not stored on GainFrame servers.
+
+HOW IT WORKS
+
+1. Capture a check-in or import photos you already have
+2. Get your visual progress read and body-composition estimates
+3. Compare over time and ask Coach what to focus on next
+
+Start your next check-in and turn the work you’re already doing into progress you can see.
+
+IMPORTANT
+
+GainFrame is a fitness tracking tool, not a medical device. AI-generated estimates—including body-fat percentage, BMI, FFMI, muscle scores, and macro recommendations—are approximations based on photo analysis and should not be used for diagnosis or treatment. Consult a qualified healthcare professional before making health or fitness decisions.
+
+Powered by fatsecret nutrition API (www.fatsecret.com)
+
+Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/

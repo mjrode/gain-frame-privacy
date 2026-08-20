@@ -1,149 +1,151 @@
-# GainFrame Brand Profile
+# GainFrame Brand Guide
 
-**Audience:** marketing, creative, content, partnerships, and paid acquisition collaborators  
-**Prepared:** August 20, 2026  
-**Product repository version observed:** 3.12  
-**Platform:** iPhone / iOS
+**For:** marketers, designers, writers, and partners  
+**Updated:** August 20, 2026  
+**App version checked:** 3.12  
+**Platform:** iPhone
 
-## Brand core
+## What GainFrame does
 
-GainFrame is an AI-powered physique progress app for people who train seriously and want evidence beyond the mirror or scale. It organizes progress photos, estimates body composition, compares change over time, and turns connected check-ins, workouts, recovery, and nutrition data into a practical next move.
+GainFrame is an iPhone app for people who take gym progress photos.
 
-**Positioning lead:** See what's actually changing in your physique.  
-**Brand sign-off:** See your gains, frame by frame.  
-**Short description:** Progress photos, measured and explained.  
+Users take a new check-in or import photos they already have. GainFrame lines up the photos, compares them over time, estimates body fat, tracks weight and physique scores, and shows changes across 12 muscle groups.
+
+Users can also connect workout, recovery, sleep, weight, and nutrition data. Coach uses the data they choose to connect when answering questions about their progress.
+
+**Short description:** Gym progress photos with body-fat and muscle-group tracking.
+
 **App Store name:** GainFrame: Gym Progress Photos  
 **App Store subtitle:** AI Physique & Body Fat Tracker
 
-## Audience
+## Who it is for
 
-**Primary audience**
+- People who lift regularly and already take progress photos.
+- Natural bodybuilders and physique-focused lifters.
+- Anyone running a cut, bulk, or recomp.
+- People who want more context than scale weight alone can give them.
+- People with years of old progress photos sitting in their camera roll.
 
-- Serious gym-goers, intermediate lifters, natural bodybuilders, and physique-focused trainees.
-- People in a cut, bulk, recomp, or long-term transformation who already track workouts or take gym selfies.
-- Users who want measurable progress but do not want a clinical or generic weight-loss experience.
+The common problem is simple: changes happen slowly, photos are hard to compare, and body weight does not explain whether someone gained muscle, lost fat, or had a noisy week.
 
-**Their tension**
+## What to show in marketing
 
-They are putting in the work, but photos are scattered, the mirror changes slowly, and scale weight hides the difference between fat loss, muscle gain, and normal noise.
+### Compare progress photos side by side
 
-**The desired feeling**
+Show two real check-ins with the same pose. Include the dates and the change in weight, body-fat estimate, or physique score when it helps explain what happened.
 
-Clarity, proof, and an actionable next move - not hype, judgment, or synthetic motivation.
+### Show the body-fat and muscle-group read
 
-## Positioning pillars
+GainFrame estimates body fat and compares 12 muscle groups across front and back views. Call these estimates. Do not present them as medical measurements.
 
-1. **Turn photos into proof.** Compare check-ins, body-fat estimates, physique scores, weight, and muscle-group changes in one progress story.
-2. **Coaching grounded in the user's data.** Coach can use the check-ins, weight trends, training, sleep, and recovery data a user chooses to connect.
-3. **See more than the scale.** The product connects photos with body composition, 12 muscle groups, BMI/FFMI trends, recovery, training, and nutrition context.
-4. **Bring the history forward.** Camera-roll import, pose organization, alignment, and a visual timeline make existing progress useful instead of forcing a restart.
-5. **Keep the user in control.** The progress-photo library is stored on the device, no account is required to start, and selected AI inputs are not stored on GainFrame servers.
+### Show what Coach can use
 
-## Product story
+Coach can answer questions using the user's check-ins and any training, weight, sleep, recovery, or nutrition data they choose to connect. A good example shows the question, the relevant data, and the specific answer.
 
-**Core loop:** Capture or import a check-in -> receive a visual/body-composition read -> compare over time -> ask Coach what to focus on next.
+### Show old photos becoming useful
 
-**Hero capabilities**
+Users can import progress photos from their camera roll, group them by pose, and view them on one timeline. They do not need to start their progress history over.
 
-- Side-by-side progress comparison with weight, score, and body-fat context.
-- AI Deep Dive reports explaining what changed and why.
-- Physique scoring plus front/back muscle-group breakdowns.
-- AI Coach grounded in selected connected data.
-- Future You AI-generated physique projections.
-- Camera-roll history import and progress timeline.
+### Show the next step
 
-**Supporting capabilities**
+The strongest examples end with something the user can do: adjust recovery, watch a weak muscle group, keep calories steady, or take another check-in under the same conditions.
 
-- Guided poses and photo alignment.
-- Apple Health, Hevy, and Strava connections.
-- Recovery, sleep, HRV, training, and weight trends.
-- Voice and text nutrition logging, food search/scan, macro targets, and AI recipe import.
-- Weekly/monthly progress chapters, streaks, milestones, achievements, and an optional privacy-conscious leaderboard.
+## How to write about GainFrame
 
-## Brand voice
+Use words lifters already use: progress photos, check-in, cut, bulk, recomp, macros, body-fat estimate, muscle group, training volume, recovery, and weight trend.
 
-**Confident, not hype-y.** Use concrete benefits and observable change. Avoid "revolutionary," "game-changing," and empty motivation language.
+Say what appears on the screen. Name the input and the result.
 
-**Gym-native.** Use progress photos, check-ins, cut, bulk, recomp, macros, FFMI, body fat, training volume, and recovery naturally. Avoid generic "get fit" or "tone up" copy.
+- "Compare two check-ins side by side."
+- "Track changes across 12 muscle groups."
+- "Import old progress photos from your camera roll."
+- "Ask Coach what changed and what to focus on next."
+- "See weight, recovery, training, and nutrition next to your photos."
 
-**User as hero; AI as instrument.** The user did the work. GainFrame reveals and explains the pattern.
+Keep headlines short. A marketer should be able to understand the feature from the headline alone.
 
-**Clear before clever.** Lead with the payoff, then the technology. Short, declarative headlines work best.
-
-**Privacy-forward and precise.** Say what stays on-device, what is processed for AI, and what is not stored. Do not overstate.
-
-## Visual identity
-
-**Primary product language:** clinical fitness minimalism - white or cool off-white surfaces, near-black typography, restrained green for favorable/active states, and rare red from the logo.
-
-**Logo colors**
-
-- Logo near-black: `#1A1A1A`
-- Logo red: `#E53935`
-- White: `#FFFFFF`
-
-**Product and campaign colors**
-
-- Primary ink: `#111111`
-- UI canvas: `#F2F2F7`
-- Surface: `#FFFFFF`
-- GainFrame positive green: `#34C759`
-- Deep green for text: `#1B7A34`
-- UI brand red: `#E84C3D`
-- Mascot/comic background: `#F5F0EB`
-- Secondary text: `#6B7280`
-
-**Typography**
-
-- Product UI: Apple's system typography / SF Pro behavior.
-- Website and polished marketing: Outfit for display; DM Sans for body copy.
-- Mascot comics and street-poster work: Impact/Bebas Neue-style condensed display type, with a clean Helvetica/Arial-style sans serif for supporting copy.
-
-## Logo guidance
-
-Use the black/red scan-frame athlete mark from `01_LOGO/`. Keep the internal white space and the red lower-right bracket. Do not rebuild the mark, add a word inside it, place it on busy imagery without separation, or use the July 2026 exploratory logo-refresh concepts as production logos.
-
-When a wordmark is needed, set **GainFrame** as one word beside or below the symbol using Outfit Bold or a clean bold system sans serif. Treat this as a typeset lockup, not a replacement for the symbol.
-
-## Mascot guidance
-
-The mascot is **Gary**, also called **GainFrame Guy** in the social asset library. His head is the open four-corner GainFrame mark with floating eyes and the S-curve nose - never a filled square. The default body is athletic and muscular, with a dark charcoal body, olive shorts, compact gray-brown shoes, and the red lower-right bracket accent.
-
-Use Gary to explain, coach, react, compare, or demonstrate. Keep the product screenshots/data as the proof; Gary is the guide. Use the neutral template only for explicit before/untrained states. Use the muscular reference for gym, progress, and general marketing scenes.
-
-## Creative direction
-
-**Best default:** generous off-white space, very large black headline, one green-highlighted phrase, white product cards, and real product UI. Add Gary when a human guide or memorable teaching device improves the idea.
-
-**Headline pattern:** one direct promise in 3-8 words. Examples already present in current creative include:
+Current screenshots use lines such as:
 
 - See what's actually changing.
 - Know where you stand.
 - Get coaching that knows you.
 - See every muscle changing.
-- One clear daily read.
 - Bring every photo together.
 
-## Claims and compliance
+Avoid vague claims such as "revolutionary fitness intelligence," "unlock your potential," or "transform your body with AI." They could describe almost any fitness app and do not explain what GainFrame does.
 
-- GainFrame is a fitness tracking tool, not a medical device.
-- Body-fat percentage, BMI, FFMI, muscle scores, macro recommendations, and other AI outputs are approximations based on photo analysis.
-- Future You is an AI-generated projection, not a promise of results.
-- Avoid unqualified accuracy, DEXA-equivalence, "only app," or guaranteed transformation claims unless an approved evidence brief is attached.
-- Say: "Your progress-photo library is stored on your device." Do not say: "Your photos never leave your device."
-- Say: "Selected photos are securely processed for analysis and are not stored on GainFrame servers."
-- Confirm live pricing and entitlements before every campaign; current code supports multiple weekly/monthly/annual experiment configurations.
+The user did the training. GainFrame organizes the photos and data so the change is easier to see.
 
-## Asset status
+## Logo, colors, and type
 
-- `01_LOGO/` - canonical production mark.
-- `02_MASCOT_GARY/` - production/reference mascot files plus reusable prompt templates.
-- `03_SCREENSHOTS/CURRENT_FINAL_APP_STORE_3.0/` - current final repository set.
-- `03_SCREENSHOTS/LATEST_REVIEW_CANDIDATES_3.0/` - newer candidate set; approval required before publishing.
-- `03_SCREENSHOTS/RAW_PRODUCT_UI_3.0/` - unframed product UI captures for layouts and mockups.
-- `06_REFERENCE_EXAMPLES/` - recent visual directions; reference only.
+Use the black and red scan-frame athlete mark in `01_LOGO/`. The four corners stay open. The lower-right corner stays red. Leave clear space around it.
 
-## Source-of-truth notes
+Do not redraw, rotate, stretch, outline, or recolor the mark. Do not place words inside the frame. The July 2026 logo refresh files in the source repository are rough concepts and are not approved production logos.
 
-This profile prioritizes current app metadata and production code over older marketing summaries. The older `app-marketing-context.md` and `seo-tools/product-context.md` remain useful for stable positioning, but their version, launch-date, pricing, and feature details are stale relative to the 3.12 repository.
+When the name appears beside the mark, write **GainFrame** as one word.
 
+### Main colors
+
+- Near black: `#111111`
+- Logo red: `#E53935`
+- Progress green: `#34C759`
+- Deep green text: `#1B7A34`
+- App background: `#F2F2F7`
+- Mascot background: `#F5F0EB`
+- White: `#FFFFFF`
+
+### Type
+
+- Marketing headlines: Outfit Bold or SemiBold.
+- Marketing body copy: DM Sans.
+- App screens: Apple system type.
+
+Use large black headlines, plenty of empty space, and one green phrase when emphasis helps. Product screens should stay easy to read.
+
+## Gary, the mascot
+
+Gary is also called GainFrame Guy in the asset folders.
+
+His head uses the GainFrame mark: four separate corner brackets, two floating eyes, an S-shaped nose, and the red lower-right corner. Never turn his head into a filled square.
+
+The normal marketing version has a muscular charcoal body, olive shorts, and small gray-brown shoes. Use the softer neutral body only when the scene is clearly showing a beginner or "before" state.
+
+Gary works best when he explains a screen, demonstrates a pose, reacts to a result, or points to something useful. The screenshot or data should still be large enough to understand.
+
+Use the reference images and prompt template in `02_MASCOT_GARY/` when making a new pose. This keeps the head, body, colors, and proportions consistent.
+
+## Which screenshots to use
+
+### Ready to use
+
+`03_SCREENSHOTS/CURRENT_FINAL_APP_STORE_3.0/` contains the current final set of 10 App Store screenshots. Keep their order when using them for the App Store.
+
+### Needs approval
+
+`03_SCREENSHOTS/LATEST_REVIEW_CANDIDATES_3.0/` contains a newer set with Physique Archetype, Nutrition, and Leaderboard screens. These are review candidates. Get approval before replacing the final App Store set.
+
+### Raw screens
+
+`03_SCREENSHOTS/RAW_PRODUCT_UI_3.0/` contains product screens without the App Store layout. Use these in ads, posts, landing pages, and mockups when you need a closer view of the app.
+
+## Claims and privacy
+
+- Call body-fat, BMI, FFMI, muscle scores, macros, and similar outputs estimates or approximations.
+- GainFrame is a fitness tracking app. Do not describe it as a medical device or diagnostic tool.
+- Future You images are AI-generated projections. They do not promise a result.
+- Do not claim DEXA-level accuracy, guaranteed transformations, or "the only app" unless there is a current approved evidence brief.
+- The progress-photo library is stored on the user's device.
+- Selected photos are securely processed when the user runs an analysis. GainFrame does not store those photos on its servers.
+- Do not say every photo always stays on the device.
+- Check the live price, trial, discount, and free limits on the day the campaign goes out. The app runs pricing and entitlement tests.
+
+## Before publishing
+
+1. Use the production logo from `01_LOGO/`.
+2. Check whether the screenshot is final or still under review.
+3. Read the claim once as a literal promise. Make sure the app does what it says.
+4. Check the current price and offer.
+5. Label AI-generated Future You images.
+6. Confirm the App Store link and destination page.
+
+The full copy notes are in `05_COPY_AND_CLAIMS/`. Asset sources are listed in `ASSET-SOURCE-MAP.csv`.

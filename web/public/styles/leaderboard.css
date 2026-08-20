@@ -247,12 +247,12 @@
 
 .leaderboard-pulse {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(360px, .9fr);
-  gap: 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
   overflow: hidden;
   margin: 0 0 14px;
-  padding: 22px 24px;
+  padding: 16px 18px;
   border: 1px solid rgba(54, 86, 61, .16);
   border-radius: 18px;
   background:
@@ -260,6 +260,22 @@
     linear-gradient(135deg, #fbfcfa 0%, #f0f4ef 100%);
   box-shadow: 0 8px 26px rgba(44, 66, 48, .055);
   animation: leaderboard-pulse-arrive 520ms cubic-bezier(.2, .75, .2, 1) both;
+}
+
+.leaderboard-pulse-icon {
+  display: grid;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(107, 143, 113, .14);
+  color: #4f7356;
+  font: 850 25px/1 var(--font-display);
+  place-items: center;
+}
+
+.leaderboard-pulse-copy {
+  min-width: 0;
 }
 
 .leaderboard-pulse::after {
@@ -285,11 +301,10 @@
 .leaderboard-pulse-copy h2 {
   margin: 0;
   color: var(--color-text);
-  font-family: var(--font-display);
-  font-size: 23px;
-  font-weight: 820;
-  letter-spacing: -.045em;
-  line-height: 1;
+  font-size: 15px;
+  font-weight: 760;
+  letter-spacing: -.025em;
+  line-height: 1.3;
 }
 
 .leaderboard-pulse-copy p {
@@ -301,47 +316,64 @@
 }
 
 .leaderboard-pulse-metrics {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 7px;
-  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 9px;
 }
 
-.leaderboard-pulse-metrics > div {
-  display: grid;
-  min-width: 0;
-  gap: 3px;
-  padding: 12px 9px 10px;
+.leaderboard-pulse-metrics > span {
+  display: inline-flex;
+  min-height: 25px;
+  align-items: center;
+  gap: 4px;
+  padding: 0 9px;
   border: 1px solid rgba(17, 17, 17, .075);
-  border-radius: 12px;
+  border-radius: 999px;
   background: rgba(255, 255, 255, .74);
+  color: #788079;
+  font-size: 10px;
+  font-weight: 720;
 }
 
 .leaderboard-pulse-metrics strong {
   color: #3f6547;
-  font: 820 19px/1 var(--font-display);
+  font: 820 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -.04em;
-}
-
-.leaderboard-pulse-metrics span {
-  overflow: hidden;
-  color: #788079;
-  font-size: 9px;
-  font-weight: 750;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .leaderboard-board {
-  overflow: hidden;
-  border: 1px solid rgba(17, 17, 17, .095);
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: 0 8px 28px rgba(17, 17, 17, .045);
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.leaderboard-board-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 3px 10px;
+}
+
+.leaderboard-board-heading > span {
+  color: #4b7052;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.leaderboard-board-heading small {
+  color: var(--color-text-tertiary);
+  font-size: 10px;
 }
 
 .leaderboard-ledger {
+  display: grid;
+  gap: 8px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -349,6 +381,11 @@
 
 .leaderboard-row {
   position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 17, .085);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 4px 16px rgba(17, 17, 17, .028);
   transition: background-color 150ms ease;
 }
 
@@ -383,7 +420,7 @@
 
 .leaderboard-row-link {
   display: grid;
-  grid-template-columns: 38px minmax(0, 1fr) 62px 18px;
+  grid-template-columns: 55px minmax(0, 1fr) 62px;
   align-items: center;
   gap: 12px;
   min-height: 74px;
@@ -393,7 +430,7 @@
 }
 
 .leaderboard-row + .leaderboard-row {
-  border-top: 1px solid rgba(17, 17, 17, .075);
+  border-top-color: rgba(17, 17, 17, .085);
 }
 
 .leaderboard-row:hover,
@@ -402,7 +439,10 @@
 }
 
 .leaderboard-row--first {
-  background: rgba(107, 143, 113, .085);
+  border-color: rgba(82, 118, 89, .24);
+  border-radius: 18px;
+  background:
+    linear-gradient(90deg, rgba(107, 143, 113, .13), rgba(255, 255, 255, .96) 55%);
   box-shadow: inset 3px 0 0 rgba(82, 118, 89, .64);
 }
 
@@ -411,15 +451,45 @@
   background: rgba(107, 143, 113, .115);
 }
 
+.leaderboard-row--podium {
+  background: rgba(255, 255, 255, .96);
+  box-shadow: inset 3px 0 0 rgba(82, 118, 89, .23), 0 4px 16px rgba(17, 17, 17, .028);
+}
+
 .leaderboard-rank {
+  display: grid;
+  gap: 5px;
   color: var(--color-text-secondary);
   font: 750 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
   font-variant-numeric: tabular-nums;
 }
 
+.leaderboard-rank small {
+  color: #66826b;
+  font: 850 7px/1 var(--font-body);
+  letter-spacing: .1em;
+}
+
+.leaderboard-row--first .leaderboard-rank {
+  font-size: 17px;
+}
+
 .leaderboard-row--first .leaderboard-rank,
 .leaderboard-row--first .leaderboard-score {
   color: #4b7052;
+}
+
+.leaderboard-row--first .leaderboard-row-link {
+  min-height: 92px;
+}
+
+.leaderboard-row--first .leaderboard-avatar {
+  width: 48px;
+  height: 48px;
+}
+
+.leaderboard-row--first .leaderboard-score {
+  font-size: 34px;
 }
 
 .leaderboard-member {
@@ -808,9 +878,8 @@
   }
 
   .leaderboard-pulse {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
-    padding: 18px;
+    gap: 11px;
+    padding: 15px;
   }
 
   .leaderboard-pulse-metrics {
@@ -848,7 +917,7 @@
   }
 
   .leaderboard-row-link {
-    grid-template-columns: 26px minmax(0, 1fr) 45px 13px;
+    grid-template-columns: 38px minmax(0, 1fr) 45px;
     gap: 8px;
     min-height: 69px;
     padding: 10px 55px 10px 14px;
@@ -878,7 +947,7 @@
     font-size: 11px;
   }
 
-  .leaderboard-row-signals > span:nth-child(n + 3) {
+  .leaderboard-row-signals > span:nth-child(n + 2) {
     display: none;
   }
 
@@ -915,17 +984,13 @@
   }
 
   .leaderboard-row-link {
-    grid-template-columns: 22px minmax(0, 1fr) 42px 11px;
+    grid-template-columns: 34px minmax(0, 1fr) 42px;
     padding-right: 49px;
     padding-left: 11px;
   }
 
   .leaderboard-proof-mark {
     display: none;
-  }
-
-  .leaderboard-pulse-metrics {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .leaderboard-row-signals {
