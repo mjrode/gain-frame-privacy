@@ -1,0 +1,65 @@
+{
+  "pulled_on": "2026-08-19",
+  "ga4_property": "526084497",
+  "gsc_site": "sc-domain:gainframe.app",
+  "ga4_end": "2026-08-18",
+  "gsc_end_final_assumed": "2026-08-16",
+  "ga4_recent_21d": {
+    "start": "2026-07-29",
+    "end": "2026-08-18",
+    "days": 21,
+    "newUsers": 12262.0,
+    "activeUsers": 13064.0,
+    "sessions": 15269.0,
+    "engagedSessions": 7990.0,
+    "screenPageViews": 24766.0,
+    "eventCount": 87686.0,
+    "engagementRate": 0.5232824677451045
+  },
+  "ga4_prior_28d": {
+    "start": "2026-07-01",
+    "end": "2026-07-28",
+    "days": 28,
+    "newUsers": 12493.0,
+    "activeUsers": 13120.0,
+    "sessions": 15355.0,
+    "engagedSessions": 6745.0,
+    "screenPageViews": 22736.0,
+    "eventCount": 74673.0,
+    "engagementRate": 0.43927059589710193
+  },
+  "gsc_recent_21d": {
+    "start": "2026-07-27",
+    "end": "2026-08-16",
+    "days": 21,
+    "clicks": 7500.0,
+    "impressions": 435504.0,
+    "ctr": 0.017221426209632976
+  },
+  "gsc_prior_28d": {
+    "start": "2026-06-29",
+    "end": "2026-07-26",
+    "days": 28,
+    "clicks": 5151.0,
+    "impressions": 252777.0,
+    "ctr": 0.020377645118028934
+  },
+  "periods": {
+    "ga_recent": [
+      "2026-07-29",
+      "2026-08-18"
+    ],
+    "ga_prior": [
+      "2026-07-01",
+      "2026-07-28"
+    ],
+    "gsc_recent": [
+      "2026-07-27",
+      "2026-08-16"
+    ],
+    "gsc_prior": [
+      "2026-06-29",
+      "2026-07-26"
+    ]
+  }
+}

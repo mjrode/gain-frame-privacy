@@ -1,11 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { type CSSProperties, useCallback, useEffect, useMemo, useState } from "react";
 import { SITE } from "@/lib/site";
 import LeaderboardShareDialog from "./LeaderboardShareDialog";
 import { publicLeaderboardDate } from "./leaderboard-date";
 import { appendUniqueStandings } from "./leaderboard-pagination";
+import {
+  communityPulse,
+  rankDeltas,
+  rankMemoryKey,
+  rankSnapshot,
+  standingAchievements,
+} from "./leaderboard-experience";
 import {
   buildShareContext,
   type LeaderboardGoal,
@@ -64,6 +71,9 @@ export default function LeaderboardClient() {
   const [goal, setGoal] = useState<GoalFilter>("all");
   const [period, setPeriod] = useState<Period>("all_time");
   const [shareContext, setShareContext] = useState<LeaderboardShareContext>();
+  const [totalMembers, setTotalMembers] = useState(0);
+  const [rankMovements, setRankMovements] = useState<Record<string, number>>({});
+  const [replayToken, setReplayToken] = useState(0);
 
   const load = useCallback(async ({
     cursor,
@@ -86,12 +96,38 @@ export default function LeaderboardClient() {
       });
       if (!response.ok) throw new Error("Leaderboard request failed: " + response.status);
 
-      const body = await response.json() as { entries?: unknown; next_cursor?: unknown };
+      const body = await response.json() as {
+        entries?: unknown;
+        next_cursor?: unknown;
+        total?: unknown;
+      };
       if (!Array.isArray(body.entries)) throw new Error("Invalid leaderboard response");
       const incoming = body.entries as LeaderboardEntry[];
+      const safeTotal = typeof body.total === "number" && Number.isSafeInteger(body.total)
+        ? Math.max(incoming.length, body.total)
+        : incoming.length;
       setEntries((current) => append
         ? appendUniqueStandings(current, incoming)
         : appendUniqueStandings([], incoming));
+      setTotalMembers((current) => append ? Math.max(current, safeTotal) : safeTotal);
+      if (!append && typeof window !== "undefined") {
+        const memoryKey = rankMemoryKey(goal, period);
+        let previous: Record<string, number> = {};
+        try {
+          const stored = window.localStorage.getItem(memoryKey);
+          if (stored) previous = JSON.parse(stored) as Record<string, number>;
+        } catch {
+          previous = {};
+        }
+        setRankMovements(rankDeltas(incoming, previous));
+        try {
+          window.localStorage.setItem(memoryKey, JSON.stringify(rankSnapshot(incoming)));
+        } catch {
+          // Private browsing may make storage unavailable. Motion still falls
+          // back to the first-load reveal without changing leaderboard data.
+        }
+        setReplayToken((value) => value + 1);
+      }
       setNextCursor(typeof body.next_cursor === "string" ? body.next_cursor : undefined);
       setStatus("ready");
     } catch (error) {
@@ -110,6 +146,10 @@ export default function LeaderboardClient() {
 
   const selectedGoalLabel = GOAL_FILTERS.find((filter) => filter.value === goal)?.label;
   const selectedPeriodLabel = PERIODS.find((item) => item.value === period)?.label;
+  const pulse = useMemo(
+    () => communityPulse(entries, rankMovements, totalMembers),
+    [entries, rankMovements, totalMembers],
+  );
   const openShare = (entry: LeaderboardEntry) => setShareContext(
     buildShareContext(entries, entry, goal, period),
   );
@@ -134,8 +174,8 @@ export default function LeaderboardClient() {
               <h1 id="standings-heading">Leaderboard</h1>
               <p aria-live="polite" className="leaderboard-count">
                 {status === "ready"
-                  ? String(entries.length) + (nextCursor ? "+" : "") + " " +
-                    (entries.length === 1 && !nextCursor ? "member" : "members")
+                  ? String(totalMembers) + " " +
+                    (totalMembers === 1 ? "member" : "members")
                   : ""}
               </p>
             </div>
@@ -187,6 +227,22 @@ export default function LeaderboardClient() {
         </div>
       </header>
 
+      {status === "ready" && entries.length > 0 && (
+        <section className="leaderboard-pulse" aria-labelledby="community-pulse-title">
+          <div className="leaderboard-pulse-copy">
+            <span>This week on the board</span>
+            <h2 id="community-pulse-title">Community pulse</h2>
+            <p>{pulse.headline}</p>
+          </div>
+          <div className="leaderboard-pulse-metrics" aria-label="Community activity summary">
+            <div><strong>{pulse.totalMembers}</strong><span>Members</span></div>
+            <div><strong>{pulse.weeklyCheckIns}</strong><span>Fresh scores</span></div>
+            <div><strong>{pulse.activeStreaks}</strong><span>Streaks</span></div>
+            <div><strong>{pulse.totalCheers}</strong><span>Cheers</span></div>
+          </div>
+        </section>
+      )}
+
       <section className="leaderboard-board" aria-labelledby="standings-heading">
         {status === "loading" && (
           <div className="leaderboard-state" role="status">
@@ -212,8 +268,10 @@ export default function LeaderboardClient() {
         {status === "ready" && entries.length > 0 && (
           <>
             <ol className="leaderboard-ledger" aria-label="Ranked GainFrame Scores">
-              {entries.map((entry) => {
+              {entries.map((entry, index) => {
                 const rank = entry.rank;
+                const movement = rankMovements[entry.profile_id] || 0;
+                const achievements = standingAchievements(entry).slice(0, 2);
                 const rowContents = (
                   <>
                     <span className="leaderboard-rank">{rank}</span>
@@ -224,12 +282,27 @@ export default function LeaderboardClient() {
                           : initials(entry.username)}
                       </span>
                       <span>
-                        <strong>@{entry.username}</strong>
+                        <span className="leaderboard-member-title">
+                          <strong>@{entry.username}</strong>
+                          {movement !== 0 && (
+                            <span className={"leaderboard-movement " + (movement > 0 ? "is-up" : "is-down")}>
+                              {movement > 0 ? "↑" : "↓"} {Math.abs(movement)}
+                            </span>
+                          )}
+                        </span>
                         <small>
                           {goal === "all" && <>{friendlyGoal(entry.goal)} <b aria-hidden="true">·</b> </>}
                           {formatDate(entry.score_date)}
                           {entry.has_proof_media && <span className="leaderboard-proof-mark">Scan image shared</span>}
                         </small>
+                        {(achievements.length > 0 || (entry.cheer_count || 0) > 0) && (
+                          <span className="leaderboard-row-signals" aria-label="Public leaderboard highlights">
+                            {achievements.map((achievement) => (
+                              <span key={achievement.id}>{achievement.symbol} {achievement.title}</span>
+                            ))}
+                            {(entry.cheer_count || 0) > 0 && <span>+{entry.cheer_count} cheers</span>}
+                          </span>
+                        )}
                       </span>
                     </span>
                     <span
@@ -243,7 +316,18 @@ export default function LeaderboardClient() {
                   </>
                 );
                 return (
-                  <li className={"leaderboard-row" + (rank === 1 ? " leaderboard-row--first" : "")} key={entry.entry_id}>
+                  <li
+                    className={
+                      "leaderboard-row leaderboard-row--replay" +
+                      (rank === 1 ? " leaderboard-row--first" : "") +
+                      (movement > 0 ? " leaderboard-row--up" : movement < 0 ? " leaderboard-row--down" : "")
+                    }
+                    key={entry.entry_id + "-" + replayToken}
+                    style={{
+                      "--row-order": Math.min(index, 10),
+                      "--rank-shift": Math.max(-4, Math.min(4, movement || 1)),
+                    } as CSSProperties}
+                  >
                     {entry.profile_available ? (
                       <a
                         className="leaderboard-row-link"

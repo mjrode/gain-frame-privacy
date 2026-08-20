@@ -1,0 +1,16 @@
+:root {
+  --gf-ink: #111111;
+  --gf-logo-near-black: #1a1a1a;
+  --gf-white: #ffffff;
+  --gf-ui-canvas: #f2f2f7;
+  --gf-mascot-cream: #f5f0eb;
+  --gf-positive: #34c759;
+  --gf-positive-deep: #1b7a34;
+  --gf-logo-red: #e53935;
+  --gf-ui-brand-red: #e84c3d;
+  --gf-secondary-text: #6b7280;
+  --gf-divider: #e5e7eb;
+  --gf-font-display: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --gf-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+

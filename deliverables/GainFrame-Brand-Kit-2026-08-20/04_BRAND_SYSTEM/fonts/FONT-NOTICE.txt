@@ -1,0 +1,4 @@
+These Outfit and DM Sans font files were copied from the GainFrame iOS app source, where they ship with the product.
+
+No font license files were present in either inspected repository. Before redistributing the font binaries outside the working marketing team, confirm and include the applicable font licenses. If that confirmation is not available, use the named fonts through an approved font provider or substitute a clean system sans serif.
+

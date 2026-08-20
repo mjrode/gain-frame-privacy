@@ -168,6 +168,22 @@ function allowedModels(route: RouteConfig | null): Set<string> {
   return set;
 }
 
+/**
+ * Drift is only meaningful against *current* traffic. A multi-day window spans
+ * several config eras, so without this cutoff every config change would light
+ * up as drift for as long as the window is wide.
+ */
+const DRIFT_LOOKBACK_HOURS = 24;
+
+function driftCutoff(): string {
+  // lastSeen arrives as "YYYY-MM-DD HH:MM:SS.ffffff" (UTC), so a lexical
+  // comparison against the same shape is a valid time comparison.
+  return new Date(Date.now() - DRIFT_LOOKBACK_HOURS * 3600 * 1000)
+    .toISOString()
+    .slice(0, 19)
+    .replace("T", " ");
+}
+
 function summarize(
   rows: FlowModelRow[],
   routes: Record<string, RouteConfig>,
@@ -220,13 +236,17 @@ function summarize(
     });
   }
 
+  const cutoff = driftCutoff();
   for (const summary of byFlow.values()) {
     const allowed = allowedModels(summary.route);
     if (allowed.size === 0) continue;
     summary.drift = [
       ...new Set(
         summary.models
-          .filter((m) => m.requests > 0 && !allowed.has(m.model))
+          .filter(
+            (m) =>
+              m.requests > 0 && m.lastSeen >= cutoff && !allowed.has(m.model),
+          )
           .map((m) => m.model),
       ),
     ];
@@ -263,13 +283,18 @@ export default function FlowsPanel({
     );
   }
 
-  // Prefer the config version telemetry actually reports; fall back to the
-  // newest snapshotted config when traffic carries no version tag.
-  const observedVersions = new Set(
-    data.rows.map((r) => r.configVersion).filter((v): v is string => !!v),
+  // The live config is the one carried by the *most recent* request, not the
+  // busiest one — a wide window contains several config eras, and the newest
+  // is what serves traffic now. Falls back to the newest snapshot when no
+  // observed version is present in the snapshot.
+  const versioned = data.rows.filter(
+    (r) => r.configVersion && routes?.configs[r.configVersion],
   );
   const liveVersion =
-    [...observedVersions].find((v) => routes?.configs[v]) ??
+    (versioned.length > 0
+      ? versioned.reduce((best, r) => (r.lastSeen > best.lastSeen ? r : best))
+          .configVersion
+      : null) ??
     routes?.latest ??
     null;
   const liveConfig = liveVersion ? routes?.configs[liveVersion] : undefined;
@@ -314,15 +339,16 @@ export default function FlowsPanel({
         >
           <strong>
             {drifting.length} flow{drifting.length === 1 ? "" : "s"} served a
-            model that is not in the applied config:
+            model outside the applied config in the last{" "}
+            {DRIFT_LOOKBACK_HOURS}h:
           </strong>{" "}
           {drifting
             .slice(0, 4)
             .map((d) => `${d.flow} (${d.drift.join(", ")})`)
             .join("; ")}
-          {drifting.length > 4 && ` and ${drifting.length - 4} more`}. Old app
-          builds and cached responses cause this legitimately — but check it is
-          not a config that failed to apply.
+          {drifting.length > 4 && ` and ${drifting.length - 4} more`}. Older app
+          builds route on their own and cause this legitimately — but check it
+          is not a config that failed to apply.
         </div>
       )}
 

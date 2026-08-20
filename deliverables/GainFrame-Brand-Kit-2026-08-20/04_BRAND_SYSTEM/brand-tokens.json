@@ -1,0 +1,25 @@
+{
+  "brand": "GainFrame",
+  "updated": "2026-08-20",
+  "colors": {
+    "ink": "#111111",
+    "logoNearBlack": "#1A1A1A",
+    "white": "#FFFFFF",
+    "uiCanvas": "#F2F2F7",
+    "mascotCream": "#F5F0EB",
+    "positive": "#34C759",
+    "positiveDeep": "#1B7A34",
+    "logoRed": "#E53935",
+    "uiBrandRed": "#E84C3D",
+    "secondaryText": "#6B7280",
+    "divider": "#E5E7EB"
+  },
+  "typography": {
+    "productUi": "SF Pro / Apple system",
+    "marketingDisplay": "Outfit",
+    "marketingBody": "DM Sans",
+    "mascotDisplay": "Impact or Bebas Neue style condensed sans serif",
+    "mascotBody": "Helvetica or Arial style sans serif"
+  }
+}
+

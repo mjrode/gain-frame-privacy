@@ -1,6 +1,13 @@
 "use client";
 
-import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import {
+  type CSSProperties,
+  FormEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import LeaderboardShareDialog from "../LeaderboardShareDialog";
 import { publicLeaderboardDate } from "../leaderboard-date";
 import {
@@ -14,6 +21,10 @@ import {
   profilePageSearch,
 } from "./profile-media";
 import { appendUniqueEntries } from "./profile-pagination";
+import {
+  consecutivePublishedWeeks,
+  profileAchievements,
+} from "../leaderboard-experience";
 
 type Goal = "Lose Weight" | "Gain Muscle" | "Body Recomp";
 
@@ -51,6 +62,9 @@ interface ProfilePayload {
     training_since_year?: number;
     favorite_lift?: string;
     region?: string;
+    training_style?: string;
+    weekly_sessions?: number;
+    current_phase?: string;
     visibility: "listed" | "unlisted";
   };
   summary: {
@@ -174,10 +188,14 @@ function ScoreHistory({
               </g>
             );
           })}
-          {points.length > 1 && <polyline className="score-history-line-shadow" points={pointString} />}
-          {points.length > 1 && <polyline className="score-history-line" points={pointString} />}
-          {points.map((point) => (
-            <g key={point.entry.entry_id}>
+          {points.length > 1 && <polyline className="score-history-line-shadow" pathLength="1" points={pointString} />}
+          {points.length > 1 && <polyline className="score-history-line" pathLength="1" points={pointString} />}
+          {points.map((point, index) => (
+            <g
+              className="score-history-point-group"
+              key={point.entry.entry_id}
+              style={{ "--point-order": index } as CSSProperties}
+            >
               <circle className="score-history-point-halo" cx={point.x} cy={point.y} r="9" />
               <circle className="score-history-point" cx={point.x} cy={point.y} r="4.5" />
             </g>
@@ -665,6 +683,9 @@ export default function MemberProfileClient() {
     (publicLeaderboardDate(left.score_date)?.getTime() || 0) ||
     right.score - left.score
   ));
+  const currentRank = shareContext?.selected.rank;
+  const publicAchievements = profileAchievements(summary, payload.entries, currentRank);
+  const currentStreak = consecutivePublishedWeeks(payload.entries);
   const reportProfile = () => setReportTarget({
     profile_id: profile.profile_id,
     username: profile.username,
@@ -701,6 +722,15 @@ export default function MemberProfileClient() {
           )}
           {profile.region && (
             <span><b>Region</b> {profile.region}</span>
+          )}
+          {profile.training_style && (
+            <span><b>Training</b> {profile.training_style}</span>
+          )}
+          {profile.weekly_sessions && (
+            <span><b>Frequency</b> {profile.weekly_sessions}× week</span>
+          )}
+          {profile.current_phase && (
+            <span><b>Current phase</b> {profile.current_phase}</span>
           )}
           {shareContext && (
             <button
@@ -751,6 +781,38 @@ export default function MemberProfileClient() {
           <strong>{summary.entry_count}</strong>
           <small>Published by choice</small>
         </div>
+      </section>
+
+      <section className="member-profile-story" aria-labelledby="member-profile-story-title">
+        <div className="member-profile-story-heading">
+          <div>
+            <span>Performance story</span>
+            <h2 id="member-profile-story-title">
+              {improvement !== undefined && improvement > 0
+                ? improvement + " points stronger since the first public frame."
+                : currentStreak >= 2
+                  ? "A " + currentStreak + "-week publishing rhythm."
+                  : summary.best_score !== null
+                    ? "A personal best of " + summary.best_score + ", backed by the public history."
+                    : "The first public frame is still ahead."}
+            </h2>
+          </div>
+          <div className="member-profile-story-rank" aria-label={currentRank ? "Current rank " + currentRank : "Current rank unavailable"}>
+            <strong>{currentRank ? "#" + String(currentRank).padStart(2, "0") : "—"}</strong>
+            <span>Current rank</span>
+          </div>
+        </div>
+
+        {publicAchievements.length > 0 && (
+          <div className="member-achievements" aria-label="Leaderboard achievements">
+            {publicAchievements.map((achievement, index) => (
+              <div key={achievement.id} style={{ "--achievement-order": index } as CSSProperties}>
+                <span aria-hidden="true">{achievement.symbol}</span>
+                <p><strong>{achievement.title}</strong><small>{achievement.detail}</small></p>
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
       {payload.entries.length > 0 && (

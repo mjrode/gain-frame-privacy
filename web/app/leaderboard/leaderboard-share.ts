@@ -24,6 +24,16 @@ export interface LeaderboardShareEntry {
   avatar_url?: string;
   has_proof_media: boolean;
   profile_available: boolean;
+  training_since_year?: number;
+  favorite_lift?: string;
+  region?: string;
+  training_style?: string;
+  weekly_sessions?: number;
+  current_phase?: string;
+  cheer_count?: number;
+  recent_check_in_count?: number;
+  streak_weeks?: number;
+  previous_score_date?: string;
 }
 
 export interface LeaderboardShareContext {

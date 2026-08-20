@@ -25,6 +25,16 @@ export interface PublicLeaderboardEntry {
   avatar_url?: string;
   has_proof_media: boolean;
   profile_available: boolean;
+  training_since_year?: number;
+  favorite_lift?: string;
+  region?: string;
+  training_style?: string;
+  weekly_sessions?: number;
+  current_phase?: string;
+  cheer_count?: number;
+  recent_check_in_count?: number;
+  streak_weeks?: number;
+  previous_score_date?: string;
 }
 
 export interface PublicLeaderboardMedia {
@@ -70,6 +80,9 @@ export interface PublicLeaderboardProfile {
     training_since_year?: number;
     favorite_lift?: string;
     region?: string;
+    training_style?: string;
+    weekly_sessions?: number;
+    current_phase?: string;
     visibility: "listed" | "unlisted";
   };
   summary: PublicLeaderboardProfileSummary;
@@ -191,6 +204,17 @@ function normalizedGoal(value: unknown): LeaderboardGoal | null {
     : null;
 }
 
+function normalizedBoundedInteger(
+  value: unknown,
+  minimum: number,
+  maximum: number,
+): number | undefined {
+  return typeof value === "number" && Number.isSafeInteger(value) &&
+      value >= minimum && value <= maximum
+    ? value
+    : undefined;
+}
+
 function normalizeProfileSummary(
   value: unknown,
 ): PublicLeaderboardProfileSummary | null {
@@ -282,6 +306,26 @@ export function normalizeEntries(
     const avatarUrl = row.profile_available
       ? publicAssetUrl(row.avatar_url, allowedAssetHost, profileId)
       : undefined;
+    const trainingSinceYear = normalizedBoundedInteger(
+      row.training_since_year,
+      1900,
+      new Date().getUTCFullYear(),
+    );
+    const weeklySessions = normalizedBoundedInteger(row.weekly_sessions, 1, 14);
+    const cheerCount = normalizedBoundedInteger(row.cheer_count, 0, 1_000_000);
+    const recentCheckInCount = normalizedBoundedInteger(
+      row.recent_check_in_count,
+      0,
+      1_000,
+    );
+    const streakWeeks = normalizedBoundedInteger(row.streak_weeks, 0, 10_000);
+    const previousScoreDate = row.previous_score_date === null || row.previous_score_date === undefined
+      ? undefined
+      : publicScoreDate(row.previous_score_date) ?? undefined;
+    const favoriteLift = publicString(row.favorite_lift, 60);
+    const region = publicString(row.region, 80);
+    const trainingStyle = publicString(row.training_style, 60);
+    const currentPhase = publicString(row.current_phase, 40);
     return [{
       profile_id: profileId,
       entry_id: entryId,
@@ -293,6 +337,18 @@ export function normalizeEntries(
       ...(avatarUrl ? { avatar_url: avatarUrl } : {}),
       has_proof_media: row.profile_available ? row.has_proof_media : false,
       profile_available: row.profile_available,
+      ...(row.profile_available && trainingSinceYear ? { training_since_year: trainingSinceYear } : {}),
+      ...(row.profile_available && favoriteLift ? { favorite_lift: favoriteLift } : {}),
+      ...(row.profile_available && region ? { region } : {}),
+      ...(row.profile_available && trainingStyle ? { training_style: trainingStyle } : {}),
+      ...(row.profile_available && weeklySessions ? { weekly_sessions: weeklySessions } : {}),
+      ...(row.profile_available && currentPhase ? { current_phase: currentPhase } : {}),
+      ...(row.profile_available && cheerCount !== undefined ? { cheer_count: cheerCount } : {}),
+      ...(row.profile_available && recentCheckInCount !== undefined
+        ? { recent_check_in_count: recentCheckInCount }
+        : {}),
+      ...(row.profile_available && streakWeeks !== undefined ? { streak_weeks: streakWeeks } : {}),
+      ...(row.profile_available && previousScoreDate ? { previous_score_date: previousScoreDate } : {}),
     }];
   });
 }
@@ -368,6 +424,9 @@ export function normalizeProfile(
   const bio = publicString(profileRow.bio, 180);
   const favoriteLift = publicString(profileRow.favorite_lift, 60);
   const region = publicString(profileRow.region, 80);
+  const trainingStyle = publicString(profileRow.training_style, 60);
+  const currentPhase = publicString(profileRow.current_phase, 40);
+  const weeklySessions = normalizedBoundedInteger(profileRow.weekly_sessions, 1, 14);
   const currentYear = new Date().getUTCFullYear();
   const trainingSinceYear = typeof profileRow.training_since_year === "number" &&
     Number.isInteger(profileRow.training_since_year) &&
@@ -429,6 +488,9 @@ export function normalizeProfile(
       ...(trainingSinceYear ? { training_since_year: trainingSinceYear } : {}),
       ...(favoriteLift ? { favorite_lift: favoriteLift } : {}),
       ...(region ? { region } : {}),
+      ...(trainingStyle ? { training_style: trainingStyle } : {}),
+      ...(weeklySessions ? { weekly_sessions: weeklySessions } : {}),
+      ...(currentPhase ? { current_phase: currentPhase } : {}),
       visibility,
     },
     summary,
@@ -520,12 +582,15 @@ export async function handleLeaderboard(
     return unavailable();
   }
   const body = data && typeof data === "object" ? data as Record<string, unknown> : {};
+  const normalizedEntries = normalizeEntries(body.entries, upstreamHost(env));
   const nextCursor = typeof body.next_cursor === "string" && CURSOR_PATTERN.test(body.next_cursor)
     ? body.next_cursor
     : undefined;
+  const total = normalizedBoundedInteger(body.total, normalizedEntries.length, 10_000_000);
   return jsonResponse(
     {
-      entries: normalizeEntries(body.entries, upstreamHost(env)),
+      entries: normalizedEntries,
+      total: total ?? normalizedEntries.length,
       ...(nextCursor ? { next_cursor: nextCursor } : {}),
     },
     {

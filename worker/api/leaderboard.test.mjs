@@ -31,6 +31,16 @@ test("normalizeEntries keeps only the public standings contract", () => {
       avatar_url: "https://example.supabase.co/storage/" + PROFILE_ID + "/avatar.jpg?token=short-lived",
       has_proof_media: true,
       profile_available: true,
+      training_since_year: 2020,
+      favorite_lift: "Back squat",
+      region: "Northeast",
+      training_style: "Powerbuilding",
+      weekly_sessions: 4,
+      current_phase: "Lean gain",
+      cheer_count: 12,
+      recent_check_in_count: 7,
+      streak_weeks: 5,
+      previous_score_date: "2026-08-02T20:14:00Z",
     },
     {
       profile_id: PROFILE_ID,
@@ -54,6 +64,9 @@ test("normalizeEntries keeps only the public standings contract", () => {
       avatar_url: "https://example.supabase.co/storage/auth-user-id/avatar.jpg",
       has_proof_media: true,
       profile_available: false,
+      training_style: "must-not-expand-legacy-consent",
+      cheer_count: 999,
+      streak_weeks: 99,
     },
   ], "example.supabase.co");
 
@@ -68,6 +81,16 @@ test("normalizeEntries keeps only the public standings contract", () => {
     avatar_url: "https://example.supabase.co/storage/" + PROFILE_ID + "/avatar.jpg?token=short-lived",
     has_proof_media: true,
     profile_available: true,
+    training_since_year: 2020,
+    favorite_lift: "Back squat",
+    region: "Northeast",
+    training_style: "Powerbuilding",
+    weekly_sessions: 4,
+    current_phase: "Lean gain",
+    cheer_count: 12,
+    recent_check_in_count: 7,
+    streak_weeks: 5,
+    previous_score_date: "2026-08-02",
   }, {
     profile_id: "f9b035e5-45e2-46a5-92d7-6df401da73df",
     entry_id: "03efe1b9-b789-4dd5-bec6-5a80876f3e42",
@@ -94,6 +117,9 @@ test("normalizeProfile drops hidden fields and unsafe asset hosts", () => {
       favorite_lift: "Deadlift",
       training_since_year: 2021,
       region: "Austin, TX",
+      training_style: "Hybrid",
+      weekly_sessions: 4,
+      current_phase: "Maintenance",
       visibility: "unlisted",
       moderation_notes: "must-not-leak",
     },
@@ -138,6 +164,9 @@ test("normalizeProfile drops hidden fields and unsafe asset hosts", () => {
       training_since_year: 2021,
       favorite_lift: "Deadlift",
       region: "Austin, TX",
+      training_style: "Hybrid",
+      weekly_sessions: 4,
+      current_phase: "Maintenance",
       visibility: "unlisted",
     },
     summary: {
@@ -247,6 +276,7 @@ test("handleLeaderboard forwards validated filters and returns a safe projection
         profile_available: true,
       }],
       next_cursor: "next.page_2",
+      total: 312,
     });
   };
 
@@ -271,6 +301,7 @@ test("handleLeaderboard forwards validated filters and returns a safe projection
         has_proof_media: false,
         profile_available: true,
       }],
+      total: 312,
       next_cursor: "next.page_2",
     });
     assert.equal(upstreamUrl.pathname, "/functions/v1/leaderboard-standings");
