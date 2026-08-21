@@ -26,7 +26,7 @@ type Goal = LeaderboardGoal;
 type GoalFilter = LeaderboardGoalFilter;
 type Period = LeaderboardPeriod;
 type LeaderboardEntry = LeaderboardShareEntry;
-type Board = "score" | "consistency";
+type Board = "score" | "consistency" | "community";
 interface ConsistencyEntry {
   profile_id: string;
   entry_id: string;
@@ -96,7 +96,7 @@ export default function LeaderboardClient() {
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [loadingMore, setLoadingMore] = useState(false);
   const [goal, setGoal] = useState<GoalFilter>("all");
-  const [period, setPeriod] = useState<Period>("all_time");
+  const [period, setPeriod] = useState<Period>("month");
   const [board, setBoard] = useState<Board>("score");
   const [shareContext, setShareContext] = useState<LeaderboardShareContext>();
   const [totalMembers, setTotalMembers] = useState(0);
@@ -116,7 +116,7 @@ export default function LeaderboardClient() {
     else setStatus("loading");
     try {
       const params = new URLSearchParams({
-        board,
+        board: board === "consistency" ? "consistency" : "score",
         goal,
         period: board === "consistency" ? "week" : period,
         limit: board === "consistency" ? "100" : "50",
@@ -148,7 +148,7 @@ export default function LeaderboardClient() {
           : appendUniqueStandings([], scoreEntries));
       }
       setTotalMembers((current) => append ? Math.max(current, safeTotal) : safeTotal);
-      if (board === "score" && !append && typeof window !== "undefined") {
+      if (board !== "consistency" && !append && typeof window !== "undefined") {
         const memoryKey = rankMemoryKey(goal, period);
         let previous: Record<string, number> = {};
         try {
@@ -196,10 +196,16 @@ export default function LeaderboardClient() {
     { value: pulse.activeStreaks, label: "Weekly streaks", visible: pulse.activeStreaks > 0 },
     { value: pulse.totalCheers, label: "Cheers", visible: pulse.totalCheers > 0 },
   ].filter((metric) => metric.visible), [pulse]);
+  const freshEntries = useMemo(
+    () => [...entries]
+      .sort((left, right) => right.score_date.localeCompare(left.score_date))
+      .slice(0, 3),
+    [entries],
+  );
   const openShare = (entry: LeaderboardEntry) => setShareContext(
     buildShareContext(entries, entry, goal, period),
   );
-  const activeCount = board === "score" ? entries.length : consistencyEntries.length;
+  const activeCount = board === "consistency" ? consistencyEntries.length : entries.length;
 
   return (
     <div className="leaderboard-wrap">
@@ -263,22 +269,30 @@ export default function LeaderboardClient() {
             >
               Consistency
             </button>
+            <button
+              type="button"
+              className={board === "community" ? "is-selected" : ""}
+              aria-pressed={board === "community"}
+              onClick={() => setBoard("community")}
+            >
+              Community
+            </button>
           </div>
           <div className="leaderboard-filters" aria-label="Filter leaderboard">
-            <label>
-              <span>Goal</span>
-              <select aria-label="Goal" value={goal} onChange={(event) => setGoal(event.target.value as GoalFilter)}>
-                {GOAL_FILTERS.map((filter) => <option key={filter.value} value={filter.value}>{filter.label}</option>)}
-              </select>
-            </label>
-            {board === "score" ? (
               <label>
-                <span>Period</span>
-                <select aria-label="Period" value={period} onChange={(event) => setPeriod(event.target.value as Period)}>
-                  {PERIODS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+                <span>Goal</span>
+                <select aria-label="Goal" value={goal} onChange={(event) => setGoal(event.target.value as GoalFilter)}>
+                  {GOAL_FILTERS.map((filter) => <option key={filter.value} value={filter.value}>{filter.label}</option>)}
                 </select>
               </label>
-            ) : <span className="leaderboard-week-reset">Resets Monday</span>}
+              {board !== "consistency" ? (
+                <label>
+                  <span>Period</span>
+                  <select aria-label="Period" value={period} onChange={(event) => setPeriod(event.target.value as Period)}>
+                    {PERIODS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+                  </select>
+                </label>
+              ) : <span className="leaderboard-week-reset">Resets Monday</span>}
           </div>
 
           <a
@@ -293,21 +307,6 @@ export default function LeaderboardClient() {
           </a>
         </div>
       </header>
-
-      {board === "score" && status === "ready" && entries.length > 0 && (
-        <section className="leaderboard-pulse" aria-labelledby="community-pulse-title">
-          <span className="leaderboard-pulse-icon" aria-hidden="true">⌁</span>
-          <div className="leaderboard-pulse-copy">
-            <span>This week on the leaderboard</span>
-            <h2 id="community-pulse-title">{pulse.headline}</h2>
-            <div className="leaderboard-pulse-metrics" aria-label="Community activity summary">
-              {pulseMetrics.map((metric) => (
-                <span key={metric.label}><strong>{metric.value}</strong><small>{metric.label}</small></span>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       <section className="leaderboard-board" aria-labelledby="standings-heading">
         {status === "loading" && (
@@ -334,7 +333,7 @@ export default function LeaderboardClient() {
         {board === "score" && status === "ready" && entries.length > 0 && (
           <>
             <div className="leaderboard-board-heading">
-              <span>Leaderboard</span>
+              <span>{selectedPeriodLabel ?? "Leaderboard"}</span>
               <small>{rankingRule(period)}</small>
             </div>
             <ol className="leaderboard-ledger" aria-label="Ranked GainFrame Scores">
@@ -505,6 +504,57 @@ export default function LeaderboardClient() {
               })}
             </ol>
           </>
+        )}
+
+        {board === "community" && status === "ready" && entries.length > 0 && (
+          <div className="leaderboard-community-view">
+            <div className="leaderboard-community-heading">
+              <span>Around the board</span>
+              <h2>Fresh check-ins from the GainFrame community</h2>
+              <p>See who just added a score, then open any public profile for their shared progress.</p>
+            </div>
+
+            <section className="leaderboard-pulse" aria-labelledby="community-pulse-title">
+              <span className="leaderboard-pulse-icon" aria-hidden="true">⌁</span>
+              <div className="leaderboard-pulse-copy">
+                <span>This week on the leaderboard</span>
+                <h2 id="community-pulse-title">{pulse.headline}</h2>
+                <div className="leaderboard-pulse-metrics" aria-label="Community activity summary">
+                  {pulseMetrics.map((metric) => (
+                    <span key={metric.label}><strong>{metric.value}</strong><small>{metric.label}</small></span>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section className="leaderboard-fresh" aria-labelledby="fresh-checkins-title">
+              <div className="leaderboard-fresh-heading">
+                <span>Latest activity</span>
+                <h2 id="fresh-checkins-title">Recently added scores</h2>
+              </div>
+              <div className="leaderboard-fresh-grid">
+                {freshEntries.map((entry) => {
+                  const content = (
+                    <>
+                      <span className="leaderboard-avatar" aria-hidden="true">
+                        {entry.avatar_url
+                          ? <img src={entry.avatar_url} alt="" referrerPolicy="no-referrer" />
+                          : initials(entry.username)}
+                      </span>
+                      <span className="leaderboard-fresh-member">
+                        <strong>@{entry.username}</strong>
+                        <small>Added {formatDate(entry.score_date)}</small>
+                      </span>
+                      <strong className="leaderboard-fresh-score">{entry.score}</strong>
+                    </>
+                  );
+                  return entry.profile_available ? (
+                    <a key={entry.entry_id} href={"/leaderboard/u/" + entry.profile_id + "/"}>{content}</a>
+                  ) : <div key={entry.entry_id}>{content}</div>;
+                })}
+              </div>
+            </section>
+          </div>
         )}
       </section>
       <p className="leaderboard-community-note">
