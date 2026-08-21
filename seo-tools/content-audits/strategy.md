@@ -1,7 +1,7 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-21** (review; **APPROVED BACKLOG FOUND UNSHIPPED** — Hume retitle + scales link (due Aug 19) and rate-my-physique CTA swap (due today) were all approved Aug 18 and never executed; re-proposed this run. Traffic accelerating: Aug 19 hit 705 clicks / 36,569 imp; 28d 10,471 / 597,945 (+137%/+185%), brand only 6.7%. Sibling gate CLOSED as HOLD on fresh query×page (tool takes AI intent at 3.2 with 36 clicks vs blog 1 click @ 17). Hume now 483 imp @ 14.7 with ZERO clicks, confirming the retitle thesis. Aug 14 fixes CONFIRMED WIN via DataForSEO `is_new` ranks (bodybuilding measurements 8,100 @ 15; measurement chart 3,600 @ 12; waist size for size 8 1,600 @ 12). **New held finding:** the picture family (~10.7K/mo, KD 3-15) lands on the chart post and bf-photo tool, not the purpose-built /body-fat/ gallery, and three explicitly-female picture terms (~3,000/mo) are taken by the UNISEX chart while the women page stays weak. Hold both; join the decisions Sep 15. DataForSEO available in Claude Code this session even though the Aug 18 Cursor run had none) · Data through 2026-08-19
+> Last run: **2026-08-21 same-day rerun** (review; zero posts, one fix proposed). Final GSC cutoff remained Aug 19, but the finalized 28d total rose to 10,616 clicks / 599,647 impressions (+140% / +186%); brand remained 702 clicks (6.6%). The Hume retitle and accurate-to-worth-it link now exist as **uncommitted local changes** and pass strict slug checks, so they were removed from the proposal without being counted as shipped. The only remaining action is the already-approved `rate-my-physique` CTA bridge to `/tools/physique-rater/`. The sibling stays HOLD: tool takes `rate my body ai` at 3.2 with 36 clicks while the blog gets 1 click at 17. DataForSEO was available: picture intent still resolves to existing chart/tool pages; `best smart scale` now reads -19% yearly rather than the earlier +23%, reinforcing the Sep 8-10 hold; `fitbod review` has 1 exact-query GSC impression, below the proposal threshold. Eight recent URLs are indexed; two Aug 6 male gallery URLs remain unknown and too new to judge until Sep 3. · Data through 2026-08-19
 > Prior run: **2026-08-18** (review → execution; owner approved `all`: F4 absmaxx inbound SHIPPED same day; F1 Hume retitle + F2 accurate→worth-it remain SCHEDULED Aug 19; F3 rater CTA SCHEDULED Aug 21; zero posts; sibling HOLD) · Data through 2026-08-16
 > Prior run: **2026-08-17** (review; full experiment audit — chart revert CLOSED keep-control at 0.60% CTR / pos 9.3; WHR WIN 14.7→9.8; WHtR MIXED (imp 2.4× but pos 13.2→16.4); rate-my-physique trending GO for the Aug 21 sibling at 7.3 / 4.2% CTR; Hume long-tail already ranking (price @ 9, subscription @ 7) with retitle proposed for Aug 19; women-chart overlap NOT found — leave; F1 chart→gallery link SHIPPED same day + F2 Hume retitle APPROVED-SCHEDULED for Aug 19, zero posts until the Aug 21 gate) · Data through 2026-08-15
 > Prior run: **2026-08-14** (review → execution; owner approved `all`: Hume strengthen + waist size-8 chart + bodybuilding-measurements section SHIPPED same day; Hume retitle decision remains for ~Aug 19; F2's proposed retitle was already live since Jul 16 — only the chart section was needed) · **HUME FINDING**: 65K/mo brand family at KD 1-10 with hume-body-pod-review at rank 17-23 — F1 content strengthen proposed, retitle gated to ~Aug 19 by the Aug 11 og/subtitle dash-cleanup window; F2 average-waist-size-women retitle, F3 bodybuilding-measurements section; zero posts, competitors_domain sweep found no new brand targets) · Data through 2026-08-12
@@ -13,6 +13,32 @@
 > Same-day run 1: 2026-08-11 (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**)
 > Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
 > Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
+
+## New findings (2026-08-21 same-day rerun - decision scope changed)
+
+- **No new post survived the gates.** Current market candidates are already served, in declining
+  zero-click lanes, below the site's evidence threshold, or inside measurement windows. The
+  normalized result is `write=[]`, `fix=[rate_my_physique_bridge]`, and the picture/scale/Thelo/ab
+  families remain watches.
+- **F1/F2 from the morning audit are now local, not shipped.** `hume-body-pod-review` has the
+  approved Accuracy/Price/Subscription title and `are-smart-scales-accurate` now links
+  contextually to worth-it. Both pass strict slug checks. They belong to an uncommitted workstream;
+  do not re-propose or stage them, and do not start their measurement clocks until deploy.
+- **Only the rater bridge remains executable.** `rate-my-physique` earns 92 clicks / 2,169
+  impressions at 8.5 but its 30-second CTA still points at the BF estimator. The matching rater
+  tool earns 1,039 GSC clicks, 880 GA4 organic sessions at 89.7% engagement, 340 scores and 23
+  store clicks in 7d. Change the link, not the page metadata and not the cluster shape.
+- **The market layer reinforced the hold.** `best smart scale` is now 5,400 volume / KD 4 / -19%
+  yearly; the earlier +23% reading is stale. `female body visualizer` is 12,100 / KD 5 / -33%
+  with the existing tool inside its 28-day window. `fitbod review` is 1,000 / KD 2 / -12%, but the
+  exact query has one GSC impression. Volume alone does not open a page.
+- **Static hygiene lost to observed behavior.** `best-ai-personal-trainer-apps` has a 78-word
+  Quick Answer defect, but Google already cites it at AI Overview rank 2 and its market is down
+  63%. `shoulder-to-waist-ratio` has a valid 57-word answer and AI Overview rank 1. Do not turn
+  the local checker into an automatic rewrite queue.
+- **Indexing remains healthy enough to measure.** Eight recent blog/tool URLs are indexed. The
+  12% and 30% male gallery URLs remain unknown to Google but are inside the Sep 3 window with
+  sitemap and hub links already present.
 
 ## New findings (2026-08-18 — tools, conversion, next-blog HOLD)
 
@@ -272,15 +298,15 @@ prune these from topical-map gap lines when next edited.
 
 ## Structural debt
 
-**Largely cleared 2026-08-01.** As of 2026-08-11: 1,318 internal links, 7 orphans, median inbound 4.
+**Largely cleared 2026-08-01.** As of 2026-08-21: 1,344 internal links, 6 orphans, median inbound 4.
 
-- **7 orphans remain**, all founder/product-lane (exempt — judged on sessions/distribution, not
+- **6 orphans remain**, all founder/product-lane (exempt — judged on sessions/distribution, not
   GSC link equity).
 - **51 Quick Answer defects remain.** They include frozen stats pages and a smaller set of
   commercial pages. Fresh AI Overview citation data was unavailable 2026-08-11, so do not bulk
   prioritize from the local count alone. Pages inside a measurement window remain untouched.
-- The stricter Aug 11 checker establishes a legacy baseline of **100 structured-data contract
-  drifts** and **234 posts with reader-visible long dashes**. These are not a blanket rewrite
+- The stricter Aug 11 checker now reports **98 structured-data contract drifts** and **221 posts
+  with reader-visible long dashes**. These are not a blanket rewrite
   mandate; every newly modified post must pass the strict gate, and legacy work needs a
   leverage-ranked scope.
 - **Cannibalization: none real.** The one flagged pair was a false positive (see below).
@@ -356,7 +382,7 @@ calculator's earliest directional read is 2026-08-16, with a full read on 2026-0
 | P3 `renpho-gainframe-integration` | ~40/mo; Integration page (Hevy template) | destination for the in-app "RENPHO Setup Guide" row | **Shipped 2026-08-11**; judged on product job, not GSC |
 | F1 retitle best-body-composition-scales | best smart scale 5,400 +23% KD 4 (shared SERP) | one-SERP proof via serp_competitors; page was 14.6 | **Shipped**; metadata window to ~Aug 21, position read ~Sep 10 |
 | F2 renpho-scale-review refresh | renpho scale accuracy 880 KD 3 | was 748 imp / 0 clicks at pos 16-31 | **Shipped**; window to ~Aug 21, read ~Sep 10 |
-| Interlink exclusion | are-smart-scales-accurate | inside Aug 9 anchor-read window | Still pending: add P1 link ~Aug 19 |
+| Interlink exclusion | are-smart-scales-accurate | inside Aug 9 anchor-read window | Present locally 2026-08-21, uncommitted; start read after deploy |
 | Strict-gate cleanup | 9 touched posts pass no-dash + schema gates | sitewide legacy-dash count 234 → 228 | Done in the same commit |
 
 ## 2026-08-11 proposed / gated
@@ -407,7 +433,7 @@ their own.
 |---|---|---|
 | Approved F2 body-composition fold-in | loser vs winner on shared queries with data through Aug 11 | ~2026-08-13 |
 | `body-fat-percentage-chart-women` vs unisex chart | shared-query split; differentiate/merge decision | 2026-08-15 |
-| `rate-my-physique` after Aug 11 exact-query refresh | sibling HOLD (2026-08-18); F3 CTA swap to physique-rater, not a new URL | 2026-08-21 |
+| `rate-my-physique` after Aug 11 exact-query refresh | sibling HOLD; F3 CTA bridge to physique-rater remains the only proposal | 7d after ship |
 | `/tools/physique-rater/` | position (currently 7.0) on "physique rater" | 2026-08-15 |
 | `dexa-scan-alternative` | holds AI Overview rank 2 | 2026-08-15 |
 | `menopause-body-composition` | visual/PAA expansion decision after ≥30 impressions | next cycle with enough signal |
@@ -420,7 +446,7 @@ their own.
 | Smart-scale series (P1/P2/P3) | indexation, then 28d positions; P1 AI Overview citation check | index check next run; 2026-09-08 |
 | `best-body-composition-scales` | "best smart scale" + "best body composition scale" positions vs 14.6 baseline | 2026-08-21 CTR; 2026-09-10 position |
 | `renpho-scale-review` | "renpho scale accuracy" family vs 16-31 / 748 imp / 0 clicks baseline | 2026-09-10 |
-| `are-smart-scales-accurate` | after Aug 9 anchor read, add contextual link → are-smart-scales-worth-it (proposed F2 2026-08-18) | **2026-08-19** |
-| Hume retitle F1 | ship approved title (Accuracy, Price & Subscription) | **2026-08-19** |
+| `are-smart-scales-accurate` | contextual link to worth-it exists locally but is uncommitted | 7d after deploy |
+| Hume retitle F1 | approved title exists locally but is uncommitted | 7-10d after deploy |
 | Tool conversion card | tool-path store clicks vs homepage Reddit/direct | next run with ≥7d after Aug 17 |
 | `absmaxx-vs-gainframe` orphan | inbound from `recomp-ai-vs-gainframe` | **Shipped 2026-08-18** |
