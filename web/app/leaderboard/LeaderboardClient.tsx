@@ -33,7 +33,8 @@ interface ConsistencyEntry {
   rank: number;
   username: string;
   consistency_points: number;
-  weekly_check_in_count: number;
+  check_in_day_count?: number;
+  weekly_check_in_count?: number;
   streak_weeks: number;
   goal: Goal;
   score_date: string;
@@ -89,6 +90,25 @@ function rankingRule(period: Period): string {
   return `Each member’s best score ${context} across all goals sets their rank.`;
 }
 
+function consistencyDayCount(entry: ConsistencyEntry): number {
+  return entry.check_in_day_count ?? entry.weekly_check_in_count ?? 0;
+}
+
+function consistencyStreakLabel(weeks: number): string {
+  return weeks === 0 ? "No active streak" : `${weeks}-week streak`;
+}
+
+function publicProfileChips(entry: LeaderboardEntry): string[] {
+  return [
+    entry.training_since_year ? `Since ${entry.training_since_year}` : undefined,
+    entry.favorite_lift,
+    entry.region,
+    entry.training_style,
+    entry.weekly_sessions ? `${entry.weekly_sessions}x week` : undefined,
+    entry.current_phase,
+  ].filter((value): value is string => Boolean(value));
+}
+
 export default function LeaderboardClient() {
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
   const [consistencyEntries, setConsistencyEntries] = useState<ConsistencyEntry[]>([]);
@@ -118,7 +138,7 @@ export default function LeaderboardClient() {
       const params = new URLSearchParams({
         board: board === "consistency" ? "consistency" : "score",
         goal,
-        period: board === "consistency" ? "week" : period,
+        period: board === "consistency" ? "month" : period,
         limit: board === "consistency" ? "100" : "50",
       });
       if (cursor) params.set("cursor", cursor);
@@ -292,7 +312,7 @@ export default function LeaderboardClient() {
                     {PERIODS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
                   </select>
                 </label>
-              ) : <span className="leaderboard-week-reset">Resets Monday</span>}
+              ) : <span className="leaderboard-period-reset">Resets next month</span>}
           </div>
 
           <a
@@ -311,7 +331,15 @@ export default function LeaderboardClient() {
       <section className="leaderboard-board" aria-labelledby="standings-heading">
         {status === "loading" && (
           <div className="leaderboard-state" role="status">
-            <span className="leaderboard-spinner" aria-hidden="true" /> Loading leaderboard…
+            <span className="sr-only">Loading leaderboard…</span>
+            <div className="leaderboard-skeleton" aria-hidden="true">
+              <span className="leaderboard-skeleton-card" />
+              {Array.from({ length: 5 }, (_, index) => (
+                <span className="leaderboard-skeleton-row" key={index}>
+                  <i /> <b /> <em /> <strong />
+                </span>
+              ))}
+            </div>
           </div>
         )}
 
@@ -331,7 +359,7 @@ export default function LeaderboardClient() {
         )}
 
         {board === "score" && status === "ready" && entries.length > 0 && (
-          <>
+          <div className="leaderboard-panel" key={`score-${goal}-${period}-${replayToken}`}>
             <div className="leaderboard-board-heading">
               <span>{selectedPeriodLabel ?? "Leaderboard"}</span>
               <small>{rankingRule(period)}</small>
@@ -341,6 +369,7 @@ export default function LeaderboardClient() {
                 const rank = entry.rank;
                 const movement = rankMovements[entry.profile_id] || 0;
                 const achievements = standingAchievements(entry).slice(0, 2);
+                const profileChips = publicProfileChips(entry).slice(0, 3);
                 const rowContents = (
                   <>
                     <span className="leaderboard-rank">
@@ -367,11 +396,12 @@ export default function LeaderboardClient() {
                           {formatDate(entry.score_date)}
                           {entry.has_proof_media && <span className="leaderboard-proof-mark">Check-in photo</span>}
                         </small>
-                        {(achievements.length > 0 || (entry.cheer_count || 0) > 0) && (
+                        {(achievements.length > 0 || profileChips.length > 0 || (entry.cheer_count || 0) > 0) && (
                           <span className="leaderboard-row-signals" aria-label="Public leaderboard highlights">
                             {achievements.map((achievement) => (
                               <span key={achievement.id}>{achievement.symbol} {achievement.title}</span>
                             ))}
+                            {profileChips.map((chip) => <span key={chip}>{chip}</span>)}
                             {(entry.cheer_count || 0) > 0 && <span>+{entry.cheer_count} cheers</span>}
                           </span>
                         )}
@@ -442,25 +472,26 @@ export default function LeaderboardClient() {
                 </button>
               </div>
             )}
-          </>
+          </div>
         )}
 
         {board === "consistency" && status === "ready" && consistencyEntries.length > 0 && (
-          <>
+          <div className="leaderboard-panel" key={`consistency-${goal}-${replayToken}`}>
             <div className="leaderboard-consistency-rule">
               <span>Consistency league</span>
               <h2>Showing up counts here.</h2>
               <p>
-                Earn 10 points for each check-in day this week, plus up to 9 active-streak points.
+                Earn 10 points for each check-in day this month, plus up to 9 active-streak points.
                 Multiple scores on one day still count once.
               </p>
             </div>
             <div className="leaderboard-board-heading">
-              <span>This week&apos;s league</span>
+              <span>This month&apos;s league</span>
               <small>Check-in days first; active streak breaks the tie.</small>
             </div>
-            <ol className="leaderboard-ledger leaderboard-ledger--consistency" aria-label="Weekly consistency rankings">
+            <ol className="leaderboard-ledger leaderboard-ledger--consistency" aria-label="Monthly consistency rankings">
               {consistencyEntries.map((entry, index) => {
+                const checkInDays = consistencyDayCount(entry);
                 const rowContents = (
                   <>
                     <span className="leaderboard-rank">
@@ -475,7 +506,7 @@ export default function LeaderboardClient() {
                       </span>
                       <span>
                         <span className="leaderboard-member-title"><strong>@{entry.username}</strong></span>
-                        <small>{entry.weekly_check_in_count} check-in {entry.weekly_check_in_count === 1 ? "day" : "days"} <b aria-hidden="true">·</b> {entry.streak_weeks}-week streak</small>
+                        <small>{checkInDays} check-in {checkInDays === 1 ? "day" : "days"} <b aria-hidden="true">·</b> {consistencyStreakLabel(entry.streak_weeks)}</small>
                       </span>
                     </span>
                     <span className="leaderboard-consistency-score">
@@ -503,11 +534,11 @@ export default function LeaderboardClient() {
                 );
               })}
             </ol>
-          </>
+          </div>
         )}
 
         {board === "community" && status === "ready" && entries.length > 0 && (
-          <div className="leaderboard-community-view">
+          <div className="leaderboard-community-view leaderboard-panel" key={`community-${goal}-${period}-${replayToken}`}>
             <div className="leaderboard-community-heading">
               <span>Around the board</span>
               <h2>Fresh check-ins from the GainFrame community</h2>

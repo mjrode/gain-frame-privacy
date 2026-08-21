@@ -207,7 +207,7 @@
   outline-offset: 2px;
 }
 
-.leaderboard-week-reset {
+.leaderboard-period-reset {
   display: grid;
   min-width: 132px;
   place-items: center;
@@ -500,6 +500,72 @@
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+}
+
+.leaderboard-panel {
+  animation: leaderboard-panel-arrive 360ms cubic-bezier(.2, .78, .2, 1) both;
+}
+
+.leaderboard-skeleton {
+  display: grid;
+  width: 100%;
+  gap: 8px;
+}
+
+.leaderboard-skeleton-card,
+.leaderboard-skeleton-row {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 17, .055);
+  border-radius: 16px;
+  background: #eceeea;
+}
+
+.leaderboard-skeleton-card {
+  height: 104px;
+  margin-bottom: 8px;
+}
+
+.leaderboard-skeleton-row {
+  display: grid;
+  height: 74px;
+  grid-template-columns: 40px 44px minmax(0, 1fr) 52px;
+  align-items: center;
+  gap: 12px;
+  padding: 0 18px;
+}
+
+.leaderboard-skeleton-row i,
+.leaderboard-skeleton-row b,
+.leaderboard-skeleton-row em,
+.leaderboard-skeleton-row strong {
+  display: block;
+  height: 14px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, .74);
+}
+
+.leaderboard-skeleton-row b {
+  height: 44px;
+  border-radius: 50%;
+}
+
+.leaderboard-skeleton-row em {
+  width: min(150px, 78%);
+}
+
+.leaderboard-skeleton-row strong {
+  height: 26px;
+}
+
+.leaderboard-skeleton-card::after,
+.leaderboard-skeleton-row::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 25%, rgba(255, 255, 255, .72) 45%, transparent 65%);
+  content: "";
+  transform: translateX(-100%);
+  animation: leaderboard-skeleton-sweep 1.45s linear infinite;
 }
 
 .leaderboard-board-heading {
@@ -959,6 +1025,16 @@
   text-align: center;
 }
 
+.leaderboard-state .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
 .leaderboard-state strong {
   display: block;
   color: var(--color-text);
@@ -1028,6 +1104,21 @@
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+@keyframes leaderboard-panel-arrive {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes leaderboard-skeleton-sweep {
+  to { transform: translateX(100%); }
 }
 
 @keyframes leaderboard-rank-replay {
@@ -1255,6 +1346,9 @@
   .leaderboard-row--replay,
   .leaderboard-row--up::after,
   .leaderboard-row--down::after,
+  .leaderboard-panel,
+  .leaderboard-skeleton-card::after,
+  .leaderboard-skeleton-row::after,
   .leaderboard-pulse,
   .leaderboard-privacy > summary,
   .leaderboard-row-arrow {
