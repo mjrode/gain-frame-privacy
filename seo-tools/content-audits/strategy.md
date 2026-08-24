@@ -1,7 +1,7 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-23** (review; keyword-expansion reset; one asset-gated post and four fixes proposed). GSC reached 11,447 clicks / 648,562 impressions in 28d (+137% / +178%); residual nonbrand clicks rose 153%. The only clean net-new post is **P1 ZOZOFIT Review**: 720 US volume, +22% yearly, no dedicated owner, and an open current-review SERP, but it must have three controlled scans, tape comparison, setup notes, and first-party screenshots. Without those assets it is HOLD. `hume vs renpho` (140, KD 1, +250% yearly) is a watch because it overlaps current Hume/scale pages and also needs side-by-side hardware. Fitbod/Hevy/LeanLens/MyFitnessPal siblings were rejected. Shipped-feature seeds for Target Training, Physique Match, nutrition, and Chapters returned no DataForSEO data, so the action is accurate existing product education, not manufactured posts. Proposed fixes: rater CTA bridge; current ZOZOFIT facts in `best-body-composition-apps`; InBody-vs-Withings section on its existing owner; shipped Target Training/nutrition truth corrections. 507/509 live sitemap URLs are indexed; the two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-21
+> Last run: **2026-08-23** (review -> execution; owner approved `all`; F1-F4 SHIPPED; P1 approved but HOLD on first-party evidence). GSC reached 11,447 clicks / 648,562 impressions in 28d (+137% / +178%); residual nonbrand clicks rose 153%. **P1 ZOZOFIT Review** remains the only clean net-new keyword at 720 US volume and +22% yearly, but its three controlled scans, tape comparison, setup notes, screenshots, and interview do not exist yet, so no article or URL was created. The shipped work repointed `rate-my-physique` to the physique rater, corrected current ZOZOFIT app/suit/pricing facts, consolidated InBody-vs-Withings coverage on the existing owner, and updated three mature pages for live Target Training and nutrition. All six modified posts pass strict launch checks and the production build passes. No indexing requests were made because no new URL shipped. `hume vs renpho` remains a hardware-gated watch; Fitbod/Hevy/LeanLens/MyFitnessPal siblings remain rejected. 507/509 live sitemap URLs are indexed; the two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-21
 > Prior run: **2026-08-21 same-day rerun** (review; zero posts, one fix proposed). Final GSC cutoff remained Aug 19, but the finalized 28d total rose to 10,616 clicks / 599,647 impressions (+140% / +186%); brand remained 702 clicks (6.6%). The Hume retitle and accurate-to-worth-it link now exist as **uncommitted local changes** and pass strict slug checks, so they were removed from the proposal without being counted as shipped. The only remaining action is the already-approved `rate-my-physique` CTA bridge to `/tools/physique-rater/`. The sibling stays HOLD: tool takes `rate my body ai` at 3.2 with 36 clicks while the blog gets 1 click at 17. DataForSEO was available: picture intent still resolves to existing chart/tool pages; `best smart scale` now reads -19% yearly rather than the earlier +23%, reinforcing the Sep 8-10 hold; `fitbod review` has 1 exact-query GSC impression, below the proposal threshold. Eight recent URLs are indexed; two Aug 6 male gallery URLs remain unknown and too new to judge until Sep 3. · Data through 2026-08-19
 > Prior run: **2026-08-18** (review → execution; owner approved `all`: F4 absmaxx inbound SHIPPED same day; F1 Hume retitle + F2 accurate→worth-it remain SCHEDULED Aug 19; F3 rater CTA SCHEDULED Aug 21; zero posts; sibling HOLD) · Data through 2026-08-16
 > Prior run: **2026-08-17** (review; full experiment audit — chart revert CLOSED keep-control at 0.60% CTR / pos 9.3; WHR WIN 14.7→9.8; WHtR MIXED (imp 2.4× but pos 13.2→16.4); rate-my-physique trending GO for the Aug 21 sibling at 7.3 / 4.2% CTR; Hume long-tail already ranking (price @ 9, subscription @ 7) with retitle proposed for Aug 19; women-chart overlap NOT found — leave; F1 chart→gallery link SHIPPED same day + F2 Hume retitle APPROVED-SCHEDULED for Aug 19, zero posts until the Aug 21 gate) · Data through 2026-08-15
@@ -15,7 +15,7 @@
 > Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
 > Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
 
-## New findings (2026-08-23 — keyword expansion reset)
+## New findings (2026-08-23 — keyword expansion reset -> execution)
 
 - **One net-new keyword survived, with an evidence gate.** `zozofit review` is 720 US volume,
   informational, and +22% yearly. The site has no dedicated review; its alternatives page owns
@@ -52,16 +52,29 @@
   documented service-account fallback for `sc-domain:gainframe.app`. No SEO Receipts data entered
   this run.
 
-### Proposed but not built (2026-08-23)
+### 2026-08-23 decision ledger
 
 | Item | Target / evidence | State |
 |---|---|---|
-| P1 `zozofit-review` | `zozofit review`: 720, +22% yearly; distinct current review gap | **Proposed, asset-gated.** Require three controlled app-only scans, matching tape readings, setup/failure notes, and first-party workflow/output/pricing screenshots. Without the pack: HOLD |
-| F1 rater CTA bridge | ranking `rate-my-physique` points at BF estimator; rater tool has 1,158 GSC clicks and 1,079 scores | **Proposed**; change one anchor/destination only |
-| F2 ZOZOFIT source truth | `best-body-composition-apps` still says mandatory $69 suit and makes unqualified reliability claims | **Proposed**; current app-only/optional-suit workflow, plans, and limitations; prerequisite P1 source cleanup |
-| F3 InBody vs Withings section | ~99 impressions already consolidate on `best-inbody-alternatives` at positions 12–19 | **Proposed**; add exact-match section/table/FAQ and link to Withings review, no metadata change |
-| F4 shipped-product truth | Target Training and nutrition claims are definitely stale against v3.13 | **Proposed** on mature pages; the 15-day-old leaderboard/nutrition announcement waits until Sep 5 |
+| P1 `zozofit-review` | `zozofit review`: 720, +22% yearly; distinct current review gap | **Approved, blocked.** Require three controlled app-only scans, matching tape readings, setup/failure notes, first-party workflow/output/pricing screenshots, and a first-person test interview. Without the pack: HOLD |
+| F1 rater CTA bridge | ranking `rate-my-physique` pointed at BF estimator; rater tool has 1,158 GSC clicks and 1,079 scores | **Shipped 2026-08-23.** CTA now routes to `/tools/physique-rater/`; strict FAQ/schema and punctuation cleanup included |
+| F2 ZOZOFIT source truth | `best-body-composition-apps` said mandatory $69 suit and made unqualified reliability claims | **Shipped 2026-08-23.** Current app-only/optional-suit workflow, plans, 16 reported sites, official sources, and estimate limitations |
+| F3 InBody vs Withings section | ~99 impressions already consolidate on `best-inbody-alternatives` at positions 12–19 | **Shipped 2026-08-23.** Exact section, six-row table, matching FAQ/schema, official Withings source, and contextual review link; primary targeting metadata unchanged |
+| F4 shipped-product truth | Target Training and nutrition claims were definitely stale against v3.13 | **Shipped 2026-08-23** on three mature pages; live Target Training workflow, current nutrition suite, medical hedging, and a contextual Target Training inbound. The 15-day-old leaderboard/nutrition announcement still waits until Sep 5 |
 | Hume vs RENPHO | 140 volume, KD 1, +250% yearly but -18% quarterly; existing-owner overlap | **Watch**, not proposed; side-by-side assets and post-deploy query split required |
+
+### Measurement windows opened 2026-08-23
+
+| Change | Read | Fair date |
+|---|---|---|
+| F1 rater bridge | source-path visits to the physique rater, scores, then downstream App Store clicks | directional Aug 30; full Sep 20 |
+| F2 ZOZOFIT refresh | page clicks/CTR, ZOZOFIT query mix, and downstream App Store clicks | directional Aug 30-Sep 2; full Sep 20 |
+| F3 InBody-vs-Withings section | exact-family impressions, CTR, and position on the existing owner | directional Aug 30-Sep 2; full Sep 20 |
+| F4 product-truth pages | page clicks, Target Training query mix, and downstream App Store clicks | directional Aug 30-Sep 2; full Sep 20 |
+
+P1 has no measurement clock because it has no draft or URL. The topical map was not changed:
+these fixes do not add a cluster URL. The full inventory, all six strict slug checks, and the
+production build passed before shipping; no new-URL indexing submission was made.
 
 ## New findings (2026-08-21 same-day rerun - decision scope changed)
 

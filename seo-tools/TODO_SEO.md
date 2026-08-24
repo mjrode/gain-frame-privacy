@@ -110,7 +110,7 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 - [x] **F4: absmaxx-vs-gainframe inbound** — shipped 2026-08-18. Contextual in-body link from `recomp-ai-vs-gainframe` with anchor "AbsMaxx vs GainFrame" plus a Related Articles row. Source was outside its metadata window (dateModified 2026-07-02). — source: `seo-tools/content-audits/2026-08-18.md`
 - [ ] **APPROVED, SCHEDULED Aug 19: F1 Hume retitle** — carried from Aug 17. Title → "Hume Body Pod Review (2026): Accuracy, Price & Subscription". Do not ship before Aug 19.
 - [ ] **APPROVED, SCHEDULED Aug 19: F2 are-smart-scales-accurate → worth-it** — contextual in-body link to `are-smart-scales-worth-it` (excluded from the Aug 11 interlink batch while the Aug 9 window ran).
-- [ ] **APPROVED, SCHEDULED Aug 21: F3 rate-my-physique CTA** — swap the 30-second CTA from `/tools/body-fat-from-photo/` to `/tools/physique-rater/`. No sibling post.
+- [x] **F3: rate-my-physique CTA bridge** — shipped 2026-08-23. The 30-second CTA now points to `/tools/physique-rater/`; no sibling post was created.
 
 ### Carry-forward (still genuine, re-added from reset — not yet done)
 
