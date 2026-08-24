@@ -73,8 +73,9 @@
 | F4 product-truth pages | page clicks, Target Training query mix, and downstream App Store clicks | directional Aug 30-Sep 2; full Sep 20 |
 
 P1 has no measurement clock because it has no draft or URL. The topical map was not changed:
-these fixes do not add a cluster URL. The full inventory, all six strict slug checks, and the
-production build passed before shipping; no new-URL indexing submission was made.
+these fixes do not add a cluster URL. The shared-checkout inventory passed with 239 posts (238
+tracked plus the excluded local-only benchmark), all six strict slug checks passed, and the clean
+238-post production build passed before shipping. No new-URL indexing submission was made.
 
 ## New findings (2026-08-21 same-day rerun - decision scope changed)
 
