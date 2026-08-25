@@ -9,13 +9,15 @@
    ================================================================ */
 
 :root {
-  --tcc-ink: #171717;
-  --tcc-muted: #777774;
-  --tcc-faint: #a6a6a2;
-  --tcc-line: rgba(23, 23, 23, 0.09);
-  --tcc-line-2: rgba(23, 23, 23, 0.16);
-  --tcc-paper-2: #f6f6f4;
-  --tcc-amber: #e8952b;
+  --tcc-ink: oklch(0.205 0.006 67);
+  --tcc-muted: oklch(0.51 0.008 70);
+  --tcc-faint: oklch(0.66 0.008 70);
+  --tcc-line: oklch(0.205 0.006 67 / 0.1);
+  --tcc-line-2: oklch(0.205 0.006 67 / 0.18);
+  --tcc-paper: oklch(0.992 0.007 76);
+  --tcc-paper-2: oklch(0.965 0.008 74);
+  --tcc-orange: oklch(0.65 0.2 42);
+  --tcc-orange-hover: oklch(0.59 0.2 42);
   --tcc-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
@@ -23,85 +25,170 @@
   position: relative;
   overflow: hidden;
   margin-top: 20px;
-  padding: 18px;
-  border: 1px solid rgba(232, 149, 43, 0.32);
-  border-radius: 18px;
-  background:
-    radial-gradient(circle at 100% 0%, rgba(232, 149, 43, 0.14), transparent 15rem),
-    linear-gradient(135deg, #fffdf9, #fff 62%);
-  box-shadow: 0 12px 32px rgba(111, 71, 18, 0.08);
+  padding: 17px 18px 13px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 156px minmax(260px, 0.72fr);
+  grid-template-areas:
+    "copy preview actions"
+    "proof preview actions";
+  align-items: center;
+  column-gap: 18px;
+  row-gap: 5px;
+  border: 1px solid oklch(0.67 0.12 68 / 0.52);
+  border-radius: 20px;
+  background: var(--tcc-paper);
+  box-shadow: 0 14px 34px oklch(0.28 0.025 65 / 0.12);
   text-align: left;
   color: var(--tcc-ink);
 }
-.tcc-card::after {
-  content: "";
-  position: absolute;
-  width: 78px; height: 78px;
-  top: -48px; right: -36px;
-  border: 1px solid rgba(232, 149, 43, 0.26);
-  border-radius: 50%;
-  pointer-events: none;
+.tcc-copy {
+  position: relative;
+  z-index: 1;
+  grid-area: copy;
+  max-width: 620px;
 }
-.tcc-copy { position: relative; z-index: 1; max-width: 540px; }
 .tcc-eyebrow {
   display: block;
   font-family: var(--tcc-mono);
-  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: #9a6416;
-  margin-bottom: 5px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: oklch(0.49 0.115 65);
+  margin-bottom: 6px;
 }
 .tcc-card h3 {
   margin: 0;
-  font-size: 1.18rem;
-  line-height: 1.25;
-  letter-spacing: -0.015em;
+  max-width: 31ch;
+  font-size: 1.16rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 .tcc-card .tcc-copy p {
-  margin: 7px 0 0;
+  margin: 6px 0 0;
   max-width: 56ch;
   color: var(--tcc-muted);
-  font-size: 0.9rem;
+  font-size: 0.83rem;
+  line-height: 1.4;
+}
+.tcc-card .tcc-copy .tcc-progress-steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 7px;
+  color: var(--tcc-muted);
+  font-size: 0.78rem;
+  font-weight: 520;
+}
+.tcc-progress-steps span[aria-hidden] {
+  color: oklch(0.62 0.045 66);
+}
+.tcc-preview {
+  position: relative;
+  z-index: 1;
+  grid-area: preview;
+  align-self: stretch;
+  min-height: 100px;
+}
+.tcc-phone-preview {
+  position: absolute;
+  left: 4px;
+  bottom: -19px;
+  width: 73px;
+  height: 124px;
+  overflow: hidden;
+  border: 4px solid var(--tcc-ink);
+  border-bottom: 0;
+  border-radius: 17px 17px 0 0;
+  background: var(--tcc-paper-2);
+  box-shadow: 0 8px 18px oklch(0.205 0.006 67 / 0.16);
+}
+.tcc-phone-preview::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  left: 50%;
+  width: 25px;
+  height: 5px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: var(--tcc-ink);
+}
+.tcc-phone-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 33%;
+}
+.tcc-mascot {
+  position: absolute;
+  z-index: 2;
+  right: -2px;
+  bottom: -13px;
+  display: block;
+  width: 94px;
+  height: 94px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 5px oklch(0.205 0.006 67 / 0.13));
 }
 .tcc-actions {
-  position: relative; z-index: 1;
-  display: flex; align-items: stretch; gap: 10px;
-  margin-top: 14px;
+  position: relative;
+  z-index: 1;
+  grid-area: actions;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0;
 }
 .tcc-primary {
-  display: flex; align-items: center; justify-content: center; gap: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
   min-height: 48px;
   flex: 1;
   border-radius: 999px;
   padding: 12px 18px;
-  background: var(--tcc-ink);
-  color: #fff;
+  background: var(--tcc-orange);
+  color: oklch(0.99 0.006 73);
   font-weight: 650;
   text-align: center;
   text-decoration: none;
-  transition: background 0.15s, transform 0.15s;
+  white-space: nowrap;
+  transition: background 180ms cubic-bezier(0.165, 0.84, 0.44, 1), transform 180ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.tcc-primary:hover { background: #000; transform: translateY(-1px); }
+.tcc-primary:hover {
+  background: var(--tcc-orange-hover);
+  transform: translateY(-1px);
+}
+.tcc-primary:active { transform: translateY(0); }
 .tcc-primary:focus-visible,
 .tcc-qr a:focus-visible {
-  outline: 3px solid rgba(232, 149, 43, 0.42);
+  outline: 3px solid oklch(0.65 0.2 42 / 0.38);
   outline-offset: 3px;
 }
 .tcc-qr {
-  display: flex; align-items: center; gap: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 0 0 auto;
-  border: 1px solid var(--tcc-line);
-  border-radius: 12px;
-  padding: 7px 9px;
-  background: rgba(255, 255, 255, 0.84);
+  width: 56px;
+  min-height: 56px;
+  border: 1px solid var(--tcc-line-2);
+  border-radius: 13px;
+  padding: 6px;
+  background: oklch(0.985 0.005 76);
 }
 .tcc-qr svg {
   display: block;
-  width: 58px; height: 58px;
-  padding: 3px;
-  border-radius: 7px;
-  background: #fffdf7;
+  width: 42px;
+  height: 42px;
+  padding: 1px;
+  border-radius: 4px;
+  background: oklch(0.992 0.007 76);
 }
-.tcc-qr > span { display: grid; gap: 2px; }
+.tcc-qr > span { display: none; }
 .tcc-qr strong { font-size: 0.76rem; line-height: 1.25; }
 .tcc-qr a {
   color: var(--tcc-muted);
@@ -109,45 +196,46 @@
   text-underline-offset: 2px;
 }
 .tcc-proof {
-  position: relative; z-index: 1;
-  margin: 10px 0 0;
+  position: relative;
+  z-index: 1;
+  grid-area: proof;
+  margin: 0;
   font-family: var(--tcc-mono);
   font-size: 10px;
   color: var(--tcc-faint);
-  text-align: center;
+  text-align: left;
 }
-.tcc-mascot { display: none; }
 
-/* Desktop: the QR is the hero — scanning is the path that actually installs,
-   so the App Store link demotes to an outline secondary. */
+/* Desktop keeps the install paths adjacent: QR is secondary, the orange
+   action is the clear primary choice. */
 .tcc-card[data-platform="desktop"] .tcc-actions {
   align-items: center;
 }
 .tcc-card[data-platform="desktop"] .tcc-qr {
   order: -1;
-  padding: 10px 12px;
-  border-color: rgba(232, 149, 43, 0.4);
 }
 .tcc-card[data-platform="desktop"] .tcc-qr svg {
-  width: 104px; height: 104px;
+  width: 42px;
+  height: 42px;
 }
 .tcc-card[data-platform="desktop"] .tcc-primary {
   flex: 1;
-  background: transparent;
-  color: var(--tcc-ink);
-  border: 1px solid var(--tcc-line-2);
-  font-weight: 600;
+  background: var(--tcc-orange);
+  color: oklch(0.99 0.006 73);
+  border: 0;
+  font-weight: 650;
 }
-.tcc-card[data-platform="desktop"] .tcc-primary:hover {
-  background: var(--tcc-paper-2);
-  transform: none;
-}
+.tcc-card[data-platform="desktop"] .tcc-primary:hover { background: var(--tcc-orange-hover); }
 
 /* Android: email capture instead of a link to another free tool. */
 .tcc-android-form {
-  position: relative; z-index: 1;
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin-top: 14px;
+  position: relative;
+  z-index: 1;
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 0;
 }
 .tcc-android-form input {
   flex: 1; min-width: 0;
@@ -155,17 +243,21 @@
   border-radius: 999px;
   padding: 12px 16px;
   font: inherit; font-size: 0.92rem;
-  background: #fff;
+  background: oklch(0.985 0.005 76);
 }
 .tcc-android-form input:focus-visible {
-  outline: 3px solid rgba(232, 149, 43, 0.42);
+  outline: 3px solid oklch(0.65 0.2 42 / 0.38);
   outline-offset: 1px;
 }
 .tcc-android-form button {
   border: 0; border-radius: 999px;
   min-height: 48px; padding: 12px 18px;
-  background: var(--tcc-ink); color: #fff;
+  background: var(--tcc-orange); color: oklch(0.99 0.006 73);
   font: inherit; font-weight: 650; cursor: pointer;
+}
+.tcc-android-form button:focus-visible {
+  outline: 3px solid oklch(0.65 0.2 42 / 0.38);
+  outline-offset: 3px;
 }
 .tcc-android-form button:disabled { opacity: 0.6; cursor: default; }
 .tcc-android-error {
@@ -180,18 +272,34 @@
 }
 
 @media (max-width: 600px) {
-  .tcc-actions { display: grid; }
+  .tcc-card {
+    padding: 14px;
+    grid-template-columns: minmax(0, 1fr) 90px;
+    grid-template-areas:
+      "copy preview"
+      "actions actions"
+      "proof proof";
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+  .tcc-actions { display: flex; }
   .tcc-primary { width: 100%; }
-  .tcc-qr { justify-content: center; }
   .tcc-proof { line-height: 1.45; }
   .tcc-android-form { display: grid; }
+  .tcc-phone-preview { display: none; }
+  .tcc-mascot {
+    right: 0;
+    bottom: 0;
+    width: 82px;
+    height: 82px;
+  }
 }
 
 /* Result state: a compact dock stays visible for the rest of the tool
    session. The full result remains the hero; this is deliberately shorter
    than the inline conversion card and respects the device safe area. */
 body.has-tool-sticky-cta {
-  padding-bottom: 136px;
+  padding-bottom: 130px;
 }
 .tcc-card--sticky {
   position: fixed;
@@ -199,19 +307,16 @@ body.has-tool-sticky-cta {
   left: 50%;
   transform: translateX(-50%);
   bottom: max(12px, env(safe-area-inset-bottom));
-  width: min(1040px, calc(100vw - 32px));
+  width: min(1160px, calc(100vw - 32px));
   margin: 0;
-  padding: 13px 15px 9px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(330px, 0.82fr);
-  grid-template-areas:
-    "copy mascot actions"
-    "proof proof proof";
+  padding: 15px 18px 11px;
+  grid-template-columns: minmax(0, 1fr) 174px minmax(300px, 0.72fr);
+  grid-template-areas: "copy preview actions";
   align-items: center;
-  column-gap: 14px;
-  row-gap: 3px;
+  column-gap: 18px;
+  row-gap: 5px;
   border-color: oklch(0.74 0.13 71 / 0.42);
-  background: oklch(0.992 0.007 76 / 0.98);
+  background: var(--tcc-paper);
   box-shadow:
     0 18px 48px oklch(0.28 0.03 65 / 0.18),
     0 2px 8px oklch(0.28 0.03 65 / 0.08);
@@ -221,19 +326,18 @@ body.has-tool-sticky-cta {
   max-width: 600px;
 }
 .tcc-card--sticky h3 {
-  font-size: 1.04rem;
+  font-size: 1.08rem;
 }
 .tcc-card--sticky .tcc-copy p {
-  margin-top: 4px;
-  font-size: 0.79rem;
-  line-height: 1.35;
+  display: none;
 }
-.tcc-card--sticky .tcc-mascot {
-  grid-area: mascot;
-  display: block;
-  width: 66px;
-  height: 66px;
-  object-fit: contain;
+.tcc-card--sticky .tcc-copy .tcc-progress-steps {
+  display: flex;
+  margin-top: 6px;
+  font-size: 0.76rem;
+}
+.tcc-card--sticky .tcc-preview {
+  min-height: 94px;
 }
 .tcc-card--sticky .tcc-actions,
 .tcc-card--sticky .tcc-android-form {
@@ -241,38 +345,33 @@ body.has-tool-sticky-cta {
   margin-top: 0;
 }
 .tcc-card--sticky .tcc-primary {
-  min-height: 46px;
-  padding: 10px 15px;
+  min-height: 50px;
+  padding: 11px 17px;
   font-size: 0.9rem;
 }
 .tcc-card--sticky[data-platform="desktop"] .tcc-qr {
-  padding: 6px 8px;
+  padding: 6px;
 }
 .tcc-card--sticky[data-platform="desktop"] .tcc-qr svg {
-  width: 58px;
-  height: 58px;
+  width: 42px;
+  height: 42px;
 }
 .tcc-card--sticky .tcc-proof {
-  grid-area: proof;
-  margin-top: 1px;
-  font-size: 9px;
+  display: none;
 }
 
 @media (max-width: 760px) {
   body.has-tool-sticky-cta {
-    padding-bottom: 166px;
+    padding-bottom: 126px;
   }
   .tcc-card--sticky {
     bottom: max(8px, env(safe-area-inset-bottom));
     width: calc(100vw - 16px);
-    padding: 11px 12px 8px;
-    grid-template-columns: minmax(0, 1fr) 54px;
-    grid-template-areas:
-      "copy mascot"
-      "actions actions"
-      "proof proof";
-    column-gap: 8px;
-    row-gap: 7px;
+    padding: 10px 11px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "copy actions";
+    column-gap: 10px;
+    row-gap: 8px;
     border-radius: 16px;
   }
   .tcc-card--sticky .tcc-eyebrow {
@@ -280,23 +379,53 @@ body.has-tool-sticky-cta {
     font-size: 9px;
   }
   .tcc-card--sticky h3 {
-    font-size: 0.98rem;
+    max-width: none;
+    font-size: 0.94rem;
+    line-height: 1.18;
   }
-  .tcc-card--sticky .tcc-copy p {
+  .tcc-card--sticky .tcc-copy > p,
+  .tcc-card--sticky .tcc-preview,
+  .tcc-card--sticky .tcc-proof {
     display: none;
-  }
-  .tcc-card--sticky .tcc-mascot {
-    width: 54px;
-    height: 54px;
   }
   .tcc-card--sticky .tcc-actions {
     display: flex;
+    min-width: min(45vw, 210px);
   }
   .tcc-card--sticky .tcc-qr {
     display: none;
   }
+  .tcc-card--sticky .tcc-primary {
+    min-height: 44px;
+    padding: 9px 14px;
+    font-size: 0.84rem;
+  }
   .tcc-card--sticky .tcc-android-form {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
+    min-width: 0;
   }
+}
+
+@media (max-width: 520px) {
+  body.has-tool-sticky-cta {
+    padding-bottom: calc(166px + env(safe-area-inset-bottom));
+  }
+  .tcc-card--sticky {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "copy"
+      "actions";
+  }
+  .tcc-card--sticky .tcc-eyebrow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .tcc-card--sticky .tcc-actions { min-width: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tcc-primary { transition: none; }
+  .tcc-primary:hover { transform: none; }
 }

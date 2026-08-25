@@ -21,8 +21,8 @@ import { WEB_TOOL_COMPLETED_DOM_EVENT } from "@/lib/web-tool-usage";
  * "Download GainFrame" block 2–3×. Pages that render it must load
  * /styles/tool-conversion-card.css alongside their own stylesheet.
  *
- * Platform behavior: iOS gets a single App Store button, desktop leads
- * with a large QR code, Android gets an email form posting to
+ * Platform behavior: iOS gets a single App Store button, desktop pairs a
+ * compact QR with the primary App Store action, Android gets an email form posting to
  * /api/android-waitlist (never a link to another free web tool).
  *
  * Events: `tool_cta_viewed` once per mount when the card scrolls into
@@ -33,6 +33,8 @@ import { WEB_TOOL_COMPLETED_DOM_EVENT } from "@/lib/web-tool-usage";
 
 const DEFAULT_ANDROID_BODY =
   "No Android app yet. Leave your email and we'll send you the App Store link for later — and you'll be first to know if Android ships.";
+
+const PROGRESS_PREVIEW_SRC = "/assets/bf-precision/body-fat-trend.webp";
 
 export type ToolConversionExperimentCopy = {
   eyebrow: string;
@@ -178,7 +180,7 @@ export default function ToolConversionCard({
   const [activated, setActivated] = useState(activation === "immediate");
   const isAndroid = platform === "android";
   const isDesktop = platform === "desktop";
-  const isSticky = sticky ?? placement === "result";
+  const isSticky = sticky ?? placement.endsWith("result");
   const cardRef = useRef<HTMLElement>(null);
   const viewedRef = useRef(false);
   const titleId = `tcc-title-${tool}-${placement}`;
@@ -262,8 +264,9 @@ export default function ToolConversionCard({
 
   if (hidden) return null;
 
-  const defaultEyebrow =
-    placement === "result" ? "Unlimited in the app" : "Keep going in the app";
+  const defaultEyebrow = placement.endsWith("result")
+    ? "From estimate to progress"
+    : "Keep going in the app";
 
   return (
     <aside
@@ -304,9 +307,21 @@ export default function ToolConversionCard({
               ? displayedDesktopBody
               : displayedBody}
         </p>
+        {!isAndroid && (
+          <p className="tcc-progress-steps" aria-label="Scan, compare, improve">
+            <span>Scan</span>
+            <span aria-hidden>•</span>
+            <span>Compare</span>
+            <span aria-hidden>•</span>
+            <span>Improve</span>
+          </p>
+        )}
       </div>
 
-      {experiment && (
+      <div className="tcc-preview" aria-hidden>
+        <span className="tcc-phone-preview">
+          <img src={PROGRESS_PREVIEW_SRC} alt="" width={1290} height={2796} />
+        </span>
         <img
           className="tcc-mascot"
           src={mascotSrc}
@@ -315,7 +330,7 @@ export default function ToolConversionCard({
           width={88}
           height={88}
         />
-      )}
+      </div>
 
       {isAndroid ? (
         <AndroidLinkForm
@@ -332,11 +347,7 @@ export default function ToolConversionCard({
             campaign={campaign}
             customProductPageId={customProductPageId}
           >
-            {experiment
-              ? displayedIosLabel
-              : isDesktop
-                ? "Or open the App Store"
-                : displayedIosLabel}
+            {displayedIosLabel}
             <span aria-hidden>→</span>
           </PlatformDownloadLink>
           <DownloadQr
