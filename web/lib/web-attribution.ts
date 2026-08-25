@@ -7,7 +7,7 @@ import {
   documentAnalyticsConsentDecision,
   type AnalyticsConsentDecision,
 } from "./analytics-consent.ts";
-import { SITE } from "./site.ts";
+import { APP_STORE_PROVIDER_TOKEN, SITE } from "./site.ts";
 
 export const APPSFLYER_ONELINK_TEMPLATE_URL =
   process.env.NEXT_PUBLIC_APPSFLYER_ONELINK_URL?.trim() ||
@@ -41,6 +41,7 @@ export type WebAttributionPayload = {
 type BuildOptions = {
   campaign: string;
   cta: string;
+  customProductPageId?: string;
 };
 
 type BuildRuntime = {
@@ -58,6 +59,37 @@ export type WebAttributionLink = {
   href: string;
   payload: WebAttributionPayload | null;
 };
+
+function validCustomProductPageId(value: unknown): string | undefined {
+  const id = clean(value, 36);
+  if (!id) return undefined;
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+    id,
+  )
+    ? id
+    : undefined;
+}
+
+/**
+ * Build the privacy-safe Apple fallback for a Custom Product Page.
+ *
+ * The static Apple campaign and page identifiers are aggregate routing data,
+ * not a per-person analytics payload. Default-listing links deliberately keep
+ * their existing clean URL so this experiment cannot contaminate other CTAs.
+ */
+export function directAppStoreUrl(options: BuildOptions): string {
+  const customProductPageId = validCustomProductPageId(
+    options.customProductPageId,
+  );
+  if (!customProductPageId) return SITE.appStoreUrl;
+
+  const url = new URL(SITE.appStoreUrl);
+  url.searchParams.set("pt", APP_STORE_PROVIDER_TOKEN);
+  url.searchParams.set("ct", options.campaign);
+  url.searchParams.set("mt", "8");
+  url.searchParams.set("ppid", customProductPageId);
+  return url.toString();
+}
 
 function currentConsentDecision(): AnalyticsConsentDecision {
   if (typeof document === "undefined") return "pending";
@@ -180,10 +212,11 @@ export function buildWebAttributionLink(
   options: BuildOptions,
   runtime: BuildRuntime = {},
 ): WebAttributionLink {
+  const directUrl = directAppStoreUrl(options);
   const consentDecision = runtime.consentDecision ?? currentConsentDecision();
   if (consentDecision !== "granted") {
     return {
-      href: SITE.appStoreUrl,
+      href: directUrl,
       payload: null,
     };
   }
@@ -232,7 +265,7 @@ export function buildWebAttributionLink(
   );
   if (!oneLinkUrl) {
     return {
-      href: SITE.appStoreUrl,
+      href: directUrl,
       payload: null,
     };
   }
@@ -245,6 +278,14 @@ export function buildWebAttributionLink(
   url.searchParams.set("af_ad", payload.cta);
   url.searchParams.set("af_siteid", payload.download_page);
   url.searchParams.set("af_js_web", "true");
+  const customProductPageId = validCustomProductPageId(
+    options.customProductPageId,
+  );
+  if (customProductPageId) {
+    // AppsFlyer's dedicated Apple CPP field ensures its redirect lands on the
+    // same approved product-page variant as the direct privacy-safe fallback.
+    url.searchParams.set("af_ios_store_cpp", customProductPageId);
+  }
   url.searchParams.set("deep_link_value", "web_attribution");
   url.searchParams.set("deep_link_sub1", payload.first_page);
   url.searchParams.set("deep_link_sub2", payload.download_page);

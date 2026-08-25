@@ -1,0 +1,96 @@
+{
+  "configured": true,
+  "generatedAt": "2026-08-22T15:11:16.851Z",
+  "sourceGeneratedAt": "2026-08-17T18:04:34.784Z",
+  "sourceArtifact": "2026-08-17T18-04-34-783Z-eval.json",
+  "gainFrameCommit": "fb5e7bfc",
+  "manifestCases": 18,
+  "repetitions": 3,
+  "models": [
+    {
+      "model": "gemini-3.5-flash",
+      "runs": 54,
+      "gradedCells": 36,
+      "passedCells": 36,
+      "passRatePercent": 100,
+      "validationFailures": 0,
+      "rejectedAsNonProgressPhoto": 0,
+      "scoreSpread": {
+        "groups": 18,
+        "median": 0,
+        "p90": 3,
+        "worst": 4,
+        "average": 0.6
+      },
+      "bodyFatSpread": {
+        "groups": 18,
+        "median": 0,
+        "p90": 0,
+        "worst": 1,
+        "average": 0.1
+      },
+      "latency": {
+        "samples": 54,
+        "medianMs": 3196,
+        "p90Ms": 3708
+      }
+    },
+    {
+      "model": "gemini-3.7-flash@low",
+      "runs": 54,
+      "gradedCells": 36,
+      "passedCells": 36,
+      "passRatePercent": 100,
+      "validationFailures": 1,
+      "rejectedAsNonProgressPhoto": 0,
+      "scoreSpread": {
+        "groups": 18,
+        "median": 1,
+        "p90": 5,
+        "worst": 5,
+        "average": 2.3
+      },
+      "bodyFatSpread": {
+        "groups": 18,
+        "median": 0,
+        "p90": 2,
+        "worst": 2,
+        "average": 0.6
+      },
+      "latency": {
+        "samples": 54,
+        "medianMs": 2806,
+        "p90Ms": 3869
+      }
+    },
+    {
+      "model": "gpt-5.6-luna@none",
+      "runs": 54,
+      "gradedCells": 36,
+      "passedCells": 27,
+      "passRatePercent": 75,
+      "validationFailures": 5,
+      "rejectedAsNonProgressPhoto": 0,
+      "scoreSpread": {
+        "groups": 16,
+        "median": 0,
+        "p90": 4,
+        "worst": 5,
+        "average": 1.1
+      },
+      "bodyFatSpread": {
+        "groups": 16,
+        "median": 0,
+        "p90": 1,
+        "worst": 1,
+        "average": 0.1
+      },
+      "latency": {
+        "samples": 54,
+        "medianMs": 4193,
+        "p90Ms": 5242
+      }
+    }
+  ],
+  "privacy": "Aggregate summary only. No image path, case identifier, expected range, model reasoning, prompt, or raw response is included."
+}

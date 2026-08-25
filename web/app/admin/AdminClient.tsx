@@ -20,6 +20,10 @@ import FlowsPanel, {
   type PromptSnapshot,
   type RoutesSnapshot,
 } from "./FlowsPanel";
+import ScoringTrustPanel, {
+  type ScoringEvalSnapshot,
+  type ScoringTrustData,
+} from "./ScoringTrustPanel";
 import ReliabilityPanel from "./ReliabilityPanel";
 import { COLORS } from "./shared";
 
@@ -79,8 +83,12 @@ export default function AdminClient() {
   const [flowsError, setFlowsError] = useState<string | null>(null);
   const [product, setProduct] = useState<ProductData | null>(null);
   const [productError, setProductError] = useState<string | null>(null);
+  const [scoring, setScoring] = useState<ScoringTrustData | null>(null);
+  const [scoringError, setScoringError] = useState<string | null>(null);
   const [prompts, setPrompts] = useState<PromptSnapshot | null>(null);
   const [routes, setRoutes] = useState<RoutesSnapshot | null>(null);
+  const [scoringEval, setScoringEval] =
+    useState<ScoringEvalSnapshot | null>(null);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -128,6 +136,16 @@ export default function AdminClient() {
           setProductError(null);
         })
         .catch((e: Error) => setProductError(e.message)),
+      getJson<ScoringTrustData>(
+        `/api/admin/scoring-trust?window=${windowChoice}`,
+        token,
+        "Scoring trust query",
+      )
+        .then((d) => {
+          setScoring(d);
+          setScoringError(null);
+        })
+        .catch((e: Error) => setScoringError(e.message)),
     ];
 
     // Static snapshots only need fetching once per session.
@@ -145,11 +163,24 @@ export default function AdminClient() {
           .catch((e: Error) => console.warn("route snapshot:", e.message)),
       );
     }
+    if (!scoringEval) {
+      tasks.push(
+        getJson<ScoringEvalSnapshot>(
+          "/admin-data/scoring-eval.json",
+          token,
+          "Scoring evaluation",
+        )
+          .then(setScoringEval)
+          .catch((e: Error) =>
+            console.warn("scoring evaluation snapshot:", e.message),
+          ),
+      );
+    }
 
     await Promise.all(tasks);
     setLastLoaded(new Date());
     setLoading(false);
-  }, [session, windowChoice, prompts, routes]);
+  }, [session, windowChoice, prompts, routes, scoringEval]);
 
   useEffect(() => {
     if (session && isAdmin) void load();
@@ -270,6 +301,11 @@ export default function AdminClient() {
 
       <MoneyStrip data={money} error={moneyError} />
       <FunnelPanel data={product} error={productError} />
+      <ScoringTrustPanel
+        data={scoring}
+        evaluation={scoringEval}
+        error={scoringError}
+      />
       <FlowsPanel
         data={flows}
         routes={routes}

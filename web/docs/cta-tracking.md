@@ -11,6 +11,31 @@ Written 2026-07-29 after a false alarm (see "Worked example" at the bottom).
 | `cta_platform_alternative_click` | An **Android** user clicks a download CTA | `PlatformDownloadLink` — routes them to `/tools/body-fat-from-photo/` instead |
 | `web_download_clicked` | A consented GainFrame App Store/OneLink click, with a unique click ID and page-level attribution | `AppStoreClickTracker` — site-wide delegated capture-phase listener |
 
+## Result CTA A/B/C experiment
+
+`tool_result_cta_v1` assigns each browser one stable result-CTA angle:
+
+| Variant | Angle | Primary action |
+|---|---|---|
+| `improve` (A) | Diagnose the weakest area | Show my 12-muscle breakdown |
+| `track` (B) | Turn a snapshot into a trend | Track my next check-in |
+| `future` (C) | Turn the result into a target | Preview my future physique |
+
+The assignment is stored under `gainframe:experiment:tool_result_cta_v1` and
+does not identify the visitor. QA can force a presentation with
+`?gf_cta_variant=improve|track|future`; those events carry
+`experiment_forced=true` and are excluded from reporting.
+
+Use unique `tool_cta_clicked` / unique `tool_cta_viewed` as the primary CTR.
+Both events carry `experiment_id`, `experiment_variant`, `cta_angle`, `tool`,
+`placement`, and `platform`. Consented `web_download_clicked` and
+`outbound_app_store_click` events inherit the experiment fields from the CTA
+container, preserving the downstream App Store and install analysis.
+
+Result cards use the compact sticky treatment after a scan or tool interaction.
+Static tools set `activation="tool_completed"`, preventing the dock from
+appearing before the visitor uses the tool.
+
 GainFrame is an **iOS-only** app. `PlatformDownloadLink` detects Android and swaps the
 destination to the web body-fat tool, because an Android user cannot install from an App
 Store listing. That anchor is not an `apps.apple.com` URL, so it never reaches
@@ -63,7 +88,16 @@ uses a campaign value in this order:
    (see `web/lib/site.ts`).
 
 The same value is sent in `web_download_clicked` and the OneLink `ct` field, so consented
-PostHog and AppsFlyer analysis agree. Pending or denied visitors have no campaign token.
+PostHog and AppsFlyer analysis agree. Pending or denied visitors normally have no campaign
+token.
+
+The only exception is an explicitly configured App Store Custom Product Page. Those links
+must retain the aggregate Apple routing tuple (`pt`, `ct`, `mt`, and `ppid`) even before
+analytics consent so the visitor reaches the intended store creative. This tuple contains
+no click ID, session ID, referrer, or other per-person payload. The default listing and all
+unrelated CTAs keep their clean App Store URL. A consented Custom Product Page click uses
+AppsFlyer's dedicated `af_ios_store_cpp` field and the same `ct`; the delegated tracker
+preserves both instead of rebuilding a default-listing link.
 
 > **Historical gap:** before 2026-07-29 the tracker always recomputed
 > `campaignForPath(pathname)` and ignored the declared token. Every homepage CTA reported
@@ -147,3 +181,17 @@ Use `web_download_clicked` for consented download attempts and join on
 events for historical trend continuity. Desktop-to-phone behavior requires a
 QR scan carrying the same consented OneLink payload; Apple privacy controls
 mean attribution will be actionable rather than complete.
+
+## SEO physique-tools Custom Product Page (`seo-physique-cpp-v1`)
+
+Only the conversion cards rendered by `/tools/body-fat-from-photo/` and
+`/tools/physique-rater/` are allowed to set Custom Product Page ID
+`ba181e7f-4bf8-44f3-8be6-94077b918f89`. Their iPhone and desktop-QR destinations
+must carry campaign `seo-physique-cpp-v1`. Navigation, homepage, blog, visualizer,
+and every other download CTA must remain on the default listing.
+
+Do not deploy this routing before the Custom Product Page version is approved and its
+direct URL resolves to the approved creative. Start the 28-day read only after both that
+approval and the website deployment are complete. The operating record, creative order,
+Apple IDs, and decision rule live in the app repository at
+`docs/app-store/SEO_PHYSIQUE_TOOLS_CPP_V1.md`.

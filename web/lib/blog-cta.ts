@@ -12,6 +12,7 @@ export type BlogCtaConfig = {
   image: string;
   imageAlt: string;
   label: string;
+  proof?: string;
   title: string;
 };
 
@@ -62,6 +63,31 @@ export const BLOG_CTA_CONFIG: Record<Exclude<BlogCtaIntent, "founder">, BlogCtaC
     button: "Track my progress free",
     image: "/app-screenshots/1.21/muscle-compare.webp",
     imageAlt: "GainFrame muscle comparison showing changes between check-ins.",
+  },
+};
+
+export const BLOG_CTA_OVERRIDES: Record<string, BlogCtaConfig> = {
+  "best-ai-body-fat-apps": {
+    label: "Our top pick",
+    title: "Turn one body-fat estimate into a trend.",
+    copy:
+      "Keep your photos, body-fat trend, FFMI, 12 muscle-group scores, and Coach together as your physique changes.",
+    button: "Try GainFrame free",
+    image: "/app-screenshots/2.33-live-2026-08-05/02.webp",
+    imageAlt:
+      "GainFrame check-in showing body fat, weight, a physique score, and Coach's verdict.",
+    proof: "4.96 ★ on the US App Store · Free to start",
+  },
+  "best-body-scanning-measurement-apps": {
+    label: "What a scanner cannot show",
+    title: "See the visible change behind the measurements.",
+    copy:
+      "Compare your real progress photos with body fat, FFMI, and 12 muscle-group scores attached to every check-in.",
+    button: "Compare my progress",
+    image: "/app-screenshots/2.33-live-2026-08-05/01.webp",
+    imageAlt:
+      "GainFrame side-by-side progress comparison with body-fat and weight changes.",
+    proof: "4.96 ★ on the US App Store · Free to start",
   },
 };
 

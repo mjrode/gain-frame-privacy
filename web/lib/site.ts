@@ -26,6 +26,18 @@ export const APP_STORE_APP_ID = "6759252082";
 export const APP_STORE_PROVIDER_TOKEN = "128456047";
 
 /**
+ * Single-source contract for the SEO physique-tools Custom Product Page.
+ *
+ * Keep this centralized so the page identifier and Apple campaign token move
+ * together through direct App Store links, AppsFlyer OneLinks, and PostHog.
+ * Only the two explicitly routed tool surfaces should import this value.
+ */
+export const SEO_PHYSIQUE_TOOLS_CPP = {
+  id: "ba181e7f-4bf8-44f3-8be6-94077b918f89",
+  campaign: "seo-physique-cpp-v1",
+} as const;
+
+/**
  * Coarse per-surface campaign token for a page path. The delegated click
  * handler uses it only after analytics consent is granted; rendered anchors
  * themselves stay as the direct App Store destination.
@@ -39,6 +51,10 @@ export function campaignForPath(pathname: string): string {
   if (p === "/") return "web-home";
   if (p.startsWith("/tools/body-fat-from-photo")) return "web-bftool";
   if (p.startsWith("/tools/ai-body-transformation")) return "web-bttool";
+  if (p.startsWith("/tools/six-pack-timeline")) return "web-six-pack";
+  if (p.startsWith("/tools/body-measurements-calculator")) {
+    return "web-measurements";
+  }
   if (p.startsWith("/tools")) return "web-tools";
   if (p.startsWith("/blog")) return "web-blog";
   if (p.startsWith("/get")) return "web-get";

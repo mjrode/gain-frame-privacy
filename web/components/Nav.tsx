@@ -69,6 +69,9 @@ export default function Nav() {
         <Link href="/about/" className={isActive("/about") ? "active" : undefined} onClick={closeMenu}>
           About
         </Link>
+        <Link href="/leaderboard/" className={isActive("/leaderboard") ? "active" : undefined} onClick={closeMenu}>
+          Leaderboard
+        </Link>
       </div>
       <div className="nav-actions">
         <a

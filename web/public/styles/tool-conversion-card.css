@@ -116,6 +116,7 @@
   color: var(--tcc-faint);
   text-align: center;
 }
+.tcc-mascot { display: none; }
 
 /* Desktop: the QR is the hero — scanning is the path that actually installs,
    so the App Store link demotes to an outline secondary. */
@@ -184,4 +185,118 @@
   .tcc-qr { justify-content: center; }
   .tcc-proof { line-height: 1.45; }
   .tcc-android-form { display: grid; }
+}
+
+/* Result state: a compact dock stays visible for the rest of the tool
+   session. The full result remains the hero; this is deliberately shorter
+   than the inline conversion card and respects the device safe area. */
+body.has-tool-sticky-cta {
+  padding-bottom: 136px;
+}
+.tcc-card--sticky {
+  position: fixed;
+  z-index: 80;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: max(12px, env(safe-area-inset-bottom));
+  width: min(1040px, calc(100vw - 32px));
+  margin: 0;
+  padding: 13px 15px 9px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(330px, 0.82fr);
+  grid-template-areas:
+    "copy mascot actions"
+    "proof proof proof";
+  align-items: center;
+  column-gap: 14px;
+  row-gap: 3px;
+  border-color: oklch(0.74 0.13 71 / 0.42);
+  background: oklch(0.992 0.007 76 / 0.98);
+  box-shadow:
+    0 18px 48px oklch(0.28 0.03 65 / 0.18),
+    0 2px 8px oklch(0.28 0.03 65 / 0.08);
+}
+.tcc-card--sticky .tcc-copy {
+  grid-area: copy;
+  max-width: 600px;
+}
+.tcc-card--sticky h3 {
+  font-size: 1.04rem;
+}
+.tcc-card--sticky .tcc-copy p {
+  margin-top: 4px;
+  font-size: 0.79rem;
+  line-height: 1.35;
+}
+.tcc-card--sticky .tcc-mascot {
+  grid-area: mascot;
+  display: block;
+  width: 66px;
+  height: 66px;
+  object-fit: contain;
+}
+.tcc-card--sticky .tcc-actions,
+.tcc-card--sticky .tcc-android-form {
+  grid-area: actions;
+  margin-top: 0;
+}
+.tcc-card--sticky .tcc-primary {
+  min-height: 46px;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+}
+.tcc-card--sticky[data-platform="desktop"] .tcc-qr {
+  padding: 6px 8px;
+}
+.tcc-card--sticky[data-platform="desktop"] .tcc-qr svg {
+  width: 58px;
+  height: 58px;
+}
+.tcc-card--sticky .tcc-proof {
+  grid-area: proof;
+  margin-top: 1px;
+  font-size: 9px;
+}
+
+@media (max-width: 760px) {
+  body.has-tool-sticky-cta {
+    padding-bottom: 166px;
+  }
+  .tcc-card--sticky {
+    bottom: max(8px, env(safe-area-inset-bottom));
+    width: calc(100vw - 16px);
+    padding: 11px 12px 8px;
+    grid-template-columns: minmax(0, 1fr) 54px;
+    grid-template-areas:
+      "copy mascot"
+      "actions actions"
+      "proof proof";
+    column-gap: 8px;
+    row-gap: 7px;
+    border-radius: 16px;
+  }
+  .tcc-card--sticky .tcc-eyebrow {
+    margin-bottom: 3px;
+    font-size: 9px;
+  }
+  .tcc-card--sticky h3 {
+    font-size: 0.98rem;
+  }
+  .tcc-card--sticky .tcc-copy p {
+    display: none;
+  }
+  .tcc-card--sticky .tcc-mascot {
+    width: 54px;
+    height: 54px;
+  }
+  .tcc-card--sticky .tcc-actions {
+    display: flex;
+  }
+  .tcc-card--sticky .tcc-qr {
+    display: none;
+  }
+  .tcc-card--sticky .tcc-android-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
 }

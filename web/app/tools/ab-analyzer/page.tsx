@@ -261,6 +261,16 @@ export default function AbAnalyzerPage() {
           <div className="pr-section-inner">
             <p className="pr-section-eyebrow">Related tools</p>
             <h2>Go deeper than one region.</h2>
+            <a className="pr-crosslink-card" href="/tools/six-pack-timeline/">
+              <div className="pr-crosslink-text">
+                <strong>Six Pack Timeline Calculator</strong>
+                <span>
+                  Add your weight and calorie deficit to turn this photo read
+                  into a personalized week range and leaner AI preview.
+                </span>
+              </div>
+              <span className="pr-crosslink-arrow">Open →</span>
+            </a>
             <a className="pr-crosslink-card" href="/tools/body-fat-from-photo/">
               <div className="pr-crosslink-text">
                 <strong>AI Body Fat Estimator</strong>

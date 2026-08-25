@@ -71,11 +71,29 @@ export default function AppStoreClickTracker() {
           ? "web-nav"
           : campaignForPath(window.location.pathname);
       const ct = anchor.getAttribute("data-cta-campaign") ?? fallbackCt;
+      const customProductPageId =
+        anchor.getAttribute("data-cta-custom-product-page-id") ?? undefined;
+      const experimentRoot = anchor.closest<HTMLElement>(
+        "[data-experiment-id]",
+      );
+      const experimentId = experimentRoot?.dataset.experimentId;
+      const experimentVariant = experimentRoot?.dataset.experimentVariant;
+      const experimentForced =
+        experimentRoot?.dataset.experimentForced === "true";
+      const experimentProperties = experimentId && experimentVariant
+        ? {
+            experiment_id: experimentId,
+            experiment_variant: experimentVariant,
+            experiment_forced: experimentForced,
+            cta_angle: experimentRoot?.dataset.ctaAngle ?? experimentVariant,
+          }
+        : {};
 
       rememberCurrentAcquisition();
       const attribution = buildWebAttributionLink({
         campaign: ct,
         cta: ctaContent,
+        customProductPageId,
       });
       anchor.href = attribution.href;
 
@@ -90,14 +108,15 @@ export default function AppStoreClickTracker() {
           source,
           cta_content: ctaContent,
           ct,
+          ...experimentProperties,
         });
       }
 
       if (!anchor.hasAttribute("data-track-exempt")) {
         trackOncePerDay(
           "outbound_app_store_click",
-          { source, cta_content: ctaContent, ct },
-          `${source}:${ctaContent}`,
+          { source, cta_content: ctaContent, ct, ...experimentProperties },
+          `${source}:${ctaContent}:${experimentVariant ?? "none"}`,
         );
       }
     };

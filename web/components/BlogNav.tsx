@@ -14,6 +14,7 @@ export default function BlogNav() {
   const isComics = /^\/comics($|\/|\.html$)/.test(norm);
   const isTools = /^\/tools($|\/)/.test(norm);
   const isAbout = /^\/about($|\/)/.test(norm);
+  const isLeaderboard = /^\/leaderboard($|\/)/.test(norm);
 
   const cls = (active: boolean) => (active ? "active" : undefined);
 
@@ -64,6 +65,13 @@ export default function BlogNav() {
             onClick={() => setOpen(false)}
           >
             About
+          </Link>
+          <Link
+            href="/leaderboard/"
+            className={cls(isLeaderboard)}
+            onClick={() => setOpen(false)}
+          >
+            Leaderboard
           </Link>
           <Link
             href="/blog/"

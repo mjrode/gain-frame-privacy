@@ -43,6 +43,12 @@ const ALL_TOOLS: RelatedTool[] = [
       "Enter height and weight for an adult BMI result plus an illustrative male or female body-shape reference.",
   },
   {
+    slug: "six-pack-timeline",
+    title: "Six Pack Timeline Calculator",
+    blurb:
+      "Upload a photo, choose a calorie deficit, and get an estimated date range for defined abs plus a leaner AI preview.",
+  },
+  {
     slug: "body-fat-from-photo",
     title: "AI Body Fat from a Photo",
     blurb:
@@ -199,6 +205,7 @@ export default async function CalculatorPage({
             tool="body_fat_visualizer"
             campaign="web-bfviz"
             placement="result"
+            activation="tool_completed"
             headline="Found your level? GainFrame reads yours from a photo."
             body="Upload one photo in the app for body fat %, muscle scores, and weekly trends — free to start."
             desktopBody="Scan with your iPhone to read your body fat from a photo — muscle scores and weekly trends included, free to start."

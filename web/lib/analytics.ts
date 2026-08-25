@@ -90,6 +90,22 @@ export type AnalyticsEvent =
   | "ab_tool_requested"
   | "ab_tool_scored"
   | "ab_tool_cta_click"
+  // Six-pack timeline tool
+  | "six_pack_tool_view"
+  | "six_pack_tool_photo_uploaded"
+  | "six_pack_tool_timeline_shown"
+  | "six_pack_tool_render_shown"
+  | "six_pack_tool_render_unavailable"
+  | "six_pack_tool_download_clicked"
+  | "six_pack_tool_cta_clicked"
+  | "six_pack_tool_error"
+  // Body measurements & proportion calculator
+  | "measurements_tool_view"
+  | "measurements_tool_calculated"
+  | "measurements_tool_target_changed"
+  | "measurements_tool_targets_reset"
+  | "measurements_tool_preview_started"
+  | "measurements_tool_cta_clicked"
   // Homepage promo film
   | "promo_film_sound_on"
   | "promo_film_watched_75"

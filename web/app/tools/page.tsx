@@ -49,17 +49,19 @@ const itemListSchema = {
     { "@type": "ListItem", position: 2, name: "BMI Body Visualizer", url: "https://gainframe.app/tools/body-visualizer/" },
     { "@type": "ListItem", position: 3, name: "Body Fat Percentage at Each Age", url: "https://gainframe.app/tools/body-fat-visualizer/" },
     { "@type": "ListItem", position: 4, name: "AI Body Transformation Generator", url: "https://gainframe.app/tools/ai-body-transformation/" },
-    { "@type": "ListItem", position: 5, name: "AI Physique Rater", url: "https://gainframe.app/tools/physique-rater/" },
-    { "@type": "ListItem", position: 6, name: "AI Ab Analyzer", url: "https://gainframe.app/tools/ab-analyzer/" },
-    { "@type": "ListItem", position: 7, name: "Body Fat Calculator", url: "https://gainframe.app/tools/body-fat-estimator/" },
-    { "@type": "ListItem", position: 8, name: "FFMI Calculator", url: "https://gainframe.app/tools/ffmi-calculator/" },
-    { "@type": "ListItem", position: 9, name: "TDEE Calculator", url: "https://gainframe.app/tools/tdee-calculator/" },
-    { "@type": "ListItem", position: 10, name: "Macro Calculator", url: "https://gainframe.app/tools/macro-calculator/" },
-    { "@type": "ListItem", position: 11, name: "Calorie Deficit Calculator", url: "https://gainframe.app/tools/calorie-deficit-calculator/" },
-    { "@type": "ListItem", position: 12, name: "1RM Calculator", url: "https://gainframe.app/tools/one-rep-max-calculator/" },
-    { "@type": "ListItem", position: 13, name: "Strength Standards Calculator", url: "https://gainframe.app/tools/strength-standards-calculator/" },
-    { "@type": "ListItem", position: 14, name: "Calories Burned Calculator", url: "https://gainframe.app/tools/calories-burned-calculator/" },
-    { "@type": "ListItem", position: 15, name: "Progress Photo Setup Tool", url: "https://gainframe.app/tools/progress-photo-setup/" },
+    { "@type": "ListItem", position: 5, name: "Body Measurements & Proportion Calculator", url: "https://gainframe.app/tools/body-measurements-calculator/" },
+    { "@type": "ListItem", position: 6, name: "AI Physique Rater", url: "https://gainframe.app/tools/physique-rater/" },
+    { "@type": "ListItem", position: 7, name: "AI Ab Analyzer", url: "https://gainframe.app/tools/ab-analyzer/" },
+    { "@type": "ListItem", position: 8, name: "Six Pack Timeline Calculator", url: "https://gainframe.app/tools/six-pack-timeline/" },
+    { "@type": "ListItem", position: 9, name: "Body Fat Calculator", url: "https://gainframe.app/tools/body-fat-estimator/" },
+    { "@type": "ListItem", position: 10, name: "FFMI Calculator", url: "https://gainframe.app/tools/ffmi-calculator/" },
+    { "@type": "ListItem", position: 11, name: "TDEE Calculator", url: "https://gainframe.app/tools/tdee-calculator/" },
+    { "@type": "ListItem", position: 12, name: "Macro Calculator", url: "https://gainframe.app/tools/macro-calculator/" },
+    { "@type": "ListItem", position: 13, name: "Calorie Deficit Calculator", url: "https://gainframe.app/tools/calorie-deficit-calculator/" },
+    { "@type": "ListItem", position: 14, name: "1RM Calculator", url: "https://gainframe.app/tools/one-rep-max-calculator/" },
+    { "@type": "ListItem", position: 15, name: "Strength Standards Calculator", url: "https://gainframe.app/tools/strength-standards-calculator/" },
+    { "@type": "ListItem", position: 16, name: "Calories Burned Calculator", url: "https://gainframe.app/tools/calories-burned-calculator/" },
+    { "@type": "ListItem", position: 17, name: "Progress Photo Setup Tool", url: "https://gainframe.app/tools/progress-photo-setup/" },
   ],
 };
 
@@ -98,7 +100,7 @@ export default function ToolsPage() {
             #cl-count IDs are consumed by ToolsInteractions; do not rename. */}
         <div className="cl-search-rail">
           <div className="cl-tool-meta-pill">
-            <strong id="cl-count">14</strong>&nbsp;tools available
+            <strong id="cl-count">17</strong>&nbsp;tools available
           </div>
           <div className="cl-search-bar-compact" id="cl-search-wrap">
             <span className="cl-search-icon">
@@ -281,7 +283,65 @@ export default function ToolsPage() {
           </div>
         </section>
 
-        {/* THIRD FEATURE — AI Physique Rater. Same tinted-panel treatment as
+        {/* PREMIUM FEATURE — Six Pack Timeline. It follows the same featured
+            tool treatment as the transformation card, with bespoke mascot art
+            replacing a generic forecast console. */}
+        <section
+          className="cl-tool-feature cl-tool-feature-sixpack"
+          aria-labelledby="cl-tool-sixpack-title"
+        >
+          <div className="cl-tool-feature-panel">
+            <div className="cl-tool-feature-copy">
+              <span className="cl-tool-hero-pill cl-tool-feature-pill">
+                <span className="dot" aria-hidden />
+                New · AI cut forecast
+              </span>
+              <h2 id="cl-tool-sixpack-title">
+                Put a date range on <em>your six pack.</em>
+              </h2>
+              <p className="cl-tool-hero-sub">
+                Upload a current photo, choose your calorie deficit, and get a
+                realistic visible-abs window—plus an AI preview of the leaner
+                you. One flow from starting point to finish line.
+              </p>
+              <div className="cl-tool-hero-actions">
+                <a
+                  className="cl-tool-hero-cta"
+                  href="/tools/six-pack-timeline/"
+                >
+                  Find my date range
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <span className="cl-tool-hero-actions-meta">
+                  <strong>Free</strong> · ~30s · AI before/after
+                </span>
+              </div>
+            </div>
+
+            <div
+              className="cl-tool-feature-visual cl-sixpack-feature-visual"
+              aria-hidden="true"
+            >
+              <img
+                className="cl-sixpack-mascot"
+                src="/assets/gainframe-guy/poses/gainframe-guy-six-pack-calendar.webp"
+                alt=""
+                loading="lazy"
+                width={1254}
+                height={1254}
+              />
+              <div className="cl-sixpack-result-card">
+                <span>Example forecast</span>
+                <strong>10–14</strong>
+                <b>weeks</b>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FOURTH FEATURE — AI Physique Rater. Same tinted-panel treatment as
             the transformation feature; visual reuses the hero score-card. */}
         <section
           className="cl-tool-feature"
@@ -345,7 +405,7 @@ export default function ToolsPage() {
         <div className="cl-section-intro">
           <h2>Free Fitness Calculators</h2>
           <p>
-            Fourteen evidence-based tools for body composition, nutrition, and
+            Seventeen evidence-based tools for body composition, nutrition, and
             performance. Instant results, no signup.
           </p>
         </div>
@@ -354,7 +414,7 @@ export default function ToolsPage() {
           <nav className="cl-sidebar" aria-label="Tool categories">
             <p className="cl-sidebar-label">Categories</p>
             <a href="#body-composition" className="cl-nav-link cl-active">
-              Body Composition <span className="cl-nav-count">7</span>
+              Body Composition <span className="cl-nav-count">10</span>
             </a>
             <a href="#nutrition" className="cl-nav-link">
               Nutrition &amp; Energy <span className="cl-nav-count">3</span>
@@ -371,7 +431,7 @@ export default function ToolsPage() {
             <section className="cl-section" id="body-composition">
               <div className="cl-section-header">
                 <h2>Body Composition</h2>
-                <span className="cl-count-badge">7 tools</span>
+                <span className="cl-count-badge">10 tools</span>
               </div>
               <div className="cl-grid cl-grid-2">
                 <a
@@ -401,6 +461,36 @@ export default function ToolsPage() {
                     Enter height and weight to calculate adult BMI and see an
                     illustrative male or female body-shape reference. Metric or
                     U.S. units, no signup.
+                  </p>
+                  <span className="cl-card-link">Open →</span>
+                </a>
+
+                <a
+                  href="/tools/body-measurements-calculator/"
+                  className="cl-card"
+                  data-search="body measurements proportion calculator chest waist shoulders arms thighs wrist height target ratios ai preview"
+                >
+                  <div className="cl-card-icon ic-cdc">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M4 7h16M6 4v6M10 5v4M14 5v4M18 4v6" />
+                      <path d="M4 17h16M6 14v6M10 15v4M14 15v4M18 14v6" />
+                    </svg>
+                  </div>
+                  <h3>Body Measurements &amp; Proportions</h3>
+                  <p className="cl-card-desc">
+                    Map chest, waist, shoulders, arms, thighs, wrist and
+                    height. Compare five ratios, set target sliders, then
+                    preview the regional changes on your photo.
                   </p>
                   <span className="cl-card-link">Open →</span>
                 </a>
@@ -521,6 +611,37 @@ export default function ToolsPage() {
                     Upload one photo, get a 1–100 physique score with body fat,
                     muscle, proportions, and goal-fit sub-scores. Three free
                     ratings.
+                  </p>
+                  <span className="cl-card-link">Open →</span>
+                </a>
+
+                <a
+                  href="/tools/six-pack-timeline/"
+                  className="cl-card"
+                  data-search="six pack timeline calculator how long to get abs calorie deficit future lean body photo"
+                >
+                  <div className="cl-card-icon ic-cdc">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M7 3v3M17 3v3M4 9h16" />
+                      <rect x="4" y="5" width="16" height="16" rx="2" />
+                      <path d="m8 15 2.5 2.5L16 12" />
+                    </svg>
+                  </div>
+                  <h3>Six Pack Timeline</h3>
+                  <p className="cl-card-desc">
+                    Upload a photo, choose a calorie deficit, and get your
+                    estimated weeks to defined abs — plus an AI preview of the
+                    leaner you.
                   </p>
                   <span className="cl-card-link">Open →</span>
                 </a>

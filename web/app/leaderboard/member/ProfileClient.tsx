@@ -782,65 +782,69 @@ export default function MemberProfileClient() {
       </a>
 
       <article className="member-profile-hero">
-        <div className="member-profile-identity">
-          <div className="member-profile-avatar" aria-hidden="true">
-            {profile.avatar_url
-              ? <img src={profile.avatar_url} alt="" referrerPolicy="no-referrer" />
-              : initials(profile.username)}
+        <div className="member-profile-content">
+          <div className="member-profile-identity">
+            <div className="member-profile-avatar" aria-hidden="true">
+              {profile.avatar_url
+                ? <img src={profile.avatar_url} alt="" referrerPolicy="no-referrer" />
+                : initials(profile.username)}
+            </div>
+            <div>
+              <p className="member-profile-eyebrow">
+                {profile.visibility === "unlisted" ? "Link-only profile" : "Leaderboard profile"}
+              </p>
+              <h1>@{profile.username}</h1>
+              {profile.bio && <p className="member-profile-bio">{profile.bio}</p>}
+            </div>
           </div>
-          <div>
-            <p className="member-profile-eyebrow">
-              {profile.visibility === "unlisted" ? "Link-only profile" : "Leaderboard profile"}
-            </p>
-            <h1>@{profile.username}</h1>
-            {profile.bio && <p className="member-profile-bio">{profile.bio}</p>}
-          </div>
-        </div>
 
-        <div className="member-profile-fields" aria-label="Shared profile details">
-          {profile.training_since_year && (
-            <span><b>Training</b> Since {profile.training_since_year}</span>
-          )}
-          {profile.favorite_lift && (
-            <span><b>Favorite lift</b> {profile.favorite_lift}</span>
-          )}
-          {profile.region && (
-            <span><b>Region</b> {profile.region}</span>
-          )}
-          {profile.training_style && (
-            <span><b>Training</b> {profile.training_style}</span>
-          )}
-          {profile.weekly_sessions && (
-            <span><b>Frequency</b> {profile.weekly_sessions}× week</span>
-          )}
-          {profile.current_phase && (
-            <span><b>Current phase</b> {profile.current_phase}</span>
-          )}
-          {shareContext && (
-            <button
-              className="member-profile-share-button"
-              type="button"
-              onClick={() => setShareOpen(true)}
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <circle cx="18" cy="5" r="2.5" />
-                <circle cx="6" cy="12" r="2.5" />
-                <circle cx="18" cy="19" r="2.5" />
-                <path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5" />
-              </svg>
-              Share rank
+          <div className="member-profile-fields" aria-label="Shared profile details">
+            {profile.training_since_year && (
+              <span><b>Training</b> Since {profile.training_since_year}</span>
+            )}
+            {profile.favorite_lift && (
+              <span><b>Favorite lift</b> {profile.favorite_lift}</span>
+            )}
+            {profile.region && (
+              <span><b>Region</b> {profile.region}</span>
+            )}
+            {profile.training_style && (
+              <span><b>Training</b> {profile.training_style}</span>
+            )}
+            {profile.weekly_sessions && (
+              <span><b>Frequency</b> {profile.weekly_sessions}× week</span>
+            )}
+            {profile.current_phase && (
+              <span><b>Current phase</b> {profile.current_phase}</span>
+            )}
+          </div>
+
+          <div className="member-profile-actions">
+            {shareContext && (
+              <button
+                className="member-profile-share-button"
+                type="button"
+                onClick={() => setShareOpen(true)}
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <circle cx="18" cy="5" r="2.5" />
+                  <circle cx="6" cy="12" r="2.5" />
+                  <circle cx="18" cy="19" r="2.5" />
+                  <path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5" />
+                </svg>
+                Share rank
+              </button>
+            )}
+            <button className="member-profile-report-link" type="button" onClick={reportProfile}>
+              Report profile
             </button>
-          )}
+          </div>
         </div>
 
         <div className="member-profile-gary" aria-hidden="true">
           <span>Keep the frame moving.</span>
           <img src="/assets/gainframe-guy/poses/gainframe-guy-wave.webp" alt="" />
         </div>
-
-        <button className="member-profile-report-link" type="button" onClick={reportProfile}>
-          Report profile
-        </button>
       </article>
 
       <section className="member-profile-stats" aria-label="Leaderboard score summary">

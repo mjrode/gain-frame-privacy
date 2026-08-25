@@ -6,6 +6,7 @@ import DownloadQr from "@/components/DownloadQr";
 import PlatformDownloadLink from "@/components/PlatformDownloadLink";
 import {
   BLOG_CTA_CONFIG,
+  BLOG_CTA_OVERRIDES,
   type BlogCtaIntent,
 } from "@/lib/blog-cta";
 
@@ -38,7 +39,7 @@ function insertAfterFirstSection(article: HTMLElement, slot: HTMLElement) {
 function ContextualCta({ intent, slug }: BlogArticleCtaProps) {
   if (intent === "founder") return null;
 
-  const config = BLOG_CTA_CONFIG[intent];
+  const config = BLOG_CTA_OVERRIDES[slug] ?? BLOG_CTA_CONFIG[intent];
   const source = `/blog/${slug}/`;
   const content = `contextual_inline_${intent}`;
 
@@ -69,7 +70,9 @@ function ContextualCta({ intent, slug }: BlogArticleCtaProps) {
             campaign="web-blog-qr"
           />
         </div>
-        <p className="blog-contextual-cta-proof">4.9 ★ · 5,000 lifters</p>
+        <p className="blog-contextual-cta-proof">
+          {config.proof ?? "4.9 ★ · 5,000 lifters"}
+        </p>
       </div>
       <figure className="blog-contextual-cta-visual">
         <img src={config.image} alt={config.imageAlt} loading="lazy" />

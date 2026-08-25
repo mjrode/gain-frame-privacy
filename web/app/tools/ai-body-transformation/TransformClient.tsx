@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import ToolConversionCard from "@/components/ToolConversionCard";
+import type { RegionalAdjustments } from "@/lib/body-proportions";
+import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
 import {
   captureException,
   getPosthogDistinctId,
@@ -288,11 +290,52 @@ async function buildShareImage(
   return canvas.toDataURL("image/jpeg", 0.9);
 }
 
-export default function TransformClient() {
+type TransformClientProps = {
+  variant?: "standard" | "measurements";
+  regionalAdjustments?: RegionalAdjustments;
+  referenceSex?: "male" | "female";
+  onPreviewStarted?: () => void;
+};
+
+function goalForAdjustments(adjustments: RegionalAdjustments): Goal {
+  const waistReduction = (adjustments.waist ?? 0) < -0.5;
+  const muscleIncrease = [
+    adjustments.shoulders,
+    adjustments.chest,
+    adjustments.arms,
+    adjustments.thighs,
+  ].some((value) => (value ?? 0) > 0.5);
+  if (waistReduction && muscleIncrease) return "recomp";
+  if (waistReduction) return "lose_fat";
+  return "build_muscle";
+}
+
+function zonesForAdjustments(adjustments: RegionalAdjustments): string[] {
+  const zones = [
+    ["shoulders", adjustments.shoulders],
+    ["chest", adjustments.chest],
+    ["arms", adjustments.arms],
+    ["core", adjustments.waist],
+    ["legs", adjustments.thighs],
+  ] as const;
+  return zones
+    .filter(([, value]) => Math.abs(value ?? 0) >= 0.5)
+    .sort((a, b) => Math.abs(b[1] ?? 0) - Math.abs(a[1] ?? 0))
+    .slice(0, MAX_ZONES)
+    .map(([zone]) => zone);
+}
+
+export default function TransformClient({
+  variant = "standard",
+  regionalAdjustments = {},
+  referenceSex,
+  onPreviewStarted,
+}: TransformClientProps = {}) {
+  const measurementsMode = variant === "measurements";
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [sex, setSex] = useState<Sex | null>(null);
+  const [sex, setSex] = useState<Sex | null>(referenceSex ?? null);
   const [goal, setGoal] = useState<Goal>("recomp");
   const [zones, setZones] = useState<string[]>([]);
   const [intensityIdx, setIntensityIdx] = useState(0);
@@ -483,6 +526,10 @@ export default function TransformClient() {
   }, []);
 
   useEffect(() => {
+    if (measurementsMode && referenceSex) setSex(referenceSex);
+  }, [measurementsMode, referenceSex]);
+
+  useEffect(() => {
     return () => {
       if (previewUrl) URL.revokeObjectURL(previewUrl);
     };
@@ -569,13 +616,26 @@ export default function TransformClient() {
     const startedAt = toolNow();
     let phase = "preprocess";
     let processed: PreprocessedImage | undefined;
+    const effectiveGoal = measurementsMode
+      ? goalForAdjustments(regionalAdjustments)
+      : goal;
+    const effectiveZones = measurementsMode
+      ? zonesForAdjustments(regionalAdjustments)
+      : zones;
+    const effectiveIntensity = measurementsMode
+      ? "realistic"
+      : INTENSITY_STOPS[intensityIdx].key;
+    onPreviewStarted?.();
     track("bt_tool_generate_requested", {
       sex: sex ?? "skip",
-      goal,
-      zones: zones.join(","),
-      intensity: INTENSITY_STOPS[intensityIdx].key,
+      goal: effectiveGoal,
+      zones: effectiveZones.join(","),
+      intensity: effectiveIntensity,
+      source: measurementsMode ? "body_measurements" : "client",
+      regional_adjustments: measurementsMode
+        ? JSON.stringify(regionalAdjustments)
+        : undefined,
       attempt_id: attemptId,
-      source: "client",
       ...fileTelemetry(file),
     });
 
@@ -600,9 +660,12 @@ export default function TransformClient() {
             photo_base64: processed.base64,
             photo_mime: processed.photoMime,
             sex: sex && sex !== "skip" ? sex : null,
-            goal,
-            zones,
-            intensity: INTENSITY_STOPS[intensityIdx].key,
+            goal: effectiveGoal,
+            zones: effectiveZones,
+            intensity: effectiveIntensity,
+            ...(measurementsMode
+              ? { regional_adjustments: regionalAdjustments }
+              : {}),
             analytics_consent: analyticsConsent,
             ...(analyticsConsent
               ? {
@@ -1156,14 +1219,28 @@ export default function TransformClient() {
         </div>
 
         <ToolConversionCard
-          tool={CTA_CAMPAIGN}
-          campaign="web-bttool"
+          tool={measurementsMode ? "body_measurements" : CTA_CAMPAIGN}
+          campaign={measurementsMode ? "web-measurements" : "web-bttool"}
+          customProductPageId={
+            measurementsMode ? SEO_PHYSIQUE_TOOLS_CPP.id : undefined
+          }
           placement="result"
-          headline="That render is the preview. Track the real thing in GainFrame."
-          body="The app tracks your real progress photos against this projection, re-renders at any intensity, and the AI coach adjusts as your body changes — free to start."
-          desktopBody="Scan with your iPhone to track your real progress photos against this projection — free to start."
+          headline={measurementsMode
+            ? "Your target is set. Track the photos that get you there."
+            : "That render is the preview. Track the real thing in GainFrame."}
+          body={measurementsMode
+            ? "GainFrame scores body fat, 12 muscle groups, and proportions from repeat progress photos—so you can see whether those tape targets are becoming visible."
+            : "The app tracks your real progress photos against this projection, re-renders at any intensity, and the AI coach adjusts as your body changes — free to start."}
+          desktopBody={measurementsMode
+            ? "Scan with your iPhone to track the real visual progress behind these measurement targets—free to start."
+            : "Scan with your iPhone to track your real progress photos against this projection — free to start."}
           onCtaClick={() =>
-            track("bt_tool_cta_clicked", { cta_content: "cta_primary" })
+            track(
+              measurementsMode
+                ? "measurements_tool_cta_clicked"
+                : "bt_tool_cta_clicked",
+              { cta_content: "cta_primary", placement: "preview_result" },
+            )
           }
         />
 
@@ -1288,7 +1365,10 @@ export default function TransformClient() {
   }
 
   // -------- Idle (default) --------
-  const submitDisabled = !file || sex === null;
+  const noRegionalChanges =
+    measurementsMode && Object.keys(regionalAdjustments).length === 0;
+  const submitDisabled =
+    !file || (!measurementsMode && sex === null) || noRegionalChanges;
   return (
     <div className="btf-card">
       {unlockedNote && (
@@ -1300,7 +1380,11 @@ export default function TransformClient() {
 
       <div className="btf-card-head">
         <span className="btf-card-head-label">Your photo</span>
-        <span className="btf-card-head-meta">1 free render — aim it well</span>
+        <span className="btf-card-head-meta">
+          {measurementsMode
+            ? "1 free beta render · targets loaded"
+            : "1 free render — aim it well"}
+        </span>
       </div>
 
       {!file ? (
@@ -1381,13 +1465,30 @@ export default function TransformClient() {
         </div>
       )}
 
-      {!file && (
+      {!file && !measurementsMode && (
         <p className="btf-aim-hint">
           Aim &amp; intensity appear once your photo&apos;s in
         </p>
       )}
 
-      {file && (
+      {file && measurementsMode && (
+        <div className="btf-regional-summary" aria-label="Loaded target changes">
+          <div>
+            <strong>Measurement targets loaded</strong>
+            <span>We&apos;ll adjust only the regions you changed.</span>
+          </div>
+          <div className="btf-regional-summary__chips">
+            {Object.entries(regionalAdjustments).map(([key, value]) => (
+              <span key={key}>
+                {key === "thighs" ? "legs" : key} {Number(value) > 0 ? "+" : ""}
+                {Number(value).toFixed(1).replace(/\.0$/, "")}%
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {file && !measurementsMode && (
       <div className="btf-aim">
       <div className="btf-field">
         <p className="btf-field-label">
@@ -1527,11 +1628,18 @@ export default function TransformClient() {
         disabled={submitDisabled}
         onClick={submit}
       >
-        {!file ? "Add a photo to start" : submitDisabled ? "Pick a reference to render" : (
+        {!file
+          ? "Add a photo to start"
+          : noRegionalChanges
+            ? "Adjust a target to preview"
+            : submitDisabled
+              ? "Pick a reference to render"
+              : (
           <>
-            Render future me <span className="arrow" aria-hidden>→</span>
+            {measurementsMode ? "Preview my targets" : "Render future me"}{" "}
+            <span className="arrow" aria-hidden>→</span>
           </>
-        )}
+              )}
       </button>
 
       <p className="btf-privacy">

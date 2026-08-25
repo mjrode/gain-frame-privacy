@@ -25,6 +25,7 @@ export const CLIENT_REPORTED_WEB_TOOLS = [
   "strength-standards-calculator",
   "calories-burned-calculator",
   "progress-photo-setup",
+  "body-measurements-calculator",
 ] as const;
 
 export type ClientReportedWebTool =

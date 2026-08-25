@@ -123,7 +123,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${SITE.url}/tools/six-pack-timeline/`,
+      lastModified: today(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE.url}/tools/ai-body-transformation/`,
+      lastModified: today(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${SITE.url}/tools/body-measurements-calculator/`,
       lastModified: today(),
       changeFrequency: "weekly",
       priority: 0.8,

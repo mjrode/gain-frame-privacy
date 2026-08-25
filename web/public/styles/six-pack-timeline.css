@@ -1,0 +1,133 @@
+/* Six Pack Timeline uses the AI Body Transformation design system directly.
+   This file contains only the controls and result modules unique to its math. */
+
+.spt-pills-2 { grid-template-columns: repeat(2, 1fr); }
+.spt-unit-pills { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+.spt-unit-pills .btf-pill-btn { padding-inline: 10px; }
+
+.spt-weight-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  gap: 10px;
+}
+.spt-weight-row > input {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--btf-line-2);
+  border-radius: 12px;
+  background: var(--btf-paper);
+  padding: 12px 14px;
+  color: var(--btf-ink);
+  font-family: var(--btf-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+.spt-weight-row > input:focus {
+  border-color: var(--btf-blue);
+  box-shadow: 0 0 0 3px var(--btf-blue-50);
+}
+.spt-field-help {
+  margin: 8px 0 0;
+  color: var(--btf-faint);
+  font-family: var(--btf-mono);
+  font-size: .72rem;
+}
+
+.spt-deficits { grid-template-columns: repeat(4, 1fr); }
+.spt-deficits .btf-pill-btn {
+  min-width: 0;
+  padding: 12px 10px;
+  text-align: left;
+}
+.spt-deficits strong,
+.spt-deficits span,
+.spt-deficits small { display: block; }
+.spt-deficits strong { color: var(--btf-blue); font-size: .92rem; }
+.spt-deficits .is-selected strong { color: #fff; }
+.spt-deficits span { margin-top: 3px; font-size: .72rem; }
+.spt-deficits small { margin-top: 3px; color: var(--btf-muted); font-family: var(--btf-mono); font-size: .58rem; font-weight: 400; line-height: 1.35; }
+.spt-deficits .is-selected small { color: rgba(255,255,255,.62); }
+
+.spt-analyzing-mascot {
+  display: block;
+  width: 96px;
+  height: auto;
+  margin: auto;
+  filter: drop-shadow(0 10px 20px rgba(23,23,23,.12));
+}
+.spt-status-note {
+  margin: 12px 0 0;
+  color: var(--btf-muted);
+  font-family: var(--btf-mono);
+  font-size: .76rem;
+}
+
+.spt-result-heading { text-align: center; }
+.spt-result-heading h2 {
+  margin: 8px 0;
+  color: var(--btf-blue);
+  font-size: clamp(3rem, 8vw, 5.4rem);
+  font-weight: 800;
+  letter-spacing: -.06em;
+  line-height: .95;
+}
+.spt-result-heading > p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--btf-muted);
+  line-height: 1.65;
+}
+.spt-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 26px 0;
+  overflow: hidden;
+  border: 1px solid var(--btf-line);
+  border-radius: var(--btf-radius-sm);
+  background: var(--btf-paper-2);
+}
+.spt-stat-grid > div { min-width: 0; padding: 16px; }
+.spt-stat-grid > div + div { border-left: 1px solid var(--btf-line); }
+.spt-stat-grid span,
+.spt-stat-grid strong,
+.spt-stat-grid small { display: block; }
+.spt-stat-grid span { color: var(--btf-muted); font-family: var(--btf-mono); font-size: .62rem; text-transform: uppercase; }
+.spt-stat-grid strong { margin: 7px 0 4px; color: var(--btf-ink); font-size: clamp(1.2rem, 2.5vw, 1.75rem); letter-spacing: -.04em; line-height: 1; }
+.spt-stat-grid small { color: var(--btf-muted); font-size: .63rem; line-height: 1.4; }
+.spt-warning { border: 1px solid #f2cd71; border-radius: 12px; background: #fff9ea; padding: 14px 16px; color: #6d5413; font-size: .84rem; line-height: 1.6; }
+
+.spt-render-block { margin-top: 30px; border-top: 1px solid var(--btf-line); padding-top: 26px; }
+.spt-render-heading { margin-bottom: 16px; text-align: center; }
+.spt-render-heading .btf-section-eyebrow { margin-bottom: 6px; }
+.spt-render-heading h3 { margin: 0; color: var(--btf-ink); font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 800; letter-spacing: -.04em; }
+.spt-rendering { border: 1px solid var(--btf-line); border-radius: var(--btf-radius-sm); background: var(--btf-paper-2); padding: 30px 20px; text-align: center; }
+.spt-rendering .btf-status-track { margin-top: 16px; }
+.spt-rendering > p { margin: 14px 0 0; color: var(--btf-muted); font-family: var(--btf-mono); font-size: .74rem; }
+.spt-render-missed { display: flex; align-items: center; gap: 14px; border: 1px solid var(--btf-line); border-radius: var(--btf-radius-sm); background: var(--btf-paper-2); padding: 14px 18px; }
+.spt-render-missed p { margin: 4px 0 0; color: var(--btf-muted); font-size: .82rem; }
+.spt-render-note { margin: 14px auto 0; max-width: 620px; color: var(--btf-muted); font-family: var(--btf-mono); font-size: .72rem; line-height: 1.6; text-align: center; }
+.btf-download { text-decoration: none; }
+.spt-reset { display: block; margin: 18px auto 0; border: 0; background: transparent; color: var(--btf-muted); font-weight: 600; text-decoration: underline; cursor: pointer; }
+.spt-try-again { max-width: 280px; margin-inline: auto; }
+.spt-state .tcc-card { margin-top: 20px; text-align: left; }
+
+.spt-faq-list { border-top: 1px solid var(--btf-line); }
+.spt-faq-list details { border-bottom: 1px solid var(--btf-line); padding: 18px 0; }
+.spt-faq-list summary { cursor: pointer; color: var(--btf-ink); font-weight: 700; }
+.spt-faq-list p { margin: 10px 0 0; color: var(--btf-muted); font-size: .9rem; line-height: 1.7; }
+
+@media (max-width: 760px) {
+  .spt-stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .spt-stat-grid > div:nth-child(3), .spt-stat-grid > div:nth-child(4) { border-top: 1px solid var(--btf-line); }
+  .spt-stat-grid > div:nth-child(3) { border-left: 0; }
+}
+
+@media (max-width: 560px) {
+  .spt-weight-row { grid-template-columns: minmax(0, 1fr) 120px; }
+  .spt-deficits { grid-template-columns: repeat(2, 1fr); }
+  .spt-stat-grid { grid-template-columns: 1fr; }
+  .spt-stat-grid > div + div { border-top: 1px solid var(--btf-line); border-left: 0; }
+  .spt-result-heading h2 { font-size: 3rem; }
+}

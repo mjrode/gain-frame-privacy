@@ -68,6 +68,18 @@ instead of erroring when one is missing, but the feature is inert without it:
 | `RESEND_API_KEY` | `/api/trainer-waitlist`, `/api/android-waitlist` | signups return 503 |
 | `RESEND_TRAINER_AUDIENCE_ID` | `/api/trainer-waitlist` | signups return 503 |
 | `RESEND_ANDROID_AUDIENCE_ID` | `/api/android-waitlist` | link email still sends; address just isn't kept on a list |
+| `SLACK_REPORT_BOT_TOKEN` | Daily tool CTA experiment report to `#gainframe-alerts` | scheduled report is logged as skipped |
+
+### Scheduled experiment report
+
+Cloudflare runs the `tool_result_cta_v1` PostHog-to-Slack report every day at
+`14:05 UTC`. It compares unique viewers and clickers for the Improve, Track,
+and Future CTA variants over the trailing 24 hours and trailing 7 days. The
+report excludes `gf_cta_variant` QA overrides. Configure the GainFrame Slack
+bot token with `npx wrangler secret put SLACK_REPORT_BOT_TOKEN`;
+`SLACK_REPORT_CHANNEL_ID` points at `#gainframe-alerts`, and
+`POSTHOG_PERSONAL_API_KEY` is the same read-only secret used by `/api/stats`
+and the admin dashboard.
 
 ### Website analytics consent
 

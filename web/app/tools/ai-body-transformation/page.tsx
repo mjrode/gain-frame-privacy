@@ -289,6 +289,19 @@ export default function AiBodyTransformationPage() {
             <h2>Know where you&apos;re starting from.</h2>
             <a
               className="btf-crosslink-card"
+              href="/tools/six-pack-timeline/"
+            >
+              <div className="btf-crosslink-text">
+                <strong>Six Pack Timeline Calculator</strong>
+                <span>
+                  Aim the transformation at defined abs with a photo-based
+                  body-fat range and one of four calorie deficits.
+                </span>
+              </div>
+              <span className="btf-crosslink-arrow">Open →</span>
+            </a>
+            <a
+              className="btf-crosslink-card"
               href="/tools/body-fat-from-photo/"
             >
               <div className="btf-crosslink-text">

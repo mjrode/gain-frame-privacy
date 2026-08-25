@@ -26,11 +26,15 @@ import { handlePrivacyRegion } from "./api/privacy-region";
 import {
   handleAdminAiFlows,
   verifyAdmin,
-  type AdminEnv,
 } from "./api/admin";
 import { handleAdminMoney } from "./api/admin-money";
 import { handleAdminProduct } from "./api/admin-product";
-import type { AssetFetcher, Ctx } from "./types";
+import { handleAdminScoringTrust } from "./api/admin-scoring";
+import {
+  sendToolCtaDailyReport,
+  type ToolCtaReportEnv,
+} from "./experiments/tool-cta-report";
+import type { AssetFetcher, Ctx, ScheduledController } from "./types";
 import { profileShellRequest } from "./routes";
 
 interface Env
@@ -38,7 +42,7 @@ interface Env
     TrainerWaitlistEnv,
     AndroidWaitlistEnv,
     LeaderboardEnv,
-    AdminEnv {
+    ToolCtaReportEnv {
   ASSETS: AssetFetcher;
 }
 
@@ -153,6 +157,13 @@ export default {
       return handleAdminProduct(request, env);
     }
 
+    if (pathname === "/api/admin/scoring-trust") {
+      if (request.method !== "GET") {
+        return methodNotAllowed("GET");
+      }
+      return handleAdminScoringTrust(request, env);
+    }
+
     if (pathname.startsWith("/api/")) {
       return new Response(JSON.stringify({ error: "Not found." }), {
         status: 404,
@@ -182,5 +193,23 @@ export default {
     // Canonical profile URLs share one export-safe client shell. Every other
     // non-/api request is served directly from the static asset binding.
     return env.ASSETS.fetch(profileShellRequest(request) || request);
+  },
+
+  async scheduled(
+    _controller: ScheduledController,
+    env: Env,
+    ctx: Ctx,
+  ): Promise<void> {
+    ctx.waitUntil(
+      sendToolCtaDailyReport(env)
+        .then((result) => {
+          if (!result.sent) {
+            console.warn("Tool CTA daily report skipped", result.reason);
+          }
+        })
+        .catch((error) => {
+          console.error("Tool CTA daily report failed", error);
+        }),
+    );
   },
 };

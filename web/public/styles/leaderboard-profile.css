@@ -40,12 +40,17 @@
 
 .member-profile-hero {
   position: relative;
-  min-height: 276px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 222px;
+  min-height: 244px;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, .22);
   border-radius: 25px;
-  padding: 38px 260px 30px 38px;
-  background: #181a18;
+  padding: 24px;
+  gap: 30px;
+  background:
+    radial-gradient(circle at 72% -30%, rgba(113, 147, 119, .13), transparent 38%),
+    linear-gradient(135deg, #171a17 0%, #1b1f1b 100%);
   box-shadow: 0 24px 60px rgba(29, 40, 31, .13);
   color: #fff;
 }
@@ -61,14 +66,17 @@
 }
 
 .member-profile-hero::after {
-  content: "GF / COMMUNITY";
-  position: absolute;
-  right: -27px;
-  bottom: 79px;
-  color: rgba(255, 255, 255, .075);
-  font: 900 10px/1 var(--font-body);
-  letter-spacing: .24em;
-  transform: rotate(-90deg);
+  content: none;
+}
+
+.member-profile-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0 8px 10px;
 }
 
 .member-profile-identity {
@@ -135,12 +143,14 @@
 }
 
 .member-profile-fields {
-  position: relative;
-  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
-  margin-top: 25px;
+  margin-top: 22px;
+}
+
+.member-profile-fields:empty {
+  display: none;
 }
 
 .member-profile-fields span {
@@ -165,17 +175,25 @@
   text-transform: uppercase;
 }
 
+.member-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+}
+
 .member-profile-share-button {
   display: inline-flex;
-  min-height: 36px;
+  min-height: 44px;
   align-items: center;
   gap: 8px;
   border: 1px solid rgba(255, 255, 255, .23);
   border-radius: 999px;
-  padding: 0 14px;
+  padding: 0 16px;
   background: #f7f2e9;
   color: #2f4935;
-  font: 850 11px/1 var(--font-body);
+  font: 850 12px/1 var(--font-body);
   cursor: pointer;
   transition: background 150ms ease, color 150ms ease, transform 150ms ease;
 }
@@ -202,71 +220,77 @@
 }
 
 .member-profile-gary {
-  position: absolute;
-  top: 25px;
-  right: 35px;
-  bottom: 0;
+  position: relative;
   z-index: 1;
-  width: 185px;
+  min-height: 194px;
+  overflow: hidden;
+  border: 1px solid rgba(31, 55, 37, .18);
+  border-radius: 19px;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(255, 255, 255, .9), transparent 38%),
+    linear-gradient(145deg, #edf4eb 0%, #dce8dc 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .76),
+    0 14px 34px rgba(5, 11, 7, .15);
   pointer-events: none;
 }
 
 .member-profile-gary::before {
   content: "";
   position: absolute;
-  right: 4px;
-  bottom: -62px;
-  width: 184px;
-  height: 184px;
-  border: 1px solid rgba(150, 181, 155, .14);
+  right: -44px;
+  bottom: -75px;
+  width: 205px;
+  height: 205px;
+  border: 1px solid rgba(68, 105, 75, .16);
   border-radius: 50%;
+  box-shadow: 0 0 0 22px rgba(82, 118, 89, .045);
 }
 
 .member-profile-gary span {
   position: absolute;
-  top: 2px;
-  right: 0;
-  width: 134px;
-  padding: 9px 11px;
-  border: 1px solid rgba(255, 255, 255, .12);
-  border-radius: 12px 12px 2px;
-  background: rgba(255, 255, 255, .07);
-  color: rgba(255, 255, 255, .66);
-  font-size: 9px;
-  font-weight: 750;
+  top: 15px;
+  left: 15px;
+  z-index: 2;
+  width: 152px;
+  padding: 8px 11px;
+  border: 1px solid rgba(55, 83, 61, .1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .55);
+  color: #415d47;
+  font-size: 10px;
+  font-weight: 800;
   line-height: 1.35;
-  text-align: center;
+  text-align: left;
 }
 
 .member-profile-gary img {
   position: absolute;
-  right: 6px;
-  bottom: -13px;
-  width: 156px;
+  right: 9px;
+  bottom: -12px;
+  width: 172px;
   height: auto;
-  filter: saturate(.84) contrast(1.02);
+  filter: saturate(.9) contrast(1.04) drop-shadow(0 10px 12px rgba(26, 35, 28, .14));
 }
 
 .member-profile-report-link {
-  position: absolute;
-  right: auto;
-  bottom: 16px;
-  left: 30px;
-  z-index: 3;
   display: inline-flex;
   min-height: 44px;
   align-items: center;
   border: 0;
-  padding: 8px;
+  border-radius: 999px;
+  padding: 0 12px;
   background: transparent;
-  color: rgba(255, 255, 255, .44);
-  font: 700 10px/1 var(--font-body);
+  color: rgba(255, 255, 255, .52);
+  font: 750 11px/1 var(--font-body);
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 3px;
+  transition: background 150ms ease, color 150ms ease;
 }
 
 .member-profile-report-link:hover {
+  background: rgba(255, 255, 255, .055);
   color: rgba(255, 255, 255, .78);
 }
 
@@ -1316,9 +1340,15 @@
   }
 
   .member-profile-hero {
-    min-height: 292px;
+    grid-template-columns: 1fr;
+    min-height: 0;
     border-radius: 20px;
-    padding: 27px 22px 94px;
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .member-profile-content {
+    padding: 3px 1px 0;
   }
 
   .member-profile-identity {
@@ -1351,35 +1381,27 @@
     font-size: 10px;
   }
 
-  .member-profile-gary {
-    top: auto;
-    right: 21px;
-    bottom: -7px;
-    width: 110px;
-    height: 100px;
+  .member-profile-actions {
+    margin-top: 17px;
   }
 
-  .member-profile-gary span {
-    display: none;
+  .member-profile-gary {
+    width: 100%;
+    min-height: 112px;
+    border-radius: 15px;
   }
 
   .member-profile-gary::before {
-    right: -14px;
-    bottom: -63px;
-    width: 130px;
-    height: 130px;
+    right: -22px;
+    bottom: -69px;
+    width: 165px;
+    height: 165px;
   }
 
   .member-profile-gary img {
-    right: 0;
-    bottom: 0;
-    width: 101px;
-  }
-
-  .member-profile-report-link {
-    right: auto;
-    bottom: 15px;
-    left: 16px;
+    right: 12px;
+    bottom: -21px;
+    width: 122px;
   }
 
   .member-profile-stats {
@@ -1442,7 +1464,7 @@
   .member-profile-stats span,
   .member-profile-stats small {
     overflow: hidden;
-    font-size: 7px;
+    font-size: 8px;
     letter-spacing: .07em;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -1505,6 +1527,54 @@
   }
 }
 
+@media (max-width: 520px) {
+  .member-profile-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .member-profile-stats .member-profile-best {
+    grid-column: 1 / -1;
+  }
+
+  .member-profile-stats > div {
+    min-height: 102px;
+    padding: 18px;
+  }
+
+  .member-profile-stats > div + div {
+    border-top: 1px solid rgba(17, 17, 17, .08);
+    border-left: 0;
+  }
+
+  .member-profile-stats > div:last-child {
+    border-left: 1px solid rgba(17, 17, 17, .08);
+  }
+
+  .member-profile-stats span,
+  .member-profile-stats small {
+    font-size: 8px;
+  }
+
+  .member-profile-story-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .member-profile-story-rank {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(54, 87, 61, .14);
+    border-left: 0;
+    padding: 13px 0 0;
+  }
+
+  .member-profile-story-rank span {
+    margin: 0;
+  }
+}
+
 @media (max-width: 360px) {
   .member-profile-main {
     padding-right: 10px;
@@ -1514,6 +1584,11 @@
   .member-profile-hero {
     padding-right: 17px;
     padding-left: 17px;
+  }
+
+  .member-profile-gary img {
+    right: 7px;
+    width: 114px;
   }
 
   .member-profile-avatar {

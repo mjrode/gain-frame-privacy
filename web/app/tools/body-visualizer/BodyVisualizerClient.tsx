@@ -4,7 +4,10 @@ import Image from "next/image";
 import { useMemo, useRef, useState, type CSSProperties } from "react";
 import styles from "./page.module.css";
 import ToolConversionCard from "@/components/ToolConversionCard";
-import { reportWebToolCompletion } from "@/lib/web-tool-usage";
+import {
+  reportWebToolCompletion,
+  WEB_TOOL_COMPLETED_DOM_EVENT,
+} from "@/lib/web-tool-usage";
 
 type UnitSystem = "metric" | "us";
 type ReferenceSex = "male" | "female";
@@ -176,6 +179,7 @@ export default function BodyVisualizerClient() {
     if (reportedUsage.current) return;
     reportedUsage.current = true;
     void reportWebToolCompletion("body-visualizer");
+    window.dispatchEvent(new CustomEvent(WEB_TOOL_COMPLETED_DOM_EVENT));
   }
 
   function updateMetric(key: keyof MetricInputs, value: string) {
@@ -500,6 +504,7 @@ export default function BodyVisualizerClient() {
         tool="body_visualizer"
         campaign="web-body-visualizer"
         placement="result"
+        activation="tool_completed"
         headline={
           bmi !== null
             ? `BMI ${bmi.toFixed(1)} is one number. GainFrame tracks the body behind it.`

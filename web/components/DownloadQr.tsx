@@ -3,14 +3,17 @@
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
 import { ANALYTICS_CONSENT_STATE_EVENT } from "@/lib/analytics-consent";
-import { SITE } from "@/lib/site";
-import { buildWebAttributionLink } from "@/lib/web-attribution";
+import {
+  buildWebAttributionLink,
+  directAppStoreUrl,
+} from "@/lib/web-attribution";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 
 type DownloadQrProps = {
   campaign: string;
   className?: string;
   content: string;
+  customProductPageId?: string;
   label?: string;
   source: string;
 };
@@ -19,22 +22,31 @@ export default function DownloadQr({
   campaign,
   className,
   content,
+  customProductPageId,
   label = "Scan with iPhone",
   source,
 }: DownloadQrProps) {
   const platform = useDownloadPlatform();
-  const [href, setHref] = useState<string>(() => SITE.appStoreUrl);
+  const [href, setHref] = useState<string>(() =>
+    directAppStoreUrl({ campaign, cta: content, customProductPageId })
+  );
 
   useEffect(() => {
     const updateHref = () => {
-      setHref(buildWebAttributionLink({ campaign, cta: content }).href);
+      setHref(
+        buildWebAttributionLink({
+          campaign,
+          cta: content,
+          customProductPageId,
+        }).href,
+      );
     };
     updateHref();
     window.addEventListener(ANALYTICS_CONSENT_STATE_EVENT, updateHref);
     return () => {
       window.removeEventListener(ANALYTICS_CONSENT_STATE_EVENT, updateHref);
     };
-  }, [campaign, content]);
+  }, [campaign, content, customProductPageId]);
 
   if (platform !== "desktop") return null;
 
@@ -57,6 +69,7 @@ export default function DownloadQr({
           data-cta-source={source}
           data-cta-content={`${content}_desktop_link`}
           data-cta-campaign={campaign}
+          data-cta-custom-product-page-id={customProductPageId}
         >
           Open App Store
         </a>

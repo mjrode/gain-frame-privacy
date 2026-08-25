@@ -9,3 +9,8 @@ export interface Ctx {
 export interface AssetFetcher {
   fetch(request: Request): Promise<Response>;
 }
+
+export interface ScheduledController {
+  cron: string;
+  scheduledTime: number;
+}

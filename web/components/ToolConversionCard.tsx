@@ -8,6 +8,12 @@ import {
   type DownloadPlatform,
 } from "@/components/useDownloadPlatform";
 import { track } from "@/lib/analytics";
+import {
+  getToolCtaAssignment,
+  type ToolCtaAssignment,
+  type ToolCtaVariant,
+} from "@/lib/tool-cta-experiment";
+import { WEB_TOOL_COMPLETED_DOM_EVENT } from "@/lib/web-tool-usage";
 
 /**
  * Shared result-to-app bridge for the free tools. Extracted from the
@@ -28,11 +34,27 @@ import { track } from "@/lib/analytics";
 const DEFAULT_ANDROID_BODY =
   "No Android app yet. Leave your email and we'll send you the App Store link for later — and you'll be first to know if Android ships.";
 
+export type ToolConversionExperimentCopy = {
+  eyebrow: string;
+  headline: string;
+  body: string;
+  desktopBody?: string;
+  iosLabel: string;
+  proof?: string;
+};
+
+export type ToolConversionExperiment = {
+  id: string;
+  variants: Record<ToolCtaVariant, ToolConversionExperimentCopy>;
+};
+
 type ToolConversionCardProps = {
   /** Analytics id + data-cta-source, e.g. "physique_rater". */
   tool: string;
   /** Attribution campaign token (ct=), e.g. "web-rater". */
   campaign: string;
+  /** Optional App Store Connect Custom Product Page identifier. */
+  customProductPageId?: string;
   /** Where the card sits: "result", "daily_limit", "lifetime_limit", … */
   placement: string;
   /** The hook. Personalize with the user's actual number when there is one. */
@@ -48,6 +70,14 @@ type ToolConversionCardProps = {
   iosLabel?: string;
   proof?: string;
   androidProof?: string;
+  /** Optional A/B/n copy test. Assignment is stable across tools and visits. */
+  experiment?: ToolConversionExperiment;
+  /** Keep result CTAs visible after completion. Defaults to true for result. */
+  sticky?: boolean;
+  /** For tools whose CTA exists before interaction, wait for completion. */
+  activation?: "immediate" | "tool_completed";
+  /** Real GainFrame mascot asset shown on experiment variants. */
+  mascotSrc?: string;
   /** The tool renders its own Android capture (e.g. BF email report). */
   hideOnAndroid?: boolean;
   /** Fire the tool's historical click event alongside tool_cta_clicked. */
@@ -57,9 +87,11 @@ type ToolConversionCardProps = {
 function AndroidLinkForm({
   tool,
   placement,
+  experimentProperties,
 }: {
   tool: string;
   placement: string;
+  experimentProperties: Record<string, unknown>;
 }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -70,7 +102,11 @@ function AndroidLinkForm({
     event.preventDefault();
     if (!email || status === "sending") return;
     setStatus("sending");
-    track("tool_android_email_submitted", { tool, placement });
+    track("tool_android_email_submitted", {
+      tool,
+      placement,
+      ...experimentProperties,
+    });
     try {
       const res = await fetch("/api/android-waitlist", {
         method: "POST",
@@ -119,6 +155,7 @@ function AndroidLinkForm({
 export default function ToolConversionCard({
   tool,
   campaign,
+  customProductPageId,
   placement,
   headline,
   body,
@@ -129,16 +166,65 @@ export default function ToolConversionCard({
   iosLabel = "Get GainFrame free",
   proof = "iPhone app · Free to start · Built for progress photos",
   androidProof = "One email, just the link · No spam",
+  experiment,
+  sticky,
+  activation = "immediate",
+  mascotSrc = "/assets/gainframe-guy/poses/gainframe-coach.webp",
   hideOnAndroid = false,
   onCtaClick,
 }: ToolConversionCardProps) {
   const platform = useDownloadPlatform();
+  const [assignment, setAssignment] = useState<ToolCtaAssignment | null>(null);
+  const [activated, setActivated] = useState(activation === "immediate");
   const isAndroid = platform === "android";
   const isDesktop = platform === "desktop";
+  const isSticky = sticky ?? placement === "result";
   const cardRef = useRef<HTMLElement>(null);
   const viewedRef = useRef(false);
   const titleId = `tcc-title-${tool}-${placement}`;
-  const hidden = hideOnAndroid && isAndroid;
+  const experimentPending = Boolean(experiment && !assignment);
+  const hidden =
+    (hideOnAndroid && isAndroid) || experimentPending || !activated;
+  const variantCopy =
+    experiment && assignment ? experiment.variants[assignment.variant] : null;
+  const displayedEyebrow = variantCopy?.eyebrow ?? eyebrow;
+  const displayedHeadline = variantCopy?.headline ?? headline;
+  const displayedBody = variantCopy?.body ?? body;
+  const displayedDesktopBody =
+    variantCopy?.desktopBody ?? desktopBody ?? displayedBody;
+  const displayedIosLabel = variantCopy?.iosLabel ?? iosLabel;
+  const displayedProof = variantCopy?.proof ?? proof;
+  const experimentProperties: Record<string, unknown> =
+    experiment && assignment
+      ? {
+          experiment_id: experiment.id,
+          experiment_variant: assignment.variant,
+          experiment_forced: assignment.forced,
+          cta_angle: assignment.variant,
+        }
+      : {};
+
+  useEffect(() => {
+    if (!experiment) return;
+    setAssignment(getToolCtaAssignment());
+  }, [experiment?.id]);
+
+  useEffect(() => {
+    if (activation === "immediate") {
+      setActivated(true);
+      return;
+    }
+    const activate = () => setActivated(true);
+    window.addEventListener(WEB_TOOL_COMPLETED_DOM_EVENT, activate);
+    return () =>
+      window.removeEventListener(WEB_TOOL_COMPLETED_DOM_EVENT, activate);
+  }, [activation]);
+
+  useEffect(() => {
+    if (!isSticky || hidden) return;
+    document.body.classList.add("has-tool-sticky-cta");
+    return () => document.body.classList.remove("has-tool-sticky-cta");
+  }, [hidden, isSticky]);
 
   useEffect(() => {
     // Impression tracking waits for a real platform so the event is
@@ -151,7 +237,12 @@ export default function ToolConversionCard({
         if (viewedRef.current) return;
         if (entries.some((entry) => entry.isIntersecting)) {
           viewedRef.current = true;
-          track("tool_cta_viewed", { tool, placement, platform });
+          track("tool_cta_viewed", {
+            tool,
+            placement,
+            platform,
+            ...experimentProperties,
+          });
           io.disconnect();
         }
       },
@@ -159,7 +250,15 @@ export default function ToolConversionCard({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [hidden, platform, placement, tool]);
+  }, [
+    assignment?.forced,
+    assignment?.variant,
+    experiment?.id,
+    hidden,
+    platform,
+    placement,
+    tool,
+  ]);
 
   if (hidden) return null;
 
@@ -169,29 +268,61 @@ export default function ToolConversionCard({
   return (
     <aside
       ref={cardRef}
-      className="tcc-card"
+      className={`tcc-card${isSticky ? " tcc-card--sticky" : ""}`}
       data-platform={platform}
+      data-experiment-id={experiment?.id}
+      data-experiment-variant={assignment?.variant}
+      data-experiment-forced={assignment?.forced ? "true" : undefined}
+      data-cta-angle={assignment?.variant}
       aria-labelledby={titleId}
       onClick={(event) => {
         const target = event.target instanceof Element ? event.target : null;
         if (!isAndroid && target?.closest("a")) {
           // AppStoreClickTracker owns download/outbound events. These keep
           // the tool-level intent events without double-counting the click.
-          track("tool_cta_clicked", { tool, placement, platform });
+          track("tool_cta_clicked", {
+            tool,
+            placement,
+            platform,
+            ...experimentProperties,
+          });
           onCtaClick?.(platform);
         }
       }}
     >
       <div className="tcc-copy">
         <span className="tcc-eyebrow">
-          {isAndroid ? androidEyebrow : (eyebrow ?? defaultEyebrow)}
+          {isAndroid
+            ? androidEyebrow
+            : (displayedEyebrow ?? defaultEyebrow)}
         </span>
-        <h3 id={titleId}>{headline}</h3>
-        <p>{isAndroid ? androidBody : isDesktop ? (desktopBody ?? body) : body}</p>
+        <h3 id={titleId}>{displayedHeadline}</h3>
+        <p>
+          {isAndroid
+            ? androidBody
+            : isDesktop
+              ? displayedDesktopBody
+              : displayedBody}
+        </p>
       </div>
 
+      {experiment && (
+        <img
+          className="tcc-mascot"
+          src={mascotSrc}
+          alt=""
+          aria-hidden
+          width={88}
+          height={88}
+        />
+      )}
+
       {isAndroid ? (
-        <AndroidLinkForm tool={tool} placement={placement} />
+        <AndroidLinkForm
+          tool={tool}
+          placement={placement}
+          experimentProperties={experimentProperties}
+        />
       ) : (
         <div className="tcc-actions">
           <PlatformDownloadLink
@@ -199,8 +330,13 @@ export default function ToolConversionCard({
             source={tool}
             content={placement}
             campaign={campaign}
+            customProductPageId={customProductPageId}
           >
-            {isDesktop ? "Or open the App Store" : iosLabel}
+            {experiment
+              ? displayedIosLabel
+              : isDesktop
+                ? "Or open the App Store"
+                : displayedIosLabel}
             <span aria-hidden>→</span>
           </PlatformDownloadLink>
           <DownloadQr
@@ -208,12 +344,15 @@ export default function ToolConversionCard({
             source={tool}
             content={placement}
             campaign={campaign}
+            customProductPageId={customProductPageId}
             label="Scan with iPhone"
           />
         </div>
       )}
 
-      <p className="tcc-proof">{isAndroid ? androidProof : proof}</p>
+      <p className="tcc-proof">
+        {isAndroid ? androidProof : displayedProof}
+      </p>
     </aside>
   );
 }

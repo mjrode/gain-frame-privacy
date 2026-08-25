@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { track } from "@/lib/analytics";
-import { reportWebToolCompletion } from "@/lib/web-tool-usage";
+import { WEB_TOOL_COMPLETED_DOM_EVENT } from "@/lib/web-tool-usage";
 
 /**
  * Instrumentation for /tools/body-fat-visualizer/.
@@ -37,7 +37,7 @@ export default function VisualizerAnalytics() {
         if (engaged) return;
         engaged = true;
         track("bfv_slider_engaged", { control });
-        void reportWebToolCompletion("body-fat-visualizer");
+        window.dispatchEvent(new CustomEvent(WEB_TOOL_COMPLETED_DOM_EVENT));
       };
       el.addEventListener("input", onInput, { passive: true });
       offs.push(() => el.removeEventListener("input", onInput));

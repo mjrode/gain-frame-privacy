@@ -8,6 +8,8 @@ import {
   track,
 } from "@/lib/analytics";
 import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
+import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
+import { TOOL_CTA_EXPERIMENT_ID } from "@/lib/tool-cta-experiment";
 
 const FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/physique-rate";
@@ -371,11 +373,42 @@ export default function RaterClient() {
 
           <ToolConversionCard
             tool={CTA_CAMPAIGN}
-            campaign="web-rater"
+            campaign={SEO_PHYSIQUE_TOOLS_CPP.campaign}
+            customProductPageId={SEO_PHYSIQUE_TOOLS_CPP.id}
             placement="result"
+            sticky
             headline={`${stage.rating.score} is a snapshot. Score every check-in in GainFrame.`}
             body="Score every check-in — body fat %, FFMI, and a 12-muscle breakdown. Free to start."
             desktopBody="Scan with your iPhone to score every check-in — body fat %, FFMI, and a 12-muscle breakdown. Free to start."
+            experiment={{
+              id: TOOL_CTA_EXPERIMENT_ID,
+              variants: {
+                improve: {
+                  eyebrow: "Your next move",
+                  headline: "See exactly what to improve next.",
+                  body: `GainFrame expands “${stage.rating.biggest_opportunity}” into a 12-muscle breakdown and tracks whether weak points are catching up.`,
+                  desktopBody: `Scan with your iPhone to expand “${stage.rating.biggest_opportunity}” into a 12-muscle breakdown and track it over time.`,
+                  iosLabel: "Show my 12-muscle breakdown",
+                  proof: "Free to start · iPhone app · Photos stay private",
+                },
+                track: {
+                  eyebrow: "Make the score useful",
+                  headline: `${stage.rating.score} only matters if it moves.`,
+                  body: "Save consistent check-ins and see whether body fat, muscle, and proportions are actually changing.",
+                  desktopBody: "Scan with your iPhone to save consistent check-ins and turn this score into a real progress trend.",
+                  iosLabel: "Track my next check-in",
+                  proof: "Free to start · No account required · Photos stay private",
+                },
+                future: {
+                  eyebrow: "Turn the result into a target",
+                  headline: "See what 12 consistent weeks could build.",
+                  body: "Choose a timeline, preview a future physique, then compare it with the real photos you take along the way.",
+                  desktopBody: "Scan with your iPhone to preview a future physique and compare the projection with your real check-ins.",
+                  iosLabel: "Preview my future physique",
+                  proof: "AI projection, not a promise · Free to start · iPhone app",
+                },
+              },
+            }}
             onCtaClick={(platform) =>
               track("physique_rater_cta_click", { placement: "result", platform })
             }
@@ -436,7 +469,8 @@ export default function RaterClient() {
           </p>
           <ToolConversionCard
             tool={CTA_CAMPAIGN}
-            campaign="web-rater"
+            campaign={SEO_PHYSIQUE_TOOLS_CPP.campaign}
+            customProductPageId={SEO_PHYSIQUE_TOOLS_CPP.id}
             placement={stage.lifetime ? "lifetime_limit" : "daily_limit"}
             headline="Unlimited ratings in GainFrame."
             eyebrow="Keep scoring"

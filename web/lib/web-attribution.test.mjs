@@ -96,6 +96,56 @@ test("pending or denied consent uses the direct App Store URL", () => {
   assert.equal(contextReads, 0);
 });
 
+test("custom product page routing survives consent and direct fallback", () => {
+  const customProductPageId = "ba181e7f-4bf8-44f3-8be6-94077b918f89";
+  const options = {
+    campaign: "seo-physique-cpp-v1",
+    cta: "result",
+    customProductPageId,
+  };
+
+  const direct = buildWebAttributionLink(options, {
+    consentDecision: "denied",
+  });
+  const directUrl = new URL(direct.href);
+  assert.equal(directUrl.hostname, "apps.apple.com");
+  assert.equal(directUrl.searchParams.get("ppid"), customProductPageId);
+  assert.equal(directUrl.searchParams.get("pt"), "128456047");
+  assert.equal(directUrl.searchParams.get("ct"), "seo-physique-cpp-v1");
+  assert.equal(directUrl.searchParams.get("mt"), "8");
+  assert.equal(direct.payload, null);
+
+  const consented = buildWebAttributionLink(options, {
+    consentDecision: "granted",
+    context,
+    currentUrl: "https://gainframe.app/tools/physique-rater/",
+    oneLinkUrl: "https://gainframe.onelink.me/WufP",
+    randomUUID: () => "11111111-2222-4333-8444-555555555555",
+    posthogDistinctId: null,
+  });
+  const oneLink = new URL(consented.href);
+  assert.equal(oneLink.searchParams.get("ct"), "seo-physique-cpp-v1");
+  assert.equal(
+    oneLink.searchParams.get("af_ios_store_cpp"),
+    customProductPageId,
+  );
+  assert.ok(consented.payload);
+});
+
+test("invalid product page identifiers fail closed to the default listing", () => {
+  const result = buildWebAttributionLink(
+    {
+      campaign: "seo-physique-cpp-v1",
+      cta: "result",
+      customProductPageId: "not-a-product-page",
+    },
+    { consentDecision: "denied" },
+  );
+  const url = new URL(result.href);
+  assert.equal(url.searchParams.get("ppid"), null);
+  assert.equal(url.searchParams.get("ct"), null);
+});
+
 test("anonymous PostHog identity fails closed for email-like values", () => {
   assert.equal(safeAnonymousPosthogId("anon:$device-123"), "anon:$device-123");
   assert.equal(safeAnonymousPosthogId("person@example.com"), undefined);
