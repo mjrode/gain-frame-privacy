@@ -81,10 +81,11 @@ export type AnalyticsEvent =
   | "physique_rater_rate_limited"
   | "physique_rater_cta_click"
   // Shared ToolConversionCard events (components/ToolConversionCard.tsx):
-  // impression, click, and Android email capture, all carrying {tool,
+  // impression, click, dismissal, and Android email capture, all carrying {tool,
   // placement, platform} so CTA impression → click is measurable per tool.
   | "tool_cta_viewed"
   | "tool_cta_clicked"
+  | "tool_cta_dismissed"
   | "tool_android_email_submitted"
   // Ab analyzer tool
   | "ab_tool_requested"

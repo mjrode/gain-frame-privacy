@@ -310,8 +310,8 @@ body.has-tool-sticky-cta {
   width: min(1160px, calc(100vw - 32px));
   margin: 0;
   padding: 15px 18px 11px;
-  grid-template-columns: minmax(0, 1fr) 174px minmax(300px, 0.72fr);
-  grid-template-areas: "copy preview actions";
+  grid-template-columns: minmax(0, 1fr) 156px minmax(280px, 0.72fr) 44px;
+  grid-template-areas: "copy preview actions dismiss";
   align-items: center;
   column-gap: 18px;
   row-gap: 5px;
@@ -320,6 +320,38 @@ body.has-tool-sticky-cta {
   box-shadow:
     0 18px 48px oklch(0.28 0.03 65 / 0.18),
     0 2px 8px oklch(0.28 0.03 65 / 0.08);
+}
+.tcc-dismiss {
+  grid-area: dismiss;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--tcc-muted);
+  border: 1px solid var(--tcc-line-2);
+  border-radius: 999px;
+  background: oklch(0.985 0.005 76);
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.tcc-dismiss:hover {
+  color: var(--tcc-ink);
+  border-color: oklch(0.205 0.006 67 / 0.3);
+  background: var(--tcc-paper-2);
+}
+.tcc-dismiss:focus-visible {
+  outline: 3px solid oklch(0.65 0.2 42 / 0.38);
+  outline-offset: 2px;
+}
+.tcc-dismiss svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
 }
 .tcc-card--sticky .tcc-copy {
   grid-area: copy;
@@ -368,8 +400,8 @@ body.has-tool-sticky-cta {
     bottom: max(8px, env(safe-area-inset-bottom));
     width: calc(100vw - 16px);
     padding: 10px 11px;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas: "copy actions";
+    grid-template-columns: minmax(0, 1fr) auto 44px;
+    grid-template-areas: "copy actions dismiss";
     column-gap: 10px;
     row-gap: 8px;
     border-radius: 16px;
@@ -412,10 +444,10 @@ body.has-tool-sticky-cta {
     padding-bottom: calc(166px + env(safe-area-inset-bottom));
   }
   .tcc-card--sticky {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 44px;
     grid-template-areas:
-      "copy"
-      "actions";
+      "copy dismiss"
+      "actions actions";
   }
   .tcc-card--sticky .tcc-eyebrow {
     white-space: nowrap;
@@ -426,6 +458,7 @@ body.has-tool-sticky-cta {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tcc-primary { transition: none; }
+  .tcc-primary,
+  .tcc-dismiss { transition: none; }
   .tcc-primary:hover { transform: none; }
 }

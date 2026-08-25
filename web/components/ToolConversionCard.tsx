@@ -26,7 +26,8 @@ import { WEB_TOOL_COMPLETED_DOM_EVENT } from "@/lib/web-tool-usage";
  * /api/android-waitlist (never a link to another free web tool).
  *
  * Events: `tool_cta_viewed` once per mount when the card scrolls into
- * view, `tool_cta_clicked` on any App Store anchor click, and
+ * view, `tool_cta_clicked` on any App Store anchor click,
+ * `tool_cta_dismissed` when the sticky card is closed, and
  * `tool_android_email_submitted` on the Android form. Tools keep their
  * historical per-tool click events via `onCtaClick`.
  */
@@ -35,6 +36,8 @@ const DEFAULT_ANDROID_BODY =
   "No Android app yet. Leave your email and we'll send you the App Store link for later — and you'll be first to know if Android ships.";
 
 const PROGRESS_PREVIEW_SRC = "/assets/bf-precision/body-fat-trend.webp";
+const STICKY_CTA_DISMISSED_STORAGE_KEY =
+  "gainframe_tool_sticky_cta_dismissed_v1";
 
 export type ToolConversionExperimentCopy = {
   eyebrow: string;
@@ -178,6 +181,8 @@ export default function ToolConversionCard({
   const platform = useDownloadPlatform();
   const [assignment, setAssignment] = useState<ToolCtaAssignment | null>(null);
   const [activated, setActivated] = useState(activation === "immediate");
+  const [stickyVisibility, setStickyVisibility] =
+    useState<"pending" | "visible" | "dismissed">("pending");
   const isAndroid = platform === "android";
   const isDesktop = platform === "desktop";
   const isSticky = sticky ?? placement.endsWith("result");
@@ -186,7 +191,10 @@ export default function ToolConversionCard({
   const titleId = `tcc-title-${tool}-${placement}`;
   const experimentPending = Boolean(experiment && !assignment);
   const hidden =
-    (hideOnAndroid && isAndroid) || experimentPending || !activated;
+    (hideOnAndroid && isAndroid) ||
+    experimentPending ||
+    !activated ||
+    (isSticky && stickyVisibility !== "visible");
   const variantCopy =
     experiment && assignment ? experiment.variants[assignment.variant] : null;
   const displayedEyebrow = variantCopy?.eyebrow ?? eyebrow;
@@ -221,6 +229,19 @@ export default function ToolConversionCard({
     return () =>
       window.removeEventListener(WEB_TOOL_COMPLETED_DOM_EVENT, activate);
   }, [activation]);
+
+  useEffect(() => {
+    if (!isSticky) return;
+    let dismissed = false;
+    try {
+      dismissed =
+        window.sessionStorage.getItem(STICKY_CTA_DISMISSED_STORAGE_KEY) ===
+        "true";
+    } catch {
+      // Storage can be unavailable in privacy modes. The card should still work.
+    }
+    setStickyVisibility(dismissed ? "dismissed" : "visible");
+  }, [isSticky]);
 
   useEffect(() => {
     if (!isSticky || hidden) return;
@@ -262,6 +283,24 @@ export default function ToolConversionCard({
     tool,
   ]);
 
+  function dismissStickyCta() {
+    setStickyVisibility("dismissed");
+    try {
+      window.sessionStorage.setItem(
+        STICKY_CTA_DISMISSED_STORAGE_KEY,
+        "true",
+      );
+    } catch {
+      // Dismissal remains effective for this mount when storage is unavailable.
+    }
+    track("tool_cta_dismissed", {
+      tool,
+      placement,
+      platform,
+      ...experimentProperties,
+    });
+  }
+
   if (hidden) return null;
 
   const defaultEyebrow = placement.endsWith("result")
@@ -293,6 +332,20 @@ export default function ToolConversionCard({
         }
       }}
     >
+      {isSticky ? (
+        <button
+          className="tcc-dismiss"
+          type="button"
+          aria-label="Dismiss app promotion"
+          title="Dismiss app promotion"
+          onClick={dismissStickyCta}
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      ) : null}
+
       <div className="tcc-copy">
         <span className="tcc-eyebrow">
           {isAndroid
