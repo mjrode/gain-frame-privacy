@@ -572,19 +572,6 @@
   background: #e8e9e7;
 }
 
-.imageChamber::before {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  content: "";
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(17, 17, 15, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 15, 0.06) 1px, transparent 1px);
-  background-size: 12.5% 10%;
-  mask-image: linear-gradient(to bottom, black, transparent 55%);
-}
-
 .viewButtons {
   position: absolute;
   z-index: 5;
