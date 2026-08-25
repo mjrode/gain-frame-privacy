@@ -7,7 +7,7 @@
     "prebuild": "node scripts/optimize-images.mjs && node scripts/generate-comics-manifest-js.mjs && node scripts/generate-blog-grid.mjs",
     "build": "next build",
     "start": "next start",
-    "test:tools": "node --test --experimental-strip-types lib/analytics.test.mjs lib/analytics-consent.test.mjs lib/web-attribution.test.mjs lib/tool-client.test.mjs lib/waist-percentiles.test.mjs lib/six-pack-timeline.test.mjs lib/body-proportions.test.mjs lib/tool-cta-experiment.test.mjs",
+    "test:tools": "node --test --experimental-strip-types lib/analytics.test.mjs lib/analytics-consent.test.mjs lib/web-attribution.test.mjs lib/tool-client.test.mjs lib/waist-percentiles.test.mjs lib/six-pack-timeline.test.mjs lib/body-proportions.test.mjs lib/tool-cta-experiment.test.mjs lib/tool-cta-assets.test.mjs",
     "test:worker": "node --test --experimental-strip-types ../worker/api/leaderboard.test.mjs ../worker/api/privacy-region.test.mjs ../worker/api/android-waitlist.test.mjs ../worker/api/admin.test.mjs ../worker/experiments/tool-cta-report.test.mjs",
     "test:leaderboard": "node --test --experimental-strip-types app/leaderboard/leaderboard-date.test.mjs app/leaderboard/leaderboard-experience.test.mjs app/leaderboard/leaderboard-share.test.mjs",
     "deploy": "npm run build && node ../scripts/deploy-worker.mjs",

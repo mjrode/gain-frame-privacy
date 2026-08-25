@@ -13,6 +13,10 @@ import {
   type ToolCtaAssignment,
   type ToolCtaVariant,
 } from "@/lib/tool-cta-experiment";
+import {
+  TOOL_CTA_MASCOT_SRC,
+  TOOL_CTA_PROGRESS_PREVIEW_SRC,
+} from "@/lib/tool-cta-assets";
 import { WEB_TOOL_COMPLETED_DOM_EVENT } from "@/lib/web-tool-usage";
 
 /**
@@ -34,8 +38,6 @@ import { WEB_TOOL_COMPLETED_DOM_EVENT } from "@/lib/web-tool-usage";
 
 const DEFAULT_ANDROID_BODY =
   "No Android app yet. Leave your email and we'll send you the App Store link for later — and you'll be first to know if Android ships.";
-
-const PROGRESS_PREVIEW_SRC = "/assets/bf-precision/body-fat-trend.webp";
 
 export type ToolConversionExperimentCopy = {
   eyebrow: string;
@@ -172,7 +174,7 @@ export default function ToolConversionCard({
   experiment,
   sticky,
   activation = "immediate",
-  mascotSrc = "/assets/gainframe-guy/poses/gainframe-coach.webp",
+  mascotSrc = TOOL_CTA_MASCOT_SRC,
   hideOnAndroid = false,
   onCtaClick,
 }: ToolConversionCardProps) {
@@ -349,7 +351,12 @@ export default function ToolConversionCard({
 
       <div className="tcc-preview" aria-hidden>
         <span className="tcc-phone-preview">
-          <img src={PROGRESS_PREVIEW_SRC} alt="" width={1290} height={2796} />
+          <img
+            src={TOOL_CTA_PROGRESS_PREVIEW_SRC}
+            alt=""
+            width={1290}
+            height={2796}
+          />
         </span>
         <img
           className="tcc-mascot"
