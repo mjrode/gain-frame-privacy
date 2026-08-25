@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "generatedAt": "2026-08-25",
+  "generator": "OpenAI built-in image generation",
+  "purpose": "Canonical adult body-composition reference atlas shared by the body-fat chart, body-fat visualizer, and BMI body visualizer.",
+  "standardizedAge": "30s",
+  "dimensions": {
+    "width": 768,
+    "height": 1029,
+    "format": "webp"
+  },
+  "views": [
+    "front",
+    "back"
+  ],
+  "levels": {
+    "male": [
+      8,
+      10,
+      12,
+      15,
+      18,
+      20,
+      25,
+      30
+    ],
+    "female": [
+      18,
+      20,
+      22,
+      25,
+      30,
+      35,
+      40
+    ]
+  },
+  "filenamePattern": "{sex}-age30s-bf{percentage}-{view}.webp",
+  "generationConstraints": [
+    "Same adult identity within each sex-specific sequence",
+    "Matched front and back views generated from one source plate",
+    "Fixed pose, clothing, crop, camera, lighting, and neutral studio background",
+    "Body-fat distribution and definition are the only intended variables",
+    "Illustrative reference only; not a diagnostic or individual prediction"
+  ]
+}

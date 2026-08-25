@@ -4,27 +4,41 @@
 
         (function () {
             const AGE_STEPS = ['20s', '30s', '40s', '50s', '60s'];
+            const VIEWS = ['front', 'back'];
 
             const GENDER_CONFIG = {
                 male: {
-                    steps: [8, 13, 18, 23, 28, 33],
+                    steps: [8, 10, 12, 15, 18, 20, 25, 30],
+                    legacySteps: [8, 13, 18, 23, 28, 33],
                     categories: {
                         8:  { name: 'Shredded',      sub: 'Essential · Stage Lean', key: 'shredded', desc: 'Stage-lean. Striated muscle, vascularity, and deep ab separation. Not sustainable long-term.' },
+                        10: { name: 'Very Lean',     sub: 'Athletic · Defined',      key: 'shredded', desc: 'A clear six-pack at rest, a tight waist, and visible separation without full stage conditioning.' },
+                        12: { name: 'Athletic',      sub: 'Lean · Sustainable',      key: 'athletic', desc: 'Visible abs and muscle separation with enough softness to remain realistic year-round for some lifters.' },
                         13: { name: 'Athletic',      sub: 'Healthy · Lean',         key: 'athletic', desc: 'Clean six-pack, visible separation, vascular forearms. The trained-lifter look.' },
+                        15: { name: 'Fit',           sub: 'Healthy · Athletic',       key: 'fit',      desc: 'A flat waist, faint upper abs, and clear muscle shape without a sharply cut look.' },
                         18: { name: 'Fit',           sub: 'Sustainable · Toned',    key: 'fit',      desc: 'Lean and toned. Abs visible under good lighting, sustainable and healthy.' },
+                        20: { name: 'Average',       sub: 'Healthy · Soft Edges',    key: 'average',  desc: 'No resting ab definition, a smooth waist, and muscle shape that remains visible underneath.' },
                         23: { name: 'Average',       sub: 'Typical Adult Male',     key: 'average',  desc: 'Typical range for most men. Soft midsection, no visible abs. Still within healthy range.' },
+                        25: { name: 'Elevated',      sub: 'Above Average',           key: 'above',    desc: 'A rounded midsection, visible love handles, and softened definition through the chest and back.' },
                         28: { name: 'Above Average', sub: 'Elevated Risk',          key: 'above',    desc: 'Noticeable belly, love handles, and chest softness. Elevated metabolic risk begins here.' },
+                        30: { name: 'High Range',    sub: 'Elevated Health Risk',    key: 'obese',    desc: 'Substantial abdominal and lower-back fat with little visible muscle separation.' },
                         33: { name: 'Obese Range',   sub: 'High Health Risk',       key: 'obese',    desc: 'Significant abdominal overhang and visceral fat. Serious health risk — time to act.' }
                     }
                 },
                 female: {
-                    steps: [18, 22, 27, 32, 37, 42],
+                    steps: [18, 20, 22, 25, 30, 35, 40],
+                    legacySteps: [18, 22, 27, 32, 37, 42],
                     categories: {
                         18: { name: 'Athletic',      sub: 'Toned · Defined',          key: 'athletic', desc: 'Visible muscle tone, defined arms and legs. Typical of competitive athletes and dedicated trainers.' },
+                        20: { name: 'Lean Fit',      sub: 'Athletic · Sustainable',   key: 'athletic', desc: 'A flat waist, light abdominal definition, and visibly toned arms, back, and legs.' },
                         22: { name: 'Fit',           sub: 'Sustainable · Healthy',    key: 'fit',      desc: 'Lean, toned, and curvy. A sustainable, healthy body fat level with clear definition.' },
+                        25: { name: 'Healthy',       sub: 'Fit · Natural Curves',     key: 'fit',      desc: 'A soft flat waist, fuller hips and thighs, and toned muscle with naturally softened edges.' },
                         27: { name: 'Average',       sub: 'Typical Adult Female',     key: 'average',  desc: 'Typical range for most women. Soft curves, healthy body fat level for general wellness.' },
+                        30: { name: 'Average',       sub: 'Typical Adult Female',     key: 'average',  desc: 'A softly rounded midsection with fuller hips and thighs and minimal resting definition.' },
                         32: { name: 'Above Average', sub: 'Class I Obesity',          key: 'above',    desc: 'Entering the obese range. Fat distribution broadens across hips, thighs, and midsection.' },
+                        35: { name: 'Elevated',      sub: 'Higher Health Risk',       key: 'above',    desc: 'A broader waist and more pronounced fat through the midsection, lower back, hips, and thighs.' },
                         37: { name: 'Obese Range',   sub: 'Class II Obesity',         key: 'obese',    desc: 'Elevated health risk. Notable abdominal and lower-body fat accumulation.' },
+                        40: { name: 'High Range',    sub: 'High Health Risk',         key: 'danger',   desc: 'Significant fat accumulation through the trunk and limbs with elevated chronic-disease risk.' },
                         42: { name: 'High Risk',     sub: 'Class III Obesity',        key: 'danger',   desc: 'Severe obesity. Significant chronic disease risk requiring medical guidance.' }
                     }
                 }
@@ -54,53 +68,93 @@
             const shareBtn   = document.getElementById('bfvShare');
             const shareLabel = document.getElementById('bfvShareLabel');
             const genderBtns = document.querySelectorAll('.bfv__gender-btn');
+            const viewBtns   = document.querySelectorAll('.bfv__view-btn');
 
             // State
             let gender = 'male';
-            let bfIdx  = 1;   // default 13% male / 22% female
+            let view   = 'front';
+            let bfIdx  = 3;   // default 15% male / 25% female
             let ageIdx = 1;   // default 30s
 
-            // Current steps/categories derived from gender
-            function steps()      { return GENDER_CONFIG[gender].steps; }
+            // The new front/back atlas is standardized to the 30s. Other ages
+            // retain the original front-view render bands.
+            function hasPairedAtlas(aIdx = ageIdx) { return AGE_STEPS[aIdx] === '30s'; }
+            function stepsFor(g, aIdx) {
+                return hasPairedAtlas(aIdx) ? GENDER_CONFIG[g].steps : GENDER_CONFIG[g].legacySteps;
+            }
+            function steps()      { return stepsFor(gender, ageIdx); }
             function categories() { return GENDER_CONFIG[gender].categories; }
+
+            function syncViewControls() {
+                const paired = hasPairedAtlas();
+                if (!paired) view = 'front';
+                root.setAttribute('data-view', view);
+                root.setAttribute('data-paired-atlas', String(paired));
+                viewBtns.forEach((btn) => {
+                    const on = btn.dataset.view === view;
+                    const disabled = btn.dataset.view === 'back' && !paired;
+                    btn.dataset.active = String(on);
+                    btn.setAttribute('aria-checked', String(on));
+                    btn.disabled = disabled;
+                    btn.title = disabled ? 'Back views are available in the standardized 30s atlas' : '';
+                });
+            }
 
             // --- image pool cache (filename → HTMLImageElement) ---
             const pool = new Map();
 
-            function imgKey(g, aIdx, bf) {
+            function imgBaseKey(g, aIdx, bf) {
                 return g + '-age' + AGE_STEPS[aIdx] + '-bf' + bf;
             }
 
-            function imgSrc(g, aIdx, bf) {
-                return IMG_BASE + imgKey(g, aIdx, bf) + '.webp';
+            function imgKey(g, aIdx, bf, imageView) {
+                return imgBaseKey(g, aIdx, bf) + '-' + imageView;
             }
 
-            function ensureImage(g, aIdx, bfIdxLocal) {
-                const bf = GENDER_CONFIG[g].steps[bfIdxLocal];
-                const key = imgKey(g, aIdx, bf);
+            function imgSrc(g, aIdx, bf, imageView) {
+                return IMG_BASE + imgKey(g, aIdx, bf, imageView) + '.webp';
+            }
+
+            function legacyImgSrc(g, aIdx, bf) {
+                return IMG_BASE + imgBaseKey(g, aIdx, bf) + '.webp';
+            }
+
+            function ensureImage(g, aIdx, bfIdxLocal, imageView) {
+                const bf = stepsFor(g, aIdx)[bfIdxLocal];
+                const paired = hasPairedAtlas(aIdx);
+                const resolvedView = paired ? imageView : 'front';
+                const key = paired ? imgKey(g, aIdx, bf, resolvedView) : imgBaseKey(g, aIdx, bf);
                 if (pool.has(key)) return pool.get(key);
                 const el = new Image();
                 el.className = 'bfv__img';
-                el.alt = (g === 'male' ? 'Male' : 'Female') + ' reference physique, age ' + AGE_STEPS[aIdx] + ', ' + bf + '% body fat';
+                el.alt = (g === 'male' ? 'Male' : 'Female') + ' reference physique, ' + resolvedView + ' view, age ' + AGE_STEPS[aIdx] + ', ' + bf + '% body fat';
                 el.decoding = 'async';
                 el.loading = 'eager';
-                el.src = imgSrc(g, aIdx, bf);
+                if (paired) {
+                    el.addEventListener('error', () => {
+                        if (el.dataset.legacyFallback === 'true') return;
+                        el.dataset.legacyFallback = 'true';
+                        el.src = legacyImgSrc(g, aIdx, bf);
+                    });
+                    el.src = imgSrc(g, aIdx, bf, resolvedView);
+                } else {
+                    el.src = legacyImgSrc(g, aIdx, bf);
+                }
                 el.dataset.key = key;
                 stack.appendChild(el);
                 pool.set(key, el);
                 return el;
             }
 
-            function preloadNeighbors(g, aIdx, bIdx) {
+            function preloadNeighbors(g, aIdx, bIdx, imageView) {
                 const cells = [
                     [aIdx, bIdx],
-                    [aIdx - 1, bIdx], [aIdx + 1, bIdx],
                     [aIdx, bIdx - 1], [aIdx, bIdx + 1]
                 ];
-                const stepsLen = GENDER_CONFIG[g].steps.length;
+                const stepsLen = stepsFor(g, aIdx).length;
                 cells.forEach(([a, b]) => {
                     if (a >= 0 && a < AGE_STEPS.length && b >= 0 && b < stepsLen) {
-                        ensureImage(g, a, b);
+                        ensureImage(g, a, b, imageView);
                     }
                 });
             }
@@ -130,7 +184,6 @@
             function renderRefGrid() {
                 const s = steps();
                 const cats = categories();
-                const total = gender === 'male' ? 'Male Body Fat %' : 'Female Body Fat %';
                 refHeading.textContent = 'Every ' + (gender === 'male' ? 'Male' : 'Female') + ' Body Fat Percentage, Explained';
 
                 refGrid.innerHTML = s.map((v) => {
@@ -161,8 +214,9 @@
                 aIdx = Math.max(0, Math.min(AGE_STEPS.length - 1, aIdx));
                 bIdx = Math.max(0, Math.min(s.length - 1, bIdx));
 
-                const img = ensureImage(gender, aIdx, bIdx);
-                preloadNeighbors(gender, aIdx, bIdx);
+                const img = ensureImage(gender, aIdx, bIdx, view);
+                preloadNeighbors(gender, aIdx, bIdx, view);
+                bfSlider.value = bIdx;
 
                 // Swap active image
                 pool.forEach((el) => { el.dataset.active = 'false'; });
@@ -201,12 +255,13 @@
 
                 // Persist in URL
                 if (history.replaceState) {
-                    const hash = '#g=' + gender + '&bf=' + bf + '&age=' + age;
+                    const hash = '#g=' + gender + '&bf=' + bf + '&age=' + age + '&view=' + view;
                     history.replaceState(null, '', window.location.pathname + hash);
                 }
 
                 bfIdx = bIdx;
                 ageIdx = aIdx;
+                syncViewControls();
             }
 
             function setGender(g) {
@@ -214,9 +269,9 @@
                 if (!GENDER_CONFIG[g]) return;
 
                 // Map current BF to nearest equivalent on new scale (proportional)
-                const prevSteps = GENDER_CONFIG[gender].steps;
+                const prevSteps = steps();
                 const prevBf    = prevSteps[bfIdx];
-                const newSteps  = GENDER_CONFIG[g].steps;
+                const newSteps  = stepsFor(g, ageIdx);
                 const ratio     = bfIdx / (prevSteps.length - 1);
                 const newBfIdx  = Math.round(ratio * (newSteps.length - 1));
 
@@ -243,6 +298,30 @@
                 setActive(ageIdx, newBfIdx);
             }
 
+            function setView(nextView) {
+                if (!VIEWS.includes(nextView) || nextView === view || (nextView === 'back' && !hasPairedAtlas())) return;
+                view = nextView;
+                syncViewControls();
+                setActive(ageIdx, bfIdx);
+            }
+
+            function setAge(nextAgeIdx) {
+                nextAgeIdx = Math.max(0, Math.min(AGE_STEPS.length - 1, nextAgeIdx));
+                const currentBf = steps()[bfIdx];
+                ageIdx = nextAgeIdx;
+                if (!hasPairedAtlas()) view = 'front';
+                const nextSteps = steps();
+                let nextBfIdx = 0;
+                for (let i = 1; i < nextSteps.length; i++) {
+                    if (Math.abs(nextSteps[i] - currentBf) < Math.abs(nextSteps[nextBfIdx] - currentBf)) nextBfIdx = i;
+                }
+                renderBfTicks();
+                renderRefGrid();
+                syncViewControls();
+                bfSlider.value = nextBfIdx;
+                setActive(ageIdx, nextBfIdx);
+            }
+
             // --- Event wiring ---
 
             bfSlider.addEventListener('input', (e) => {
@@ -250,14 +329,14 @@
             });
 
             ageSlider.addEventListener('input', (e) => {
-                setActive(parseInt(e.target.value, 10), bfIdx);
+                setAge(parseInt(e.target.value, 10));
             });
 
             ageTicks.forEach((t) => {
                 t.addEventListener('click', () => {
                     const i = parseInt(t.dataset.index, 10);
                     ageSlider.value = i;
-                    setActive(i, bfIdx);
+                    setAge(i);
                 });
             });
 
@@ -265,14 +344,18 @@
                 btn.addEventListener('click', () => setGender(btn.dataset.gender));
             });
 
+            viewBtns.forEach((btn) => {
+                btn.addEventListener('click', () => setView(btn.dataset.view));
+            });
+
             // Share button — copies deep link
             shareBtn.addEventListener('click', async () => {
                 const s = steps();
                 const url = window.location.origin + window.location.pathname +
-                    '#g=' + gender + '&bf=' + s[bfIdx] + '&age=' + AGE_STEPS[ageIdx];
+                    '#g=' + gender + '&bf=' + s[bfIdx] + '&age=' + AGE_STEPS[ageIdx] + '&view=' + view;
                 try {
                     if (navigator.share) {
-                        await navigator.share({ title: 'Body Fat % at Each Age', text: s[bfIdx] + '% body fat · ' + AGE_STEPS[ageIdx] + ' · ' + gender, url });
+                        await navigator.share({ title: 'Body Fat % at Each Age', text: s[bfIdx] + '% body fat · ' + AGE_STEPS[ageIdx] + ' · ' + gender + ' · ' + view + ' view', url });
                     } else {
                         await navigator.clipboard.writeText(url);
                         shareLabel.textContent = 'Copied';
@@ -305,6 +388,9 @@
                         btn.setAttribute('aria-checked', String(on));
                     });
                 }
+                if (parts.age && AGE_STEPS.includes(parts.age)) {
+                    ageIdx = AGE_STEPS.indexOf(parts.age);
+                }
                 const bfParam = parseInt(parts.bf, 10);
                 if (!isNaN(bfParam)) {
                     const s = steps();
@@ -314,9 +400,10 @@
                     }
                     bfIdx = nearest;
                 }
-                if (parts.age && AGE_STEPS.includes(parts.age)) {
-                    ageIdx = AGE_STEPS.indexOf(parts.age);
+                if (parts.view && VIEWS.includes(parts.view) && (parts.view !== 'back' || hasPairedAtlas())) {
+                    view = parts.view;
                 }
+                syncViewControls();
                 bfSlider.value = bfIdx;
                 ageSlider.value = ageIdx;
             }
@@ -326,8 +413,8 @@
                 if (!['ArrowUp', 'ArrowDown'].includes(e.key)) return;
                 if (e.target.classList.contains('bfv__slider')) return;
                 e.preventDefault();
-                if (e.key === 'ArrowUp')   setActive(Math.min(AGE_STEPS.length - 1, ageIdx + 1), bfIdx);
-                if (e.key === 'ArrowDown') setActive(Math.max(0, ageIdx - 1), bfIdx);
+                if (e.key === 'ArrowUp')   setAge(Math.min(AGE_STEPS.length - 1, ageIdx + 1));
+                if (e.key === 'ArrowDown') setAge(Math.max(0, ageIdx - 1));
             });
 
             // --- Boot ---

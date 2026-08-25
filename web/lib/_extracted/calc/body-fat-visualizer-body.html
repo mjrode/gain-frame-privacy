@@ -16,7 +16,7 @@
             <!-- ===== Visualizer Shell ===== -->
             <div class="tool-shell scroll-reveal">
 
-                <div class="bfv" id="bfv" data-category="athletic" data-gender="male">
+                <div class="bfv" id="bfv" data-category="athletic" data-gender="male" data-view="front">
                     <!-- Bar -->
                     <div class="bfv__bar">
                         <div class="bfv__tag">
@@ -40,6 +40,11 @@
                                 <span class="bfv__agechip-value">
                                     <span class="bfv__agechip-num" id="bfvAgeChipNum">30</span><span class="bfv__agechip-suffix">s</span>
                                 </span>
+                            </div>
+
+                            <div class="bfv__view" role="radiogroup" aria-label="Physique view">
+                                <button class="bfv__view-btn" type="button" data-view="front" data-active="true" role="radio" aria-checked="true">Front</button>
+                                <button class="bfv__view-btn" type="button" data-view="back" data-active="false" role="radio" aria-checked="false">Back</button>
                             </div>
 
                             <div class="bfv__img-stack" id="bfvStack" aria-live="polite">
@@ -125,7 +130,7 @@
 
                     <!-- Foot -->
                     <div class="bfv__foot">
-                        <span class="bfv__foot-note">Photorealistic references · Studio lighting · Front-facing relaxed pose</span>
+                        <span class="bfv__foot-note">Front + back at 30s · Original front-view references across every age</span>
                         <button class="bfv__share" id="bfvShare" type="button">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
@@ -138,7 +143,7 @@
                 </div>
 
                 <p class="tool-caption">
-                    References are photorealistic composites at the midpoint of each band. Individual results vary based on genetics, muscle mass, fat distribution, and hydration.
+                    The age-30s atlas shows exact percentages from matched front and back views. Other age groups use the original front-view band midpoints. Individual results vary based on genetics, muscle mass, fat distribution, and hydration.
                 </p>
 
             </div>
@@ -159,7 +164,8 @@
                     <h3>How to Use This Tool</h3>
                     <ul>
                         <li>Toggle <strong>Male</strong> or <strong>Female</strong> in the top-right of the card.</li>
-                        <li>Drag the <strong>Body Fat %</strong> slider to step through bands (8–33% male, 18–42% female).</li>
+                        <li>For age 30s, drag the <strong>Body Fat %</strong> slider through exact references (8–30% male, 18–40% female).</li>
+                        <li>Switch between <strong>Front</strong> and <strong>Back</strong> to compare fat distribution from both views.</li>
                         <li>Drag the <strong>Age Group</strong> slider to see how the same body fat reads on different decades.</li>
                         <li>Compare your mirror against the image that feels closest — usually within ±3%.</li>
                     </ul>
@@ -195,7 +201,7 @@
             <!-- ===== Method Note ===== -->
             <div class="tool-method-note scroll-reveal">
                 <h3>About These References</h3>
-                <p>Images are photorealistic composites generated to represent the midpoint of each body fat band under neutral studio lighting and a relaxed front-facing pose. They are intended as visual reference only — individual appearance varies with genetics, training history, fat distribution, hydration, and recent meals.</p>
+                <p>The expanded age-30s atlas uses exact percentage references with matched front and back poses. Other decades retain the original midpoint-based front-view library so age comparisons remain available. All images are illustrative — individual appearance varies with genetics, training history, fat distribution, hydration, and recent meals.</p>
             </div>
 
         </div>

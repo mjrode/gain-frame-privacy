@@ -8,6 +8,7 @@ import { reportWebToolCompletion } from "@/lib/web-tool-usage";
 
 type UnitSystem = "metric" | "us";
 type ReferenceSex = "male" | "female";
+type ReferenceView = "front" | "back";
 
 type MetricInputs = {
   heightCm: string;
@@ -31,8 +32,8 @@ const PHYSIQUE_ROOT =
   "/tools/body-fat-visualizer/assets/physiques";
 
 const REFERENCE_RENDERS = {
-  male: [8, 13, 18, 23, 28, 33],
-  female: [18, 22, 27, 32, 37, 42],
+  male: [8, 12, 15, 20, 25, 30],
+  female: [18, 20, 25, 30, 35, 40],
 } as const;
 
 function parseNumber(value: string): number | null {
@@ -133,6 +134,8 @@ export default function BodyVisualizerClient() {
   const [unit, setUnit] = useState<UnitSystem>("metric");
   const [referenceSex, setReferenceSex] =
     useState<ReferenceSex>("female");
+  const [referenceView, setReferenceView] =
+    useState<ReferenceView>("front");
   const [metric, setMetric] = useState<MetricInputs>({
     heightCm: "170",
     weightKg: "68",
@@ -153,7 +156,9 @@ export default function BodyVisualizerClient() {
   const category = bmi === null ? null : bmiCategory(bmi);
   const renderIndex = illustrationIndex(bmi ?? 23.5);
   const renderBodyFat = REFERENCE_RENDERS[referenceSex][renderIndex];
-  const imagePath = `${PHYSIQUE_ROOT}/${referenceSex}-age30s-bf${renderBodyFat}.webp`;
+  const imageBasePath = `${PHYSIQUE_ROOT}/${referenceSex}-age30s-bf${renderBodyFat}`;
+  const canonicalImagePath = `${imageBasePath}-${referenceView}.webp`;
+  const legacyImagePath = `${imageBasePath}.webp`;
 
   const range = measurements
     ? {
@@ -430,20 +435,50 @@ export default function BodyVisualizerClient() {
             <span className={styles.renderBand}>Band {renderIndex + 1}/6</span>
           </div>
           <div className={styles.imageChamber}>
+            <div
+              className={styles.viewButtons}
+              role="radiogroup"
+              aria-label="Physique view"
+            >
+              {(["front", "back"] as ReferenceView[]).map((value) => (
+                <button
+                  type="button"
+                  role="radio"
+                  key={value}
+                  aria-checked={referenceView === value}
+                  className={
+                    referenceView === value ? styles.viewActive : undefined
+                  }
+                  onClick={() => {
+                    markUsed();
+                    setReferenceView(value);
+                  }}
+                >
+                  {value === "front" ? "Front" : "Back"}
+                </button>
+              ))}
+            </div>
             <Image
-              key={imagePath}
+              key={canonicalImagePath}
               className={styles.physiqueImage}
-              src={imagePath}
-              alt={`Illustrative ${referenceSex} body-shape reference for the calculated BMI band; not a prediction of the user's body`}
-              width={1792}
-              height={2400}
+              src={canonicalImagePath}
+              alt={`Illustrative ${referenceSex} body-shape reference, ${referenceView} view, for the calculated BMI band; not a prediction of the user's body`}
+              width={768}
+              height={1029}
               sizes="(max-width: 760px) 92vw, 45vw"
+              onError={(event) => {
+                const image = event.currentTarget;
+                if (image.dataset.legacyFallback === "true") return;
+                image.dataset.legacyFallback = "true";
+                image.srcset = "";
+                image.src = legacyImagePath;
+              }}
             />
             <span className={styles.axisLine} aria-hidden="true" />
             <span className={styles.frameCornerOne} aria-hidden="true" />
             <span className={styles.frameCornerTwo} aria-hidden="true" />
             <div className={styles.imageNote}>
-              Standardized front-view render
+              Standardized {referenceView}-view render
               <span>Fixed age-30s atlas set for visual consistency</span>
             </div>
           </div>

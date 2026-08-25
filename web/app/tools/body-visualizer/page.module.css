@@ -585,6 +585,50 @@
   mask-image: linear-gradient(to bottom, black, transparent 55%);
 }
 
+.viewButtons {
+  position: absolute;
+  z-index: 5;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(17, 17, 15, 0.12);
+  border-radius: 999px;
+  background: rgba(248, 248, 244, 0.88);
+  box-shadow: 0 8px 24px rgba(17, 17, 15, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.viewButtons button {
+  min-height: 32px;
+  padding: 6px 12px;
+  color: rgba(17, 17, 15, 0.56);
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.viewButtons button:hover { color: #111; }
+
+.viewButtons button.viewActive {
+  color: #fff;
+  background: #111;
+  box-shadow: 0 2px 7px rgba(17, 17, 15, 0.24);
+}
+
+.viewButtons button:focus-visible {
+  outline: 2px solid var(--acid-dark);
+  outline-offset: 2px;
+}
+
 .physiqueImage {
   display: block;
   width: 100%;
@@ -1138,6 +1182,17 @@
     padding: 11px;
   }
 
+  .viewButtons {
+    top: 10px;
+    right: 10px;
+  }
+
+  .viewButtons button {
+    min-height: 30px;
+    padding: 5px 10px;
+    font-size: 0.62rem;
+  }
+
   .editorialSection,
   .compareSection {
     padding-top: 88px;
@@ -1200,6 +1255,7 @@
 
   .segmented button,
   .referenceButtons button,
+  .viewButtons button,
   .bmiScale i,
   .toolCards a,
   .faqList summary span,
