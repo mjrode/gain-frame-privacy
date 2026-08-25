@@ -1,93 +1,124 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import ToolConversionCard from "@/components/ToolConversionCard";
+import { useEffect, useMemo, useRef, useState } from "react";
 import TransformClient from "@/app/tools/ai-body-transformation/TransformClient";
 import {
-  MEASUREMENT_KEYS,
-  calculateProportions,
-  formatMeasurement,
-  formatRatio,
-  fromCentimeters,
-  regionalAdjustments,
-  suggestTargets,
-  toCentimeters,
-  validateMeasurements,
-  type MeasurementKey,
-  type Measurements,
-  type MeasurementUnit,
-  type ProportionSex,
-  type RegionalMeasurementKey,
+  getPosthogDistinctId,
+  getWebAnalyticsContext,
+  track,
+} from "@/lib/analytics";
+import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
+import type {
+  RegionalAdjustments,
+  RegionalMeasurementKey,
 } from "@/lib/body-proportions";
-import { track } from "@/lib/analytics";
-import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
+import {
+  errorResponseJson,
+  fetchWithTimeout,
+  preprocessImageForUpload,
+  validatedJson,
+} from "@/lib/tool-client";
 import { reportWebToolCompletion } from "@/lib/web-tool-usage";
 
-const FIELDS: Array<{
-  key: MeasurementKey;
-  label: string;
-  hint: string;
-  imperial: string;
-  metric: string;
-}> = [
-  { key: "height", label: "Height", hint: "Barefoot", imperial: "70", metric: "178" },
-  { key: "wrist", label: "Wrist", hint: "At the wrist bone", imperial: "7", metric: "18" },
-  { key: "shoulders", label: "Shoulders", hint: "Around the widest point", imperial: "48", metric: "122" },
-  { key: "chest", label: "Chest", hint: "Nipple line, relaxed", imperial: "41", metric: "104" },
-  { key: "waist", label: "Waist", hint: "At the navel, exhaled", imperial: "32", metric: "81" },
-  { key: "arms", label: "Upper arm", hint: "Largest point, flexed", imperial: "15.5", metric: "39" },
-  { key: "thighs", label: "Thigh", hint: "Largest point, relaxed", imperial: "23", metric: "58" },
-];
+const RATE_URL =
+  "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/physique-rate";
+const ANALYSIS_TIMEOUT_MS = 35_000;
+const RAW_IMAGE_MIMES = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/heic",
+  "image/heif",
+] as const;
 
-const TARGET_KEYS: RegionalMeasurementKey[] = [
-  "shoulders",
-  "chest",
-  "waist",
-  "arms",
-  "thighs",
-];
-
-const TARGET_LABELS: Record<RegionalMeasurementKey, string> = {
-  shoulders: "Shoulders",
-  chest: "Chest",
-  waist: "Waist",
-  arms: "Arms",
-  thighs: "Thighs",
+type Rating = {
+  score: number;
+  band: string;
+  subscores: {
+    body_fat: number;
+    muscle: number;
+    proportions: number;
+    goal_fit: number;
+  };
+  headline: string;
+  strongest_area: string;
+  biggest_opportunity: string;
+  confidence: "low" | "medium" | "high";
 };
 
-type InputValues = Record<MeasurementKey, string>;
+type AnalysisStage =
+  | { kind: "idle" }
+  | { kind: "processing" }
+  | { kind: "result"; rating: Rating }
+  | { kind: "error"; message: string };
 
-const EMPTY_INPUTS = Object.fromEntries(
-  MEASUREMENT_KEYS.map((key) => [key, ""]),
-) as InputValues;
+const REGIONS: Array<{
+  key: RegionalMeasurementKey;
+  label: string;
+  description: string;
+  defaultChange: number;
+}> = [
+  { key: "shoulders", label: "Shoulders", description: "Width and delt shape", defaultChange: 8 },
+  { key: "chest", label: "Chest", description: "Fullness and upper torso", defaultChange: 8 },
+  { key: "waist", label: "Waist", description: "Midsection and taper", defaultChange: -8 },
+  { key: "arms", label: "Arms", description: "Biceps and triceps size", defaultChange: 8 },
+  { key: "thighs", label: "Legs", description: "Thigh size and balance", defaultChange: 8 },
+];
 
-function parseInputs(values: InputValues, unit: MeasurementUnit): Partial<Measurements> {
-  return Object.fromEntries(
-    MEASUREMENT_KEYS.map((key) => {
-      const normalized = values[key].trim();
-      const parsed = /^(?:\d+(?:\.\d*)?|\.\d+)$/.test(normalized)
-        ? Number(normalized)
-        : Number.NaN;
-      return [key, Number.isFinite(parsed) ? toCentimeters(parsed, unit) : undefined];
-    }),
-  );
+const EMPTY_SELECTION = Object.fromEntries(
+  REGIONS.map(({ key }) => [key, false]),
+) as Record<RegionalMeasurementKey, boolean>;
+
+const EMPTY_CHANGES = Object.fromEntries(
+  REGIONS.map(({ key }) => [key, 0]),
+) as Record<RegionalMeasurementKey, number>;
+
+function getOrCreateClientId(): string {
+  const key = "gf_tid";
+  try {
+    const existing = localStorage.getItem(key);
+    if (existing && /^[0-9a-f-]{36}$/i.test(existing)) return existing;
+  } catch {
+    // Storage can be disabled; a session-only anonymous id still works.
+  }
+  const id = crypto.randomUUID();
+  try {
+    localStorage.setItem(key, id);
+  } catch {
+    // Ignore blocked storage.
+  }
+  return id;
 }
 
-function scoreLabel(score: number): string {
-  if (score >= 92) return "Highly balanced";
-  if (score >= 80) return "Strong proportions";
-  if (score >= 65) return "Solid base";
-  return "Clear room to shape";
+function isRating(value: unknown): value is Rating {
+  if (!value || typeof value !== "object") return false;
+  const rating = value as Partial<Rating>;
+  return typeof rating.score === "number" &&
+    typeof rating.band === "string" &&
+    typeof rating.headline === "string" &&
+    typeof rating.strongest_area === "string" &&
+    typeof rating.biggest_opportunity === "string" &&
+    (rating.confidence === "low" ||
+      rating.confidence === "medium" ||
+      rating.confidence === "high") &&
+    Boolean(rating.subscores) &&
+    typeof rating.subscores?.proportions === "number";
+}
+
+function suggestedRegion(text: string): RegionalMeasurementKey {
+  const normalized = text.toLowerCase();
+  if (/chest|pec|torso/.test(normalized)) return "chest";
+  if (/arm|bicep|tricep/.test(normalized)) return "arms";
+  if (/leg|thigh|quad|hamstring|glute/.test(normalized)) return "thighs";
+  if (/waist|midsection|core|taper|lean|body fat/.test(normalized)) return "waist";
+  return "shoulders";
 }
 
 export default function BodyMeasurementsClient() {
-  const [unit, setUnit] = useState<MeasurementUnit>("in");
-  const [sex, setSex] = useState<ProportionSex>("male");
-  const [inputs, setInputs] = useState<InputValues>(EMPTY_INPUTS);
-  const [submitted, setSubmitted] = useState(false);
-  const [current, setCurrent] = useState<Measurements | null>(null);
-  const [targets, setTargets] = useState<Measurements | null>(null);
-  const resultRef = useRef<HTMLElement>(null);
+  const [analysis, setAnalysis] = useState<AnalysisStage>({ kind: "idle" });
+  const [selected, setSelected] = useState(EMPTY_SELECTION);
+  const [changes, setChanges] = useState(EMPTY_CHANGES);
+  const requestRef = useRef(0);
   const viewedRef = useRef(false);
 
   useEffect(() => {
@@ -96,295 +127,268 @@ export default function BodyMeasurementsClient() {
     track("measurements_tool_view");
   }, []);
 
-  const parsed = useMemo(() => parseInputs(inputs, unit), [inputs, unit]);
-  const errors = useMemo(() => validateMeasurements(parsed), [parsed]);
-  const result = useMemo(
-    () => (current ? calculateProportions(current, sex) : null),
-    [current, sex],
-  );
-  const targetResult = useMemo(
-    () => (targets ? calculateProportions(targets, sex) : null),
-    [targets, sex],
-  );
-  const adjustments = useMemo(
-    () => (current && targets ? regionalAdjustments(current, targets) : {}),
-    [current, targets],
-  );
+  const adjustments = useMemo<RegionalAdjustments>(() => {
+    const entries = REGIONS.flatMap(({ key }) =>
+      selected[key] && Math.abs(changes[key]) >= 0.5
+        ? [[key, changes[key]] as const]
+        : [],
+    );
+    return Object.fromEntries(entries);
+  }, [changes, selected]);
 
-  function changeUnit(next: MeasurementUnit) {
-    if (next === unit) return;
-    setInputs((existing) => Object.fromEntries(
-      MEASUREMENT_KEYS.map((key) => {
-        const value = Number(existing[key]);
-        if (!Number.isFinite(value) || existing[key].trim() === "") {
-          return [key, existing[key]];
-        }
-        const centimeters = toCentimeters(value, unit);
-        return [
-          key,
-          fromCentimeters(centimeters, next).toFixed(1).replace(/\.0$/, ""),
-        ];
-      }),
-    ) as InputValues);
-    setUnit(next);
+  async function analyzePhoto(file: File) {
+    const requestId = ++requestRef.current;
+    setAnalysis({ kind: "processing" });
+    setSelected(EMPTY_SELECTION);
+    setChanges(EMPTY_CHANGES);
+
+    try {
+      const processed = await preprocessImageForUpload(file, {
+        allowedRawMimes: RAW_IMAGE_MIMES,
+      });
+      const analyticsConsent = documentAnalyticsConsentGranted(
+        document.documentElement,
+      );
+      const response = await fetchWithTimeout(
+        RATE_URL,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            client_id: getOrCreateClientId(),
+            photo_base64: processed.base64,
+            photo_mime: processed.photoMime,
+            sex: null,
+            goal: "recomp",
+            analytics_consent: analyticsConsent,
+            ...(analyticsConsent
+              ? {
+                  posthog_distinct_id: getPosthogDistinctId(),
+                  analytics_context: getWebAnalyticsContext(),
+                }
+              : {}),
+          }),
+        },
+        ANALYSIS_TIMEOUT_MS,
+      );
+
+      if (requestId !== requestRef.current) return;
+
+      if (response.ok) {
+        const rating = await validatedJson(response, isRating);
+        const suggestion = suggestedRegion(rating.biggest_opportunity);
+        const suggestedChange = REGIONS.find(({ key }) => key === suggestion)
+          ?.defaultChange ?? 8;
+        setSelected({ ...EMPTY_SELECTION, [suggestion]: true });
+        setChanges({ ...EMPTY_CHANGES, [suggestion]: suggestedChange });
+        setAnalysis({ kind: "result", rating });
+        track("measurements_tool_calculated", {
+          source: "photo",
+          score: rating.subscores.proportions,
+          suggested_region: suggestion,
+          confidence: rating.confidence,
+        });
+        void reportWebToolCompletion("body-measurements-calculator");
+        return;
+      }
+
+      const error = await errorResponseJson(response);
+      const message = typeof error.message === "string" ? error.message : "";
+      if (response.status === 429) {
+        setAnalysis({
+          kind: "error",
+          message:
+            "Today’s free proportion estimate is used. You can still choose areas below and generate your preview.",
+        });
+        return;
+      }
+      setAnalysis({
+        kind: "error",
+        message: message ||
+          "We couldn’t estimate this photo. Try a clear, front-facing shot with your torso and legs visible—or choose areas manually below.",
+      });
+    } catch {
+      if (requestId !== requestRef.current) return;
+      setAnalysis({
+        kind: "error",
+        message:
+          "We couldn’t finish the estimate. You can try another photo or choose the areas manually below.",
+      });
+    }
   }
 
-  function submit(event: FormEvent) {
-    event.preventDefault();
-    setSubmitted(true);
-    if (Object.keys(errors).length > 0) return;
-    const complete = parsed as Measurements;
-    const nextTargets = suggestTargets(complete, sex);
-    setCurrent(complete);
-    setTargets(nextTargets);
-    const calculated = calculateProportions(complete, sex);
-    track("measurements_tool_calculated", {
-      reference: sex,
-      unit,
-      score: calculated.score,
-      focus_ratio: calculated.focus.key,
+  function clearPhoto() {
+    requestRef.current += 1;
+    setAnalysis({ kind: "idle" });
+    setSelected(EMPTY_SELECTION);
+    setChanges(EMPTY_CHANGES);
+  }
+
+  function toggleRegion(key: RegionalMeasurementKey) {
+    const region = REGIONS.find((item) => item.key === key);
+    const nextSelected = !selected[key];
+    setSelected((current) => ({ ...current, [key]: nextSelected }));
+    setChanges((current) => ({
+      ...current,
+      [key]: nextSelected ? region?.defaultChange ?? 8 : 0,
+    }));
+    track("measurements_tool_target_changed", {
+      region: key,
+      selected: nextSelected,
+      change_percent: nextSelected ? region?.defaultChange ?? 8 : 0,
     });
-    void reportWebToolCompletion("body-measurements-calculator");
-    window.setTimeout(() => {
-      resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 50);
   }
 
-  function resetSuggestedTargets() {
-    if (!current) return;
-    setTargets(suggestTargets(current, sex));
-    track("measurements_tool_targets_reset", { reference: sex });
-  }
-
-  function updateTarget(key: RegionalMeasurementKey, displayValue: number) {
-    setTargets((existing) => existing
-      ? { ...existing, [key]: toCentimeters(displayValue, unit) }
-      : existing);
-  }
-
-  return (
-    <>
-      <section className="bmc-workbench" aria-labelledby="bmc-form-title">
-        <div className="bmc-workbench__head">
+  const controls = (
+    <div className="bmc-photo-controls">
+      <section className="bmc-estimate" aria-live="polite">
+        <div className="bmc-step-label">
+          <span>2</span>
           <div>
-            <span className="bmc-kicker">Tape in. Targets out.</span>
-            <h2 id="bmc-form-title">Build your proportion map</h2>
-          </div>
-          <div className="bmc-toggles">
-            <div className="bmc-toggle" role="group" aria-label="Measurement unit">
-              {(["in", "cm"] as const).map((option) => (
-                <button
-                  key={option}
-                  type="button"
-                  aria-pressed={unit === option}
-                  className={unit === option ? "is-active" : ""}
-                  onClick={() => changeUnit(option)}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-            <div className="bmc-toggle" role="group" aria-label="Reference bands">
-              {(["male", "female"] as const).map((option) => (
-                <button
-                  key={option}
-                  type="button"
-                  aria-pressed={sex === option}
-                  className={sex === option ? "is-active" : ""}
-                  onClick={() => {
-                    setSex(option);
-                    if (current) setTargets(suggestTargets(current, option));
-                  }}
-                >
-                  {option === "male" ? "Men" : "Women"}
-                </button>
-              ))}
-            </div>
+            <strong>Review your estimate</strong>
+            <small>AI reads visible balance—not exact tape measurements.</small>
           </div>
         </div>
 
-        <form onSubmit={submit} noValidate>
-          <div className="bmc-input-grid">
-            {FIELDS.map((field, index) => {
-              const error = submitted ? errors[field.key] : undefined;
-              return (
-                <label className="bmc-field" key={field.key}>
-                  <span className="bmc-field__number">0{index + 1}</span>
-                  <span className="bmc-field__label">{field.label}</span>
-                  <span className="bmc-field__input-wrap">
-                    <input
-                      type="text"
-                      inputMode="decimal"
-                      autoComplete="off"
-                      value={inputs[field.key]}
-                      placeholder={unit === "in" ? field.imperial : field.metric}
-                      aria-invalid={Boolean(error)}
-                      onChange={(event) => setInputs((existing) => ({
-                        ...existing,
-                        [field.key]: event.target.value,
-                      }))}
-                    />
-                    <span>{unit}</span>
-                  </span>
-                  <span className={error ? "bmc-field__hint is-error" : "bmc-field__hint"}>
-                    {error ?? field.hint}
-                  </span>
-                </label>
-              );
-            })}
+        {analysis.kind === "processing" && (
+          <div className="bmc-estimate-loading">
+            <span aria-hidden />
+            <div>
+              <strong>Estimating your proportions…</strong>
+              <small>Checking taper, balance and visible development.</small>
+            </div>
           </div>
-          <div className="bmc-form-foot">
-            <p>
-              Your numbers stay in this browser. Use the same tape tension and
-              side of the body each time.
-            </p>
-            <button type="submit">
-              Map my proportions <span aria-hidden>→</span>
-            </button>
+        )}
+
+        {analysis.kind === "result" && (
+          <div className="bmc-estimate-result">
+            <div className="bmc-proportion-score">
+              <span>{analysis.rating.subscores.proportions}</span>
+              <small>/100<br />proportions</small>
+            </div>
+            <div className="bmc-estimate-notes">
+              <p><strong>Strongest:</strong> {analysis.rating.strongest_area}</p>
+              <p><strong>Best opportunity:</strong> {analysis.rating.biggest_opportunity}</p>
+              <span>{analysis.rating.confidence} confidence · single-photo estimate</span>
+            </div>
           </div>
-        </form>
+        )}
+
+        {analysis.kind === "error" && (
+          <div className="bmc-estimate-error">
+            <strong>Estimate unavailable</strong>
+            <p>{analysis.message}</p>
+          </div>
+        )}
       </section>
 
-      {current && targets && result && targetResult ? (
-        <section className="bmc-results" ref={resultRef} aria-labelledby="bmc-result-title">
-          <div className="bmc-score-card">
-            <div className="bmc-score-card__number">
-              <span>{result.score}</span><small>/100</small>
-            </div>
-            <div>
-              <span className="bmc-kicker">Your calculator balance score</span>
-              <h2 id="bmc-result-title">{scoreLabel(result.score)}</h2>
-              <p>
-                Strongest signal: <strong>{result.strongest.label}</strong>.
-                Biggest lever: <strong>{result.focus.label}</strong>.
-              </p>
-            </div>
+      <section className="bmc-adjust">
+        <div className="bmc-step-label">
+          <span>3</span>
+          <div>
+            <strong>Choose what you want to change</strong>
+            <small>Tap an area, then move its slider. Only selected areas change.</small>
           </div>
+        </div>
 
-          <div className="bmc-ratio-grid">
-            {result.metrics.map((item) => (
-              <article className={`bmc-ratio is-${item.status}`} key={item.key}>
-                <div className="bmc-ratio__top">
-                  <span>{item.shortLabel}</span>
-                  <span>{item.status === "in_range" ? "In range" : item.status}</span>
-                </div>
-                <strong>{formatRatio(item.value)}</strong>
-                <h3>{item.label}</h3>
-                <p>Reference {item.low.toFixed(2)}–{item.high.toFixed(2)}</p>
-              </article>
-            ))}
-          </div>
+        <div className="bmc-area-picker" role="group" aria-label="Body areas to adjust">
+          {REGIONS.map((region) => (
+            <button
+              key={region.key}
+              type="button"
+              className={selected[region.key] ? "is-selected" : ""}
+              aria-pressed={selected[region.key]}
+              onClick={() => toggleRegion(region.key)}
+            >
+              <span aria-hidden>{selected[region.key] ? "✓" : "+"}</span>
+              {region.label}
+            </button>
+          ))}
+        </div>
 
-          <div className="bmc-targets">
-            <div className="bmc-targets__intro">
-              <div>
-                <span className="bmc-kicker">Target lab</span>
-                <h2>Shape a realistic next version.</h2>
-                <p>
-                  We started each slider near the middle of your reference
-                  bands and capped the first move. Adjust the target to match
-                  what you actually want—not somebody else&apos;s ideal.
-                </p>
-              </div>
-              <button type="button" onClick={resetSuggestedTargets}>
-                Reset suggestions
-              </button>
-            </div>
+        <div className="bmc-slider-list">
+          {REGIONS.filter(({ key }) => selected[key]).map((region) => {
+            const value = changes[region.key];
+            return (
+              <label className="bmc-change-slider" key={region.key}>
+                <span className="bmc-change-slider__head">
+                  <span>
+                    <strong>{region.label}</strong>
+                    <small>{region.description}</small>
+                  </span>
+                  <b className={value < 0 ? "is-smaller" : "is-larger"}>
+                    {value > 0 ? "+" : ""}{value}%
+                  </b>
+                </span>
+                <input
+                  type="range"
+                  min={-15}
+                  max={15}
+                  step={1}
+                  value={value}
+                  aria-label={`${region.label} size change`}
+                  onChange={(event) => setChanges((current) => ({
+                    ...current,
+                    [region.key]: Number(event.target.value),
+                  }))}
+                  onPointerUp={() => track("measurements_tool_target_changed", {
+                    region: region.key,
+                    change_percent: value,
+                  })}
+                />
+                <span className="bmc-change-slider__scale" aria-hidden>
+                  <small>Smaller</small><small>No change</small><small>Larger</small>
+                </span>
+              </label>
+            );
+          })}
+          {Object.keys(adjustments).length === 0 && (
+            <p className="bmc-no-selection">Select at least one area to create your preview.</p>
+          )}
+        </div>
+      </section>
 
-            <div className="bmc-targets__body">
-              <div className="bmc-target-list">
-                {TARGET_KEYS.map((key) => {
-                  const currentDisplay = fromCentimeters(current[key], unit);
-                  const targetDisplay = fromCentimeters(targets[key], unit);
-                  const change = ((targets[key] / current[key]) - 1) * 100;
-                  return (
-                    <label className="bmc-slider" key={key}>
-                      <span className="bmc-slider__head">
-                        <span>
-                          <strong>{TARGET_LABELS[key]}</strong>
-                          <small>Now {formatMeasurement(current[key], unit)}</small>
-                        </span>
-                        <span className={change >= 0 ? "is-positive" : "is-negative"}>
-                          {formatMeasurement(targets[key], unit)}
-                          <small>{change > 0 ? "+" : ""}{change.toFixed(1)}%</small>
-                        </span>
-                      </span>
-                      <input
-                        type="range"
-                        min={currentDisplay * 0.75}
-                        max={currentDisplay * 1.25}
-                        step={0.1}
-                        value={targetDisplay}
-                        aria-label={`${TARGET_LABELS[key]} target`}
-                        onChange={(event) => updateTarget(key, Number(event.target.value))}
-                        onPointerUp={() => track("measurements_tool_target_changed", {
-                          region: key,
-                          change_percent: Math.round(change * 10) / 10,
-                        })}
-                      />
-                    </label>
-                  );
-                })}
-              </div>
+      <div className="bmc-generate-label">
+        <span>4</span>
+        <div>
+          <strong>Generate your new image</strong>
+          <small>Directional AI preview · not a promise or exact measurement</small>
+        </div>
+      </div>
+    </div>
+  );
 
-              <div className="bmc-target-score">
-                <span className="bmc-kicker">Projected balance</span>
-                <strong>{result.score}<span>→</span>{targetResult.score}</strong>
-                <p>{Object.keys(adjustments).length} regional changes ready for preview</p>
-                <div className="bmc-adjustment-list">
-                  {Object.entries(adjustments).map(([key, value]) => (
-                    <span key={key}>
-                      {key === "thighs" ? "legs" : key}
-                      <b>{Number(value) > 0 ? "+" : ""}{Number(value).toFixed(1).replace(/\.0$/, "")}%</b>
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+  return (
+    <section className="bmc-tool-shell" id="proportion-tool" aria-labelledby="bmc-tool-title">
+      <div className="bmc-tool-intro">
+        <span className="bmc-kicker">Try it on your own photo</span>
+        <h2 id="bmc-tool-title">See your proportions. Shape your target.</h2>
+        <p>
+          Upload once. GainFrame estimates your visible proportions, suggests
+          a starting area, and lets you control exactly what the preview changes.
+        </p>
+      </div>
 
-          <ToolConversionCard
-            tool="body_measurements"
-            campaign="web-measurements"
-            customProductPageId={SEO_PHYSIQUE_TOOLS_CPP.id}
-            placement="calculator_result"
-            eyebrow={`${result.score}/100 · ${result.focus.shortLabel} is your next lever`}
-            headline="Turn the tape target into a visible progress trend."
-            body="GainFrame analyzes repeat progress photos for body fat, 12 muscle groups, and proportions—so you can see whether the shape is changing even when the scale is not."
-            desktopBody="Scan with your iPhone to turn repeat progress photos into body-fat, muscle-group, and proportion trends."
-            iosLabel="Track my physique in GainFrame"
-            proof="iPhone app · Free to start · Private progress timeline"
-            onCtaClick={() => track("measurements_tool_cta_clicked", {
-              placement: "calculator_result",
-              score: result.score,
-              focus_ratio: result.focus.key,
-            })}
-          />
+      <div className="bmc-step-strip" aria-label="How the tool works">
+        <span><b>1</b> Upload</span>
+        <i aria-hidden>→</i>
+        <span><b>2</b> Estimate</span>
+        <i aria-hidden>→</i>
+        <span><b>3</b> Adjust</span>
+        <i aria-hidden>→</i>
+        <span><b>4</b> Generate</span>
+      </div>
 
-          <div className="bmc-preview" id="ai-preview">
-            <div className="bmc-preview__head">
-              <div>
-                <span className="bmc-kicker">AI preview · Beta</span>
-                <h2>Now put those targets on your photo.</h2>
-              </div>
-              <p>
-                This is a directional visualization, not a measurement
-                guarantee. The model changes regional shape by percentage; it
-                cannot confirm an exact circumference from pixels.
-              </p>
-            </div>
-            <TransformClient
-              variant="measurements"
-              regionalAdjustments={adjustments}
-              referenceSex={sex}
-              onPreviewStarted={() => track("measurements_tool_preview_started", {
-                reference: sex,
-                region_count: Object.keys(adjustments).length,
-              })}
-            />
-          </div>
-        </section>
-      ) : null}
-    </>
+      <TransformClient
+        variant="measurements"
+        regionalAdjustments={adjustments}
+        onPhotoSelected={(file) => void analyzePhoto(file)}
+        onPhotoCleared={clearPhoto}
+        measurementsControls={controls}
+        onPreviewStarted={() => track("measurements_tool_preview_started", {
+          region_count: Object.keys(adjustments).length,
+        })}
+      />
+    </section>
   );
 }

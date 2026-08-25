@@ -22,15 +22,15 @@ const PAGE_URL = `${SITE.url}${PAGE_PATH}`;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Body Measurements & Proportion Calculator + AI Preview | GainFrame",
+    absolute: "AI Body Proportion & Measurements Calculator | GainFrame",
   },
   description:
-    "Enter chest, waist, shoulders, arms, thighs, wrist and height. Compare five body proportions, set target measurements with sliders, then preview the changes on your photo with AI.",
+    "Upload a photo for an AI body proportion estimate, choose shoulders, chest, waist, arms or legs, adjust sliders and generate a personalized physique preview.",
   alternates: { canonical: PAGE_PATH },
   openGraph: {
-    title: "Body Measurements & Proportion Calculator",
+    title: "AI Body Proportion Calculator & Photo Preview",
     description:
-      "Map seven measurements, compare your ratios, build realistic targets and preview the regional changes on your own photo.",
+      "Upload one photo, estimate your proportions, choose areas to change and generate a personalized AI preview.",
     type: "website",
     url: PAGE_URL,
     siteName: SITE.name,
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Body Measurements & Proportion Calculator",
+    title: "AI Body Proportion Calculator & Photo Preview",
     description:
-      "Seven measurements in. Ratios, target sliders and an optional AI photo preview out.",
+      "Upload a photo, get a proportion estimate, move regional sliders and generate your preview.",
     images: [SITE.ogImage],
   },
 };
@@ -49,12 +49,12 @@ const schemas = [
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "Body Measurements & Proportion Calculator",
+    name: "AI Body Proportion & Measurements Calculator",
     url: PAGE_URL,
     applicationCategory: "HealthApplication",
     operatingSystem: "All",
     description:
-      "Free body measurement calculator covering height, wrist, shoulders, chest, waist, arms and thighs, with ratio benchmarks, target sliders and an optional AI photo preview.",
+      "Free AI body proportion estimator that analyzes one photo, suggests visible areas to improve and generates a regional physique preview from adjustable sliders.",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
   },
@@ -64,18 +64,18 @@ const schemas = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "What body measurements does this calculator compare?",
+        name: "What does the AI body proportion calculator estimate?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "It uses height, wrist, shoulder, chest, waist, upper-arm and thigh measurements to calculate shoulder-to-waist, waist-to-height, chest-to-waist, arm-to-wrist and thigh-to-wrist ratios.",
+          text: "It estimates visible body balance from one photo, including overall proportions, strongest visible area and the area most likely to improve the physique. It does not claim exact tape measurements from pixels.",
         },
       },
       {
         "@type": "Question",
-        name: "Are the proportion targets medical advice?",
+        name: "Can I choose which body areas change?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. Only waist-to-height is presented as a general health screen. The other bands are broad aesthetic physique references, not diagnoses, requirements or universal ideals.",
+          text: "Yes. After the estimate, select shoulders, chest, waist, arms or legs and use a slider to make each selected area directionally smaller or larger in the generated preview.",
         },
       },
       {
@@ -91,7 +91,7 @@ const schemas = [
         name: "Are my measurements or photo stored?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The measurement calculator runs in the browser and does not save the numbers. If you request an AI preview, the photo is sent for that render call only and is not stored by GainFrame or used to train models.",
+          text: "The photo is sent to the AI service for the estimate and preview calls only. GainFrame does not store it or use it to train models.",
         },
       },
     ],
@@ -102,8 +102,8 @@ export default function BodyMeasurementsCalculatorPage() {
   return (
     <div className={`${display.variable} ${body.variable} bmc-page`}>
       <link rel="stylesheet" href="/styles.css" />
-      <link rel="stylesheet" href="/styles/body-measurements-calculator.css" />
       <link rel="stylesheet" href="/styles/ai-body-transformation.css" />
+      <link rel="stylesheet" href="/styles/body-measurements-calculator.css" />
       <link rel="stylesheet" href="/styles/tool-conversion-card.css" />
       {schemas.map((schema, index) => (
         <script
@@ -117,37 +117,36 @@ export default function BodyMeasurementsCalculatorPage() {
       <main>
         <section className="bmc-hero">
           <div className="bmc-hero__copy">
-            <span className="bmc-hero__eyebrow">Free tool · No signup · Private by default</span>
+            <span className="bmc-hero__eyebrow">AI proportion estimator + physique preview</span>
             <h1>
-              Your body,
-              <span>mapped in ratios.</span>
+              Upload a photo.
+              <span>Build your target.</span>
             </h1>
             <p>
-              Enter seven tape measurements. See what is already balanced,
-              move the areas you want to improve, then preview that target on
-              your own photo.
+              GainFrame estimates your visible proportions, shows your biggest
+              opportunity, then lets you choose exactly which areas to make
+              smaller or larger in a new AI image.
             </p>
+            <a className="bmc-hero__cta" href="#proportion-tool">
+              Upload my photo <span aria-hidden>→</span>
+            </a>
             <div className="bmc-hero__proof">
-              <span><strong>7</strong> measurements</span>
-              <span><strong>5</strong> useful ratios</span>
-              <span><strong>1</strong> optional AI preview</span>
+              <span>One upload</span>
+              <span>No signup</span>
+              <span>Photo never stored</span>
             </div>
           </div>
-          <div className="bmc-hero__map" aria-hidden="true">
-            <div className="bmc-map__grid" />
-            <span className="bmc-map__line is-shoulder"><i /> shoulders</span>
-            <span className="bmc-map__line is-chest"><i /> chest</span>
-            <span className="bmc-map__line is-waist"><i /> waist</span>
-            <span className="bmc-map__line is-thigh"><i /> thigh</span>
-            <div className="bmc-map__figure">
-              <span className="head" />
-              <span className="torso" />
-              <span className="arm left" />
-              <span className="arm right" />
-              <span className="leg left" />
-              <span className="leg right" />
+          <div className="bmc-hero__example">
+            <img
+              src="/assets/misc-images/product-hunt/4-future-physique.webp"
+              alt="GainFrame AI physique preview showing a real before and after transformation"
+            />
+            <span className="bmc-example-badge is-before">Photo</span>
+            <span className="bmc-example-badge is-after">AI preview</span>
+            <div className="bmc-example-caption">
+              <strong>This is what the tool does.</strong>
+              <span>Your photo in. Your selected changes out.</span>
             </div>
-            <span className="bmc-map__stamp">GF / PROPORTION LAB</span>
           </div>
         </section>
 
@@ -155,35 +154,32 @@ export default function BodyMeasurementsCalculatorPage() {
 
         <section className="bmc-method">
           <div>
-            <span className="bmc-kicker">How to read this</span>
-            <h2>A reference, not a verdict.</h2>
+            <span className="bmc-kicker">Simple by design</span>
+            <h2>One photo. Three decisions.</h2>
           </div>
           <div className="bmc-method__grid">
             <article>
               <span>01</span>
-              <h3>Ratios beat raw inches</h3>
+              <h3>Use a clear photo</h3>
               <p>
-                A 16-inch arm means something different on two frames. Height
-                and wrist normalize the number; waist gives the torso ratios
-                visual context.
+                Front-facing, even lighting, with your torso and legs visible.
+                Fitted clothing or normal progress-photo attire reads best.
               </p>
             </article>
             <article>
               <span>02</span>
-              <h3>Bands stay deliberately broad</h3>
+              <h3>Pick only what matters</h3>
               <p>
-                Genetics, bone structure and preference matter. These are
-                common physique reference zones, not a universal ideal or a
-                promise of what your body should be.
+                Select shoulders, chest, waist, arms or legs. The preview leaves
+                every unselected region as close to the source photo as possible.
               </p>
             </article>
             <article>
               <span>03</span>
-              <h3>Track trend over precision</h3>
+              <h3>Treat it as direction</h3>
               <p>
-                Tape tension can move a reading. Measure under the same
-                conditions monthly and pair the numbers with consistent
-                photos to see the real direction.
+                The estimate and generated image are motivational guides, not
+                exact measurements, medical advice or a promise of results.
               </p>
             </article>
           </div>

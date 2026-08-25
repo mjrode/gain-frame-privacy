@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import type { RegionalAdjustments } from "@/lib/body-proportions";
 import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
@@ -295,6 +295,9 @@ type TransformClientProps = {
   regionalAdjustments?: RegionalAdjustments;
   referenceSex?: "male" | "female";
   onPreviewStarted?: () => void;
+  onPhotoSelected?: (file: File) => void;
+  onPhotoCleared?: () => void;
+  measurementsControls?: ReactNode;
 };
 
 function goalForAdjustments(adjustments: RegionalAdjustments): Goal {
@@ -330,6 +333,9 @@ export default function TransformClient({
   regionalAdjustments = {},
   referenceSex,
   onPreviewStarted,
+  onPhotoSelected,
+  onPhotoCleared,
+  measurementsControls,
 }: TransformClientProps = {}) {
   const measurementsMode = variant === "measurements";
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
@@ -561,6 +567,7 @@ export default function TransformClient({
     setZones([]);
     setEmail("");
     setUnlockStage("idle");
+    onPhotoCleared?.();
   }
 
   function toggleZone(key: string) {
@@ -601,6 +608,7 @@ export default function TransformClient({
     setFile(picked);
     setPreviewUrl(URL.createObjectURL(picked));
     setStage({ kind: "idle" });
+    onPhotoSelected?.(picked);
     track("bt_tool_photo_uploaded", {
       size_kb: Math.round(picked.size / 1024),
       mime: picked.type,
@@ -1379,10 +1387,12 @@ export default function TransformClient({
       )}
 
       <div className="btf-card-head">
-        <span className="btf-card-head-label">Your photo</span>
+        <span className="btf-card-head-label">
+          {measurementsMode ? "Step 1 · Upload your photo" : "Your photo"}
+        </span>
         <span className="btf-card-head-meta">
           {measurementsMode
-            ? "1 free beta render · targets loaded"
+            ? "One photo · one simple flow"
             : "1 free render — aim it well"}
         </span>
       </div>
@@ -1472,20 +1482,25 @@ export default function TransformClient({
       )}
 
       {file && measurementsMode && (
-        <div className="btf-regional-summary" aria-label="Loaded target changes">
-          <div>
-            <strong>Measurement targets loaded</strong>
-            <span>We&apos;ll adjust only the regions you changed.</span>
-          </div>
-          <div className="btf-regional-summary__chips">
-            {Object.entries(regionalAdjustments).map(([key, value]) => (
-              <span key={key}>
-                {key === "thighs" ? "legs" : key} {Number(value) > 0 ? "+" : ""}
-                {Number(value).toFixed(1).replace(/\.0$/, "")}%
-              </span>
-            ))}
-          </div>
-        </div>
+        <>
+          {measurementsControls}
+          {!measurementsControls && (
+            <div className="btf-regional-summary" aria-label="Loaded target changes">
+              <div>
+                <strong>Measurement targets loaded</strong>
+                <span>We&apos;ll adjust only the regions you changed.</span>
+              </div>
+              <div className="btf-regional-summary__chips">
+                {Object.entries(regionalAdjustments).map(([key, value]) => (
+                  <span key={key}>
+                    {key === "thighs" ? "legs" : key} {Number(value) > 0 ? "+" : ""}
+                    {Number(value).toFixed(1).replace(/\.0$/, "")}%
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </>
       )}
 
       {file && !measurementsMode && (
@@ -1636,7 +1651,7 @@ export default function TransformClient({
               ? "Pick a reference to render"
               : (
           <>
-            {measurementsMode ? "Preview my targets" : "Render future me"}{" "}
+            {measurementsMode ? "Generate my new image" : "Render future me"}{" "}
             <span className="arrow" aria-hidden>→</span>
           </>
               )}
