@@ -20,7 +20,10 @@ to the static asset binding. The `gainframe.app` custom domain is declared in
 `wrangler.jsonc`.
 
 ### Automatic (normal flow)
-Push to `main` → Workers Builds runs the build command and deploys.
+Push to `main` → Workers Builds runs the build command and deploys. The
+production deploy command must be `node scripts/deploy-worker.mjs`. That guard
+skips a stale build when a newer `main` commit exists, prevents overlapping
+local releases, and labels every Cloudflare deployment with its Git revision.
 
 ### CLI deploy (manual / branch previews)
 
@@ -30,9 +33,11 @@ npm install -g wrangler
 wrangler login
 ```
 
-Build, then deploy from the repo root (wrangler reads `wrangler.jsonc`):
+Run the guarded release from `web/`. It requires a clean local `main` that
+exactly matches `origin/main`, builds the site, then rechecks the revision before
+Wrangler reads the root `wrangler.jsonc` and deploys:
 ```bash
-cd web && npm run build && cd .. && npx wrangler deploy
+cd web && npm run deploy
 ```
 
 To upload a version without making it live — what Workers Builds does for
@@ -50,7 +55,7 @@ npx wrangler dev
 | Setting | Value |
 |---------|-------|
 | Build command | `cd web && npm install && npm run build` |
-| Deploy command | `npx wrangler deploy` |
+| Deploy command | `node scripts/deploy-worker.mjs` |
 | Root directory | `/` |
 | Environment variable | `NODE_VERSION=20` |
 | Production branch | `main` |

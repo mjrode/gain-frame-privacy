@@ -26,8 +26,8 @@ import { WEB_TOOL_COMPLETED_DOM_EVENT } from "@/lib/web-tool-usage";
  * /api/android-waitlist (never a link to another free web tool).
  *
  * Events: `tool_cta_viewed` once per mount when the card scrolls into
- * view, `tool_cta_clicked` on any App Store anchor click,
- * `tool_cta_dismissed` when the sticky card is closed, and
+ * view, `tool_cta_clicked` on any App Store anchor click, and
+ * `tool_cta_dismissed` when the current result dock is closed, and
  * `tool_android_email_submitted` on the Android form. Tools keep their
  * historical per-tool click events via `onCtaClick`.
  */
@@ -36,8 +36,6 @@ const DEFAULT_ANDROID_BODY =
   "No Android app yet. Leave your email and we'll send you the App Store link for later — and you'll be first to know if Android ships.";
 
 const PROGRESS_PREVIEW_SRC = "/assets/bf-precision/body-fat-trend.webp";
-const STICKY_CTA_DISMISSED_STORAGE_KEY =
-  "gainframe_tool_sticky_cta_dismissed_v1";
 
 export type ToolConversionExperimentCopy = {
   eyebrow: string;
@@ -181,8 +179,7 @@ export default function ToolConversionCard({
   const platform = useDownloadPlatform();
   const [assignment, setAssignment] = useState<ToolCtaAssignment | null>(null);
   const [activated, setActivated] = useState(activation === "immediate");
-  const [stickyVisibility, setStickyVisibility] =
-    useState<"pending" | "visible" | "dismissed">("pending");
+  const [dismissed, setDismissed] = useState(false);
   const isAndroid = platform === "android";
   const isDesktop = platform === "desktop";
   const isSticky = sticky ?? placement.endsWith("result");
@@ -194,7 +191,7 @@ export default function ToolConversionCard({
     (hideOnAndroid && isAndroid) ||
     experimentPending ||
     !activated ||
-    (isSticky && stickyVisibility !== "visible");
+    (isSticky && dismissed);
   const variantCopy =
     experiment && assignment ? experiment.variants[assignment.variant] : null;
   const displayedEyebrow = variantCopy?.eyebrow ?? eyebrow;
@@ -220,28 +217,15 @@ export default function ToolConversionCard({
   }, [experiment?.id]);
 
   useEffect(() => {
-    if (activation === "immediate") {
+    const activate = () => {
+      setDismissed(false);
       setActivated(true);
-      return;
-    }
-    const activate = () => setActivated(true);
+    };
+    if (activation === "immediate") activate();
     window.addEventListener(WEB_TOOL_COMPLETED_DOM_EVENT, activate);
     return () =>
       window.removeEventListener(WEB_TOOL_COMPLETED_DOM_EVENT, activate);
   }, [activation]);
-
-  useEffect(() => {
-    if (!isSticky) return;
-    let dismissed = false;
-    try {
-      dismissed =
-        window.sessionStorage.getItem(STICKY_CTA_DISMISSED_STORAGE_KEY) ===
-        "true";
-    } catch {
-      // Storage can be unavailable in privacy modes. The card should still work.
-    }
-    setStickyVisibility(dismissed ? "dismissed" : "visible");
-  }, [isSticky]);
 
   useEffect(() => {
     if (!isSticky || hidden) return;
@@ -284,15 +268,7 @@ export default function ToolConversionCard({
   ]);
 
   function dismissStickyCta() {
-    setStickyVisibility("dismissed");
-    try {
-      window.sessionStorage.setItem(
-        STICKY_CTA_DISMISSED_STORAGE_KEY,
-        "true",
-      );
-    } catch {
-      // Dismissal remains effective for this mount when storage is unavailable.
-    }
+    setDismissed(true);
     track("tool_cta_dismissed", {
       tool,
       placement,
