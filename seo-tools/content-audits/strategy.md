@@ -1,7 +1,8 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-23** (review -> execution; owner approved `all`; F1-F4 SHIPPED; P1 approved but HOLD on first-party evidence). GSC reached 11,447 clicks / 648,562 impressions in 28d (+137% / +178%); residual nonbrand clicks rose 153%. **P1 ZOZOFIT Review** remains the only clean net-new keyword at 720 US volume and +22% yearly, but its three controlled scans, tape comparison, setup notes, screenshots, and interview do not exist yet, so no article or URL was created. The shipped work repointed `rate-my-physique` to the physique rater, corrected current ZOZOFIT app/suit/pricing facts, consolidated InBody-vs-Withings coverage on the existing owner, and updated three mature pages for live Target Training and nutrition. All six modified posts pass strict launch checks and the production build passes. No indexing requests were made because no new URL shipped. `hume vs renpho` remains a hardware-gated watch; Fitbod/Hevy/LeanLens/MyFitnessPal siblings remain rejected. 507/509 live sitemap URLs are indexed; the two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-21
+> Last run: **2026-08-26** (review; zero executable posts; F1-F3 proposed). Search growth accelerated to 13,084 clicks / 747,229 impressions in 28d (+144% / +183%) and 8,339 / 491,599 in the latest 14d (+76% / +92%). Residual nonbrand clicks rose about 82% in the two-week comparison while brand clicks fell by 10. GA4 organic sessions rose 44% with engagement up 3.4 points. `/tools/body-visualizer/` is the clearest next focus: 738 vs 27 clicks, 560 vs 34 organic sessions, 74.8% engagement, and exact-query position 12.5 in a 40,500-volume / KD 4 market, but only two contextual inbound links and no tool-specific activation event. Proposed F1 adds three relevant SEO-lane links, F2 adds a privacy-safe result event, and F3 repairs FAQ/schema parity on the indexed but unmeasured DEXA benchmark. All Aug 23-25 targeting changes remain frozen until their directional windows. P1 ZOZOFIT remains approved but blocked on first-party evidence. 165/167 inspected recent or zero-impression URLs are indexed; the same two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-24
+> Prior run: **2026-08-23** (review -> execution; owner approved `all`; F1-F4 SHIPPED; P1 approved but HOLD on first-party evidence). GSC reached 11,447 clicks / 648,562 impressions in 28d (+137% / +178%); residual nonbrand clicks rose 153%. **P1 ZOZOFIT Review** remains the only clean net-new keyword at 720 US volume and +22% yearly, but its three controlled scans, tape comparison, setup notes, screenshots, and interview do not exist yet, so no article or URL was created. The shipped work repointed `rate-my-physique` to the physique rater, corrected current ZOZOFIT app/suit/pricing facts, consolidated InBody-vs-Withings coverage on the existing owner, and updated three mature pages for live Target Training and nutrition. All six modified posts pass strict launch checks and the production build passes. No indexing requests were made because no new URL shipped. `hume vs renpho` remains a hardware-gated watch; Fitbod/Hevy/LeanLens/MyFitnessPal siblings remain rejected. 507/509 live sitemap URLs are indexed; the two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-21
 > Prior run: **2026-08-21 same-day rerun** (review; zero posts, one fix proposed). Final GSC cutoff remained Aug 19, but the finalized 28d total rose to 10,616 clicks / 599,647 impressions (+140% / +186%); brand remained 702 clicks (6.6%). The Hume retitle and accurate-to-worth-it link now exist as **uncommitted local changes** and pass strict slug checks, so they were removed from the proposal without being counted as shipped. The only remaining action is the already-approved `rate-my-physique` CTA bridge to `/tools/physique-rater/`. The sibling stays HOLD: tool takes `rate my body ai` at 3.2 with 36 clicks while the blog gets 1 click at 17. DataForSEO was available: picture intent still resolves to existing chart/tool pages; `best smart scale` now reads -19% yearly rather than the earlier +23%, reinforcing the Sep 8-10 hold; `fitbod review` has 1 exact-query GSC impression, below the proposal threshold. Eight recent URLs are indexed; two Aug 6 male gallery URLs remain unknown and too new to judge until Sep 3. · Data through 2026-08-19
 > Prior run: **2026-08-18** (review → execution; owner approved `all`: F4 absmaxx inbound SHIPPED same day; F1 Hume retitle + F2 accurate→worth-it remain SCHEDULED Aug 19; F3 rater CTA SCHEDULED Aug 21; zero posts; sibling HOLD) · Data through 2026-08-16
 > Prior run: **2026-08-17** (review; full experiment audit — chart revert CLOSED keep-control at 0.60% CTR / pos 9.3; WHR WIN 14.7→9.8; WHtR MIXED (imp 2.4× but pos 13.2→16.4); rate-my-physique trending GO for the Aug 21 sibling at 7.3 / 4.2% CTR; Hume long-tail already ranking (price @ 9, subscription @ 7) with retitle proposed for Aug 19; women-chart overlap NOT found — leave; F1 chart→gallery link SHIPPED same day + F2 Hume retitle APPROVED-SCHEDULED for Aug 19, zero posts until the Aug 21 gate) · Data through 2026-08-15
@@ -14,6 +15,58 @@
 > Same-day run 1: 2026-08-11 (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**)
 > Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
 > Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
+
+## New findings (2026-08-26 — two-week performance read)
+
+- **The recent direction is decisively positive.** Latest-14d Search Console clicks rose 76% and
+  impressions rose 92%; average position improved 0.73. Brand clicks fell by 10 while residual
+  nonbrand clicks rose about 82%, so this is not a brand-demand artifact. GA4 organic sessions rose
+  44%, engaged sessions rose 51%, and engagement rate improved from 66.1% to 69.5%.
+- **Tools are the primary growth surface.** The body visualizer rose 27 -> 738 clicks, physique
+  rater 481 -> 1,052, and the photo body-fat estimator 749 -> 1,291. C11 physique rating is up
+  1,149% over the stable 28d baseline; C2 visual reference is up 399%. The blog is also growing,
+  but the strongest incremental demand resolves to useful tools.
+- **Body visualizer is the next best existing-asset bet.** `body visualizer` is 40,500 US volume /
+  KD 4 / +22% quarterly. The tool already earns 969 exact-query impressions at position 12.5,
+  560 two-week organic sessions, and 74.8% engagement. It has only two contextual inbound links,
+  both from founder posts. Add three mature SEO-lane links without changing metadata before Sep 3.
+- **Measurement lags traffic.** PostHog activations rose sharply, but App Store clicks were 639 vs
+  653 in the two-week comparison. The body visualizer's shared CTA is measured, but its own result
+  event is not. Add one privacy-safe activation event before interpreting conversion; do not send
+  height, weight, BMI, or other health-sensitive inputs.
+- **Aug 23-25 work is too fresh to judge.** The Aug 23 changes have one day in the Search Console
+  cutoff; Aug 25 changes have none. The Hume page changed again Aug 25. Directional reads open
+  around Aug 30-Sep 4 and full reads around Sep 20-22. Freeze targeting and metadata until then.
+- **The new DEXA proof asset needs a contained launch repair.** It is indexed but has zero measured
+  impressions through the cutoff. Inventory found five visible-FAQ/schema parity defects and two
+  legacy long dashes. Fix those only; preserve every claim and targeting field.
+- **No new post cleared every gate.** ZOZOFIT remains the one open SERP, but P1 is already approved
+  and still blocked on controlled scans, tape readings, setup/failure notes, live screenshots, and
+  a first-person test interview. Hume vs RENPHO remains hardware-gated. Hevy/Fitbod are rejected or
+  held on product fit and business evidence.
+- **Indexing remains healthy.** 165 of 167 inspected recent or zero-impression URLs are submitted
+  and indexed. The two Aug 6 male gallery URLs remain unknown but are inside the Sep 3 fair window.
+
+### 2026-08-26 decision ledger
+
+| Item | Target / evidence | State |
+|---|---|---|
+| F1 body-visualizer inbound support | 40,500 volume / KD 4; exact query pos 12.5; 738 vs 27 clicks; only two founder inbounds | **Proposed.** Add three contextual links from `normal-bmi-but-look-fat`, `body-fat-percentage-vs-bmi`, and `why-do-i-weigh-more-than-i-look`; no metadata change |
+| F2 body-visualizer activation | 560 vs 34 organic sessions, 74.8% engagement; CTA measured but result activation absent | **Proposed.** Add one `body_visualizer_result_shown` event with unit and reference sex only; no sensitive measurements |
+| F3 DEXA launch quality | indexed new benchmark; five FAQ/schema parity defects and two legacy long dashes; zero GSC data | **Proposed.** Reconcile schema to visible FAQ and normalize two dashes; preserve targeting and claims |
+| P1 `zozofit-review` | 720 volume, +22% yearly, open review SERP | **Approved, blocked.** Evidence contract unchanged; no draft or URL without it |
+| Aug 23-25 targeting changes | one or zero measured days | **Freeze.** Directional reads Aug 30-Sep 4; full reads Sep 20-22 |
+| Hume vs RENPHO / Hevy / Fitbod | missing hardware/diary assets or weak product/business bridge | **Hold/reject** |
+
+### Next measurement gates
+
+| Asset / change | Read | Fair date |
+|---|---|---|
+| Aug 23 F1-F4 | page/query movement and downstream events | directional Aug 30-Sep 2; full Sep 20 |
+| Aug 25 content/tool work | index/query movement without attribution claims | directional Sep 4; full Sep 22 |
+| Body visualizer launch window | exact-query position, CTR, SEO-lane link support | Sep 3 |
+| Two unknown gallery URLs | inspect status; strengthen hub links only if still unknown | Sep 3 |
+| P1 ZOZOFIT | no clock until the evidence pack and a page exist | blocked |
 
 ## New findings (2026-08-23 — keyword expansion reset -> execution)
 
