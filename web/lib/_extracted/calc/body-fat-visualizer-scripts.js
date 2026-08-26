@@ -8,32 +8,43 @@
 
             const GENDER_CONFIG = {
                 male: {
-                    steps: [8, 10, 12, 15, 18, 20, 25, 30],
+                    steps: [8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 22, 25, 27, 30],
                     legacySteps: [8, 13, 18, 23, 28, 33],
                     categories: {
                         8:  { name: 'Shredded',      sub: 'Essential · Stage Lean', key: 'shredded', desc: 'Stage-lean. Striated muscle, vascularity, and deep ab separation. Not sustainable long-term.' },
+                        9:  { name: 'Very Lean',     sub: 'Stage Lean · Defined',    key: 'shredded', desc: 'Deep abdominal definition and a tight waist, midway between stage-lean and the classic ten-percent look.' },
                         10: { name: 'Very Lean',     sub: 'Athletic · Defined',      key: 'shredded', desc: 'A clear six-pack at rest, a tight waist, and visible separation without full stage conditioning.' },
+                        11: { name: 'Athletic',      sub: 'Very Lean · Defined',     key: 'athletic', desc: 'Strong ab visibility and muscular separation with slightly softer edges than the ten-percent range.' },
                         12: { name: 'Athletic',      sub: 'Lean · Sustainable',      key: 'athletic', desc: 'Visible abs and muscle separation with enough softness to remain realistic year-round for some lifters.' },
                         13: { name: 'Athletic',      sub: 'Healthy · Lean',         key: 'athletic', desc: 'Clean six-pack, visible separation, vascular forearms. The trained-lifter look.' },
+                        14: { name: 'Fit',           sub: 'Lean · Athletic',         key: 'fit',      desc: 'A lean athletic waist with visible upper abs and gradually softened muscle separation.' },
                         15: { name: 'Fit',           sub: 'Healthy · Athletic',       key: 'fit',      desc: 'A flat waist, faint upper abs, and clear muscle shape without a sharply cut look.' },
+                        16: { name: 'Fit',           sub: 'Healthy · Sustainable',   key: 'fit',      desc: 'A flat-to-soft waist with muscle shape still clear and resting ab definition beginning to fade.' },
                         18: { name: 'Fit',           sub: 'Sustainable · Toned',    key: 'fit',      desc: 'Lean and toned. Abs visible under good lighting, sustainable and healthy.' },
+                        19: { name: 'Average',       sub: 'Fit · Soft Edges',        key: 'average',  desc: 'A smooth waist with only light definition, bridging the fit and average-looking ranges.' },
                         20: { name: 'Average',       sub: 'Healthy · Soft Edges',    key: 'average',  desc: 'No resting ab definition, a smooth waist, and muscle shape that remains visible underneath.' },
+                        22: { name: 'Average',       sub: 'Typical Adult Male',      key: 'average',  desc: 'A visibly softer midsection with muscle shape muted but still present through the torso and back.' },
                         23: { name: 'Average',       sub: 'Typical Adult Male',     key: 'average',  desc: 'Typical range for most men. Soft midsection, no visible abs. Still within healthy range.' },
                         25: { name: 'Elevated',      sub: 'Above Average',           key: 'above',    desc: 'A rounded midsection, visible love handles, and softened definition through the chest and back.' },
+                        27: { name: 'Above Average', sub: 'Elevated Risk',           key: 'above',    desc: 'A more pronounced belly and lower-back softness, between the twenty-five and thirty-percent references.' },
                         28: { name: 'Above Average', sub: 'Elevated Risk',          key: 'above',    desc: 'Noticeable belly, love handles, and chest softness. Elevated metabolic risk begins here.' },
                         30: { name: 'High Range',    sub: 'Elevated Health Risk',    key: 'obese',    desc: 'Substantial abdominal and lower-back fat with little visible muscle separation.' },
                         33: { name: 'Obese Range',   sub: 'High Health Risk',       key: 'obese',    desc: 'Significant abdominal overhang and visceral fat. Serious health risk — time to act.' }
                     }
                 },
                 female: {
-                    steps: [18, 20, 22, 25, 30, 35, 40],
+                    steps: [18, 19, 20, 21, 22, 23, 25, 27, 28, 30, 32, 35, 37, 40],
                     legacySteps: [18, 22, 27, 32, 37, 42],
                     categories: {
                         18: { name: 'Athletic',      sub: 'Toned · Defined',          key: 'athletic', desc: 'Visible muscle tone, defined arms and legs. Typical of competitive athletes and dedicated trainers.' },
+                        19: { name: 'Athletic',      sub: 'Lean · Defined',           key: 'athletic', desc: 'A lean athletic build with visible tone and slightly softer definition than the eighteen-percent reference.' },
                         20: { name: 'Lean Fit',      sub: 'Athletic · Sustainable',   key: 'athletic', desc: 'A flat waist, light abdominal definition, and visibly toned arms, back, and legs.' },
+                        21: { name: 'Lean Fit',      sub: 'Athletic · Natural',       key: 'athletic', desc: 'A flat waist and clear tone with a gradual softening of muscle edges.' },
                         22: { name: 'Fit',           sub: 'Sustainable · Healthy',    key: 'fit',      desc: 'Lean, toned, and curvy. A sustainable, healthy body fat level with clear definition.' },
+                        23: { name: 'Fit',           sub: 'Healthy · Toned',          key: 'fit',      desc: 'Natural curves become more visible while the waist and limbs retain an athletic shape.' },
                         25: { name: 'Healthy',       sub: 'Fit · Natural Curves',     key: 'fit',      desc: 'A soft flat waist, fuller hips and thighs, and toned muscle with naturally softened edges.' },
                         27: { name: 'Average',       sub: 'Typical Adult Female',     key: 'average',  desc: 'Typical range for most women. Soft curves, healthy body fat level for general wellness.' },
+                        28: { name: 'Average',       sub: 'Healthy · Soft Curves',    key: 'average',  desc: 'A softly rounded waist and fuller hips and thighs, bridging the upper twenties toward thirty percent.' },
                         30: { name: 'Average',       sub: 'Typical Adult Female',     key: 'average',  desc: 'A softly rounded midsection with fuller hips and thighs and minimal resting definition.' },
                         32: { name: 'Above Average', sub: 'Class I Obesity',          key: 'above',    desc: 'Entering the obese range. Fat distribution broadens across hips, thighs, and midsection.' },
                         35: { name: 'Elevated',      sub: 'Higher Health Risk',       key: 'above',    desc: 'A broader waist and more pronounced fat through the midsection, lower back, hips, and thighs.' },
@@ -73,7 +84,7 @@
             // State
             let gender = 'male';
             let view   = 'front';
-            let bfIdx  = 3;   // default 15% male / 25% female
+            let bfIdx  = 7;   // default 15% male; gender changes preserve relative position
             let ageIdx = 1;   // default 30s
 
             // The new front/back atlas is standardized to the 30s. Other ages

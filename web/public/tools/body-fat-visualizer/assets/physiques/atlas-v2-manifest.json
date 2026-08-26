@@ -1,7 +1,7 @@
 {
-  "version": 2,
-  "generatedAt": "2026-08-25",
-  "generator": "OpenAI built-in image generation",
+  "version": 3,
+  "generatedAt": "2026-08-26",
+  "generator": "OpenAI built-in image generation and GPT Image CLI fallback",
   "purpose": "Canonical adult body-composition reference atlas shared by the body-fat chart, body-fat visualizer, and BMI body visualizer.",
   "standardizedAge": "30s",
   "dimensions": {
@@ -16,21 +16,36 @@
   "levels": {
     "male": [
       8,
+      9,
       10,
+      11,
       12,
+      13,
+      14,
       15,
+      16,
       18,
+      19,
       20,
+      22,
       25,
+      27,
       30
     ],
     "female": [
       18,
+      19,
       20,
+      21,
       22,
+      23,
       25,
+      27,
+      28,
       30,
+      32,
       35,
+      37,
       40
     ]
   },

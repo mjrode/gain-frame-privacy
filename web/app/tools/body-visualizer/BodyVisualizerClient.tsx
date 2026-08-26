@@ -212,7 +212,7 @@ export default function BodyVisualizerClient() {
           <span className={styles.liveDot} aria-hidden="true" />
           Body shape reference
         </span>
-        <span className={styles.instrumentMeta}>Adult BMI · v1.1</span>
+        <span className={styles.instrumentMeta}>Adult BMI · v1.2</span>
       </div>
 
       <div className={styles.visualizerGrid}>

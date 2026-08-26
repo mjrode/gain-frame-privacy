@@ -1,8 +1,8 @@
 export type BodyVisualizerSex = "male" | "female";
 
 export const BODY_VISUALIZER_RENDERS = {
-  male: [8, 10, 12, 15, 18, 20, 25, 30],
-  female: [18, 20, 22, 25, 30, 35, 40],
+  male: [8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 22, 25, 27, 30],
+  female: [18, 19, 20, 21, 22, 23, 25, 27, 28, 30, 32, 35, 37, 40],
 } as const;
 
 const BMI_VISUAL_RANGE: Record<

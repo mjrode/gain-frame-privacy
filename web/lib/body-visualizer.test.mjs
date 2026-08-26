@@ -27,12 +27,12 @@ test("uses every canonical female render as BMI rises", () => {
 test("clamps measurements outside the display range to the end renders", () => {
   assert.deepEqual(bodyVisualizerRender(10, "male"), {
     bodyFat: 8,
-    count: 8,
+    count: 16,
     index: 0,
   });
   assert.deepEqual(bodyVisualizerRender(50, "female"), {
     bodyFat: 40,
-    count: 7,
-    index: 6,
+    count: 14,
+    index: 13,
   });
 });
