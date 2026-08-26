@@ -263,10 +263,10 @@ export default function BodyFatFromPhotoPage() {
               <a href="/tools/body-fat-visualizer/">body fat visualizer</a> —
               the same build, pose, and lighting at every level, so the only
               thing changing between images is body fat. Tap any figure to
-              explore every percentage from 8% to 42%, across ages 20s to 60s.
+              explore every percentage from 8% to 40%, across ages 20s to 60s.
             </p>
             <div className="bff-spectrum-strip bff-spectrum-strip--static">
-              {[13, 18, 23, 28].map((bf) => (
+              {[12, 18, 25, 30].map((bf) => (
                 <a
                   key={bf}
                   className="bff-spectrum-fig"
@@ -275,7 +275,7 @@ export default function BodyFatFromPhotoPage() {
                 >
                   <span className="frame">
                     <img
-                      src={`/tools/body-fat-visualizer/assets/physiques/male-age30s-bf${bf}.webp`}
+                      src={`/tools/body-fat-visualizer/assets/physiques/male-age30s-bf${bf}-front.webp`}
                       alt={`${bf} percent body fat on a man — reference physique`}
                       loading="lazy"
                       width={220}

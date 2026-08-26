@@ -8,9 +8,13 @@ import {
   reportWebToolCompletion,
   WEB_TOOL_COMPLETED_DOM_EVENT,
 } from "@/lib/web-tool-usage";
+import {
+  bodyVisualizerRender,
+  type BodyVisualizerSex,
+} from "@/lib/body-visualizer";
 
 type UnitSystem = "metric" | "us";
-type ReferenceSex = "male" | "female";
+type ReferenceSex = BodyVisualizerSex;
 type ReferenceView = "front" | "back";
 
 type MetricInputs = {
@@ -33,11 +37,6 @@ const POUNDS_PER_KG = 2.2046226218;
 const CM_PER_INCH = 2.54;
 const PHYSIQUE_ROOT =
   "/tools/body-fat-visualizer/assets/physiques";
-
-const REFERENCE_RENDERS = {
-  male: [8, 12, 15, 20, 25, 30],
-  female: [18, 20, 25, 30, 35, 40],
-} as const;
 
 function parseNumber(value: string): number | null {
   if (value.trim() === "") return null;
@@ -119,15 +118,6 @@ function bmiCategory(bmi: number) {
   } as const;
 }
 
-function illustrationIndex(bmi: number): number {
-  if (bmi < 18.5) return 0;
-  if (bmi < 22) return 1;
-  if (bmi < 25) return 2;
-  if (bmi < 30) return 3;
-  if (bmi < 35) return 4;
-  return 5;
-}
-
 function compactNumber(value: number, decimals = 0): string {
   return value.toFixed(decimals).replace(/\.0$/, "");
 }
@@ -157,8 +147,8 @@ export default function BodyVisualizerClient() {
     ? measurements.weightKg / measurements.heightM ** 2
     : null;
   const category = bmi === null ? null : bmiCategory(bmi);
-  const renderIndex = illustrationIndex(bmi ?? 23.5);
-  const renderBodyFat = REFERENCE_RENDERS[referenceSex][renderIndex];
+  const render = bodyVisualizerRender(bmi ?? 23.5, referenceSex);
+  const renderBodyFat = render.bodyFat;
   const imageBasePath = `${PHYSIQUE_ROOT}/${referenceSex}-age30s-bf${renderBodyFat}`;
   const canonicalImagePath = `${imageBasePath}-${referenceView}.webp`;
   const legacyImagePath = `${imageBasePath}.webp`;
@@ -222,7 +212,7 @@ export default function BodyVisualizerClient() {
           <span className={styles.liveDot} aria-hidden="true" />
           Body shape reference
         </span>
-        <span className={styles.instrumentMeta}>Adult BMI · v1.0</span>
+        <span className={styles.instrumentMeta}>Adult BMI · v1.1</span>
       </div>
 
       <div className={styles.visualizerGrid}>
@@ -436,7 +426,9 @@ export default function BodyVisualizerClient() {
               <span>Illustrative output</span>
               <strong>{referenceSex === "female" ? "Female" : "Male"} reference</strong>
             </div>
-            <span className={styles.renderBand}>Band {renderIndex + 1}/6</span>
+            <span className={styles.renderBand}>
+              Band {render.index + 1}/{render.count}
+            </span>
           </div>
           <div className={styles.imageChamber}>
             <div

@@ -10,6 +10,7 @@ import {
   track,
 } from "@/lib/analytics";
 import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
+import { BODY_VISUALIZER_RENDERS } from "@/lib/body-visualizer";
 import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
 import {
   asToolClientError,
@@ -893,8 +894,7 @@ export default function BFEstimatorClient() {
           // centered on the user's estimate. Each figure deep-links into
           // the visualizer at that percentage.
           const g = sex === "female" ? "female" : "male";
-          const steps =
-            g === "female" ? [18, 22, 27, 32, 37, 42] : [8, 13, 18, 23, 28, 33];
+          const steps = BODY_VISUALIZER_RENDERS[g];
           let nearest = 0;
           for (let i = 1; i < steps.length; i++) {
             if (Math.abs(steps[i] - targetNum) < Math.abs(steps[nearest] - targetNum))
@@ -926,7 +926,7 @@ export default function BFEstimatorClient() {
                     >
                       <span className="frame">
                         <img
-                          src={`/tools/body-fat-visualizer/assets/physiques/${g}-age30s-bf${bf}.webp`}
+                          src={`/tools/body-fat-visualizer/assets/physiques/${g}-age30s-bf${bf}-front.webp`}
                           alt={`${bf} percent body fat reference physique`}
                           loading="lazy"
                           width={220}
