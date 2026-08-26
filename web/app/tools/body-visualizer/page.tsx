@@ -8,11 +8,11 @@ import styles from "./page.module.css";
 const PAGE_PATH = "/tools/body-visualizer/";
 const PAGE_URL = `${SITE.url}${PAGE_PATH}`;
 const DESCRIPTION =
-  "Free body visualizer: enter height and weight to calculate BMI and see an illustrative male or female body-shape reference. No signup. BMI is not body fat.";
+  "Enter height and weight to see an instant male or female BMI body reference. Free, private, no signup, with metric cm/kg and U.S. ft/lb inputs.";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Body Visualizer — Free BMI & Body Shape Visualizer | GainFrame",
+    absolute: "Free Body Visualizer by Height & Weight | GainFrame",
   },
   description: DESCRIPTION,
   keywords: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
 const FAQS = [
   {
-    question: "What does the body visualizer calculate?",
+    question: "Is this a BMI body visualizer by height and weight?",
     answer:
       "It calculates adult BMI from height and weight, assigns the standard adult BMI category, and selects one standardized body-shape illustration from GainFrame's reference atlas. The image is an illustrative band, not a prediction of your appearance.",
   },
@@ -59,9 +59,19 @@ const FAQS = [
       "The same weight can be distributed differently across muscle, fat, and bone. Height proportions, frame size, age, and where a person carries fat also change visible body shape. That is why every physique render on this page is labeled illustrative.",
   },
   {
-    question: "Does selecting male or female change the BMI result?",
+    question: "Can I use this as a female body visualizer?",
     answer:
-      "No. Standard adult BMI uses the same formula and categories regardless of sex. The selection changes only whether the page shows the male or female standardized illustration set.",
+      "Yes. Choose Female to see the standardized female body-shape reference for the BMI band calculated from your height and weight. The illustration is a broad reference, not a personalized prediction of your body.",
+  },
+  {
+    question: "Can I use this as a male body visualizer?",
+    answer:
+      "Yes. Choose Male to see the standardized male body-shape reference for the BMI band calculated from your height and weight. Selecting male or female changes the illustration set, not the standard adult BMI formula.",
+  },
+  {
+    question: "Can I enter height and weight in cm and kg?",
+    answer:
+      "Yes. Metric mode accepts height in centimeters and weight in kilograms. You can also switch to U.S. units to enter feet, inches, and pounds; both modes produce the same BMI calculation.",
   },
   {
     question: "Is this a 3D body visualizer?",
@@ -139,6 +149,28 @@ export default function BodyVisualizerPage() {
         <div className={styles.toolWrap}>
           <BodyVisualizerClient />
         </div>
+
+        <section className={styles.editorialSection}>
+          <div className={styles.sectionKicker}>How this body visualizer works</div>
+          <div className={styles.editorialGrid}>
+            <h2>A male and female BMI body visualizer by height and weight.</h2>
+            <div className={styles.prose}>
+              <p>
+                This free BMI body visualizer uses height and weight to
+                calculate adult BMI and select a standardized reference band.
+                Enter cm and kg or switch to feet, inches, and pounds; the
+                calculation and result update immediately.
+              </p>
+              <p>
+                Choose the female body visualizer or male body visualizer to
+                change the reference illustration set. The BMI formula stays
+                the same. The images are broad visual references, not
+                personalized body predictions, body-fat measurements, or
+                medical assessments.
+              </p>
+            </div>
+          </div>
+        </section>
 
         <section className={styles.editorialSection}>
           <div className={styles.sectionKicker}>Read the result correctly</div>
