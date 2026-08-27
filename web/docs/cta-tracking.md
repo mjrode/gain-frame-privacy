@@ -182,6 +182,26 @@ events for historical trend continuity. Desktop-to-phone behavior requires a
 QR scan carrying the same consented OneLink payload; Apple privacy controls
 mean attribution will be actionable rather than complete.
 
+## Top-blog contextual sticky CTA rollout (2026-08-27)
+
+The 20 highest-click blog posts from the settled 2026-07-28 through 2026-08-24
+GSC window use a page-specific bottom dock after the reader reaches the first
+article section. The cohort is fixed in `lib/blog-cta.ts` for the measurement
+window; do not reorder it from a newer GSC pull mid-test.
+
+Use unique `blog_sticky_cta_clicked` / unique `blog_sticky_cta_viewed` as the
+primary CTR. Both carry `slug`, `intent`, `placement=sticky`, and `platform`;
+`blog_sticky_cta_dismissed` measures interruption cost. Filter Android out of
+the app-download CTR because its button routes to the free web tool.
+The site-wide `web_download_clicked` and `outbound_app_store_click` events still
+own download attribution, so do not add those again in the blog component.
+
+The rollout baseline is the tool dock that motivated it: Aug 18-24 recorded
+53 unique clicks from 1,592 unique viewers (3.33%); Aug 25-26 recorded 19 from
+516 (3.68%). That +10.5% relative movement was directional, not significant,
+so keep the blog rollout framed as a measured expansion rather than a proven
+win until it has at least seven settled days.
+
 ## SEO physique-tools Custom Product Page (`seo-physique-cpp-v1`)
 
 Only the conversion cards rendered by `/tools/body-fat-from-photo/` and

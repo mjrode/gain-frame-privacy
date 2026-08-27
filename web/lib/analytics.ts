@@ -87,6 +87,10 @@ export type AnalyticsEvent =
   | "tool_cta_clicked"
   | "tool_cta_dismissed"
   | "tool_android_email_submitted"
+  // Contextual sticky CTA on the fixed top-blog cohort.
+  | "blog_sticky_cta_viewed"
+  | "blog_sticky_cta_clicked"
+  | "blog_sticky_cta_dismissed"
   // Ab analyzer tool
   | "ab_tool_requested"
   | "ab_tool_scored"
