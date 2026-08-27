@@ -184,15 +184,18 @@ mean attribution will be actionable rather than complete.
 
 ## Top-blog contextual sticky CTA rollout (2026-08-27)
 
-The 20 highest-click blog posts from the settled 2026-07-28 through 2026-08-24
+The 79 highest-click blog posts from the settled 2026-07-28 through 2026-08-24
 GSC window use a page-specific bottom dock after the reader reaches the first
-article section. The cohort is fixed in `lib/blog-cta.ts` for the measurement
-window; do not reorder it from a newer GSC pull mid-test.
+article section. `lib/blog-cta.ts` preserves the original top 20 and the next
+59 as separate fixed cohorts; do not reorder either from a newer GSC pull
+mid-test.
 
 Use unique `blog_sticky_cta_clicked` / unique `blog_sticky_cta_viewed` as the
 primary CTR. Both carry `slug`, `intent`, `placement=sticky`, and `platform`;
-`blog_sticky_cta_dismissed` measures interruption cost. Filter Android out of
-the app-download CTR because its button routes to the free web tool.
+all three events also carry `rollout=initial_20|expansion_59` so the later
+launch does not contaminate the original cohort read. `blog_sticky_cta_dismissed`
+measures interruption cost. Filter Android out of the app-download CTR because
+its button routes to the free web tool.
 The site-wide `web_download_clicked` and `outbound_app_store_click` events still
 own download attribution, so do not add those again in the blog component.
 

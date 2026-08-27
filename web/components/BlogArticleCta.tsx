@@ -9,8 +9,9 @@ import { track } from "@/lib/analytics";
 import {
   BLOG_CTA_CONFIG,
   BLOG_CTA_OVERRIDES,
-  hasBlogStickyCta,
+  getBlogStickyCtaRollout,
   type BlogCtaIntent,
+  type BlogStickyCtaRollout,
 } from "@/lib/blog-cta";
 
 type BlogArticleCtaProps = {
@@ -44,9 +45,11 @@ function ContextualCta({
   slug,
   sticky = false,
   onDismiss,
+  rollout,
 }: BlogArticleCtaProps & {
   sticky?: boolean;
   onDismiss?: () => void;
+  rollout?: BlogStickyCtaRollout;
 }) {
   const platform = useDownloadPlatform();
   if (intent === "founder") return null;
@@ -71,6 +74,7 @@ function ContextualCta({
           intent,
           placement,
           platform,
+          rollout,
         });
       }}
     >
@@ -127,7 +131,9 @@ export default function BlogArticleCta({
   const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
   const [stickyVisible, setStickyVisible] = useState(false);
   const stickyViewedRef = useRef(false);
-  const sticky = intent !== "founder" && hasBlogStickyCta(slug);
+  const rollout =
+    intent === "founder" ? null : getBlogStickyCtaRollout(slug);
+  const sticky = rollout !== null;
   const platform = useDownloadPlatform();
 
   useEffect(() => {
@@ -236,8 +242,9 @@ export default function BlogArticleCta({
       intent,
       placement: "sticky",
       platform,
+      rollout,
     });
-  }, [intent, platform, slug, sticky, stickyVisible]);
+  }, [intent, platform, rollout, slug, sticky, stickyVisible]);
 
   function dismissStickyCta() {
     setStickyVisible(false);
@@ -246,6 +253,7 @@ export default function BlogArticleCta({
       intent,
       placement: "sticky",
       platform,
+      rollout,
     });
   }
 
@@ -255,6 +263,7 @@ export default function BlogArticleCta({
         intent={intent}
         slug={slug}
         sticky
+        rollout={rollout ?? undefined}
         onDismiss={dismissStickyCta}
       />
     ) : null;
