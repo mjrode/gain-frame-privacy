@@ -112,6 +112,12 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 - [ ] **APPROVED, SCHEDULED Aug 19: F2 are-smart-scales-accurate → worth-it** — contextual in-body link to `are-smart-scales-worth-it` (excluded from the Aug 11 interlink batch while the Aug 9 window ran).
 - [x] **F3: rate-my-physique CTA bridge** — shipped 2026-08-23. The 30-second CTA now points to `/tools/physique-rater/`; no sibling post was created.
 
+### Aug 29 cycle — body-visualizer measurement + DEXA launch repair (seo-content-cycle run)
+
+- [x] **F1: body-visualizer result instrumentation** — shipped 2026-08-29. Added one once-per-page `body_visualizer_result_shown` event after an interacted valid result. The event sends only unit system and reference sex; height, weight, BMI, image choice, and other health-sensitive inputs remain excluded. Generic completion, DOM completion, and shared CTA tracking are unchanged. — source: `seo-tools/content-audits/2026-08-29.md`
+- [x] **F2: DEXA benchmark launch repair** — shipped 2026-08-29 on `/blog/ai-body-fat-estimator-accuracy-dexa-test/`. All five FAQ schema entries now match the visible FAQ exactly, two reader-visible long dashes were normalized, and the CTA now uses the canonical GainFrame App Store URL. Benchmark claims, values, metadata, assets, and targeting are unchanged. — source: same audit
+- [ ] **APPROVED, BLOCKED: ZOZOFIT Review 2026** — no draft or URL until three controlled app-only scans, matching tape readings, setup/failure notes, current screenshots, and a first-person test interview exist. Approval does not waive the evidence contract. — source: same audit
+
 ### Carry-forward (still genuine, re-added from reset — not yet done)
 
 - [x] **Fold Snapsie into `/blog/best-progress-photo-apps/`** as the "best free option (not updated since 2017)" with the abandoned caveat — completed in the 2026-07-21 batch; verified during the 2026-08-06 topical-map reconciliation. — re-added 2026-06-28
