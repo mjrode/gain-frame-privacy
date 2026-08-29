@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useMemo, useRef, useState, type CSSProperties } from "react";
 import styles from "./page.module.css";
 import ToolConversionCard from "@/components/ToolConversionCard";
+import { track } from "@/lib/analytics";
 import {
   reportWebToolCompletion,
   WEB_TOOL_COMPLETED_DOM_EVENT,
@@ -124,6 +125,7 @@ function compactNumber(value: number, decimals = 0): string {
 
 export default function BodyVisualizerClient() {
   const reportedUsage = useRef(false);
+  const reportedResultShown = useRef(false);
   const [unit, setUnit] = useState<UnitSystem>("metric");
   const [referenceSex, setReferenceSex] =
     useState<ReferenceSex>("female");
@@ -165,43 +167,66 @@ export default function BodyVisualizerClient() {
     "--marker-position": `${markerPosition}%`,
   } as CSSProperties;
 
-  function markUsed() {
-    if (reportedUsage.current) return;
-    reportedUsage.current = true;
-    void reportWebToolCompletion("body-visualizer");
-    window.dispatchEvent(new CustomEvent(WEB_TOOL_COMPLETED_DOM_EVENT));
+  function markUsed(
+    nextUnit: UnitSystem = unit,
+    nextReferenceSex: ReferenceSex = referenceSex,
+    nextMetric: MetricInputs = metric,
+    nextUs: UsInputs = us,
+  ) {
+    if (!reportedUsage.current) {
+      reportedUsage.current = true;
+      void reportWebToolCompletion("body-visualizer");
+      window.dispatchEvent(new CustomEvent(WEB_TOOL_COMPLETED_DOM_EVENT));
+    }
+
+    if (
+      !reportedResultShown.current &&
+      measurementsFrom(nextUnit, nextMetric, nextUs)
+    ) {
+      reportedResultShown.current = true;
+      track("body_visualizer_result_shown", {
+        unit: nextUnit,
+        reference_sex: nextReferenceSex,
+      });
+    }
   }
 
   function updateMetric(key: keyof MetricInputs, value: string) {
-    markUsed();
-    setMetric((current) => ({ ...current, [key]: value }));
+    const nextMetric = { ...metric, [key]: value };
+    markUsed(unit, referenceSex, nextMetric, us);
+    setMetric(nextMetric);
   }
 
   function updateUs(key: keyof UsInputs, value: string) {
-    markUsed();
-    setUs((current) => ({ ...current, [key]: value }));
+    const nextUs = { ...us, [key]: value };
+    markUsed(unit, referenceSex, metric, nextUs);
+    setUs(nextUs);
   }
 
   function switchUnit(nextUnit: UnitSystem) {
     if (nextUnit === unit) return;
-    markUsed();
     const current = measurementsFrom(unit, metric, us);
+    let nextMetric = metric;
+    let nextUs = us;
     if (current) {
       if (nextUnit === "metric") {
-        setMetric({
+        nextMetric = {
           heightCm: compactNumber(current.heightM * 100, 1),
           weightKg: compactNumber(current.weightKg, 1),
-        });
+        };
+        setMetric(nextMetric);
       } else {
         const totalInches = (current.heightM * 100) / CM_PER_INCH;
         const feet = Math.floor(totalInches / 12);
-        setUs({
+        nextUs = {
           feet: String(feet),
           inches: compactNumber(totalInches - feet * 12, 1),
           pounds: compactNumber(current.weightKg * POUNDS_PER_KG, 1),
-        });
+        };
+        setUs(nextUs);
       }
     }
+    markUsed(nextUnit, referenceSex, nextMetric, nextUs);
     setUnit(nextUnit);
   }
 
@@ -364,7 +389,7 @@ export default function BodyVisualizerClient() {
                     referenceSex === value ? styles.referenceActive : undefined
                   }
                   onClick={() => {
-                    markUsed();
+                    markUsed(unit, value);
                     setReferenceSex(value);
                   }}
                 >

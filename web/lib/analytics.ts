@@ -73,6 +73,8 @@ export type AnalyticsEvent =
   | "bfv_tool_view"
   | "bfv_slider_engaged"
   | "bfv_cta_clicked"
+  // BMI body visualizer
+  | "body_visualizer_result_shown"
   // Waist percentile widget (embedded in the average-waist-size posts)
   | "waist_tool_calculated"
   // Physique rater tool
