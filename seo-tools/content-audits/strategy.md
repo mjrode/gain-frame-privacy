@@ -1,7 +1,8 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-26** (review; zero executable posts; F1-F3 proposed). Search growth accelerated to 13,084 clicks / 747,229 impressions in 28d (+144% / +183%) and 8,339 / 491,599 in the latest 14d (+76% / +92%). Residual nonbrand clicks rose about 82% in the two-week comparison while brand clicks fell by 10. GA4 organic sessions rose 44% with engagement up 3.4 points. `/tools/body-visualizer/` is the clearest next focus: 738 vs 27 clicks, 560 vs 34 organic sessions, 74.8% engagement, and exact-query position 12.5 in a 40,500-volume / KD 4 market, but only two contextual inbound links and no tool-specific activation event. Proposed F1 adds three relevant SEO-lane links, F2 adds a privacy-safe result event, and F3 repairs FAQ/schema parity on the indexed but unmeasured DEXA benchmark. All Aug 23-25 targeting changes remain frozen until their directional windows. P1 ZOZOFIT remains approved but blocked on first-party evidence. 165/167 inspected recent or zero-impression URLs are indexed; the same two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-24
+> Last run: **2026-08-29** (review; zero executable posts; F1-F2 proposed). GSC reached 14,134 clicks / 818,626 impressions in 28d (+149% / +186%) and 9,139 / 545,761 in the latest 14d (+83% / +100%); average position improved in both comparisons. Residual nonbrand clicks rose about 164% over 28d. GA4 organic sessions rose from 6,337 to 13,638 with engagement up 5.7 points. The Aug 26 body-visualizer links proposed last run were already shipped in commit `e59463f`, so page copy and targeting are frozen while the new window matures. F1 now adds privacy-safe result instrumentation to the body visualizer; F2 repairs exact FAQ/schema parity, two reader-visible long dashes, and the canonical App Store link on the indexed DEXA benchmark. P1 ZOZOFIT remains approved but blocked on first-party evidence. A recent/watch inspection sample found 17/19 indexed; the same two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-26
+> Prior run: **2026-08-26** (review; zero executable posts; F1-F3 proposed). Search growth accelerated to 13,084 clicks / 747,229 impressions in 28d (+144% / +183%) and 8,339 / 491,599 in the latest 14d (+76% / +92%). Residual nonbrand clicks rose about 82% in the two-week comparison while brand clicks fell by 10. GA4 organic sessions rose 44% with engagement up 3.4 points. `/tools/body-visualizer/` was the clearest existing-asset focus: 738 vs 27 clicks, 560 vs 34 organic sessions, 74.8% engagement, and exact-query position 12.5 in a 40,500-volume / KD 4 market. Proposed F1 added three relevant SEO-lane links, F2 added a privacy-safe result event, and F3 repaired FAQ/schema parity on the indexed but unmeasured DEXA benchmark. The three inbound links subsequently shipped in commit `e59463f`; the result event and DEXA repair did not. P1 ZOZOFIT remained approved but blocked on first-party evidence. 165/167 inspected recent or zero-impression URLs were indexed; the same two male gallery unknowns remained gated to Sep 3. · Data through 2026-08-24
 > Prior run: **2026-08-23** (review -> execution; owner approved `all`; F1-F4 SHIPPED; P1 approved but HOLD on first-party evidence). GSC reached 11,447 clicks / 648,562 impressions in 28d (+137% / +178%); residual nonbrand clicks rose 153%. **P1 ZOZOFIT Review** remains the only clean net-new keyword at 720 US volume and +22% yearly, but its three controlled scans, tape comparison, setup notes, screenshots, and interview do not exist yet, so no article or URL was created. The shipped work repointed `rate-my-physique` to the physique rater, corrected current ZOZOFIT app/suit/pricing facts, consolidated InBody-vs-Withings coverage on the existing owner, and updated three mature pages for live Target Training and nutrition. All six modified posts pass strict launch checks and the production build passes. No indexing requests were made because no new URL shipped. `hume vs renpho` remains a hardware-gated watch; Fitbod/Hevy/LeanLens/MyFitnessPal siblings remain rejected. 507/509 live sitemap URLs are indexed; the two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-21
 > Prior run: **2026-08-21 same-day rerun** (review; zero posts, one fix proposed). Final GSC cutoff remained Aug 19, but the finalized 28d total rose to 10,616 clicks / 599,647 impressions (+140% / +186%); brand remained 702 clicks (6.6%). The Hume retitle and accurate-to-worth-it link now exist as **uncommitted local changes** and pass strict slug checks, so they were removed from the proposal without being counted as shipped. The only remaining action is the already-approved `rate-my-physique` CTA bridge to `/tools/physique-rater/`. The sibling stays HOLD: tool takes `rate my body ai` at 3.2 with 36 clicks while the blog gets 1 click at 17. DataForSEO was available: picture intent still resolves to existing chart/tool pages; `best smart scale` now reads -19% yearly rather than the earlier +23%, reinforcing the Sep 8-10 hold; `fitbod review` has 1 exact-query GSC impression, below the proposal threshold. Eight recent URLs are indexed; two Aug 6 male gallery URLs remain unknown and too new to judge until Sep 3. · Data through 2026-08-19
 > Prior run: **2026-08-18** (review → execution; owner approved `all`: F4 absmaxx inbound SHIPPED same day; F1 Hume retitle + F2 accurate→worth-it remain SCHEDULED Aug 19; F3 rater CTA SCHEDULED Aug 21; zero posts; sibling HOLD) · Data through 2026-08-16
@@ -15,6 +16,55 @@
 > Same-day run 1: 2026-08-11 (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**)
 > Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
 > Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
+
+## New findings (2026-08-29 — measurement and proposal reconciliation)
+
+- **Organic growth remains broad and nonbrand.** Search Console reached 14,134 clicks and 818,626
+  impressions in 28 days, up 149% and 186% from the prior period. Average position improved from
+  8.36 to 7.74. Brand rows contributed 718 clicks, only 5.1% of the property total; residual
+  nonbrand clicks rose about 164%.
+- **GA4 confirms engaged organic discovery.** Organic sessions rose from 6,337 to 13,638 and
+  engagement rate improved from 62.7% to 68.4%. The body visualizer produced 732 organic sessions
+  at 74.2% engagement, but it still has no typed result event.
+- **PostHog supports measurement work, not a new attribution claim.** Sitewide App Store clicks
+  rose 27% over 28 days but fell 4% in the latest two-week comparison. Google-referred store clicks
+  were nearly flat over 28 days and down over 14 days; direct and Reddit supplied much of the
+  increase. The body visualizer produced 16 store clicks, but traffic-to-result completion remains
+  unknown.
+- **The prior body-visualizer link proposal is already shipped.** Commit `e59463f` added the three
+  planned contextual links and changed the tool page on Aug 26. Do not duplicate the work or alter
+  its copy/metadata before the directional Sep 2-5 and full Sep 23 reads.
+- **No new post clears every gate.** Existing pages or tools own the striking-distance terms.
+  ZOZOFIT remains the one credible open review SERP, but P1 cannot be drafted without three
+  controlled app-only scans, matching tape readings, setup/failure notes, current screenshots,
+  and a first-person test interview.
+- **Two contained fixes survive.** F1 adds a privacy-safe `body_visualizer_result_shown` event.
+  F2 makes the indexed DEXA benchmark's five FAQ schema entries exactly match the visible FAQ,
+  removes two reader-visible long dashes, and restores the canonical App Store URL. Neither fix
+  changes search targeting or factual claims.
+- **Recent indexing remains healthy.** All 12 inspected Aug 25 content URLs are submitted and
+  indexed. A wider recent/watch sample found 17 of 19 indexed; the same two Aug 6 male gallery URLs
+  remain unknown and become fair to act on Sep 3.
+
+### 2026-08-29 decision ledger
+
+| Item | Target / evidence | State |
+|---|---|---|
+| F1 body-visualizer activation | 732 organic sessions, 74.2% engagement, 16 store clicks; result activation absent | **Proposed.** Fire `body_visualizer_result_shown` once after an interacted valid result, with only unit and reference sex |
+| F2 DEXA launch quality | submitted/indexed; five FAQ/schema mismatches, two visible long dashes, noncanonical App Store href | **Proposed.** Exact schema parity, dash normalization, and canonical href only; preserve claims and targeting |
+| Prior body-visualizer links | three planned SEO-lane links exist in commit `e59463f` | **Shipped Aug 26.** Measure; do not repeat or retarget |
+| P1 `zozofit-review` | 720 volume, +22% yearly, open review SERP | **Approved, blocked.** Evidence contract unchanged; no draft or URL without it |
+| Hume vs RENPHO / Hevy / Fitbod | missing first-party hardware/diary evidence or weak product bridge | **Hold/reject** |
+
+### Next measurement gates
+
+| Asset / change | Read | Fair date |
+|---|---|---|
+| Aug 26 body-visualizer page and links | exact-query clicks, CTR, position, organic sessions; activation only after F1 ships | directional Sep 2-5; full Sep 23 |
+| Aug 23 fixes | query mix, page CTR, destination visits, and downstream events | directional as data advances; full Sep 20 |
+| Aug 25 benchmark, Hume, atlas, and related work | query ownership and engagement without attribution claims | directional Sep 4; full Sep 22 |
+| Two unknown male gallery URLs | URL Inspection verdict | Sep 3 |
+| P1 ZOZOFIT | evidence pack existence, then review-query ownership | blocked |
 
 ## New findings (2026-08-26 — two-week performance read)
 
