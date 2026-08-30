@@ -118,6 +118,10 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 - [x] **F2: DEXA benchmark launch repair** — shipped 2026-08-29 on `/blog/ai-body-fat-estimator-accuracy-dexa-test/`. All five FAQ schema entries now match the visible FAQ exactly, two reader-visible long dashes were normalized, and the CTA now uses the canonical GainFrame App Store URL. Benchmark claims, values, metadata, assets, and targeting are unchanged. — source: same audit
 - [ ] **APPROVED, BLOCKED: ZOZOFIT Review 2026** — no draft or URL until three controlled app-only scans, matching tape readings, setup/failure notes, current screenshots, and a first-person test interview exist. Approval does not waive the evidence contract. — source: same audit
 
+### Aug 30 cycle — body-proportion tool truth repair (seo-content-cycle run)
+
+- [x] **F1: correct body-proportion tool descriptions** — shipped 2026-08-30 on `/blog/how-to-take-body-measurements/` and `/blog/best-body-scanning-measurement-apps/`. Replaced false promises of seven tape inputs, five calculated ratios, and exact circumference benchmarks with the live photo-only workflow and explicit limitations. The measurement guide's 35 long dashes were normalized, and all five FAQ schema answers in the roundup now match the visible FAQ exactly. Titles, target keywords, and unrelated claims are unchanged. — source: `seo-tools/content-audits/2026-08-30.md`
+
 ### Carry-forward (still genuine, re-added from reset — not yet done)
 
 - [x] **Fold Snapsie into `/blog/best-progress-photo-apps/`** as the "best free option (not updated since 2017)" with the abandoned caveat — completed in the 2026-07-21 batch; verified during the 2026-08-06 topical-map reconciliation. — re-added 2026-06-28

@@ -1,7 +1,7 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-30** (review; zero executable posts; one factual-trust fix proposed). GSC reached 15,272 clicks / 888,340 impressions in 28d (+153% / +188%) and 9,924 / 587,704 in the latest 14d (+86% / +96%); average position improved in both comparisons. Brand supplied only 4.8% of clicks and residual nonbrand clicks rose about 168%. GA4 organic sessions rose 116% with engagement up 5.37 points. C2, C3, and C11 continue to lead growth; only C10 is flat. The best emerging keyword is physique check (140 volume / KD 2), but Google already assigns it to the existing rater tool and article, including both in the live AI Overview; do not create a sibling. P1 ZOZOFIT remains the only credible new URL and is still blocked on first-party evidence. Proposed F1 corrects two false descriptions of the photo-only body-proportion tool and completes the strict per-slug punctuation/schema cleanup required when those posts are touched. No content, URL, deployment, or indexing request shipped. · Data through 2026-08-28
+> Last run: **2026-08-30** (review -> execution; owner approved `all`; F1 SHIPPED in `a75e850`; zero posts). GSC reached 15,272 clicks / 888,340 impressions in 28d (+153% / +188%) and 9,924 / 587,704 in the latest 14d (+86% / +96%); average position improved in both comparisons. Brand supplied only 4.8% of clicks and residual nonbrand clicks rose about 168%. GA4 organic sessions rose 116% with engagement up 5.37 points. C2, C3, and C11 continue to lead growth; only C10 is flat. The best emerging keyword is physique check (140 volume / KD 2), but Google already assigns it to the existing rater tool and article, including both in the live AI Overview; do not create a sibling. F1 corrected two false descriptions of the photo-only body-proportion tool, normalized 35 long dashes in the measurement guide, and restored exact five-answer FAQ/schema parity in the scanning roundup. Global inventory, both strict slug checks, the 526-page build, Cloudflare Workers deployment, live-copy verification, and two indexed URL inspections passed. IndexNow accepted both refreshes at 3/5 endpoints; Bing and its aggregator retain the known authorization 403. P1 ZOZOFIT remains approved but blocked on first-party evidence. · Data through 2026-08-28
 > Prior run: **2026-08-29** (review -> execution; owner approved `all`; F1-F2 SHIPPED in `5148b60`; zero posts). GSC reached 14,134 clicks / 818,626 impressions in 28d (+149% / +186%) and 9,139 / 545,761 in the latest 14d (+83% / +100%); average position improved in both comparisons. Residual nonbrand clicks rose about 164% over 28d. GA4 organic sessions rose from 6,337 to 13,638 with engagement up 5.7 points. The Aug 26 body-visualizer links were already shipped in `e59463f`, so page copy and targeting remain frozen. F1 added privacy-safe `body_visualizer_result_shown` instrumentation with unit and reference sex only; F2 repaired exact FAQ/schema parity, two reader-visible long dashes, and the canonical App Store link on the indexed DEXA benchmark. All tests, strict checks, the 526-page build, GitHub Pages deployment, and live URL verification passed. IndexNow accepted the DEXA refresh at 3/5 endpoints; Bing and its aggregator retain the known authorization 403. P1 ZOZOFIT remains approved but blocked on first-party evidence. · Data through 2026-08-26
 > Prior run: **2026-08-26** (review; zero executable posts; F1-F3 proposed). Search growth accelerated to 13,084 clicks / 747,229 impressions in 28d (+144% / +183%) and 8,339 / 491,599 in the latest 14d (+76% / +92%). Residual nonbrand clicks rose about 82% in the two-week comparison while brand clicks fell by 10. GA4 organic sessions rose 44% with engagement up 3.4 points. `/tools/body-visualizer/` was the clearest existing-asset focus: 738 vs 27 clicks, 560 vs 34 organic sessions, 74.8% engagement, and exact-query position 12.5 in a 40,500-volume / KD 4 market. Proposed F1 added three relevant SEO-lane links, F2 added a privacy-safe result event, and F3 repaired FAQ/schema parity on the indexed but unmeasured DEXA benchmark. The three inbound links subsequently shipped in commit `e59463f`; the result event and DEXA repair did not. P1 ZOZOFIT remained approved but blocked on first-party evidence. 165/167 inspected recent or zero-impression URLs were indexed; the same two male gallery unknowns remained gated to Sep 3. · Data through 2026-08-24
 > Prior run: **2026-08-23** (review -> execution; owner approved `all`; F1-F4 SHIPPED; P1 approved but HOLD on first-party evidence). GSC reached 11,447 clicks / 648,562 impressions in 28d (+137% / +178%); residual nonbrand clicks rose 153%. **P1 ZOZOFIT Review** remains the only clean net-new keyword at 720 US volume and +22% yearly, but its three controlled scans, tape comparison, setup notes, screenshots, and interview do not exist yet, so no article or URL was created. The shipped work repointed `rate-my-physique` to the physique rater, corrected current ZOZOFIT app/suit/pricing facts, consolidated InBody-vs-Withings coverage on the existing owner, and updated three mature pages for live Target Training and nutrition. All six modified posts pass strict launch checks and the production build passes. No indexing requests were made because no new URL shipped. `hume vs renpho` remains a hardware-gated watch; Fitbod/Hevy/LeanLens/MyFitnessPal siblings remain rejected. 507/509 live sitemap URLs are indexed; the two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-21
@@ -43,36 +43,36 @@
   controlled app-only scans, matching tape readings, setup/failure notes, current screenshots,
   and a first-person interview. Hume versus RENPHO requires both devices. Body type calculator is
   a product-mismatch kill despite its 22,200 volume.
-- **One factual trust repair clears the execution gate.** Two Aug 25 posts falsely say the
-  body-measurements calculator accepts seven tape readings, calculates five ratios, and returns
-  circumference benchmarks. The live tool is photo-only. F1 corrects both descriptions, normalizes
-  the 35 long dashes required by strict validation in the measurement guide, and makes the
-  roundup's five FAQ schema answers exactly match the visible FAQ. It preserves targeting fields
-  and every unrelated claim.
+- **The factual trust repair shipped.** Two Aug 25 posts falsely said the body-measurements
+  calculator accepted seven tape readings, calculated five ratios, and returned circumference
+  benchmarks. Commit `a75e850` now describes the photo-only workflow and its limits, normalizes
+  the measurement guide's 35 long dashes, and makes the roundup's five FAQ schema answers exactly
+  match the visible FAQ. Target keywords and unrelated claims are preserved.
 - **Static inventory remains healthy enough to be selective.** There are 239 posts, 17 individual
   tool pages, 1,349 internal links, zero broken links, and no SEO-lane orphans. The topical map
   header is stale at 237 posts / 13 tools and omits 11 posts plus four tools; record the drift, but
   do not elevate documentation maintenance over live-site leverage.
-- **Current indexing evidence is limited but not alarming.** The DEXA benchmark is submitted and
-  indexed. The broad sweep was stopped. The prior run found 17 of 19 recent/watch URLs indexed;
-  the same two Aug 6 male gallery URLs remain unknown and reach their fair action gate Sep 3.
+- **Both modified pages are indexed.** The measurement guide and scanning roundup returned
+  Submitted and indexed in fresh URL Inspection. The two Aug 6 male gallery watch URLs remain
+  unknown and reach their fair action gate Sep 3.
 
 ### 2026-08-30 decision ledger
 
 | Item | Target / evidence | State |
 |---|---|---|
 | Emerging keyword: physique check | 140 volume / KD 2; 352 GSC impressions at 8.42; tool and article both cited in AI Overview | **Existing owner / measure.** No sibling; directional read Sep 2-5, full read Sep 20 |
-| F1 photo-proportion tool truth | Two posts promise nonexistent tape inputs, ratios, and circumference outputs | **Proposed.** Correct both descriptions; include the required strict dash and FAQ/schema cleanup; preserve targeting |
+| F1 photo-proportion tool truth | Two posts promised nonexistent tape inputs, ratios, and circumference outputs | **Shipped Aug 30 in `a75e850`.** Both descriptions corrected; required strict dash and FAQ/schema cleanup complete; targeting preserved |
 | P1 zozofit-review | 720 volume, +22% yearly, open review SERP | **Approved, blocked.** Evidence contract unchanged; no draft or URL without it |
 | Body type calculator | 22,200 volume / KD 6, but fashion classification and tape-input intent | **Killed.** No honest GainFrame product bridge |
 | Hume vs RENPHO / Hevy / Fitbod | missing hardware/diary evidence or weak product bridge | **Hold/reject** |
-| Recent Aug 23-29 changes | inside directional or full measurement windows | **Freeze targeting.** Factual corrections remain allowed |
+| Recent Aug 23-30 changes | inside directional or full measurement windows | **Freeze targeting.** Factual corrections remain allowed |
 
 ### Next measurement gates
 
 | Asset / change | Read | Fair date |
 |---|---|---|
 | Two unknown male gallery URLs | URL Inspection verdict | Sep 3 |
+| Aug 30 F1 truth repair | page-to-tool visits, successful results, and query/CTR stability without attribution | Sep 6 directional; Sep 27 full |
 | Aug 26 body visualizer and links | exact-query clicks, CTR, position, and sessions | Sep 2-5 directional; Sep 23 full |
 | Aug 23 rate-my-physique / physique check ownership | click-through, page split, and tool handoff | Sep 2-5 directional; Sep 20 full |
 | Aug 25 new tools and content | query ownership, successful results, and qualified handoff | Sep 4 directional; Sep 22 full |

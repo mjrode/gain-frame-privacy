@@ -633,6 +633,11 @@ The strict slug check must find valid JSON-LD, the canonical author/publisher co
 frontmatter and Article fields, a correct final breadcrumb, and FAQ schema text that appears in the
 visible body. The `rg` command must produce no output; exit status 1 means the file is clean.
 
+The strict slug check is not a substitute for compiling the frontmatter. A plain YAML scalar that
+contains `: ` can pass the inventory check and then fail `generate-blog-grid.mjs` during the
+production build with `incomplete explicit mapping pair`. Quote any title, description,
+subtitle, or social field that contains a colon, and keep the full build as a mandatory gate.
+
 Confirm every new post receives the approved two or three inbound links from existing posts, with
 at least one contextual in-body link and the approved anchor text. Also confirm the new post links
 to its named hub or commercial/tool destination. Use `--slug <slug>` to inspect the inbound source
@@ -794,6 +799,7 @@ Corrections recorded this way so far:
 | 2026-08-18 | Rate-my-body sibling trending GO until query×page showed the tool already taking AI variants, and the blog CTAd the wrong tool | Phase 5 §3 sibling/tool split + commercial-bridge check |
 | 2026-08-18 | On-disk GA4 TSVs used a 21d window next to GSC 28d | Data sources GA4 row |
 | 2026-08-29 | GA4 MCP tools were absent, the on-disk summary retained a misleading `ga4_recent_21d` key for a 28-day range, and the documented GSC fallback interpreter no longer matched the installed dependency | Data sources GSC and GA4 rows — exact pipx interpreter plus direct GA4 Data API fallback and stamped-window rule |
+| 2026-08-30 | The strict slug validator passed an unquoted colon in a plain frontmatter description; `generate-blog-grid.mjs` then rejected it as an incomplete YAML mapping pair | Phase 7 — quote colon-bearing frontmatter strings and retain the full build gate |
 
 ## Guardrails
 
