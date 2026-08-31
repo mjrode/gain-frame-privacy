@@ -269,15 +269,15 @@ export default function LandingV2() {
             <div className={styles.scanLine} aria-hidden="true" />
             <Image
               className={styles.scanPhone}
-              src="/app-screenshots/3.14-live-2026-08-30/scan-deep-dive.webp"
-              width={1206}
-              height={2622}
+              src="/app-screenshots/1.21/muscle-map.webp"
+              width={1320}
+              height={2868}
               sizes="(max-width: 740px) 74vw, 390px"
-              alt="GainFrame Physique Deep Dive showing a score, Coach read, body-fat estimate, strongest area, and next training focus."
+              alt="GainFrame muscle analysis comparing before and after muscle maps and a muscle comparison chart."
             />
             <div className={styles.scanAnnotation}>
               <span>Analysis field</span>
-              <strong>Score → next focus</strong>
+              <strong>Before → after</strong>
             </div>
           </div>
         </section>
@@ -286,14 +286,14 @@ export default function LandingV2() {
           <div className={styles.compareArtwork}>
             <div className={styles.comparePhone}>
               <Image
-                src="/app-screenshots/3.14-live-2026-08-30/compare-deep-dive.webp"
-                width={1206}
-                height={2622}
+                src="/app-screenshots/1.21/compare.webp"
+                width={1320}
+                height={2868}
                 sizes="(max-width: 740px) 78vw, 410px"
-                alt="GainFrame Deep Dive Compare showing before and after physiques, the changes found, and a preview of the full comparison."
+                alt="GainFrame Compare with aligned progress photos, smart filters, score, and estimated body fat."
               />
             </div>
-            <span className={styles.photoNote}>Changes found / plan next</span>
+            <span className={styles.photoNote}>Auto-align / filter / blur</span>
           </div>
           <div className={styles.chapterCopy}>
             <LabLabel index="02">Compare / see the difference</LabLabel>
@@ -329,12 +329,11 @@ export default function LandingV2() {
           <div className={styles.coachStage}>
             <span className={styles.coachStamp}>Sources open</span>
             <Image
-              className={styles.campaignScreenshot}
-              src="/app-screenshots/2.33-live-2026-08-05/03-app-only.webp"
-              width={1320}
-              height={2048}
+              src="/assets/shared/coach-goal-progress.webp"
+              width={860}
+              height={1864}
               sizes="(max-width: 740px) 78vw, 410px"
-              alt="GainFrame Coach explaining a weekly weight change using the member's body fat, score, training, sleep, and recovery data."
+              alt="GainFrame Coach answering a goal progress question using body fat, score, weight, and a weight trend chart."
             />
           </div>
         </section>
@@ -352,26 +351,24 @@ export default function LandingV2() {
             <div className={styles.historyPanel}>
               <span className={styles.panelIndex}>A / classify</span>
               <Image
-                className={styles.historyPoster}
-                src="/app-screenshots/2.33-live-2026-08-05/08-app-only.webp"
-                width={1320}
-                height={2048}
+                src="/assets/shared/smart-import.webp"
+                width={1290}
+                height={2796}
                 sizes="(max-width: 740px) 68vw, 340px"
-                alt="GainFrame Backstory organizing 72 camera-roll check-ins into a private progress timeline."
+                alt="GainFrame Smart Import classifying camera roll photos by front and back poses while importing."
               />
-              <div className={styles.floatingChip}>72 photos found ✓</div>
+              <div className={styles.floatingChip}>Pose matched ✓</div>
             </div>
             <div className={`${styles.historyPanel} ${styles.timelinePanel}`}>
-              <span className={styles.panelIndex}>B / reveal</span>
+              <span className={styles.panelIndex}>B / reconstruct</span>
               <Image
-                className={styles.historyPoster}
-                src="/app-screenshots/2.33-live-2026-08-05/01-app-only.webp"
-                width={1320}
-                height={2048}
+                src="/assets/GF-Promo/timeline-quarter.webp"
+                width={1290}
+                height={2796}
                 sizes="(max-width: 740px) 68vw, 340px"
-                alt="GainFrame before-and-after comparison surfacing changes in body fat, weight, and physique score."
+                alt="GainFrame transformation timeline organized by quarter with photos, weight, AI Score, and estimated body fat."
               />
-              <div className={styles.floatingChip}>Change surfaced ↗</div>
+              <div className={styles.floatingChip}>History restored ↗</div>
             </div>
             <div className={styles.historySummary}>
               <span>Old photos in</span>
@@ -396,12 +393,11 @@ export default function LandingV2() {
           <div className={styles.futureStage}>
             <span className={styles.futureOrbit} aria-hidden="true">3M · 6M · 12M ·</span>
             <Image
-              className={styles.campaignScreenshot}
-              src="/app-screenshots/2.33-live-2026-08-05/05-app-only.webp"
+              src="/app-screenshots/1.21/future-you.webp"
               width={1320}
-              height={2048}
+              height={2868}
               sizes="(max-width: 740px) 76vw, 410px"
-              alt="GainFrame Future You showing current and illustrative six-month physiques with projected score and body metrics."
+              alt="Future You showing current and illustrative six-month physique images, with an in-app projection disclaimer."
             />
           </div>
         </section>
@@ -417,40 +413,37 @@ export default function LandingV2() {
               <div className={styles.cardTop}><span>01</span><strong>Check in</strong></div>
               <div className={styles.cardImage}>
                 <Image
-                  className={styles.systemPoster}
-                  src="/app-screenshots/2.33-live-2026-08-05/10.webp"
-                  width={1320}
-                  height={2868}
+                  src="/app-screenshots/1.21/check-ins.webp"
+                  width={1290}
+                  height={2796}
                   sizes="(max-width: 740px) 84vw, 350px"
-                  alt="GainFrame check-in streak showing two active weeks, this week's completed goal, and the current log."
+                  alt="GainFrame weekly check-in streak and today&apos;s weight log."
                 />
               </div>
               <p>Guided photos keep the weekly signal comparable.</p>
             </article>
             <article className={`${styles.systemCard} ${styles.systemCardDark}`}>
-              <div className={styles.cardTop}><span>02</span><strong>Connect the signals</strong></div>
+              <div className={styles.cardTop}><span>02</span><strong>Look back</strong></div>
               <div className={styles.cardImage}>
                 <Image
-                  className={styles.systemPoster}
-                  src="/app-screenshots/2.33-live-2026-08-05/07.webp"
-                  width={1320}
-                  height={2868}
+                  src="/app-screenshots/1.21/throwback.webp"
+                  width={1290}
+                  height={2796}
                   sizes="(max-width: 740px) 84vw, 350px"
-                  alt="GainFrame Connected Trends relating training, recovery, weight, and physique signals over time."
+                  alt="GainFrame Throwback comparing photos from one month apart with weight and score changes."
                 />
               </div>
-              <p>Connected trends help explain what the scale cannot show alone.</p>
+              <p>Automatic throwbacks surface progress you may have missed.</p>
             </article>
             <article className={`${styles.systemCard} ${styles.systemCardLight}`}>
               <div className={styles.cardTop}><span>03</span><strong>Connect weight</strong></div>
               <div className={styles.cardImage}>
                 <Image
-                  className={styles.systemPoster}
-                  src="/app-screenshots/2.33-live-2026-08-05/09.webp"
-                  width={1320}
-                  height={2868}
+                  src="/app-screenshots/1.21/weight-chart.webp"
+                  width={1290}
+                  height={2796}
                   sizes="(max-width: 740px) 84vw, 350px"
-                  alt="GainFrame weight trajectory showing current weight, milestones, goal, and 90-day trend."
+                  alt="GainFrame weight goal, milestones, and 90-day trajectory chart."
                 />
               </div>
               <p>Read the scale beside physique changes, not in isolation.</p>
