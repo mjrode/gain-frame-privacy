@@ -7,6 +7,7 @@ import BlogScrollReveal from "@/components/BlogScrollReveal";
 import CalcEmbed from "@/components/CalcEmbed";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import VisualizerAnalytics from "@/components/VisualizerAnalytics";
+import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
 import type { ClientReportedWebTool } from "@/lib/web-tool-usage";
 
 const CALC_SLUGS = [
@@ -209,6 +210,9 @@ export default async function CalculatorPage({
             headline="Found your level? GainFrame reads yours from a photo."
             body="Upload one photo in the app for body fat %, muscle scores, and weekly trends — free to start."
             desktopBody="Scan with your iPhone to read your body fat from a photo — muscle scores and weekly trends included, free to start."
+            experiment={buildToolResultCtaExperiment({
+              tool: "body_fat_visualizer",
+            })}
           />
         </div>
       )}

@@ -9,7 +9,8 @@ import {
 } from "@/lib/analytics";
 import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
 import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
-import { TOOL_CTA_EXPERIMENT_ID } from "@/lib/tool-cta-experiment";
+import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
+import { trackToolFunnelStep } from "@/lib/tool-funnel";
 
 const FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/physique-rate";
@@ -165,6 +166,13 @@ export default function RaterClient() {
   const [preview, setPreview] = useState<string | null>(null);
   const [msgIdx, setMsgIdx] = useState(0);
   const fileRef = useRef<HTMLInputElement>(null);
+  const viewedRef = useRef(false);
+
+  useEffect(() => {
+    if (viewedRef.current) return;
+    viewedRef.current = true;
+    trackToolFunnelStep(CTA_CAMPAIGN, "viewed", { input_mode: "photo" });
+  }, []);
 
   useEffect(() => {
     if (stage.kind !== "processing") return;
@@ -190,6 +198,10 @@ export default function RaterClient() {
     setStage({ kind: "processing" });
     if (preview) URL.revokeObjectURL(preview);
     setPreview(URL.createObjectURL(file));
+    trackToolFunnelStep(CTA_CAMPAIGN, "started", {
+      input_mode: "photo",
+      start_trigger: "photo_selected",
+    });
 
     try {
       const { base64 } = await preprocessImage(file);
@@ -223,6 +235,10 @@ export default function RaterClient() {
       if (res.ok) {
         const data = (await res.json()) as Rating;
         track("physique_rater_scored", { score: data.score, band: data.band });
+        trackToolFunnelStep(CTA_CAMPAIGN, "result_shown", {
+          input_mode: "photo",
+          result_type: "physique_score",
+        });
         setStage({ kind: "result", rating: data });
         return;
       }
@@ -380,35 +396,11 @@ export default function RaterClient() {
             headline={`${stage.rating.score} is a snapshot. Score every check-in in GainFrame.`}
             body="Score every check-in — body fat %, FFMI, and a 12-muscle breakdown. Free to start."
             desktopBody="Scan with your iPhone to score every check-in — body fat %, FFMI, and a 12-muscle breakdown. Free to start."
-            experiment={{
-              id: TOOL_CTA_EXPERIMENT_ID,
-              variants: {
-                improve: {
-                  eyebrow: "Your next move",
-                  headline: "See exactly what to improve next.",
-                  body: `GainFrame expands “${stage.rating.biggest_opportunity}” into a 12-muscle breakdown and tracks whether weak points are catching up.`,
-                  desktopBody: `Scan with your iPhone to expand “${stage.rating.biggest_opportunity}” into a 12-muscle breakdown and track it over time.`,
-                  iosLabel: "Show my 12-muscle breakdown",
-                  proof: "Free to start · iPhone app · Photos stay private",
-                },
-                track: {
-                  eyebrow: "Make the score useful",
-                  headline: `${stage.rating.score} only matters if it moves.`,
-                  body: "Save consistent check-ins and see whether body fat, muscle, and proportions are actually changing.",
-                  desktopBody: "Scan with your iPhone to save consistent check-ins and turn this score into a real progress trend.",
-                  iosLabel: "Track my next check-in",
-                  proof: "Free to start · No account required · Photos stay private",
-                },
-                future: {
-                  eyebrow: "Turn the result into a target",
-                  headline: "See what 12 consistent weeks could build.",
-                  body: "Choose a timeline, preview a future physique, then compare it with the real photos you take along the way.",
-                  desktopBody: "Scan with your iPhone to preview a future physique and compare the projection with your real check-ins.",
-                  iosLabel: "Preview my future physique",
-                  proof: "AI projection, not a promise · Free to start · iPhone app",
-                },
-              },
-            }}
+            experiment={buildToolResultCtaExperiment({
+              tool: CTA_CAMPAIGN,
+              score: stage.rating.score,
+              opportunity: stage.rating.biggest_opportunity,
+            })}
             onCtaClick={(platform) =>
               track("physique_rater_cta_click", { placement: "result", platform })
             }

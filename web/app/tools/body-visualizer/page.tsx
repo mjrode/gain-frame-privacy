@@ -8,11 +8,11 @@ import styles from "./page.module.css";
 const PAGE_PATH = "/tools/body-visualizer/";
 const PAGE_URL = `${SITE.url}${PAGE_PATH}`;
 const DESCRIPTION =
-  "Enter height and weight to see an instant male or female BMI body reference. Free, private, no signup, with metric cm/kg and U.S. ft/lb inputs.";
+  "Compare current and goal body measurements with illustrative 2D silhouettes, or use height and weight for a BMI reference. Free, private, no signup.";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Free Body Visualizer by Height & Weight | GainFrame",
+    absolute: "Body Visualizer by Height, Weight & Measurements | GainFrame",
   },
   description: DESCRIPTION,
   keywords: [
@@ -20,14 +20,17 @@ export const metadata: Metadata = {
     "body shape visualizer",
     "female body visualizer",
     "BMI visualizer",
+    "body visualizer with measurements",
+    "body measurements visualizer",
+    "body proportions visualizer",
+    "body shape comparison",
     "male body visualizer",
     "masculine body visualizer",
     "weight visualizer",
-    "3D body visualizer",
   ],
   alternates: { canonical: PAGE_PATH },
   openGraph: {
-    title: "Body Visualizer — Free BMI & Body Shape Reference",
+    title: "Body Visualizer — BMI & Measurement Comparison",
     description: DESCRIPTION,
     type: "website",
     url: PAGE_URL,
@@ -36,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Body Visualizer — Free BMI & Body Shape Reference",
+    title: "Body Visualizer — BMI & Measurement Comparison",
     description: DESCRIPTION,
     images: [SITE.ogImage],
   },
@@ -46,7 +49,22 @@ const FAQS = [
   {
     question: "Is this a BMI body visualizer by height and weight?",
     answer:
-      "It calculates adult BMI from height and weight, assigns the standard adult BMI category, and selects one standardized body-shape illustration from GainFrame's reference atlas. The image is an illustrative band, not a prediction of your appearance.",
+      "Yes. Height + weight mode calculates adult BMI, assigns the standard adult BMI category, and selects one standardized body-shape illustration from GainFrame's reference atlas. The image is an illustrative band, not a prediction of your appearance.",
+  },
+  {
+    question: "Can I compare current and goal body measurements?",
+    answer:
+      "Yes. Switch to Measurements and enter current and goal/reference sets for height, weight, shoulders, chest, waist, hips, inseam, and optional body-fat percentage. The tool draws two proportion-led 2D outlines and reports neutral ratio changes side by side.",
+  },
+  {
+    question: "Does measurement mode predict my future body or show an ideal?",
+    answer:
+      "No. The outlines are deterministic illustrations of the numbers entered, not predictions, targets, medical assessments, or definitions of an ideal body. Anatomy, fat distribution, muscle, posture, and measurement technique all affect real appearance.",
+  },
+  {
+    question: "Are my body measurements uploaded or saved?",
+    answer:
+      "No. The BMI calculation and measurement comparison run in your browser. The funnel analytics record that the mode was viewed, started, or produced a result, but do not include the measurements you entered.",
   },
   {
     question: "Is a BMI visualizer the same as a body fat visualizer?",
@@ -71,12 +89,12 @@ const FAQS = [
   {
     question: "Can I enter height and weight in cm and kg?",
     answer:
-      "Yes. Metric mode accepts height in centimeters and weight in kilograms. You can also switch to U.S. units to enter feet, inches, and pounds; both modes produce the same BMI calculation.",
+      "Yes. Metric mode accepts centimeters and kilograms. In Height + weight mode, U.S. height uses feet and inches; in Measurements mode, U.S. lengths use total inches and weight uses pounds. Switching units converts the values already entered.",
   },
   {
     question: "Is this a 3D body visualizer?",
     answer:
-      "It is a responsive visual reference, not a rotatable 3D scan or custom avatar. It uses consistent front-view physique renders so changes between BMI bands are easier to compare, while avoiding the false precision of pretending to recreate your exact body.",
+      "No. Height + weight mode uses standardized front- and back-view reference images, while Measurements mode draws responsive 2D silhouettes. Neither mode is a rotatable 3D scan, custom avatar, or recreation of your exact body.",
   },
   {
     question: "Who should not use this adult BMI visualizer?",
@@ -89,12 +107,19 @@ const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "GainFrame Body Visualizer",
-  alternateName: "BMI Body Shape Visualizer",
+  alternateName: "BMI and Measurement Body Shape Visualizer",
   url: PAGE_URL,
   applicationCategory: "HealthApplication",
   operatingSystem: "All",
   browserRequirements: "Requires JavaScript",
   description: DESCRIPTION,
+  featureList: [
+    "Adult BMI reference from height and weight",
+    "Current and goal measurement comparison",
+    "Metric and U.S. units",
+    "Illustrative 2D proportion silhouettes",
+    "Browser-based calculation",
+  ],
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   publisher: { "@type": "Organization", name: "GainFrame", url: SITE.url },
 };
@@ -133,14 +158,14 @@ export default function BodyVisualizerPage() {
             </div>
             <div className={styles.heroCopy}>
               <p>
-                Turn height and weight into a clear BMI readout and an
-                illustrative body-shape reference. Choose male or female, switch
-                units, and see the result instantly.
+                Start with height and weight for a clear BMI reference, or
+                compare current and goal measurements with two illustrative 2D
+                outlines. Switch modes and units without leaving the page.
               </p>
               <div className={styles.heroFacts}>
-                <span>Height + weight</span>
-                <span>Adult BMI</span>
-                <span>Male + female references</span>
+                <span>Two visualizer modes</span>
+                <span>Metric + U.S.</span>
+                <span>Private in-browser inputs</span>
               </div>
             </div>
           </div>
@@ -153,20 +178,26 @@ export default function BodyVisualizerPage() {
         <section className={styles.editorialSection}>
           <div className={styles.sectionKicker}>How this body visualizer works</div>
           <div className={styles.editorialGrid}>
-            <h2>A male and female BMI body visualizer by height and weight.</h2>
+            <h2>Two ways to build a useful body-shape reference.</h2>
             <div className={styles.prose}>
               <p>
-                This free BMI body visualizer uses height and weight to
-                calculate adult BMI and select a standardized reference band.
-                Enter cm and kg or switch to feet, inches, and pounds; the
-                calculation and result update immediately.
+                Height + weight mode calculates adult BMI and selects a
+                standardized male or female reference band. Enter cm and kg or
+                switch to feet, inches, and pounds; the calculation and image
+                update immediately.
               </p>
               <p>
-                Choose the female body visualizer or male body visualizer to
-                change the reference illustration set. The BMI formula stays
-                the same. The images are broad visual references, not
-                personalized body predictions, body-fat measurements, or
-                medical assessments.
+                Measurements mode accepts current and goal/reference sets for
+                height, weight, shoulders, chest, waist, hips, inseam, and
+                optional body fat. It maps those proportions into two
+                deterministic 2D outlines and describes the entered changes
+                without scoring either body.
+              </p>
+              <p>
+                Both modes are broad visual references—not personalized body
+                predictions, definitions of an ideal, or medical assessments.
+                The values stay in your browser and are not attached to the
+                analytics events used to understand the tool funnel.
               </p>
             </div>
           </div>
@@ -175,7 +206,7 @@ export default function BodyVisualizerPage() {
         <section className={styles.editorialSection}>
           <div className={styles.sectionKicker}>Read the result correctly</div>
           <div className={styles.editorialGrid}>
-            <h2>A body shape visualizer, not a body-fat estimate.</h2>
+            <h2>A body shape visualizer, not a body prediction.</h2>
             <div className={styles.prose}>
               <p>
                 BMI is weight divided by height squared. It is useful as a quick
@@ -187,9 +218,10 @@ export default function BodyVisualizerPage() {
               <p>
                 That limitation matters on a weight visualizer. The render above
                 is selected from a standardized physique library to make broad
-                bands easier to picture; it is not generated from your
-                measurements and it should never be treated as a forecast of how
-                you do—or should—look.
+                bands easier to picture. Measurement mode responds to the tape
+                values you enter, but its simplified outline still cannot know
+                anatomy, muscle shape, fat distribution, or posture. Neither
+                view should be treated as a forecast of how you do—or should—look.
               </p>
               <p className={styles.sourceNote}>
                 Method and categories follow the{" "}
@@ -211,8 +243,8 @@ export default function BodyVisualizerPage() {
             <span className={styles.sectionKicker}>Same number, different body</span>
             <h2>Why the visual can only be illustrative.</h2>
             <p>
-              Three things BMI leaves out can completely change the body in the
-              mirror.
+              Three things BMI and simplified measurement outlines leave out can
+              completely change the body in the mirror.
             </p>
           </div>
           <div className={styles.factorGrid}>

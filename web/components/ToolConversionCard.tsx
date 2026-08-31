@@ -8,11 +8,17 @@ import {
   type DownloadPlatform,
 } from "@/components/useDownloadPlatform";
 import { track } from "@/lib/analytics";
+import { ANALYTICS_CONSENT_STATE_EVENT } from "@/lib/analytics-consent";
 import {
   getToolCtaAssignment,
+  TOOL_CTA_EXPERIMENT_PHASE,
   type ToolCtaAssignment,
-  type ToolCtaVariant,
+  type ToolConversionExperiment,
 } from "@/lib/tool-cta-experiment";
+import {
+  trackToolFunnelStep,
+  type ToolFunnelId,
+} from "@/lib/tool-funnel";
 import {
   TOOL_CTA_MASCOT_SRC,
   TOOL_CTA_PROGRESS_PREVIEW_SRC,
@@ -39,23 +45,9 @@ import { WEB_TOOL_COMPLETED_DOM_EVENT } from "@/lib/web-tool-usage";
 const DEFAULT_ANDROID_BODY =
   "No Android app yet. Leave your email and we'll send you the App Store link for later — and you'll be first to know if Android ships.";
 
-export type ToolConversionExperimentCopy = {
-  eyebrow: string;
-  headline: string;
-  body: string;
-  desktopBody?: string;
-  iosLabel: string;
-  proof?: string;
-};
-
-export type ToolConversionExperiment = {
-  id: string;
-  variants: Record<ToolCtaVariant, ToolConversionExperimentCopy>;
-};
-
 type ToolConversionCardProps = {
   /** Analytics id + data-cta-source, e.g. "physique_rater". */
-  tool: string;
+  tool: ToolFunnelId;
   /** Attribution campaign token (ct=), e.g. "web-rater". */
   campaign: string;
   /** Optional App Store Connect Custom Product Page identifier. */
@@ -94,7 +86,7 @@ function AndroidLinkForm({
   placement,
   experimentProperties,
 }: {
-  tool: string;
+  tool: ToolFunnelId;
   placement: string;
   experimentProperties: Record<string, unknown>;
 }) {
@@ -111,6 +103,11 @@ function AndroidLinkForm({
       tool,
       placement,
       ...experimentProperties,
+    });
+    trackToolFunnelStep(tool, "cta_clicked", {
+      placement,
+      platform: "android",
+      cta_action: "email_submitted",
     });
     try {
       const res = await fetch("/api/android-waitlist", {
@@ -188,14 +185,16 @@ export default function ToolConversionCard({
   const cardRef = useRef<HTMLElement>(null);
   const viewedRef = useRef(false);
   const titleId = `tcc-title-${tool}-${placement}`;
-  const experimentPending = Boolean(experiment && !assignment);
+  const experimentEligible = Boolean(experiment && !isAndroid);
+  const experimentPending = Boolean(experimentEligible && !assignment);
   const hidden =
     (hideOnAndroid && isAndroid) ||
     experimentPending ||
     !activated ||
     (isSticky && dismissed);
-  const variantCopy =
-    experiment && assignment ? experiment.variants[assignment.variant] : null;
+  const variantCopy = experimentEligible && experiment && assignment
+    ? experiment.variants[assignment.variant]
+    : null;
   const displayedEyebrow = variantCopy?.eyebrow ?? eyebrow;
   const displayedHeadline = variantCopy?.headline ?? headline;
   const displayedBody = variantCopy?.body ?? body;
@@ -204,9 +203,10 @@ export default function ToolConversionCard({
   const displayedIosLabel = variantCopy?.iosLabel ?? iosLabel;
   const displayedProof = variantCopy?.proof ?? proof;
   const experimentProperties: Record<string, unknown> =
-    experiment && assignment
+    experimentEligible && experiment && assignment
       ? {
           experiment_id: experiment.id,
+          experiment_phase: TOOL_CTA_EXPERIMENT_PHASE,
           experiment_variant: assignment.variant,
           experiment_forced: assignment.forced,
           cta_angle: assignment.variant,
@@ -214,9 +214,25 @@ export default function ToolConversionCard({
       : {};
 
   useEffect(() => {
-    if (!experiment) return;
-    setAssignment(getToolCtaAssignment());
-  }, [experiment?.id]);
+    if (!experiment || platform === "unknown" || isAndroid) {
+      setAssignment(null);
+      return;
+    }
+    const updateAssignment = () => {
+      setAssignment(getToolCtaAssignment());
+    };
+    updateAssignment();
+    window.addEventListener(
+      ANALYTICS_CONSENT_STATE_EVENT,
+      updateAssignment,
+    );
+    return () => {
+      window.removeEventListener(
+        ANALYTICS_CONSENT_STATE_EVENT,
+        updateAssignment,
+      );
+    };
+  }, [experiment?.id, isAndroid, platform]);
 
   useEffect(() => {
     const activate = () => {
@@ -290,10 +306,15 @@ export default function ToolConversionCard({
       ref={cardRef}
       className={`tcc-card${isSticky ? " tcc-card--sticky" : ""}`}
       data-platform={platform}
-      data-experiment-id={experiment?.id}
-      data-experiment-variant={assignment?.variant}
-      data-experiment-forced={assignment?.forced ? "true" : undefined}
-      data-cta-angle={assignment?.variant}
+      data-experiment-id={experimentEligible ? experiment?.id : undefined}
+      data-experiment-phase={
+        experimentEligible ? TOOL_CTA_EXPERIMENT_PHASE : undefined
+      }
+      data-experiment-variant={experimentEligible ? assignment?.variant : undefined}
+      data-experiment-forced={
+        experimentEligible && assignment?.forced ? "true" : undefined
+      }
+      data-cta-angle={experimentEligible ? assignment?.variant : undefined}
       aria-labelledby={titleId}
       onClick={(event) => {
         const target = event.target instanceof Element ? event.target : null;
@@ -302,6 +323,11 @@ export default function ToolConversionCard({
           // the tool-level intent events without double-counting the click.
           track("tool_cta_clicked", {
             tool,
+            placement,
+            platform,
+            ...experimentProperties,
+          });
+          trackToolFunnelStep(tool, "cta_clicked", {
             placement,
             platform,
             ...experimentProperties,

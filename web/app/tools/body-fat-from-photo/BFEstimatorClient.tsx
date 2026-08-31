@@ -12,6 +12,8 @@ import {
 import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
 import { BODY_VISUALIZER_RENDERS } from "@/lib/body-visualizer";
 import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
+import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
+import { trackToolFunnelStep } from "@/lib/tool-funnel";
 import {
   asToolClientError,
   createAttemptId,
@@ -234,6 +236,7 @@ export default function BFEstimatorClient() {
     if (viewedRef.current) return;
     viewedRef.current = true;
     track("bf_tool_view");
+    trackToolFunnelStep(CTA_CAMPAIGN, "viewed", { input_mode: "photo" });
   }, []);
 
   useEffect(() => {
@@ -488,6 +491,10 @@ export default function BFEstimatorClient() {
       size_kb: Math.round(picked.size / 1024),
       mime: picked.type,
     });
+    trackToolFunnelStep(CTA_CAMPAIGN, "started", {
+      input_mode: "photo",
+      start_trigger: "photo_selected",
+    });
   }
 
   async function submit() {
@@ -568,6 +575,10 @@ export default function BFEstimatorClient() {
           }),
           blocking: false,
           ...fileTelemetry(file, processed),
+        });
+        trackToolFunnelStep(CTA_CAMPAIGN, "result_shown", {
+          input_mode: "photo",
+          result_type: "body_fat_estimate",
         });
         setStage({
           kind: "result",
@@ -801,6 +812,10 @@ export default function BFEstimatorClient() {
           headline={`${stage.estimate}% is one snapshot. Compare every check-in in GainFrame.`}
           body="Precise multi-photo body fat, 12 muscle scores, weekly trends — free to start."
           desktopBody="Scan with your iPhone for precise multi-photo body fat, 12 muscle scores, and weekly trends — free to start."
+          experiment={buildToolResultCtaExperiment({
+            tool: CTA_CAMPAIGN,
+            estimate: stage.estimate,
+          })}
           hideOnAndroid
           onCtaClick={() =>
             track("bf_tool_cta_clicked", { cta_content: "cta_primary" })

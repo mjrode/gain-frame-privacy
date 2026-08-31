@@ -1,7 +1,7 @@
 // Thin wrapper for typed event tracking, fanned out to GA4 (gtag) and
-// PostHog. Both scripts are loaded site-wide in app/layout.tsx; this module
-// just provides a safe call site that no-ops on the server and before the
-// scripts have finished loading (the PostHog snippet stub queues calls).
+// PostHog. Events that happen while consent/region resolution is pending stay
+// in a bounded in-memory queue. A grant flushes them after both providers are
+// ready; a denial discards them without writing analytics state to storage.
 
 declare global {
   interface Window {
@@ -72,6 +72,10 @@ export type AnalyticsEvent =
   // Body fat visualizer (static calc body — instrumented by VisualizerAnalytics)
   | "bfv_tool_view"
   | "bfv_slider_engaged"
+  | "bfv_gender_changed"
+  | "bfv_view_changed"
+  | "bfv_reference_selected"
+  | "bfv_deep_link_loaded"
   | "bfv_cta_clicked"
   // BMI body visualizer
   | "body_visualizer_result_shown"
@@ -113,6 +117,12 @@ export type AnalyticsEvent =
   | "measurements_tool_targets_reset"
   | "measurements_tool_preview_started"
   | "measurements_tool_cta_clicked"
+  // Normalized cross-tool funnel. Per-tool events above remain the detailed
+  // source of truth; these four events make equivalent steps comparable.
+  | "tool_funnel_viewed"
+  | "tool_funnel_started"
+  | "tool_funnel_result_shown"
+  | "tool_funnel_cta_clicked"
   // Homepage promo film
   | "promo_film_sound_on"
   | "promo_film_watched_75"
@@ -125,30 +135,127 @@ export type AnalyticsEvent =
   | "web_download_clicked"
   | "outbound_app_store_click";
 
+type QueuedAnalyticsEvent = {
+  event: AnalyticsEvent;
+  params: Record<string, unknown>;
+  gaDelivered: boolean;
+  posthogDelivered: boolean;
+  dedupKey: string;
+};
+
+const queuedAnalyticsEvents: QueuedAnalyticsEvent[] = [];
+const MAX_QUEUED_ANALYTICS_EVENTS = 100;
+const CONSENT_ATTRIBUTE = "data-gainframe-analytics-consent";
+
+function analyticsConsentDecision(): "pending" | "granted" | "denied" {
+  const value = window.document?.documentElement?.getAttribute?.(
+    CONSENT_ATTRIBUTE,
+  );
+  if (value === "granted" || value === "denied") return value;
+  // Unit tests and non-DOM consumers historically call the wrapper with a
+  // minimal window shim. Preserve immediate delivery in that environment.
+  return window.document ? "pending" : "granted";
+}
+
+function eventDedupKey(
+  event: AnalyticsEvent,
+  params: Record<string, unknown>,
+): string {
+  try {
+    return `${event}:${JSON.stringify(params)}`;
+  } catch {
+    return event;
+  }
+}
+
+function enqueueAnalyticsEvent(entry: QueuedAnalyticsEvent): void {
+  const existing = queuedAnalyticsEvents.find(
+    (queued) => queued.dedupKey === entry.dedupKey,
+  );
+  if (existing) {
+    existing.gaDelivered ||= entry.gaDelivered;
+    existing.posthogDelivered ||= entry.posthogDelivered;
+    return;
+  }
+  if (queuedAnalyticsEvents.length >= MAX_QUEUED_ANALYTICS_EVENTS) {
+    queuedAnalyticsEvents.shift();
+  }
+  queuedAnalyticsEvents.push(entry);
+}
+
+function deliverAnalyticsEvent(entry: QueuedAnalyticsEvent): void {
+  if (!entry.gaDelivered && typeof window.gtag === "function") {
+    try {
+      window.gtag("event", entry.event, entry.params);
+      entry.gaDelivered = true;
+    } catch {
+      // PostHog and a later flush still get a chance when GA throws.
+    }
+  }
+  if (
+    !entry.posthogDelivered &&
+    typeof window.posthog?.capture === "function"
+  ) {
+    try {
+      window.posthog.capture(entry.event, entry.params);
+      entry.posthogDelivered = true;
+    } catch {
+      // Best-effort telemetry only; never fail a user action for analytics.
+    }
+  }
+}
+
+/** Flush pending, consented events without double-sending to a provider. */
+export function flushQueuedAnalyticsEvents(): number {
+  if (typeof window === "undefined") return 0;
+  const consent = analyticsConsentDecision();
+  if (consent === "denied") {
+    clearQueuedAnalyticsEvents();
+    return 0;
+  }
+  if (consent !== "granted") return 0;
+
+  let completed = 0;
+  for (let index = 0; index < queuedAnalyticsEvents.length;) {
+    const entry = queuedAnalyticsEvents[index];
+    deliverAnalyticsEvent(entry);
+    if (entry.gaDelivered && entry.posthogDelivered) {
+      queuedAnalyticsEvents.splice(index, 1);
+      completed += 1;
+    } else {
+      index += 1;
+    }
+  }
+  return completed;
+}
+
+export function clearQueuedAnalyticsEvents(): void {
+  queuedAnalyticsEvents.length = 0;
+}
+
 export function track(
   event: AnalyticsEvent,
   params: Record<string, unknown> = {},
 ): boolean {
   if (typeof window === "undefined") return false;
-  let delivered = false;
-  if (typeof window.gtag === "function") {
-    try {
-      window.gtag("event", event, params);
-      delivered = true;
-    } catch {
-      // Analytics must never interrupt the product flow. PostHog still gets a
-      // chance below when GA is unavailable or a third-party wrapper throws.
-    }
+  const consent = analyticsConsentDecision();
+  if (consent === "denied") {
+    clearQueuedAnalyticsEvents();
+    return false;
   }
-  if (typeof window.posthog?.capture === "function") {
-    try {
-      window.posthog.capture(event, params);
-      delivered = true;
-    } catch {
-      // Best-effort telemetry only; never fail a user action for analytics.
-    }
+
+  const entry: QueuedAnalyticsEvent = {
+    event,
+    params: { ...params },
+    gaDelivered: false,
+    posthogDelivered: false,
+    dedupKey: eventDedupKey(event, params),
+  };
+  if (consent === "granted") deliverAnalyticsEvent(entry);
+  if (!entry.gaDelivered || !entry.posthogDelivered) {
+    enqueueAnalyticsEvent(entry);
   }
-  return delivered;
+  return entry.gaDelivered || entry.posthogDelivered;
 }
 
 export function captureException(

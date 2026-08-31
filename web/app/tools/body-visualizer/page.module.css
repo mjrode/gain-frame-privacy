@@ -146,6 +146,103 @@
   color: rgba(245, 245, 239, 0.48);
 }
 
+.modeChooser {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(440px, 1.28fr);
+  gap: 24px;
+  align-items: center;
+  padding: 18px 8px 0;
+}
+
+.modeChooser > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.modeChooser > div:first-child span {
+  color: rgba(245, 245, 239, 0.45);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.modeChooser > div:first-child strong {
+  max-width: 330px;
+  font-family: var(--font-display);
+  font-size: 0.96rem;
+  line-height: 1.25;
+}
+
+.modeTabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.modeTabs button {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 10px;
+  align-items: center;
+  min-height: 62px;
+  padding: 10px 13px;
+  color: rgba(245, 245, 239, 0.72);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-align: left;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.modeTabs button > span {
+  grid-row: 1 / 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: rgba(245, 245, 239, 0.46);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 0.61rem;
+}
+
+.modeTabs button small {
+  color: rgba(245, 245, 239, 0.42);
+  font-size: 0.61rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+}
+
+.modeTabs button.modeTabActive {
+  color: var(--ink);
+  border-color: var(--acid);
+  background: var(--acid);
+}
+
+.modeTabs button.modeTabActive > span {
+  color: var(--ink);
+  border-color: rgba(17, 17, 15, 0.2);
+}
+
+.modeTabs button.modeTabActive small {
+  color: rgba(17, 17, 15, 0.62);
+}
+
 .liveDot {
   width: 7px;
   height: 7px;
@@ -1029,8 +1126,566 @@
   font-size: 0.65rem;
 }
 
+.compareMode {
+  position: relative;
+  z-index: 1;
+}
+
+.compareWorkspace {
+  display: grid;
+  grid-template-columns: minmax(560px, 1.18fr) minmax(390px, 0.82fr);
+  gap: 22px;
+  padding-top: 22px;
+}
+
+.compareControls,
+.shapeStage {
+  border-radius: 22px;
+}
+
+.compareControls {
+  padding: clamp(24px, 3.2vw, 38px);
+  color: var(--ink);
+  background: #f9f8f3;
+}
+
+.compareIntro {
+  margin-bottom: 22px;
+}
+
+.compareIntro h2 {
+  margin-bottom: 9px;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.4vw, 2.65rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.compareIntro > p:last-child {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.compareToolbar {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto;
+  gap: 10px;
+  align-items: stretch;
+  margin-bottom: 14px;
+}
+
+.compareToolbar .segmented {
+  margin-bottom: 0;
+}
+
+.exampleButton {
+  min-width: 116px;
+  padding: 8px 14px;
+  color: var(--ink);
+  border: 1px solid rgba(17, 17, 15, 0.16);
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.exampleButton:hover {
+  color: #fff;
+  background: var(--ink);
+  transform: translateY(-1px);
+}
+
+.measurementSets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.measurementSet {
+  min-width: 0;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid rgba(17, 17, 15, 0.14);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.measurementSet legend {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  max-width: calc(100% - 8px);
+  padding: 0 6px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.measurementSet legend > span {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: #fff;
+  border-radius: 50%;
+  background: var(--ink);
+  font-size: 0.58rem;
+}
+
+.measurementSet:last-child legend > span {
+  color: var(--ink);
+  background: var(--coral);
+}
+
+.measurementSetTopline {
+  display: flex;
+  gap: 10px;
+  align-items: start;
+  justify-content: space-between;
+  min-height: 47px;
+  margin: 3px 0 12px;
+}
+
+.measurementSetTopline p {
+  color: #85837b;
+  font-size: 0.62rem;
+  line-height: 1.4;
+}
+
+.measurementSetTopline button {
+  flex: 0 0 auto;
+  padding: 0;
+  color: #4e4d48;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.61rem;
+  font-weight: 800;
+}
+
+.compareFieldGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 8px;
+}
+
+.compareInput {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.compareInput > span:first-child {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px;
+  color: #55534e;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.compareInput > span:first-child small {
+  color: #9a978e;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.compareInputWrap {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  height: 45px;
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 15, 0.16);
+  border-radius: 9px;
+  background: #f9f8f3;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.compareInputWrap:focus-within {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(17, 17, 15, 0.08);
+}
+
+.compareInputWrap:has(input[aria-invalid="true"]) {
+  border-color: var(--coral);
+}
+
+.compareInputWrap input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0 4px 0 10px;
+  color: var(--ink);
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.94rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.compareInputWrap > span {
+  flex: 0 0 auto;
+  padding-right: 9px;
+  color: #77756e;
+  font-size: 0.58rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.compareFieldError {
+  color: #a63d28;
+  font-size: 0.54rem;
+  line-height: 1.25;
+}
+
+.compareStatus {
+  margin-top: 12px;
+  padding: 9px 11px;
+  color: #4d4c47;
+  border-left: 3px solid var(--acid);
+  background: #eceae3;
+  font-size: 0.68rem;
+  font-weight: 750;
+}
+
+.tapeNote {
+  margin-top: 8px;
+  color: #7c7a73;
+  font-size: 0.62rem;
+  line-height: 1.45;
+}
+
+.shapeStage {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--night-soft);
+}
+
+.shapeStageHeader,
+.shapeSummaryHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.shapeStageHeader {
+  padding: 2px 3px 14px;
+}
+
+.shapeStageHeader > div,
+.shapeSummaryHeading {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.shapeStageHeader > div {
+  display: flex;
+}
+
+.shapeStageHeader > div > span,
+.shapeSummaryHeading > span {
+  color: rgba(245, 245, 239, 0.48);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.shapeStageHeader strong,
+.shapeSummaryHeading strong {
+  margin-top: 2px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.silhouetteGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+.silhouetteCard {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: #0c0d0b;
+}
+
+.silhouetteCard figcaption {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 9px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+}
+
+.silhouetteCard figcaption span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 21px;
+  height: 21px;
+  color: var(--ink);
+  border-radius: 50%;
+  background: var(--acid);
+  font-size: 0.55rem;
+}
+
+.silhouettegoal figcaption span {
+  background: var(--coral);
+}
+
+.silhouetteViewport {
+  position: relative;
+  min-height: 330px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    #151613;
+  background-size: 24px 24px;
+}
+
+.silhouetteAxis {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 1px dashed rgba(255, 255, 255, 0.09);
+}
+
+.silhouetteSvg {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 330px;
+}
+
+.silhouetteGridLines path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.07);
+  stroke-width: 1;
+  stroke-dasharray: 2 5;
+}
+
+.silhouetteBody > * {
+  fill: rgba(220, 255, 69, 0.16);
+  stroke: var(--acid);
+  stroke-width: 1.7;
+  vector-effect: non-scaling-stroke;
+}
+
+.silhouettegoal .silhouetteBody > * {
+  fill: rgba(238, 106, 75, 0.17);
+  stroke: var(--coral);
+}
+
+.measurementGuides path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.74);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.silhouetteStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.silhouetteStats > div {
+  min-width: 0;
+  padding: 9px;
+}
+
+.silhouetteStats > div + div {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.silhouetteStats dt {
+  overflow: hidden;
+  color: rgba(245, 245, 239, 0.42);
+  font-size: 0.5rem;
+  letter-spacing: 0.03em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.silhouetteStats dd {
+  margin: 3px 0 0;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.shapeSummary {
+  margin-top: 10px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.shapeSummaryHeading {
+  gap: 0;
+  margin-bottom: 11px;
+}
+
+.shapeSummaryHeading strong {
+  font-size: 0.82rem;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.summaryGrid > div {
+  min-width: 0;
+  padding: 9px;
+  border-left: 2px solid rgba(220, 255, 69, 0.55);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.summaryGrid > div > span {
+  display: block;
+  overflow: hidden;
+  color: rgba(245, 245, 239, 0.48);
+  font-size: 0.55rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.summaryGrid strong {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+  margin-top: 3px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.summaryGrid strong i {
+  color: var(--coral);
+  font-style: normal;
+}
+
+.summaryGrid small {
+  display: block;
+  margin-top: 3px;
+  color: rgba(245, 245, 239, 0.47);
+  font-size: 0.53rem;
+}
+
+.compareEmpty {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 560px;
+  padding: 36px;
+  text-align: center;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.compareEmpty > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 17px;
+  color: var(--acid);
+  border: 1px solid rgba(220, 255, 69, 0.3);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.07em;
+}
+
+.compareEmpty strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.compareEmpty p {
+  max-width: 310px;
+  margin-top: 8px;
+  color: rgba(245, 245, 239, 0.5);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.compareCaution {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 9px;
+  align-items: start;
+  margin-top: 10px;
+  padding: 11px;
+  color: rgba(245, 245, 239, 0.54);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 11px;
+  font-size: 0.61rem;
+  line-height: 1.48;
+}
+
+.compareCaution svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--coral);
+  stroke-width: 1.6;
+}
+
+.compareCaution strong {
+  color: rgba(245, 245, 239, 0.88);
+}
+
 .segmented button:focus-visible,
 .referenceButtons button:focus-visible,
+.modeTabs button:focus-visible,
+.exampleButton:focus-visible,
+.measurementSetTopline button:focus-visible,
 .toolCards a:focus-visible,
 .appCtaAction a:focus-visible,
 .faqList summary:focus-visible,
@@ -1053,6 +1708,27 @@
 
   .visualizerGrid {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 0.88fr);
+  }
+
+  .modeChooser {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .modeChooser > div:first-child strong {
+    max-width: none;
+  }
+
+  .compareWorkspace {
+    grid-template-columns: 1fr;
+  }
+
+  .shapeStage {
+    min-height: 0;
+  }
+
+  .compareEmpty {
+    min-height: 430px;
   }
 
   .factorGrid,
@@ -1121,6 +1797,46 @@
     grid-template-columns: 1fr;
     gap: 10px;
     padding-top: 10px;
+  }
+
+  .modeChooser {
+    padding: 14px 4px 0;
+  }
+
+  .modeChooser > div:first-child {
+    padding: 0 3px;
+  }
+
+  .modeTabs button {
+    min-height: 58px;
+    padding: 8px 10px;
+    font-size: 0.72rem;
+  }
+
+  .compareWorkspace {
+    gap: 10px;
+    padding-top: 10px;
+  }
+
+  .compareControls,
+  .shapeStage {
+    border-radius: 15px;
+  }
+
+  .compareControls {
+    padding: 23px 16px 16px;
+  }
+
+  .measurementSets {
+    grid-template-columns: 1fr;
+  }
+
+  .measurementSetTopline {
+    min-height: 0;
+  }
+
+  .shapeStage {
+    padding: 11px;
   }
 
   .controlPanel,
@@ -1228,6 +1944,51 @@
     grid-template-columns: 1fr;
   }
 
+  .modeTabs button {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    text-align: center;
+  }
+
+  .modeTabs button > span {
+    display: none;
+  }
+
+  .compareToolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .exampleButton {
+    min-height: 44px;
+  }
+
+  .measurementSet {
+    padding: 13px;
+  }
+
+  .silhouetteGrid {
+    gap: 6px;
+  }
+
+  .silhouetteViewport,
+  .silhouetteSvg {
+    min-height: 285px;
+    height: 285px;
+  }
+
+  .silhouetteStats {
+    grid-template-columns: 1fr;
+  }
+
+  .silhouetteStats > div + div {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 0;
+  }
+
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+
   .resultTopline,
   .displayHeader {
     align-items: flex-start;
@@ -1242,6 +2003,9 @@
 
   .segmented button,
   .referenceButtons button,
+  .modeTabs button,
+  .exampleButton,
+  .compareInputWrap,
   .viewButtons button,
   .bmiScale i,
   .toolCards a,

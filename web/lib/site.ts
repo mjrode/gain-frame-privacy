@@ -55,6 +55,12 @@ export function campaignForPath(pathname: string): string {
   if (p.startsWith("/tools/body-measurements-calculator")) {
     return "web-measurements";
   }
+  if (p.startsWith("/tools/progress-photo-compare")) {
+    return "web-photo-compare";
+  }
+  if (p.startsWith("/tools/recomp-reality-checker")) {
+    return "web-recomp-checker";
+  }
   if (p.startsWith("/tools")) return "web-tools";
   if (p.startsWith("/blog")) return "web-blog";
   if (p.startsWith("/get")) return "web-get";

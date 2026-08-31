@@ -23,6 +23,8 @@ import {
   preprocessImageForUpload,
   validatedJson,
 } from "@/lib/tool-client";
+import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
+import { trackToolFunnelStep } from "@/lib/tool-funnel";
 
 const AB_FUNCTION_URL =
   "https://qpctmhhnomeeyajbivne.supabase.co/functions/v1/ab-analyze";
@@ -188,6 +190,9 @@ export default function SixPackTimelineClient() {
     if (viewedRef.current) return;
     viewedRef.current = true;
     track("six_pack_tool_view");
+    trackToolFunnelStep("six_pack_timeline", "viewed", {
+      input_mode: "photo",
+    });
   }, []);
 
   useEffect(() => {
@@ -318,6 +323,10 @@ export default function SixPackTimelineClient() {
       daily_deficit: dailyDeficit,
       size_kb: Math.round(file.size / 1024),
     });
+    trackToolFunnelStep("six_pack_timeline", "started", {
+      input_mode: "photo",
+      start_trigger: "photo_selected",
+    });
 
     try {
       const processed = await preprocessImageForUpload(file, {
@@ -384,6 +393,10 @@ export default function SixPackTimelineClient() {
         weeks_low: timeline.weeksLow,
         weeks_high: timeline.weeksHigh,
         pace_warning: timeline.paceWarning,
+      });
+      trackToolFunnelStep("six_pack_timeline", "result_shown", {
+        input_mode: "photo",
+        result_type: "six_pack_timeline",
       });
       setStage({
         kind: "result",
@@ -738,6 +751,10 @@ export default function SixPackTimelineClient() {
             headline={`${timelineLabel(stage.timeline)} is the plan. Weekly photos tell you if it is working.`}
             body="GainFrame tracks body fat, weight, and progress photos together—so your six-pack range updates with the real you."
             desktopBody="Scan with your iPhone to track body fat, weight, and progress photos together—so the range updates with the real you."
+            experiment={buildToolResultCtaExperiment({
+              tool: "six_pack_timeline",
+              timeline: timelineLabel(stage.timeline),
+            })}
             onCtaClick={() => track("six_pack_tool_cta_clicked", { placement: "result" })}
           />
 

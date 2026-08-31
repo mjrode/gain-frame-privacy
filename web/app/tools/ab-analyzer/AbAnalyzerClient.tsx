@@ -8,6 +8,8 @@ import {
   track,
 } from "@/lib/analytics";
 import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
+import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
+import { trackToolFunnelStep } from "@/lib/tool-funnel";
 import { reportWebToolCompletion } from "@/lib/web-tool-usage";
 
 const FUNCTION_URL =
@@ -171,6 +173,13 @@ export default function AbAnalyzerClient() {
   const [preview, setPreview] = useState<string | null>(null);
   const [msgIdx, setMsgIdx] = useState(0);
   const fileRef = useRef<HTMLInputElement>(null);
+  const viewedRef = useRef(false);
+
+  useEffect(() => {
+    if (viewedRef.current) return;
+    viewedRef.current = true;
+    trackToolFunnelStep(CTA_CAMPAIGN, "viewed", { input_mode: "photo" });
+  }, []);
 
   useEffect(() => {
     if (stage.kind !== "processing") return;
@@ -196,6 +205,10 @@ export default function AbAnalyzerClient() {
     setStage({ kind: "processing" });
     if (preview) URL.revokeObjectURL(preview);
     setPreview(URL.createObjectURL(file));
+    trackToolFunnelStep(CTA_CAMPAIGN, "started", {
+      input_mode: "photo",
+      start_trigger: "photo_selected",
+    });
 
     try {
       const { base64 } = await preprocessImage(file);
@@ -231,6 +244,10 @@ export default function AbAnalyzerClient() {
           band: data.band,
           months_low: data.months_to_visible_low,
           months_high: data.months_to_visible_high,
+        });
+        trackToolFunnelStep(CTA_CAMPAIGN, "result_shown", {
+          input_mode: "photo",
+          result_type: "ab_score_and_timeline",
         });
         void reportWebToolCompletion("ab-analyzer");
         setStage({ kind: "result", analysis: data });
@@ -403,6 +420,12 @@ export default function AbAnalyzerClient() {
             headline={`${stage.analysis.score} is a snapshot. Track the cut to visible abs in GainFrame.`}
             body="Unlimited scans, body fat %, and a 12-muscle breakdown — free to start."
             desktopBody="Scan with your iPhone for unlimited scans, body fat %, and a 12-muscle breakdown — free to start."
+            experiment={buildToolResultCtaExperiment({
+              tool: CTA_CAMPAIGN,
+              score: stage.analysis.score,
+              biggestLever: stage.analysis.biggest_lever,
+              timeline: timelineHeadline(stage.analysis),
+            })}
             onCtaClick={() =>
               track("ab_tool_cta_click", { placement: "result" })
             }

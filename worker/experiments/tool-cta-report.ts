@@ -1,6 +1,7 @@
 import { hogql, type AdminEnv, num, str } from "../api/admin.ts";
 
 export const TOOL_CTA_EXPERIMENT_ID = "tool_result_cta_v1";
+export const TOOL_CTA_EXPERIMENT_PHASE = "expanded_result_cards_v2";
 
 export interface ToolCtaReportEnv extends AdminEnv {
   SLACK_REPORT_BOT_TOKEN?: string;
@@ -85,6 +86,7 @@ async function queryWindow(
      FROM events
      WHERE event IN ('tool_cta_viewed', 'tool_cta_clicked')
        AND properties.experiment_id = '${TOOL_CTA_EXPERIMENT_ID}'
+       AND properties.experiment_phase = '${TOOL_CTA_EXPERIMENT_PHASE}'
        AND coalesce(properties.experiment_forced, false) = false
        AND timestamp > now() - INTERVAL ${hours} HOUR
      GROUP BY variant`,

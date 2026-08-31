@@ -3,6 +3,10 @@
 import Script from "next/script";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
+  clearQueuedAnalyticsEvents,
+  flushQueuedAnalyticsEvents,
+} from "@/lib/analytics";
+import {
   ANALYTICS_CONSENT_DOCUMENT_ATTRIBUTE,
   ANALYTICS_CONSENT_STATE_EVENT,
   ANALYTICS_CONSENT_STORAGE_KEY,
@@ -242,6 +246,7 @@ export default function AnalyticsConsentManager() {
       ANALYTICS_CONSENT_STATE_EVENT,
       { detail: publishedDecision },
     ));
+    if (publishedDecision === "denied") clearQueuedAnalyticsEvents();
 
     return () => {
       document.documentElement.setAttribute(
@@ -279,6 +284,9 @@ export default function AnalyticsConsentManager() {
 
     initializeGoogleAnalytics();
     initializeClarity();
+    // Marks GA deliveries now; the PostHog Script onReady pass below finishes
+    // each queued event without sending it to GA twice.
+    flushQueuedAnalyticsEvents();
   }, [decision, production, regionResolved]);
 
   const choose = useCallback(
@@ -323,7 +331,13 @@ export default function AnalyticsConsentManager() {
   return (
     <>
       {postHogEnabled && (
-        <Script id="posthog-init" strategy="afterInteractive">
+        <Script
+          id="posthog-init"
+          strategy="afterInteractive"
+          onReady={() => {
+            flushQueuedAnalyticsEvents();
+          }}
+        >
           {`
             !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_distinct_id get_property getSessionProperty getSurveysLoaded onSurveysLoaded alias reset get_session_id get_session_replay_url createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
             posthog.init('${SITE.posthogKey}', {api_host: '${SITE.posthogHost}', defaults: '2025-05-24'});

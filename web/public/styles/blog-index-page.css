@@ -443,6 +443,58 @@
     margin-top: 30px;
 }
 
+.blog-index-page .blog-pagination {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    margin-top: 26px;
+    padding-top: 30px;
+    border-top: 2px solid var(--gf-graphite);
+}
+
+.blog-index-page .blog-pagination-link,
+.blog-index-page .blog-pagination-current {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border: 1px solid var(--gf-graphite);
+    color: var(--gf-graphite);
+    font-family: var(--gf-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.blog-index-page .blog-pagination-link {
+    background: var(--gf-paper-bright);
+    box-shadow: 4px 4px 0 var(--gf-graphite);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.blog-index-page .blog-pagination-link--previous {
+    justify-self: start;
+}
+
+.blog-index-page .blog-pagination-link--next {
+    justify-self: end;
+}
+
+.blog-index-page .blog-pagination-link:hover {
+    transform: translate(-2px, -2px);
+    background: var(--gf-green);
+    box-shadow: 6px 6px 0 var(--gf-graphite);
+}
+
+.blog-index-page .blog-pagination-current {
+    border-color: var(--gf-line);
+    background: var(--gf-paper);
+}
+
 .blog-index-page .blog-card {
     grid-column: span 4;
     min-width: 0;
@@ -731,6 +783,27 @@
     .blog-index-page .blog-grid {
         grid-template-columns: 1fr;
         gap: 24px;
+    }
+
+    .blog-index-page .blog-pagination {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .blog-index-page .blog-pagination-current {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .blog-index-page .blog-pagination-link--previous {
+        grid-column: 1;
+    }
+
+    .blog-index-page .blog-pagination-link--next {
+        grid-column: 2;
+    }
+
+    .blog-index-page .blog-pagination-spacer {
+        display: none;
     }
 
     .blog-index-page .blog-card,

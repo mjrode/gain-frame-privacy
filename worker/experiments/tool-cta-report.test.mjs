@@ -66,7 +66,11 @@ test("scheduled report queries PostHog and posts one Slack message", async () =>
       new Date("2026-08-25T14:05:00Z"),
     );
     assert.deepEqual(result, { sent: true });
-    assert.equal(calls.filter((call) => call.url.includes("posthog.com")).length, 2);
+    const posthogCalls = calls.filter((call) => call.url.includes("posthog.com"));
+    assert.equal(posthogCalls.length, 2);
+    for (const call of posthogCalls) {
+      assert.match(String(call.init.body), /expanded_result_cards_v2/);
+    }
     const slack = calls.find((call) => call.url.includes("slack.com/api"));
     assert.ok(slack);
     assert.match(String(slack.init.body), /Tool result CTA/);

@@ -141,6 +141,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${SITE.url}/tools/progress-photo-compare/`,
+      lastModified: today(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${SITE.url}/tools/recomp-reality-checker/`,
+      lastModified: today(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE.url}/body-fat/`,
       lastModified: today(),
       changeFrequency: "monthly",

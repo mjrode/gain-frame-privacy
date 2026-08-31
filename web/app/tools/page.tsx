@@ -14,15 +14,15 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Free Body Fat Calculators — AI Photo Scan & Visualizer | GainFrame",
+      "20 Free Fitness & Body Composition Tools | GainFrame",
   },
   description:
-    "Free body fat tools from GainFrame. Get your body fat % from one photo with AI, see what every body fat percentage looks like, and calculate TDEE, macros and FFMI — no signup required.",
+    "Twenty free fitness tools from GainFrame: compare progress photos privately, check recomp signals, visualize body shape, estimate body fat, and calculate TDEE, macros and FFMI — no signup.",
   alternates: { canonical: "/tools/" },
   openGraph: {
-    title: "Free Body Fat Calculators — AI Photo Scan & Visualizer",
+    title: "20 Free Fitness & Body Composition Tools",
     description:
-      "Body fat from a photo, a visual body fat reference at every age, and free TDEE, macro and FFMI calculators — instant, no signup.",
+      "Private progress-photo comparison, a recomp reality check, body visualizers, AI photo tools, and practical fitness calculators — instant, no signup.",
     type: "website",
     url: `${SITE.url}/tools/`,
     siteName: "GainFrame",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Body Fat Calculators — AI Photo Scan & Visualizer",
+    title: "20 Free Fitness & Body Composition Tools",
     description:
-      "Body fat from a photo, a visual body fat reference at every age, and free TDEE, macro and FFMI calculators — instant, no signup.",
+      "Private photo comparison, a recomp reality check, body visualizers, AI photo tools, and practical fitness calculators — instant, no signup.",
   },
 };
 
@@ -62,6 +62,9 @@ const itemListSchema = {
     { "@type": "ListItem", position: 15, name: "Strength Standards Calculator", url: "https://gainframe.app/tools/strength-standards-calculator/" },
     { "@type": "ListItem", position: 16, name: "Calories Burned Calculator", url: "https://gainframe.app/tools/calories-burned-calculator/" },
     { "@type": "ListItem", position: 17, name: "Progress Photo Setup Tool", url: "https://gainframe.app/tools/progress-photo-setup/" },
+    { "@type": "ListItem", position: 18, name: "Private Progress Photo Compare", url: "https://gainframe.app/tools/progress-photo-compare/" },
+    { "@type": "ListItem", position: 19, name: "Recomp Reality Checker", url: "https://gainframe.app/tools/recomp-reality-checker/" },
+    { "@type": "ListItem", position: 20, name: "Measurement-Driven Body Shape Compare", url: "https://gainframe.app/tools/body-visualizer/?mode=measurements" },
   ],
 };
 
@@ -73,6 +76,8 @@ const faqSchema = {
     { "@type": "Question", name: "How accurate are online body fat calculators?", acceptedAnswer: { "@type": "Answer", text: "The U.S. Navy tape-measure method has been validated to within ±3–4% of DEXA for most people." } },
     { "@type": "Question", name: "What is TDEE and why does it matter?", acceptedAnswer: { "@type": "Answer", text: "TDEE is the total calories you burn per day. It's the foundation of every diet plan." } },
     { "@type": "Question", name: "How do I use a macro calculator to build muscle?", acceptedAnswer: { "@type": "Answer", text: "Set your goal to lean bulk — roughly 300 calories above TDEE — and the calculator sets your protein, fat, and carb targets." } },
+    { "@type": "Question", name: "Are progress photos uploaded by the comparison tool?", acceptedAnswer: { "@type": "Answer", text: "No. The progress-photo comparison, alignment, privacy blur, and export all run locally in your browser. The image files are not uploaded." } },
+    { "@type": "Question", name: "Can a calculator prove that I am recomping?", acceptedAnswer: { "@type": "Answer", text: "No single calculator can prove muscle gain and fat loss. The recomp reality checker combines several 4–12 week signals and reports the most likely pattern, its confidence, conflicts, and when to check again." } },
     { "@type": "Question", name: "Can GainFrame track my progress beyond these calculators?", acceptedAnswer: { "@type": "Answer", text: "Yes. GainFrame is an iOS app that uses AI to analyze your progress photos and return body fat %, FFMI, muscle scores, and macros." } },
   ],
 };
@@ -100,7 +105,7 @@ export default function ToolsPage() {
             #cl-count IDs are consumed by ToolsInteractions; do not rename. */}
         <div className="cl-search-rail">
           <div className="cl-tool-meta-pill">
-            <strong id="cl-count">17</strong>&nbsp;tools available
+            <strong id="cl-count">20</strong>&nbsp;tools available
           </div>
           <div className="cl-search-bar-compact" id="cl-search-wrap">
             <span className="cl-search-icon">
@@ -405,8 +410,8 @@ export default function ToolsPage() {
         <div className="cl-section-intro">
           <h2>Free Fitness Calculators</h2>
           <p>
-            Seventeen evidence-based tools for body composition, nutrition, and
-            performance. Instant results, no signup.
+            Twenty practical tools for body composition, progress, nutrition,
+            and performance. Instant results, no signup.
           </p>
         </div>
 
@@ -414,7 +419,7 @@ export default function ToolsPage() {
           <nav className="cl-sidebar" aria-label="Tool categories">
             <p className="cl-sidebar-label">Categories</p>
             <a href="#body-composition" className="cl-nav-link cl-active">
-              Body Composition <span className="cl-nav-count">10</span>
+              Body Composition <span className="cl-nav-count">13</span>
             </a>
             <a href="#nutrition" className="cl-nav-link">
               Nutrition &amp; Energy <span className="cl-nav-count">3</span>
@@ -431,7 +436,7 @@ export default function ToolsPage() {
             <section className="cl-section" id="body-composition">
               <div className="cl-section-header">
                 <h2>Body Composition</h2>
-                <span className="cl-count-badge">10 tools</span>
+                <span className="cl-count-badge">13 tools</span>
               </div>
               <div className="cl-grid cl-grid-2">
                 <a
@@ -491,6 +496,96 @@ export default function ToolsPage() {
                     Map chest, waist, shoulders, arms, thighs, wrist and
                     height. Compare five ratios, set target sliders, then
                     preview the regional changes on your photo.
+                  </p>
+                  <span className="cl-card-link">Open →</span>
+                </a>
+
+                <a
+                  href="/tools/body-visualizer/?mode=measurements"
+                  className="cl-card"
+                  data-search="body shape compare measurement silhouette current goal chest waist hips shoulders inseam proportions"
+                >
+                  <div className="cl-card-icon ic-viz">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M8 3 5 7l2 4-1 10M16 3l3 4-2 4 1 10" />
+                      <path d="M9 7h6M8 12h8M7 17h10" />
+                    </svg>
+                  </div>
+                  <h3>Body Shape Compare</h3>
+                  <p className="cl-card-desc">
+                    Compare current and goal measurements with two neutral 2D
+                    silhouettes. See which proportions differ without pretending
+                    to predict exactly how a body will look.
+                  </p>
+                  <span className="cl-card-link">Open →</span>
+                </a>
+
+                <a
+                  href="/tools/progress-photo-compare/"
+                  className="cl-card"
+                  data-search="progress photo compare before after align slider wipe overlay ghost blur private local export"
+                >
+                  <div className="cl-card-icon ic-pp">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <path d="M12 5v14M7 15l2-2 2 2M15 11l2-2 2 2" />
+                    </svg>
+                  </div>
+                  <h3>Private Progress Photo Compare</h3>
+                  <p className="cl-card-desc">
+                    Align two photos, switch between side-by-side, wipe, and
+                    ghost views, blur the face area, then export—all locally in
+                    your browser.
+                  </p>
+                  <span className="cl-card-link">Open →</span>
+                </a>
+
+                <a
+                  href="/tools/recomp-reality-checker/"
+                  className="cl-card"
+                  data-search="body recomposition recomp checker weight waist strength body fat trend cut surplus maintenance"
+                >
+                  <div className="cl-card-icon ic-cdc">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M4 18V9M10 18V5M16 18v-7M3 18h18" />
+                      <path d="m4 8 6-3 6 5 4-4" />
+                    </svg>
+                  </div>
+                  <h3>Recomp Reality Checker</h3>
+                  <p className="cl-card-desc">
+                    Read 4–12 weeks of weight, waist, strength, and optional
+                    body-fat signals together. Get a neutral pattern check with
+                    confidence and a next check-in date.
                   </p>
                   <span className="cl-card-link">Open →</span>
                 </a>
@@ -1008,6 +1103,14 @@ export default function ToolsPage() {
                 {
                   q: "How do I use a macro calculator to build muscle?",
                   a: "Set the goal to lean bulk — roughly 300 calories above TDEE. The calculator prioritizes protein (~0.8g per lb of bodyweight), caps fat at ~25% of calories, and fills the remainder with carbs. Pair with progressive resistance training.",
+                },
+                {
+                  q: "Are progress photos uploaded by the comparison tool?",
+                  a: "No. The comparison, alignment, optional privacy blur, and PNG export all run locally inside your browser tab. The image files are not uploaded.",
+                },
+                {
+                  q: "Can a calculator prove that I am recomping?",
+                  a: "No single calculator can prove muscle gain and fat loss. The recomp reality checker combines several 4–12 week signals, shows which ones agree or conflict, and tells you when more data would make the read clearer.",
                 },
                 {
                   q: "Can GainFrame track progress beyond these calculators?",

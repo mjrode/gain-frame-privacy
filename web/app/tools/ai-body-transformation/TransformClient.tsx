@@ -4,6 +4,8 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import type { RegionalAdjustments } from "@/lib/body-proportions";
 import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
+import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
+import { trackToolFunnelStep } from "@/lib/tool-funnel";
 import {
   captureException,
   getPosthogDistinctId,
@@ -365,6 +367,14 @@ export default function TransformClient({
     if (!viewedRef.current) {
       viewedRef.current = true;
       track("bt_tool_view");
+      trackToolFunnelStep(
+        measurementsMode ? "body_measurements" : CTA_CAMPAIGN,
+        "viewed",
+        {
+          input_mode: "photo",
+          tool_mode: measurementsMode ? "measurements" : "transformation",
+        },
+      );
     }
 
     // Visitors who can't render right now — lifetime spent, IP daily cap,
@@ -613,6 +623,15 @@ export default function TransformClient({
       size_kb: Math.round(picked.size / 1024),
       mime: picked.type,
     });
+    trackToolFunnelStep(
+      measurementsMode ? "body_measurements" : CTA_CAMPAIGN,
+      "started",
+      {
+        input_mode: "photo",
+        start_trigger: "photo_selected",
+        tool_mode: measurementsMode ? "measurements" : "transformation",
+      },
+    );
   }
 
   async function submit() {
@@ -709,6 +728,16 @@ export default function TransformClient({
           blocking: false,
           ...fileTelemetry(file, processed),
         });
+        trackToolFunnelStep(
+          measurementsMode ? "body_measurements" : CTA_CAMPAIGN,
+          "result_shown",
+          {
+            input_mode: "photo",
+            result_type: measurementsMode
+              ? "measurement_preview"
+              : "body_transformation",
+          },
+        );
         setStage({
           kind: "result",
           afterUrl,
@@ -1242,6 +1271,11 @@ export default function TransformClient({
           desktopBody={measurementsMode
             ? "Scan with your iPhone to track the real visual progress behind these measurement targets—free to start."
             : "Scan with your iPhone to track your real progress photos against this projection — free to start."}
+          experiment={buildToolResultCtaExperiment({
+            tool: measurementsMode
+              ? "body_measurements"
+              : "ai_body_transformation",
+          })}
           onCtaClick={() =>
             track(
               measurementsMode

@@ -77,12 +77,16 @@ export default function AppStoreClickTracker() {
         "[data-experiment-id]",
       );
       const experimentId = experimentRoot?.dataset.experimentId;
+      const experimentPhase = experimentRoot?.dataset.experimentPhase;
       const experimentVariant = experimentRoot?.dataset.experimentVariant;
       const experimentForced =
         experimentRoot?.dataset.experimentForced === "true";
       const experimentProperties = experimentId && experimentVariant
         ? {
             experiment_id: experimentId,
+            ...(experimentPhase
+              ? { experiment_phase: experimentPhase }
+              : {}),
             experiment_variant: experimentVariant,
             experiment_forced: experimentForced,
             cta_angle: experimentRoot?.dataset.ctaAngle ?? experimentVariant,

@@ -11,9 +11,33 @@ Written 2026-07-29 after a false alarm (see "Worked example" at the bottom).
 | `cta_platform_alternative_click` | An **Android** user clicks a download CTA | `PlatformDownloadLink` — routes them to `/tools/body-fat-from-photo/` instead |
 | `web_download_clicked` | A consented GainFrame App Store/OneLink click, with a unique click ID and page-level attribution | `AppStoreClickTracker` — site-wide delegated capture-phase listener |
 
+## Normalized web-tool funnel
+
+The detailed per-tool events remain intact. A second, typed layer now makes the
+same four steps comparable across every major interactive tool:
+
+| Event | Meaning | Required properties |
+|---|---|---|
+| `tool_funnel_viewed` | Interactive tool client mounted | `tool`, `funnel_step=viewed`, `input_mode` |
+| `tool_funnel_started` | First valid upload or calculator interaction | `tool`, `funnel_step=started`, `start_trigger` where available |
+| `tool_funnel_result_shown` | A usable result was produced | `tool`, `funnel_step=result_shown`, `result_type` where available |
+| `tool_funnel_cta_clicked` | The result CTA was used (App Store link or Android email submit) | `tool`, `funnel_step=cta_clicked`, `placement`, `platform`, `cta_action` for Android, experiment fields when eligible |
+
+Use unique visitors for cross-tool conversion rates. Legacy calculators only
+expose a completion event in some paths, so their `started` event may carry
+`start_trigger=completion_fallback`; this preserves funnel completeness without
+pretending the exact first control is known.
+
+Early lifecycle events are held in a bounded, in-memory queue while the privacy
+region or consent choice is pending. A grant flushes them once GA4 and PostHog
+are ready; a denial discards them. Nothing from that queue is persisted in
+browser storage.
+
 ## Result CTA A/B/C experiment
 
-`tool_result_cta_v1` assigns each browser one stable result-CTA angle:
+`tool_result_cta_v1` assigns each browser one stable result-CTA angle. The
+current readout phase is `expanded_result_cards_v2`; do not combine its pooled
+results with the earlier physique-rater-only or eight-tool expansion phases.
 
 | Variant | Angle | Primary action |
 |---|---|---|
@@ -21,10 +45,55 @@ Written 2026-07-29 after a false alarm (see "Worked example" at the bottom).
 | `track` (B) | Turn a snapshot into a trend | Track my next check-in |
 | `future` (C) | Turn the result into a target | Preview my future physique |
 
-The assignment is stored under `gainframe:experiment:tool_result_cta_v1` and
-does not identify the visitor. QA can force a presentation with
+Before analytics consent, the assignment stays in memory for the current page
+and no experiment storage is read or written. After consent is granted, that
+same assignment is stored under `gainframe:experiment:tool_result_cta_v1` so a
+returning visitor does not see the message change; it does not identify the
+visitor. QA can force a presentation with
 `?gf_cta_variant=improve|track|future`; those events carry
 `experiment_forced=true` and are excluded from reporting.
+
+The same assignment now applies to successful result cards for the physique
+rater, body-fat-from-photo estimator, ab analyzer, six-pack timeline, BMI body
+visualizer, body-fat visualizer, AI transformation, body-measurement preview,
+private progress-photo compare, recomp reality checker, and the measurement
+body-shape compare mode. Layout, artwork, placement, destination, button style,
+and assignment remain fixed. Only the message angle changes. Android is
+excluded from the experiment readout because its primary action is email
+capture rather than an App Store click.
+
+### Pre-registered decision plan
+
+**Observation:** the shared tool dock recorded a 3.33% unique viewer-to-clicker
+rate in the settled Aug 18–24 baseline.
+
+**Hypothesis:** because visitors have just received a one-time snapshot and
+GainFrame's clearest differentiated value is turning snapshots into trends,
+the **Track** angle will increase eligible result-card click-through rate by at
+least 40% relative to Improve and Future. It should do so across multiple tools
+without reducing tool completion or increasing dismissals.
+
+- **Primary metric:** unique `tool_cta_clicked` visitors divided by unique
+  `tool_cta_viewed` visitors, filtered to
+  `experiment_phase=expanded_result_cards_v2`, non-forced assignments, and
+  iOS/desktop.
+- **Secondary metrics:** result-to-CTA conversion from
+  `tool_funnel_result_shown`; consented `web_download_clicked`; attributable
+  install, trial, and purchase rate; and results split by tool and platform.
+- **Guardrails:** `tool_cta_dismissed` rate, tool start-to-result completion,
+  client error/rate-limit events, and Android email-submit rate. Investigate
+  any statistically credible relative degradation of 10% or more before
+  promoting a winner.
+- **Sample commitment:** collect at least **4,600 eligible unique viewers per
+  variant** and at least **two complete weeks**. This is approximately 80%
+  power to detect a 40% relative lift from 3.33% to 4.66%, using a
+  Bonferroni-adjusted two-sided alpha of 0.0167 for three pairwise comparisons.
+  Do not stop on the daily directional leader. If the threshold is not reached
+  after 12 full weeks, record the test as inconclusive and redesign it.
+- **Decision rule:** promote an angle only when its adjusted pairwise interval
+  clears no difference, the effect is practically meaningful, and no guardrail
+  is breached. Otherwise retain the existing per-tool result copy and record
+  the angle test as inconclusive.
 
 Use unique `tool_cta_clicked` / unique `tool_cta_viewed` as the primary CTR.
 Both events carry `experiment_id`, `experiment_variant`, `cta_angle`, `tool`,

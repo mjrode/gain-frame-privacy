@@ -1179,6 +1179,14 @@
   box-shadow: 0 27px 60px rgba(24, 26, 23, 0.25);
 }
 
+.coachStage > .campaignScreenshot,
+.futureStage > .campaignScreenshot {
+  height: auto;
+  aspect-ratio: 5 / 8;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
 .coachStamp {
   top: 25%;
   right: -3%;
@@ -1240,6 +1248,13 @@
   border: 3px solid var(--graphite);
   border-bottom: 0;
   border-radius: 38px 38px 0 0;
+}
+
+.historyPanel .historyPoster {
+  height: auto;
+  aspect-ratio: 16 / 25;
+  object-fit: cover;
+  object-position: center bottom;
 }
 
 .timelinePanel {
@@ -1431,7 +1446,8 @@
 }
 
 .cardImage {
-  height: 410px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   margin: 16px 16px 0;
   overflow: hidden;
   border: 2px solid var(--graphite);
@@ -1442,6 +1458,12 @@
 
 .cardImage img {
   width: 100%;
+}
+
+.cardImage .systemPoster {
+  height: 100%;
+  object-fit: cover;
+  object-position: center 72%;
 }
 
 .systemCard > p {
@@ -1954,7 +1976,7 @@
   .historyPanel img { width: 96%; }
 
   .systemGrid { grid-template-columns: 1fr; max-width: 600px; margin-inline: auto; }
-  .cardImage { height: 560px; }
+  .cardImage { height: auto; }
 
   .receiptsSection {
     width: min(calc(100% - 32px), 720px);
@@ -2154,7 +2176,7 @@
 
   .systemSection { width: calc(100% - 32px); margin-block: 80px; }
   .systemGrid { margin-top: 38px; }
-  .cardImage { height: 420px; }
+  .cardImage { height: auto; }
 
   .receiptsSection {
     width: calc(100% - 24px);

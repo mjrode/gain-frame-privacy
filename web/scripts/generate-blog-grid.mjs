@@ -12,6 +12,8 @@ const GRID_START = "<!-- BLOG_GRID:START -->";
 const GRID_END = "<!-- BLOG_GRID:END -->";
 const FILTER_START = "<!-- BLOG_FILTER:START -->";
 const FILTER_END = "<!-- BLOG_FILTER:END -->";
+const INDEX_TARGET = path.join(WEB_DIR, "public", "blog-index.json");
+export const BLOG_PAGE_SIZE = 30;
 
 // Canonical category names. Frontmatter `displayCategory` values drifted over
 // time (casing + singular/plural variants), which would otherwise produce
@@ -97,7 +99,7 @@ async function loadPosts() {
   return posts;
 }
 
-function renderCard(post, index) {
+export function renderCard(post, index) {
   const loadingAttr = index < 3 ? "eager" : "lazy";
   return `                <a href="/blog/${post.slug}/" class="blog-card scroll-reveal" data-category="${escapeHtml(post.categorySlug)}">
                     <div class="blog-card-image">
@@ -116,6 +118,41 @@ function renderCard(post, index) {
                         <p>${escapeHtml(post.cardText)}</p>
                     </div>
                 </a>`;
+}
+
+export function getBlogPageCount(totalPosts, pageSize = BLOG_PAGE_SIZE) {
+  return Math.max(1, Math.ceil(totalPosts / pageSize));
+}
+
+export function getBlogPage(posts, page, pageSize = BLOG_PAGE_SIZE) {
+  const start = (page - 1) * pageSize;
+  return posts.slice(start, start + pageSize);
+}
+
+export function renderPagination(
+  page,
+  totalPosts,
+  pageSize = BLOG_PAGE_SIZE,
+) {
+  const pageCount = getBlogPageCount(totalPosts, pageSize);
+  if (pageCount <= 1) return "";
+
+  const previousHref = page === 2 ? "/blog/" : `/blog/page/${page - 1}/`;
+  const nextHref = `/blog/page/${page + 1}/`;
+  const previous =
+    page > 1
+      ? `<a class="blog-pagination-link blog-pagination-link--previous" href="${previousHref}" rel="prev"><span aria-hidden="true">&larr;</span> Newer posts</a>`
+      : '<span class="blog-pagination-spacer" aria-hidden="true"></span>';
+  const next =
+    page < pageCount
+      ? `<a class="blog-pagination-link blog-pagination-link--next" href="${nextHref}" rel="next">Older posts <span aria-hidden="true">&rarr;</span></a>`
+      : '<span class="blog-pagination-spacer" aria-hidden="true"></span>';
+
+  return `<nav class="blog-pagination" aria-label="Blog archive pages">
+                    ${previous}
+                    <span class="blog-pagination-current" aria-current="page">Page ${page} of ${pageCount}</span>
+                    ${next}
+                </nav>`;
 }
 
 // Number of most-used categories surfaced as pills; the rest go in a dropdown.
@@ -166,19 +203,28 @@ function renderFilter(posts) {
                     </div>`
     : "";
 
+  const initialEnd = Math.min(BLOG_PAGE_SIZE, posts.length);
+
   return `<div class="blog-filter" role="group" aria-label="Filter posts by topic">
                     <span class="blog-filter-label">Topics</span>
                     <div class="blog-filter-pills">
                         ${pills}
                     </div>${dropdown}
                 </div>
-            <p class="blog-filter-status" data-blog-filter-status aria-live="polite"></p>`;
+            <p class="blog-filter-status" data-blog-filter-status aria-live="polite">Showing 1&ndash;${initialEnd} of ${posts.length} posts</p>`;
 }
 
 async function main() {
   const posts = await loadPosts();
-  const cards = posts.map((post, i) => renderCard(post, i)).join("\n\n");
-  const gridBlock = `${GRID_START}\n${cards}\n                ${GRID_END}`;
+  const indexPosts = posts.map((post, index) => ({
+    categorySlug: post.categorySlug,
+    html: renderCard(post, index),
+  }));
+  const firstPageCards = getBlogPage(indexPosts, 1)
+    .map((post) => post.html)
+    .join("\n\n");
+  const pagination = renderPagination(1, posts.length);
+  const gridBlock = `${GRID_START}\n${firstPageCards}\n\n                ${pagination}\n                ${GRID_END}`;
   const filterBlock = `${FILTER_START}\n            ${renderFilter(posts)}\n            ${FILTER_END}`;
 
   let html = await fs.readFile(TARGET, "utf8");
@@ -187,8 +233,21 @@ async function main() {
   html = replaceBetween(html, FILTER_START, FILTER_END, filterBlock);
 
   await fs.writeFile(TARGET, html, "utf8");
+  await fs.writeFile(
+    INDEX_TARGET,
+    `${JSON.stringify(
+      {
+        total: posts.length,
+        pageSize: BLOG_PAGE_SIZE,
+        posts: indexPosts,
+      },
+      null,
+      2,
+    )}\n`,
+    "utf8",
+  );
   console.log(
-    `[blog-grid] Wrote ${posts.length} cards + filter bar to ${path.relative(WEB_DIR, TARGET)}`,
+    `[blog-grid] Wrote ${firstPageCards ? Math.min(BLOG_PAGE_SIZE, posts.length) : 0} initial cards + ${posts.length}-post deferred index`,
   );
 }
 
@@ -203,7 +262,12 @@ function replaceBetween(html, startMarker, endMarker, block) {
   return html.slice(0, startIdx) + block + html.slice(endIdx + endMarker.length);
 }
 
-main().catch((err) => {
-  console.error("[blog-grid] Failed:", err.message);
-  process.exit(1);
-});
+const isDirectRun =
+  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error("[blog-grid] Failed:", err.message);
+    process.exit(1);
+  });
+}

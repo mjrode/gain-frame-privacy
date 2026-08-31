@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import styles from "./page.module.css";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import { track } from "@/lib/analytics";
+import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
+import { trackToolFunnelStep } from "@/lib/tool-funnel";
 import {
   reportWebToolCompletion,
   WEB_TOOL_COMPLETED_DOM_EVENT,
@@ -13,10 +15,12 @@ import {
   bodyVisualizerRender,
   type BodyVisualizerSex,
 } from "@/lib/body-visualizer";
+import BodyShapeCompare from "./BodyShapeCompare";
 
 type UnitSystem = "metric" | "us";
 type ReferenceSex = BodyVisualizerSex;
 type ReferenceView = "front" | "back";
+type VisualizerMode = "height_weight" | "measurements";
 
 type MetricInputs = {
   heightCm: string;
@@ -124,8 +128,12 @@ function compactNumber(value: number, decimals = 0): string {
 }
 
 export default function BodyVisualizerClient() {
+  const viewedRef = useRef(false);
   const reportedUsage = useRef(false);
+  const reportedCompletion = useRef(false);
   const reportedResultShown = useRef(false);
+  const [mode, setMode] = useState<VisualizerMode>("height_weight");
+  const [locationResolved, setLocationResolved] = useState(false);
   const [unit, setUnit] = useState<UnitSystem>("metric");
   const [referenceSex, setReferenceSex] =
     useState<ReferenceSex>("female");
@@ -167,6 +175,32 @@ export default function BodyVisualizerClient() {
     "--marker-position": `${markerPosition}%`,
   } as CSSProperties;
 
+  useEffect(() => {
+    const requestedMode = new URLSearchParams(window.location.search).get("mode");
+    if (requestedMode === "measurements") setMode("measurements");
+    setLocationResolved(true);
+  }, []);
+
+  useEffect(() => {
+    if (!locationResolved || mode !== "height_weight" || viewedRef.current) return;
+    viewedRef.current = true;
+    trackToolFunnelStep("body_visualizer", "viewed", {
+      input_mode: "height_weight",
+    });
+  }, [locationResolved, mode]);
+
+  function switchMode(nextMode: VisualizerMode) {
+    if (nextMode === mode) return;
+    setMode(nextMode);
+    const url = new URL(window.location.href);
+    if (nextMode === "measurements") {
+      url.searchParams.set("mode", "measurements");
+    } else {
+      url.searchParams.delete("mode");
+    }
+    window.history.replaceState(window.history.state, "", url);
+  }
+
   function markUsed(
     nextUnit: UnitSystem = unit,
     nextReferenceSex: ReferenceSex = referenceSex,
@@ -175,16 +209,28 @@ export default function BodyVisualizerClient() {
   ) {
     if (!reportedUsage.current) {
       reportedUsage.current = true;
+      trackToolFunnelStep("body_visualizer", "started", {
+        input_mode: "height_weight",
+        unit: nextUnit,
+        reference_sex: nextReferenceSex,
+      });
+    }
+
+    const nextMeasurements = measurementsFrom(nextUnit, nextMetric, nextUs);
+    if (nextMeasurements && !reportedCompletion.current) {
+      reportedCompletion.current = true;
       void reportWebToolCompletion("body-visualizer");
       window.dispatchEvent(new CustomEvent(WEB_TOOL_COMPLETED_DOM_EVENT));
     }
 
-    if (
-      !reportedResultShown.current &&
-      measurementsFrom(nextUnit, nextMetric, nextUs)
-    ) {
+    if (!reportedResultShown.current && nextMeasurements) {
       reportedResultShown.current = true;
       track("body_visualizer_result_shown", {
+        unit: nextUnit,
+        reference_sex: nextReferenceSex,
+      });
+      trackToolFunnelStep("body_visualizer", "result_shown", {
+        input_mode: "height_weight",
         unit: nextUnit,
         reference_sex: nextReferenceSex,
       });
@@ -231,15 +277,78 @@ export default function BodyVisualizerClient() {
   }
 
   return (
-    <section className={styles.visualizerShell} aria-labelledby="visualizer-title">
+    <section className={styles.visualizerShell} aria-labelledby="visualizer-mode-title">
       <div className={styles.instrumentBar}>
         <span className={styles.instrumentName}>
           <span className={styles.liveDot} aria-hidden="true" />
           Body shape reference
         </span>
-        <span className={styles.instrumentMeta}>Adult BMI · v1.2</span>
+        <span className={styles.instrumentMeta}>
+          {mode === "height_weight" ? "Adult BMI · v1.2" : "Tape proportions · v1.0"}
+        </span>
       </div>
 
+      <div className={styles.modeChooser}>
+        <div>
+          <span>Visualizer mode</span>
+          <strong id="visualizer-mode-title">
+            Start with two numbers—or compare full measurements
+          </strong>
+        </div>
+        <div
+          className={styles.modeTabs}
+          role="tablist"
+          aria-label="Choose body visualizer mode"
+        >
+          <button
+            id="height-weight-tab"
+            type="button"
+            role="tab"
+            aria-selected={mode === "height_weight"}
+            aria-controls="height-weight-panel"
+            tabIndex={mode === "height_weight" ? 0 : -1}
+            className={mode === "height_weight" ? styles.modeTabActive : undefined}
+            onClick={() => switchMode("height_weight")}
+            onKeyDown={(event) => {
+              if (event.key !== "ArrowRight" && event.key !== "End") return;
+              event.preventDefault();
+              switchMode("measurements");
+              document.getElementById("measurements-tab")?.focus();
+            }}
+          >
+            <span>01</span>
+            Height + weight
+            <small>BMI reference</small>
+          </button>
+          <button
+            id="measurements-tab"
+            type="button"
+            role="tab"
+            aria-selected={mode === "measurements"}
+            aria-controls="body-shape-compare-panel"
+            tabIndex={mode === "measurements" ? 0 : -1}
+            className={mode === "measurements" ? styles.modeTabActive : undefined}
+            onClick={() => switchMode("measurements")}
+            onKeyDown={(event) => {
+              if (event.key !== "ArrowLeft" && event.key !== "Home") return;
+              event.preventDefault();
+              switchMode("height_weight");
+              document.getElementById("height-weight-tab")?.focus();
+            }}
+          >
+            <span>02</span>
+            Measurements
+            <small>Current vs. reference</small>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="height-weight-panel"
+        role="tabpanel"
+        aria-labelledby="height-weight-tab"
+        hidden={mode !== "height_weight"}
+      >
       <div className={styles.visualizerGrid}>
         <div className={styles.controlPanel}>
           <div className={styles.panelIntro}>
@@ -517,19 +626,30 @@ export default function BodyVisualizerClient() {
         </div>
       </div>
 
-      <ToolConversionCard
-        tool="body_visualizer"
-        campaign="web-body-visualizer"
-        placement="result"
-        activation="tool_completed"
-        headline={
-          bmi !== null
-            ? `BMI ${bmi.toFixed(1)} is one number. GainFrame tracks the body behind it.`
-            : "BMI is one number. GainFrame tracks the body behind it."
-        }
-        body="Progress photos become body-composition estimates, muscle scores, and comparisons you can actually track — free to start."
-        desktopBody="Scan with your iPhone to turn progress photos into body-composition estimates and muscle scores — free to start."
-      />
+        {mode === "height_weight" && (
+          <ToolConversionCard
+            tool="body_visualizer"
+            campaign="web-body-visualizer"
+            placement="result"
+            activation={
+              reportedCompletion.current ? "immediate" : "tool_completed"
+            }
+            headline={
+              bmi !== null
+                ? `BMI ${bmi.toFixed(1)} is one number. GainFrame tracks the body behind it.`
+                : "BMI is one number. GainFrame tracks the body behind it."
+            }
+            body="Progress photos become body-composition estimates, muscle scores, and comparisons you can actually track — free to start."
+            desktopBody="Scan with your iPhone to turn progress photos into body-composition estimates and muscle scores — free to start."
+            experiment={buildToolResultCtaExperiment({
+              tool: "body_visualizer",
+              bmi: bmi?.toFixed(1) ?? "result",
+            })}
+          />
+        )}
+      </div>
+
+      <BodyShapeCompare active={mode === "measurements"} />
     </section>
   );
 }
