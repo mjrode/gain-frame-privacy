@@ -1,7 +1,8 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-08-30** (review -> execution; owner approved `all`; F1 SHIPPED in `a75e850`; zero posts). GSC reached 15,272 clicks / 888,340 impressions in 28d (+153% / +188%) and 9,924 / 587,704 in the latest 14d (+86% / +96%); average position improved in both comparisons. Brand supplied only 4.8% of clicks and residual nonbrand clicks rose about 168%. GA4 organic sessions rose 116% with engagement up 5.37 points. C2, C3, and C11 continue to lead growth; only C10 is flat. The best emerging keyword is physique check (140 volume / KD 2), but Google already assigns it to the existing rater tool and article, including both in the live AI Overview; do not create a sibling. F1 corrected two false descriptions of the photo-only body-proportion tool, normalized 35 long dashes in the measurement guide, and restored exact five-answer FAQ/schema parity in the scanning roundup. Global inventory, both strict slug checks, the 526-page build, Cloudflare Workers deployment, live-copy verification, and two indexed URL inspections passed. IndexNow accepted both refreshes at 3/5 endpoints; Bing and its aggregator retain the known authorization 403. P1 ZOZOFIT remains approved but blocked on first-party evidence. · Data through 2026-08-28
+> Last run: **2026-09-02** (review; zero executable posts or fixes; P1 ZOZOFIT remains approved but blocked). GSC reached 16,953 clicks / 997,347 impressions in 28d (+158% / +189%) and 10,953 / 648,584 in the latest 14d (+83% / +86%); average position improved in both comparisons. Brand supplied about 4.1% of clicks and residual nonbrand clicks rose about 175%. GA4 organic sessions rose 118% with engagement up 5.45 points, while PostHog App Store clicks fell 7.7% over 28d and 6.0% over 14d. Existing tools absorbed the highest-value query growth: body visualizer rose 94 -> 1,345 clicks in the latest 14d, and physique rater rose 100 -> 2,431 clicks over 28d. The live `physique check` AI Overview no longer cited GainFrame on Sep 2, but the query family is already split deliberately between the rater tool and interpretation article; wait for the Aug 23 bridge's Sep 20 full read before changing it. 153/157 valid recent/watch URLs were indexed; two Aug 6 gallery URLs remain unknown until the Sep 3 gate, and two Aug 31 tools are too new to judge until Sep 28. · Data through 2026-08-31
+> Prior run: **2026-08-30** (review -> execution; owner approved `all`; F1 SHIPPED in `a75e850`; zero posts). GSC reached 15,272 clicks / 888,340 impressions in 28d (+153% / +188%) and 9,924 / 587,704 in the latest 14d (+86% / +96%); average position improved in both comparisons. Brand supplied only 4.8% of clicks and residual nonbrand clicks rose about 168%. GA4 organic sessions rose 116% with engagement up 5.37 points. C2, C3, and C11 continue to lead growth; only C10 is flat. The best emerging keyword is physique check (140 volume / KD 2), but Google already assigns it to the existing rater tool and article, including both in the live AI Overview; do not create a sibling. F1 corrected two false descriptions of the photo-only body-proportion tool, normalized 35 long dashes in the measurement guide, and restored exact five-answer FAQ/schema parity in the scanning roundup. Global inventory, both strict slug checks, the 526-page build, Cloudflare Workers deployment, live-copy verification, and two indexed URL inspections passed. IndexNow accepted both refreshes at 3/5 endpoints; Bing and its aggregator retain the known authorization 403. P1 ZOZOFIT remains approved but blocked on first-party evidence. · Data through 2026-08-28
 > Prior run: **2026-08-29** (review -> execution; owner approved `all`; F1-F2 SHIPPED in `5148b60`; zero posts). GSC reached 14,134 clicks / 818,626 impressions in 28d (+149% / +186%) and 9,139 / 545,761 in the latest 14d (+83% / +100%); average position improved in both comparisons. Residual nonbrand clicks rose about 164% over 28d. GA4 organic sessions rose from 6,337 to 13,638 with engagement up 5.7 points. The Aug 26 body-visualizer links were already shipped in `e59463f`, so page copy and targeting remain frozen. F1 added privacy-safe `body_visualizer_result_shown` instrumentation with unit and reference sex only; F2 repaired exact FAQ/schema parity, two reader-visible long dashes, and the canonical App Store link on the indexed DEXA benchmark. All tests, strict checks, the 526-page build, GitHub Pages deployment, and live URL verification passed. IndexNow accepted the DEXA refresh at 3/5 endpoints; Bing and its aggregator retain the known authorization 403. P1 ZOZOFIT remains approved but blocked on first-party evidence. · Data through 2026-08-26
 > Prior run: **2026-08-26** (review; zero executable posts; F1-F3 proposed). Search growth accelerated to 13,084 clicks / 747,229 impressions in 28d (+144% / +183%) and 8,339 / 491,599 in the latest 14d (+76% / +92%). Residual nonbrand clicks rose about 82% in the two-week comparison while brand clicks fell by 10. GA4 organic sessions rose 44% with engagement up 3.4 points. `/tools/body-visualizer/` was the clearest existing-asset focus: 738 vs 27 clicks, 560 vs 34 organic sessions, 74.8% engagement, and exact-query position 12.5 in a 40,500-volume / KD 4 market. Proposed F1 added three relevant SEO-lane links, F2 added a privacy-safe result event, and F3 repaired FAQ/schema parity on the indexed but unmeasured DEXA benchmark. The three inbound links subsequently shipped in commit `e59463f`; the result event and DEXA repair did not. P1 ZOZOFIT remained approved but blocked on first-party evidence. 165/167 inspected recent or zero-impression URLs were indexed; the same two male gallery unknowns remained gated to Sep 3. · Data through 2026-08-24
 > Prior run: **2026-08-23** (review -> execution; owner approved `all`; F1-F4 SHIPPED; P1 approved but HOLD on first-party evidence). GSC reached 11,447 clicks / 648,562 impressions in 28d (+137% / +178%); residual nonbrand clicks rose 153%. **P1 ZOZOFIT Review** remains the only clean net-new keyword at 720 US volume and +22% yearly, but its three controlled scans, tape comparison, setup notes, screenshots, and interview do not exist yet, so no article or URL was created. The shipped work repointed `rate-my-physique` to the physique rater, corrected current ZOZOFIT app/suit/pricing facts, consolidated InBody-vs-Withings coverage on the existing owner, and updated three mature pages for live Target Training and nutrition. All six modified posts pass strict launch checks and the production build passes. No indexing requests were made because no new URL shipped. `hume vs renpho` remains a hardware-gated watch; Fitbod/Hevy/LeanLens/MyFitnessPal siblings remain rejected. 507/509 live sitemap URLs are indexed; the two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-21
@@ -17,6 +18,65 @@
 > Same-day run 1: 2026-08-11 (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**)
 > Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
 > Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
+
+## New findings (2026-09-02 - existing-owner growth, conversion lag, and measurement hold)
+
+- **Search growth remains broad, accelerating, and nonbrand.** GSC reached 16,953 clicks and
+  997,347 impressions in 28 days, up 158% and 189%. Average position improved from 8.456 to
+  7.481. Brand rows supplied about 4.1% of clicks; residual nonbrand clicks rose about 175%.
+- **GA4 confirms engaged discovery, but downstream clicks declined.** Organic sessions rose 118%
+  to 15,885 and engagement improved 5.45 points to 69.39%. PostHog App Store clicks fell 7.7%
+  over 28 days and 6.0% over 14 days; Google-referred clicks fell in both windows. Do not convert
+  search growth into an install, subscription, or revenue claim.
+- **Existing tools absorbed the highest-value demand.** The body visualizer rose from 94 to 1,345
+  GSC clicks in the latest 14-day comparison and exact-query position improved from 40.31 to
+  10.30. The physique-rater tool rose from 100 to 2,431 clicks over 28 days and produced 1,836
+  scores. Preserve both measurement windows.
+- **Physique check remains an existing-owner opportunity.** Fresh market data is 140 volume / KD
+  2 / informational / -18% monthly. The query generated 2 clicks / 430 impressions at position
+  8.02, split mainly between the rater tool and interpretation article. The Sep 2 live AI
+  Overview cited LeanLens and Power Craft rather than GainFrame, unlike the prior snapshot. Treat
+  the citation as volatile and wait for the Aug 23 bridge's Sep 20 full read before changing the
+  Quick Answer or adding a definition section. Never create a sibling.
+- **No clean net-new executable post survived.** P1 ZOZOFIT remains the only defensible new URL:
+  720 volume, +22% yearly, and an open independent-review SERP. The controlled scans, tape
+  readings, setup/failure notes, screenshots, and first-person interview still do not exist.
+- **Indexing is healthy.** 153/157 valid recent/watch URLs were submitted and indexed. The two
+  Aug 6 male gallery URLs remain unknown one day before their Sep 3 action gate. Two Aug 31 tools
+  are also unknown but too new to judge until Sep 28. There are no crawled-not-indexed or
+  discovered-not-indexed verdicts.
+- **Static inventory remains selective, not urgent.** There are 239 posts, 1,349 internal links,
+  zero broken links, six founder/product orphans, 50 Quick Answer flags, 92 structured-data drift
+  pages, and 212 posts with legacy long dashes. None creates a higher-leverage task than the live
+  measurement windows.
+
+### 2026-09-02 decision ledger
+
+| Item | Target / evidence | State |
+|---|---|---|
+| Body visualizer | 40,500 volume / KD 4; exact-query 80 clicks / 1,879 impressions at 11.50; latest page window 1,345 vs 94 clicks | **Existing owner / measure.** No copy or metadata change before Sep 23 |
+| Physique check | 140 volume / KD 2; 2 clicks / 430 impressions at 8.02; live AI citation changed | **Existing owners / hold.** Tool plus article; recheck Sep 20, no sibling |
+| Best AI body-fat flagship decay | 478 vs 550 clicks over 28d, but 249 vs 229 in latest 14d; key queries transferred to the photo tool | **Useful ownership transfer.** Protect both owners; no rewrite |
+| AI physique roundup decay | 66 vs 120 clicks while rater tool reached 2,431 clicks and 1,836 scores | **Useful ownership transfer.** Do not optimize the blog against the tool |
+| P1 zozofit-review | 720 volume / +22% yearly / independent-test gap | **Approved, blocked.** Evidence contract unchanged |
+| Aug 6 male gallery URLs | unknown to Google, 27 days old, sitemap and hub coverage verified | **Hold one day.** Reinspect Sep 3 |
+| Aug 31 progress-photo/recomp tools | live, sitemap-listed, unknown to Google after one day | **Too new to judge.** Fair index/product read Sep 28 |
+
+### Next measurement gates
+
+| Asset / change | Read | Fair date |
+|---|---|---|
+| Two unknown male gallery URLs | URL Inspection verdict | Sep 3 |
+| Body visualizer launch | exact-query position, CTR, and sessions | Sep 3 initial 28d; Sep 23 Aug 26 work |
+| Aug 25 tools/content | query ownership, successful results, and qualified handoff | Sep 4 directional; Sep 22 full |
+| Body-visualizer result event | valid results and result-to-CTA rate | Sep 5 directional; Sep 26 full |
+| Thelo review | exact brand-query ownership, CTR, and engagement | Sep 6 |
+| Aug 30 truth repair | page-to-tool behavior and query stability | Sep 6 directional; Sep 27 full |
+| Smart-scale trio | query ownership and CTR | Sep 8 |
+| Absmaxx comparison | brand-query ownership and qualified handoff | Sep 10 |
+| Rate-my-physique / physique check | CTR, page split, live AI citation, and tool handoff | Sep 20 |
+| Aug 31 progress-photo/recomp tools | index verdict, results, and qualified handoff | Sep 28 |
+| P1 ZOZOFIT | evidence-pack existence | blocked |
 
 ## New findings (2026-08-30 — keyword ownership and growth review)
 
@@ -518,9 +578,9 @@ prune these from topical-map gap lines when next edited.
 
 | Cluster | Stance | Why |
 |---|---|---|
-| AI body-fat estimation (C1) | **Protect** | Core money cluster; `best-ai-body-fat-apps` at pos 5.5 / 582 clicks. Saturated — do not expand |
-| Physique rating (C11) | **Press** | Only cluster with positive market trend. Under-built: 5 posts, orphaned entry points |
-| Body-fat visual reference (C2) | **Hold** | `body-fat-percentage-chart` recovered pos 37.2 → 11.8, but the keyword is −45%/yr. Harvest, don't extend |
+| AI body-fat estimation (C1) | **Protect** | Core money cluster; the photo tool is absorbing high-intent calculator/estimator queries from the flagship roundup. Saturated; do not expand |
+| Physique rating (C11) | **Press existing assets** | Tool and article ecosystem is growing quickly. The next decision is a Sep 20 `physique check` AEO read, never a sibling page |
+| Body-fat visual reference (C2) | **Hold / measure** | Body visualizer is the largest current opportunity and already moved sharply. Preserve the Aug 26 to Sep 23 window |
 | Scanning / measurement (C3) | **Selective press** | Largest mapped cluster and strongest commercial roundup. Freeze stats pages, but permit distinct evidence-led brand reviews such as asset-gated ZOZOFIT P1 |
 | AI coach / trainer (C9) | **Freeze** | "ai personal trainer" is −63%/yr at pos 9.8 with 0.84% CTR |
 | Progress photos (C4) | **Hold** | Steady; AI Overview citations at rank 1 for "progress photos app" |
@@ -530,15 +590,15 @@ prune these from topical-map gap lines when next edited.
 
 ## Structural debt
 
-**Largely cleared 2026-08-01.** As of 2026-08-23: 239 working-tree MDX posts, 1,352 internal
-links, 6 orphans, median inbound 4, zero broken internal links, and zero missing covers.
+**Largely cleared 2026-08-01.** As of 2026-09-02: 239 working-tree MDX posts, 1,349 internal
+links, 6 orphans, median inbound 3, zero broken internal links, and zero missing covers.
 
 - **6 orphans remain**, all founder/product-lane (exempt — judged on sessions/distribution, not
   GSC link equity).
-- **51 Quick Answer defects remain.** They include frozen stats pages and a smaller set of
+- **50 Quick Answer defects remain.** They include frozen stats pages and a smaller set of
   commercial pages. Fresh AI Overview citation data was unavailable 2026-08-11, so do not bulk
   prioritize from the local count alone. Pages inside a measurement window remain untouched.
-- The stricter Aug 11 checker now reports **98 structured-data contract drifts** and **221 posts
+- The stricter Aug 11 checker now reports **92 structured-data contract drifts** and **212 posts
   with reader-visible long dashes**. These are not a blanket rewrite
   mandate; every newly modified post must pass the strict gate, and legacy work needs a
   leverage-ranked scope.
@@ -668,6 +728,10 @@ their own.
 
 | What | Metric | When |
 |---|---|---|
+| Two unknown male gallery URLs | URL Inspection verdict; action only if still unknown at the fair gate | 2026-09-03 |
+| `/tools/body-visualizer/` | initial 28d query ownership, then Aug 26 link/copy window | 2026-09-03 initial; 2026-09-23 full |
+| `rate-my-physique` / `physique check` | CTR, tool/article split, live AI citation, and tool handoff | 2026-09-20 |
+| Aug 31 progress-photo/recomp tools | URL Inspection, successful result events, qualified handoff | 2026-09-28 |
 | P1 ZOZOFIT review | first-party scan/tape/screenshot pack; after ship, exact review-query owner and App Store clicks | asset gate first; then 28d after deploy |
 | Hume vs RENPHO | query×page across Hume review, scale roundup, and RENPHO review; side-by-side hardware assets | 7–10d after Hume local metadata deploys |
 | `gainframe-leaderboard-nutrition-tracking` | correct shipped nutrition claims without interpreting early rank | 2026-09-05 |
