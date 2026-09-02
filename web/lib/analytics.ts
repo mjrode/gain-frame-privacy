@@ -97,6 +97,13 @@ export type AnalyticsEvent =
   | "blog_sticky_cta_viewed"
   | "blog_sticky_cta_clicked"
   | "blog_sticky_cta_dismissed"
+  // Randomized top-blog sticky-vs-editorial experiment. Exposure requires at
+  // least 50% visibility for 800ms; continued reading is the first later
+  // article section reached after a material exposure.
+  | "blog_cta_experiment_viewed"
+  | "blog_cta_experiment_clicked"
+  | "blog_cta_experiment_dismissed"
+  | "blog_cta_experiment_continued_reading"
   // Ab analyzer tool
   | "ab_tool_requested"
   | "ab_tool_scored"

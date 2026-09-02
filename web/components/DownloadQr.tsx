@@ -10,19 +10,23 @@ import {
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 
 type DownloadQrProps = {
+  backgroundColor?: string;
   campaign: string;
   className?: string;
   content: string;
   customProductPageId?: string;
+  foregroundColor?: string;
   label?: string;
   source: string;
 };
 
 export default function DownloadQr({
+  backgroundColor = "#fffdf7",
   campaign,
   className,
   content,
   customProductPageId,
+  foregroundColor = "#181a17",
   label = "Scan with iPhone",
   source,
 }: DownloadQrProps) {
@@ -56,8 +60,8 @@ export default function DownloadQr({
         value={href}
         size={68}
         level="M"
-        bgColor="#fffdf7"
-        fgColor="#181a17"
+        bgColor={backgroundColor}
+        fgColor={foregroundColor}
         title={`${label} to download GainFrame`}
       />
       <span>
