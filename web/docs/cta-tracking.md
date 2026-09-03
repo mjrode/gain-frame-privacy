@@ -11,6 +11,13 @@ Written 2026-07-29 after a false alarm (see "Worked example" at the bottom).
 | `cta_platform_alternative_click` | An **Android** user clicks a download CTA | `PlatformDownloadLink` — routes them to `/tools/body-fat-from-photo/` instead |
 | `web_download_clicked` | A consented GainFrame App Store/OneLink click, with a unique click ID and page-level attribution | `AppStoreClickTracker` — site-wide delegated capture-phase listener |
 
+Every Apple download click also carries `cta_card_name` as a readable placement
+description. Rendered contextual cards and older per-article authored cards add
+`cta_card_headline`, `cta_card_label`, `cta_button_text`, `cta_action_text`,
+`cta_card_image_url`, and available blog placement context. The PostHog Slack
+destination uses these fields so an alert identifies the visible card and copy
+instead of showing only an internal CTA token.
+
 ## Normalized web-tool funnel
 
 The detailed per-tool events remain intact. A second, typed layer now makes the

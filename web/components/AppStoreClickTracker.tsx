@@ -9,6 +9,66 @@ import {
   isGainFrameDownloadUrl,
   rememberAcquisitionParams,
 } from "@/lib/web-attribution";
+import { describeDownloadCta } from "@/lib/download-cta-context";
+
+const CTA_CARD_SELECTOR = [
+  "[data-cta-card]",
+  ".blog-post-cta",
+  ".post-footer-cta",
+  ".blog-cta-card",
+  ".blog-cta",
+].join(", ");
+
+function compactText(value: string | null | undefined): string | undefined {
+  const compacted = value?.replace(/\s+/g, " ").trim();
+  return compacted || undefined;
+}
+
+function inferredCardName(card: HTMLElement | null): string | undefined {
+  const declared = compactText(card?.dataset.ctaCardName);
+  if (declared) return declared;
+  if (
+    card?.matches(
+      ".blog-post-cta, .post-footer-cta, .blog-cta-card, .blog-cta",
+    )
+  ) {
+    return "Authored inline blog card — per-article creative";
+  }
+  return undefined;
+}
+
+function inferredCardType(card: HTMLElement | null): string | undefined {
+  if (card?.dataset.ctaCard) return card.dataset.ctaCard;
+  return card ? "blog_authored" : undefined;
+}
+
+function cardText(
+  card: HTMLElement | null,
+  declared: string | undefined,
+  selector: string,
+): string | undefined {
+  return (
+    compactText(declared) ??
+    compactText(card?.querySelector(selector)?.textContent)
+  );
+}
+
+function clickedActionText(anchor: HTMLAnchorElement): string | undefined {
+  return (
+    compactText(anchor.getAttribute("aria-label")) ??
+    compactText(anchor.textContent) ??
+    compactText(anchor.querySelector("img")?.getAttribute("alt"))
+  );
+}
+
+function absoluteAssetUrl(path: string | undefined): string | undefined {
+  if (!path) return undefined;
+  try {
+    return new URL(path, window.location.origin).href;
+  } catch {
+    return undefined;
+  }
+}
 
 /**
  * Site-wide delegated listener that fires `outbound_app_store_click` for any
@@ -92,6 +152,54 @@ export default function AppStoreClickTracker() {
             cta_angle: experimentRoot?.dataset.ctaAngle ?? experimentVariant,
           }
         : {};
+      const cardRoot = anchor.closest<HTMLElement>(CTA_CARD_SELECTOR);
+      const cardName =
+        inferredCardName(cardRoot) ??
+        describeDownloadCta(ctaContent, experimentVariant);
+      const actionText = clickedActionText(anchor);
+      const cardLabel = cardText(
+        cardRoot,
+        cardRoot?.dataset.ctaCardLabel,
+        ".blog-contextual-cta-label",
+      );
+      const cardHeadline = cardText(
+        cardRoot,
+        cardRoot?.dataset.ctaCardHeadline,
+        "h2, h3",
+      );
+      const buttonText =
+        cardText(
+          cardRoot,
+          cardRoot?.dataset.ctaCardButton,
+          ".blog-contextual-cta-button",
+        ) ?? actionText;
+      const cardImageUrl = absoluteAssetUrl(
+        cardRoot?.dataset.ctaCardImage ??
+          cardRoot?.querySelector("img")?.getAttribute("src") ??
+          undefined,
+      );
+      const cardType = inferredCardType(cardRoot);
+      const cardContext = {
+        cta_card_name: cardName,
+        ...(actionText ? { cta_action_text: actionText } : {}),
+        ...(cardType ? { cta_card_type: cardType } : {}),
+        ...(cardLabel ? { cta_card_label: cardLabel } : {}),
+        ...(cardHeadline ? { cta_card_headline: cardHeadline } : {}),
+        ...(buttonText ? { cta_button_text: buttonText } : {}),
+        ...(cardImageUrl ? { cta_card_image_url: cardImageUrl } : {}),
+        ...(cardRoot?.dataset.blogCtaSlug
+          ? { blog_slug: cardRoot.dataset.blogCtaSlug }
+          : {}),
+        ...(cardRoot?.dataset.blogCtaIntent
+          ? { blog_intent: cardRoot.dataset.blogCtaIntent }
+          : {}),
+        ...(cardRoot?.dataset.blogCtaPlacement
+          ? { blog_placement: cardRoot.dataset.blogCtaPlacement }
+          : {}),
+        ...(cardRoot?.dataset.blogCtaRollout
+          ? { blog_rollout: cardRoot.dataset.blogCtaRollout }
+          : {}),
+      };
 
       rememberCurrentAcquisition();
       const attribution = buildWebAttributionLink({
@@ -112,6 +220,7 @@ export default function AppStoreClickTracker() {
           source,
           cta_content: ctaContent,
           ct,
+          ...cardContext,
           ...experimentProperties,
         });
       }
@@ -119,7 +228,13 @@ export default function AppStoreClickTracker() {
       if (!anchor.hasAttribute("data-track-exempt")) {
         trackOncePerDay(
           "outbound_app_store_click",
-          { source, cta_content: ctaContent, ct, ...experimentProperties },
+          {
+            source,
+            cta_content: ctaContent,
+            ct,
+            ...cardContext,
+            ...experimentProperties,
+          },
           `${source}:${ctaContent}:${experimentVariant ?? "none"}`,
         );
       }

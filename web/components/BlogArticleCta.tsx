@@ -22,6 +22,7 @@ import {
   type BlogCtaAssignment,
   type BlogCtaVariant,
 } from "@/lib/blog-cta-experiment";
+import { blogCtaCardName } from "@/lib/download-cta-context";
 
 type BlogArticleCtaProps = {
   intent: BlogCtaIntent;
@@ -188,6 +189,7 @@ function ContextualCta({
   const sticky = presentation === "sticky_control";
   const editorial = presentation === "editorial_inline";
   const placement = sticky ? "sticky" : "inline";
+  const cardName = blogCtaCardName(presentation);
   const attribution = assignment
     ? getBlogCtaAttribution(intent, assignment.variant)
     : {
@@ -202,6 +204,14 @@ function ContextualCta({
       data-blog-cta-intent={intent}
       data-blog-cta-placement={placement}
       data-blog-cta-in-view={inView ? "true" : "false"}
+      data-blog-cta-slug={slug}
+      data-blog-cta-rollout={rollout}
+      data-cta-card="blog_contextual"
+      data-cta-card-name={cardName}
+      data-cta-card-label={config.label}
+      data-cta-card-headline={config.title}
+      data-cta-card-button={config.button}
+      data-cta-card-image={config.image}
       data-experiment-id={assignment ? BLOG_CTA_EXPERIMENT_ID : undefined}
       data-experiment-phase={
         assignment ? BLOG_CTA_EXPERIMENT_PHASE : undefined

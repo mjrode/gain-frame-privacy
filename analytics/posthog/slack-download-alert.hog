@@ -1,0 +1,119 @@
+let todayCount := null;
+let countRes := fetch('https://us.posthog.com/api/projects/357433/query/', {
+  'method': 'POST',
+  'headers': {
+    'Authorization': f'Bearer {inputs.posthog_api_key}',
+    'Content-Type': 'application/json'
+  },
+  'body': {
+    'query': {
+      'kind': 'HogQLQuery',
+      'query': f'SELECT count() FROM events WHERE event = \'outbound_app_store_click\' AND timestamp >= today() AND uuid != \'{event.uuid}\''
+    }
+  }
+});
+if (countRes.status == 200 and countRes.body != null and countRes.body.results != null) {
+  let row := countRes.body.results[1];
+  if (row != null and row[1] != null) {
+    todayCount := row[1] + 1;
+  }
+}
+
+let ctaId := event.properties.cta_content;
+let variant := event.properties.experiment_variant;
+let cardName := event.properties.cta_card_name;
+
+// Keep alerts readable while the richer browser event rolls out.
+if (cardName == null and variant == 'editorial_inline') {
+  cardName := 'Editorial inline blog card — large blue/white panel inside the article (experiment challenger)';
+}
+if (cardName == null and variant == 'sticky_control') {
+  cardName := 'Sticky blog card — floating dock at the bottom of the screen (experiment control)';
+}
+if (cardName == null and (
+  ctaId == 'contextual_inline_body-fat' or
+  ctaId == 'contextual_inline_comparison' or
+  ctaId == 'contextual_inline_general' or
+  ctaId == 'contextual_inline_progress' or
+  ctaId == 'contextual_inline_recomposition' or
+  ctaId == 'contextual_inline_body-fat_qr_desktop_link' or
+  ctaId == 'contextual_inline_comparison_qr_desktop_link' or
+  ctaId == 'contextual_inline_general_qr_desktop_link' or
+  ctaId == 'contextual_inline_progress_qr_desktop_link' or
+  ctaId == 'contextual_inline_recomposition_qr_desktop_link'
+)) {
+  cardName := 'Standard inline blog card — green/cream panel inside the article';
+}
+if (cardName == null and ctaId == 'link') {
+  cardName := 'Inline text link (not a card)';
+}
+if (cardName == null and ctaId == 'store_badge') {
+  cardName := 'App Store badge';
+}
+if (cardName == null and ctaId == 'floating_pill') {
+  cardName := 'Floating download pill';
+}
+if (cardName == null and ctaId == 'nav_download') {
+  cardName := 'Navigation download button';
+}
+if (cardName == null and (ctaId == 'hero_download' or ctaId == 'hero_primary')) {
+  cardName := 'Hero download button';
+}
+if (cardName == null and ctaId == 'closing_download') {
+  cardName := 'Closing download button';
+}
+if (cardName == null) {
+  cardName := f'Other download CTA (`{ctaId}`)';
+}
+
+let details := f'*Clicked card:* {cardName}';
+if (event.properties.cta_card_headline != null) {
+  details := f'{details}\n*Headline:* “{event.properties.cta_card_headline}”';
+}
+if (event.properties.cta_action_text != null) {
+  details := f'{details}\n*Clicked action:* {event.properties.cta_action_text}';
+}
+if (event.properties.cta_card_image_url != null) {
+  details := f'{details}\n*Card artwork:* <{event.properties.cta_card_image_url}|Open image>';
+}
+if (variant != null) {
+  details := f'{details}\n*Experiment presentation:* `{variant}`';
+}
+
+let blocks := arrayPushBack(inputs.blocks, {
+  'type': 'section',
+  'text': {
+    'type': 'mrkdwn',
+    'text': details
+  }
+});
+let text := f'App Store download click — {cardName} — {event.properties.source}';
+if (todayCount != null) {
+  blocks := arrayPushBack(blocks, {
+    'type': 'context',
+    'elements': [{
+      'type': 'mrkdwn',
+      'text': f':chart_with_upwards_trend: Download click *#{todayCount}* today'
+    }]
+  });
+  text := f'{text} — #{todayCount} today';
+}
+
+let res := fetch('https://slack.com/api/chat.postMessage', {
+  'body': {
+    'channel': inputs.channel,
+    'icon_emoji': inputs.icon_emoji,
+    'username': inputs.username,
+    'blocks': blocks,
+    'text': text
+  },
+  'method': 'POST',
+  'headers': {
+    'Authorization': f'Bearer {inputs.slack_workspace.access_token}',
+    'Content-Type': 'application/json'
+  }
+});
+
+if (res.status != 200 or res.body.ok == false) {
+  throw Error(f'Failed to post message to Slack: {res.status}: {res.body}');
+}
