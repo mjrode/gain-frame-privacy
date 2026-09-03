@@ -314,23 +314,24 @@
    session. The full result remains the hero; this is deliberately shorter
    than the inline conversion card and respects the device safe area. */
 body.has-tool-sticky-cta {
-  padding-bottom: 130px;
+  padding-bottom: 108px;
 }
 .tcc-card--sticky {
   position: fixed;
   z-index: 80;
-  overflow: visible;
+  overflow: hidden;
   left: 50%;
   transform: translateX(-50%);
   bottom: max(12px, env(safe-area-inset-bottom));
   width: min(1160px, calc(100vw - 32px));
   margin: 0;
-  padding: 15px 18px 11px;
-  grid-template-columns: minmax(0, 1fr) 174px minmax(300px, 0.72fr);
-  grid-template-areas: "copy preview actions";
+  padding: 9px 12px;
+  grid-template-columns: 58px minmax(160px, 1fr) minmax(320px, 0.8fr) 44px;
+  grid-template-areas: "preview copy actions dismiss";
   align-items: center;
-  column-gap: 18px;
-  row-gap: 5px;
+  column-gap: 12px;
+  row-gap: 0;
+  border-radius: 16px;
   border-color: oklch(0.74 0.13 71 / 0.42);
   background: var(--tcc-paper);
   box-shadow:
@@ -338,10 +339,10 @@ body.has-tool-sticky-cta {
     0 2px 8px oklch(0.28 0.03 65 / 0.08);
 }
 .tcc-dismiss {
-  position: absolute;
+  position: static;
   z-index: 10;
-  top: -18px;
-  right: -4px;
+  grid-area: dismiss;
+  align-self: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -349,10 +350,10 @@ body.has-tool-sticky-cta {
   height: 44px;
   padding: 0;
   color: var(--tcc-muted);
-  border: 1px solid var(--tcc-line-2);
+  border: 1px solid var(--tcc-line);
   border-radius: 999px;
-  background: var(--tcc-paper);
-  box-shadow: 0 4px 12px oklch(0.28 0.025 65 / 0.14);
+  background: var(--tcc-paper-2);
+  box-shadow: none;
   cursor: pointer;
   transition:
     color 160ms cubic-bezier(0.165, 0.84, 0.44, 1),
@@ -381,18 +382,34 @@ body.has-tool-sticky-cta {
   max-width: 600px;
 }
 .tcc-card--sticky h3 {
-  font-size: 1.08rem;
+  max-width: none;
+  font-size: 1rem;
+  line-height: 1.18;
 }
 .tcc-card--sticky .tcc-copy p {
   display: none;
 }
 .tcc-card--sticky .tcc-copy .tcc-progress-steps {
   display: flex;
-  margin-top: 6px;
-  font-size: 0.76rem;
+  margin-top: 4px;
+  font-size: 0.72rem;
 }
 .tcc-card--sticky .tcc-preview {
-  min-height: 94px;
+  grid-area: preview;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 62px;
+}
+.tcc-card--sticky .tcc-phone-preview {
+  display: none;
+}
+.tcc-card--sticky .tcc-mascot {
+  position: static;
+  width: 58px;
+  height: 62px;
+  filter: drop-shadow(0 4px 4px oklch(0.205 0.006 67 / 0.12));
 }
 .tcc-card--sticky .tcc-actions,
 .tcc-card--sticky .tcc-android-form {
@@ -400,9 +417,9 @@ body.has-tool-sticky-cta {
   margin-top: 0;
 }
 .tcc-card--sticky .tcc-primary {
-  min-height: 50px;
-  padding: 11px 17px;
-  font-size: 0.9rem;
+  min-height: 46px;
+  padding: 10px 16px;
+  font-size: 0.88rem;
 }
 .tcc-card--sticky[data-platform="desktop"] .tcc-qr {
   padding: 6px;
@@ -417,17 +434,17 @@ body.has-tool-sticky-cta {
 
 @media (max-width: 760px) {
   body.has-tool-sticky-cta {
-    padding-bottom: calc(164px + env(safe-area-inset-bottom));
+    padding-bottom: calc(152px + env(safe-area-inset-bottom));
   }
   .tcc-card--sticky {
     bottom: max(8px, env(safe-area-inset-bottom));
     width: calc(100vw - 16px);
     padding: 10px 11px;
-    grid-template-columns: minmax(0, 1fr) 108px;
+    grid-template-columns: 54px minmax(0, 1fr) 44px;
     grid-template-areas:
-      "copy preview"
-      "actions actions";
-    column-gap: 10px;
+      "preview copy dismiss"
+      "actions actions actions";
+    column-gap: 8px;
     row-gap: 8px;
     border-radius: 16px;
   }
@@ -444,22 +461,16 @@ body.has-tool-sticky-cta {
   .tcc-card--sticky .tcc-proof {
     display: none;
   }
-  .tcc-card--sticky .tcc-preview {
-    display: block;
-    min-height: 76px;
+  .tcc-card--sticky .tcc-copy .tcc-progress-steps {
+    display: none;
   }
-  .tcc-card--sticky .tcc-phone-preview {
-    left: 0;
-    bottom: -11px;
-    display: block;
-    width: 48px;
-    height: 82px;
+  .tcc-card--sticky .tcc-preview {
+    display: flex;
+    min-height: 58px;
   }
   .tcc-card--sticky .tcc-mascot {
-    right: -2px;
-    bottom: -3px;
-    width: 72px;
-    height: 72px;
+    width: 54px;
+    height: 58px;
   }
   .tcc-card--sticky .tcc-actions {
     display: flex;
@@ -483,13 +494,13 @@ body.has-tool-sticky-cta {
 
 @media (max-width: 520px) {
   body.has-tool-sticky-cta {
-    padding-bottom: calc(164px + env(safe-area-inset-bottom));
+    padding-bottom: calc(152px + env(safe-area-inset-bottom));
   }
   .tcc-card--sticky {
-    grid-template-columns: minmax(0, 1fr) 108px;
+    grid-template-columns: 54px minmax(0, 1fr) 44px;
     grid-template-areas:
-      "copy preview"
-      "actions actions";
+      "preview copy dismiss"
+      "actions actions actions";
   }
   .tcc-card--sticky .tcc-eyebrow {
     white-space: nowrap;
