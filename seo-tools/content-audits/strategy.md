@@ -1,7 +1,8 @@
 # SEO strategy — rolling state
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
-> Last run: **2026-09-02** (review; zero executable posts or fixes; P1 ZOZOFIT remains approved but blocked). GSC reached 16,953 clicks / 997,347 impressions in 28d (+158% / +189%) and 10,953 / 648,584 in the latest 14d (+83% / +86%); average position improved in both comparisons. Brand supplied about 4.1% of clicks and residual nonbrand clicks rose about 175%. GA4 organic sessions rose 118% with engagement up 5.45 points, while PostHog App Store clicks fell 7.7% over 28d and 6.0% over 14d. Existing tools absorbed the highest-value query growth: body visualizer rose 94 -> 1,345 clicks in the latest 14d, and physique rater rose 100 -> 2,431 clicks over 28d. The live `physique check` AI Overview no longer cited GainFrame on Sep 2, but the query family is already split deliberately between the rater tool and interpretation article; wait for the Aug 23 bridge's Sep 20 full read before changing it. 153/157 valid recent/watch URLs were indexed; two Aug 6 gallery URLs remain unknown until the Sep 3 gate, and two Aug 31 tools are too new to judge until Sep 28. · Data through 2026-08-31
+> Last run: **2026-09-03** (review -> execution; owner approved `all`; P2/P4 plus fixes shipped in `e7812a7`). GSC reached 16,953 clicks / 997,347 impressions in 28d (+158% / +189%); tools supplied 7,280 clicks (+344%) and 42.9% of site clicks. Published InBody vs DEXA and a first-party GE Lunar DEXA report-reading pillar after existing report assets cleared P4's evidence gate. Retargeted the generic estimator to U.S. Navy tape-method intent, refreshed the page-two recomp timeline, aligned the average-male-BF schema, and added contextual support for FFMI, 1RM, strength, shoulder width, Progress Photo Compare, and Recomp Reality Checker. All 28 touched/new posts passed strict validation; global inventory passed at 241 posts; 94 tests and the 538-route build passed. Cloudflare deployed `860d4b8`; live pages/assets passed. IndexNow accepted seven URLs at 3/5 endpoints; Bing's known verification 403 remains. WeightWatchers, Evolt 360, and calipers remain approved but evidence-blocked. WHtR remains held until the first settled Sep 1+ GSC row; current API data still ends Aug 31. · Data through 2026-08-31
+> Prior run: **2026-09-02** (review; zero executable posts or fixes; P1 ZOZOFIT remains approved but blocked). GSC reached 16,953 clicks / 997,347 impressions in 28d (+158% / +189%) and 10,953 / 648,584 in the latest 14d (+83% / +86%); average position improved in both comparisons. Brand supplied about 4.1% of clicks and residual nonbrand clicks rose about 175%. GA4 organic sessions rose 118% with engagement up 5.45 points, while PostHog App Store clicks fell 7.7% over 28d and 6.0% over 14d. Existing tools absorbed the highest-value query growth: body visualizer rose 94 -> 1,345 clicks in the latest 14d, and physique rater rose 100 -> 2,431 clicks over 28d. The live `physique check` AI Overview no longer cited GainFrame on Sep 2, but the query family is already split deliberately between the rater tool and interpretation article; wait for the Aug 23 bridge's Sep 20 full read before changing it. 153/157 valid recent/watch URLs were indexed; two Aug 6 gallery URLs remain unknown until the Sep 3 gate, and two Aug 31 tools are too new to judge until Sep 28. · Data through 2026-08-31
 > Prior run: **2026-08-30** (review -> execution; owner approved `all`; F1 SHIPPED in `a75e850`; zero posts). GSC reached 15,272 clicks / 888,340 impressions in 28d (+153% / +188%) and 9,924 / 587,704 in the latest 14d (+86% / +96%); average position improved in both comparisons. Brand supplied only 4.8% of clicks and residual nonbrand clicks rose about 168%. GA4 organic sessions rose 116% with engagement up 5.37 points. C2, C3, and C11 continue to lead growth; only C10 is flat. The best emerging keyword is physique check (140 volume / KD 2), but Google already assigns it to the existing rater tool and article, including both in the live AI Overview; do not create a sibling. F1 corrected two false descriptions of the photo-only body-proportion tool, normalized 35 long dashes in the measurement guide, and restored exact five-answer FAQ/schema parity in the scanning roundup. Global inventory, both strict slug checks, the 526-page build, Cloudflare Workers deployment, live-copy verification, and two indexed URL inspections passed. IndexNow accepted both refreshes at 3/5 endpoints; Bing and its aggregator retain the known authorization 403. P1 ZOZOFIT remains approved but blocked on first-party evidence. · Data through 2026-08-28
 > Prior run: **2026-08-29** (review -> execution; owner approved `all`; F1-F2 SHIPPED in `5148b60`; zero posts). GSC reached 14,134 clicks / 818,626 impressions in 28d (+149% / +186%) and 9,139 / 545,761 in the latest 14d (+83% / +100%); average position improved in both comparisons. Residual nonbrand clicks rose about 164% over 28d. GA4 organic sessions rose from 6,337 to 13,638 with engagement up 5.7 points. The Aug 26 body-visualizer links were already shipped in `e59463f`, so page copy and targeting remain frozen. F1 added privacy-safe `body_visualizer_result_shown` instrumentation with unit and reference sex only; F2 repaired exact FAQ/schema parity, two reader-visible long dashes, and the canonical App Store link on the indexed DEXA benchmark. All tests, strict checks, the 526-page build, GitHub Pages deployment, and live URL verification passed. IndexNow accepted the DEXA refresh at 3/5 endpoints; Bing and its aggregator retain the known authorization 403. P1 ZOZOFIT remains approved but blocked on first-party evidence. · Data through 2026-08-26
 > Prior run: **2026-08-26** (review; zero executable posts; F1-F3 proposed). Search growth accelerated to 13,084 clicks / 747,229 impressions in 28d (+144% / +183%) and 8,339 / 491,599 in the latest 14d (+76% / +92%). Residual nonbrand clicks rose about 82% in the two-week comparison while brand clicks fell by 10. GA4 organic sessions rose 44% with engagement up 3.4 points. `/tools/body-visualizer/` was the clearest existing-asset focus: 738 vs 27 clicks, 560 vs 34 organic sessions, 74.8% engagement, and exact-query position 12.5 in a 40,500-volume / KD 4 market. Proposed F1 added three relevant SEO-lane links, F2 added a privacy-safe result event, and F3 repaired FAQ/schema parity on the indexed but unmeasured DEXA benchmark. The three inbound links subsequently shipped in commit `e59463f`; the result event and DEXA repair did not. P1 ZOZOFIT remained approved but blocked on first-party evidence. 165/167 inspected recent or zero-impression URLs were indexed; the same two male gallery unknowns remained gated to Sep 3. · Data through 2026-08-24
@@ -18,6 +19,47 @@
 > Same-day run 1: 2026-08-11 (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**)
 > Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
 > Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
+
+## New findings (2026-09-03 - keyword, tool, and page-two execution)
+
+- **The site is scaling, not stalling.** Search Console recorded 16,953 clicks and 997,347
+  impressions in the latest 28 days, up 158% and 189%, while average position improved from 8.46
+  to 7.48. CTR compression is consistent with rapid impression expansion.
+- **Tools now contribute 42.9% of search clicks.** They generated 7,280 clicks versus 1,640 in
+  the prior period (+344%). Physique Rater, Body Fat From Photo, Body Visualizer, Body-Fat
+  Visualizer, and AI Body Transformation produced 98.9% of tool traffic; protect their active
+  measurement windows.
+- **The generic body-fat estimator has the clearest dormant-tool repositioning.** It is indexed
+  but sits at average position 53 with no contextual blog links. `us navy body fat calculator`
+  has 2,400 US searches, KD 5, and +650% yearly growth; `navy body fat calculator` adds 6,600 at
+  KD 14. Retarget the existing owner rather than create a sibling.
+- **New content should be evidence-led.** The priority set is WeightWatchers AI Body Scanner
+  review (260, KD 17, +2,000% yearly), InBody vs DEXA (720, KD 3), Evolt 360 scanner (390,
+  +238% yearly), DEXA body-fat report interpretation (40,500, KD 17, +123% yearly), and a
+  lower-priority body-fat-calipers guide (3,600, KD 8, declining). Existing first-party GE Lunar
+  report assets cleared the DEXA guide; WeightWatchers, Evolt, and calipers remain evidence-gated.
+- **The best page-two actions are specific.** The recomp timeline answer/table/FAQ refresh and
+  contextual links to average male body fat and shoulder width shipped. Waist-to-Height Ratio is
+  held until the first settled Sep 1+ row; RENPHO and Withings title tests remain gated to Sep 10.
+- **Discovery, not indexing, is the dormant-tool issue.** Established tools are indexed. Recomp
+  Reality Checker and Progress Photo Compare now each have three contextual article links, and
+  both were included in the post-deploy IndexNow submission.
+
+### 2026-09-03 proposal ledger
+
+| Item | Evidence | State |
+|---|---|---|
+| P1 WeightWatchers scanner review | 260 volume / KD 17 / +2,000% yearly; thin independent-review SERP | **Approved, evidence-blocked** |
+| P2 InBody vs DEXA | 720 / KD 3; mixed Reddit/provider/research SERP | **Shipped Sep 3** |
+| P3 Evolt 360 | 390 / +238% yearly; manufacturer/local-gym SERP | **Approved, evidence-blocked** |
+| P4 DEXA report-reading pillar | 40,500 / KD 17 / +123% yearly; institutional SERP | **Shipped Sep 3 after existing report assets cleared the gate** |
+| P5 Body-fat calipers guide | 3,600 / KD 8 / -34% yearly | **Approved, evidence-blocked and lower priority** |
+| F1 U.S. Navy estimator retarget | Existing page pos 53; 0 contextual links; 2,400-volume KD 5 exact opportunity | **Shipped Sep 3** |
+| F2 Recomp timeline refresh | Exact query pos 13.49; 1,600 volume; missing concise answer/FAQ contract | **Shipped Sep 3** |
+| F3 WHtR calculator retitle | Exact query improved to pos 21.27; 14,800 volume / +513%; calculator-led SERP | **Approved, held until first settled Sep 1+ row** |
+| F4 Internal-link pass | 1RM, FFMI, male body fat, shoulder width, and two Aug 31 tools lack adequate contextual links | **Shipped Sep 3** |
+
+---
 
 ## New findings (2026-09-02 - existing-owner growth, conversion lag, and measurement hold)
 
