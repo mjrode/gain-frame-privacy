@@ -963,7 +963,7 @@
 .blog-index-page .blog-header {
     min-height: 0;
     margin-top: 0;
-    padding: clamp(82px, 10vw, 132px) 0 clamp(72px, 9vw, 116px);
+    padding: clamp(70px, 8vw, 104px) 0 clamp(62px, 7vw, 90px);
     overflow: visible;
     border-bottom: 0;
     background: var(--gf-paper-bright);
@@ -990,10 +990,10 @@
     grid-area: title;
     max-width: 930px;
     margin: 0;
-    font-size: clamp(3.5rem, 6.2vw, 5.6rem);
+    font-size: clamp(3.5rem, 5.8vw, 5.2rem);
     font-weight: 850;
-    letter-spacing: -0.055em;
-    line-height: 0.97;
+    letter-spacing: -0.04em;
+    line-height: 0.99;
 }
 
 .blog-index-page .blog-header-title .accent-underline {
@@ -1020,7 +1020,7 @@
 .blog-index-page .blog-header-art {
     grid-area: art;
     justify-self: end;
-    width: min(100%, 450px);
+    width: min(100%, 420px);
     height: auto;
     max-height: 590px;
     object-fit: contain;
@@ -1028,40 +1028,34 @@
 }
 
 .blog-index-page .blog-product-bridge {
-    padding: clamp(36px, 5vw, 58px) 0;
+    padding: clamp(28px, 3.5vw, 40px) 0;
     border-top: 1px solid #c8e6d1;
     border-bottom: 1px solid #c8e6d1;
     background: var(--gf-green-soft);
 }
 
 .blog-index-page .blog-product-bridge-inner {
-    display: block;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(28px, 5vw, 72px);
 }
 
 .blog-index-page .blog-product-bridge-copy {
     max-width: 780px;
 }
 
-.blog-index-page .blog-product-bridge-label {
-    margin-bottom: 10px;
-    color: var(--gf-green-deep);
-    font-family: var(--font-body);
-    font-size: 0.76rem;
-    letter-spacing: 0;
-    text-transform: none;
-}
-
 .blog-index-page .blog-product-bridge h2 {
-    max-width: 720px;
-    font-size: clamp(2rem, 3.5vw, 3.3rem);
+    max-width: 680px;
+    font-size: clamp(1.7rem, 2.6vw, 2.35rem);
     font-weight: 820;
-    letter-spacing: -0.045em;
-    line-height: 1.05;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
 }
 
 .blog-index-page .blog-product-bridge-copy > p:not([class]) {
-    max-width: 620px;
-    margin-top: 16px;
+    max-width: 640px;
+    margin-top: 10px;
     color: #36513e;
     font-size: 1rem;
     font-weight: 500;
@@ -1069,7 +1063,10 @@
 }
 
 .blog-index-page .blog-product-bridge-actions {
-    margin-top: 22px;
+    display: grid;
+    justify-items: start;
+    gap: 10px;
+    margin-top: 0;
 }
 
 .blog-index-page .blog-product-bridge-button {
@@ -1090,7 +1087,7 @@
 }
 
 .blog-index-page .blog-product-bridge-proof {
-    margin-top: 14px;
+    margin: 0;
     color: #416049;
     font-family: var(--font-body);
     font-size: 0.72rem;
@@ -1103,7 +1100,33 @@
 }
 
 .blog-index-page .blog-grid-section {
-    padding: clamp(68px, 8vw, 104px) 0 112px;
+    padding: clamp(64px, 7vw, 92px) 0 112px;
+}
+
+.blog-index-page .blog-index-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 34px;
+}
+
+.blog-index-page .blog-index-heading h2 {
+    margin: 0;
+    color: var(--gf-graphite);
+    font-family: var(--font-display);
+    font-size: clamp(2.35rem, 4vw, 3.55rem);
+    font-weight: 830;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.blog-index-page .blog-index-heading p {
+    max-width: 520px;
+    margin: 0;
+    color: var(--gf-muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
 }
 
 .blog-index-page .blog-filter {
@@ -1178,7 +1201,7 @@
     grid-column: auto;
     display: grid;
     min-height: 174px;
-    grid-template-columns: 144px minmax(0, 1fr);
+    grid-template-columns: 128px minmax(0, 1fr);
     align-items: center;
     gap: 22px;
     overflow: visible;
@@ -1286,9 +1309,9 @@
 }
 
 .blog-index-page .blog-card:first-child .blog-card-content h3 {
-    font-size: clamp(2rem, 3.6vw, 3.5rem);
-    letter-spacing: -0.045em;
-    line-height: 1.03;
+    font-size: clamp(2rem, 3.2vw, 3.05rem);
+    letter-spacing: -0.04em;
+    line-height: 1.05;
 }
 
 .blog-index-page .blog-card-content p {
@@ -1391,6 +1414,11 @@
         grid-template-columns: 1fr;
     }
 
+    .blog-index-page .blog-product-bridge-inner {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
     .blog-index-page .blog-card:first-child {
         grid-column: 1;
         grid-template-columns: 1fr;
@@ -1434,7 +1462,7 @@
     .blog-index-page .blog-header {
         min-height: 0;
         margin-top: 0;
-        padding: 66px 0 52px;
+        padding: 58px 0 46px;
     }
 
     .blog-index-page .blog-header-title {
@@ -1444,6 +1472,15 @@
     .blog-index-page .blog-filter-label {
         width: 100%;
         border: 0;
+    }
+
+    .blog-index-page .blog-index-heading {
+        display: block;
+        margin-bottom: 28px;
+    }
+
+    .blog-index-page .blog-index-heading p {
+        margin-top: 12px;
     }
 
     .blog-index-page .blog-filter-pills,

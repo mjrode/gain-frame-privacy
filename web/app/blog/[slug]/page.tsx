@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { promises as fs } from "fs";
 import path from "path";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
@@ -97,9 +96,8 @@ function resolveCover(slug: string, p?: string): string | undefined {
   return `/blog/${slug}/${p}`;
 }
 
-// Two header layouts:
-//   Layout B (when subtitle present): post-meta → h1 → post-subtitle → hero
-//   Layout A (default): breadcrumb → h1 → post-meta → hero
+// A single masthead hierarchy keeps every article predictable regardless of
+// which optional frontmatter fields it includes.
 function PostHeader({
   frontmatter,
   cover,
@@ -107,13 +105,15 @@ function PostHeader({
   frontmatter: PostFrontmatter;
   cover?: string;
 }) {
+  const category =
+    frontmatter.displayCategory || frontmatter.breadcrumbCategory;
   const meta =
-    frontmatter.displayCategory ||
+    category ||
     frontmatter.displayDate ||
     frontmatter.readTime ? (
       <div className="post-meta">
-        {frontmatter.displayCategory ? (
-          <span className="post-category">{frontmatter.displayCategory}</span>
+        {category ? (
+          <span className="post-category">{category}</span>
         ) : null}
         {frontmatter.displayDate ? (
           <span className="post-date">{frontmatter.displayDate}</span>
@@ -134,32 +134,16 @@ function PostHeader({
     </div>
   ) : null;
 
-  if (frontmatter.subtitle) {
-    // Layout B
-    return (
-      <header className="post-header">
-        {meta}
-        {frontmatter.title ? (
-          <h1 className="post-title">{frontmatter.title}</h1>
-        ) : null}
-        <p className="post-subtitle">{frontmatter.subtitle}</p>
-        {heroImage}
-      </header>
-    );
-  }
-
-  // Layout A
   return (
     <header className="post-header">
-      {frontmatter.breadcrumbCategory ? (
-        <div className="post-breadcrumb">
-          <Link href="/blog/">Blog</Link>
-          <span> › </span>
-          <span>{frontmatter.breadcrumbCategory}</span>
-        </div>
-      ) : null}
-      {frontmatter.title ? <h1>{frontmatter.title}</h1> : null}
       {meta}
+      {frontmatter.title ? (
+        <h1 className="post-title">{frontmatter.title}</h1>
+      ) : null}
+      {frontmatter.subtitle ? (
+        <p className="post-subtitle">{frontmatter.subtitle}</p>
+      ) : null}
+      <ByLine />
       {heroImage}
     </header>
   );
@@ -253,8 +237,6 @@ export default async function BlogPostPage({
 
         <main className="post-container">
           <PostHeader frontmatter={frontmatter} cover={cover} />
-
-          <ByLine displayDate={frontmatter.displayDate} />
 
           <article className="post-body">{content}</article>
 

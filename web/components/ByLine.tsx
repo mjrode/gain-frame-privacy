@@ -1,38 +1,33 @@
-// Compact one-line byline shown at the top of a blog post — minimal trust
-// signal without pushing content down. The full author card lives at the
-// bottom of the post (AuthorByline component).
-
-export default function ByLine({ displayDate }: { displayDate?: string }) {
+// Compact trust signal for the article masthead. Publication details already
+// live in the metadata row, so this stays focused on authorship.
+export default function ByLine() {
   return (
-    <p
+    <div
       className="post-byline"
       itemScope
       itemType="https://schema.org/Person"
-      style={{
-        margin: "0 0 1.5rem",
-        fontSize: "0.875rem",
-        color: "#666",
-        letterSpacing: "0.01em",
-      }}
     >
-      <span style={{ color: "#888" }}>By </span>
       <a
         href="/about/"
+        className="post-byline-avatar"
         itemProp="url"
-        style={{
-          color: "#111",
-          fontWeight: 600,
-          textDecoration: "none",
-        }}
+        aria-label="About Michael Rode"
       >
-        <span itemProp="name">Michael Rode</span>
+        <img
+          src="/assets/team/michael-rode.webp"
+          alt=""
+          width="36"
+          height="36"
+          loading="eager"
+          itemProp="image"
+        />
       </a>
-      {displayDate ? (
-        <>
-          <span style={{ margin: "0 0.5rem", color: "#bbb" }}>·</span>
-          <time>{displayDate}</time>
-        </>
-      ) : null}
-    </p>
+      <p className="post-byline-copy">
+        <span>Written by</span>{" "}
+        <a href="/about/" itemProp="url">
+          <span itemProp="name">Michael Rode</span>
+        </a>
+      </p>
+    </div>
   );
 }
