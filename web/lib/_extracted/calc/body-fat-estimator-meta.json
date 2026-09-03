@@ -1,19 +1,19 @@
 {
   "slug": "body-fat-estimator",
-  "title": "Body Fat Percentage Calculator — Free Estimate | GainFrame",
-  "description": "Estimate your body fat percentage for free using the proven U.S. Navy method. Simple, accurate, and mobile-friendly. Compare your result to reference ranges.",
+  "title": "U.S. Navy Body Fat Calculator: Free Tape-Measure Estimate",
+  "description": "Estimate body fat with the U.S. Navy circumference formula using a tape measure. Free, instant, no signup. Includes male and female reference ranges.",
   "canonical": "https://gainframe.app/tools/body-fat-estimator/",
-  "ogTitle": "Body Fat Percentage Calculator — GainFrame",
-  "ogDescription": "Free body fat % estimator using the U.S. Navy method. Enter a few measurements, get your result instantly.",
+  "ogTitle": "U.S. Navy Body Fat Calculator: Free Tape-Measure Estimate",
+  "ogDescription": "Estimate body fat with the U.S. Navy circumference formula using a tape measure. Free, instant, no signup.",
   "ogImage": "https://gainframe.app/assets/gainframe-og-1200x630.png",
-  "twitterTitle": "Body Fat Percentage Calculator — GainFrame",
-  "twitterDescription": "Free body fat % estimator using the U.S. Navy method. Enter a few measurements, get your result instantly.",
+  "twitterTitle": "U.S. Navy Body Fat Calculator: Free Tape-Measure Estimate",
+  "twitterDescription": "Estimate body fat with the U.S. Navy circumference formula using a tape measure. Free, instant, no signup.",
   "schemas": [
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Body Fat Percentage Calculator",
-      "description": "Estimate your body fat percentage using the U.S. Navy method. Free, instant, no signup required.",
+      "name": "U.S. Navy Body Fat Calculator: Free Tape-Measure Estimate",
+      "description": "Estimate body fat with the U.S. Navy circumference formula using a tape measure. Free, instant, no signup required.",
       "url": "https://gainframe.app/tools/body-fat-estimator/",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Any",
@@ -37,7 +37,7 @@
           "name": "How accurate is the U.S. Navy body fat formula?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The U.S. Navy body fat formula is accurate to within ±3–4% of DEXA scan results for most people. It uses circumference measurements of the neck, waist, and hips (for women) along with height. It is most reliable for people in the normal to moderately overweight range and is one of the most widely validated field methods."
+            "text": "With careful measurements, the U.S. Navy body fat formula is commonly cited as landing within roughly 3 to 4 percentage points of DEXA for many people. It uses neck, waist, height, and, for women, hip circumference. Treat the result as an estimate and use repeated readings to track a trend."
           }
         },
         {
