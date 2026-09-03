@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 import {
@@ -42,4 +42,26 @@ test("every sticky CTA slug resolves to a published blog post", () => {
     const post = new URL(`../content/blog/${slug}.mdx`, import.meta.url);
     assert.equal(existsSync(post), true, `${slug} must resolve to a blog post`);
   }
+});
+
+test("blog CTA experiment keeps tools isolated and measures material exposure", () => {
+  const component = readFileSync(
+    new URL("../components/BlogArticleCta.tsx", import.meta.url),
+    "utf8",
+  );
+  const styles = readFileSync(
+    new URL("../public/styles/blog-post-page.css", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(component, /MATERIAL_VIEW_DURATION_MS = 800/);
+  assert.match(component, /intersectionRatio >= 0\.5/);
+  assert.match(component, /blog_cta_experiment_viewed/);
+  assert.match(component, /blog_cta_experiment_clicked/);
+  assert.match(component, /blog_cta_experiment_continued_reading/);
+  assert.match(component, /data-experiment-variant/);
+  assert.match(component, /content=\{`\$\{attribution\.content\}_qr`\}/);
+  assert.doesNotMatch(component, /TOOL_CTA_EXPERIMENT/);
+  assert.match(styles, /blog-contextual-cta--editorial/);
+  assert.match(styles, /prefers-reduced-motion: reduce/);
 });

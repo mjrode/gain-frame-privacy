@@ -274,6 +274,21 @@ The rollout baseline is the tool dock that motivated it: Aug 18-24 recorded
 so keep the blog rollout framed as a measured expansion rather than a proven
 win until it has at least seven settled days.
 
+### Randomized sticky-vs-editorial phase (2026-09-02)
+
+The same fixed 79-post cohort now runs `blog_contextual_cta_v1`, phase
+`sticky_vs_editorial_inline_v1`. Visitor-level assignment is 50/50 between the
+existing sticky dock and an inline editorial panel before the second article
+section. The tool experiment is unchanged and uses separate assignment state.
+
+Use unique `blog_cta_experiment_clicked` /
+`blog_cta_experiment_viewed` as the primary CTR. Exposure requires 50%
+visibility for 800ms. `blog_cta_experiment_continued_reading` is the shared
+reading guardrail and `blog_cta_experiment_dismissed` measures control-only
+interruption. Filter `experiment_forced=false`, this exact phase, and
+iOS/desktop. The full hypothesis, sample commitment, decision rule, QA URLs,
+and attribution contract are in [`blog-cta-experiment.md`](./blog-cta-experiment.md).
+
 ## SEO physique-tools Custom Product Page (`seo-physique-cpp-v1`)
 
 Only the conversion cards rendered by `/tools/body-fat-from-photo/` and
