@@ -975,10 +975,22 @@
     content: none;
 }
 
+.blog-index-page .blog-header .container {
+    display: grid;
+    grid-template-areas:
+        "title art"
+        "subtitle art";
+    grid-template-columns: minmax(0, 1.6fr) minmax(320px, 0.8fr);
+    align-items: center;
+    column-gap: clamp(30px, 4vw, 62px);
+    row-gap: 26px;
+}
+
 .blog-index-page .blog-header-title {
+    grid-area: title;
     max-width: 930px;
-    margin: 0 0 28px;
-    font-size: clamp(3.5rem, 7.5vw, 6.7rem);
+    margin: 0;
+    font-size: clamp(3.5rem, 6.2vw, 5.6rem);
     font-weight: 850;
     letter-spacing: -0.055em;
     line-height: 0.97;
@@ -996,11 +1008,23 @@
 }
 
 .blog-index-page .blog-header-subtitle {
+    grid-area: subtitle;
+    align-self: start;
     max-width: 650px;
     color: var(--gf-muted);
     font-size: clamp(1.08rem, 1.7vw, 1.28rem);
     font-weight: 500;
     line-height: 1.62;
+}
+
+.blog-index-page .blog-header-art {
+    grid-area: art;
+    justify-self: end;
+    width: min(100%, 450px);
+    height: auto;
+    max-height: 590px;
+    object-fit: contain;
+    filter: drop-shadow(0 22px 30px rgba(23, 26, 23, 0.08));
 }
 
 .blog-index-page .blog-product-bridge {
@@ -1347,6 +1371,22 @@
 }
 
 @media (max-width: 900px) {
+    .blog-index-page .blog-header .container {
+        grid-template-areas:
+            "title"
+            "subtitle"
+            "art";
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 22px;
+    }
+
+    .blog-index-page .blog-header-art {
+        justify-self: end;
+        width: min(68vw, 330px);
+        max-height: 360px;
+        margin: 8px 3vw -28px 0;
+    }
+
     .blog-index-page .blog-grid {
         grid-template-columns: 1fr;
     }
@@ -1394,7 +1434,7 @@
     .blog-index-page .blog-header {
         min-height: 0;
         margin-top: 0;
-        padding: 74px 0 66px;
+        padding: 66px 0 52px;
     }
 
     .blog-index-page .blog-header-title {
@@ -1433,6 +1473,14 @@
 
     .blog-index-page .blog-header-title {
         font-size: clamp(2.8rem, 13.5vw, 3.8rem);
+    }
+
+    .blog-index-page .blog-header-art {
+        width: min(70vw, 260px);
+        max-height: 285px;
+        margin-top: 4px;
+        margin-right: 0;
+        margin-bottom: -20px;
     }
 
     .blog-index-page .blog-card {
