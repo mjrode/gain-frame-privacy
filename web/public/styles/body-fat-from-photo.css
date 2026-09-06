@@ -981,6 +981,26 @@
   margin: 0 0 28px;
 }
 
+.bff-faq details {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--bff-line);
+}
+.bff-faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.bff-faq summary:focus-visible {
+  outline: 2px solid var(--bff-ink);
+  outline-offset: 6px;
+}
+.bff-faq p {
+  max-width: 75ch;
+  margin: 14px 0 0;
+  color: var(--bff-muted);
+  line-height: 1.65;
+}
+
 .bff-steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

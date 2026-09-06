@@ -83,7 +83,7 @@ const howToSchema = {
       "@type": "HowToStep",
       position: 3,
       name: "Get a number plus a confidence read",
-      text: "A single percentage with confidence band. Single-photo carries ±4–5% error — directional, not week-to-week.",
+      text: "An estimated percentage with a low, medium, or high confidence label. Use it as a rough starting point, not a measurement of small weekly changes.",
     },
   ],
 };
@@ -97,7 +97,7 @@ const faqSchema = {
       name: "How accurate is a body fat estimate from one photo?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A single-photo estimate typically carries ±4–5% error compared to DEXA. It's good enough for a directional read on lean / average / overweight, but not for tracking small week-over-week changes. The GainFrame iOS app uses multiple angles per check-in to cut that error roughly in half.",
+        text: "Treat one photo as a rough estimate, not a measured body fat percentage. Lighting, pose, clothing, and body shape affect the result. GainFrame has published an internal DEXA comparison, but that study does not establish a guaranteed error range for this free browser tool. A confidence label is not a statistical confidence interval.",
       },
     },
     {
@@ -113,7 +113,7 @@ const faqSchema = {
       name: "Why is the tool limited to 3 free scans?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The web tool is free and limited to 3 estimates per user (one per day) to keep AI compute costs sustainable. The GainFrame iOS app removes the limit and adds tracking, scoring, and comparison features.",
+        text: "The web tool offers 3 free estimates per user, with a maximum of one per day, to keep AI compute costs sustainable. For ongoing check-ins, the GainFrame iOS app adds a photo timeline, comparisons, and multi-angle body fat estimates. App features and usage limits depend on your plan.",
       },
     },
     {
@@ -121,7 +121,7 @@ const faqSchema = {
       name: "What kind of photo works best?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A clear, well-lit photo where your torso, arms, and at least the upper part of your legs are visible. Tight or revealing clothing helps. Baggy clothing, side angles, and face-only shots produce poor estimates.",
+        text: "Use a clear front-facing photo with even lighting, a relaxed pose, and your torso, arms, and upper legs visible. Fitted workout clothing makes your outline easier to assess. Avoid filters, flexing, and wide-angle distortion. Face-only photos and loose clothing do not provide enough information for a useful estimate.",
       },
     },
     {
@@ -129,7 +129,7 @@ const faqSchema = {
       name: "Does this work for women?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. The visual reference ranges shift between male and female bodies, so selecting your sex before submission improves accuracy.",
+        text: "Yes. The tool offers male and female reference options because visible fat distribution differs. Choose the appropriate reference before uploading. The result is still approximate: a photo cannot directly measure body composition, and individual anatomy can differ from the reference patterns.",
       },
     },
     {
@@ -137,7 +137,7 @@ const faqSchema = {
       name: "Is this an AI body fat calculator?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes — it's an AI body fat calculator that works from a photo instead of tape-measure inputs. Rather than typing in neck, waist, and hip measurements like a Navy-method calculator, you upload one photo and the AI reads your body composition visually. If you'd rather plug in measurements for a formula-based number, use our Navy tape-measure calculator instead.",
+        text: "Yes. This AI body fat calculator estimates a percentage from one photo instead of tape-measure inputs. The U.S. Navy method uses circumference measurements and a formula. Both are estimates with different sources of error; neither measures fat directly. Our free Navy calculator is another option if you prefer using measurements.",
       },
     },
   ],
@@ -226,8 +226,9 @@ export default function BodyFatFromPhotoPage() {
                 <p className="bff-step-num">Step 03</p>
                 <h3>Get a number plus a confidence read</h3>
                 <p>
-                  A single percentage with confidence band. Single-photo
-                  carries ±4–5% error — directional, not week-to-week.
+                  An estimated percentage with a low, medium, or high
+                  confidence label. Use it as a rough starting point, not a
+                  measurement of small weekly changes.
                 </p>
               </div>
             </div>
@@ -239,14 +240,51 @@ export default function BodyFatFromPhotoPage() {
             <p className="bff-section-eyebrow">Accuracy &amp; Methodology</p>
             <h2>How accurate is body fat from a photo?</h2>
             <p>
-              A 2025 peer-reviewed study in <a href="https://www.nature.com/articles/s41746-024-01380-6" rel="noopener" target="_blank"><em>npj Digital Medicine</em></a> tested AI-2D photo body fat estimation against DEXA across 1,273 adults. The AI method produced a Concordance Correlation Coefficient of 0.98 with DEXA — higher agreement than bioelectrical impedance smart scales (which typically score 0.91–0.92) and within the range of clinical imaging methods.
+              A photo can provide a rough starting estimate, but lighting,
+              posture, clothing, and individual fat distribution affect the
+              result. This tool does not directly measure fat or diagnose health
+              conditions. Its low, medium, or high confidence label describes
+              the model&apos;s assessment of the photo, not a statistical error range.
             </p>
             <p>
-              That said, photo-based estimation has real limits. A single photo carries ±4–5% absolute error vs. DEXA; lighting, posture, and clothing all affect the read. The technique is best used <em>for trend tracking</em> (same setup, same time of day, same wardrobe) rather than as a one-shot diagnostic. For tighter accuracy, the <a href="../body-fat-estimator/">U.S. Navy tape-measure method</a> uses neck/waist/hip circumference and lands around ±3% — more effort, no AI involved. For the gold standard, see our <a href="../../blog/dexa-scan-alternative/">DEXA alternatives breakdown</a>.
+              In our <a href="/blog/ai-body-fat-estimator-accuracy-dexa-test/">internal
+              DEXA comparison</a>, we tested 36 front-view photo states with DEXA
+              labels removed and repeated each estimate three times. The tested
+              configuration missed the DEXA value by an average of 3.77 percentage
+              points; 29 of 36 averaged results were within 5 points. These were
+              female photo states from about 27 individuals, not 36 independent
+              participants or an independent clinical trial.
             </p>
             <p>
-              The GainFrame iOS app uses a multi-angle Precision BF model that combines front and side photos, cutting single-photo error roughly in half. The web tool you just used is the single-photo version — fast, free, and a good directional read.
+              Those results describe the configuration in that study. The free
+              browser tool uses a separate estimation workflow, so the study
+              does not establish its error range. Read the full method and
+              limitations before comparing the numbers. For ongoing tracking,
+              the GainFrame iOS app supports multi-angle check-ins and photo
+              comparisons; keep your setup consistent and look for changes
+              across several check-ins.
             </p>
+            <p>
+              Prefer circumference measurements? Try our <a href="/tools/body-fat-estimator/">U.S.
+              Navy body fat calculator</a>. For a comparison of measurement
+              methods and their limitations, see our <a href="/blog/dexa-scan-alternative/">DEXA
+              alternatives guide</a>.
+            </p>
+          </div>
+        </section>
+
+        <section className="bff-section" aria-labelledby="bff-faq-heading">
+          <div className="bff-section-inner">
+            <p className="bff-section-eyebrow">Common questions</p>
+            <h2 id="bff-faq-heading">Before you estimate body fat from a photo</h2>
+            <div className="bff-faq">
+              {faqSchema.mainEntity.map((question) => (
+                <details key={question.name}>
+                  <summary>{question.name}</summary>
+                  <p>{question.acceptedAnswer.text}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -326,8 +364,8 @@ export default function BodyFatFromPhotoPage() {
               <div className="bff-crosslink-text">
                 <strong>U.S. Navy tape-measure calculator</strong>
                 <span>
-                  Slightly more effort — neck, waist, hip — but tighter ±3%
-                  accuracy and zero AI involved.
+                  Estimate body fat from circumference measurements using
+                  a formula. No photo or AI required.
                 </span>
               </div>
               <span className="bff-crosslink-arrow">Open →</span>

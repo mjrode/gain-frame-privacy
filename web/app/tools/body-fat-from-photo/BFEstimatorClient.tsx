@@ -794,7 +794,7 @@ export default function BFEstimatorClient() {
 
             <div className="bff-result-foot">
               <span><strong>Method</strong> · Single-photo AI</span>
-              <span><strong>Margin</strong> · ±4–5%</span>
+              <span><strong>Use</strong> · Rough estimate</span>
             </div>
           </div>
         </div>
@@ -899,8 +899,9 @@ export default function BFEstimatorClient() {
         <div className="bff-disclaimer">
           <span className="bff-disclaimer-mark">i</span>
           <div>
-            <strong>Single-photo estimates carry ±4–5% error.</strong> Good for
-            a directional read, not for tracking small changes week-to-week.
+            <strong>A photo provides a rough estimate.</strong> Lighting,
+            pose, and clothing can change the result. It cannot reliably
+            measure small changes week to week.
           </div>
         </div>
 
