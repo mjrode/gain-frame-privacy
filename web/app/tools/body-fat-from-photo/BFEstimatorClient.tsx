@@ -982,7 +982,7 @@ export default function BFEstimatorClient() {
         <a
           className="bff-crosslink-card"
           style={{ marginTop: 18 }}
-          href="/tools/ai-body-transformation/"
+          href="/tools/body-fat-estimator/"
           onClick={() =>
             track("bf_tool_cta_clicked", { cta_content: "future_you_crosslink" })
           }
