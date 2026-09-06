@@ -18,16 +18,16 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 [Intent boundaries and original-evidence status](keyword-research/2026-09-06-blog-ownership.md). These are sourced evaluations; earlier first-person testing gates remain open and should enrich the same URLs.
 
-- [x] **weight watchers body scanner**: sourced article written September 6, 2026 as `/blog/weight-watchers-body-scanner-review/`.
-- [x] **zozofit review**: sourced article written September 6, 2026 as `/blog/zozofit-review/`.
-- [x] **gravl app review**: sourced article written September 6, 2026 as `/blog/gravl-app-review/`.
-- [x] **evolt 360 body scan accuracy**: sourced article written September 6, 2026 as `/blog/evolt-360-body-scan-accuracy/`.
-- [x] **oxiline scale review**: sourced article written September 6, 2026 as `/blog/oxiline-scale-review/`.
-- [x] **hume vs renpho**: sourced article written September 6, 2026 as `/blog/hume-vs-renpho/`.
-- [x] **cronometer vs macrofactor**: sourced article written September 6, 2026 as `/blog/cronometer-vs-macrofactor/`.
-- [x] **arboleaf scale review**: sourced article written September 6, 2026 as `/blog/arboleaf-scale-review/`.
-- [x] **styku body scan accuracy**: sourced article written September 6, 2026 as `/blog/styku-body-scan-accuracy/`.
-- [x] **bodyspec review**: sourced article written September 6, 2026 as `/blog/bodyspec-review/`.
+- [x] **weight watchers body scanner**: sourced article published September 6, 2026 as `/blog/weight-watchers-body-scanner-review/`.
+- [x] **zozofit review**: sourced article published September 6, 2026 as `/blog/zozofit-review/`.
+- [x] **gravl app review**: sourced article published September 6, 2026 as `/blog/gravl-app-review/`.
+- [x] **evolt 360 body scan accuracy**: sourced article published September 6, 2026 as `/blog/evolt-360-body-scan-accuracy/`.
+- [x] **oxiline scale review**: sourced article published September 6, 2026 as `/blog/oxiline-scale-review/`.
+- [x] **hume vs renpho**: sourced article published September 6, 2026 as `/blog/hume-vs-renpho/`.
+- [x] **cronometer vs macrofactor**: sourced article published September 6, 2026 as `/blog/cronometer-vs-macrofactor/`.
+- [x] **arboleaf scale review**: sourced article published September 6, 2026 as `/blog/arboleaf-scale-review/`.
+- [x] **styku body scan accuracy**: sourced article published September 6, 2026 as `/blog/styku-body-scan-accuracy/`.
+- [x] **bodyspec review**: sourced article published September 6, 2026 as `/blog/bodyspec-review/`.
 
 
 > **📍 Topical map lives at `seo-tools/topical-map.md`** (created 2026-07-07) — check the cluster + gap list there BEFORE adding new keyword targets here. Programmatic SEO explicitly deferred by owner.
@@ -132,7 +132,7 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 - [x] **F1: body-visualizer result instrumentation** — shipped 2026-08-29. Added one once-per-page `body_visualizer_result_shown` event after an interacted valid result. The event sends only unit system and reference sex; height, weight, BMI, image choice, and other health-sensitive inputs remain excluded. Generic completion, DOM completion, and shared CTA tracking are unchanged. — source: `seo-tools/content-audits/2026-08-29.md`
 - [x] **F2: DEXA benchmark launch repair** — shipped 2026-08-29 on `/blog/ai-body-fat-estimator-accuracy-dexa-test/`. All five FAQ schema entries now match the visible FAQ exactly, two reader-visible long dashes were normalized, and the CTA now uses the canonical GainFrame App Store URL. Benchmark claims, values, metadata, assets, and targeting are unchanged. — source: same audit
-- [ ] **APPROVED, BLOCKED: ZOZOFIT Review 2026** — no draft or URL until three controlled app-only scans, matching tape readings, setup/failure notes, current screenshots, and a first-person test interview exist. Approval does not waive the evidence contract. — source: same audit
+- [ ] **FIRST-PERSON FOLLOW-UP: ZOZOFIT Review 2026** — three controlled app-only scans, matching tape readings, setup/failure notes, current screenshots, and a first-person test interview are still missing. The sourced evaluation published Sep 6 at `/blog/zozofit-review/` makes no personal-test claim. Add future evidence to that owner; do not create another review URL. — original evidence gate remains open; [Sep 6 format and ownership record](keyword-research/2026-09-06-blog-ownership.md)
 
 ### Aug 30 cycle — body-proportion tool truth repair (seo-content-cycle run)
 
@@ -145,8 +145,8 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 - [x] **F1: U.S. Navy Body Fat Calculator retarget** — shipped 2026-09-03 on `/tools/body-fat-estimator/`. Title, H1, social metadata, WebApplication schema, limitations, and action copy now own the U.S. Navy tape-method intent; three relevant posts link contextually to it. The underlying formula is unchanged. — source: same audit
 - [x] **F2: dormant/new tool discovery links** — shipped 2026-09-03. Added three contextual links each for FFMI Calculator, One-Rep Max Calculator, Progress Photo Compare, and Recomp Reality Checker, plus deeper support for Strength Standards. Target tool copy stayed stable outside the approved Navy retarget. — source: same audit
 - [x] **F3: page-two content and link repairs** — shipped 2026-09-03. Rebuilt `/blog/how-long-does-body-recomposition-take/` with a 50-word Quick Answer, conservative review timeline, primary sources, and exact five-answer FAQ/schema; aligned the average-male-body-fat BlogPosting headline and added three contextual links; added chest/bicep links to Average Shoulder Width. — source: same audit
-- [ ] **APPROVED, BLOCKED: WeightWatchers AI Body Scanner Review** — do not draft or create a URL until controlled first-party scans, current app screenshots, current subscription/price facts, privacy notes, and first-person setup/failure notes exist. Target: `weight watchers body scanner` (260, KD 17, +2,000% yearly). — added 2026-09-03 — source: same audit
-- [ ] **APPROVED, BLOCKED: Evolt 360 Body Scan guide** — do not draft or create a URL until a real report/scan or documented first-person interview exists. Target: `evolt 360 body composition scanner` (390, +238% yearly). — added 2026-09-03 — source: same audit
+- [ ] **FIRST-PERSON FOLLOW-UP: WeightWatchers AI Body Scanner** — controlled first-party scans, original screenshots, privacy notes, and first-person setup/failure notes remain missing. A published-source evaluation now owns `/blog/weight-watchers-body-scanner-review/`; it makes no personal-test claim. Add later evidence to that URL. Target: `weight watchers body scanner` (260, KD 17). — added 2026-09-03; format reconciled 2026-09-06 — [ownership record](keyword-research/2026-09-06-blog-ownership.md)
+- [ ] **FIRST-PERSON FOLLOW-UP: Evolt 360** — a real report/scan and documented conditions or first-person interview remain missing. The sourced accuracy explainer now owns `/blog/evolt-360-body-scan-accuracy/` and does not invent a scan result. Add future evidence there. New page targets the narrower accuracy query; do not create another general scanner guide without an ownership check. — original gate added 2026-09-03; format reconciled 2026-09-06 — [ownership record](keyword-research/2026-09-06-blog-ownership.md)
 - [ ] **APPROVED, BLOCKED: Body Fat Calipers guide** — require original technique/site-placement photos or video before pursuing this declining, product-heavy query (3,600, KD 8, -34% yearly). — added 2026-09-03 — source: same audit
 - [ ] **APPROVED, SCHEDULED: Waist-to-Height Ratio metadata test** — ship only after Search Console exposes the first settled Sep 1+ row; the fresh Sep 3 API check still ended Aug 31. Proposed title: "Waist-to-Height Ratio Calculator & Chart: Is Yours Healthy?" — added 2026-09-03 — source: same audit
 - [ ] **SCHEDULED Sep 6: average male body-fat title decision** — links and exact BlogPosting headline parity shipped Sep 3; test a new title only if the query remains reliably on page two after the measurement gate. — added 2026-09-03 — source: same audit

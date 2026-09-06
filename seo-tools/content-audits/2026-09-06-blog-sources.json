@@ -1,0 +1,238 @@
+{
+  "date": "2026-09-06",
+  "source_links": [
+    {
+      "url": "https://apps.apple.com/us/app/cronometer-calorie-counter/id1145935738",
+      "status": 200,
+      "final": "https://apps.apple.com/us/app/cronometer-calorie-counter/id1145935738"
+    },
+    {
+      "url": "https://apps.apple.com/us/app/gainframe-progress-photos/id6759252082",
+      "status": 200,
+      "final": "https://apps.apple.com/us/app/gainframe-gym-progress-photos/id6759252082"
+    },
+    {
+      "url": "https://apps.apple.com/us/app/gravl-ai-personal-trainer/id6450921637",
+      "status": 200,
+      "final": "https://apps.apple.com/us/app/gravl-ai-personal-trainer/id6450921637"
+    },
+    {
+      "url": "https://apps.apple.com/us/app/id6450921637",
+      "status": 200,
+      "final": "https://apps.apple.com/us/app/gravl-ai-personal-trainer/id6450921637"
+    },
+    {
+      "url": "https://apps.apple.com/us/app/macrofactor-macro-tracker/id1553503471",
+      "status": 200,
+      "final": "https://apps.apple.com/us/app/macrofactor-macro-tracker/id1553503471"
+    },
+    {
+      "url": "https://apps.apple.com/us/app/zozofit-3d-body-scanner/id1636398776",
+      "status": 200,
+      "final": "https://apps.apple.com/us/app/zozofit-3d-body-scanner/id1636398776"
+    },
+    {
+      "url": "https://cronometer.com/",
+      "status": 200,
+      "final": "https://cronometer.com/"
+    },
+    {
+      "url": "https://cronometer.com/gold/",
+      "status": 200,
+      "final": "https://cronometer.com/gold/"
+    },
+    {
+      "url": "https://evolt.health/article/facts-about-the-evolt-360-body-scan-accuracy",
+      "status": 200,
+      "final": "https://evolt.health/article/facts-about-the-evolt-360-body-scan-accuracy"
+    },
+    {
+      "url": "https://evolt.health/how-to-use",
+      "status": 200,
+      "final": "https://evolt.health/how-to-use"
+    },
+    {
+      "url": "https://gravl.ai/",
+      "status": 200,
+      "final": "https://gravl.ai/"
+    },
+    {
+      "url": "https://gravl.ai/terms",
+      "status": 200,
+      "final": "https://gravl.ai/terms"
+    },
+    {
+      "url": "https://help.zozofit.com/hc/en-us/articles/36953247670547-Is-ZOZOFIT-a-subscription-based-product",
+      "status": 403,
+      "final": "https://help.zozofit.com/hc/en-us/articles/36953247670547-Is-ZOZOFIT-a-subscription-based-product"
+    },
+    {
+      "url": "https://humehealth.com/products/the-body-pod",
+      "status": 200,
+      "final": "https://humehealth.com/products/the-body-pod"
+    },
+    {
+      "url": "https://macrofactor.com/macrofactor-vs-cronometer/",
+      "status": 200,
+      "final": "https://macrofactor.com/macrofactor-vs-cronometer/"
+    },
+    {
+      "url": "https://macrofactor.com/macrofactor/",
+      "status": 200,
+      "final": "https://macrofactor.com/macrofactor/"
+    },
+    {
+      "url": "https://mhealth.jmir.org/2021/4/e22487",
+      "status": 202,
+      "final": "https://mhealth.jmir.org/2021/4/e22487"
+    },
+    {
+      "url": "https://oxiline.shop/product/scale-md-pro/",
+      "status": 200,
+      "final": "https://oxiline.shop/product/scale-md-pro/"
+    },
+    {
+      "url": "https://renpho.com/products/morphoscan-nova-body-composition-analyzer",
+      "status": 200,
+      "final": "https://renpho.com/products/morphoscan-nova-body-composition-analyzer"
+    },
+    {
+      "url": "https://support.cronometer.com/hc/en-us/articles/39013533811092-Mobile-Photo-Logging",
+      "status": 403,
+      "final": "https://support.cronometer.com/hc/en-us/articles/39013533811092-Mobile-Photo-Logging"
+    },
+    {
+      "url": "https://www.arboleaf.com/products/segmental-smart-scale-cs10k",
+      "status": 200,
+      "final": "https://www.arboleaf.com/products/segmental-smart-scale-cs10k"
+    },
+    {
+      "url": "https://www.bodyspec.com/",
+      "status": 200,
+      "final": "https://www.bodyspec.com/"
+    },
+    {
+      "url": "https://www.bodyspec.com/blog/post/prepare_for_your_bodyspec_scan",
+      "status": 200,
+      "final": "https://www.bodyspec.com/blog/post/prepare_for_your_bodyspec_scan"
+    },
+    {
+      "url": "https://www.bodyspec.com/pricing-packages",
+      "status": 200,
+      "final": "https://www.bodyspec.com/pricing-packages"
+    },
+    {
+      "url": "https://www.bodyspec.com/sample-report",
+      "status": 200,
+      "final": "https://www.bodyspec.com/sample-report"
+    },
+    {
+      "url": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2024.1485450/full",
+      "status": 200,
+      "final": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2024.1485450/full"
+    },
+    {
+      "url": "https://www.styku.com/en-us/support-kb/how-styku-measures-the-body-technology-safety-and-accuracy",
+      "status": 200,
+      "final": "https://www.styku.com/en-us/support-kb/how-styku-measures-the-body-technology-safety-and-accuracy"
+    },
+    {
+      "url": "https://www.styku.com/en-us/support-kb/what-accuracy-precision-and-reliability-mean-for-body-composition-tools-and-why-",
+      "status": 200,
+      "final": "https://www.styku.com/en-us/support-kb/what-accuracy-precision-and-reliability-mean-for-body-composition-tools-and-why-"
+    },
+    {
+      "url": "https://www.styku.com/en-us/support-kb/what-are-the-styku-basic-and-phoenix-body-composition-models-and-which-should-i-use",
+      "status": 200,
+      "final": "https://www.styku.com/en-us/support-kb/what-are-the-styku-basic-and-phoenix-body-composition-models-and-which-should-i-use"
+    },
+    {
+      "url": "https://www.styku.com/hubfs/Styku%20Phoenix%20Validation%20Paper.pdf",
+      "status": 200,
+      "final": "https://www.styku.com/hubfs/Styku%20Phoenix%20Validation%20Paper.pdf"
+    },
+    {
+      "url": "https://www.weightwatchers.com/us/blog/ai-body-scanner",
+      "status": 200,
+      "final": "https://www.weightwatchers.com/us/blog/ai-body-scanner"
+    },
+    {
+      "url": "https://zozofit.com/",
+      "status": 200,
+      "final": "https://zozofit.com/"
+    }
+  ],
+  "publisher_images": {
+    "zozofit": {
+      "app_id": 1636398776,
+      "app_name": "ZOZOFIT: 3D Body Scanner",
+      "listing_url": "https://apps.apple.com/us/app/zozofit-3d-body-scanner/id1636398776?uo=4",
+      "asset_source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/83/86/e4/8386e455-19f5-7dbf-ae21-b84f89957495/App_Store__U00286.9_U0029_03.png/1200x2400bb.jpg",
+      "access_date": "2026-09-06",
+      "use": "Publisher screenshot, explicitly labeled; no original testing claim"
+    },
+    "gravl": {
+      "app_id": 6450921637,
+      "app_name": "Gravl: AI Personal Trainer",
+      "listing_url": "https://apps.apple.com/us/app/gravl-ai-personal-trainer/id6450921637?uo=4",
+      "asset_source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/95/c2/98/95c298a3-2895-912b-33e7-2a6b36111391/Slice_3.jpg/1200x2400bb.jpg",
+      "access_date": "2026-09-06",
+      "use": "Publisher screenshot, explicitly labeled; no original testing claim"
+    },
+    "cronometer": {
+      "app_id": 1145935738,
+      "app_name": "Cronometer: Calorie Counter",
+      "listing_url": "https://apps.apple.com/us/app/cronometer-calorie-counter/id1145935738?uo=4",
+      "asset_source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9b/1f/e1/9b1fe121-dedd-263e-ab1a-31958d3e4cfb/Slide_2_-_Iphone.png/1200x2400bb.jpg",
+      "access_date": "2026-09-06",
+      "use": "Publisher screenshot, explicitly labeled; no original testing claim"
+    },
+    "macrofactor": {
+      "app_id": 1553503471,
+      "app_name": "MacroFactor - Macro Tracker",
+      "listing_url": "https://apps.apple.com/us/app/macrofactor-macro-tracker/id1553503471?uo=4",
+      "asset_source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/99/76/c7/9976c705-afb7-92f0-9258-21862fbecf3d/iPhone_14_Plus_-_21.png/1200x2400bb.jpg",
+      "access_date": "2026-09-06",
+      "use": "Publisher screenshot, explicitly labeled; no original testing claim"
+    }
+  },
+  "exact_query_baseline": {
+    "weight watchers body scanner": [],
+    "zozofit review": [
+      {
+        "keys": [
+          "https://gainframe.app/blog/best-zozofit-alternatives/",
+          "zozofit review"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 20
+      }
+    ],
+    "gravl app review": [],
+    "evolt 360 body scan accuracy": [
+      {
+        "keys": [
+          "https://gainframe.app/blog/body-fat-percentage-chart/",
+          "evolt 360 body scan accuracy"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      }
+    ],
+    "oxiline scale review": [],
+    "hume vs renpho": [],
+    "cronometer vs macrofactor": [],
+    "arboleaf scale review": [],
+    "styku body scan accuracy": [],
+    "bodyspec review": []
+  },
+  "notes": [
+    "Two support centers returned 403 to a raw HTTP client, and JMIR returned an anti-bot 202; their page contents were read through the web research tool. These are not recorded as dead links.",
+    "All ten covers generated with gemini-3.1-flash-image-preview, converted to WebP, and visually reviewed.",
+    "GSC rows are final for August 8 through September 4, 2026; absent rows may reflect query anonymization."
+  ]
+}

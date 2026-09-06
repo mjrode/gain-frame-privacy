@@ -1,0 +1,155 @@
+{
+  "checked_at": "2026-09-06T14:25:22.411965+00:00",
+  "pages": [
+    {
+      "url": "https://gainframe.app/blog/weight-watchers-body-scanner-review/",
+      "status": 200,
+      "canonical": true,
+      "faq": true,
+      "assets": [
+        {
+          "file": "cover.webp",
+          "status": 200,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "url": "https://gainframe.app/blog/zozofit-review/",
+      "status": 200,
+      "canonical": true,
+      "faq": true,
+      "assets": [
+        {
+          "file": "cover.webp",
+          "status": 200,
+          "matches": true
+        },
+        {
+          "file": "zozofit-publisher.webp",
+          "status": 200,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "url": "https://gainframe.app/blog/gravl-app-review/",
+      "status": 200,
+      "canonical": true,
+      "faq": true,
+      "assets": [
+        {
+          "file": "cover.webp",
+          "status": 200,
+          "matches": true
+        },
+        {
+          "file": "gravl-publisher.webp",
+          "status": 200,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "url": "https://gainframe.app/blog/evolt-360-body-scan-accuracy/",
+      "status": 200,
+      "canonical": true,
+      "faq": true,
+      "assets": [
+        {
+          "file": "cover.webp",
+          "status": 200,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "url": "https://gainframe.app/blog/oxiline-scale-review/",
+      "status": 200,
+      "canonical": true,
+      "faq": true,
+      "assets": [
+        {
+          "file": "cover.webp",
+          "status": 200,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "url": "https://gainframe.app/blog/hume-vs-renpho/",
+      "status": 200,
+      "canonical": true,
+      "faq": true,
+      "assets": [
+        {
+          "file": "cover.webp",
+          "status": 200,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "url": "https://gainframe.app/blog/cronometer-vs-macrofactor/",
+      "status": 200,
+      "canonical": true,
+      "faq": true,
+      "assets": [
+        {
+          "file": "cover.webp",
+          "status": 200,
+          "matches": true
+        },
+        {
+          "file": "cronometer-publisher.webp",
+          "status": 200,
+          "matches": true
+        },
+        {
+          "file": "macrofactor-publisher.webp",
+          "status": 200,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "url": "https://gainframe.app/blog/arboleaf-scale-review/",
+      "status": 200,
+      "canonical": true,
+      "faq": true,
+      "assets": [
+        {
+          "file": "cover.webp",
+          "status": 200,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "url": "https://gainframe.app/blog/styku-body-scan-accuracy/",
+      "status": 200,
+      "canonical": true,
+      "faq": true,
+      "assets": [
+        {
+          "file": "cover.webp",
+          "status": 200,
+          "matches": true
+        }
+      ]
+    },
+    {
+      "url": "https://gainframe.app/blog/bodyspec-review/",
+      "status": 200,
+      "canonical": true,
+      "faq": true,
+      "assets": [
+        {
+          "file": "cover.webp",
+          "status": 200,
+          "matches": true
+        }
+      ]
+    }
+  ]
+}

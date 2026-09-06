@@ -19,6 +19,8 @@ The earlier keyword research remains at [the September 6 opportunity report](../
 - Existing global legacy warnings remain: 6 orphans, 49 Quick Answer issues, 18 stale posts, 78 schema-contract issues, 182 posts with long dashes. These are outside the new batch; all touched articles passed strict checks.
 - In three link-source articles, normalized existing long dashes to satisfy the style gate. Also synchronized one existing workout-tracker FAQ answer with its visible copy. Existing Hume and RENPHO individual reviews remain unmodified.
 
+External sources and screenshot provenance are recorded in [the source receipt](2026-09-06-blog-sources.json). Two support centers blocked the raw HTTP client and JMIR returned an anti-bot response; their content was successfully read through the web research tool. These are not classified as dead links.
+
 ## Article checks
 
 | Article | Quick Answer words | FAQs | Contextual inbound sources | Assets |
@@ -36,7 +38,11 @@ The earlier keyword research remains at [the September 6 opportunity report](../
 
 ## Deployment and indexing
 
-Pending normal main-branch publication and live verification. Results will be recorded below after deployment.
+Content committed and pushed to main as `18713a8`. GitHub build/deploy and Cloudflare Workers/Pages checks all passed. Workers production completed September 6 at 14:24:34 UTC. Live checks verified all ten pages return HTTP 200 with the expected canonical and five-question FAQ schema; all fourteen image assets return HTTP 200 and match local SHA-256 hashes. [Live verification receipt](2026-09-06-blog-live.json).
+
+IndexNow key file returned HTTP 200 with the exact 32-byte key. Submitted the ten live URLs at 14:26 UTC: Yandex accepted (202), Seznam accepted (200), and Naver accepted (200). Bing and the Microsoft aggregator returned 403 `UserForbiddedToAccessSite`, matching the known Bing property-verification issue. Acceptance does not guarantee indexing.
+
+Google indexing is not claimed. These are publication-day URLs; no premature ranking or coverage verdict is assigned. The known sitemap includes all ten. The paste-ready list below is available for manual URL Inspection; the new-page evaluation starts after sufficient final data is available.
 
 ## Google URL inspection list
 
