@@ -796,3 +796,10 @@ their own.
 | Hume retitle F1 | approved title exists locally but is uncommitted | 7-10d after deploy |
 | Tool conversion card | tool-path store clicks vs homepage Reddit/direct | next run with ≥7d after Aug 17 |
 | `absmaxx-vs-gainframe` orphan | inbound from `recomp-ai-vs-gainframe` | **Shipped 2026-08-18** |
+
+
+## 2026-09-06: ten sourced articles with protected query ownership
+
+Wrote ten current-product evaluations and comparisons under the user's instruction to write the researched opportunities without cannibalizing existing work. See [ownership contract](../keyword-research/2026-09-06-blog-ownership.md) and [execution audit](2026-09-06-blog-batch.md). Baseline 241 posts, now 251; no new title/description overlap pairs; three contextual inbound links per article. The eight original personal-testing briefs remain unfulfilled as first-person evidence. This publication uses a different, explicitly disclosed sourced format and future testing should update the same URLs.
+
+Preserve best-zozofit-alternatives, macrofactor-review, hume-body-pod-review, renpho-scale-review, and dexa-scan-body-fat-percentage as their existing intent owners. Hume vs RENPHO is limited to Body Pod versus MorphoScan Nova. Hume's September 22 review must annotate the new adjacent publication as an intervening event. Assess the new 28-day window September 7 to October 4 after final data is available, no earlier than October 7, using query-family combined clicks and consented article-to-App-Store behavior. No paid-customer or ranking guarantee, and no new automation.

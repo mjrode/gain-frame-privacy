@@ -14,6 +14,22 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 ## ACTIVE (fresh start 2026-06-28)
 
+### September 6: ten sourced articles
+
+[Intent boundaries and original-evidence status](keyword-research/2026-09-06-blog-ownership.md). These are sourced evaluations; earlier first-person testing gates remain open and should enrich the same URLs.
+
+- [x] **weight watchers body scanner**: sourced article written September 6, 2026 as `/blog/weight-watchers-body-scanner-review/`.
+- [x] **zozofit review**: sourced article written September 6, 2026 as `/blog/zozofit-review/`.
+- [x] **gravl app review**: sourced article written September 6, 2026 as `/blog/gravl-app-review/`.
+- [x] **evolt 360 body scan accuracy**: sourced article written September 6, 2026 as `/blog/evolt-360-body-scan-accuracy/`.
+- [x] **oxiline scale review**: sourced article written September 6, 2026 as `/blog/oxiline-scale-review/`.
+- [x] **hume vs renpho**: sourced article written September 6, 2026 as `/blog/hume-vs-renpho/`.
+- [x] **cronometer vs macrofactor**: sourced article written September 6, 2026 as `/blog/cronometer-vs-macrofactor/`.
+- [x] **arboleaf scale review**: sourced article written September 6, 2026 as `/blog/arboleaf-scale-review/`.
+- [x] **styku body scan accuracy**: sourced article written September 6, 2026 as `/blog/styku-body-scan-accuracy/`.
+- [x] **bodyspec review**: sourced article written September 6, 2026 as `/blog/bodyspec-review/`.
+
+
 > **📍 Topical map lives at `seo-tools/topical-map.md`** (created 2026-07-07) — check the cluster + gap list there BEFORE adding new keyword targets here. Programmatic SEO explicitly deferred by owner.
 
 

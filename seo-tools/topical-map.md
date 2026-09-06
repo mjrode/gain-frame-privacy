@@ -1,7 +1,7 @@
 # GainFrame Topical Map
 
-> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-09-03 (new DEXA/InBody pages and current tool inventory reconciled).
-> **Current inventory:** 241 blog posts · 19 tools · 4 landing pages · 15 body-fat gallery URLs (279 indexable URLs).
+> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-09-06 (ten sourced product articles and their intent boundaries added).
+> **Current inventory:** 251 blog posts · 19 tools · 4 landing pages · 15 body-fat gallery URLs (289 indexable URLs).
 > **Intent legend:** 💰 commercial (drives installs/clicks) · 📊 informational (impressions/AEO/links) · 🤝 brand/social (founder lane, not SEO) · 🔧 tool.
 > **Programmatic SEO:** broad page factories remain deferred. One finite 14-page body-fat picture gallery plus its hub shipped 2026-08-06 around the proprietary standardized render library; do not expand it without query evidence and a strategy update.
 
@@ -34,7 +34,8 @@ The brand-alternatives lane (InBody template). Best new-post velocity: top-6 wit
 best-body-scanning-measurement-apps (hub) · best-inbody-alternatives · inbody-vs-dexa (Sep 3) · dexa-scan-body-fat-percentage (Sep 3, first-party GE Lunar report guide) · best-zozofit-alternatives · best-renpho-alternatives · best-leanlens-alternatives · hume-body-pod-review · methreesixty-vs-gainframe · recomp-ai-vs-gainframe · fitnessai-bodyscan-vs-gainframe · spren-app-review · spren-vs-gainframe · **Measurement stats sub-cluster 📊 (breakout format — 5K imp/5d):** ideal-body-measurements-men (hub) · average-waist-size-men · average-bicep-size · average-shoulder-width (Jul 11 session) · average-chest-size (Jul 11) · average-neck-size (Jul 11) · average-wrist-size · average-forearm-size · waist-to-height-ratio · shoulder-to-waist-ratio · why-is-my-waist-not-shrinking
 **Jul 9–23 backfill:** are-smart-scales-accurate · average-bicep-size-women · average-hand-size · average-hip-size-women · average-shoulder-width-women · average-thigh-size · average-waist-size-women · best-body-composition-scales · body-frame-size · chest-to-waist-ratio · how-to-get-a-smaller-waist · how-to-take-body-measurements · ideal-body-measurements-women · long-torso-short-legs · renpho-scale-review · tape-measure-vs-smart-scale · waist-to-hip-ratio · withings-body-scan-review
 **Smart-scale series (Aug 11, RENPHO integration launch):** are-smart-scales-worth-it 📊 ("are smart scales worth it" 210, +91%/yr) · best-smart-scales-apple-health 💰 (apple-health scale family) · renpho-gainframe-integration 🤝 (Integration page, Hevy template; destination for the in-app RENPHO Setup Guide). Same run: best-body-composition-scales retitled "Best Smart Scales for Body Composition in 2026" to chase the shared "best smart scale" (5,400, +23%) SERP; renpho-scale-review refreshed for "renpho scale accuracy" (880, KD 3) + the Apple Health integration.
-**Gaps:** WeightWatchers AI Body Scanner, Evolt 360, and caliper coverage are approved only when their first-party evidence contracts are met. Withings Body Scan and average thigh/calf coverage already exist. "renpho vs withings" (40 vol, +40%) is held as a possible comparison if the refreshed lane shows movement. ⚠️ Parallel-session rule: re-list web/content/blog before briefing ANY batch — Jul 13 near-miss duplicated Jul 11 session's stats pages.
+**Sep 6 sourced evaluations:** weight-watchers-body-scanner-review · zozofit-review · evolt-360-body-scan-accuracy · oxiline-scale-review · hume-vs-renpho (Body Pod / MorphoScan Nova only) · arboleaf-scale-review · styku-body-scan-accuracy · bodyspec-review. These own specific product/service questions; preserve the alternatives, individual Hume/RENPHO review, and DEXA-report owners. [Ownership and measurement contract](keyword-research/2026-09-06-blog-ownership.md).
+**Gaps:** Original WW/Evolt and other device tests remain unperformed; add later evidence to these URLs. Caliper coverage still requires its first-party evidence contract. Withings Body Scan and average thigh/calf coverage already exist. "renpho vs withings" (40 vol, +40%) is held as a possible comparison if the refreshed lane shows movement. ⚠️ Parallel-session rule: re-list web/content/blog before briefing ANY batch — Jul 13 near-miss duplicated Jul 11 session's stats pages.
 
 ## Cluster 4 — Progress photos 💰📊
 
@@ -71,11 +72,15 @@ best-glp1-muscle-tracking-apps (hub 💰) · glp-1-muscle-loss-tracking · track
 best-ai-personal-trainer-apps (striking-distance, links-only until plateau) · ray-fitness-app-review · thelo-app-review (Aug 9; "thelo app reviews" 65 imp @ 6.5, brand-new app, profile in competitor-research/thelo.md) · gainframe-vs-fitbod-ray-gymstreak · ai-fitness-coach-vs-chatgpt · chatgpt-workout-plan · do-ai-fitness-trainers-work · personalized-ai-fitness-coach · gainframe-coach · ai-fitness-coach-strava-integration
 **Gaps:** Fitbod review? GymStreak review? (only if 4-way post shows brand-query impressions in GSC first).
 
+**Sep 6 addition:** gravl-app-review, a sourced product evaluation with a proposed usability checklist. It owns Gravl review intent, not the AI-trainer roundup.
+
 ## Cluster 10 — Workout-tracker adjacency (top-of-funnel lifters) 💰
 
 hevy-vs-strong · hevy-app-gainframe-integration · smart-integrations-hevy · best-fitness-app-stack-2026 · recovery-score-for-lifters · resistance-training-guidelines · best-apps-track-muscle-gain · best-ai-fitness-apps-track-body
 **Jul 9–23 backfill:** am-i-overtraining-quiz · beginner-intermediate-advanced-lifter · best-fitness-apps-for-men · best-fitness-apps-for-women · best-whoop-alternatives-for-lifters · best-workout-tracker-apps · jefit-vs-hevy · macrofactor-review · strength-standards
 **Gaps:** "Hevy review" standalone (only if hevy-vs-strong shows brand impressions). Jefit vs Hevy already shipped Jul 20.
+
+**Sep 6 addition:** cronometer-vs-macrofactor, comparing nutrient logging and adaptive nutrition targets. Preserve macrofactor-review as the individual product owner.
 
 ## Cluster 11 — Physique rating 💰📊
 
