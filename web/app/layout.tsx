@@ -3,7 +3,6 @@ import { DM_Sans, Outfit } from "next/font/google";
 import { SITE } from "@/lib/site";
 import AppStoreClickTracker from "@/components/AppStoreClickTracker";
 import AnalyticsConsentManager from "@/components/AnalyticsConsentManager";
-import AppIncidentNotice from "@/components/AppIncidentNotice";
 
 // Self-hosted fonts via next/font — emits @font-face declarations using these
 // family names so existing CSS that references 'DM Sans' / 'Outfit' / etc.
@@ -124,7 +123,6 @@ export default function RootLayout({
         {children}
         <AppStoreClickTracker />
         <AnalyticsConsentManager />
-        <AppIncidentNotice />
       </body>
     </html>
   );
