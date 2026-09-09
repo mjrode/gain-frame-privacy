@@ -40,16 +40,17 @@ region or consent choice is pending. A grant flushes them once GA4 and PostHog
 are ready; a denial discards them. Nothing from that queue is persisted in
 browser storage.
 
-## Result CTA A/B/C experiment
+## Result CTA experiment: Improve vs Future
 
 `tool_result_cta_v1` assigns each browser one stable result-CTA angle. The
-current readout phase is `expanded_result_cards_v2`; do not combine its pooled
-results with the earlier physique-rater-only or eight-tool expansion phases.
+current readout phase is `improve_vs_future_v3`. On September 9, 2026, the owner
+retired Track after the descriptive 5/639 (0.78%) review. This is an owner-directed
+allocation change, not a statistical winner or a completed test. Do not pool this
+phase with `expanded_result_cards_v2` or earlier phases.
 
 | Variant | Angle | Primary action |
 |---|---|---|
 | `improve` (A) | Diagnose the weakest area | Show my 12-muscle breakdown |
-| `track` (B) | Turn a snapshot into a trend | Track my next check-in |
 | `future` (C) | Turn the result into a target | Preview my future physique |
 
 Before analytics consent, the assignment stays in memory for the current page
@@ -57,7 +58,7 @@ and no experiment storage is read or written. After consent is granted, that
 same assignment is stored under `gainframe:experiment:tool_result_cta_v1` so a
 returning visitor does not see the message change; it does not identify the
 visitor. QA can force a presentation with
-`?gf_cta_variant=improve|track|future`; those events carry
+`?gf_cta_variant=improve|future`; those events carry
 `experiment_forced=true` and are excluded from reporting.
 
 The same assignment now applies to successful result cards for the physique
@@ -69,7 +70,21 @@ and assignment remain fixed. Only the message angle changes. Android is
 excluded from the experiment readout because its primary action is email
 capture rather than an App Store click.
 
-### Pre-registered decision plan
+New assignments split **50/50 between Improve and Future**. Existing valid saved
+assignments remain eligible; a saved `track` value is rejected and replaced by
+one of the two active variants at the next consented assignment. A retired
+`gf_cta_variant=track` override is ignored and cannot render Track. Track copy
+is removed from every participating result card, and the scheduled report
+reads only this new phase and its two active variants.
+
+The September 9 audit's consent-restoration crossover and attribution defects
+remain open. This allocation change does not repair them or make the new phase
+clean. Require a verified assignment repair before a causal winner decision;
+retain at least 4,600 eligible unique viewers per arm and two complete weeks
+as conservative minimums. A repair must establish its own clean phase. No
+blog CTA, CPP destination, tool layout, or remaining variant copy changes here.
+
+### Historical pre-registered plan: expanded_result_cards_v2 (retired)
 
 **Observation:** the shared tool dock recorded a 3.33% unique viewer-to-clicker
 rate in the settled Aug 18–24 baseline.

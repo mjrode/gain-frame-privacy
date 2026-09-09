@@ -1,11 +1,11 @@
 import { documentAnalyticsConsentGranted } from "./analytics-consent.ts";
 
 export const TOOL_CTA_EXPERIMENT_ID = "tool_result_cta_v1";
-export const TOOL_CTA_EXPERIMENT_PHASE = "expanded_result_cards_v2";
+export const TOOL_CTA_EXPERIMENT_PHASE = "improve_vs_future_v3";
 export const TOOL_CTA_EXPERIMENT_STORAGE_KEY =
   "gainframe:experiment:tool_result_cta_v1";
 
-export const TOOL_CTA_VARIANTS = ["improve", "track", "future"] as const;
+export const TOOL_CTA_VARIANTS = ["improve", "future"] as const;
 export type ToolCtaVariant = (typeof TOOL_CTA_VARIANTS)[number];
 
 export type ToolConversionExperimentCopy = {
@@ -41,8 +41,6 @@ export type ToolResultCtaContext =
   | { tool: "body_shape_compare" };
 
 const PRIVATE_PROOF = "Free to start · iPhone app · Photos stay private";
-const TRACK_PROOF =
-  "Free to start · No account required · Photos stay private";
 const FUTURE_PROOF =
   "AI projection, not a promise · Free to start · iPhone app";
 
@@ -55,7 +53,7 @@ function resultExperiment(
 /**
  * Contextual copy for one site-wide message-angle experiment. Assignment,
  * layout, artwork, placement, destination, and button styling stay fixed;
- * only the message angle changes between Improve, Track, and Future.
+ * only the message angle changes between Improve and Future.
  */
 export function buildToolResultCtaExperiment(
   context: ToolResultCtaContext,
@@ -70,16 +68,6 @@ export function buildToolResultCtaExperiment(
           desktopBody: `Scan with your iPhone to expand “${context.opportunity}” into a 12-muscle breakdown and track it over time.`,
           iosLabel: "Show my 12-muscle breakdown",
           proof: PRIVATE_PROOF,
-        },
-        track: {
-          eyebrow: "Make the score useful",
-          headline: `${context.score} only matters if it moves.`,
-          body:
-            "Save consistent check-ins and see whether body fat, muscle, and proportions are actually changing.",
-          desktopBody:
-            "Scan with your iPhone to save consistent check-ins and turn this score into a real progress trend.",
-          iosLabel: "Track my next check-in",
-          proof: TRACK_PROOF,
         },
         future: {
           eyebrow: "Turn the result into a target",
@@ -103,16 +91,6 @@ export function buildToolResultCtaExperiment(
           iosLabel: "Show my muscle breakdown",
           proof: PRIVATE_PROOF,
         },
-        track: {
-          eyebrow: "Make the number useful",
-          headline: `${context.estimate}% only matters if it moves.`,
-          body:
-            "Save consistent check-ins and see whether body fat, muscle, and proportions are actually changing.",
-          desktopBody:
-            "Scan with your iPhone to save this estimate and turn the next check-in into a real trend.",
-          iosLabel: "Track my next check-in",
-          proof: TRACK_PROOF,
-        },
         future: {
           eyebrow: "Turn the result into a target",
           headline: "See what consistent training could build.",
@@ -134,16 +112,6 @@ export function buildToolResultCtaExperiment(
           desktopBody: `Scan with your iPhone to turn “${context.biggestLever}” into a full muscle-by-muscle plan.`,
           iosLabel: "Show my full breakdown",
           proof: PRIVATE_PROOF,
-        },
-        track: {
-          eyebrow: "Make the score useful",
-          headline: `${context.score} only matters if it moves.`,
-          body:
-            "Save the same pose each week and watch your ab score, body fat, and muscle balance change together.",
-          desktopBody:
-            "Scan with your iPhone to save this score and compare it with consistent weekly check-ins.",
-          iosLabel: "Track my next check-in",
-          proof: TRACK_PROOF,
         },
         future: {
           eyebrow: "Turn the timeline into a target",
@@ -171,16 +139,6 @@ export function buildToolResultCtaExperiment(
           iosLabel: "Show my muscle breakdown",
           proof: PRIVATE_PROOF,
         },
-        track: {
-          eyebrow: "Make the timeline real",
-          headline: `${context.timeline} is the plan. Weekly photos prove it.`,
-          body:
-            "Track body fat, weight, and the same pose together so the range updates with the real you.",
-          desktopBody:
-            "Scan with your iPhone to save this range and compare it with consistent weekly check-ins.",
-          iosLabel: "Track my next check-in",
-          proof: TRACK_PROOF,
-        },
         future: {
           eyebrow: "See the target",
           headline: "Preview the physique at the end of the range.",
@@ -204,16 +162,6 @@ export function buildToolResultCtaExperiment(
             "Scan with your iPhone for body-fat context, proportions, and a 12-muscle breakdown.",
           iosLabel: "Show my muscle breakdown",
           proof: PRIVATE_PROOF,
-        },
-        track: {
-          eyebrow: "Make the number useful",
-          headline: `BMI ${context.bmi} is a snapshot. Track the body behind it.`,
-          body:
-            "Save consistent check-ins and see whether body fat, muscle, and proportions are actually changing.",
-          desktopBody:
-            "Scan with your iPhone to turn this snapshot into a private progress-photo trend.",
-          iosLabel: "Track my next check-in",
-          proof: TRACK_PROOF,
         },
         future: {
           eyebrow: "Turn the result into a target",
@@ -239,16 +187,6 @@ export function buildToolResultCtaExperiment(
           iosLabel: "Show my muscle breakdown",
           proof: PRIVATE_PROOF,
         },
-        track: {
-          eyebrow: "Make the match useful",
-          headline: "A visual match is a snapshot. Track your own trend.",
-          body:
-            "Save consistent check-ins and see whether body fat, muscle, and proportions are actually changing.",
-          desktopBody:
-            "Scan with your iPhone to turn this visual match into a private progress-photo trend.",
-          iosLabel: "Track my next check-in",
-          proof: TRACK_PROOF,
-        },
         future: {
           eyebrow: "Turn the reference into a target",
           headline: "Preview the physique you are working toward.",
@@ -272,16 +210,6 @@ export function buildToolResultCtaExperiment(
             "Scan with your iPhone for a 12-muscle breakdown and clear focus areas behind the projection.",
           iosLabel: "Show my muscle breakdown",
           proof: PRIVATE_PROOF,
-        },
-        track: {
-          eyebrow: "Make the preview useful",
-          headline: "The render is a target. Track the real thing.",
-          body:
-            "Save consistent check-ins and compare your real progress with the projection over time.",
-          desktopBody:
-            "Scan with your iPhone to save the target and compare it with consistent progress photos.",
-          iosLabel: "Track my next check-in",
-          proof: TRACK_PROOF,
         },
         future: {
           eyebrow: "Keep the target visible",
@@ -307,16 +235,6 @@ export function buildToolResultCtaExperiment(
           iosLabel: "Show my muscle breakdown",
           proof: PRIVATE_PROOF,
         },
-        track: {
-          eyebrow: "Make the target useful",
-          headline: "Your target is set. Track the photos that get you there.",
-          body:
-            "Save consistent check-ins and see whether the measurement target is becoming visible.",
-          desktopBody:
-            "Scan with your iPhone to save the target and compare it with consistent progress photos.",
-          iosLabel: "Track my next check-in",
-          proof: TRACK_PROOF,
-        },
         future: {
           eyebrow: "Keep shaping the target",
           headline: "Preview each target before you chase it.",
@@ -340,16 +258,6 @@ export function buildToolResultCtaExperiment(
             "Scan with your iPhone to turn the visible change into a 12-muscle breakdown and clear focus areas.",
           iosLabel: "Show my muscle breakdown",
           proof: PRIVATE_PROOF,
-        },
-        track: {
-          eyebrow: "Make every comparison count",
-          headline: "Two photos show a change. A timeline shows the trend.",
-          body:
-            "Keep every check-in aligned, save the dates, and compare your progress without rebuilding the view each time.",
-          desktopBody:
-            "Scan with your iPhone to keep aligned check-ins together and turn one comparison into a private progress timeline.",
-          iosLabel: "Track my next check-in",
-          proof: TRACK_PROOF,
         },
         future: {
           eyebrow: "Give the change a target",
@@ -375,16 +283,6 @@ export function buildToolResultCtaExperiment(
           iosLabel: "Show my muscle breakdown",
           proof: PRIVATE_PROOF,
         },
-        track: {
-          eyebrow: "Confirm the pattern",
-          headline: "A likely trend becomes useful when it repeats.",
-          body:
-            "Save consistent check-ins alongside weight and measurements so the next 4–12 weeks are easier to read.",
-          desktopBody:
-            "Scan with your iPhone to pair consistent photos with the weight, waist, and strength trend.",
-          iosLabel: "Track my next check-in",
-          proof: TRACK_PROOF,
-        },
         future: {
           eyebrow: "Give the next block a target",
           headline: "Picture what another consistent 12 weeks could build.",
@@ -408,16 +306,6 @@ export function buildToolResultCtaExperiment(
             "Scan with your iPhone to turn the ratio comparison into a muscle-by-muscle view and clear focus areas.",
           iosLabel: "Show my muscle breakdown",
           proof: PRIVATE_PROOF,
-        },
-        track: {
-          eyebrow: "Make the target measurable",
-          headline: "A goal outline is not a trend. Track the real changes.",
-          body:
-            "Save consistent check-ins and see whether the proportions behind the illustration are changing over time.",
-          desktopBody:
-            "Scan with your iPhone to compare consistent progress photos with the proportions you are working toward.",
-          iosLabel: "Track my next check-in",
-          proof: TRACK_PROOF,
         },
         future: {
           eyebrow: "Keep the target visual",
@@ -500,6 +388,7 @@ export function getToolCtaAssignment(
         const stored = consentedStorage?.getItem(
           TOOL_CTA_EXPERIMENT_STORAGE_KEY,
         );
+        // Retired Track assignments are invalid and re-enter the active split.
         if (isToolCtaVariant(stored)) {
           inMemoryToolCtaVariant = stored;
         }

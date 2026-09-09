@@ -1,7 +1,7 @@
 import { hogql, type AdminEnv, num, str } from "../api/admin.ts";
 
 export const TOOL_CTA_EXPERIMENT_ID = "tool_result_cta_v1";
-export const TOOL_CTA_EXPERIMENT_PHASE = "expanded_result_cards_v2";
+export const TOOL_CTA_EXPERIMENT_PHASE = "improve_vs_future_v3";
 
 export interface ToolCtaReportEnv extends AdminEnv {
   SLACK_REPORT_BOT_TOKEN?: string;
@@ -9,7 +9,7 @@ export interface ToolCtaReportEnv extends AdminEnv {
 }
 
 export type ToolCtaVariantSummary = {
-  variant: "improve" | "track" | "future";
+  variant: "improve" | "future";
   viewers: number;
   clickers: number;
   ctr: number;
@@ -17,7 +17,6 @@ export type ToolCtaVariantSummary = {
 
 const VARIANT_META = {
   improve: { letter: "A", label: "Improve next" },
-  track: { letter: "B", label: "Track progress" },
   future: { letter: "C", label: "Future physique" },
 } as const;
 
@@ -63,14 +62,14 @@ export function formatToolCtaReport(input: {
     .join(" · ");
 
   return [
-    ":chart_with_upwards_trend: *Tool result CTA A/B/C · daily*",
+    ":chart_with_upwards_trend: *Tool result CTA Improve vs Future · daily*",
     `Trailing 24 hours · ${input.generatedAt.toISOString().slice(0, 16).replace("T", " ")} UTC`,
     "",
     ...input.daily.map(variantLine),
     "",
     leaderText,
     `*Trailing 7 days:* ${weeklyText}`,
-    "_Unique consented PostHog visitors. QA-forced assignments excluded. Treat the daily leader as directional until the pre-set sample is reached._",
+    "_Unique consented PostHog visitors. QA-forced assignments excluded. Treat the daily leader as directional; the pre-set sample, duration, and assignment-integrity requirements still apply._",
   ].join("\n");
 }
 
