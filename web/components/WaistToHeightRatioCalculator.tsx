@@ -76,7 +76,7 @@ function validateMeasurement(
   if (numberCm < minimumCm - 0.15 || numberCm > maximumCm + 0.15) {
     const minimum = unit === "in" ? toInches(minimumCm).toFixed(1) : minimumCm;
     const maximum = unit === "in" ? toInches(maximumCm).toFixed(1) : maximumCm;
-    return `Enter ${minimum}–${maximum} ${unit} for an adult ${field}.`;
+    return `Enter ${minimum} to ${maximum} ${unit} for an adult ${field}.`;
   }
   return null;
 }
@@ -159,7 +159,7 @@ export default function WaistToHeightRatioCalculator() {
         </h2>
         <div className="waist-tool-sub">
           Enter both measurements in the same unit. The calculator runs here in
-          your browser — nothing is uploaded or saved.
+          your browser. Nothing is uploaded or saved.
         </div>
       </div>
 
@@ -210,7 +210,7 @@ export default function WaistToHeightRatioCalculator() {
             />
             <span className="whtr-calculator-hint" id={`${id}-height-hint`}>
               {unit === "in"
-                ? "Use total inches — 5 ft 10 in is 70 in."
+                ? "Use total inches. 5 ft 10 in is 70 in."
                 : "Measure without shoes."}
             </span>
             {heightErrorVisible ? (
@@ -226,7 +226,7 @@ export default function WaistToHeightRatioCalculator() {
 
           <div className="waist-tool-field">
             <label className="waist-tool-label" htmlFor={`${id}-waist`}>
-              Waist at the navel ({unit})
+              Waist circumference ({unit})
             </label>
             <input
               ref={waistRef}
@@ -247,7 +247,8 @@ export default function WaistToHeightRatioCalculator() {
               onChange={(event) => setWaist(event.target.value)}
             />
             <span className="whtr-calculator-hint" id={`${id}-waist-hint`}>
-              Measure after a relaxed exhale; do not use your pants size.
+              Measure midway between your lowest ribs and the top of your hips
+              after a normal exhale.
             </span>
             {waistErrorVisible ? (
               <span
@@ -281,9 +282,9 @@ export default function WaistToHeightRatioCalculator() {
       )}
 
       <p className="waist-tool-source">
-        For adults. Waist-to-height ratio is a screening tool, not a diagnosis. It
-        cannot evaluate your body composition, bloodwork, symptoms, or the age-adjusted
-        guidance used for children.
+        For adult screening alongside BMI when BMI is below 35. This is not a
+        diagnosis or a body-fat measurement. See the guidance below for who
+        should use a different assessment.
       </p>
     </section>
   );
