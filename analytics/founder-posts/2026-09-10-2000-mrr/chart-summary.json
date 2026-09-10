@@ -1,0 +1,20 @@
+{
+  "mrr_current": 2208.95,
+  "current_day_incomplete": true,
+  "active_subscriptions": 391,
+  "earlier": {
+    "start": "2026-07-15",
+    "end": "2026-08-12",
+    "start_mrr": 1074.79,
+    "end_mrr": 1926.21,
+    "added": 851.42
+  },
+  "recent": {
+    "start": "2026-08-12",
+    "end": "2026-09-09",
+    "start_mrr": 1926.21,
+    "end_mrr": 2212.73,
+    "added": 286.52
+  },
+  "less_mrr_added_percent": 66.3
+}

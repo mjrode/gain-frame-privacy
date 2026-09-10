@@ -1,0 +1,28 @@
+{
+  "currency": "USD",
+  "metrics": [
+    {
+      "description": "In total",
+      "id": "active_subscriptions",
+      "last_updated_at": null,
+      "last_updated_at_iso8601": null,
+      "name": "Active Subscriptions",
+      "object": "overview_metric",
+      "period": "P0D",
+      "unit": "#",
+      "value": 391
+    },
+    {
+      "description": "Monthly Recurring Revenue",
+      "id": "mrr",
+      "last_updated_at": null,
+      "last_updated_at_iso8601": null,
+      "name": "MRR",
+      "object": "overview_metric",
+      "period": "P28D",
+      "unit": "$",
+      "value": 2208
+    }
+  ],
+  "object": "overview_metrics"
+}

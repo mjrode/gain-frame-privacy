@@ -1,0 +1,406 @@
+{
+  "category": "revenue",
+  "description": "Monthly Recurring Revenue, or MRR, is a way of normalizing the scale of your business to better understand your velocity or size. It doesn't map directly to revenue, but it is a useful standardization.\n\nMRR is computed by \"normalizing\" subscriptions to a 1-month period. For example, a subscription that is $8 per month, will contribute $8 to MRR while it is active. An annual subscription that costs $120 per year will contribute $10 dollars per month to MRR for 12 months. This normalizing of all durations to a 1 month period makes it easier to compare different subscriptions of different durations together.\n\nMRR is an important measure because it not only captures the size of your subscriber base, but translates that into a real velocity metric for your business. MRR and ARR are considered the standard velocity metrics for subscription software companies.",
+  "display_name": "MRR",
+  "display_type": "default",
+  "documentation_link": "dashboard-and-metrics/charts/monthly-recurring-revenue-mrr-chart",
+  "end_date": 1788998400,
+  "filtering_allowed": true,
+  "last_computed_at": null,
+  "measures": [
+    {
+      "chartable": true,
+      "decimal_precision": 0,
+      "description": "Monthly Recurring Revenue",
+      "display_name": "MRR",
+      "tabulable": true,
+      "unit": "$"
+    }
+  ],
+  "object": "chart_data",
+  "periods": null,
+  "resolution": "day",
+  "segmenting_allowed": true,
+  "segments": null,
+  "segments_limit": null,
+  "start_date": 1783814400,
+  "summary": {
+    "average": {
+      "MRR": 1742.57
+    }
+  },
+  "unsupported_params": null,
+  "user_selectors": {
+    "revenue_type": "revenue"
+  },
+  "values": [
+    {
+      "cohort": 1783814400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1004.34
+    },
+    {
+      "cohort": 1783900800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1008.61
+    },
+    {
+      "cohort": 1783987200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1055.21
+    },
+    {
+      "cohort": 1784073600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1074.79
+    },
+    {
+      "cohort": 1784160000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1114.11
+    },
+    {
+      "cohort": 1784246400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1122.94
+    },
+    {
+      "cohort": 1784332800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1130.69
+    },
+    {
+      "cohort": 1784419200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1149.16
+    },
+    {
+      "cohort": 1784505600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1192.77
+    },
+    {
+      "cohort": 1784592000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1216.74
+    },
+    {
+      "cohort": 1784678400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1255.84
+    },
+    {
+      "cohort": 1784764800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1296.47
+    },
+    {
+      "cohort": 1784851200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1323.05
+    },
+    {
+      "cohort": 1784937600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1362.6
+    },
+    {
+      "cohort": 1785024000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1390.83
+    },
+    {
+      "cohort": 1785110400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1400.65
+    },
+    {
+      "cohort": 1785196800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1416.63
+    },
+    {
+      "cohort": 1785283200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1469.94
+    },
+    {
+      "cohort": 1785369600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1474.69
+    },
+    {
+      "cohort": 1785456000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1513.93
+    },
+    {
+      "cohort": 1785542400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1527.28
+    },
+    {
+      "cohort": 1785628800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1526.09
+    },
+    {
+      "cohort": 1785715200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1539.99
+    },
+    {
+      "cohort": 1785801600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1575.52
+    },
+    {
+      "cohort": 1785888000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1563.59
+    },
+    {
+      "cohort": 1785974400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1584.77
+    },
+    {
+      "cohort": 1786060800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1598.23
+    },
+    {
+      "cohort": 1786147200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1696.65
+    },
+    {
+      "cohort": 1786233600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1743.97
+    },
+    {
+      "cohort": 1786320000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1794.36
+    },
+    {
+      "cohort": 1786406400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1897.47
+    },
+    {
+      "cohort": 1786492800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1926.21
+    },
+    {
+      "cohort": 1786579200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1964.83
+    },
+    {
+      "cohort": 1786665600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2067.64
+    },
+    {
+      "cohort": 1786752000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1975.37
+    },
+    {
+      "cohort": 1786838400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1999.02
+    },
+    {
+      "cohort": 1786924800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2077.6
+    },
+    {
+      "cohort": 1787011200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2074.88
+    },
+    {
+      "cohort": 1787097600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2129.05
+    },
+    {
+      "cohort": 1787184000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2150.04
+    },
+    {
+      "cohort": 1787270400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2166.35
+    },
+    {
+      "cohort": 1787356800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2148.32
+    },
+    {
+      "cohort": 1787443200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2076.2
+    },
+    {
+      "cohort": 1787529600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2049.82
+    },
+    {
+      "cohort": 1787616000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2018.4
+    },
+    {
+      "cohort": 1787702400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2026.3
+    },
+    {
+      "cohort": 1787788800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2080.35
+    },
+    {
+      "cohort": 1787875200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2131.59
+    },
+    {
+      "cohort": 1787961600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2127.3
+    },
+    {
+      "cohort": 1788048000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2181.25
+    },
+    {
+      "cohort": 1788134400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2135.65
+    },
+    {
+      "cohort": 1788220800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2136.02
+    },
+    {
+      "cohort": 1788307200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2153.26
+    },
+    {
+      "cohort": 1788393600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2142.88
+    },
+    {
+      "cohort": 1788480000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2162.02
+    },
+    {
+      "cohort": 1788566400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2198.3
+    },
+    {
+      "cohort": 1788652800,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2183.47
+    },
+    {
+      "cohort": 1788739200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2173.35
+    },
+    {
+      "cohort": 1788825600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2197.7
+    },
+    {
+      "cohort": 1788912000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2212.73
+    },
+    {
+      "cohort": 1788998400,
+      "incomplete": true,
+      "measure": 0,
+      "value": 2208.95
+    }
+  ],
+  "yaxis": "$",
+  "yaxis_currency": "USD"
+}
