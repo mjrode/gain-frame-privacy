@@ -7,7 +7,9 @@ PostHog and Clarity on `gainframe.app` and `www.gainframe.app` only. Advertising
 storage/signals remain disabled; Clarity's existing form masking remains intact.
 
 `track` queues early events until each provider is ready, then flushes once per
-provider. Tool usage reporting, leaderboard events and AppsFlyer download
+provider. For the inline PostHog bootstrap, flush in a microtask after Next has
+appended the script: this Next version invokes inline `onReady` before execution.
+Tool usage reporting, leaderboard events and AppsFlyer download
 attribution do not wait for a region lookup or preference event. Existing Edge
 Functions retain their `analytics_consent` telemetry-enable request field; the
 website now sends it as `true` on production with the bounded analytics context.

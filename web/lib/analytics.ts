@@ -221,6 +221,12 @@ export function flushQueuedAnalyticsEvents(): number {
   return completed;
 }
 
+/** Next fires inline Script.onReady before appending/executing the script.
+ * Flush in the next microtask, after PostHog has installed its capture queue. */
+export function flushAnalyticsAfterInlineScript(): void {
+  queueMicrotask(() => flushQueuedAnalyticsEvents());
+}
+
 export function clearQueuedAnalyticsEvents(): void {
   queuedAnalyticsEvents.length = 0;
 }

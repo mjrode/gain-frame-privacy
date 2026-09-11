@@ -7,6 +7,7 @@ import {
   flushQueuedAnalyticsEvents,
   getPosthogDistinctId,
   isProductionAnalyticsHost,
+  flushAnalyticsAfterInlineScript,
   getWebAnalyticsContext,
   track,
   trackOncePerDay,
@@ -228,4 +229,36 @@ test("analytics SDKs are enabled only on the production domain", () => {
   for (const host of ["localhost", "app.gainframe.app", "gainframe.app.example.com"]) {
     assert.equal(isProductionAnalyticsHost(host), false);
   }
+});
+
+
+test("Next inline-script readiness flushes early events after the SDK stub exists", async (t) => {
+  const { handleClientScriptLoad } = await import("next/dist/client/script.js");
+  const originalDocument = Object.getOwnPropertyDescriptor(globalThis, "document");
+  const captured = [];
+  const browser = { gtag: () => {} };
+  setWindow(browser);
+  const fakeDocument = {
+    createElement: () => ({ addEventListener() {}, setAttribute() {} }),
+    body: {
+      appendChild() {
+        // Next appends/executes inline script text only AFTER invoking onReady.
+        browser.posthog = { capture: (event) => captured.push(event) };
+      },
+    },
+  };
+  Object.defineProperty(globalThis, "document", { configurable: true, value: fakeDocument });
+  t.after(() => {
+    if (originalDocument) Object.defineProperty(globalThis, "document", originalDocument);
+    else delete globalThis.document;
+  });
+  track("blog_cta_experiment_assigned", { experiment_id: "blog_contextual_cta_v1" });
+  handleClientScriptLoad({
+    id: "posthog-startup-regression",
+    children: "// SDK queue bootstrap",
+    onReady: flushAnalyticsAfterInlineScript,
+  });
+  await Promise.resolve();
+  assert.deepEqual(captured, ["blog_cta_experiment_assigned"]);
+  assert.equal(flushQueuedAnalyticsEvents(), 0);
 });
