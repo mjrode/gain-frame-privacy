@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import AnalyticsPreferencesButton from "@/components/AnalyticsPreferencesButton";
 
 export const metadata: Metadata = {
   title: { absolute: "GainFrame — Privacy Policy" },
@@ -147,7 +146,7 @@ export default function PrivacyPage() {
             notifications never contain the uploaded photo, calculator inputs,
             or generated result. If you request an emailed report or unlock,
             the email address is used to fulfill that request and is excluded
-            from optional analytics and Slack notifications.
+            from analytics and Slack notifications.
           </p>
 
           <h2>3. Apple Health</h2>
@@ -304,8 +303,7 @@ export default function PrivacyPage() {
             masked from Clarity.
           </p>
           <p>
-            When optional website analytics are enabled and you successfully
-            use a public tool, the site may send a completion event containing
+            When you successfully use a public tool, the site may send a completion event containing
             the tool name, an anonymous completion identifier, and sanitized
             acquisition/device context to a GainFrame Supabase Edge Function.
             Supabase keeps short-lived deduplication receipts and a
@@ -318,8 +316,7 @@ export default function PrivacyPage() {
             addresses are excluded from this event and notification.
           </p>
           <p>
-            If you choose to share or download a public leaderboard card while
-            optional analytics are enabled, GainFrame records a share-intent
+            If you choose to share or download a public leaderboard card, GainFrame records a share-intent
             event and may send a private Slack notification. It contains only
             the platform, selected card style, share-button placement, a broad
             rank range, goal filter, and leaderboard period. It does not
@@ -335,39 +332,26 @@ export default function PrivacyPage() {
             result, raw browser identifier, or raw network address.
           </p>
           <p>
-            After optional website analytics consent is granted, App Store
-            download links may use a branded AppsFlyer OneLink. The link can
+            App Store download links may use a branded AppsFlyer OneLink. The link can
             carry the first website page, download page, CTA placement, source,
             campaign, an anonymous click ID, anonymous PostHog/session IDs,
             medium, click time, and supported advertising click identifiers.
             If the app is installed or opened from that link, GainFrame may
             store this first-touch attribution and mirror bounded fields to
             PostHog and RevenueCat to understand website-to-subscription
-            conversion. While consent is pending or denied, the site uses the
-            direct App Store destination and does not create this OneLink
-            payload.
+            conversion.
           </p>
           <p>
-            Cloudflare classifies the request country at the edge only to
-            decide whether the website must display an analytics-consent
-            prompt. The website receives only the resulting yes-or-no decision;
-            we do not return or store the country code for this purpose.
-            Visitors in the EEA, United Kingdom, and Switzerland can accept or
-            decline non-essential analytics. In those regions, Google
-            Analytics, PostHog, and Microsoft Clarity do not load unless the
-            visitor accepts. A saved decline also keeps them off elsewhere.
-            Visitors elsewhere can use the control below to save the same
-            preference at any time. We save that choice in browser storage,
-            with a first-party preference cookie as a fallback. If Cloudflare
-            cannot classify a request country, analytics run without showing
-            the regional prompt unless the visitor has previously declined.
+            Website analytics start when a page loads. Cookies and browser
+            storage help measure visits, preserve experiment assignments, and
+            connect download activity to acquisition sources. The website does
+            not display a regional analytics prompt.
           </p>
           <p>
             Analytics are used to understand acquisition and improve the
             product, not for third-party advertising, and we do not sell this
             information to data brokers.
           </p>
-          <AnalyticsPreferencesButton />
 
           <h2>9. Children&rsquo;s Privacy</h2>
           <p>

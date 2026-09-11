@@ -8,7 +8,6 @@ import {
   type DownloadPlatform,
 } from "@/components/useDownloadPlatform";
 import { track } from "@/lib/analytics";
-import { ANALYTICS_CONSENT_STATE_EVENT } from "@/lib/analytics-consent";
 import {
   getToolCtaAssignment,
   TOOL_CTA_EXPERIMENT_PHASE,
@@ -183,13 +182,12 @@ export default function ToolConversionCard({
   const isDesktop = platform === "desktop";
   const isSticky = sticky ?? placement.endsWith("result");
   const cardRef = useRef<HTMLElement>(null);
-  const viewedRef = useRef(false);
+  const viewedRef = useRef<string | null>(null);
+  const assignedRef = useRef<string | null>(null);
   const titleId = `tcc-title-${tool}-${placement}`;
-  const experimentEligible = Boolean(experiment && !isAndroid);
-  const experimentPending = Boolean(experimentEligible && !assignment);
+  const experimentEligible = Boolean(experiment && !isAndroid && assignment);
   const hidden =
     (hideOnAndroid && isAndroid) ||
-    experimentPending ||
     !activated ||
     (isSticky && dismissed);
   const variantCopy = experimentEligible && experiment && assignment
@@ -218,21 +216,16 @@ export default function ToolConversionCard({
       setAssignment(null);
       return;
     }
-    const updateAssignment = () => {
-      setAssignment(getToolCtaAssignment());
-    };
-    updateAssignment();
-    window.addEventListener(
-      ANALYTICS_CONSENT_STATE_EVENT,
-      updateAssignment,
-    );
-    return () => {
-      window.removeEventListener(
-        ANALYTICS_CONSENT_STATE_EVENT,
-        updateAssignment,
-      );
-    };
+    setAssignment(getToolCtaAssignment());
   }, [experiment?.id, isAndroid, platform]);
+
+  useEffect(() => {
+    if (!activated || !assignment || !experiment || isAndroid || platform === "unknown") return;
+    const key = `${tool}:${placement}:${assignment.variant}:${assignment.forced}`;
+    if (assignedRef.current === key) return;
+    assignedRef.current = key;
+    track("tool_cta_assigned", { tool, placement, platform, ...experimentProperties });
+  }, [activated, assignment, experiment?.id, isAndroid, placement, platform, tool]);
 
   useEffect(() => {
     const activate = () => {
@@ -254,14 +247,15 @@ export default function ToolConversionCard({
   useEffect(() => {
     // Impression tracking waits for a real platform so the event is
     // segmentable; the first paint always reports platform "unknown".
-    if (hidden || platform === "unknown" || viewedRef.current) return;
+    const exposureKey = `${tool}:${placement}:${platform}:${assignment?.variant ?? "unassigned"}:${assignment?.forced ?? false}`;
+    if (hidden || platform === "unknown" || viewedRef.current === exposureKey) return;
     const el = cardRef.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(
       (entries) => {
-        if (viewedRef.current) return;
+        if (viewedRef.current === exposureKey) return;
         if (entries.some((entry) => entry.isIntersecting)) {
-          viewedRef.current = true;
+          viewedRef.current = exposureKey;
           track("tool_cta_viewed", {
             tool,
             placement,

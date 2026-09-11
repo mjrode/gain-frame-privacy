@@ -1,12 +1,9 @@
 import {
   getPosthogDistinctId,
+  isProductionAnalyticsHost,
   getWebAnalyticsContext,
   type WebAnalyticsContext,
 } from "./analytics.ts";
-import {
-  ANALYTICS_CONSENT_STATE_EVENT,
-  documentAnalyticsConsentDecision,
-} from "./analytics-consent.ts";
 
 export const WEB_TOOL_COMPLETED_DOM_EVENT = "gainframe:web-tool-completed";
 const WEB_TOOL_USAGE_URL =
@@ -48,38 +45,12 @@ export function buildWebToolUsagePayload(input: {
   };
 }
 
-async function analyticsConsentGranted(): Promise<boolean> {
-  const current = documentAnalyticsConsentDecision(
-    window.document.documentElement,
-  );
-  if (current !== "pending") return current === "granted";
-
-  return await new Promise((resolve) => {
-    let timeout: ReturnType<typeof setTimeout>;
-    const finish = (granted: boolean) => {
-      clearTimeout(timeout);
-      window.removeEventListener(ANALYTICS_CONSENT_STATE_EVENT, onDecision);
-      resolve(granted);
-    };
-    const onDecision = () => {
-      const decision = documentAnalyticsConsentDecision(
-        window.document.documentElement,
-      );
-      if (decision !== "pending") finish(decision === "granted");
-    };
-    window.addEventListener(ANALYTICS_CONSENT_STATE_EVENT, onDecision);
-    timeout = setTimeout(() => finish(false), 10_000);
-    onDecision();
-  });
-}
-
 /** Best-effort reporting only. A Slack/PostHog outage must never interrupt a
  * calculator result, visualizer interaction, or AI analysis. */
 export async function reportWebToolCompletion(
   tool: ClientReportedWebTool,
 ): Promise<void> {
-  if (typeof window === "undefined") return;
-  if (!(await analyticsConsentGranted())) return;
+  if (typeof window === "undefined" || !isProductionAnalyticsHost(window.location.hostname)) return;
   try {
     const usageId = crypto.randomUUID();
     await fetch(WEB_TOOL_USAGE_URL, {

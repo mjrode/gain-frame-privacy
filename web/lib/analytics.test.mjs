@@ -6,6 +6,7 @@ import {
   clearQueuedAnalyticsEvents,
   flushQueuedAnalyticsEvents,
   getPosthogDistinctId,
+  isProductionAnalyticsHost,
   getWebAnalyticsContext,
   track,
   trackOncePerDay,
@@ -20,7 +21,7 @@ function setWindow(value) {
   });
 }
 
-test("queues early lifecycle events until consent and both providers are ready", () => {
+test("queues early lifecycle events until both providers are ready", () => {
   let decision = "pending";
   const ga = [];
   const posthog = [];
@@ -92,29 +93,17 @@ test("replays queued events to each provider in original FIFO order", () => {
   assert.deepEqual(posthog, ga);
 });
 
-test("a denial discards pending events instead of replaying them later", () => {
-  let decision = "pending";
+test("legacy consent state does not suppress page-load analytics", () => {
   const captures = [];
-  const windowValue = {
-    document: {
-      documentElement: {
-        getAttribute() {
-          return decision;
-        },
-      },
-    },
-  };
-  setWindow(windowValue);
-
-  track("tool_funnel_started", { tool: "body_visualizer" });
-  decision = "denied";
-  assert.equal(flushQueuedAnalyticsEvents(), 0);
-
-  decision = "granted";
-  windowValue.gtag = (...args) => captures.push(args);
-  windowValue.posthog = { capture: (...args) => captures.push(args) };
-  assert.equal(flushQueuedAnalyticsEvents(), 0);
-  assert.deepEqual(captures, []);
+  for (const decision of ["pending", "denied", null]) {
+    setWindow({
+      document: { documentElement: { getAttribute: () => decision } },
+      gtag: (...args) => captures.push(args),
+      posthog: { capture: (...args) => captures.push(args) },
+    });
+    assert.equal(track("tool_funnel_started", { tool: "body_visualizer" }), true);
+  }
+  assert.equal(captures.length, 6);
 });
 
 test("track isolates GA failures and still delivers to PostHog", () => {
@@ -218,4 +207,25 @@ test("web analytics context strips query strings and keeps acquisition details",
     utm_campaign: "launch",
     utm_content: "hero",
   });
+});
+
+test("experiment assignments queue while providers load", () => {
+  const captured = [];
+  const browser = { document: { documentElement: { getAttribute: () => "granted" } } };
+  setWindow(browser);
+  track("blog_cta_experiment_assigned", { experiment_id: "blog_contextual_cta_v1", experiment_variant: "editorial_inline" });
+  browser.gtag = () => {};
+  browser.posthog = { capture: (event) => captured.push(event) };
+  assert.equal(flushQueuedAnalyticsEvents(), 1);
+  assert.deepEqual(captured, ["blog_cta_experiment_assigned"]);
+});
+
+
+test("analytics SDKs are enabled only on the production domain", () => {
+  for (const host of ["gainframe.app", "www.gainframe.app"]) {
+    assert.equal(isProductionAnalyticsHost(host), true);
+  }
+  for (const host of ["localhost", "app.gainframe.app", "gainframe.app.example.com"]) {
+    assert.equal(isProductionAnalyticsHost(host), false);
+  }
 });

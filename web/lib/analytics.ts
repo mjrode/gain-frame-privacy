@@ -1,7 +1,5 @@
-// Thin wrapper for typed event tracking, fanned out to GA4 (gtag) and
-// PostHog. Events that happen while consent/region resolution is pending stay
-// in a bounded in-memory queue. A grant flushes them after both providers are
-// ready; a denial discards them without writing analytics state to storage.
+// Typed event tracking for GA4 and PostHog. Events queue in memory until
+// each provider is ready, without waiting for region or preference resolution.
 
 declare global {
   interface Window {
@@ -89,6 +87,7 @@ export type AnalyticsEvent =
   // Shared ToolConversionCard events (components/ToolConversionCard.tsx):
   // impression, click, dismissal, and Android email capture, all carrying {tool,
   // placement, platform} so CTA impression → click is measurable per tool.
+  | "tool_cta_assigned"
   | "tool_cta_viewed"
   | "tool_cta_clicked"
   | "tool_cta_dismissed"
@@ -100,6 +99,7 @@ export type AnalyticsEvent =
   // Randomized top-blog sticky-vs-editorial experiment. Exposure requires at
   // least 50% visibility for 800ms; continued reading is the first later
   // article section reached after a material exposure.
+  | "blog_cta_experiment_assigned"
   | "blog_cta_experiment_viewed"
   | "blog_cta_experiment_clicked"
   | "blog_cta_experiment_dismissed"
@@ -152,16 +152,8 @@ type QueuedAnalyticsEvent = {
 
 const queuedAnalyticsEvents: QueuedAnalyticsEvent[] = [];
 const MAX_QUEUED_ANALYTICS_EVENTS = 100;
-const CONSENT_ATTRIBUTE = "data-gainframe-analytics-consent";
-
-function analyticsConsentDecision(): "pending" | "granted" | "denied" {
-  const value = window.document?.documentElement?.getAttribute?.(
-    CONSENT_ATTRIBUTE,
-  );
-  if (value === "granted" || value === "denied") return value;
-  // Unit tests and non-DOM consumers historically call the wrapper with a
-  // minimal window shim. Preserve immediate delivery in that environment.
-  return window.document ? "pending" : "granted";
+export function isProductionAnalyticsHost(hostname: string): boolean {
+  return /^(?:www\.)?gainframe\.app$/i.test(hostname);
 }
 
 function eventDedupKey(
@@ -212,16 +204,9 @@ function deliverAnalyticsEvent(entry: QueuedAnalyticsEvent): void {
   }
 }
 
-/** Flush pending, consented events without double-sending to a provider. */
+/** Flush queued events without double-sending to a provider. */
 export function flushQueuedAnalyticsEvents(): number {
   if (typeof window === "undefined") return 0;
-  const consent = analyticsConsentDecision();
-  if (consent === "denied") {
-    clearQueuedAnalyticsEvents();
-    return 0;
-  }
-  if (consent !== "granted") return 0;
-
   let completed = 0;
   for (let index = 0; index < queuedAnalyticsEvents.length;) {
     const entry = queuedAnalyticsEvents[index];
@@ -245,12 +230,6 @@ export function track(
   params: Record<string, unknown> = {},
 ): boolean {
   if (typeof window === "undefined") return false;
-  const consent = analyticsConsentDecision();
-  if (consent === "denied") {
-    clearQueuedAnalyticsEvents();
-    return false;
-  }
-
   const entry: QueuedAnalyticsEvent = {
     event,
     params: { ...params },
@@ -258,7 +237,7 @@ export function track(
     posthogDelivered: false,
     dedupKey: eventDedupKey(event, params),
   };
-  if (consent === "granted") deliverAnalyticsEvent(entry);
+  deliverAnalyticsEvent(entry);
   if (!entry.gaDelivered || !entry.posthogDelivered) {
     enqueueAnalyticsEvent(entry);
   }
@@ -413,9 +392,9 @@ export function getWebAnalyticsContext(): WebAnalyticsContext {
     landing_path: landingPath.slice(0, 500),
     current_path: window.location.pathname.slice(0, 500),
     browser: contextString(posthogProperty("$browser"), 120) ?? "unknown",
-    // PostHog's $os/$device_type only exist after consent, which left
+    // PostHog's $os/$device_type only exist after SDK initialization, leaving
     // server-side web_tool_completed events with platform "unknown" for
-    // pre-consent users — fall back to a user-agent read.
+    // early events — fall back to a user-agent read.
     os: contextString(posthogProperty("$os"), 120) ?? uaPlatform.os,
     device_type: contextString(posthogProperty("$device_type"), 120) ??
       uaPlatform.device_type,

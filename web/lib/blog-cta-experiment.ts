@@ -1,10 +1,9 @@
-import { documentAnalyticsConsentGranted } from "./analytics-consent.ts";
 import type { BlogCtaIntent } from "./blog-cta.ts";
 
 export const BLOG_CTA_EXPERIMENT_ID = "blog_contextual_cta_v1";
-export const BLOG_CTA_EXPERIMENT_PHASE = "sticky_vs_editorial_inline_v1";
+export const BLOG_CTA_EXPERIMENT_PHASE = "sticky_vs_editorial_inline_v2_stable_assignment";
 export const BLOG_CTA_EXPERIMENT_STORAGE_KEY =
-  "gainframe:experiment:blog_contextual_cta_v1";
+  `gainframe:experiment:blog_contextual_cta_v1:${BLOG_CTA_EXPERIMENT_PHASE}`;
 
 export const BLOG_CTA_VARIANTS = [
   "sticky_control",
@@ -39,20 +38,12 @@ export function blogCtaVariantForRandom(value: number): BlogCtaVariant {
   return bounded < 0.5 ? "sticky_control" : "editorial_inline";
 }
 
-/**
- * Stable, privacy-safe assignment for the blog CTA experiment. The assignment
- * remains in memory while consent is unresolved or denied. Once consent is
- * granted, that same visible assignment is persisted so repeat visits do not
- * switch treatments. The dedicated QA override deliberately does not share
- * the tool experiment's query parameter or storage key.
- */
+/** Restore the current phase's saved assignment before choosing a new variant.
+ * QA overrides are marked forced and never replace the saved visitor choice. */
 export function getBlogCtaAssignment(
   storage: Pick<Storage, "getItem" | "setItem"> | null | undefined = undefined,
   search = typeof window === "undefined" ? "" : window.location.search,
   random = Math.random,
-  analyticsConsentGranted =
-    typeof window !== "undefined" &&
-    documentAnalyticsConsentGranted(window.document?.documentElement),
 ): BlogCtaAssignment {
   try {
     const forced = new URLSearchParams(search).get("gf_blog_cta_variant");
@@ -63,48 +54,28 @@ export function getBlogCtaAssignment(
     // A malformed query string should never block article content.
   }
 
-  let consentedStorage: Pick<Storage, "getItem" | "setItem"> | null = null;
-  if (analyticsConsentGranted) {
-    if (storage !== undefined) {
-      consentedStorage = storage;
-    } else if (typeof window !== "undefined") {
-      try {
-        consentedStorage = window.localStorage;
-      } catch {
-        // Hardened browsers may reject localStorage; page-lifetime assignment
-        // still keeps the experience stable.
-      }
-    }
-
-    if (!inMemoryBlogCtaVariant) {
-      try {
-        const stored = consentedStorage?.getItem(
-          BLOG_CTA_EXPERIMENT_STORAGE_KEY,
-        );
-        if (isBlogCtaVariant(stored)) {
-          inMemoryBlogCtaVariant = stored;
-        }
-      } catch {
-        // Storage is optional; never block the article or CTA.
-      }
+  let resolvedStorage = storage ?? null;
+  if (storage === undefined && typeof window !== "undefined") {
+    try {
+      resolvedStorage = window.localStorage;
+    } catch {
+      // Storage may be blocked; retain the page-lifetime fallback.
     }
   }
-
+  try {
+    const stored = resolvedStorage?.getItem(BLOG_CTA_EXPERIMENT_STORAGE_KEY);
+    if (isBlogCtaVariant(stored)) inMemoryBlogCtaVariant = stored;
+  } catch {
+    // A temporary storage error must never block the CTA.
+  }
   if (!inMemoryBlogCtaVariant) {
     inMemoryBlogCtaVariant = blogCtaVariantForRandom(random());
   }
-
-  if (analyticsConsentGranted) {
-    try {
-      consentedStorage?.setItem(
-        BLOG_CTA_EXPERIMENT_STORAGE_KEY,
-        inMemoryBlogCtaVariant,
-      );
-    } catch {
-      // Keep the already-visible in-memory assignment when storage fails.
-    }
+  try {
+    resolvedStorage?.setItem(BLOG_CTA_EXPERIMENT_STORAGE_KEY, inMemoryBlogCtaVariant);
+  } catch {
+    // Keep the same page choice when persistence is unavailable.
   }
-
   return { variant: inMemoryBlogCtaVariant, forced: false };
 }
 

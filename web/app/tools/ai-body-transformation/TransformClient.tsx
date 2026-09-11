@@ -9,10 +9,10 @@ import { trackToolFunnelStep } from "@/lib/tool-funnel";
 import {
   captureException,
   getPosthogDistinctId,
+  isProductionAnalyticsHost,
   getWebAnalyticsContext,
   track,
 } from "@/lib/analytics";
-import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
 import {
   asToolClientError,
   createAttemptId,
@@ -673,9 +673,6 @@ export default function TransformClient({
       const clientId = clientIdRef.current ?? getOrCreateClientId();
       clientIdRef.current = clientId;
       phase = "generate";
-      const analyticsConsent = documentAnalyticsConsentGranted(
-        document.documentElement,
-      );
       const res = await fetchWithTimeout(
         FUNCTION_URL,
         {
@@ -693,13 +690,9 @@ export default function TransformClient({
             ...(measurementsMode
               ? { regional_adjustments: regionalAdjustments }
               : {}),
-            analytics_consent: analyticsConsent,
-            ...(analyticsConsent
-              ? {
-                  posthog_distinct_id: getPosthogDistinctId(),
-                  analytics_context: getWebAnalyticsContext(),
-                }
-              : {}),
+            analytics_consent: isProductionAnalyticsHost(window.location.hostname),
+            posthog_distinct_id: getPosthogDistinctId(),
+            analytics_context: getWebAnalyticsContext(),
             request_id: attemptId,
             attempt_id: attemptId,
           }),
@@ -891,9 +884,6 @@ export default function TransformClient({
     try {
       const clientId = clientIdRef.current ?? getOrCreateClientId();
       clientIdRef.current = clientId;
-      const analyticsConsent = documentAnalyticsConsentGranted(
-        document.documentElement,
-      );
       const res = await fetchWithTimeout(
         FUNCTION_URL,
         {
@@ -903,10 +893,8 @@ export default function TransformClient({
             action: "unlock",
             client_id: clientId,
             email: trimmed,
-            analytics_consent: analyticsConsent,
-            ...(analyticsConsent
-              ? { posthog_distinct_id: getPosthogDistinctId() }
-              : {}),
+            analytics_consent: isProductionAnalyticsHost(window.location.hostname),
+            posthog_distinct_id: getPosthogDistinctId(),
             request_id: attemptId,
             attempt_id: attemptId,
           }),

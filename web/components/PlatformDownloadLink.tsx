@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { trackOncePerDay } from "@/lib/analytics";
-import { ANALYTICS_CONSENT_STATE_EVENT } from "@/lib/analytics-consent";
 import {
   buildWebAttributionLink,
   directAppStoreUrl,
@@ -45,10 +44,6 @@ export default function PlatformDownloadLink({
       );
     };
     updateHref();
-    window.addEventListener(ANALYTICS_CONSENT_STATE_EVENT, updateHref);
-    return () => {
-      window.removeEventListener(ANALYTICS_CONSENT_STATE_EVENT, updateHref);
-    };
   }, [campaign, content, customProductPageId]);
 
   if (platform === "android") {

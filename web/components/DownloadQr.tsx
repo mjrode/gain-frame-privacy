@@ -2,7 +2,6 @@
 
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
-import { ANALYTICS_CONSENT_STATE_EVENT } from "@/lib/analytics-consent";
 import {
   buildWebAttributionLink,
   directAppStoreUrl,
@@ -46,10 +45,6 @@ export default function DownloadQr({
       );
     };
     updateHref();
-    window.addEventListener(ANALYTICS_CONSENT_STATE_EVENT, updateHref);
-    return () => {
-      window.removeEventListener(ANALYTICS_CONSENT_STATE_EVENT, updateHref);
-    };
   }, [campaign, content, customProductPageId]);
 
   if (platform !== "desktop") return null;

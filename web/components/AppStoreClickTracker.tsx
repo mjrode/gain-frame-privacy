@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { track, trackOncePerDay } from "@/lib/analytics";
 import { campaignForPath } from "@/lib/site";
-import { ANALYTICS_CONSENT_STATE_EVENT } from "@/lib/analytics-consent";
 import {
   buildWebAttributionLink,
   isGainFrameDownloadUrl,
@@ -80,7 +79,7 @@ function absoluteAssetUrl(path: string | undefined): string | undefined {
  *   - `data-cta-content`  overrides the inferred placement (floating_pill /
  *                         store_badge / link)
  *   - `data-track-exempt` skips only the legacy outbound event — attribution
- *     rewriting and the consented web-download event still apply.
+ *     rewriting and the web-download event still apply.
  *
  * Listens in the capture phase so a stopPropagation() in page scripts can't
  * swallow the event before GA sees it.
@@ -103,10 +102,6 @@ export default function AppStoreClickTracker() {
       rememberAcquisitionParams(window.location.search);
     };
     rememberCurrentAcquisition();
-    window.addEventListener(
-      ANALYTICS_CONSENT_STATE_EVENT,
-      rememberCurrentAcquisition,
-    );
 
     const onClick = (event: MouseEvent) => {
       const target = event.target as Element | null;
@@ -125,7 +120,7 @@ export default function AppStoreClickTracker() {
             : "link");
 
       // Coarse campaign token when a placement-specific campaign was not
-      // declared. The token is placed in the OneLink only after consent.
+      // declared. The token is placed in the OneLink on each click.
       const fallbackCt =
         source === "nav" || source === "blog_nav"
           ? "web-nav"
@@ -243,10 +238,6 @@ export default function AppStoreClickTracker() {
     document.addEventListener("click", onClick, true);
     return () => {
       document.removeEventListener("click", onClick, true);
-      window.removeEventListener(
-        ANALYTICS_CONSENT_STATE_EVENT,
-        rememberCurrentAcquisition,
-      );
     };
   }, []);
 

@@ -1,7 +1,7 @@
 import { hogql, type AdminEnv, num, str } from "../api/admin.ts";
 
 export const TOOL_CTA_EXPERIMENT_ID = "tool_result_cta_v1";
-export const TOOL_CTA_EXPERIMENT_PHASE = "improve_vs_future_v3";
+export const TOOL_CTA_EXPERIMENT_PHASE = "improve_vs_future_v4_stable_assignment";
 
 export interface ToolCtaReportEnv extends AdminEnv {
   SLACK_REPORT_BOT_TOKEN?: string;
@@ -87,6 +87,8 @@ async function queryWindow(
        AND properties.experiment_id = '${TOOL_CTA_EXPERIMENT_ID}'
        AND properties.experiment_phase = '${TOOL_CTA_EXPERIMENT_PHASE}'
        AND coalesce(properties.experiment_forced, false) = false
+       AND properties.platform IN ('ios', 'desktop')
+       AND properties.$host IN ('gainframe.app', 'www.gainframe.app')
        AND timestamp > now() - INTERVAL ${hours} HOUR
      GROUP BY variant`,
   );

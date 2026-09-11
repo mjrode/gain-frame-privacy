@@ -3,10 +3,6 @@ import {
   getWebAnalyticsContext,
   type WebAnalyticsContext,
 } from "./analytics.ts";
-import {
-  documentAnalyticsConsentDecision,
-  type AnalyticsConsentDecision,
-} from "./analytics-consent.ts";
 import { APP_STORE_PROVIDER_TOKEN, SITE } from "./site.ts";
 
 export const APPSFLYER_ONELINK_TEMPLATE_URL =
@@ -45,7 +41,6 @@ type BuildOptions = {
 };
 
 type BuildRuntime = {
-  consentDecision?: AnalyticsConsentDecision;
   context?: WebAnalyticsContext;
   currentUrl?: string;
   now?: Date;
@@ -89,11 +84,6 @@ export function directAppStoreUrl(options: BuildOptions): string {
   url.searchParams.set("mt", "8");
   url.searchParams.set("ppid", customProductPageId);
   return url.toString();
-}
-
-function currentConsentDecision(): AnalyticsConsentDecision {
-  if (typeof document === "undefined") return "pending";
-  return documentAnalyticsConsentDecision(document.documentElement);
 }
 
 function clean(value: unknown, maxLength: number): string | undefined {
@@ -157,7 +147,7 @@ function paramsFromSearch(search: string): Record<string, string> {
 }
 
 export function rememberAcquisitionParams(search: string): void {
-  if (typeof window === "undefined" || currentConsentDecision() !== "granted") {
+  if (typeof window === "undefined") {
     return;
   }
   const current = paramsFromSearch(search);
@@ -204,23 +194,14 @@ function browserUUID(): string {
 }
 
 /**
- * Build an AppsFlyer OneLink only after optional analytics consent is granted.
- * Before resolution or after a decline, return the ordinary App Store URL and
- * do not read analytics context, persist ad click IDs, or create a click ID.
+ * Build an AppsFlyer OneLink with bounded attribution for every download.
+ * Fall back to the direct App Store URL when no OneLink is configured.
  */
 export function buildWebAttributionLink(
   options: BuildOptions,
   runtime: BuildRuntime = {},
 ): WebAttributionLink {
   const directUrl = directAppStoreUrl(options);
-  const consentDecision = runtime.consentDecision ?? currentConsentDecision();
-  if (consentDecision !== "granted") {
-    return {
-      href: directUrl,
-      payload: null,
-    };
-  }
-
   const context = runtime.context ?? getWebAnalyticsContext();
   const currentUrl = runtime.currentUrl ??
     (typeof window !== "undefined"

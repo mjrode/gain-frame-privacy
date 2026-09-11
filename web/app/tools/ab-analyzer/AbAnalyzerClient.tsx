@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import {
   getPosthogDistinctId,
+  isProductionAnalyticsHost,
   getWebAnalyticsContext,
   track,
 } from "@/lib/analytics";
-import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
 import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
 import { trackToolFunnelStep } from "@/lib/tool-funnel";
 import { reportWebToolCompletion } from "@/lib/web-tool-usage";
@@ -216,9 +216,6 @@ export default function AbAnalyzerClient() {
         sex: sex === "skip" ? "unknown" : sex,
       });
 
-      const analyticsConsent = documentAnalyticsConsentGranted(
-        document.documentElement,
-      );
       const res = await fetch(FUNCTION_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -227,13 +224,9 @@ export default function AbAnalyzerClient() {
           photo_base64: base64,
           photo_mime: "image/jpeg",
           sex: sex === "skip" ? null : sex,
-          analytics_consent: analyticsConsent,
-          ...(analyticsConsent
-            ? {
-                posthog_distinct_id: getPosthogDistinctId(),
-                analytics_context: getWebAnalyticsContext(),
-              }
-            : {}),
+          analytics_consent: isProductionAnalyticsHost(window.location.hostname),
+          posthog_distinct_id: getPosthogDistinctId(),
+          analytics_context: getWebAnalyticsContext(),
         }),
       });
 

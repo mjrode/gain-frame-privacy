@@ -38,7 +38,6 @@ test("blog CTA assignment reuses a stored variant", () => {
     },
     "",
     () => 0.1,
-    true,
   );
   assert.deepEqual(assignment, {
     variant: "editorial_inline",
@@ -57,7 +56,6 @@ test("dedicated QA override is forced and does not replace stable assignment", (
     },
     "?gf_cta_variant=future&gf_blog_cta_variant=editorial_inline",
     () => 0.1,
-    true,
   );
   assert.deepEqual(assignment, {
     variant: "editorial_inline",
@@ -66,43 +64,35 @@ test("dedicated QA override is forced and does not replace stable assignment", (
   assert.equal(storage.get(BLOG_CTA_EXPERIMENT_STORAGE_KEY), "sticky_control");
 });
 
-test("assignment stays in memory and never touches storage before consent", () => {
-  let reads = 0;
-  let writes = 0;
+test("a saved choice replaces a temporary storage fallback across pages", () => {
+  const values = new Map([[BLOG_CTA_EXPERIMENT_STORAGE_KEY, "editorial_inline"]]);
   const storage = {
-    getItem() {
-      reads += 1;
-      return "editorial_inline";
-    },
-    setItem() {
-      writes += 1;
-    },
+    getItem: (key) => values.get(key) ?? null,
+    setItem: (key, value) => values.set(key, value),
   };
-
-  const first = getBlogCtaAssignment(storage, "", () => 0.1, false);
-  const second = getBlogCtaAssignment(storage, "", () => 0.9, false);
-
-  assert.deepEqual(first, { variant: "sticky_control", forced: false });
-  assert.deepEqual(second, first);
-  assert.equal(reads, 0);
-  assert.equal(writes, 0);
+  assert.equal(getBlogCtaAssignment(null, "", () => 0.1).variant, "sticky_control");
+  assert.equal(getBlogCtaAssignment(storage, "", () => 0.1).variant, "editorial_inline");
+  assert.equal(values.get(BLOG_CTA_EXPERIMENT_STORAGE_KEY), "editorial_inline");
+  clearBlogCtaAssignmentMemory();
+  assert.equal(getBlogCtaAssignment(storage, "", () => 0.1).variant, "editorial_inline");
 });
 
-test("a later consent grant persists the already-visible assignment", () => {
-  const storage = new Map([
-    [BLOG_CTA_EXPERIMENT_STORAGE_KEY, "editorial_inline"],
-  ]);
-  const adapter = {
-    getItem: (key) => storage.get(key) ?? null,
-    setItem: (key, value) => storage.set(key, value),
+test("new visitors persist their assignment immediately and reuse it on reload", () => {
+  const values = new Map();
+  const storage = {
+    getItem: (key) => values.get(key) ?? null,
+    setItem: (key, value) => values.set(key, value),
   };
+  const first = getBlogCtaAssignment(storage, "", () => 0.1);
+  assert.equal(values.get(BLOG_CTA_EXPERIMENT_STORAGE_KEY), first.variant);
+  clearBlogCtaAssignmentMemory();
+  assert.deepEqual(getBlogCtaAssignment(storage, "", () => 0.9), first);
+});
 
-  const pending = getBlogCtaAssignment(adapter, "", () => 0.1, false);
-  const granted = getBlogCtaAssignment(adapter, "", () => 0.9, true);
-
-  assert.deepEqual(pending, { variant: "sticky_control", forced: false });
-  assert.deepEqual(granted, pending);
-  assert.equal(storage.get(BLOG_CTA_EXPERIMENT_STORAGE_KEY), "sticky_control");
+test("blocked browser storage keeps a stable page choice without throwing", () => {
+  const storage = {getItem() {throw new Error("blocked");}, setItem() {throw new Error("blocked");}};
+  const first = getBlogCtaAssignment(storage, "", () => 0.1);
+  assert.deepEqual(getBlogCtaAssignment(storage, "", () => 0.9), first);
 });
 
 test("direct and QR attribution names preserve the experiment variant", () => {
@@ -120,6 +110,15 @@ test("direct and QR attribution names preserve the experiment variant", () => {
   assert.equal(BLOG_CTA_EXPERIMENT_ID, "blog_contextual_cta_v1");
   assert.equal(
     BLOG_CTA_EXPERIMENT_PHASE,
-    "sticky_vs_editorial_inline_v1",
+    "sticky_vs_editorial_inline_v2_stable_assignment",
   );
+});
+
+
+test("clean phase ignores assignments from the contaminated phase", () => {
+  const values = new Map([["gainframe:experiment:blog_contextual_cta_v1", "editorial_inline"]]);
+  const storage = {getItem: (key) => values.get(key) ?? null, setItem: (key, value) => values.set(key, value)};
+  assert.notEqual(BLOG_CTA_EXPERIMENT_STORAGE_KEY, "gainframe:experiment:blog_contextual_cta_v1");
+  assert.equal(getBlogCtaAssignment(storage, "", () => 0.1).variant, "sticky_control");
+  assert.equal(values.get("gainframe:experiment:blog_contextual_cta_v1"), "editorial_inline");
 });

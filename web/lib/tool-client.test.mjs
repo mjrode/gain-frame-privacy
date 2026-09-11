@@ -46,7 +46,7 @@ test("web tool usage payload contains only completion metadata", () => {
   );
 });
 
-test("web tool usage reporting honors optional analytics consent", async (t) => {
+test("web tool usage reports immediately in production and skips local QA", async (t) => {
   const originalWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
   const originalFetch = Object.getOwnPropertyDescriptor(globalThis, "fetch");
   t.after(() => {
@@ -64,7 +64,6 @@ test("web tool usage reporting honors optional analytics consent", async (t) => 
 
   let consent = "pending";
   const fetchCalls = [];
-  const consentListeners = new Set();
   Object.defineProperty(globalThis, "window", {
     configurable: true,
     value: {
@@ -75,16 +74,9 @@ test("web tool usage reporting honors optional analytics consent", async (t) => 
         referrer: "",
       },
       location: {
+        hostname: "gainframe.app",
         pathname: "/tools/ffmi-calculator/",
         search: "",
-      },
-      addEventListener: (name, listener) => {
-        if (name === "gainframe:analytics-consent-state") {
-          consentListeners.add(listener);
-        }
-      },
-      removeEventListener: (_name, listener) => {
-        consentListeners.delete(listener);
       },
     },
   });
@@ -96,17 +88,19 @@ test("web tool usage reporting honors optional analytics consent", async (t) => 
     },
   });
 
-  const pendingReport = reportWebToolCompletion("ffmi-calculator");
-  assert.equal(fetchCalls.length, 0);
-
-  consent = "granted";
-  for (const listener of consentListeners) listener(new Event("consent"));
-  await pendingReport;
-  assert.equal(fetchCalls.length, 1);
-
-  consent = "denied";
   await reportWebToolCompletion("ffmi-calculator");
   assert.equal(fetchCalls.length, 1);
+  consent = "denied";
+  await reportWebToolCompletion("ffmi-calculator");
+  assert.equal(fetchCalls.length, 2);
+  const payload = JSON.parse(fetchCalls[0][1].body);
+  assert.equal(payload.tool, "ffmi-calculator");
+  assert.ok(payload.usage_id);
+  assert.ok(payload.analytics_context);
+  window.location.hostname = "localhost";
+  await reportWebToolCompletion("ffmi-calculator");
+  assert.equal(fetchCalls.length, 2);
+
 });
 
 test("fetchWithTimeout classifies a timed-out request", async () => {

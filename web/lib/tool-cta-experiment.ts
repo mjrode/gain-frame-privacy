@@ -1,9 +1,8 @@
-import { documentAnalyticsConsentGranted } from "./analytics-consent.ts";
 
 export const TOOL_CTA_EXPERIMENT_ID = "tool_result_cta_v1";
-export const TOOL_CTA_EXPERIMENT_PHASE = "improve_vs_future_v3";
+export const TOOL_CTA_EXPERIMENT_PHASE = "improve_vs_future_v4_stable_assignment";
 export const TOOL_CTA_EXPERIMENT_STORAGE_KEY =
-  "gainframe:experiment:tool_result_cta_v1";
+  `gainframe:experiment:tool_result_cta_v1:${TOOL_CTA_EXPERIMENT_PHASE}`;
 
 export const TOOL_CTA_VARIANTS = ["improve", "future"] as const;
 export type ToolCtaVariant = (typeof TOOL_CTA_VARIANTS)[number];
@@ -345,20 +344,12 @@ export function toolCtaVariantForRandom(value: number): ToolCtaVariant {
   return TOOL_CTA_VARIANTS[Math.floor(bounded * TOOL_CTA_VARIANTS.length)];
 }
 
-/**
- * Stable, privacy-safe assignment for the result CTA experiment. Until
- * analytics consent is granted, assignment is kept in memory only. A later
- * grant persists that same page-lifetime variant, avoiding a visible switch.
- * Optional `gf_cta_variant` overrides exist for QA and are explicitly marked
- * as forced on analytics events so they can be excluded from the readout.
- */
+/** Restore the current phase's saved assignment before choosing a new variant.
+ * QA overrides are marked forced and never replace the saved visitor choice. */
 export function getToolCtaAssignment(
   storage: Pick<Storage, "getItem" | "setItem"> | null | undefined = undefined,
   search = typeof window === "undefined" ? "" : window.location.search,
   random = Math.random,
-  analyticsConsentGranted =
-    typeof window !== "undefined" &&
-    documentAnalyticsConsentGranted(window.document?.documentElement),
 ): ToolCtaAssignment {
   try {
     const forced = new URLSearchParams(search).get("gf_cta_variant");
@@ -369,48 +360,27 @@ export function getToolCtaAssignment(
     // A malformed query string should never block the result CTA.
   }
 
-  let consentedStorage: Pick<Storage, "getItem" | "setItem"> | null = null;
-  if (analyticsConsentGranted) {
-    if (storage !== undefined) {
-      consentedStorage = storage;
-    } else if (typeof window !== "undefined") {
-      try {
-        consentedStorage = window.localStorage;
-      } catch {
-        // Private browsing and hardened browsers may reject localStorage.
-      }
-    }
-
-    // If this page assigned while consent was pending, preserve that visible
-    // variant and make it the stable choice for future consented visits.
-    if (!inMemoryToolCtaVariant) {
-      try {
-        const stored = consentedStorage?.getItem(
-          TOOL_CTA_EXPERIMENT_STORAGE_KEY,
-        );
-        // Retired Track assignments are invalid and re-enter the active split.
-        if (isToolCtaVariant(stored)) {
-          inMemoryToolCtaVariant = stored;
-        }
-      } catch {
-        // Storage reads are optional; page-lifetime assignment still works.
-      }
+  let resolvedStorage = storage ?? null;
+  if (storage === undefined && typeof window !== "undefined") {
+    try {
+      resolvedStorage = window.localStorage;
+    } catch {
+      // Storage may be blocked; retain the page-lifetime fallback.
     }
   }
-
+  try {
+    const stored = resolvedStorage?.getItem(TOOL_CTA_EXPERIMENT_STORAGE_KEY);
+    if (isToolCtaVariant(stored)) inMemoryToolCtaVariant = stored;
+  } catch {
+    // A temporary storage error must never block the CTA.
+  }
   if (!inMemoryToolCtaVariant) {
     inMemoryToolCtaVariant = toolCtaVariantForRandom(random());
   }
-
-  if (analyticsConsentGranted) {
-    try {
-      consentedStorage?.setItem(
-        TOOL_CTA_EXPERIMENT_STORAGE_KEY,
-        inMemoryToolCtaVariant,
-      );
-    } catch {
-      // The in-memory fallback remains stable when storage writes fail.
-    }
+  try {
+    resolvedStorage?.setItem(TOOL_CTA_EXPERIMENT_STORAGE_KEY, inMemoryToolCtaVariant);
+  } catch {
+    // Keep the same page choice when persistence is unavailable.
   }
   return { variant: inMemoryToolCtaVariant, forced: false };
 }

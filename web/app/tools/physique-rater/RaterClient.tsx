@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import {
   getPosthogDistinctId,
+  isProductionAnalyticsHost,
   getWebAnalyticsContext,
   track,
 } from "@/lib/analytics";
-import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
 import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
 import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
 import { trackToolFunnelStep } from "@/lib/tool-funnel";
@@ -210,9 +210,6 @@ export default function RaterClient() {
         goal: goal === "skip" ? "unknown" : goal,
       });
 
-      const analyticsConsent = documentAnalyticsConsentGranted(
-        document.documentElement,
-      );
       const res = await fetch(FUNCTION_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -222,13 +219,9 @@ export default function RaterClient() {
           photo_mime: "image/jpeg",
           sex: sex === "skip" ? null : sex,
           goal: goal === "skip" ? null : goal,
-          analytics_consent: analyticsConsent,
-          ...(analyticsConsent
-            ? {
-                posthog_distinct_id: getPosthogDistinctId(),
-                analytics_context: getWebAnalyticsContext(),
-              }
-            : {}),
+          analytics_consent: isProductionAnalyticsHost(window.location.hostname),
+          posthog_distinct_id: getPosthogDistinctId(),
+          analytics_context: getWebAnalyticsContext(),
         }),
       });
 

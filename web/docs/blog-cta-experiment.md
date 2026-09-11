@@ -1,7 +1,8 @@
 # Blog contextual CTA experiment
 
-Prepared 2026-09-02. This is the operating contract for
-`blog_contextual_cta_v1`, phase `sticky_vs_editorial_inline_v1`.
+Prepared 2026-09-02; assignment repaired 2026-09-11. The active phase is
+`sticky_vs_editorial_inline_v2_stable_assignment` for `blog_contextual_cta_v1`.
+The original v1 phase is retired because assignment crossover contaminated it.
 
 ## Why this test exists
 
@@ -22,12 +23,12 @@ overlay and dismissal behavior.
 - Population: the unchanged 79-post cohort in `lib/blog-cta.ts`.
 - Exclusions: founder/product-update posts, every tool route, and every blog
   post outside that fixed cohort.
-- Allocation: 50% `sticky_control`, 50% `editorial_inline`, randomized by
-  visitor on every eligible page. Pages are not split into treatment groups.
-- Stability: assignment is kept in memory before analytics consent. After
-  consent is granted, the already-visible assignment is stored under
-  `gainframe:experiment:blog_contextual_cta_v1`. This key and the QA parameter
-  are deliberately separate from the tool CTA experiment.
+- Allocation: 50% `sticky_control`, 50% `editorial_inline`, randomized once per
+  visitor for the phase and reused on every eligible page. Pages are not split into treatment groups.
+- Stability: restore the current-phase saved assignment on mount and persist new
+  choices immediately. The storage key is
+  `gainframe:experiment:blog_contextual_cta_v1:sticky_vs_editorial_inline_v2_stable_assignment`.
+  Old-phase state is ignored. The key and QA parameter are separate from tools.
 - QA: append `?gf_blog_cta_variant=sticky_control` or
   `?gf_blog_cta_variant=editorial_inline`. Forced exposures carry
   `experiment_forced=true` and must be excluded from the readout.
@@ -61,6 +62,7 @@ visible for 800ms. All experiment events carry `experiment_id`,
 
 | Event | Meaning |
 |---|---|
+| `blog_cta_experiment_assigned` | Eligible article visitor assigned before visibility |
 | `blog_cta_experiment_viewed` | Material exposure: 50% visible for 800ms |
 | `blog_cta_experiment_clicked` | Any treatment App Store/QR text-link click |
 | `blog_cta_experiment_dismissed` | Control dock dismissed; challenger cannot emit it |
@@ -72,28 +74,30 @@ continuity. Site-wide `web_download_clicked` and
 the experiment fields from the treatment container.
 
 Both direct-button and QR attribution use variant-specific `campaign` and
-`cta` values. With consent, the QR itself carries a unique `web_click_id` in
+`cta` values. The QR itself carries a unique `web_click_id` in
 the AppsFlyer payload; direct clicks receive a click-time `web_click_id` from
-the delegated tracker. Without consent, privacy-safe direct App Store links do
-not contain person-level attribution.
+the delegated tracker. Static rendering uses the direct App Store destination until the client mounts.
 
 ## Pre-registered readout
 
-- **Primary metric:** unique `blog_cta_experiment_clicked` visitors divided by
-  unique `blog_cta_experiment_viewed` visitors, filtered to this phase,
+- **Assignment metric:** unique `blog_cta_experiment_clicked` visitors divided by
+  unique `blog_cta_experiment_assigned` visitors, requiring assignment before click.
+- **Exposure diagnostic (historical primary):** unique clickers divided by materially
+  exposed visitors, filtered to this phase,
   `experiment_forced=false`, and iOS/desktop.
-- **Secondary metrics:** consented `web_download_clicked`, unique
+- **Secondary metrics:** `web_download_clicked`, unique
   `outbound_app_store_click`, Apple/AppsFlyer attributable installs and paid
   starts where available, split by platform, intent, slug, and rollout.
 - **Guardrails:** continued-reading rate, control dismissal rate, article
   engagement, client errors, and page performance. Investigate a statistically
   credible 10% relative degradation in continued reading before promoting the
   challenger.
-- **Minimum run:** 10–14 complete days and at least 1,500 materially exposed,
+- **Minimum run:** Restart at the verified repair deployment; 10–14 complete days and at least 1,500 materially exposed,
   eligible visitors per arm. Do not stop because one daily read looks good.
-- **Decision rule:** promote the challenger only when its two-sided 95%
-  interval for primary CTR lift clears zero, the relative lift is at least 20%,
-  and no guardrail is breached. Keep the control if the challenger is
+- **Decision rule:** after checking assignment balance, crossover and exposure reach,
+  promote only when the two-sided 95% interval for clicks per assigned visitor clears zero, the relative lift is at least 20%,
+  and no guardrail is breached. Exposed CTR alone cannot select a winner. The
+  historical exposure floor is not a power guarantee for the assignment metric. Keep the control if the challenger is
   significantly worse. Otherwise record the test as inconclusive and continue
   until the minimum sample is reached or redesign after four full weeks.
 
@@ -117,7 +121,7 @@ WHERE event IN (
     'blog_cta_experiment_clicked'
   )
   AND properties.experiment_id = 'blog_contextual_cta_v1'
-  AND properties.experiment_phase = 'sticky_vs_editorial_inline_v1'
+  AND properties.experiment_phase = 'sticky_vs_editorial_inline_v2_stable_assignment'
   AND properties.experiment_forced = false
   AND properties.platform IN ('ios', 'desktop')
 GROUP BY variant

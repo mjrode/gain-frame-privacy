@@ -5,10 +5,10 @@ import ToolConversionCard from "@/components/ToolConversionCard";
 import {
   captureException,
   getPosthogDistinctId,
+  isProductionAnalyticsHost,
   getWebAnalyticsContext,
   track,
 } from "@/lib/analytics";
-import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
 import {
   calculateSixPackTimeline,
   DEFICIT_PRESETS,
@@ -228,9 +228,6 @@ export default function SixPackTimelineClient() {
       ? "strong"
       : "realistic";
     try {
-      const analyticsConsent = documentAnalyticsConsentGranted(
-        document.documentElement,
-      );
       const response = await fetchWithTimeout(
         TRANSFORM_FUNCTION_URL,
         {
@@ -245,13 +242,9 @@ export default function SixPackTimelineClient() {
             goal: "lose_fat",
             zones: ["core"],
             intensity,
-            analytics_consent: analyticsConsent,
-            ...(analyticsConsent
-              ? {
-                  posthog_distinct_id: getPosthogDistinctId(),
-                  analytics_context: getWebAnalyticsContext(),
-                }
-              : {}),
+            analytics_consent: isProductionAnalyticsHost(window.location.hostname),
+            posthog_distinct_id: getPosthogDistinctId(),
+            analytics_context: getWebAnalyticsContext(),
             request_id: attemptId,
             attempt_id: attemptId,
           }),
@@ -336,9 +329,6 @@ export default function SixPackTimelineClient() {
       setPreviewUrl(stablePreview);
       setPreviewAspectRatio(await imageAspectRatio(stablePreview));
       const clientId = getOrCreateClientId();
-      const analyticsConsent = documentAnalyticsConsentGranted(
-        document.documentElement,
-      );
       const response = await fetchWithTimeout(
         AB_FUNCTION_URL,
         {
@@ -349,13 +339,9 @@ export default function SixPackTimelineClient() {
             photo_base64: processed.base64,
             photo_mime: processed.photoMime,
             sex,
-            analytics_consent: analyticsConsent,
-            ...(analyticsConsent
-              ? {
-                  posthog_distinct_id: getPosthogDistinctId(),
-                  analytics_context: getWebAnalyticsContext(),
-                }
-              : {}),
+            analytics_consent: isProductionAnalyticsHost(window.location.hostname),
+            posthog_distinct_id: getPosthogDistinctId(),
+            analytics_context: getWebAnalyticsContext(),
           }),
         },
         AB_TIMEOUT_MS,

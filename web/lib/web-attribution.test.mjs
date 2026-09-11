@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   buildWebAttributionLink,
   deriveOriginalSource,
+  directAppStoreUrl,
   isGainFrameDownloadUrl,
   safeAnonymousPosthogId,
 } from "./web-attribution.ts";
@@ -21,11 +22,10 @@ const context = {
   utm_campaign: "dexa-guide",
 };
 
-test("builds the stable iOS deferred-deep-link mapping after consent", () => {
+test("builds the stable iOS deferred-deep-link mapping on page load", () => {
   const result = buildWebAttributionLink(
     { campaign: "web-blog", cta: "article_bottom" },
     {
-      consentDecision: "granted",
       context,
       currentUrl:
         "https://gainframe.app/tools/body-fat-estimator/?ttclid=current-click",
@@ -73,30 +73,17 @@ test("builds the stable iOS deferred-deep-link mapping after consent", () => {
   assert.equal(url.searchParams.get("gclid"), "google-click");
 });
 
-test("pending or denied consent uses the direct App Store URL", () => {
-  let contextReads = 0;
-  const guardedContext = new Proxy(context, {
-    get(target, property, receiver) {
-      contextReads += 1;
-      return Reflect.get(target, property, receiver);
-    },
-  });
-
-  for (const consentDecision of ["pending", "denied"]) {
-    const result = buildWebAttributionLink(
-      { campaign: "web-blog", cta: "article_bottom" },
-      { consentDecision, context: guardedContext },
-    );
-    const url = new URL(result.href);
-    assert.equal(url.hostname, "apps.apple.com");
-    assert.equal(url.searchParams.get("ct"), null);
-    assert.equal(url.searchParams.get("deep_link_value"), null);
-    assert.equal(result.payload, null);
-  }
-  assert.equal(contextReads, 0);
+test("download attribution does not wait for a consent decision", () => {
+  const result = buildWebAttributionLink(
+    { campaign: "web-blog", cta: "article_bottom" },
+    { context, posthogDistinctId: null, randomUUID: () => "click-123" },
+  );
+  assert.ok(result.payload);
+  assert.equal(result.payload.web_click_id, "click-123");
+  assert.equal(new URL(result.href).searchParams.get("deep_link_value"), "web_attribution");
 });
 
-test("custom product page routing survives consent and direct fallback", () => {
+test("custom product page routing survives attribution and direct fallback", () => {
   const customProductPageId = "ba181e7f-4bf8-44f3-8be6-94077b918f89";
   const options = {
     campaign: "seo-physique-cpp-v1",
@@ -104,19 +91,14 @@ test("custom product page routing survives consent and direct fallback", () => {
     customProductPageId,
   };
 
-  const direct = buildWebAttributionLink(options, {
-    consentDecision: "denied",
-  });
-  const directUrl = new URL(direct.href);
+  const directUrl = new URL(directAppStoreUrl(options));
   assert.equal(directUrl.hostname, "apps.apple.com");
   assert.equal(directUrl.searchParams.get("ppid"), customProductPageId);
   assert.equal(directUrl.searchParams.get("pt"), "128456047");
   assert.equal(directUrl.searchParams.get("ct"), "seo-physique-cpp-v1");
   assert.equal(directUrl.searchParams.get("mt"), "8");
-  assert.equal(direct.payload, null);
 
   const consented = buildWebAttributionLink(options, {
-    consentDecision: "granted",
     context,
     currentUrl: "https://gainframe.app/tools/physique-rater/",
     oneLinkUrl: "https://gainframe.onelink.me/WufP",
@@ -133,15 +115,14 @@ test("custom product page routing survives consent and direct fallback", () => {
 });
 
 test("invalid product page identifiers fail closed to the default listing", () => {
-  const result = buildWebAttributionLink(
+  const result = directAppStoreUrl(
     {
       campaign: "seo-physique-cpp-v1",
       cta: "result",
       customProductPageId: "not-a-product-page",
     },
-    { consentDecision: "denied" },
   );
-  const url = new URL(result.href);
+  const url = new URL(result);
   assert.equal(url.searchParams.get("ppid"), null);
   assert.equal(url.searchParams.get("ct"), null);
 });

@@ -6,7 +6,6 @@ import DownloadQr from "@/components/DownloadQr";
 import PlatformDownloadLink from "@/components/PlatformDownloadLink";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 import { track } from "@/lib/analytics";
-import { ANALYTICS_CONSENT_STATE_EVENT } from "@/lib/analytics-consent";
 import {
   BLOG_CTA_CONFIG,
   BLOG_CTA_OVERRIDES,
@@ -324,13 +323,14 @@ export default function BlogArticleCta({
   const [stickyVisible, setStickyVisible] = useState(false);
   const [experimentWasViewed, setExperimentWasViewed] = useState(false);
   const continuedRef = useRef(false);
+  const assignedRef = useRef<string | null>(null);
   const legacyStickyViewedRef = useRef(false);
   const rollout =
     intent === "founder" ? null : getBlogStickyCtaRollout(slug);
   const experimentEligible = rollout !== null && intent !== "founder";
   const platform = useDownloadPlatform();
   const presentation: BlogCtaPresentation | null = experimentEligible
-    ? (assignment?.variant ?? null)
+    ? (assignment?.variant ?? "legacy_inline")
     : intent === "founder"
       ? null
       : "legacy_inline";
@@ -340,18 +340,19 @@ export default function BlogArticleCta({
       setAssignment(null);
       return;
     }
-    const updateAssignment = () => {
-      setAssignment(getBlogCtaAssignment());
-    };
-    updateAssignment();
-    window.addEventListener(ANALYTICS_CONSENT_STATE_EVENT, updateAssignment);
-    return () => {
-      window.removeEventListener(
-        ANALYTICS_CONSENT_STATE_EVENT,
-        updateAssignment,
-      );
-    };
+    setAssignment(getBlogCtaAssignment());
   }, [experimentEligible, slug]);
+
+  useEffect(() => {
+    if (!assignment || !rollout || platform === "unknown") return;
+    const key = `${slug}:${assignment.variant}:${assignment.forced}`;
+    if (assignedRef.current === key) return;
+    assignedRef.current = key;
+    track("blog_cta_experiment_assigned", experimentProperties({
+      assignment, intent, platform, rollout, slug,
+      placement: assignment.variant === "sticky_control" ? "sticky" : "inline",
+    }));
+  }, [assignment, intent, platform, rollout, slug]);
 
   useEffect(() => {
     if (!presentation) return;
@@ -552,6 +553,7 @@ export default function BlogArticleCta({
   if (presentation === "sticky_control") {
     return stickyVisible ? (
       <ContextualCta
+        key={`${slug}:${assignment?.variant ?? "unassigned"}:${assignment?.forced ?? false}`}
         assignment={assignment ?? undefined}
         intent={intent}
         slug={slug}
@@ -566,6 +568,7 @@ export default function BlogArticleCta({
   if (!portalTarget || !presentation || intent === "founder") return null;
   return createPortal(
     <ContextualCta
+      key={`${slug}:${assignment?.variant ?? "unassigned"}:${assignment?.forced ?? false}`}
       assignment={assignment ?? undefined}
       intent={intent}
       slug={slug}

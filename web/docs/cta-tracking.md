@@ -1,5 +1,37 @@
 # CTA tracking: how to read App Store click data
 
+## Active stable-assignment phases (September 11, 2026)
+
+Tool phase: **`improve_vs_future_v4_stable_assignment`**, Improve/Future 50/50.
+Blog phase: **`sticky_vs_editorial_inline_v2_stable_assignment`**, sticky/inline 50/50
+on the same fixed 79-post cohort. This section supersedes phase IDs below.
+The deployment timestamp, once verified, starts both clean measurement clocks.
+
+Assignments resolve on mount. The saved current-phase choice is authoritative
+on subsequent pages, and new choices persist immediately. Storage keys include
+the phase, so contaminated-phase choices are not imported. Analytics starts on
+page load; early events queue only while providers initialize. Unavailable browser
+storage retains a page-lifetime fallback; monitor residual cross-page crossover.
+
+`tool_cta_assigned` records an eligible activated tool-card visitor before visibility.
+`blog_cta_experiment_assigned` records an eligible article visitor before material
+exposure. Both carry the same phase/variant/forced/platform context as the matching
+view and click events. Count unique people per arm, exclude forced and Android
+observations, and require assignment → exposure → click ordering when comparing
+exposed-reader CTR. Also report clicks per assigned visitor and exposure reach;
+placement-dependent material exposure is not randomized assignment.
+
+Preserve the registered minimums: tools 4,600 exposed viewers/arm plus two complete
+weeks; blog 1,500 exposed viewers/arm plus 10–14 complete days. Neither old phase can
+supply the new phase's sample. These remain conservative minimums for the original
+exposed-visitor metric, not a power guarantee for the new assignment-based metric.
+No rollout winner may be inferred from exposed CTR alone if assignment/reach or
+attribution checks fail. Keep visual treatments fixed while collecting.
+
+The daily scheduled tool report reads only the active phase and production iOS/
+desktop observations. Historical experiments below remain descriptive records.
+
+
 How download CTAs are instrumented, and the two traps that make naive reads wrong.
 Written 2026-07-29 after a false alarm (see "Worked example" at the bottom).
 
@@ -9,7 +41,7 @@ Written 2026-07-29 after a false alarm (see "Worked example" at the bottom).
 |---|---|---|
 | `outbound_app_store_click` | Any click on an `apps.apple.com` anchor | `AppStoreClickTracker` — site-wide delegated capture-phase listener |
 | `cta_platform_alternative_click` | An **Android** user clicks a download CTA | `PlatformDownloadLink` — routes them to `/tools/body-fat-from-photo/` instead |
-| `web_download_clicked` | A consented GainFrame App Store/OneLink click, with a unique click ID and page-level attribution | `AppStoreClickTracker` — site-wide delegated capture-phase listener |
+| `web_download_clicked` | A GainFrame App Store/OneLink click, with a unique click ID and page-level attribution | `AppStoreClickTracker` — site-wide delegated capture-phase listener |
 
 Every Apple download click also carries `cta_card_name` as a readable placement
 description. Rendered contextual cards and older per-article authored cards add
@@ -35,12 +67,11 @@ expose a completion event in some paths, so their `started` event may carry
 `start_trigger=completion_fallback`; this preserves funnel completeness without
 pretending the exact first control is known.
 
-Early lifecycle events are held in a bounded, in-memory queue while the privacy
-region or consent choice is pending. A grant flushes them once GA4 and PostHog
-are ready; a denial discards them. Nothing from that queue is persisted in
-browser storage.
+Early lifecycle events are held in a bounded, in-memory queue while GA4 and
+PostHog initialize. Each provider receives them once it is ready. The queue is
+not persisted in browser storage.
 
-## Result CTA experiment: Improve vs Future
+## Historical phase: Improve vs Future (September 9–11, 2026)
 
 `tool_result_cta_v1` assigns each browser one stable result-CTA angle. The
 current readout phase is `improve_vs_future_v3`. On September 9, 2026, the owner

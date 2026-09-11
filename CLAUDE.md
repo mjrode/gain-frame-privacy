@@ -79,7 +79,7 @@ instead of erroring when one is missing, but the feature is inert without it:
 
 Cloudflare runs the `tool_result_cta_v1` PostHog-to-Slack report every day at
 `14:05 UTC`. It compares unique viewers and clickers for the Improve
-and Future CTA variants in the `improve_vs_future_v3` phase over the trailing
+and Future CTA variants in the `improve_vs_future_v4_stable_assignment` phase over the trailing
 24 hours and trailing 7 days. The report excludes `gf_cta_variant` QA overrides. Configure the GainFrame Slack
 bot token with `npx wrangler secret put SLACK_REPORT_BOT_TOKEN`;
 `SLACK_REPORT_CHANNEL_ID` points at `#gainframe-alerts`, and

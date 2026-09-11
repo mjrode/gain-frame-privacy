@@ -31,7 +31,7 @@ test("CTA report fills a missing active variant with zeroes", () => {
 
 test("CTA report reads the same new phase emitted by the website", () => {
   assert.equal(TOOL_CTA_EXPERIMENT_PHASE, WEB_TOOL_CTA_EXPERIMENT_PHASE);
-  assert.equal(TOOL_CTA_EXPERIMENT_PHASE, "improve_vs_future_v3");
+  assert.equal(TOOL_CTA_EXPERIMENT_PHASE, "improve_vs_future_v4_stable_assignment");
 });
 
 test("CTA Slack message labels the directional leader without declaring a winner", () => {
@@ -85,7 +85,7 @@ test("scheduled report queries PostHog and posts one Slack message", async () =>
     const posthogCalls = calls.filter((call) => call.url.includes("posthog.com"));
     assert.equal(posthogCalls.length, 2);
     for (const call of posthogCalls) {
-      assert.match(String(call.init.body), /improve_vs_future_v3/);
+      assert.match(String(call.init.body), /improve_vs_future_v4_stable_assignment/);
       assert.doesNotMatch(String(call.init.body), /expanded_result_cards_v2/);
     }
     const slack = calls.find((call) => call.url.includes("slack.com/api"));

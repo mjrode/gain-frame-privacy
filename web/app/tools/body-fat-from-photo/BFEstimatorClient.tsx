@@ -6,10 +6,10 @@ import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 import {
   captureException,
   getPosthogDistinctId,
+  isProductionAnalyticsHost,
   getWebAnalyticsContext,
   track,
 } from "@/lib/analytics";
-import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
 import { BODY_VISUALIZER_RENDERS } from "@/lib/body-visualizer";
 import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
 import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
@@ -345,9 +345,6 @@ export default function BFEstimatorClient() {
     });
 
     try {
-      const analyticsConsent = documentAnalyticsConsentGranted(
-        document.documentElement,
-      );
       const res = await fetchWithTimeout(
         REPORT_FUNCTION_URL,
         {
@@ -361,10 +358,8 @@ export default function BFEstimatorClient() {
             sex: sex && sex !== "skip" ? sex : null,
             estimate: stage.estimate,
             confidence: stage.confidence,
-            analytics_consent: analyticsConsent,
-            ...(analyticsConsent
-              ? { posthog_distinct_id: getPosthogDistinctId() }
-              : {}),
+            analytics_consent: isProductionAnalyticsHost(window.location.hostname),
+            posthog_distinct_id: getPosthogDistinctId(),
             request_id: attemptId,
             attempt_id: attemptId,
           }),
@@ -527,21 +522,14 @@ export default function BFEstimatorClient() {
       estimateClientIdRef.current = clientId;
       photoBase64Ref.current = processed.base64;
       photoMimeRef.current = processed.photoMime;
-      const analyticsConsent = documentAnalyticsConsentGranted(
-        document.documentElement,
-      );
       const payload = {
         client_id: clientId,
         photo_base64: processed.base64,
         photo_mime: processed.photoMime,
         sex: sex && sex !== "skip" ? sex : null,
-        analytics_consent: analyticsConsent,
-        ...(analyticsConsent
-          ? {
-              posthog_distinct_id: getPosthogDistinctId(),
-              analytics_context: getWebAnalyticsContext(),
-            }
-          : {}),
+        analytics_consent: isProductionAnalyticsHost(window.location.hostname),
+        posthog_distinct_id: getPosthogDistinctId(),
+        analytics_context: getWebAnalyticsContext(),
         request_id: attemptId,
         attempt_id: attemptId,
       };

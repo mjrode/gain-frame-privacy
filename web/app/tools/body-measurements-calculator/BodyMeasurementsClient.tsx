@@ -4,10 +4,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import TransformClient from "@/app/tools/ai-body-transformation/TransformClient";
 import {
   getPosthogDistinctId,
+  isProductionAnalyticsHost,
   getWebAnalyticsContext,
   track,
 } from "@/lib/analytics";
-import { documentAnalyticsConsentGranted } from "@/lib/analytics-consent";
 import type {
   RegionalAdjustments,
   RegionalMeasurementKey,
@@ -146,9 +146,6 @@ export default function BodyMeasurementsClient() {
       const processed = await preprocessImageForUpload(file, {
         allowedRawMimes: RAW_IMAGE_MIMES,
       });
-      const analyticsConsent = documentAnalyticsConsentGranted(
-        document.documentElement,
-      );
       const response = await fetchWithTimeout(
         RATE_URL,
         {
@@ -160,13 +157,9 @@ export default function BodyMeasurementsClient() {
             photo_mime: processed.photoMime,
             sex: null,
             goal: "recomp",
-            analytics_consent: analyticsConsent,
-            ...(analyticsConsent
-              ? {
-                  posthog_distinct_id: getPosthogDistinctId(),
-                  analytics_context: getWebAnalyticsContext(),
-                }
-              : {}),
+            analytics_consent: isProductionAnalyticsHost(window.location.hostname),
+            posthog_distinct_id: getPosthogDistinctId(),
+            analytics_context: getWebAnalyticsContext(),
           }),
         },
         ANALYSIS_TIMEOUT_MS,
