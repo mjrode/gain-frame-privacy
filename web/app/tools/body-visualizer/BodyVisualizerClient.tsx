@@ -713,12 +713,14 @@ export default function BodyVisualizerClient() {
           <ToolConversionCard
             tool="body_visualizer"
             campaign="web-body-visualizer"
-            placement="atlas_v4_persistent"
+            placement="atlas_v5_mobile_app"
             sticky
-            eyebrow="iPhone app · Free to start"
-            headline="See your own body composition"
-            body="Get a body-fat estimate and muscle breakdown from your own photo."
-            iosLabel="Analyze my photo"
+            mascotSrc="/assets/favicons/favicon-192.webp"
+            eyebrow="Free to start · iPhone app"
+            headline="See what your photo reveals."
+            body="Body-fat estimates & progress."
+            androidBody="Email yourself the iPhone app link for later."
+            iosLabel="Get GainFrame on the App Store"
           />
         </div>
       )}
