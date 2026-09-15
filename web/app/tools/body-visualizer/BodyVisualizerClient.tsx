@@ -7,8 +7,13 @@ import {
   useState,
   type CSSProperties,
 } from "react";
-import styles from "./page.module.css";
-import ToolConversionCard from "@/components/ToolConversionCard";
+import legacyStyles from "./page.module.css";
+import styles from "./VisualizerWorkspace.module.css";
+import {
+  BodyVisualizerCta,
+  BodyVisualizerCtaPreview,
+  useBodyVisualizerCta,
+} from "./BodyVisualizerCta";
 import { track } from "@/lib/analytics";
 import { trackToolFunnelStep } from "@/lib/tool-funnel";
 import {
@@ -71,13 +76,15 @@ function compactNumber(value: number, decimals = 0): string {
 }
 
 export default function BodyVisualizerClient() {
+  const ctaState = useBodyVisualizerCta();
+  const shellRef = useRef<HTMLElement>(null);
   const viewedRef = useRef(false);
   const reportedUsage = useRef(false);
   const reportedCompletion = useRef(false);
   const reportedResultShown = useRef(false);
   const [mode, setMode] = useState<VisualizerMode>("height_weight");
   const [locationResolved, setLocationResolved] = useState(false);
-  const [unit, setUnit] = useState<UnitSystem>("metric");
+  const [unit, setUnit] = useState<UnitSystem>("us");
   const [referenceSex, setReferenceSex] = useState<ReferenceSex>("female");
   const [referenceView, setReferenceView] = useState<ReferenceView>("front");
   const [metric, setMetric] = useState<MetricInputs>({
@@ -150,6 +157,10 @@ export default function BodyVisualizerClient() {
   function switchMode(nextMode: VisualizerMode) {
     if (nextMode === mode) return;
     setMode(nextMode);
+    requestAnimationFrame(() => {
+      shellRef.current?.scrollIntoView({ block: "start" });
+      shellRef.current?.focus({ preventScroll: true });
+    });
     const url = new URL(window.location.href);
     if (nextMode === "measurements") {
       url.searchParams.set("mode", "measurements");
@@ -230,116 +241,46 @@ export default function BodyVisualizerClient() {
 
   return (
     <section
+      ref={shellRef}
+      tabIndex={-1}
       className={styles.visualizerShell}
-      aria-labelledby="visualizer-mode-title"
+      aria-label="Body visualizer"
     >
-      <div className={styles.instrumentBar}>
-        <span className={styles.instrumentName}>
-          <span className={styles.liveDot} aria-hidden="true" />
-          Body shape reference
-        </span>
-        <span className={styles.instrumentMeta}>
-          {mode === "height_weight"
-            ? "30 stages · Front + back"
-            : "Tape proportions · v1.0"}
-        </span>
-      </div>
-
-      <div className={styles.modeChooser}>
-        <div>
-          <span>Visualizer mode</span>
-          <strong id="visualizer-mode-title">Choose how to visualize</strong>
-        </div>
-        <div
-          className={styles.modeTabs}
-          role="tablist"
-          aria-label="Choose body visualizer mode"
-        >
-          <button
-            id="height-weight-tab"
-            type="button"
-            role="tab"
-            aria-selected={mode === "height_weight"}
-            aria-controls="height-weight-panel"
-            tabIndex={mode === "height_weight" ? 0 : -1}
-            className={
-              mode === "height_weight" ? styles.modeTabActive : undefined
-            }
-            onClick={() => switchMode("height_weight")}
-            onKeyDown={(event) => {
-              if (event.key !== "ArrowRight" && event.key !== "End") return;
-              event.preventDefault();
-              switchMode("measurements");
-              document.getElementById("measurements-tab")?.focus();
-            }}
-          >
-            <span>01</span>
-            Height + weight
-            <small>BMI reference</small>
-          </button>
-          <button
-            id="measurements-tab"
-            type="button"
-            role="tab"
-            aria-selected={mode === "measurements"}
-            aria-controls="body-shape-compare-panel"
-            tabIndex={mode === "measurements" ? 0 : -1}
-            className={
-              mode === "measurements" ? styles.modeTabActive : undefined
-            }
-            onClick={() => switchMode("measurements")}
-            onKeyDown={(event) => {
-              if (event.key !== "ArrowLeft" && event.key !== "Home") return;
-              event.preventDefault();
-              switchMode("height_weight");
-              document.getElementById("height-weight-tab")?.focus();
-            }}
-          >
-            <span>02</span>
-            Measurements
-            <small>Current vs. reference</small>
-          </button>
-        </div>
-      </div>
-
-      <div
-        id="height-weight-panel"
-        role="tabpanel"
-        aria-labelledby="height-weight-tab"
-        hidden={mode !== "height_weight"}
-      >
-        <div className={styles.visualizerGrid}>
+      <div hidden={mode !== "height_weight"}>
+        <div className={styles.workspace}>
           <div className={styles.controlPanel}>
-            <div className={styles.panelIntro}>
-              <p className={styles.stepLabel}>01 · Your measurements</p>
-              <h2 id="visualizer-title">Explore your body reference</h2>
-              <p>
-                Enter height and weight. Move the weight slider to explore
-                different sizes. Your measurements stay in this browser.
-              </p>
-            </div>
-
-            <div className={styles.segmented} aria-label="Measurement units">
-              <button
-                type="button"
-                aria-pressed={unit === "metric"}
-                className={unit === "metric" ? styles.segmentActive : undefined}
-                onClick={() => switchUnit("metric")}
+            <div className={styles.toolbar}>
+              <div
+                className={styles.sexPicker}
+                role="group"
+                aria-label="Reference body"
               >
-                Metric
-                <span>cm · kg</span>
-              </button>
-              <button
-                type="button"
-                aria-pressed={unit === "us"}
-                className={unit === "us" ? styles.segmentActive : undefined}
-                onClick={() => switchUnit("us")}
+                {(["female", "male"] as ReferenceSex[]).map((value) => (
+                  <button
+                    key={value}
+                    type="button"
+                    aria-pressed={referenceSex === value}
+                    onClick={() => {
+                      markUsed(unit, value);
+                      setReferenceSex(value);
+                    }}
+                  >
+                    {value === "female" ? "Female" : "Male"}
+                  </button>
+                ))}
+              </div>
+              <select
+                className={styles.unitSelect}
+                aria-label="Measurement units"
+                value={unit}
+                onChange={(event) =>
+                  switchUnit(event.target.value as UnitSystem)
+                }
               >
-                U.S.
-                <span>ft · in · lb</span>
-              </button>
+                <option value="metric">cm / kg</option>
+                <option value="us">ft / lb</option>
+              </select>
             </div>
-
             <div className={styles.inputGrid}>
               {unit === "metric" ? (
                 <>
@@ -444,130 +385,102 @@ export default function BodyVisualizerClient() {
                 </>
               )}
             </div>
-            <p className={styles.limitNote} id="measurement-limits">
-              Adult range: 120–230 cm and 35–250 kg (about
-              3&apos;11&quot;–7&apos;6&quot; and 77–551 lb).
-            </p>
 
-            <fieldset className={styles.referencePicker}>
-              <legend>02 · Choose the illustration set</legend>
-              <div className={styles.referenceButtons}>
-                {(["female", "male"] as ReferenceSex[]).map((value) => (
-                  <button
-                    type="button"
-                    key={value}
-                    aria-pressed={referenceSex === value}
-                    className={
-                      referenceSex === value
-                        ? styles.referenceActive
-                        : undefined
-                    }
-                    onClick={() => {
-                      markUsed(unit, value);
-                      setReferenceSex(value);
-                    }}
-                  >
-                    {value === "female" ? "Female" : "Male"}
-                  </button>
-                ))}
-              </div>
-              <p>
-                This changes the reference art only. It does not change BMI.
-              </p>
-            </fieldset>
+            <p className={styles.srOnly} id="measurement-limits">
+              Adult range: 120–230 cm and 35–250 kg (3 feet 11 inches–7 feet 6
+              inches and 77–551 lb).
+            </p>
           </div>
 
           <div className={styles.displayPanel}>
-            <div className={styles.displayHeader}>
-              <div>
-                <span>Illustrative output</span>
-                <strong>
-                  {referenceSex === "female" ? "Female" : "Male"} reference
-                </strong>
+            <div className={styles.previewToolbar}>
+              <span>AI body reference</span>
+              <div
+                className={styles.viewButtons}
+                role="radiogroup"
+                aria-label="Physique view"
+              >
+                {(["front", "back"] as ReferenceView[]).map((value) => (
+                  <button
+                    type="button"
+                    role="radio"
+                    key={value}
+                    aria-checked={referenceView === value}
+                    tabIndex={referenceView === value ? 0 : -1}
+                    id={`reference-view-${value}`}
+                    onKeyDown={(event) => {
+                      if (
+                        ![
+                          "ArrowLeft",
+                          "ArrowRight",
+                          "ArrowUp",
+                          "ArrowDown",
+                          "Home",
+                          "End",
+                        ].includes(event.key)
+                      )
+                        return;
+                      event.preventDefault();
+                      const nextView =
+                        event.key === "Home"
+                          ? "front"
+                          : event.key === "End"
+                            ? "back"
+                            : referenceView === "front"
+                              ? "back"
+                              : "front";
+                      markUsed();
+                      setReferenceView(nextView);
+                      document
+                        .getElementById(`reference-view-${nextView}`)
+                        ?.focus();
+                    }}
+                    className={
+                      referenceView === value ? styles.viewActive : undefined
+                    }
+                    onClick={() => {
+                      markUsed();
+                      setReferenceView(value);
+                    }}
+                  >
+                    {value === "front" ? "Front" : "Back"}
+                  </button>
+                ))}
               </div>
-              <span className={styles.renderBand}>
-                {render
-                  ? `Stage ${render.stage} / ${render.count}`
-                  : "Enter measurements"}
-              </span>
             </div>
             <div className={styles.imageChamber}>
               {render ? (
-                <>
-                  <div
-                    className={styles.viewButtons}
-                    role="radiogroup"
-                    aria-label="Physique view"
-                  >
-                    {(["front", "back"] as ReferenceView[]).map((value) => (
-                      <button
-                        type="button"
-                        role="radio"
-                        key={value}
-                        aria-checked={referenceView === value}
-                        tabIndex={referenceView === value ? 0 : -1}
-                        id={`reference-view-${value}`}
-                        onKeyDown={(event) => {
-                          if (
-                            ![
-                              "ArrowLeft",
-                              "ArrowRight",
-                              "ArrowUp",
-                              "ArrowDown",
-                              "Home",
-                              "End",
-                            ].includes(event.key)
-                          )
-                            return;
-                          event.preventDefault();
-                          const nextView =
-                            event.key === "Home"
-                              ? "front"
-                              : event.key === "End"
-                                ? "back"
-                                : referenceView === "front"
-                                  ? "back"
-                                  : "front";
-                          markUsed();
-                          setReferenceView(nextView);
-                          document
-                            .getElementById(`reference-view-${nextView}`)
-                            ?.focus();
-                        }}
-                        className={
-                          referenceView === value
-                            ? styles.viewActive
-                            : undefined
-                        }
-                        onClick={() => {
-                          markUsed();
-                          setReferenceView(value);
-                        }}
-                      >
-                        {value === "front" ? "Front" : "Back"}
-                      </button>
-                    ))}
-                  </div>
-                  <BodyReferenceImage
-                    src={render[referenceView]}
-                    alt={`AI-generated ${referenceSex} size illustration, ${referenceView} view, stage ${render.stage} of ${render.count}. A general reference, not a prediction of your body.`}
-                    adjacent={adjacentImages}
-                  />
-                </>
+                <BodyReferenceImage
+                  src={render[referenceView]}
+                  alt={`AI-generated ${referenceSex} size illustration, ${referenceView} view, stage ${render.stage} of ${render.count}. A general reference, not a prediction of your body.`}
+                  adjacent={adjacentImages}
+                />
               ) : (
                 <div className={styles.invalidImage} role="status">
-                  <strong>Let’s check those numbers.</strong>
+                  <strong>Check your height and weight</strong>
                   <span>
-                    Enter a valid height and weight to see the illustration.
+                    Use 120–230 cm and 35–250 kg, or the equivalent in feet and
+                    pounds.
                   </span>
                 </div>
               )}
+            </div>
+          </div>
+
+          <div className={styles.explorePanel}>
+            <div className={styles.desktopIntro}>
+              <span>Explore the possibilities</span>
+              <h2>
+                A little change.
+                <br />A different picture.
+              </h2>
+              <p>Move the slider to explore weight at your height.</p>
             </div>
             {render && measurements && sliderRange && (
               <div className={styles.weightExplorer}>
                 <div className={styles.weightExplorerHeading}>
                   <label htmlFor="visualizer-weight-slider">
-                    Explore weight at this height
+                    Slide to explore
                   </label>
                   <output htmlFor="visualizer-weight-slider">
                     {compactNumber(sliderWeight, 1)}{" "}
@@ -600,130 +513,117 @@ export default function BodyVisualizerClient() {
                     {sliderRange.max} {unit === "us" ? "lb" : "kg"}
                   </span>
                 </div>
-                <p id="weight-slider-note">
-                  30 size stages · AI-generated illustrations
-                </p>
                 {render.outsideRange && (
                   <p className={styles.rangeNotice} role="status">
-                    Your BMI is outside the image range of 16–45. The nearest
-                    endpoint is shown; your calculated BMI below is unchanged.
+                    This weight is outside the image range. The closest
+                    illustration is shown; your BMI is still calculated from
+                    your measurements.
                   </p>
                 )}
               </div>
             )}
-            <details className={styles.bmiDetails}>
-              <summary>
-                <span>
-                  {bmi === null
-                    ? "Check measurements"
-                    : `BMI ${bmi.toFixed(1)}`}
-                </span>
-                <span>{category?.shortLabel ?? "Enter valid values"}</span>
-                <span aria-hidden="true">＋</span>
-              </summary>
-              <div
-                className={styles.resultCard}
-                aria-live="polite"
-                aria-atomic="true"
-              >
-                {bmi !== null && category && range ? (
-                  <>
-                    <div className={styles.resultTopline}>
-                      <span>Your BMI</span>
-                      <span
-                        className={`${styles.categoryChip} ${styles[`tone${category.tone}`]}`}
-                      >
-                        {category.shortLabel}
-                      </span>
-                    </div>
-                    <div className={styles.resultNumber}>{bmi.toFixed(1)}</div>
-                    <p className={styles.resultCategory}>{category.label}</p>
-                    <div
-                      className={styles.bmiScale}
-                      style={markerStyle}
-                      aria-hidden="true"
+            <p className={styles.referenceNote} id="weight-slider-note">
+              Illustration only. The same BMI can look different.
+            </p>
+          </div>
+
+          {mode === "height_weight" && bmi !== null && (
+            <BodyVisualizerCta state={ctaState} />
+          )}
+        </div>
+
+        <BodyVisualizerCtaPreview state={ctaState} />
+
+        <div className={styles.moreTools}>
+          <details className={styles.bmiDetails}>
+            <summary>
+              <span>
+                {bmi === null ? "Check measurements" : `BMI ${bmi.toFixed(1)}`}
+              </span>
+              <span>{category?.shortLabel ?? "Enter valid values"}</span>
+              <span aria-hidden="true">＋</span>
+            </summary>
+            <div
+              className={legacyStyles.resultCard}
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {bmi !== null && category && range ? (
+                <>
+                  <div className={legacyStyles.resultTopline}>
+                    <span>Your BMI</span>
+                    <span
+                      className={`${legacyStyles.categoryChip} ${legacyStyles[`tone${category.tone}`]}`}
                     >
-                      <span className={styles.scaleLow} />
-                      <span className={styles.scaleHealthy} />
-                      <span className={styles.scaleHigh} />
-                      <span className={styles.scaleHigher} />
-                      <i />
-                    </div>
-                    <div className={styles.scaleLabels} aria-hidden="true">
-                      <span>18.5</span>
-                      <span>25</span>
-                      <span>30+</span>
-                    </div>
-                    <div className={styles.referenceRange}>
-                      <span>Adult BMI 18.5–24.9 at this height</span>
-                      <strong>
-                        {unit === "metric"
-                          ? `${compactNumber(range.lowKg)}–${compactNumber(range.highKg)} kg`
-                          : `${compactNumber(range.lowKg * POUNDS_PER_KG)}–${compactNumber(
-                              range.highKg * POUNDS_PER_KG,
-                            )} lb`}
-                      </strong>
-                    </div>
-                  </>
-                ) : (
-                  <div className={styles.emptyResult} role="status">
-                    <strong>Check your measurements</strong>
-                    <span>
-                      Enter a height and weight inside the adult range above.
+                      {category.shortLabel}
                     </span>
                   </div>
-                )}
-              </div>
-            </details>
-            <div className={styles.cautionNote}>
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 10v6M12 7h.01" />
-              </svg>
-              <p>
-                <strong>A size reference, not your body.</strong> These
-                AI-generated images aren’t validated predictions. BMI cannot
-                distinguish muscle from fat; people with the same BMI can look
-                very different.
-              </p>
+                  <div className={legacyStyles.resultNumber}>
+                    {bmi.toFixed(1)}
+                  </div>
+                  <p className={legacyStyles.resultCategory}>
+                    {category.label}
+                  </p>
+                  <div
+                    className={legacyStyles.bmiScale}
+                    style={markerStyle}
+                    aria-hidden="true"
+                  >
+                    <span className={legacyStyles.scaleLow} />
+                    <span className={legacyStyles.scaleHealthy} />
+                    <span className={legacyStyles.scaleHigh} />
+                    <span className={legacyStyles.scaleHigher} />
+                    <i />
+                  </div>
+                  <div className={legacyStyles.scaleLabels} aria-hidden="true">
+                    <span>18.5</span>
+                    <span>25</span>
+                    <span>30+</span>
+                  </div>
+                  <div className={legacyStyles.referenceRange}>
+                    <span>Adult BMI 18.5–24.9 at this height</span>
+                    <strong>
+                      {unit === "metric"
+                        ? `${compactNumber(range.lowKg)}–${compactNumber(range.highKg)} kg`
+                        : `${compactNumber(range.lowKg * POUNDS_PER_KG)}–${compactNumber(
+                            range.highKg * POUNDS_PER_KG,
+                          )} lb`}
+                    </strong>
+                  </div>
+                </>
+              ) : (
+                <div className={legacyStyles.emptyResult} role="status">
+                  <strong>Check your measurements</strong>
+                  <span>
+                    Enter a height and weight inside the adult range above.
+                  </span>
+                </div>
+              )}
             </div>
-          </div>
-          {mode === "height_weight" && bmi !== null && (
-            <div className={styles.resultBridge}>
-              <ToolConversionCard
-                tool="body_visualizer"
-                campaign="web-body-visualizer"
-                placement="atlas_v3_result"
-                sticky={false}
-                eyebrow="Make it personal"
-                headline="See what your own photo reveals."
-                body="Get a body-fat estimate and a muscle-by-muscle breakdown from your photo. Compare check-ins to see what changes."
-                desktopBody="Scan with your iPhone for a body-fat estimate, a muscle-by-muscle breakdown, and progress you can compare."
-                iosLabel="Analyze my photo in GainFrame"
-                proof="Free to start · iPhone app"
-              />
-            </div>
-          )}
+          </details>
+
+          <button
+            id="measurements-tab"
+            type="button"
+            className={styles.compareLink}
+            aria-controls="body-shape-compare-panel"
+            onClick={() => switchMode("measurements")}
+          >
+            Compare body measurements <span aria-hidden="true">↗</span>
+          </button>
         </div>
       </div>
 
-      <BodyShapeCompare active={mode === "measurements"} />
-      {mode === "height_weight" && bmi !== null && (
-        <div className={styles.conversionDock}>
-          <ToolConversionCard
-            tool="body_visualizer"
-            campaign="web-body-visualizer"
-            placement="atlas_v5_mobile_app"
-            sticky
-            mascotSrc="/assets/favicons/favicon-192.webp"
-            eyebrow="Free to start · iPhone app"
-            headline="See what your photo reveals."
-            body="Body-fat estimates & progress."
-            androidBody="Email yourself the iPhone app link for later."
-            iosLabel="Get GainFrame on the App Store"
-          />
-        </div>
+      {mode === "measurements" && (
+        <button
+          type="button"
+          className={styles.backLink}
+          onClick={() => switchMode("height_weight")}
+        >
+          ← Back to visualizer
+        </button>
       )}
+      <BodyShapeCompare active={mode === "measurements"} />
     </section>
   );
 }

@@ -10,15 +10,17 @@
   --sage: #8fae8d;
   min-height: 100vh;
   color: var(--ink);
-  background:
-    linear-gradient(rgba(17, 17, 15, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 15, 0.035) 1px, transparent 1px),
-    var(--paper);
-  background-size: 48px 48px;
+  background: var(--paper);
 }
 
 .page main {
   overflow: hidden;
+}
+
+@media (max-width: 760px) {
+  .page :global(.blog-nav) { padding-block: 8px; }
+  .page :global(.blog-nav-icon) { width: 32px; height: 32px; }
+  .page :global(.nav-hamburger) { min-width: 44px; min-height: 44px; }
 }
 
 .hero {
@@ -1348,6 +1350,7 @@
 }
 
 .compareMode {
+  color: #f5f5ef;
   position: relative;
   z-index: 1;
 }

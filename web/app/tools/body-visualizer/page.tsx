@@ -3,6 +3,7 @@ import BlogNav from "@/components/BlogNav";
 import PlatformDownloadLink from "@/components/PlatformDownloadLink";
 import { SITE } from "@/lib/site";
 import BodyVisualizerClient from "./BodyVisualizerClient";
+import workspaceStyles from "./VisualizerWorkspace.module.css";
 import styles from "./page.module.css";
 
 const PAGE_PATH = "/tools/body-visualizer/";
@@ -157,30 +158,15 @@ export default function BodyVisualizerPage() {
 
       <BlogNav />
       <main>
-        <header className={styles.hero}>
-          <div className={styles.heroGrid}>
-            <div>
-              <span className={styles.eyebrow}>
-                Free tool · Private · No signup
-              </span>
-              <h1>Body Visualizer</h1>
-            </div>
-            <div className={styles.heroCopy}>
-              <p>
-                Start with height and weight for a clear BMI reference, or
-                compare current and goal measurements with two illustrative 2D
-                outlines. Switch modes and units without leaving the page.
-              </p>
-              <div className={styles.heroFacts}>
-                <span>Two visualizer modes</span>
-                <span>Metric + U.S.</span>
-                <span>Private in-browser inputs</span>
-              </div>
-            </div>
+        <header className={workspaceStyles.hero}>
+          <div className={workspaceStyles.heroHeading}>
+            <h1>Body Visualizer</h1>
+            <span>Free &amp; private</span>
           </div>
+          <p>Set your height. Explore different weights.</p>
         </header>
 
-        <div className={styles.toolWrap}>
+        <div className={workspaceStyles.toolWrap}>
           <BodyVisualizerClient />
         </div>
 

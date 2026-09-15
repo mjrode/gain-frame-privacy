@@ -14,15 +14,17 @@ import {
   type ToolCtaAssignment,
   type ToolConversionExperiment,
 } from "@/lib/tool-cta-experiment";
-import {
-  trackToolFunnelStep,
-  type ToolFunnelId,
-} from "@/lib/tool-funnel";
+import { trackToolFunnelStep, type ToolFunnelId } from "@/lib/tool-funnel";
 import {
   TOOL_CTA_MASCOT_SRC,
   TOOL_CTA_PROGRESS_PREVIEW_SRC,
 } from "@/lib/tool-cta-assets";
 import { WEB_TOOL_COMPLETED_DOM_EVENT } from "@/lib/web-tool-usage";
+import {
+  assignedCtaProperties,
+  isAssignedCtaVisible,
+  type AssignedCtaExperiment,
+} from "@/lib/assigned-cta-experiment";
 
 /**
  * Shared result-to-app bridge for the free tools. Extracted from the
@@ -68,6 +70,8 @@ type ToolConversionCardProps = {
   androidProof?: string;
   /** Optional A/B/n copy test. Assignment is stable across tools and visits. */
   experiment?: ToolConversionExperiment;
+  /** Page-owned assignment; callers provide the matching copy and placement. */
+  assignedExperiment?: AssignedCtaExperiment;
   /** Keep result CTAs visible after completion. Defaults to true for result. */
   sticky?: boolean;
   /** For tools whose CTA exists before interaction, wait for completion. */
@@ -168,6 +172,7 @@ export default function ToolConversionCard({
   proof = "iPhone app · Free to start · Built for progress photos",
   androidProof = "One email, just the link · No spam",
   experiment,
+  assignedExperiment,
   sticky,
   activation = "immediate",
   mascotSrc = TOOL_CTA_MASCOT_SRC,
@@ -185,14 +190,15 @@ export default function ToolConversionCard({
   const viewedRef = useRef<string | null>(null);
   const assignedRef = useRef<string | null>(null);
   const titleId = `tcc-title-${tool}-${placement}`;
-  const experimentEligible = Boolean(experiment && !isAndroid && assignment);
+  const experimentEligible = Boolean(
+    !assignedExperiment && experiment && !isAndroid && assignment,
+  );
   const hidden =
-    (hideOnAndroid && isAndroid) ||
-    !activated ||
-    (isSticky && dismissed);
-  const variantCopy = experimentEligible && experiment && assignment
-    ? experiment.variants[assignment.variant]
-    : null;
+    (hideOnAndroid && isAndroid) || !activated || (isSticky && dismissed);
+  const variantCopy =
+    experimentEligible && experiment && assignment
+      ? experiment.variants[assignment.variant]
+      : null;
   const displayedEyebrow = variantCopy?.eyebrow ?? eyebrow;
   const displayedHeadline = variantCopy?.headline ?? headline;
   const displayedBody = variantCopy?.body ?? body;
@@ -200,32 +206,64 @@ export default function ToolConversionCard({
     variantCopy?.desktopBody ?? desktopBody ?? displayedBody;
   const displayedIosLabel = variantCopy?.iosLabel ?? iosLabel;
   const displayedProof = variantCopy?.proof ?? proof;
+  const activeExperiment =
+    !isAndroid && assignedExperiment
+      ? assignedExperiment
+      : experimentEligible && experiment && assignment
+        ? {
+            id: experiment.id,
+            phase: TOOL_CTA_EXPERIMENT_PHASE,
+            ...assignment,
+            angle: assignment.variant,
+          }
+        : null;
   const experimentProperties: Record<string, unknown> =
-    experimentEligible && experiment && assignment
-      ? {
-          experiment_id: experiment.id,
-          experiment_phase: TOOL_CTA_EXPERIMENT_PHASE,
-          experiment_variant: assignment.variant,
-          experiment_forced: assignment.forced,
-          cta_angle: assignment.variant,
-        }
-      : {};
+    !isAndroid && assignedExperiment
+      ? assignedCtaProperties(assignedExperiment)
+      : experimentEligible && experiment && assignment
+        ? {
+            experiment_id: experiment.id,
+            experiment_phase: TOOL_CTA_EXPERIMENT_PHASE,
+            experiment_variant: assignment.variant,
+            experiment_forced: assignment.forced,
+            cta_angle: assignment.variant,
+          }
+        : {};
 
   useEffect(() => {
-    if (!experiment || platform === "unknown" || isAndroid) {
+    if (
+      assignedExperiment ||
+      !experiment ||
+      platform === "unknown" ||
+      isAndroid
+    ) {
       setAssignment(null);
       return;
     }
     setAssignment(getToolCtaAssignment());
-  }, [experiment?.id, isAndroid, platform]);
+  }, [assignedExperiment?.id, experiment?.id, isAndroid, platform]);
 
   useEffect(() => {
-    if (!activated || !assignment || !experiment || isAndroid || platform === "unknown") return;
-    const key = `${tool}:${placement}:${assignment.variant}:${assignment.forced}`;
+    if (!activated || !activeExperiment || platform === "unknown") return;
+    const key = `${tool}:${placement}:${activeExperiment.id}:${activeExperiment.phase}:${activeExperiment.variant}:${activeExperiment.forced}`;
     if (assignedRef.current === key) return;
     assignedRef.current = key;
-    track("tool_cta_assigned", { tool, placement, platform, ...experimentProperties });
-  }, [activated, assignment, experiment?.id, isAndroid, placement, platform, tool]);
+    track("tool_cta_assigned", {
+      tool,
+      placement,
+      platform,
+      ...experimentProperties,
+    });
+  }, [
+    activated,
+    activeExperiment?.id,
+    activeExperiment?.phase,
+    activeExperiment?.variant,
+    activeExperiment?.forced,
+    placement,
+    platform,
+    tool,
+  ]);
 
   useEffect(() => {
     const activate = () => {
@@ -247,14 +285,21 @@ export default function ToolConversionCard({
   useEffect(() => {
     // Impression tracking waits for a real platform so the event is
     // segmentable; the first paint always reports platform "unknown".
-    const exposureKey = `${tool}:${placement}:${platform}:${assignment?.variant ?? "unassigned"}:${assignment?.forced ?? false}`;
-    if (hidden || platform === "unknown" || viewedRef.current === exposureKey) return;
+    const exposureKey = `${tool}:${placement}:${platform}:${activeExperiment?.id ?? "none"}:${activeExperiment?.phase ?? "none"}:${activeExperiment?.variant ?? "unassigned"}:${activeExperiment?.forced ?? false}`;
+    if (hidden || platform === "unknown" || viewedRef.current === exposureKey)
+      return;
     const el = cardRef.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(
       (entries) => {
         if (viewedRef.current === exposureKey) return;
-        if (entries.some((entry) => entry.isIntersecting)) {
+        if (
+          entries.some((entry) =>
+            assignedExperiment
+              ? isAssignedCtaVisible(entry)
+              : entry.isIntersecting,
+          )
+        ) {
           viewedRef.current = exposureKey;
           track("tool_cta_viewed", {
             tool,
@@ -270,9 +315,11 @@ export default function ToolConversionCard({
     io.observe(el);
     return () => io.disconnect();
   }, [
-    assignment?.forced,
-    assignment?.variant,
-    experiment?.id,
+    activeExperiment?.forced,
+    activeExperiment?.variant,
+    activeExperiment?.id,
+    activeExperiment?.phase,
+    assignedExperiment?.style,
     hidden,
     platform,
     placement,
@@ -300,15 +347,12 @@ export default function ToolConversionCard({
       ref={cardRef}
       className={`tcc-card${isSticky ? " tcc-card--sticky" : ""}`}
       data-platform={platform}
-      data-experiment-id={experimentEligible ? experiment?.id : undefined}
-      data-experiment-phase={
-        experimentEligible ? TOOL_CTA_EXPERIMENT_PHASE : undefined
-      }
-      data-experiment-variant={experimentEligible ? assignment?.variant : undefined}
-      data-experiment-forced={
-        experimentEligible && assignment?.forced ? "true" : undefined
-      }
-      data-cta-angle={experimentEligible ? assignment?.variant : undefined}
+      data-experiment-id={activeExperiment?.id}
+      data-experiment-phase={activeExperiment?.phase}
+      data-experiment-variant={activeExperiment?.variant}
+      data-experiment-forced={activeExperiment?.forced ? "true" : undefined}
+      data-cta-angle={activeExperiment?.angle}
+      data-cta-style={!isAndroid ? assignedExperiment?.style : undefined}
       aria-labelledby={titleId}
       onClick={(event) => {
         const target = event.target instanceof Element ? event.target : null;
@@ -346,9 +390,7 @@ export default function ToolConversionCard({
 
       <div className="tcc-copy">
         <span className="tcc-eyebrow">
-          {isAndroid
-            ? androidEyebrow
-            : (displayedEyebrow ?? defaultEyebrow)}
+          {isAndroid ? androidEyebrow : (displayedEyebrow ?? defaultEyebrow)}
         </span>
         <h3 id={titleId}>{displayedHeadline}</h3>
         <p>
@@ -417,9 +459,7 @@ export default function ToolConversionCard({
         </div>
       )}
 
-      <p className="tcc-proof">
-        {isAndroid ? androidProof : displayedProof}
-      </p>
+      <p className="tcc-proof">{isAndroid ? androidProof : displayedProof}</p>
     </aside>
   );
 }

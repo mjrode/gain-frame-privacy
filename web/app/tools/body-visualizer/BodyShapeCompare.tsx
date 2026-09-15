@@ -371,7 +371,7 @@ export default function BodyShapeCompare({ active }: { active: boolean }) {
   const startedRef = useRef(false);
   const resultShownRef = useRef(false);
   const [hasInteracted, setHasInteracted] = useState(false);
-  const [unit, setUnit] = useState<BodyShapeUnit>("metric");
+  const [unit, setUnit] = useState<BodyShapeUnit>("us");
   const [sets, setSets] = useState<Record<MeasurementSetKey, DisplayMeasurements>>({
     current: { ...EMPTY_MEASUREMENTS },
     goal: { ...EMPTY_MEASUREMENTS },
@@ -469,8 +469,8 @@ export default function BodyShapeCompare({ active }: { active: boolean }) {
     <div
       id="body-shape-compare-panel"
       className={styles.compareMode}
-      role="tabpanel"
-      aria-labelledby="measurements-tab"
+      role="region"
+      aria-labelledby="shape-compare-title"
       hidden={!active}
     >
       <div className={styles.compareWorkspace}>
