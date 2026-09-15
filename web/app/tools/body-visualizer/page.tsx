@@ -49,7 +49,12 @@ const FAQS = [
   {
     question: "Is this a BMI body visualizer by height and weight?",
     answer:
-      "Yes. Height + weight mode calculates adult BMI, assigns the standard adult BMI category, and selects one standardized body-shape illustration from GainFrame's reference atlas. The image is an illustrative band, not a prediction of your appearance.",
+      "Yes. Height + weight mode calculates adult BMI and selects from 30 illustrated size stages per sex, each with matching front and back views. The AI-generated images are general size references, not validated predictions of appearance or estimates of body fat.",
+  },
+  {
+    question: "How accurate are the reference images?",
+    answer:
+      "The BMI calculation uses height and weight, but the pictures are AI-generated illustrations. The 30 stages cover a design range of BMI 16–45 and do not represent measured people or a medically validated BMI-to-appearance model. Pose, clothing, framing, and size progression are reviewed for consistency. Outside this range, the nearest image is shown and the calculated BMI remains unchanged.",
   },
   {
     question: "Can I compare current and goal body measurements?",
@@ -115,6 +120,8 @@ const webAppSchema = {
   description: DESCRIPTION,
   featureList: [
     "Adult BMI reference from height and weight",
+    "30 illustrated size stages per sex with front and back views",
+    "Interactive weight slider",
     "Current and goal measurement comparison",
     "Metric and U.S. units",
     "Illustrative 2D proportion silhouettes",
@@ -153,7 +160,9 @@ export default function BodyVisualizerPage() {
         <header className={styles.hero}>
           <div className={styles.heroGrid}>
             <div>
-              <span className={styles.eyebrow}>Free tool · Private · No signup</span>
+              <span className={styles.eyebrow}>
+                Free tool · Private · No signup
+              </span>
               <h1>Body Visualizer</h1>
             </div>
             <div className={styles.heroCopy}>
@@ -176,15 +185,18 @@ export default function BodyVisualizerPage() {
         </div>
 
         <section className={styles.editorialSection}>
-          <div className={styles.sectionKicker}>How this body visualizer works</div>
+          <div className={styles.sectionKicker}>
+            How this body visualizer works
+          </div>
           <div className={styles.editorialGrid}>
             <h2>Two ways to build a useful body-shape reference.</h2>
             <div className={styles.prose}>
               <p>
-                Height + weight mode calculates adult BMI and selects a
-                standardized male or female reference band. Enter cm and kg or
-                switch to feet, inches, and pounds; the calculation and image
-                update immediately.
+                Height + weight mode calculates adult BMI and selects a male or
+                female reference from 30 illustrated size stages. Each has front
+                and back views. Enter cm and kg or switch to feet, inches, and
+                pounds, then use the weight slider beneath the image to explore
+                the progression at the same height.
               </p>
               <p>
                 Measurements mode accepts current and goal/reference sets for
@@ -221,10 +233,11 @@ export default function BodyVisualizerPage() {
                 bands easier to picture. Measurement mode responds to the tape
                 values you enter, but its simplified outline still cannot know
                 anatomy, muscle shape, fat distribution, or posture. Neither
-                view should be treated as a forecast of how you do—or should—look.
+                view should be treated as a forecast of how you do—or
+                should—look.
               </p>
               <p className={styles.sourceNote}>
-                Method and categories follow the{" "}
+                The BMI formula and categories follow the{" "}
                 <a
                   href="https://www.cdc.gov/bmi/faq/index.html"
                   target="_blank"
@@ -240,7 +253,9 @@ export default function BodyVisualizerPage() {
 
         <section className={styles.differenceSection}>
           <div className={styles.sectionHeading}>
-            <span className={styles.sectionKicker}>Same number, different body</span>
+            <span className={styles.sectionKicker}>
+              Same number, different body
+            </span>
             <h2>Why the visual can only be illustrative.</h2>
             <p>
               Three things BMI and simplified measurement outlines leave out can
@@ -278,7 +293,9 @@ export default function BodyVisualizerPage() {
         <section className={styles.compareSection}>
           <div className={styles.sectionHeading}>
             <span className={styles.sectionKicker}>Choose the right tool</span>
-            <h2>BMI, body fat, and visual change answer different questions.</h2>
+            <h2>
+              BMI, body fat, and visual change answer different questions.
+            </h2>
           </div>
           <div className={styles.toolCards}>
             <a href="/tools/body-fat-visualizer/">
@@ -347,7 +364,7 @@ export default function BodyVisualizerPage() {
               Get GainFrame on the App Store
               <span aria-hidden="true">↗</span>
             </PlatformDownloadLink>
-            <small>iPhone · Free to start · App ID 6759252082</small>
+            <small>iPhone · Free to start</small>
           </div>
         </section>
       </main>
