@@ -1,0 +1,53 @@
+{
+  "retrieved": "2026-09-15",
+  "gsc_final_through": "2026-09-13",
+  "latest_daily_clicks": 1598,
+  "previous_daily_clicks": 1477,
+  "last_7_day_mean": 1308.2857142857142,
+  "mrr_usd": 2354.65,
+  "revenue_since_march_usd": 14816.2,
+  "audit_prior_window": [
+    "2026-07-15",
+    "2026-08-11"
+  ],
+  "audit_current_window": [
+    "2026-08-12",
+    "2026-09-08"
+  ],
+  "tool_clicks": [
+    2757,
+    9923
+  ],
+  "site_clicks": [
+    8340,
+    21645
+  ],
+  "tool_ios_store_events": [
+    100,
+    258
+  ],
+  "tool_click_share": 0.45844305844305844,
+  "tool_click_growth_percent": 259.9202031193326,
+  "top_tools": [
+    {
+      "name": "Physique Rater",
+      "prior": 548,
+      "current": 3136
+    },
+    {
+      "name": "Body Fat from Photo",
+      "prior": 1443,
+      "current": 2514
+    },
+    {
+      "name": "Body Visualizer",
+      "prior": 34,
+      "current": 2421
+    },
+    {
+      "name": "Body Fat Visualizer",
+      "prior": 477,
+      "current": 960
+    }
+  ]
+}

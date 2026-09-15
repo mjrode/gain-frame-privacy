@@ -1,0 +1,189 @@
+{
+  "category": "revenue",
+  "description": "Revenue displays the revenue generated during a period. This number will usually be a little higher than MRR as it is un-normalized and all the revenue from an annual subscription is charted the period it starts or is renewed. This chart also displays all revenue from non-consumable and consumable purchases, non-renewing subscriptions, and ads. You can select between Revenue, Revenue (net of taxes), or Proceeds as the revenue definition to visualize in the chart.",
+  "display_name": "Revenue",
+  "display_type": "default",
+  "documentation_link": "dashboard-and-metrics/charts/revenue-chart",
+  "end_date": 1788220800,
+  "filtering_allowed": true,
+  "last_computed_at": null,
+  "measures": [
+    {
+      "chartable": true,
+      "decimal_precision": 0,
+      "description": "The total revenue generated in a given period, minus refunds and downward subscription payment adjustments recorded in that period regardless of when the original transaction occurred, rounded to the nearest whole number.",
+      "display_name": "Revenue",
+      "tabulable": true,
+      "unit": "$"
+    },
+    {
+      "chartable": false,
+      "decimal_precision": 0,
+      "description": "The count of revenue-generating purchase transactions in the period. Refunds do not reduce this count.",
+      "display_name": "Transactions",
+      "tabulable": true,
+      "unit": "#"
+    },
+    {
+      "chartable": false,
+      "decimal_precision": 0,
+      "description": "The total number of times ads were successfully displayed to users. Each impression represents one instance of an ad being shown.",
+      "display_name": "Ad Impressions",
+      "tabulable": true,
+      "unit": "#"
+    }
+  ],
+  "object": "chart_data",
+  "periods": null,
+  "resolution": "month",
+  "segmenting_allowed": true,
+  "segments": null,
+  "segments_limit": null,
+  "start_date": 1772323200,
+  "summary": {
+    "average": {
+      "Ad Impressions": 0.0,
+      "Revenue": 2116.6,
+      "Transactions": 125.71
+    },
+    "total": {
+      "Ad Impressions": 0.0,
+      "Revenue": 14816.2,
+      "Transactions": 880.0
+    }
+  },
+  "unsupported_params": null,
+  "user_selectors": {
+    "revenue_type": "revenue"
+  },
+  "values": [
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 0,
+      "value": 570.14
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 1,
+      "value": 27.0
+    },
+    {
+      "cohort": 1772323200,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1775001600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 781.46
+    },
+    {
+      "cohort": 1775001600,
+      "incomplete": false,
+      "measure": 1,
+      "value": 52.0
+    },
+    {
+      "cohort": 1775001600,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1777593600,
+      "incomplete": false,
+      "measure": 0,
+      "value": 1389.87
+    },
+    {
+      "cohort": 1777593600,
+      "incomplete": false,
+      "measure": 1,
+      "value": 92.0
+    },
+    {
+      "cohort": 1777593600,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1780272000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 2444.03
+    },
+    {
+      "cohort": 1780272000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 129.0
+    },
+    {
+      "cohort": 1780272000,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1782864000,
+      "incomplete": false,
+      "measure": 0,
+      "value": 4075.33
+    },
+    {
+      "cohort": 1782864000,
+      "incomplete": false,
+      "measure": 1,
+      "value": 202.0
+    },
+    {
+      "cohort": 1782864000,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1785542400,
+      "incomplete": false,
+      "measure": 0,
+      "value": 3419.85
+    },
+    {
+      "cohort": 1785542400,
+      "incomplete": false,
+      "measure": 1,
+      "value": 237.0
+    },
+    {
+      "cohort": 1785542400,
+      "incomplete": false,
+      "measure": 2,
+      "value": 0.0
+    },
+    {
+      "cohort": 1788220800,
+      "incomplete": true,
+      "measure": 0,
+      "value": 2135.52
+    },
+    {
+      "cohort": 1788220800,
+      "incomplete": true,
+      "measure": 1,
+      "value": 141.0
+    },
+    {
+      "cohort": 1788220800,
+      "incomplete": true,
+      "measure": 2,
+      "value": 0.0
+    }
+  ],
+  "yaxis": "$",
+  "yaxis_currency": "USD"
+}
