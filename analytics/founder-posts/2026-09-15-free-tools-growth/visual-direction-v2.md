@@ -13,4 +13,4 @@ The owner requested a cleaner style after reviewing the first graphics on Septem
 
 The reference supplies visual treatment only. Its brand, customer data, browser chrome, and exact interface are not reused. The chart data, reporting periods, revenue definitions, and attribution limitations remain the same as in the first version.
 
-The final five files replace the first version at the same public asset paths. The original assets are retained in git history and the image-generation output directory. The source chart renderings for the revised style are in `output/free-tools-app-growth/v2/`.
+The final five images use fresh `-v2` asset filenames so returning visitors receive the new style immediately, even if their browser cached the first version. The original assets are retained in git history and the image-generation output directory. The source chart renderings for the revised style are in `output/free-tools-app-growth/v2/`.
