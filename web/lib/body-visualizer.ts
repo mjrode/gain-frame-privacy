@@ -8,10 +8,10 @@ export const BODY_VISUALIZER_RENDERS = {
 } as const;
 
 export type BodyVisualizerView = "front" | "back";
-export const BODY_VISUALIZER_VERSION = "atlas_v3";
+export const BODY_VISUALIZER_VERSION = "atlas_v4";
 export const BODY_VISUALIZER_BMI_RANGE = { min: 16, max: 45 } as const;
 export const BODY_VISUALIZER_STAGE_COUNT = 30;
-const ASSET_ROOT = "/tools/body-visualizer/assets/atlas-v3";
+const ASSET_ROOT = "/tools/body-visualizer/assets";
 
 // Review order follows apparent size, not the numeric targets in generation
 // prompts. Paired front/back views always retain the same asset identifier.
@@ -43,7 +43,9 @@ export function bodyVisualizerRender(
   const index = Math.round(Math.min(max, Math.max(min, bmi)) - min);
   const stage = index + 1;
   const asset = BODY_VISUALIZER_STAGE_ORDER[sex][index];
-  const base = `${ASSET_ROOT}/${sex}-stage${String(asset).padStart(2, "0")}`;
+  // A new male asset path prevents cached clothed references surviving the fix.
+  const atlas = sex === "male" ? "atlas-v4" : "atlas-v3";
+  const base = `${ASSET_ROOT}/${atlas}/${sex}-stage${String(asset).padStart(2, "0")}`;
   return {
     index,
     stage,

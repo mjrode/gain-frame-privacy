@@ -708,6 +708,20 @@ export default function BodyVisualizerClient() {
       </div>
 
       <BodyShapeCompare active={mode === "measurements"} />
+      {mode === "height_weight" && bmi !== null && (
+        <div className={styles.conversionDock}>
+          <ToolConversionCard
+            tool="body_visualizer"
+            campaign="web-body-visualizer"
+            placement="atlas_v4_persistent"
+            sticky
+            eyebrow="iPhone app · Free to start"
+            headline="See your own body composition"
+            body="Get a body-fat estimate and muscle breakdown from your own photo."
+            iosLabel="Analyze my photo"
+          />
+        </div>
+      )}
     </section>
   );
 }
