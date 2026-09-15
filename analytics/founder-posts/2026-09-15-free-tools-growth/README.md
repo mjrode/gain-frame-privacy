@@ -44,6 +44,10 @@ Five final assets were created with the built-in image generation tool: cover, s
 
 `image-prompts.json` contains all prompts, including the contrast correction to the funnel illustration. The diagram shows the intended user journey, not measured conversion at each stage. Revenue statistics cover the entire app and are not attributed to the tools.
 
+### Revised graphics
+
+The final published set uses the owner's revised direction: white dashboard cards, fine gray lines, clear-blue charts, and small original cartoons incorporating GainFrame's scan-frame face. All five assets were regenerated with the built-in image tool. `image-prompts-v2.json` contains the selected prompts; `visual-direction-v2.md` records the brief. The three data plots in `output/free-tools-app-growth/v2/` supplied the chart references. The shared inspiration screenshot remains local and is excluded from the downloadable package. The first version's prompts are retained for history.
+
 ## Validation
 
 The new MDX compiled with the site's renderer and GFM tables. Metadata, structured data, image paths, linked blog posts, and the generated blog listing were checked. The assembled page and all four article images were inspected in the local browser. The sitemap discovers the article automatically from its MDX file.
