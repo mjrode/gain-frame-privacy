@@ -55,11 +55,11 @@ This is a frequentist fixed stopping rule; the report's p-value is not the proba
 
 The existing read-only PostHog connection for project 357433 is used. Queries return bounded aggregates, never individual visitor payloads. Credentials stay in the environment or existing local configuration.
 
-After deployment, replace the placeholder below with the recorded launch timestamp:
+Use the verified production launch timestamp (September 15, 19:27:22.736891 UTC):
 
 ```sh
 python3 seo-tools/scripts/body-visualizer-cta-report.py \
-  --start ACTUAL_LAUNCH_TIMESTAMP \
+  --start '2026-09-15T19:27:22.736891Z' \
   --output output/body-visualizer-cta-experiment/live-report.json
 ```
 
@@ -71,3 +71,21 @@ The report includes assignments, mature viewers, unique clickers, rates, platfor
 - Read-only production query succeeded on September 15 and returned no live data for this new experiment, as expected before deployment.
 - Offline report tests cover sample/duration gates, a large qualifying lift, traffic imbalance, platform aggregation, invalid conversion counts, and the time limit.
 - Local browser review covers all four treatments on mobile, narrow-phone wrapping, and desktop destinations/QR placement. Final build and preview receipts are stored under `output/body-visualizer-cta-experiment/`.
+
+
+## September 16 reporting correction
+
+The helper now explicitly interprets the launch cutoff in UTC, matching the
+recorded deployment even when PostHog displays America/New_York timestamps.
+Its pooled conversion counts use a separate unique-identity query rather than
+summing platform segments. Ten offline tests cover timezone conversion,
+overlapping platform identities and decision gates. A live read returned
+73/67/84/80 assignments and no mature exposures before the first 24 hours;
+status remains collecting. This is not a winner decision.
+
+The shared QR component now emits `web_download_qr_shown` at 50% QR visibility,
+with the encoded key and experiment context. It is a separate attribution
+diagnostic, never a primary click or eligible-exposure event. No arm, phase,
+copy, allocation, exposure threshold or stopping rule changed. Preserve the
+original launch clock. See `web/docs/cta-tracking.md` for the remaining
+fresh-install delivery limitation and app first-touch behavior.

@@ -383,7 +383,6 @@ export default function RaterClient() {
           <ToolConversionCard
             tool={CTA_CAMPAIGN}
             campaign={SEO_PHYSIQUE_TOOLS_CPP.campaign}
-            customProductPageId={SEO_PHYSIQUE_TOOLS_CPP.id}
             placement="result"
             sticky
             headline={`${stage.rating.score} is a snapshot. Score every check-in in GainFrame.`}
@@ -455,7 +454,6 @@ export default function RaterClient() {
           <ToolConversionCard
             tool={CTA_CAMPAIGN}
             campaign={SEO_PHYSIQUE_TOOLS_CPP.campaign}
-            customProductPageId={SEO_PHYSIQUE_TOOLS_CPP.id}
             placement={stage.lifetime ? "lifetime_limit" : "daily_limit"}
             headline="Unlimited ratings in GainFrame."
             eyebrow="Keep scoring"

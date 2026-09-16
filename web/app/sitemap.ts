@@ -147,6 +147,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${SITE.url}/tools/lean-body-mass-calculator/`,
+      lastModified: "2026-09-16",
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE.url}/tools/recomp-reality-checker/`,
       lastModified: today(),
       changeFrequency: "monthly",

@@ -124,7 +124,7 @@ test("invalid product page identifiers fail closed to the default listing", () =
   );
   const url = new URL(result);
   assert.equal(url.searchParams.get("ppid"), null);
-  assert.equal(url.searchParams.get("ct"), null);
+  assert.equal(url.searchParams.get("ct"), "seo-physique-cpp-v1");
 });
 
 test("anonymous PostHog identity fails closed for email-like values", () => {
@@ -157,3 +157,19 @@ test("only GainFrame download destinations are rewritten", () => {
     false,
   );
 });
+
+// The same mapping is read by the app's WebAttributionPayload parser.
+for (const cta of ["tool_result_improve", "tool_result_improve_qr"]) {
+  test(`preserves the exact event key and CTA for ${cta}`, () => {
+    const link = buildWebAttributionLink(
+      { campaign: "seo-physique-cpp-v1", cta },
+      { context, randomUUID: () => "web-handoff-contract", posthogDistinctId: null },
+    );
+    const params = new URL(link.href).searchParams;
+    assert.equal(params.get("deep_link_sub6"), link.payload.web_click_id);
+    assert.equal(params.get("deep_link_sub3"), link.payload.cta);
+    assert.equal(params.get("af_ad"), cta);
+    assert.equal(params.get("af_ios_store_cpp"), null);
+    assert.equal(params.get("ct"), "seo-physique-cpp-v1");
+  });
+}

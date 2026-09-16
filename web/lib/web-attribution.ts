@@ -66,23 +66,21 @@ function validCustomProductPageId(value: unknown): string | undefined {
 }
 
 /**
- * Build the privacy-safe Apple fallback for a Custom Product Page.
+ * Build the Apple fallback with its aggregate campaign token.
  *
  * The static Apple campaign and page identifiers are aggregate routing data,
- * not a per-person analytics payload. Default-listing links deliberately keep
- * their existing clean URL so this experiment cannot contaminate other CTAs.
+ * not a per-person analytics payload. A CPP is routed only when explicitly
+ * supplied by a surface whose creative has been approved.
  */
 export function directAppStoreUrl(options: BuildOptions): string {
   const customProductPageId = validCustomProductPageId(
     options.customProductPageId,
   );
-  if (!customProductPageId) return SITE.appStoreUrl;
-
   const url = new URL(SITE.appStoreUrl);
   url.searchParams.set("pt", APP_STORE_PROVIDER_TOKEN);
   url.searchParams.set("ct", options.campaign);
   url.searchParams.set("mt", "8");
-  url.searchParams.set("ppid", customProductPageId);
+  if (customProductPageId) url.searchParams.set("ppid", customProductPageId);
   return url.toString();
 }
 

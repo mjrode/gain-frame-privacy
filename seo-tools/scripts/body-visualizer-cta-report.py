@@ -51,7 +51,7 @@ def query(sql, key):
 
 
 def queries(start):
-    date = start.strftime("%Y-%m-%d %H:%M:%S")
+    date = start.astimezone(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
     filters = f"""
       properties.experiment_id = '{EXPERIMENT}'
       AND properties.experiment_phase = '{PHASE}'
@@ -59,7 +59,7 @@ def queries(start):
       AND properties.platform IN ('ios', 'desktop')
       AND properties.$host IN ('gainframe.app', 'www.gainframe.app')
       AND properties.experiment_variant IN ('direct', 'analysis', 'progress', 'future')
-      AND timestamp >= toDateTime('{date}') AND timestamp < now()
+      AND timestamp >= toDateTime('{date}', 'UTC') AND timestamp < now()
     """
     assignments = f"""
       SELECT properties.experiment_variant, count(DISTINCT distinct_id)
@@ -87,10 +87,15 @@ def queries(start):
       WHERE v.first_view <= now() - INTERVAL 24 HOUR
       GROUP BY v.variant, v.platform LIMIT 8
     """
-    return assignments, conversion
+    # Query pooled identities independently; never assume segment subtotals
+    # are mutually exclusive when the segment definition changes.
+    pooled = conversion.replace("v.variant, v.platform, count", "v.variant, count").replace(
+        "GROUP BY v.variant, v.platform LIMIT 8", "GROUP BY v.variant LIMIT 4"
+    )
+    return assignments, conversion, pooled
 
 
-def summarize(assignment_rows, conversion_rows, elapsed_days):
+def summarize(assignment_rows, conversion_rows, pooled_rows, elapsed_days):
     assigned = {variant: 0 for variant in VARIANTS}
     totals = {variant: {"viewers": 0, "clickers": 0} for variant in VARIANTS}
     for variant, count in assignment_rows:
@@ -100,9 +105,12 @@ def summarize(assignment_rows, conversion_rows, elapsed_days):
         n, k = int(viewers), int(clickers)
         if not 0 <= k <= n:
             raise ValueError("Clickers must be a subset of exposed visitors.")
-        totals[variant]["viewers"] += n
-        totals[variant]["clickers"] += k
         segments.append({"variant": variant, "platform": platform, "viewers": n, "clickers": k, "ctr": k / n if n else None})
+    for variant, viewers, clickers in pooled_rows:
+        n, k = int(viewers), int(clickers)
+        if not 0 <= k <= n:
+            raise ValueError("Pooled clickers must be a subset of exposed visitors.")
+        totals[variant] = {"viewers": n, "clickers": k}
     assigned_total = sum(assigned.values())
     srm_p = None
     if assigned_total:
@@ -154,8 +162,8 @@ def main():
     if start > now or start < now - timedelta(days=84):
         parser.error("Choose a past start time within 84 days to keep the query bounded.")
     key = credential()
-    assignment_sql, conversion_sql = queries(start)
-    report = summarize(query(assignment_sql, key), query(conversion_sql, key), (now - start).total_seconds() / 86400)
+    assignment_sql, conversion_sql, pooled_sql = queries(start)
+    report = summarize(query(assignment_sql, key), query(conversion_sql, key), query(pooled_sql, key), (now - start).total_seconds() / 86400)
     report["start"] = start.isoformat()
     report["generated_at"] = now.isoformat()
     encoded = json.dumps(report, indent=2)

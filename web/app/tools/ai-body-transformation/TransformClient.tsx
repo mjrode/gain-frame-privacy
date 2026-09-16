@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import type { RegionalAdjustments } from "@/lib/body-proportions";
-import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
 import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
 import { trackToolFunnelStep } from "@/lib/tool-funnel";
 import {
@@ -1246,9 +1245,6 @@ export default function TransformClient({
         <ToolConversionCard
           tool={measurementsMode ? "body_measurements" : CTA_CAMPAIGN}
           campaign={measurementsMode ? "web-measurements" : "web-bttool"}
-          customProductPageId={
-            measurementsMode ? SEO_PHYSIQUE_TOOLS_CPP.id : undefined
-          }
           placement="result"
           headline={measurementsMode
             ? "Your target is set. Track the photos that get you there."

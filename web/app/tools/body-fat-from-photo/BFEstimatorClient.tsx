@@ -795,7 +795,6 @@ export default function BFEstimatorClient() {
         <ToolConversionCard
           tool={CTA_CAMPAIGN}
           campaign={SEO_PHYSIQUE_TOOLS_CPP.campaign}
-          customProductPageId={SEO_PHYSIQUE_TOOLS_CPP.id}
           placement="result"
           headline={`${stage.estimate}% is one snapshot. Compare every check-in in GainFrame.`}
           body="Precise multi-photo body fat, 12 muscle scores, weekly trends — free to start."
@@ -1038,7 +1037,6 @@ export default function BFEstimatorClient() {
           <ToolConversionCard
             tool={CTA_CAMPAIGN}
             campaign={SEO_PHYSIQUE_TOOLS_CPP.campaign}
-            customProductPageId={SEO_PHYSIQUE_TOOLS_CPP.id}
             placement={stage.lifetime ? "lifetime_limit" : "daily_limit"}
             headline="Unlimited scans in GainFrame."
             eyebrow="Keep scanning"

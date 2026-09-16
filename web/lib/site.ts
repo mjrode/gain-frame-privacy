@@ -30,7 +30,9 @@ export const APP_STORE_PROVIDER_TOKEN = "128456047";
  *
  * Keep this centralized so the page identifier and Apple campaign token move
  * together through direct App Store links, AppsFlyer OneLinks, and PostHog.
- * Only the two explicitly routed tool surfaces should import this value.
+ * The creative is still PREPARE_FOR_SUBMISSION (September 16, 2026). Tool
+ * surfaces retain its historical campaign for continuity, but MUST NOT pass
+ * its id until Apple approves it and the public destination is verified.
  */
 export const SEO_PHYSIQUE_TOOLS_CPP = {
   id: "ba181e7f-4bf8-44f3-8be6-94077b918f89",
@@ -39,12 +41,12 @@ export const SEO_PHYSIQUE_TOOLS_CPP = {
 
 /**
  * Coarse per-surface campaign token for a page path. The delegated click
- * handler uses it only after analytics consent is granted; rendered anchors
+ * handler uses it when constructing the download link; rendered anchors
  * themselves stay as the direct App Store destination.
  *
  * Components declare finer placement-level campaign values through their
  * `data-cta-*` attributes, so `AppStoreClickTracker` can use them when it
- * constructs the consented OneLink. See web/docs/cta-tracking.md.
+ * constructs the OneLink. See web/docs/cta-tracking.md.
  */
 export function campaignForPath(pathname: string): string {
   const p = pathname.replace(/\/+$/, "") || "/";

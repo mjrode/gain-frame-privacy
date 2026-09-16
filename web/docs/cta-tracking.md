@@ -1,5 +1,40 @@
 # CTA tracking: how to read App Store click data
 
+
+## September 16, 2026: routing and QR attribution repair
+
+The photo body-fat estimator, physique rater, and measurement transformation
+route now omit the unapproved physique custom product page ID. Existing campaign
+labels are retained; the destination is the default App Store listing. Apple
+reported `PREPARE_FOR_SUBMISSION` in the September 16 audit. A campaign name
+containing `cpp` does not establish delivery of approved custom creative.
+`directAppStoreUrl` retains `pt`, `ct`, and `mt` even without a CPP ID.
+
+Desktop QR codes keep the ID generated for their encoded URL. A separate
+`web_download_qr_shown` event records that payload once at 50% QR-container
+visibility, including its nonempty `web_click_id`, CTA and enclosing experiment
+context. It records **visibility only**. Do not count it as a click, scan, install,
+or an eligible experiment exposure; existing assignment, view and click
+metrics retain their definitions. A desktop link click generates its own click
+ID in the delegated click tracker. Join QR visibility and direct clicks to
+`web_attribution_resolved` separately, using the exact key rather than sums of
+unmatched events. Deployment begins this QR evidence series; historical scans
+cannot be reconstructed.
+
+The generated direct and QR payloads passed a Swift contract check against the
+actual iOS `WebAttributionPayload` parser on September 16: `deep_link_sub3` maps
+the CTA and `deep_link_sub6` maps the click key into analytics and RevenueCat
+subscriber attributes. Both AppsFlyer UDL and conversion callbacks call the
+resolver. The app persists first-touch attribution under
+`web_attribution_first_touch_v1` and ignores later touches. Returning users can
+therefore produce website clicks without a new app-arrival event.
+
+These checks establish the link/parser contract. They do **not** verify
+AppsFlyer delivery through a fresh App Store install. A physical-device fresh
+install with a matching production key remains unverified; do not attribute
+installs, subscriptions or a winning CTA arm from this repair alone. No iOS
+code, pricing, CTA copy, allocation or eligibility change is included.
+
 ## Active stable-assignment phases (September 11, 2026)
 
 Tool phase: **`improve_vs_future_v4_stable_assignment`**, Improve/Future 50/50.

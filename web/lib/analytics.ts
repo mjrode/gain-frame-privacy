@@ -140,6 +140,7 @@ export type AnalyticsEvent =
   // Generic
   | "cta_platform_alternative_click"
   | "web_download_clicked"
+  | "web_download_qr_shown"
   | "outbound_app_store_click";
 
 type QueuedAnalyticsEvent = {
