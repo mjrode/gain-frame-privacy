@@ -1,7 +1,7 @@
 # GainFrame Topical Map
 
-> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-09-06 (ten sourced product articles and their intent boundaries added).
-> **Current inventory:** 251 blog posts · 19 tools · 4 landing pages · 15 body-fat gallery URLs (289 indexable URLs).
+> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-09-16 (Lean Body Mass Calculator and Gravl vs Fitbod shipped).
+> **Current inventory:** 255 blog posts; tools directory has 21 entries, including the measurement-mode entry. The old 289-URL inventory is superseded; use the generated sitemap for current coverage.
 > **Intent legend:** 💰 commercial (drives installs/clicks) · 📊 informational (impressions/AEO/links) · 🤝 brand/social (founder lane, not SEO) · 🔧 tool.
 > **Programmatic SEO:** broad page factories remain deferred. One finite 14-page body-fat picture gallery plus its hub shipped 2026-08-06 around the proprietary standardized render library; do not expand it without query evidence and a strategy update.
 
@@ -52,8 +52,9 @@ bulk-cut-or-recomp (hub) · should-i-bulk-or-cut-quiz · best-body-recomposition
 
 ## Cluster 6 — FFMI & muscle metrics 📊
 
-what-is-ffmi · ffmi-chart · ffmi-percentiles · natty-limit · lean-mass-vs-muscle-mass · **Tool:** /tools/ffmi-calculator/, /tools/strength-standards-calculator/, /tools/one-rep-max-calculator/
+what-is-ffmi · ffmi-chart · ffmi-percentiles · natty-limit · lean-mass-vs-muscle-mass · **Tool:** /tools/ffmi-calculator/, /tools/strength-standards-calculator/, /tools/one-rep-max-calculator/, /tools/lean-body-mass-calculator/
 **Jul 9–23 backfill:** skeletal-muscle-mass-percentage
+**September 16:** Lean Body Mass Calculator owns supplied-weight/BF arithmetic intent, with inbounds from lean-mass-vs-muscle-mass, what-is-ffmi and ffmi-chart. The explainer retains definitional intent. No further calculator sibling proposed; first full settled read around October 17.
 **Gaps:** none pressing; watch cannibalization between the four FFMI pages in GSC.
 
 ## Cluster 7 — Visceral fat 📊
@@ -73,6 +74,8 @@ best-ai-personal-trainer-apps (striking-distance, links-only until plateau) · r
 **Gaps:** Fitbod review? GymStreak review? (only if 4-way post shows brand-query impressions in GSC first).
 
 **Sep 6 addition:** gravl-app-review, a sourced product evaluation with a proposed usability checklist. It owns Gravl review intent, not the AI-trainer roundup.
+
+**Sep 16 addition:** gravl-vs-fitbod owns direct app-comparison intent, with current vendor sources and publisher screenshots, no claimed hands-on trial. Three contextual inbounds from the trainer hub, four-way Fitbod comparison and Hevy vs Strong; onward physique-rater bridge. Comparison gap filled; preserve the young standalone review. First full settled read around October 17.
 
 ## Cluster 10 — Workout-tracker adjacency (top-of-funnel lifters) 💰
 

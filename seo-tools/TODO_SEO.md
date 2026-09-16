@@ -14,6 +14,16 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 ## ACTIVE (fresh start 2026-06-28)
 
+### September 16: approved content cycle
+
+- [x] **lean body mass calculator** (6,600 US/month, DataForSEO KD 0, feature-page-generator) — published 2026-09-16 as `/tools/lean-body-mass-calculator/`; three contextual inbounds, directory/sitemap, kg/lb and sensitivity. Full settled read around October 17.
+- [x] **gravl vs fitbod** (390 US/month, KD 0, comparison-article-generator) — published 2026-09-16 as `/blog/gravl-vs-fitbod/`; three contextual inbounds, current sources/screenshots. Preserve the Gravl review's separate intent. Full read around October 17.
+- [x] **F1–F5** — shipped 2026-09-16 in `a8f5e420`: default Store routing, QR visibility/UTC/pooled reporting; two Quick Answers; RENPHO snippet; Ab Analyzer and RIRLift contextual links. Required touched-source schema/style fixes pass.
+- [ ] **RENPHO measurement** — retain September 16 metadata through September 26 at 17:24 UTC; read final September 17–26 data around September 29.
+- [ ] **Fresh-install attribution verification** — link, HTTP and Swift parser checks pass; actual AppsFlyer fresh-install delivery remains unverified. QR visibility is not a click or scan.
+- [ ] **Google indexing requests** — two new URLs are unknown on same-day inspection; manual URL list and timing in [September 16 audit](content-audits/2026-09-16.md). Existing 90-URL sample passes. IndexNow accepted 3/5; Bing verification remains unresolved.
+
+
 ### September 6: ten sourced articles
 
 [Intent boundaries and original-evidence status](keyword-research/2026-09-06-blog-ownership.md). These are sourced evaluations; earlier first-person testing gates remain open and should enrich the same URLs.

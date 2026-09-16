@@ -62,6 +62,36 @@ section in the same commit.
 | PostHog (`mcp__c90fac73-…__*`) | Available, project `seoreceipts` by default — **switch to GainFrame before querying**. **The GainFrame data lives in project `357433` ("Default project", GainFrame org) and contains BOTH app and website events** — verified 2026-08-13 with `outbound_app_store_click` (671/14d), `bf_tool_*`, `physique_rater_*`, `waist_tool_calculated` all present. The 2026-08-11/12 runs recorded "zero events" — that was a wrong-scope query, not missing instrumentation. If the MCP connector only exposes render-ui, query the REST API directly: `POSTHOG_PERSONAL_API_KEY` in `~/.zshrc`, `POST us.posthog.com/api/projects/357433/query/` with a HogQLQuery (build the JSON in a python file — nested bash quoting corrupts `$pathname` escapes). Never record PostHog as unavailable without querying project 357433 via REST first | Landing-page conversion paths: tool results, email submissions, and App Store clicks. Use in every decision run when available |
 | `seo-tools/content-inventory.mjs` | **Working.** No network, no model | Every local fact: link graph, orphans, cannibalization, freshness, Quick Answer lengths |
 
+### Source and execution checks verified 2026-09-16
+
+- Use GainFrame's configured read-only PostHog project `357433` connection,
+  not a bundled OAuth connector or a different project's default scope.
+- Read current app/website experiment records every run. Annual-price test
+  `exp2a2a230e34` started September 15; its reused offering ID does not make
+  historical weekly-price cohorts comparable. The old final-anchor test is stopped.
+- Body Visualizer runs `body_visualizer_cta_v1` / `four_treatments_v1` from
+  `2026-09-15T19:27:22.736891Z`. Require 24-hour mature exposures, 1,600 per
+  arm and 14 full days. Keep it separate from Improve/Future; annotate its
+  September 15 departure and include a non-visualizer sensitivity read.
+- The visualizer helper was repaired September 16: launch cutoffs are explicitly
+  UTC and pooled conversion identities have their own deduplicated query.
+  Never sum platform subtotals to construct a pooled experiment result.
+- September 11's analytics collection change breaks pre/post GA4/PostHog
+  comparability. Search Console provides independent search-growth evidence.
+- September 16 website release `a8f5e420` removed unapproved CPP routing from
+  three surfaces, retaining campaigns. The CPP remains in preparation and its
+  measurement clock has not started. Read current routing records before reuse.
+- `web_download_qr_shown` records the encoded key at 50% QR visibility. It is
+  neither a click nor a scan; keep it out of existing experiment denominators.
+  The iOS resolver preserves first-touch attribution and ignores later touches.
+  Link/parser/HTTP checks pass, but fresh-install delivery remains unverified.
+- Workers deployment readiness is established by its exact Git annotation plus
+  live URLs/assets. A shared dirty checkout can include unrelated untracked
+  routes; build a selected-source snapshot before shipping. Turbopack rejects
+  an external node_modules symlink, so use a temporary lockfile install and
+  remove the temporary build after verification. GitHub check-runs expose
+  Workers build progress; `wrangler builds` is not a supported command.
+
 The most common way to waste a run is to call the SEO Receipts connector, get clean-looking data,
 and write an entire audit about someone else's website. Check the property name on every
 performance number before it enters the report.

@@ -1,0 +1,32 @@
+[
+  {
+    "cta": "tool_result_improve",
+    "default_listing_verified": true,
+    "redirects": [
+      {
+        "status": 301,
+        "destination": "https://apps.apple.com/US/app/id6759252082?mt=8"
+      },
+      {
+        "status": 301,
+        "destination": "itms-appss://apps.apple.com/US/app/id6759252082?mt=8"
+      }
+    ],
+    "limitation": "HTTP redirect test; no fresh install or AppsFlyer callback."
+  },
+  {
+    "cta": "tool_result_improve_qr",
+    "default_listing_verified": true,
+    "redirects": [
+      {
+        "status": 301,
+        "destination": "https://apps.apple.com/US/app/id6759252082?mt=8"
+      },
+      {
+        "status": 301,
+        "destination": "itms-appss://apps.apple.com/US/app/id6759252082?mt=8"
+      }
+    ],
+    "limitation": "HTTP redirect test; no fresh install or AppsFlyer callback."
+  }
+]

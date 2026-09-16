@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-16",
+  "website_commit": "a8f5e4201126d06f68db92ac927c98c9000fedd5",
+  "scope": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "T1",
+    "P1"
+  ],
+  "tool_tests": {
+    "passed": 120,
+    "failed": 0
+  },
+  "report_tests": {
+    "passed": 10,
+    "failed": 0
+  },
+  "strict_posts": 13,
+  "static_build_routes": 553,
+  "release_build": "Passed from exact selected-source snapshot; unrelated working changes excluded.",
+  "swift_payload_contract": "Two generated direct/QR payloads passed the actual app payload parser, analytics properties and RevenueCat attributes.",
+  "browser_checks": {
+    "mobile_width": 390,
+    "desktop_width": 1440,
+    "overflow": false,
+    "example": "180 lb at 20% gives 144.0 lb fat-free mass, 36.0 lb fat; 18-22% sensitivity gives 140.4-147.6 lb.",
+    "unit_switch": "kg conversion verified",
+    "console_errors": 0,
+    "download_card": "Inline below result",
+    "qr_contract": "Nonempty click key, matching CTA, default listing; visibility event is not a scan."
+  },
+  "unverified": "AppsFlyer delivery through a fresh physical-device App Store install remains unverified."
+}

@@ -379,14 +379,18 @@ and attribution contract are in [`blog-cta-experiment.md`](./blog-cta-experiment
 
 ## SEO physique-tools Custom Product Page (`seo-physique-cpp-v1`)
 
-Only the conversion cards rendered by `/tools/body-fat-from-photo/` and
-`/tools/physique-rater/` are allowed to set Custom Product Page ID
-`ba181e7f-4bf8-44f3-8be6-94077b918f89`. Their iPhone and desktop-QR destinations
-must carry campaign `seo-physique-cpp-v1`. Navigation, homepage, blog, visualizer,
-and every other download CTA must remain on the default listing.
+**Current state, September 16:** default-listing routing restored in website
+commit `a8f5e420`, deployed at 17:24:07 UTC. The CPP remains
+`PREPARE_FOR_SUBMISSION`. Photo-estimator and physique-rater result/limit cards
+retain campaign `seo-physique-cpp-v1`; measurements-mode transformation keeps
+its existing separate campaign. None passes the CPP ID.
 
-Do not deploy this routing before the Custom Product Page version is approved and its
-direct URL resolves to the approved creative. Start the 28-day read only after both that
-approval and the website deployment are complete. The operating record, creative order,
-Apple IDs, and decision rule live in the app repository at
-`docs/app-store/SEO_PHYSIQUE_TOOLS_CPP_V1.md`.
+Only the photo estimator and physique rater are eligible for a future approved
+CPP launch. Do not restore ID `ba181e7f-4bf8-44f3-8be6-94077b918f89` until the
+creative is approved and its public destination is verified. Start its 28-day
+read after both approval and a verified website deployment. Historic campaign
+traffic is default/preapproval traffic and cannot establish a CPP treatment.
+
+The creative and original measurement plan live in the app repository at
+`docs/app-store/SEO_PHYSIQUE_TOOLS_CPP_V1.md`. The current link/parser and QR
+limitations are recorded at the top of this file.

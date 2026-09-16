@@ -1,0 +1,54 @@
+{
+  "experiment": "body_visualizer_cta_v1",
+  "phase": "four_treatments_v1",
+  "status": "collecting",
+  "elapsed_days": 0.9,
+  "target_viewers_per_arm": 1600,
+  "sample_ratio_mismatch_p": 0.5247281277840918,
+  "variants": [
+    {
+      "variant": "direct",
+      "assigned": 73,
+      "viewers": 0,
+      "clickers": 0,
+      "ctr": null,
+      "relative_lift": null,
+      "p_value_vs_control": null,
+      "qualifies_vs_control": false
+    },
+    {
+      "variant": "analysis",
+      "assigned": 67,
+      "viewers": 0,
+      "clickers": 0,
+      "ctr": null,
+      "relative_lift": null,
+      "p_value_vs_control": null,
+      "qualifies_vs_control": false
+    },
+    {
+      "variant": "progress",
+      "assigned": 84,
+      "viewers": 0,
+      "clickers": 0,
+      "ctr": null,
+      "relative_lift": null,
+      "p_value_vs_control": null,
+      "qualifies_vs_control": false
+    },
+    {
+      "variant": "future",
+      "assigned": 80,
+      "viewers": 0,
+      "clickers": 0,
+      "ctr": null,
+      "relative_lift": null,
+      "p_value_vs_control": null,
+      "qualifies_vs_control": false
+    }
+  ],
+  "platform_segments": [],
+  "note": "Mature 24-hour web-click conversion only. No install claim. Three comparisons against A, not proof of differences between challengers.",
+  "start": "2026-09-15T19:27:22.736891+00:00",
+  "generated_at": "2026-09-16T17:09:37.498905+00:00"
+}
