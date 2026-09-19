@@ -90,13 +90,13 @@ export default function WinterArcPlannerClient() {
     <>
       <section className={styles.workspace} id="planner" aria-label="Build your Winter Arc plan">
         <form className={styles.form} onSubmit={generate} noValidate>
-          <span className={styles.overline}>01 / Make it yours</span>
-          <h2>A start date.<br />A plan to come back to.</h2>
-          <label className={styles.fieldLabel} htmlFor="arc-start">Your first photo</label>
+          <span className={styles.overline}>Let’s put a date on it</span>
+          <h2>Build your Winter Arc.</h2>
+          <label className={styles.fieldLabel} htmlFor="arc-start">Start date</label>
           <input ref={dateInput} id="arc-start" type="date" min="2020-01-01" max="2099-12-31"
             defaultValue={defaultStart} aria-invalid={Boolean(error)} aria-describedby={error ? "arc-error" : "arc-date-hint"}
             onInput={clearPlan} onChange={clearPlan} />
-          <p className={styles.hint} id="arc-date-hint">Weekly check-ins fall on this weekday. Start whenever you are ready.</p>
+          <p className={styles.hint} id="arc-date-hint">October 1 is popular. Any day works.</p>
           <fieldset className={styles.goals}>
             <legend>Your focus</legend>
             {Object.entries(WINTER_ARC_GOALS).map(([value, label]) => (
@@ -107,17 +107,17 @@ export default function WinterArcPlannerClient() {
               </label>
             ))}
           </fieldset>
-          <p className={styles.hint}>Your focus labels the plan. Keep following the training routine that works for you.</p>
+          <p className={styles.hint}>Your focus labels the plan. Bring your own training routine.</p>
           {error && <p id="arc-error" role="alert" className={styles.error}>{error}</p>}
           <button className={styles.primary} type="submit">Build my free plan <span aria-hidden="true">↗</span></button>
-          <p className={styles.freeNote}>No signup. No email. Yours to download.</p>
+          <p className={styles.freeNote}>Free calendar, checklist, and printable plan.</p>
         </form>
 
         <div className={styles.plan} aria-label={plan ? "Your generated plan" : "Plan preview"}>
           {plan ? (
             <>
               <div className={styles.planTop}>
-                <span className={styles.overline}>02 / Your Winter Arc</span>
+                <span className={styles.overline}>Your next chapter</span>
                 <span className={styles.planTag}>90 days</span>
               </div>
               <h2 ref={resultHeading} tabIndex={-1} className={styles.planTitle}>
@@ -150,14 +150,15 @@ export default function WinterArcPlannerClient() {
             </>
           ) : (
             <div className={styles.preview}>
-              <span className={styles.overline}>Your next 90 days</span>
-              <div className={styles.previewNumber}>90<span>days</span></div>
-              <div className={styles.previewDots} aria-hidden="true">
-                {Array.from({ length: 14 }, (_, index) => <span key={index} className={[0, 4, 8, 13].includes(index) ? styles.highlightDot : undefined} />)}
+              <span className={styles.overline}>Your photo roadmap</span>
+              <h3>Your arc,<br />all mapped out.</h3>
+              <p>Start with a baseline. Check in each week. Look back at the whole season.</p>
+              <div className={styles.previewMilestones}>
+                <div><span>Day 01</span><strong>The starting line</strong><p>Your first photo.</p></div>
+                <div><span>Day 29 + 57</span><strong>The bigger picture</strong><p>Compare with where you started.</p></div>
+                <div><span>Day 90</span><strong>Your full Winter Arc</strong><p>Put the whole season side by side.</p></div>
               </div>
-              <h3>Give your future self<br />something to compare.</h3>
-              <p>A baseline photo, weekly check-ins, and three dates to step back and see the bigger picture.</p>
-              <div className={styles.previewFooter}><span>14 photo check-ins</span><span>One full arc</span></div>
+              <div className={styles.previewFooter}><span>Calendar</span><span>Checklist</span><span>Print / PDF</span></div>
             </div>
           )}
         </div>
@@ -165,6 +166,7 @@ export default function WinterArcPlannerClient() {
       <div className={styles.bridge}>
         <ToolConversionCard key={plan ? "result" : "intro"} tool={TOOL} campaign="web-winter-arc"
           placement={plan ? "winter_arc_result" : "winter_arc_intro"} sticky={false}
+          mascotSrc="/blog/winter-arc-challenge/assets/winter-arc-mascot.webp"
           headline="Track your full Winter Arc in GainFrame."
           body="Keep every check-in photo together, line up your before-and-afters, and see how your physique changes across the full 90 days."
           desktopBody="Keep your whole Winter Arc together. Scan the code with your iPhone to save check-in photos and compare your progress in GainFrame."

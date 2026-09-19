@@ -4,7 +4,7 @@ import WinterArcPlannerClient from "./WinterArcPlannerClient";
 import styles from "./page.module.css";
 
 const URL = "https://gainframe.app/tools/winter-arc-planner/";
-const COVER = "https://gainframe.app/blog/winter-arc-challenge/assets/cover.webp";
+const COVER = "https://gainframe.app/blog/winter-arc-challenge/assets/winter-arc-mascot.webp";
 const DESCRIPTION = "Build your free 90-day Winter Arc plan with 14 photo check-ins, a printable checklist, and a calendar download. Track your full arc in GainFrame.";
 
 export const metadata: Metadata = {
@@ -37,23 +37,26 @@ export default function WinterArcPlannerPage() {
       {schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />)}
       <BlogNav />
       <main className={styles.main}>
+        <a className={styles.back} href="/tools/">← All free tools</a>
         <header className={styles.hero}>
-          <div>
-            <a className={styles.back} href="/tools/">← All free tools</a>
-            <p className={styles.overline}>A little structure for a whole season</p>
-            <h1>Winter Arc<br /><em>planner.</em></h1>
-            <p className={styles.lead}>Make this the winter you can look back on. Build a free 90-day photo plan, save your check-in dates, and give your progress a place to start.</p>
-            <div className={styles.heroDetails}><span>90 days</span><span>14 photo dates</span><span>100% free</span></div>
+          <div className={styles.heroCopy}>
+            <p className={styles.overline}>Free 90-day planner</p>
+            <h1>Winter Arc.<br /><span>Make it count.</span></h1>
+            <p className={styles.lead}>Put your next 90 days on the calendar. Take the photos. See how far you come.</p>
+            <a href="#planner" className={styles.heroButton}>Build my free plan <span aria-hidden="true">↗</span></a>
+            <p className={styles.heroNote}>No signup. No email. Just your next step.</p>
           </div>
           <figure className={styles.heroArt}>
-            <img src="/blog/winter-arc-challenge/assets/cover.webp" alt="Illustrated check-in calendar beside two progress-photo frames" width="1200" height="900" fetchPriority="high" />
-            <figcaption>Start with one photo. Come back to the bigger picture.</figcaption>
+            <img src="/blog/winter-arc-challenge/assets/winter-arc-mascot.webp" alt="GainFrame mascot in a red winter scarf planning photo check-ins on a calendar" width="1200" height="800" fetchPriority="high" />
           </figure>
         </header>
+        <div className={styles.heroDetails}><span><strong>90</strong> days, your way</span><span><strong>14</strong> photo check-ins</span><span><strong>3</strong> ways to save your plan</span></div>
         <WinterArcPlannerClient />
         <section className={styles.instructions} aria-labelledby="how-to">
-          <span className={styles.overline}>Keep the setup simple</span>
-          <h2 id="how-to">A photo routine you can repeat.</h2>
+          <div className={styles.instructionIntro}>
+            <div><span className={styles.overline}>The work adds up. Keep the proof.</span><h2 id="how-to">Same setup.<br />A new chapter.</h2><p>Make each check-in easy to repeat, so your photos tell a clearer story.</p></div>
+            <img src="/blog/winter-arc-challenge/assets/photo-routine.webp" alt="GainFrame mascot demonstrating a consistent camera position, light, and pose" width="1200" height="800" loading="lazy" />
+          </div>
           <div className={styles.steps}>
             <article><span>01</span><h3>Take your baseline</h3><p>Use the same spot, camera height, light, and poses you can return to. Front, side, and back photos give you a useful starting set.</p></article>
             <article><span>02</span><h3>Capture, then carry on</h3><p>Take the weekly photo before a workout, under similar conditions. You do not need a visible transformation every seven days.</p></article>

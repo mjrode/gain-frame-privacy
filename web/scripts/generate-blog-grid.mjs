@@ -90,6 +90,7 @@ async function loadPosts() {
         displayDate: data.displayDate || "",
         sortDate: data.displayDate ? new Date(data.displayDate).getTime() : 0,
         cardText: data.subtitle || data.description || "",
+        cardImage: data.cardImage || "",
         coverAlt: data.coverAlt || data.description || data.title || slug,
       };
     }),
@@ -103,7 +104,7 @@ export function renderCard(post, index) {
   const loadingAttr = index < 3 ? "eager" : "lazy";
   return `                <a href="/blog/${post.slug}/" class="blog-card scroll-reveal" data-category="${escapeHtml(post.categorySlug)}">
                     <div class="blog-card-image">
-                        <img src="/blog/${post.slug}/assets/cover.webp"
+                        <img src="${escapeHtml(post.cardImage || `/blog/${post.slug}/assets/cover.webp`)}"
                             alt="${escapeHtml(post.coverAlt)}"
                             width="800" height="500"
                             loading="${loadingAttr}"
