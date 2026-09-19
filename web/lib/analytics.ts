@@ -130,6 +130,7 @@ export type AnalyticsEvent =
   | "tool_funnel_started"
   | "tool_funnel_result_shown"
   | "tool_funnel_cta_clicked"
+  | "winter_arc_export_clicked"
   // Homepage promo film
   | "promo_film_sound_on"
   | "promo_film_watched_75"

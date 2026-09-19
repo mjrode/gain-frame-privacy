@@ -67,6 +67,15 @@ export const BLOG_CTA_CONFIG: Record<Exclude<BlogCtaIntent, "founder">, BlogCtaC
 };
 
 export const BLOG_CTA_OVERRIDES: Record<string, BlogCtaConfig> = {
+  "winter-arc-challenge": {
+    label: "From your first photo to your full arc",
+    title: "Track your full Winter Arc in GainFrame.",
+    copy: "Keep every check-in photo together, line up your before-and-afters, and see how your physique changes across the full 90 days.",
+    button: "Track my Winter Arc",
+    image: "/app-screenshots/2.33-live-2026-08-05/01.webp",
+    imageAlt: "GainFrame's dated, side-by-side progress-photo comparison.",
+    proof: "iPhone app · Free to start",
+  },
   "best-ai-body-fat-apps": {
     label: "Our top pick",
     title: "Turn one body-fat estimate into a trend.",

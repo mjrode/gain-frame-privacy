@@ -159,6 +159,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${SITE.url}/tools/winter-arc-planner/`,
+      lastModified: "2026-09-19",
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE.url}/body-fat/`,
       lastModified: today(),
       changeFrequency: "monthly",

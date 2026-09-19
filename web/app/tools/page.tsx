@@ -14,13 +14,13 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: {
     absolute:
-      "21 Free Fitness & Body Composition Tools | GainFrame",
+      "22 Free Fitness & Body Composition Tools | GainFrame",
   },
   description:
-    "Twenty-one free fitness tools from GainFrame: compare progress photos privately, check recomp signals, visualize body shape, estimate body fat, and calculate TDEE, macros and FFMI — no signup.",
+    "Twenty-two free fitness tools from GainFrame: compare progress photos privately, check recomp signals, visualize body shape, estimate body fat, and calculate TDEE, macros and FFMI — no signup.",
   alternates: { canonical: "/tools/" },
   openGraph: {
-    title: "21 Free Fitness & Body Composition Tools",
+    title: "22 Free Fitness & Body Composition Tools",
     description:
       "Private progress-photo comparison, a recomp reality check, body visualizers, AI photo tools, and practical fitness calculators — instant, no signup.",
     type: "website",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "21 Free Fitness & Body Composition Tools",
+    title: "22 Free Fitness & Body Composition Tools",
     description:
       "Private photo comparison, a recomp reality check, body visualizers, AI photo tools, and practical fitness calculators — instant, no signup.",
   },
@@ -66,6 +66,7 @@ const itemListSchema = {
     { "@type": "ListItem", position: 19, name: "Recomp Reality Checker", url: "https://gainframe.app/tools/recomp-reality-checker/" },
     { "@type": "ListItem", position: 20, name: "Measurement-Driven Body Shape Compare", url: "https://gainframe.app/tools/body-visualizer/?mode=measurements" },
     { "@type": "ListItem", position: 21, name: "Lean Body Mass Calculator", url: "https://gainframe.app/tools/lean-body-mass-calculator/" },
+    { "@type": "ListItem", position: 22, name: "Winter Arc Planner", url: "https://gainframe.app/tools/winter-arc-planner/" },
   ],
 };
 
@@ -106,7 +107,7 @@ export default function ToolsPage() {
             #cl-count IDs are consumed by ToolsInteractions; do not rename. */}
         <div className="cl-search-rail">
           <div className="cl-tool-meta-pill">
-            <strong id="cl-count">21</strong>&nbsp;tools available
+            <strong id="cl-count">22</strong>&nbsp;tools available
           </div>
           <div className="cl-search-bar-compact" id="cl-search-wrap">
             <span className="cl-search-icon">
@@ -529,6 +530,15 @@ export default function ToolsPage() {
                     to predict exactly how a body will look.
                   </p>
                   <span className="cl-card-link">Open →</span>
+                </a>
+
+                <a href="/tools/winter-arc-planner/" className="cl-card" data-search="winter arc 2026 challenge planner 90 day calendar checklist progress photos seasonal">
+                  <div className="cl-card-icon ic-pp">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 11h18m-13 5 2 2 4-4" /></svg>
+                  </div>
+                  <h3>Winter Arc Planner</h3>
+                  <p className="cl-card-desc">Turn your start date into a 90-day photo plan. Get 14 check-in dates, a calendar download, and a printable checklist—free.</p>
+                  <span className="cl-card-link">Plan my arc →</span>
                 </a>
 
                 <a

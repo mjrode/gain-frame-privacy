@@ -68,6 +68,7 @@ export const TOOL_FUNNEL_IDS = [
   "progress_photo_compare",
   "recomp_reality_checker",
   "body_shape_compare",
+  "winter_arc_planner",
 ] as const;
 
 export type ToolFunnelId = (typeof TOOL_FUNNEL_IDS)[number];
@@ -94,6 +95,7 @@ const TOOL_FUNNEL_ALIASES = {
   "progress-photo-compare": "progress_photo_compare",
   "recomp-reality-checker": "recomp_reality_checker",
   "body-shape-compare": "body_shape_compare",
+  "winter-arc-planner": "winter_arc_planner",
 } as const satisfies Record<string, ToolFunnelId>;
 
 export type ToolFunnelSource =
