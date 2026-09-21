@@ -123,3 +123,7 @@ Homepage (brand, pos 1) · /trainers (waitlist) · /giveaway (July contest) · /
 5. **Position reliability:** ≥30 impressions before treating a GSC position as real.
 6. **Visualizer renders** are the differentiating asset for Cluster 2 — always disclosed as standardized AI renders, always linked to the tool.
 7. **YMYL clusters (8)** always hedge, always defer to clinicians, never promise outcomes.
+
+## September 21, 2026: progress-photo and physique intent refresh
+
+Existing owners retained: take-progress-photos-by-yourself for progress photos/gym progress photos; best-free-progress-photo-apps for free app selection; best-progress-photo-apps for commercial feature comparisons; best-body-tracking-apps for category selection and physique-tracker relevance; physique-rater for a usable assessment; understanding-ai-physique-score for interpretation. Added pose/setup illustrations, a printable contact sheet, a 12-week schedule, verified app matrices and contextual links. No new article or tool URL. The progress-photo-compare demo/date-label upgrade remains gated until September 28. Do not create synonym sibling pages or treat unmeasured physique tracker demand as proven.

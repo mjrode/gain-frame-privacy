@@ -12,16 +12,16 @@ const PAGE_URL = `${SITE.url}${PAGE_PATH}`;
  * rater" and carries the impressions; pointing both pages at the same query
  * splits the signal. The roundup keeps the head term and links down here. */
 const DESCRIPTION =
-  "Rate my physique, free. Upload one photo and an AI body rater returns a 1–100 score broken into body fat, muscle, proportions, and goal fit. Three free ratings, no signup.";
+  "Rate my physique, free. Upload one photo and an AI body rater returns a 1-100 score broken into body fat, muscle, proportions, and goal fit. Three free ratings, no signup.";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Rate My Physique — Free AI Body Rater From One Photo | GainFrame",
+    absolute: "Rate My Physique - Free AI Body Rater From One Photo | GainFrame",
   },
   description: DESCRIPTION,
   alternates: { canonical: PAGE_PATH },
   openGraph: {
-    title: "Rate My Physique — Free AI Body Rater From One Photo",
+    title: "Rate My Physique - Free AI Body Rater From One Photo",
     description: DESCRIPTION,
     type: "website",
     url: PAGE_URL,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rate My Physique — Free AI Body Rater From One Photo",
+    title: "Rate My Physique - Free AI Body Rater From One Photo",
     description: DESCRIPTION,
     images: [SITE.ogImage],
   },
@@ -57,7 +57,7 @@ const faqSchema = {
       name: "Is there a free AI physique rater?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes — this one. Upload a photo and get a 1–100 physique score with four sub-scores, free and without signing up. You get three free ratings per browser, one per day. The GainFrame iOS app scores every check-in with no cap.",
+        text: "Upload a photo for a 1 to 100 physique score with four sub-scores, without signing up. This browser tool provides three free ratings, limited to one per day. The iOS app supports ongoing scored check-ins within its current free allowance; Pro expands access.",
       },
     },
     {
@@ -65,7 +65,7 @@ const faqSchema = {
       name: "How does the AI rate my physique?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The AI reads four things from your photo and scores each 1–100: body fat (how lean you read for your sex), muscle (visible development for your frame), proportions (taper, balance, symmetry), and goal fit (how well your current physique suits the goal you picked). The overall score is a weighted blend, weighted most toward body fat and muscle.",
+        text: "The AI reads four things from your photo and scores each 1-100: body fat (how lean you read for your sex), muscle (visible development for your frame), proportions (taper, balance, symmetry), and goal fit (how well your current physique suits the goal you picked). The overall score is a weighted blend, weighted most toward body fat and muscle.",
       },
     },
     {
@@ -73,7 +73,7 @@ const faqSchema = {
       name: "What is a good physique score?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most people who lift consistently land between 51 and 70, which reads as Solid. 71–85 (Impressive) means visible conditioning that most gym-goers never reach. Above 86 is Elite and genuinely rare. Below 50 is normal for beginners and anyone carrying more body fat — it is a starting line, not a verdict.",
+        text: "This tool labels scores of 51 to 70 Solid, 71 to 85 Impressive, and 86 to 100 Elite. These are bands in a product rubric, not population percentiles. Compare your own consistent check-ins and read the sub-scores alongside the photo before drawing conclusions.",
       },
     },
     {
@@ -89,7 +89,7 @@ const faqSchema = {
       name: "Is my photo stored?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. Your photo is sent to the AI for the scoring call only. It is not stored on GainFrame's servers and is not used to train models. Nothing about the photo persists after the score comes back.",
+        text: "Your selected photo is sent to the AI service to generate the rating. GainFrame does not store the photo on its servers. This is remote inference, so the rating is not computed entirely on your device. The separate photo-comparison tool processes images locally in your browser.",
       },
     },
     {
@@ -97,18 +97,18 @@ const faqSchema = {
       name: "Does the physique rater work for women?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Pick female before uploading and the body fat sub-score is anchored to female ranges, which sit roughly 8–10 points higher than male ranges at the same visual leanness. Scoring against the wrong sex is the single biggest source of a misleading result, so it is worth setting.",
+        text: "Yes. Pick female before uploading and the body fat sub-score is anchored to female ranges, which sit roughly 8-10 points higher than male ranges at the same visual leanness. Scoring against the wrong sex is the single biggest source of a misleading result, so it is worth setting.",
       },
     },
   ],
 };
 
 const BANDS: Array<{ range: string; name: string; note: string }> = [
-  { range: "1–30", name: "Starting", note: "Little visible muscular development yet. Everyone starts here." },
-  { range: "31–50", name: "Building", note: "Training is showing, usually under a layer that hides the detail." },
-  { range: "51–70", name: "Solid", note: "Where most consistent lifters live. Clearly trained in a t-shirt." },
-  { range: "71–85", name: "Impressive", note: "Visible conditioning most gym-goers never reach." },
-  { range: "86–100", name: "Elite", note: "Genuinely rare. Contest-adjacent leanness plus real mass." },
+  { range: "1-30", name: "Starting", note: "A starting point within this scoring rubric." },
+  { range: "31-50", name: "Building", note: "Training is showing, usually under a layer that hides the detail." },
+  { range: "51-70", name: "Solid", note: "A middle band within the tool's scale." },
+  { range: "71-85", name: "Impressive", note: "A higher assessment within this rubric." },
+  { range: "86-100", name: "Elite", note: "The highest band used by this tool." },
 ];
 
 export default function PhysiqueRaterPage() {
@@ -139,8 +139,8 @@ export default function PhysiqueRaterPage() {
               Rate my physique, <span className="accent">honestly.</span>
             </h1>
             <p className="pr-hero-sub">
-              Upload one photo and this free AI body rater returns a 1–100 score,
-              broken into body fat, muscle, proportions, and goal fit — with the
+              Upload one photo and this free AI body rater returns a 1-100 score,
+              broken into body fat, muscle, proportions, and goal fit - with the
               one change that would move it most.
             </p>
             <div className="pr-hero-meta">
@@ -157,15 +157,41 @@ export default function PhysiqueRaterPage() {
           <RaterClient />
         </main>
 
+        <section className="pr-section" aria-labelledby="physique-check-guide">
+          <div className="pr-section-inner">
+            <p className="pr-section-eyebrow">Read a physique check</p>
+            <h2 id="physique-check-guide">What will your physique report show?</h2>
+            <p>
+              A physique check combines a headline score, four sub-scores and
+              written feedback about the submitted photo. The body-fat sub-score
+              is a rating of visible leanness; it is not a body-fat percentage.
+              Read the feedback with the image and its confidence level.
+            </p>
+            <div className="pr-bands" aria-label="Illustrative report fields">
+              <div className="pr-band-row"><strong>Example</strong><span>Illustrative fields only. This is not a live rating or a target score.</span></div>
+              <div className="pr-band-row"><strong>72 / 100</strong><span>Example overall score, in the Impressive band of this web tool.</span></div>
+              <div className="pr-band-row"><strong>4 scores</strong><span>Body fat, muscle, proportions and goal fit explain different aspects of the photo.</span></div>
+              <div className="pr-band-row"><strong>Feedback</strong><span>A strongest area, an opportunity to focus on and a confidence level add context.</span></div>
+            </div>
+            <p>
+              For the next check-in, keep the same pose, camera height, light
+              direction and selected goal. Review several comparable dates before
+              interpreting a small score movement. Use the{' '}
+              <a href="/blog/progress-photo-poses/">progress-photo pose guide</a>{' '}
+              to make that repeatable, or read a{' '}
+              <a href="/blog/understanding-ai-physique-score/">real app report with its fields explained</a>.
+            </p>
+          </div>
+        </section>
+
         <section className="pr-section">
           <div className="pr-section-inner">
             <p className="pr-section-eyebrow">The scale</p>
             <h2>What each score actually means.</h2>
             <p>
-              Most physique raters hand you a number with no anchor, which makes
-              a 72 meaningless. These are the bands this tool scores against, and
-              they are deliberately hard — the middle of the distribution sits in
-              Solid, not Elite.
+              These labels describe the bands used by this tool. They are not
+              population percentiles or health thresholds. We have not published
+              a representative study showing how most lifters score.
             </p>
             <div className="pr-bands">
               {BANDS.map((b) => (
@@ -187,13 +213,13 @@ export default function PhysiqueRaterPage() {
             <h2>How the four sub-scores work.</h2>
             <p>
               <strong>Body fat</strong> scores how lean you read, anchored to
-              your sex — female ranges sit roughly 8–10 points higher than male
+              your sex - female ranges sit roughly 8-10 points higher than male
               ranges at the same visual leanness, which is why picking your sex
               changes the result more than anything else you can set.
             </p>
             <p>
-              <strong>Muscle</strong> judges development for your frame — shoulder
-              cap, chest fullness, arm and back thickness — independently of how
+              <strong>Muscle</strong> judges development for your frame - shoulder
+              cap, chest fullness, arm and back thickness - independently of how
               lean you are, so a genuinely thick build scores well here even
               under a softer layer. <strong>Proportions</strong> reads taper,
               upper-to-lower balance, and symmetry. <strong>Goal fit</strong> asks
@@ -205,9 +231,10 @@ export default function PhysiqueRaterPage() {
               The overall score weights body fat and muscle most heavily, then
               proportions, then goal fit. It is the same four-part framework the{" "}
               <a href="/blog/understanding-ai-physique-score/">
-                GainFrame Score in the iOS app
+                app score guide
               </a>{" "}
-              uses — this is the single-photo version of it.
+              explains. The app also offers separate, detailed estimates for
+              12 muscle groups across the relevant poses.
             </p>
           </div>
         </section>
@@ -218,7 +245,7 @@ export default function PhysiqueRaterPage() {
             <h2>What one photo can&apos;t tell you.</h2>
             <p>
               A casual photo carries real error. Lighting changes visible
-              definition more than a week of training does, a slight camera angle
+              definition, a slight camera angle
               changes your apparent taper, and clothing can hide most of what the
               score depends on. That is why the bands are wide and the confidence
               rating exists.
@@ -226,7 +253,7 @@ export default function PhysiqueRaterPage() {
             <p>
               The number is a snapshot, and a snapshot is the least useful form of
               this measurement. What actually tells you something is the same
-              score, same pose, same lighting, week over week — which is exactly
+              score, same pose, same lighting, week over week - which is exactly
               why{" "}
               <a href="/blog/why-do-i-look-smaller-in-photos/">
                 photos taken inconsistently mislead you
@@ -264,7 +291,7 @@ export default function PhysiqueRaterPage() {
               <div className="pr-crosslink-text">
                 <strong>AI Body Fat Estimator</strong>
                 <span>
-                  The single number behind the biggest sub-score — body fat
+                  The single number behind the biggest sub-score - body fat
                   percentage from the same photo.
                 </span>
               </div>
@@ -275,7 +302,7 @@ export default function PhysiqueRaterPage() {
                 <strong>AI Body Transformation</strong>
                 <span>
                   See what a year of consistent training builds on your own
-                  photo — the score you&apos;re aiming at.
+                  photo - the score you&apos;re aiming at.
                 </span>
               </div>
               <span className="pr-crosslink-arrow">Open →</span>

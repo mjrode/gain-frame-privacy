@@ -126,3 +126,7 @@ WHERE event IN (
   AND properties.platform IN ('ios', 'desktop')
 GROUP BY variant
 ```
+
+## September 21 content annotation
+
+The approved customer-intent SEO refresh revised seven existing articles: understanding-ai-physique-score, take-progress-photos-by-yourself, best-free-progress-photo-apps, best-progress-photo-apps, best-body-tracking-apps, progress-photo-poses and how-often-progress-photos. Six supporting posts received contextual links and required schema/style repairs. Content order, first-section length and the surrounding material at the editorial insertion point changed. The active sticky_vs_editorial_inline_v2_stable_assignment phase, cohort, allocation, treatment configuration, CTA copy and eligibility remain unchanged. Preserve the September 11 experiment clock; annotate this release and report a before/after-content sensitivity slice without calling a causal content win. Legacy fallback CTAs in the free roundup, solo-photo guide and frequency guide had obsolete price/allowance claims corrected; experiment treatment copy was not edited.

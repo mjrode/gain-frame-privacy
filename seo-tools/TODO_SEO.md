@@ -14,6 +14,12 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 ## ACTIVE (fresh start 2026-06-28)
 
+### September 21: approved customer-intent improvements
+
+- [ ] **F1/F2/F3/F5/F6/F7/F8/F9/F10** (seo-content-cycle) - approved via `all` on September 21; implemented and validated, release verification pending. Existing score explainer, solo-photo guide, free/main photo-app roundups, body-tracking roundup, pose guide, setup tool, frequency guide and physique rater. Source: [audit](content-audits/2026-09-21.md).
+- [ ] **F4 progress-photo comparison upgrade** - approved, scheduled September 28, 2026 at 9am America/New_York. Existing tool gets demo, date labels and intent-focused metadata after its measurement gate. Automation: `ship-gainframe-photo-comparison-upgrade`; no change shipped before the gate.
+
+
 ### September 16: approved content cycle
 
 - [x] **lean body mass calculator** (6,600 US/month, DataForSEO KD 0, feature-page-generator) — published 2026-09-16 as `/tools/lean-body-mass-calculator/`; three contextual inbounds, directory/sitemap, kg/lb and sensitivity. Full settled read around October 17.
