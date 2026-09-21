@@ -17,7 +17,7 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 ### September 21: approved customer-intent improvements
 
 - [x] **F1/F2/F3/F5/F6/F7/F8/F9/F10** (seo-content-cycle) - approved via `all`; published and verified September 21 at 13:05:01 UTC in `ed96f821`. Existing score explainer, solo-photo guide, free/main photo-app roundups, body-tracking roundup, pose guide, setup tool, frequency guide and physique rater. Source: [audit](content-audits/2026-09-21.md).
-- [ ] **F4 progress-photo comparison upgrade** - approved, scheduled September 28, 2026 at 9am America/New_York. Existing tool gets demo, date labels and intent-focused metadata after its measurement gate. Automation: `ship-gainframe-photo-comparison-upgrade`; no change shipped before the gate.
+- [x] **F4 progress-photo comparison upgrade** - owner explicitly accelerated to September 21; published and verified in `f1e92985` at September 21, 14:11:07 UTC. Sample pair, demo screenshot, optional dates/labels and intent-focused metadata. Follow-up automation paused. [Receipt](content-audits/2026-09-21-f4-execution.md).
 - [ ] **September 21 Google recrawl requests / Bing verification** - existing-page list and accepted IndexNow engines in the [execution receipt](content-audits/2026-09-21-execution.md).
 - [ ] **September 21 measurement** - hold changed metadata through October 1 at 13:05 UTC; review September 22-October 19 final GSC around October 22.
 

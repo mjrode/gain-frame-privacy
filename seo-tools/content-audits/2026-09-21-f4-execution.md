@@ -2,7 +2,7 @@
 
 **Authorization:** The owner explicitly requested “go ahead and do them now” after the nine-item release. This supersedes F4's September 28 measurement gate. Scope remains the approved existing-tool upgrade.
 
-**Status:** Implemented and locally verified; production verification pending.
+**Status:** Published and verified. All ten approved improvements are complete.
 
 ## What changed
 
@@ -39,9 +39,13 @@ Export properties contain only the tool, input mode, comparison mode, whether la
 
 ## Release and follow-up
 
-Production revision, deployment timestamp, live checks and IndexNow responses pending. After verified publication, pause `ship-gainframe-photo-comparison-upgrade` so it cannot repeat the completed work.
+- Content commit: `f1e92985760c133b272343104b85cc774b972974`. Deployed **September 21, 14:11:07 UTC**, Worker `82a9c73a-e8a6-437e-948a-0b560b9d66c1`, 100% traffic. Exact Git annotation verified. [Deployment receipt](receipts/2026-09-21-f4/deployment.json).
+- Live tool returns 200 with the new title, sample action and label controls. Both sample images and the demo screenshot return 200 and match the local bytes. [Live checks](receipts/2026-09-21-f4/live-check.json).
+- IndexNow key is exact. The tool URL was accepted by Yandex, Seznam and Naver; Bing and the Microsoft aggregator retain their existing verification 403. [Submission receipt](receipts/2026-09-21-f4/indexnow.txt).
+- Google inspection remains PASS / Submitted and indexed; its crawl predates this release, so this is not confirmation of a new recrawl. [Inspection receipt](receipts/2026-09-21-f4/google-inspection.json).
+- The September 28 automation `ship-gainframe-photo-comparison-upgrade` is **PAUSED**, verified after completion.
 
-Freeze this tool's new metadata for ten days after this actual release. Use September 22-October 19 for the first complete 28-day post-release window, with settled GSC around October 22. The original August 31 launch window is now interrupted by the owner-approved upgrade. Read personal results/exports separately from demo results/exports and annotate this release independently of the earlier September 21 inbound-link batch.
+Freeze this tool's new metadata through **October 01, 14:11 UTC**. Use September 22-October 19 for the first complete 28-day post-release window, with settled GSC around October 22. The original August 31 launch window is now interrupted by the owner-approved upgrade. Read personal results/exports separately from demo results/exports and annotate this release independently of the earlier September 21 inbound-link batch.
 
 Google manual recrawl request:
 

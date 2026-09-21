@@ -1,8 +1,8 @@
 # September 21 customer-intent SEO execution
 
-**Status:** Nine approved improvements published and verified on production. F4 is scheduled for September 28, 2026, 9am America/New_York.
+**Status:** All ten approved improvements are published and verified. The owner explicitly accelerated F4 to September 21 after the first nine shipped.
 
-The owner approved all ten items in the [research and proposal](2026-09-21.md). This release improves existing URLs rather than creating competing articles. The scheduled comparison-tool upgrade retains its approved measurement gate.
+The owner approved all ten items in the [research and proposal](2026-09-21.md). This release improves existing URLs rather than creating competing articles. The owner subsequently waived the F4 date gate; [its separate release receipt](2026-09-21-f4-execution.md) records the actual deployment.
 
 | ID | Existing destination | Implemented change |
 |---|---|---|
@@ -15,7 +15,7 @@ The owner approved all ten items in the [research and proposal](2026-09-21.md). 
 | F8 | `/tools/progress-photo-setup/` | Correct canonical App Store destination, tracked source/content attributes, accurate free-access copy and comparison link. |
 | F9 | `/blog/how-often-progress-photos/` | Capture versus review guidance, practical 12-week schedule and optional weekly capture without promising weekly visible change. |
 | F10 | `/tools/physique-rater/` | Static illustrative report and clearer interpretation, privacy and free-access explanations. Upload/scoring client unchanged. |
-| F4 | `/tools/progress-photo-compare/` | **Scheduled, not shipped.** Demo, optional export date labels and approved metadata changes on/after September 28. |
+| F4 | `/tools/progress-photo-compare/` | **Shipped September 21 in `f1e92985`.** Demo, optional export date labels and approved metadata changes, accelerated by explicit owner request. |
 
 Six existing articles add contextual inbound links: `5-tips-better-progress-photos`, `how-to-track-muscle-gain-progress`, `best-body-transformation-apps`, `body-composition-pictures`, `physique-rating-scale`, and `best-body-recomposition-apps`. Required touched-source FAQ/schema/style corrections accompany those links. An existing broken Smart Import image path was repaired in the five-tips article. Two setup-tool illustrations returned 404 on production; their existing artwork is now served as WebP from the public asset tree.
 
@@ -51,7 +51,7 @@ An IndexNow receipt is not proof of indexing, and a Google inspection pass does 
 
 Freeze changed titles/descriptions through **October 1, 13:05 UTC**. Use September 22-October 19 as the first complete 28-day post-release window, with a settled read around October 22; exclude the partial September 21 deployment day. A matched pre-period is August 24-September 20, to be read once final. These windows differ intentionally from the initial rolling research windows.
 
-The September 11 CTA experiment clocks remain unchanged. Annotate this content release at 13:05:01 UTC and split sensitivity reads around it. F4's September 28 release is separate; new comparison-tool inbound links already changed on September 21. Continue reporting organic landings, personal tool results, iOS Store clicks and Android email submissions separately. Store clicks do not prove installs or paid subscriptions.
+The September 11 CTA experiment clocks remain unchanged. Annotate this content release at 13:05:01 UTC and split sensitivity reads around it. F4's later September 21 release is recorded separately; new comparison-tool inbound links already changed on September 21. Continue reporting organic landings, personal tool results, iOS Store clicks and Android email submissions separately. Store clicks do not prove installs or paid subscriptions.
 
 ## Google: manual recrawl requests
 
@@ -75,4 +75,4 @@ https://gainframe.app/blog/physique-rating-scale/
 https://gainframe.app/blog/best-body-recomposition-apps/
 ```
 
-F4 is assigned to the one-time follow-up heartbeat `ship-gainframe-photo-comparison-upgrade`, with an explicit September 28 gate, completion notification and self-pause after delivery. Its future demo use must remain separate from personal upload/result metrics.
+F4 shipped September 21 after the owner explicitly waived its date gate. The follow-up heartbeat `ship-gainframe-photo-comparison-upgrade` is paused. Demo use remains separate from personal upload/result metrics.

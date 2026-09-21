@@ -404,3 +404,5 @@ Release timestamp: September 21, 2026, **13:05:01 UTC**, content commit `ed96f82
 ### September 21 F4 acceleration, explicitly authorized
 
 The owner moved the comparison-tool upgrade forward from September 28. Public samples are distinguished from personal images at the slot level. Only two personal images emit a normalized result and mount the existing result CTA; sample or mixed pairs emit `progress_photo_compare_demo_result_shown` and retain a sample marker on export. `progress_photo_compare_demo_exported` stays separate from `progress_photo_compare_exported`. A real personal file selection still counts as a personal start. Date/label contents and filenames are never tracked. Tool views still include demo visitors, so split audience/activation interpretation at the actual deployment time. Existing CTA phase, allocation, copy and eligibility for personal results are unchanged. See [F4 execution](../../seo-tools/content-audits/2026-09-21-f4-execution.md).
+
+F4 deployed September 21, 14:11:07 UTC, content commit `f1e92985`, Worker `82a9c73a-e8a6-437e-948a-0b560b9d66c1`, at 100% production traffic. The scheduled follow-up is now paused.

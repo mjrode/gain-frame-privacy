@@ -1,0 +1,29 @@
+{
+  "checked_at": "2026-09-21T14:11:48.004388+00:00",
+  "page": {
+    "url": "https://gainframe.app/tools/progress-photo-compare/",
+    "status": 200,
+    "new_content_verified": true
+  },
+  "assets": [
+    {
+      "url": "https://gainframe.app/assets/progress-photo-compare/sample-comparison.webp",
+      "status": 200,
+      "bytes": 48434,
+      "sha256": "0600d15ce55d3e7ce164db3e17f0ae80e8e92170e683401375458941bd6ac415"
+    },
+    {
+      "url": "https://gainframe.app/assets/before-after/before.webp",
+      "status": 200,
+      "bytes": 111348,
+      "sha256": "a414241310ca6ff8e2e4e2500a6ca7efc134d87957a5cca48a8f14ca9814a929"
+    },
+    {
+      "url": "https://gainframe.app/assets/before-after/after.webp",
+      "status": 200,
+      "bytes": 113476,
+      "sha256": "840cadd1cfedd0fb33e69da323e47141fa3654c1d6b55d7c51ead200bb874c6b"
+    }
+  ],
+  "indexnow_key_exact": true
+}

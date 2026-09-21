@@ -1,0 +1,17 @@
+Host: gainframe.app
+Key location: https://gainframe.app/99929eeb331db70cd363352a87102acf.txt
+Key file: ok
+
+Submitting 1 URL(s)
+---
+  https://gainframe.app/tools/progress-photo-compare/
+---
+FAIL  https://api.indexnow.org/indexnow  HTTP 403  {"errorCode":"UserForbiddedToAccessSite","message":"User is unauthorized to access the site. Please verify the site usin
+FAIL  https://www.bing.com/indexnow  HTTP 403  {"errorCode":"UserForbiddedToAccessSite","message":"User is unauthorized to access the site. Please verify the site usin
+OK   https://yandex.com/indexnow  HTTP 200  {
+  "success":true
+}
+OK   https://search.seznam.cz/indexnow  HTTP 200
+OK   https://searchadvisor.naver.com/indexnow  HTTP 200
+
+3 of 5 endpoint(s) accepted the submission.

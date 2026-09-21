@@ -1,0 +1,15 @@
+{
+  "id": "cbc6da20-9848-4d62-ad5e-24f30cb08037",
+  "annotations": {
+    "workers/message": "git:f1e92985760c133b272343104b85cc774b972974",
+    "workers/triggered_by": "deployment"
+  },
+  "versions": [
+    {
+      "version_id": "82a9c73a-e8a6-437e-948a-0b560b9d66c1",
+      "percentage": 100
+    }
+  ],
+  "created_on": "2026-09-21T14:11:07.48252Z",
+  "git_commit": "f1e92985760c133b272343104b85cc774b972974"
+}
