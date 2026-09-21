@@ -38,6 +38,11 @@ export type WebAnalyticsContext = {
 };
 
 export type AnalyticsEvent =
+  // Progress-photo demo use stays separate from the personal-photo funnel.
+  | "progress_photo_compare_sample_loaded"
+  | "progress_photo_compare_demo_result_shown"
+  | "progress_photo_compare_demo_exported"
+  | "progress_photo_compare_exported"
   // BF estimator tool
   | "bf_tool_view"
   | "bf_tool_photo_uploaded"

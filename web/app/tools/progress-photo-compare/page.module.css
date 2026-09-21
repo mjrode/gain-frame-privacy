@@ -108,6 +108,70 @@
   -webkit-text-stroke: 1.5px var(--ink);
 }
 
+.sampleBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 24px clamp(20px, 3vw, 40px);
+  color: #f7f6ef;
+  border-bottom: 1px solid rgba(247, 246, 239, 0.16);
+}
+
+.sampleBar strong { font-size: 0.9rem; }
+.sampleBar p { max-width: 610px; margin-top: 6px; color: #b9b9b1; font-size: 0.8rem; line-height: 1.5; }
+.sampleBar button {
+  padding: 12px 18px;
+  border: 1px solid var(--acid);
+  border-radius: 6px;
+  color: var(--ink);
+  background: var(--acid);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.sampleBar button:disabled { opacity: 0.5; cursor: wait; }
+.sampleBar button:focus-visible,
+.exportLabels summary:focus-visible,
+.exportLabels input:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+
+.sampleWatermark {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 5;
+  padding: 7px 10px;
+  color: #f7f6ef;
+  background: rgba(17, 18, 16, 0.84);
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.exportLabels { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 16px; }
+.exportLabels summary { cursor: pointer; font-size: 0.82rem; font-weight: 800; }
+.exportLabels fieldset { min-width: 0; padding: 16px 0 0; border: 0; }
+.exportLabels p { margin-top: 10px; color: var(--muted); font-size: 0.7rem; line-height: 1.5; }
+.labelsToggle { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; }
+.labelFields { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin-top: 14px; }
+.labelFields label { min-width: 0; font-size: 0.7rem; font-weight: 700; }
+.labelFields input { display: block; box-sizing: border-box; width: 100%; min-width: 0; margin-top: 6px; padding: 9px 7px; border: 1px solid var(--line); border-radius: 5px; color: var(--ink); background: #fff; font: inherit; font-size: 0.75rem; }
+.labelFields input:disabled { opacity: 0.5; }
+
+.demoSection { display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); align-items: center; gap: 40px; max-width: 1240px; margin: 0 auto; padding: 80px 32px 0; }
+.demoSection h2 { margin-top: 14px; font-family: var(--ppc-display), sans-serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; }
+.demoSection p { margin-top: 18px; color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+.demoSection a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.demoSection figure { margin: 0; min-width: 0; }
+.demoSection img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+.demoSection figcaption { margin-top: 10px; color: var(--muted); font-size: 0.72rem; line-height: 1.5; }
+
+@media (max-width: 760px) {
+  .demoSection { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 50px 20px 0; }
+}
+
 .heroCopy > p {
   max-width: 660px;
   margin-top: 29px;
@@ -589,6 +653,11 @@
   font-weight: 800;
   letter-spacing: 0.11em;
   text-transform: uppercase;
+  box-sizing: border-box;
+  max-width: calc(100% - 22px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .overlayLayer {
@@ -605,6 +674,8 @@
 
 .overlayBeforeLabel { left: 11px; }
 .overlayAfterLabel { right: 11px; left: auto; }
+.overlayBeforeLabel,
+.overlayAfterLabel { max-width: calc(50% - 22px); }
 
 .wipeLine {
   position: absolute;
@@ -1273,6 +1344,7 @@
   .controlsHeading,
   .modePicker,
   .privacyControl,
+  .exportLabels,
   .actionRow,
   .exportError {
     grid-column: 1;

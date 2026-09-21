@@ -22,11 +22,11 @@ const body = Manrope({
 const PAGE_PATH = "/tools/progress-photo-compare/";
 const PAGE_URL = `${SITE.url}${PAGE_PATH}`;
 const DESCRIPTION =
-  "Compare two progress photos with manual alignment, side-by-side, wipe and ghost modes. Add optional face blur and export a PNG locally—no upload or signup.";
+  "Compare progress photos side by side. Try sample photos, align your own images, add dates or face blur, and export a free PNG. No upload or signup.";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Private Progress Photo Compare & Align Tool | GainFrame",
+    absolute: "Free Progress Photo Comparison: Align, Overlay and Export",
   },
   description: DESCRIPTION,
   keywords: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_PATH },
   openGraph: {
-    title: "Compare Progress Photos Privately — Align, Overlay & Export",
+    title: "Free Progress Photo Comparison: Align, Overlay and Export",
     description: DESCRIPTION,
     type: "website",
     url: PAGE_URL,
@@ -48,13 +48,23 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Private Progress Photo Compare & Align Tool",
+    title: "Free Progress Photo Comparison: Align, Overlay and Export",
     description: DESCRIPTION,
     images: [SITE.ogImage],
   },
 };
 
 const FAQS = [
+  {
+    question: "Can I try the comparison tool without choosing my own photos?",
+    answer:
+      "Yes. Choose Try sample photos to load two public example images. You can test alignment, side-by-side, wipe, ghost and PNG export. Sample comparisons are labeled, and choosing Use my photos clears them so you can start with your own images.",
+  },
+  {
+    question: "Can I add dates or labels to my before-and-after photo?",
+    answer:
+      "Yes. Open Dates and labels in the comparison controls, then enter an optional date and short label for either photo. They appear in the preview and exported PNG. Turn off Include labels in PNG for an image without your labels. Sample exports always retain their sample marker.",
+  },
   {
     question: "Are my progress photos uploaded or stored?",
     answer:
@@ -85,7 +95,7 @@ const FAQS = [
 const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "GainFrame Private Progress Photo Compare & Align",
+  name: "GainFrame Progress Photo Comparison",
   alternateName: "Progress Photo Comparison Tool",
   url: PAGE_URL,
   applicationCategory: "MultimediaApplication",
@@ -97,6 +107,8 @@ const webAppSchema = {
     "Shared zoom and independent image alignment",
     "Side-by-side, wipe, and ghost overlay modes",
     "Optional manual face blur",
+    "Public sample photos to try the controls",
+    "Optional dates and labels in PNG exports",
     "Local PNG export",
   ],
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
@@ -139,8 +151,8 @@ export default function ProgressPhotoComparePage() {
           <div className={styles.heroCopy}>
             <span className={styles.eyebrow}>Free tool · Local-only · No signup</span>
             <h1>
-              Compare the work.
-              <span>Not the camera angle.</span>
+              Compare Progress Photos{" "}
+              <span>Side by Side</span>
             </h1>
             <p>
               Load two progress photos, line up the frame, and inspect the
@@ -148,13 +160,13 @@ export default function ProgressPhotoComparePage() {
               this browser.
             </p>
             <a href="#compare-workspace" className={styles.heroCta}>
-              Open the private darkroom <span aria-hidden="true">↘</span>
+              Compare your photos <span aria-hidden="true">↘</span>
             </a>
           </div>
           <div className={styles.heroProof}>
-            <strong>Zero-image-transfer architecture</strong>
+            <strong>Your photos stay on your device</strong>
             <p>
-              No upload endpoint. No account. No cloud copy. Closing the tab
+              No upload. No account. Closing the tab
               clears the working images from the page.
             </p>
             <div>
@@ -166,6 +178,19 @@ export default function ProgressPhotoComparePage() {
         </header>
 
         <ProgressPhotoCompareClient />
+
+        <section className={styles.demoSection} aria-labelledby="sample-comparison-heading">
+          <div>
+            <span className={styles.sectionKicker}>See the comparison</span>
+            <h2 id="sample-comparison-heading">Start with a sample. Then compare your own photos.</h2>
+            <p>These public example photos show how the tool works. Their different framing and lighting are reasons to compare carefully, not proof of a specific physical change.</p>
+            <p>For your next check-in, follow our <a href="/blog/take-progress-photos-by-yourself/">progress-photo setup guide</a> and repeat the <a href="/blog/progress-photo-poses/">same front, side and back poses</a>.</p>
+          </div>
+          <figure>
+            <img src="/assets/progress-photo-compare/sample-comparison.webp" alt="Sample progress photos displayed side by side in the comparison tool, with before and after labels." width={1000} height={660} loading="lazy" />
+            <figcaption>Screenshot of this tool using GainFrame&apos;s already-public sample photos. No dates or results are implied.</figcaption>
+          </figure>
+        </section>
 
         <section className={styles.methodSection}>
           <div className={styles.sectionIntro}>
@@ -199,7 +224,7 @@ export default function ProgressPhotoComparePage() {
               <h3>Stay neutral</h3>
               <p>
                 Match stance, breath, arm position, and distance from camera.
-                Compare relaxed with relaxed—not flexed with unflexed.
+                Compare relaxed with relaxed, not flexed with unflexed.
               </p>
             </article>
           </div>

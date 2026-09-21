@@ -10,12 +10,19 @@ import {
   type DragEvent,
   type RefObject,
 } from "react";
+import { track } from "@/lib/analytics";
+import { trackProgressPhotoCompareResult, trackProgressPhotoCompareExport } from "@/lib/progress-photo-compare-tracking";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
 import { trackToolFunnelStep } from "@/lib/tool-funnel";
 import {
   isSupportedProgressPhotoImage,
   progressPhotoExportFilename,
+  progressPhotoExportLabel,
+  progressPhotoInputMode,
+  progressPhotoLabelOrder,
+  type ProgressPhotoSource,
+  type ProgressPhotoInputMode,
   progressPhotoExportLayout,
   progressPhotoPlacement,
   type ProgressPhotoCompareMode,
@@ -30,6 +37,7 @@ const MAX_FILE_BYTES = 30 * 1024 * 1024;
 type PhotoSlot = "before" | "after";
 
 type LocalPhoto = {
+  source: ProgressPhotoSource;
   url: string;
   name: string;
   size: number;
@@ -256,7 +264,7 @@ function UploadCard({
             <div className={styles.fileReadout}>
               <strong title={photo.name}>{photo.name}</strong>
               <span>
-                {photo.width} × {photo.height} · {formatFileSize(photo.size)}
+                {photo.width} × {photo.height} · {photo.source === "sample" ? "Public sample" : formatFileSize(photo.size)}
               </span>
             </div>
           </>
@@ -398,17 +406,18 @@ function drawExportLabel(
   x: number,
   y: number,
   align: "left" | "right" = "left",
+  maxWidth = 748,
 ) {
   context.save();
   context.font = "800 25px Arial, sans-serif";
   context.textBaseline = "middle";
-  const width = context.measureText(text).width + 34;
+  const width = Math.min(maxWidth, context.measureText(text).width + 34);
   const left = align === "right" ? x - width : x;
   context.fillStyle = "rgba(17, 18, 16, 0.84)";
   context.fillRect(left, y, width, 48);
   context.fillStyle = "#f7f6ef";
   context.textAlign = "left";
-  context.fillText(text, left + 17, y + 25);
+  context.fillText(text, left + 17, y + 25, width - 34);
   context.restore();
 }
 
@@ -435,13 +444,25 @@ export default function ProgressPhotoCompareClient() {
   const [exportState, setExportState] = useState<
     "idle" | "exporting" | "error"
   >("idle");
+  const [sampleError, setSampleError] = useState<string | null>(null);
+  const [includeLabels, setIncludeLabels] = useState(true);
+  const [labels, setLabels] = useState({ before: "", after: "" });
+  const [dates, setDates] = useState({ before: "", after: "" });
   const urlsRef = useRef(new Set<string>());
   const requestsRef = useRef<Record<PhotoSlot, number>>({ before: 0, after: 0 });
   const startedRef = useRef(false);
-  const resultShownRef = useRef(false);
+  const resultsShownRef = useRef(new Set<ProgressPhotoInputMode>());
   const viewedRef = useRef(false);
 
   const ready = Boolean(photos.before && photos.after);
+  const inputMode = progressPhotoInputMode(photos.before?.source, photos.after?.source);
+  const personalResult = inputMode === "local_images";
+  const hasSample = photos.before?.source === "sample" || photos.after?.source === "sample";
+  const exportLabels = {
+    before: progressPhotoExportLabel("Before", labels.before, dates.before),
+    after: progressPhotoExportLabel("After", labels.after, dates.after),
+  };
+  const [leftLabelSlot, rightLabelSlot] = progressPhotoLabelOrder(mode);
   const previewClass = mode === "side_by_side"
     ? styles.previewSideBySide
     : styles.previewOverlay;
@@ -453,13 +474,10 @@ export default function ProgressPhotoCompareClient() {
   }, []);
 
   useEffect(() => {
-    if (!ready || resultShownRef.current) return;
-    resultShownRef.current = true;
-    trackToolFunnelStep(TOOL_ID, "result_shown", {
-      input_mode: "local_images",
-      comparison_mode: mode,
-    });
-  }, [mode, ready]);
+    if (!inputMode || resultsShownRef.current.has(inputMode)) return;
+    resultsShownRef.current.add(inputMode);
+    trackProgressPhotoCompareResult(inputMode, mode);
+  }, [inputMode, mode]);
 
   useEffect(() => {
     const urls = urlsRef.current;
@@ -473,6 +491,7 @@ export default function ProgressPhotoCompareClient() {
     const requestId = requestsRef.current[slot] + 1;
     requestsRef.current[slot] = requestId;
     setErrors((current) => ({ ...current, [slot]: null }));
+    setBusy((current) => ({ ...current, [slot]: false }));
 
     if (!isSupportedProgressPhotoImage(file)) {
       setErrors((current) => ({
@@ -500,6 +519,7 @@ export default function ProgressPhotoCompareClient() {
         return;
       }
       const nextPhoto: LocalPhoto = {
+        source: "personal",
         url,
         name: file.name,
         size: file.size,
@@ -524,6 +544,7 @@ export default function ProgressPhotoCompareClient() {
     } catch {
       URL.revokeObjectURL(url);
       urlsRef.current.delete(url);
+      if (requestsRef.current[slot] !== requestId) return;
       setErrors((current) => ({
         ...current,
         [slot]:
@@ -534,6 +555,58 @@ export default function ProgressPhotoCompareClient() {
         setBusy((current) => ({ ...current, [slot]: false }));
       }
     }
+  }
+
+  async function loadSamples() {
+    const requestIds = {
+      before: ++requestsRef.current.before,
+      after: ++requestsRef.current.after,
+    };
+    setSampleError(null);
+    setErrors({ before: null, after: null });
+    setBusy({ before: true, after: true });
+    try {
+      const [before, after] = await Promise.all(
+        (["before", "after"] as PhotoSlot[]).map(async (slot): Promise<LocalPhoto> => {
+          const url = `/assets/before-after/${slot}.webp`;
+          const image = await decodeLocalImage(url);
+          return { source: "sample", url, name: `Public sample: ${slot}`, size: 0,
+            width: image.naturalWidth, height: image.naturalHeight };
+        }),
+      );
+      if (requestsRef.current.before !== requestIds.before || requestsRef.current.after !== requestIds.after) return;
+      setPhotos({ before, after });
+      setDates({ before: "", after: "" });
+      setLabels({ before: "", after: "" });
+      setIncludeLabels(true);
+      setMode("side_by_side");
+      resetAlignment();
+      setPrivacyBlur(false);
+      setExportState("idle");
+      track("progress_photo_compare_sample_loaded", { tool: TOOL_ID, input_mode: "sample_photos" });
+    } catch {
+      if (requestsRef.current.before === requestIds.before && requestsRef.current.after === requestIds.after) {
+        setSampleError("The samples could not load. Try again, or choose your own photos.");
+      }
+    } finally {
+      for (const slot of ["before", "after"] as PhotoSlot[]) {
+        if (requestsRef.current[slot] === requestIds[slot]) {
+          setBusy((current) => ({ ...current, [slot]: false }));
+        }
+      }
+    }
+  }
+
+  function useMyPhotos() {
+    clearPhoto("before");
+    clearPhoto("after");
+    setSampleError(null);
+    setDates({ before: "", after: "" });
+    setLabels({ before: "", after: "" });
+    setMode("side_by_side");
+    resetAlignment();
+    setPrivacyBlur(false);
+    setExportState("idle");
   }
 
   function clearPhoto(slot: PhotoSlot) {
@@ -579,7 +652,7 @@ export default function ProgressPhotoCompareClient() {
   }
 
   async function exportPng() {
-    if (!photos.before || !photos.after || exportState === "exporting") return;
+    if (!photos.before || !photos.after || !inputMode || exportState === "exporting") return;
     setExportState("exporting");
 
     try {
@@ -666,8 +739,12 @@ export default function ProgressPhotoCompareClient() {
         }
       }
 
-      drawExportLabel(context, "BEFORE", 26, 26);
-      drawExportLabel(context, "AFTER", canvas.width - 26, 26, "right");
+      if (includeLabels) {
+        const maxLabelWidth = canvas.width / 2 - 52;
+        drawExportLabel(context, exportLabels[leftLabelSlot], 26, 26, "left", maxLabelWidth);
+        drawExportLabel(context, exportLabels[rightLabelSlot], canvas.width - 26, 26, "right", maxLabelWidth);
+      }
+      if (hasSample) drawExportLabel(context, "SAMPLE PHOTOS", 26, canvas.height - 74);
 
       const blob = await new Promise<Blob>((resolve, reject) => {
         canvas.toBlob(
@@ -682,6 +759,7 @@ export default function ProgressPhotoCompareClient() {
       document.body.appendChild(anchor);
       anchor.click();
       anchor.remove();
+      trackProgressPhotoCompareExport(inputMode, mode, includeLabels, privacyBlur);
       window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 1_000);
       setExportState("idle");
     } catch {
@@ -719,6 +797,23 @@ export default function ProgressPhotoCompareClient() {
             page when you close or clear them.
           </p>
         </div>
+
+        {(!photos.before && !photos.after || hasSample) && <div className={styles.sampleBar}>
+          <div>
+            <strong>{hasSample ? "You are viewing sample photos" : "Try the controls before choosing your photos"}</strong>
+            <p>{hasSample
+              ? "Public examples. Replace both photos for your own comparison, or start fresh below."
+              : "Load two public examples to explore alignment, overlay and export."}</p>
+          </div>
+          {hasSample ? (
+            <button type="button" onClick={useMyPhotos}>Use my photos</button>
+          ) : !photos.before && !photos.after ? (
+            <button type="button" onClick={loadSamples} disabled={busy.before || busy.after}>
+              {busy.before || busy.after ? "Loading photos…" : "Try sample photos"}
+            </button>
+          ) : null}
+        </div>}
+        {sampleError && <p className={styles.uploadError} role="alert">{sampleError}</p>}
 
         <div className={styles.uploadGrid} aria-describedby="local-photo-privacy">
           <UploadCard
@@ -758,7 +853,8 @@ export default function ProgressPhotoCompareClient() {
                   <>
                     <PhotoFrame
                       photo={beforePhoto}
-                      label="Before"
+                      label={exportLabels.before}
+                      showLabel={includeLabels}
                       zoom={zoom}
                       offset={offsets.before}
                       privacyBlur={privacyBlur}
@@ -768,7 +864,8 @@ export default function ProgressPhotoCompareClient() {
                     />
                     <PhotoFrame
                       photo={afterPhoto}
-                      label="After"
+                      label={exportLabels.after}
+                      showLabel={includeLabels}
                       zoom={zoom}
                       offset={offsets.after}
                       privacyBlur={privacyBlur}
@@ -817,12 +914,14 @@ export default function ProgressPhotoCompareClient() {
                         <i />
                       </span>
                     )}
-                    <span className={`${styles.photoLabel} ${styles.overlayBeforeLabel}`}>
-                      Before
-                    </span>
-                    <span className={`${styles.photoLabel} ${styles.overlayAfterLabel}`}>
-                      After
-                    </span>
+                    {includeLabels && <>
+                      <span className={`${styles.photoLabel} ${styles.overlayBeforeLabel}`}>
+                        {exportLabels[leftLabelSlot]}
+                      </span>
+                      <span className={`${styles.photoLabel} ${styles.overlayAfterLabel}`}>
+                        {exportLabels[rightLabelSlot]}
+                      </span>
+                    </>}
                   </>
                 )
               ) : (
@@ -838,6 +937,7 @@ export default function ProgressPhotoCompareClient() {
                   </div>
                 </div>
               )}
+              {hasSample && ready && <span className={styles.sampleWatermark}>Sample photos</span>}
             </figure>
             <p className={styles.previewStatus} aria-live="polite">
               {previewDescription}
@@ -984,6 +1084,34 @@ export default function ProgressPhotoCompareClient() {
               )}
             </div>
 
+            <details className={styles.exportLabels}>
+              <summary>Dates and labels (optional)</summary>
+              <fieldset disabled={!ready}>
+                <label className={styles.labelsToggle}>
+                  <input type="checkbox" checked={includeLabels} onChange={(event) => setIncludeLabels(event.target.checked)} />
+                  Include labels in PNG
+                </label>
+                {(["before", "after"] as PhotoSlot[]).map((slot) => (
+                  <div key={slot} className={styles.labelFields}>
+                    <label>
+                      {slot === "before" ? "Before" : "After"} label
+                      <input type="text" maxLength={24} value={labels[slot]} placeholder={slot === "before" ? "Before" : "After"} disabled={!includeLabels}
+                        onChange={(event) => setLabels((current) => ({ ...current, [slot]: event.target.value }))} />
+                    </label>
+                    <label>
+                      {slot === "before" ? "Before" : "After"} date
+                      <input type="date" value={dates[slot]} disabled={!includeLabels}
+                        onInput={(event) => {
+                          const value = event.currentTarget.value;
+                          setDates((current) => ({ ...current, [slot]: value }));
+                        }} />
+                    </label>
+                  </div>
+                ))}
+                <p>Dates are optional and stay in this tab. No date is inferred from the photo.</p>
+              </fieldset>
+            </details>
+
             <div className={styles.actionRow}>
               <button type="button" onClick={resetAlignment} disabled={!ready}>
                 Reset alignment
@@ -1016,7 +1144,7 @@ export default function ProgressPhotoCompareClient() {
         </div>
       </div>
 
-      {ready && (
+      {personalResult && (
         <div className={styles.conversionWrap}>
           <ToolConversionCard
             tool={TOOL_ID}

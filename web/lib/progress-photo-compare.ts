@@ -16,6 +16,41 @@ const PROGRESS_PHOTO_IMAGE_MIMES = new Set([
 export type ProgressPhotoCompareMode =
   (typeof PROGRESS_PHOTO_COMPARE_MODES)[number];
 
+export type ProgressPhotoSource = "personal" | "sample";
+export type ProgressPhotoInputMode = "local_images" | "sample_photos" | "mixed_images";
+
+/** Wipe reveals the after image on the left; labels follow the visible image. */
+export function progressPhotoLabelOrder(mode: ProgressPhotoCompareMode): ["before" | "after", "before" | "after"] {
+  return mode === "wipe" ? ["after", "before"] : ["before", "after"];
+}
+
+/** A sample in either slot must never qualify as a personal comparison. */
+export function progressPhotoInputMode(
+  before?: ProgressPhotoSource,
+  after?: ProgressPhotoSource,
+): ProgressPhotoInputMode | null {
+  if (!before || !after) return null;
+  if (before === "personal" && after === "personal") return "local_images";
+  if (before === "sample" && after === "sample") return "sample_photos";
+  return "mixed_images";
+}
+
+/** Date inputs are calendar dates, so formatting must not shift with timezone. */
+export function progressPhotoExportLabel(
+  fallback: "Before" | "After",
+  label: string,
+  date: string,
+): string {
+  const name = [...label.trim().replace(/\s+/g, " ")].slice(0, 24).join("") || fallback;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return name;
+  const value = new Date(`${date}T12:00:00Z`);
+  if (!Number.isFinite(value.getTime()) || value.toISOString().slice(0, 10) !== date) return name;
+  const formatted = new Intl.DateTimeFormat("en-US", {
+    month: "short", day: "numeric", year: "numeric", timeZone: "UTC",
+  }).format(value);
+  return `${name} · ${formatted}`;
+}
+
 export type ProgressPhotoOffset = {
   x: number;
   y: number;
