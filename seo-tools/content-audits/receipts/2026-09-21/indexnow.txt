@@ -1,0 +1,31 @@
+Host: gainframe.app
+Key location: https://gainframe.app/99929eeb331db70cd363352a87102acf.txt
+Key file: ok
+
+Submitting 15 URL(s)
+---
+  https://gainframe.app/blog/understanding-ai-physique-score/
+  https://gainframe.app/blog/take-progress-photos-by-yourself/
+  https://gainframe.app/blog/best-free-progress-photo-apps/
+  https://gainframe.app/blog/best-progress-photo-apps/
+  https://gainframe.app/blog/best-body-tracking-apps/
+  https://gainframe.app/blog/progress-photo-poses/
+  https://gainframe.app/blog/how-often-progress-photos/
+  https://gainframe.app/blog/5-tips-better-progress-photos/
+  https://gainframe.app/blog/how-to-track-muscle-gain-progress/
+  https://gainframe.app/blog/best-body-transformation-apps/
+  https://gainframe.app/blog/body-composition-pictures/
+  https://gainframe.app/blog/physique-rating-scale/
+  https://gainframe.app/blog/best-body-recomposition-apps/
+  https://gainframe.app/tools/physique-rater/
+  https://gainframe.app/tools/progress-photo-setup/
+---
+FAIL  https://api.indexnow.org/indexnow  HTTP 403  {"errorCode":"UserForbiddedToAccessSite","message":"User is unauthorized to access the site. Please verify the site usin
+FAIL  https://www.bing.com/indexnow  HTTP 403  {"errorCode":"UserForbiddedToAccessSite","message":"User is unauthorized to access the site. Please verify the site usin
+OK   https://yandex.com/indexnow  HTTP 202  {
+  "success":true
+}
+OK   https://search.seznam.cz/indexnow  HTTP 200
+OK   https://searchadvisor.naver.com/indexnow  HTTP 200
+
+3 of 5 endpoint(s) accepted the submission.

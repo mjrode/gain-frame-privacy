@@ -1,6 +1,6 @@
 # September 21 customer-intent SEO execution
 
-**Status:** Nine approved improvements implemented and locally validated; production verification pending. F4 is scheduled for September 28, 2026, 9am America/New_York.
+**Status:** Nine approved improvements published and verified on production. F4 is scheduled for September 28, 2026, 9am America/New_York.
 
 The owner approved all ten items in the [research and proposal](2026-09-21.md). This release improves existing URLs rather than creating competing articles. The scheduled comparison-tool upgrade retains its approved measurement gate.
 
@@ -34,11 +34,24 @@ Six existing articles add contextual inbound links: `5-tips-better-progress-phot
 - All 13 touched articles pass strict inventory, structured-data and style validation. Quick Answers and FAQ schema match the visible content.
 - Global inventory: 256 posts, no broken internal links or missing covers. Existing unrelated warnings are not counted as new regressions.
 - Desktop and 390px phone checks cover article illustrations, caption sizing, comparison table overflow, setup Store destination and the rater's illustrative report.
-- Rendered output: all 15 changed pages exist; all 147 local image references resolve. Phone layout has no document overflow, and the comparison matrix scrolls inside its container. Live URL and exact-deployment checks remain pending below.
+- Rendered output: all 15 changed pages exist; all 147 local image references resolve. Phone layout has no document overflow, and the comparison matrix scrolls inside its container. All 15 live pages returned 200 with the new content marker. All 24 added images returned 200 and matched the committed bytes.
 
 ## Release and indexing
 
-Production commit, deployment identity, live checks, IndexNow responses and the fresh Google inspection sweep will be recorded here after publication. An IndexNow receipt is not proof of indexing, and a Google inspection pass does not establish that the latest rewrite has been recrawled.
+- Release commit: `ed96f82179de10e19f0cf8b26a4a5bfed87309a2`.
+- Live at **September 21, 2026, 13:05:01 UTC** (9:05am Eastern). Worker version `2d757ab8-c762-487c-8a9a-7295a919311e`, 100% traffic, exact Git annotation verified. [Deployment receipt](receipts/2026-09-21/deployment.json).
+- All five repository/build/deployment checks completed successfully. [Live URL and image checks](receipts/2026-09-21/live-check.json).
+- IndexNow key returns 200 and exactly the 32-byte key. All 15 changed URLs submitted. **Yandex 202, Seznam 200 and Naver 200; Bing and the Microsoft aggregator 403** with the existing site-verification error. [Submission receipt](receipts/2026-09-21/indexnow.txt). Bing Webmaster Tools verification remains outstanding.
+- Fresh Google inspection: **88/89 PASS**, including all 15 changed URLs. The repeated 88-URL research sample remained 87 PASS; one additional changed source page also passed. [Inspection receipt](receipts/2026-09-21/google-inspection.json).
+- **Crawled - currently not indexed:** none in this sample. **Discovered - currently not indexed:** none. **Unknown / too new:** `/tools/lean-body-mass-calculator/`, published September 16, remains unknown at five days. Its first full window ends October 14; review settled data around October 17.
+
+An IndexNow receipt is not proof of indexing, and a Google inspection pass does not establish that the latest rewrite has been recrawled.
+
+## Measurement dates
+
+Freeze changed titles/descriptions through **October 1, 13:05 UTC**. Use September 22-October 19 as the first complete 28-day post-release window, with a settled read around October 22; exclude the partial September 21 deployment day. A matched pre-period is August 24-September 20, to be read once final. These windows differ intentionally from the initial rolling research windows.
+
+The September 11 CTA experiment clocks remain unchanged. Annotate this content release at 13:05:01 UTC and split sensitivity reads around it. F4's September 28 release is separate; new comparison-tool inbound links already changed on September 21. Continue reporting organic landings, personal tool results, iOS Store clicks and Android email submissions separately. Store clicks do not prove installs or paid subscriptions.
 
 ## Google: manual recrawl requests
 

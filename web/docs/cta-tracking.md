@@ -398,3 +398,5 @@ limitations are recorded at the top of this file.
 ### September 21 content annotation
 
 Physique rater gained a static illustrative report and clearer score interpretation. The example has no input/action and emits no funnel start, result, CTA exposure or conversion event of its own. Scoring, upload logic and improve_vs_future_v4_stable_assignment remain unchanged. Progress Photo Setup now uses the valid default App Store listing, with data-cta-source=progress_photo_setup and data-cta-content=setup_footer, and links to the existing comparison tool. No custom product page or experiment allocation was changed. The comparison tool itself is held until September 28; its new inbound links may affect traffic composition before that date.
+
+Release timestamp: September 21, 2026, **13:05:01 UTC**, content commit `ed96f821`, verified at 100% production traffic.

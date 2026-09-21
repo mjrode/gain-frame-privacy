@@ -1,0 +1,15 @@
+{
+  "id": "50636051-08f7-4d53-9e44-54f035775297",
+  "annotations": {
+    "workers/message": "git:ed96f82179de10e19f0cf8b26a4a5bfed87309a2",
+    "workers/triggered_by": "deployment"
+  },
+  "versions": [
+    {
+      "version_id": "2d757ab8-c762-487c-8a9a-7295a919311e",
+      "percentage": 100
+    }
+  ],
+  "created_on": "2026-09-21T13:05:01.92366Z",
+  "git_commit": "ed96f82179de10e19f0cf8b26a4a5bfed87309a2"
+}

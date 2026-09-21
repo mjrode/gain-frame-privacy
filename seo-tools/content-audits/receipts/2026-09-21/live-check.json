@@ -1,0 +1,230 @@
+{
+  "checked_at": "2026-09-21T13:06:38.428453+00:00",
+  "pages": [
+    {
+      "url": "https://gainframe.app/blog/understanding-ai-physique-score/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/take-progress-photos-by-yourself/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-free-progress-photo-apps/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-progress-photo-apps/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-tracking-apps/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/progress-photo-poses/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/how-often-progress-photos/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/5-tips-better-progress-photos/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/how-to-track-muscle-gain-progress/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-transformation-apps/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/body-composition-pictures/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/physique-rating-scale/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-recomposition-apps/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/tools/physique-rater/",
+      "status": 200,
+      "content_verified": true
+    },
+    {
+      "url": "https://gainframe.app/tools/progress-photo-setup/",
+      "status": 200,
+      "content_verified": true
+    }
+  ],
+  "assets": [
+    {
+      "url": "https://gainframe.app/blog/understanding-ai-physique-score/assets/score-report.webp",
+      "status": 200,
+      "bytes": 81080,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/take-progress-photos-by-yourself/assets/repeatable-camera-setup.webp",
+      "status": 200,
+      "bytes": 77276,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/take-progress-photos-by-yourself/assets/lighting-comparison.webp",
+      "status": 200,
+      "bytes": 115568,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-free-progress-photo-apps/assets/snaptrack-app.webp",
+      "status": 200,
+      "bytes": 20068,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-free-progress-photo-apps/assets/gainframe-app.webp",
+      "status": 200,
+      "bytes": 116232,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-free-progress-photo-apps/assets/photos-app.webp",
+      "status": 200,
+      "bytes": 47374,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-progress-photo-apps/assets/metamorph-app.webp",
+      "status": 200,
+      "bytes": 17240,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-progress-photo-apps/assets/hevy-app.webp",
+      "status": 200,
+      "bytes": 20678,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-progress-photo-apps/assets/progress-app.webp",
+      "status": 200,
+      "bytes": 13838,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-progress-photo-apps/assets/snaptrack-app.webp",
+      "status": 200,
+      "bytes": 20068,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-progress-photo-apps/assets/gainframe-app.webp",
+      "status": 200,
+      "bytes": 116232,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-tracking-apps/assets/macrofactor-app.webp",
+      "status": 200,
+      "bytes": 12460,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-tracking-apps/assets/hevy-app.webp",
+      "status": 200,
+      "bytes": 20678,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-tracking-apps/assets/methreesixty-app.webp",
+      "status": 200,
+      "bytes": 11304,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-tracking-apps/assets/spren-app.webp",
+      "status": 200,
+      "bytes": 23260,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-tracking-apps/assets/recomp-app.webp",
+      "status": 200,
+      "bytes": 12664,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-tracking-apps/assets/hume-app.webp",
+      "status": 200,
+      "bytes": 12104,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-tracking-apps/assets/renpho-app.webp",
+      "status": 200,
+      "bytes": 31196,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-tracking-apps/assets/gainframe-app.webp",
+      "status": 200,
+      "bytes": 116232,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-tracking-apps/assets/photos-app.webp",
+      "status": 200,
+      "bytes": 47374,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/progress-photo-poses/assets/pose-contact-sheet-print.png",
+      "status": 200,
+      "bytes": 1594450,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/progress-photo-poses/assets/pose-contact-sheet.webp",
+      "status": 200,
+      "bytes": 104754,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/assets/progress-photo-setup/good-setup.webp",
+      "status": 200,
+      "bytes": 26942,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/assets/progress-photo-setup/bad-setup.webp",
+      "status": 200,
+      "bytes": 95096,
+      "sha256_matches": true
+    }
+  ],
+  "indexnow_key": {
+    "status": 200,
+    "exact_body": true
+  }
+}
