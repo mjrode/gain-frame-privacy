@@ -174,11 +174,15 @@ export default function FeaturesPage() {
         </section>
 
         <section id="connect" className={styles.setup} aria-labelledby="connect-title">
-          <div><p className={styles.eyebrow}>GainFrame + ChatGPT</p><h2 id="connect-title">Connect once.<br />Keep control.</h2><p>Your diary stays on your device until you choose to sync it. The connector can read and log food only after you connect your account.</p></div>
+          <div>
+            <p className={styles.eyebrow}>GainFrame + ChatGPT</p>
+            <h2 id="connect-title">Connect once.<br />Keep control.</h2>
+            <p>Your diary stays on your device until you choose to sync it. The connector can read and log food only after you connect your account.</p>
+            {chatGPTSetup.availability.linkURL.startsWith("https://chatgpt.com/") && <a className={styles.textLink} href={chatGPTSetup.availability.linkURL}>{chatGPTSetup.availability.linkTitle} <FeatureIcon name="chevron" /></a>}
+          </div>
           <ol>
             {chatGPTSetup.steps.map((step, index) => <li key={index}><strong>{step.title}</strong>{step.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}</li>)}
           </ol>
-          {chatGPTSetup.availability.linkURL.startsWith("https://chatgpt.com/") && <a className={styles.textLink} href={chatGPTSetup.availability.linkURL}>{chatGPTSetup.availability.linkTitle} <FeatureIcon name="chevron" /></a>}
         </section>
 
         <section className={styles.questions} aria-label="Food chat questions">
