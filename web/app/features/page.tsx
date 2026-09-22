@@ -166,7 +166,7 @@ export default function FeaturesPage() {
             <h2 id="food-title">Say what you ate.<br />Get on with your day.</h2>
             <p>Log food in a conversation inside GainFrame, or connect your food diary to ChatGPT. A clear request saves your meal, with a compact receipt you can correct afterward.</p>
             <ul><li>Food illustrations, portions, calories, and macros together.</li><li>Say “make that two” to change a portion.</li><li>Ask what you logged and see your diary totals.</li></ul>
-            <p className={styles.note}>In development. ChatGPT directory registration is pending, and the food-chat update is not yet in the public iPhone release.</p>
+            <p className={styles.note}>Submitted for ChatGPT review. Food chat is available in supported iPhone beta builds. The public ChatGPT listing and iPhone release are coming after approval.</p>
             <a className={styles.textLink} href="#connect">How the connection works <FeatureIcon name="chevron" /></a>
           </div>
           <FoodChatPreview />
