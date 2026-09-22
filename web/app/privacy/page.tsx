@@ -73,7 +73,7 @@ export default function PrivacyPage() {
         <div className="privacy-container">
           <h1>Privacy Policy</h1>
           <p className="privacy-subtitle">
-            GainFrame: Progress Photos — Last updated August 13, 2026
+            GainFrame: Progress Photos — Last updated September 22, 2026
           </p>
 
           <p>
@@ -368,7 +368,48 @@ export default function PrivacyPage() {
             will be posted on this page with an updated revision date.
           </p>
 
-          <h2>11. Contact</h2>
+          <h2 id="connected-diary">11. Optional Connected Food Diary and ChatGPT</h2>
+          <p>
+            Connected diary is an optional feature in supported GainFrame builds.
+            It is off by default and requires a signed-in account. If you enable it,
+            GainFrame stores food entries in its Supabase backend, associated with
+            your account: food and brand names, portions and serving units, calories,
+            protein, carbohydrates, fat, meal labels, food-source identifiers, and
+            logging times. Revision and retry records help prevent duplicate entries
+            and resolve edits made from more than one place.
+          </p>
+          <p>
+            Connecting GainFrame to ChatGPT separately authorizes the connector to
+            read, add, update, and delete entries in that synced food diary. Tool
+            responses send the requested diary entries and calculated diary totals
+            to OpenAI so ChatGPT can carry out your request. This connection does
+            not share progress photos, body measurements, workout history, or records
+            imported from Apple Health. OpenAI handles your conversations and tool
+            results under <a href="https://openai.com/policies/privacy-policy/">its
+            privacy policy</a> and your ChatGPT account settings.
+          </p>
+          <p>
+            In-app food chat sends your messages, recent conversation context, and
+            requested food-tool results through GainFrame’s AI gateway to the
+            configured AI provider, currently Google Gemini. Conversation history
+            is kept for the current in-app chat session; saved food entries remain
+            in your diary. Nutrition requests and replies are processed to provide
+            the feature and are subject to the provider’s applicable data terms.
+          </p>
+          <p>
+            You can turn off Connected diary in GainFrame Settings. Once the
+            disconnect reaches the server, new sync stops and connector credentials
+            are revoked. If you are offline, the app retries the revocation when
+            it can connect. Turning off sync or removing the app does not erase the
+            cloud copy. Cloud diary entries, mutation receipts, and connection
+            records remain associated with the account until deleted. To request
+            deletion of your cloud diary and associated records, email
+            <a href="mailto:michaelrode44@gmail.com"> michaelrode44@gmail.com</a>.
+            Deletion from GainFrame does not delete conversations already stored
+            in ChatGPT; manage those through your OpenAI account.
+          </p>
+
+          <h2>12. Contact</h2>
           <p>
             If you have questions about this privacy policy, contact us at:
             <br />

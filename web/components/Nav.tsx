@@ -44,6 +44,9 @@ export default function Nav() {
         <Link href="/" className={isActive("/") ? "active" : undefined} onClick={closeMenu}>
           Home
         </Link>
+        <Link href="/features/" className={isActive("/features") ? "active" : undefined} onClick={closeMenu}>
+          Features
+        </Link>
         <Link href="/blog/" className={isActive("/blog") ? "active" : undefined} onClick={closeMenu}>
           Blog
         </Link>

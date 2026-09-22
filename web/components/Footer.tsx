@@ -12,6 +12,7 @@ export default function Footer() {
         </a>
       </span>
       <div>
+        <Link href="/features/">Features</Link>
         <Link href="/blog/">Blog</Link>
         <Link href="/comics">Comics</Link>
         <Link href="/tools/">Tools</Link>

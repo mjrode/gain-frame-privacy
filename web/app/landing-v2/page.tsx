@@ -94,6 +94,7 @@ export default function LandingV2() {
             <span>GainFrame</span>
           </Link>
           <div className={styles.navLinks}>
+            <Link href="/features/">Features</Link>
             <Link href="/comics/">Comics</Link>
             <Link href="/tools/">Tools</Link>
             <Link href="/about/">About</Link>
@@ -110,6 +111,7 @@ export default function LandingV2() {
             <div className={styles.mobileMenuPanel}>
               <p>Explore</p>
               <div>
+                <Link href="/features/">Features</Link>
                 <Link href="/comics/">Comics</Link>
                 <Link href="/tools/">Tools</Link>
                 <Link href="/about/">About</Link>
