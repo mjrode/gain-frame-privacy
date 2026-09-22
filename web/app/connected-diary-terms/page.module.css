@@ -1,0 +1,12 @@
+.page { min-height: 100vh; background: #fff; color: #232327; }
+.main { max-width: 780px; margin: 0 auto; padding: 160px 28px 100px; }
+.main header { padding-bottom: 36px; border-bottom: 1px solid #e3e5eb; }
+.eyebrow { color: #4059df; font-size: 13px; font-weight: 650; letter-spacing: .04em; }
+.main h1 { margin: 14px 0 18px; font-size: clamp(36px, 6vw, 58px); font-weight: 650; letter-spacing: -.045em; line-height: 1.08; }
+.updated { color: #70717b; font-size: 14px; line-height: 1.6; }
+.main article { padding-top: 28px; }
+.main h2 { margin: 38px 0 14px; font-size: 23px; font-weight: 650; letter-spacing: -.025em; }
+.main article p { margin: 16px 0; font-size: 16px; line-height: 1.8; color: #555762; }
+.main a { color: #355ada; text-decoration: underline; text-underline-offset: 3px; }
+.main a:focus-visible { outline: 3px solid #355ada; outline-offset: 4px; border-radius: 3px; }
+@media (max-width: 650px) { .main { padding: 120px 22px 70px; } }

@@ -175,14 +175,14 @@ export default function FeaturesPage() {
         <section id="connect" className={styles.setup} aria-labelledby="connect-title">
           <div><p className={styles.eyebrow}>GainFrame + ChatGPT</p><h2 id="connect-title">Connect once.<br />Keep control.</h2><p>Your diary stays on your device until you choose to sync it. The connector can read and log food only after you connect your account.</p></div>
           <ol>
-            <li><strong>Enable Connected diary in GainFrame.</strong><p>In a supported beta build, open Connected diary in Settings and sign in. Choose whether to sync your food entries.</p></li>
+            <li><strong>Enable Connected diary in GainFrame.</strong><p>In a supported beta build, open Settings → Integrations → ChatGPT → Connected diary. Sign in with Apple or Google and choose whether to sync your food entries.</p></li>
             <li><strong>Link GainFrame from ChatGPT.</strong><p>When the connector is available, open it in ChatGPT and approve the connection in GainFrame. On desktop, use the connection code shown on the linking page.</p></li>
             <li><strong>Describe your meal, then edit if needed.</strong><p>Try “Log two eggs for breakfast” or “What have I logged today?” ChatGPT may show its own tool-permission prompts.</p></li>
           </ol>
         </section>
 
         <section className={styles.questions} aria-label="Food chat questions">
-          <details><summary>What information is shared?</summary><p>With your opt-in, GainFrame syncs food names, portions, calories, macros, meal labels, and logging times. The connector does not access progress photos, body measurements, workouts, or Apple Health records. <Link href="/privacy/#connected-diary">Read the connected-diary privacy details.</Link></p></details>
+          <details><summary>What information is shared?</summary><p>With your opt-in, GainFrame syncs food names, portions, calories, macros, meal labels, and logging times. The connector does not access progress photos, body measurements, workouts, or Apple Health records. <Link href="/privacy/#connected-diary">Read the connected-diary privacy details.</Link> See the <Link href="/connected-diary-terms/">Connected Diary Terms of Service</Link> for how the service works.</p></details>
           <details><summary>Can I change a meal after logging it?</summary><p>Yes. Ask to change the food or portion, or edit the entry in GainFrame. Changes sync when the app is active or you choose Sync now.</p></details>
           <details><summary>Can I disconnect later?</summary><p>Yes. Turn off Connected diary in GainFrame to stop syncing and revoke connector access. Turning it off does not erase the stored cloud copy; contact support to request deletion.</p></details>
           <details><summary>How accurate are the nutrition numbers?</summary><p>Nutrition depends on the food, brand, portion, and preparation. ChatGPT may estimate values. Check the receipt and correct details when you have better information.</p></details>
