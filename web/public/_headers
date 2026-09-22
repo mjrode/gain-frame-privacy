@@ -14,6 +14,12 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
 
+# Native ChatGPT setup content must revalidate when the guide is reopened.
+/config/chatgpt-setup-v1.json
+  ! Cache-Control
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
 # Next.js fingerprinted assets — safe to cache forever.
 /_next/static/*
   ! Cache-Control

@@ -9,6 +9,7 @@ import FeatureIcon, { AppleMark, type FeatureIconName } from "./FeatureIcon";
 import DrawnScene from "./DrawnScene";
 import FoodChatPreview from "./FoodChatPreview";
 import styles from "./page.module.css";
+import chatGPTSetup from "@/public/config/chatgpt-setup-v1.json";
 
 export const metadata: Metadata = {
   title: "Features — Progress photos, AI analysis, Coach, and more",
@@ -162,11 +163,11 @@ export default function FeaturesPage() {
 
         <section id="food-chat" className={styles.food} aria-labelledby="food-title">
           <div className={styles.foodCopy}>
-            <p className={styles.eyebrow}>Coming next · Food chat beta</p>
+            <p className={styles.eyebrow}>Food chat + ChatGPT</p>
             <h2 id="food-title">Say what you ate.<br />Get on with your day.</h2>
             <p>Log food in a conversation inside GainFrame, or connect your food diary to ChatGPT. A clear request saves your meal, with a compact receipt you can correct afterward.</p>
             <ul><li>Food illustrations, portions, calories, and macros together.</li><li>Say “make that two” to change a portion.</li><li>Ask what you logged and see your diary totals.</li></ul>
-            <p className={styles.note}>Submitted for ChatGPT review. Food chat is available in supported iPhone beta builds. The public ChatGPT listing and iPhone release are coming after approval.</p>
+            <p className={styles.note}><strong>{chatGPTSetup.availability.title}.</strong> {chatGPTSetup.availability.message}</p>
             <a className={styles.textLink} href="#connect">How the connection works <FeatureIcon name="chevron" /></a>
           </div>
           <FoodChatPreview />
@@ -175,10 +176,9 @@ export default function FeaturesPage() {
         <section id="connect" className={styles.setup} aria-labelledby="connect-title">
           <div><p className={styles.eyebrow}>GainFrame + ChatGPT</p><h2 id="connect-title">Connect once.<br />Keep control.</h2><p>Your diary stays on your device until you choose to sync it. The connector can read and log food only after you connect your account.</p></div>
           <ol>
-            <li><strong>Enable Connected diary in GainFrame.</strong><p>In a supported beta build, open Settings → Integrations → ChatGPT → Connected diary. Sign in with Apple or Google and choose whether to sync your food entries.</p></li>
-            <li><strong>Link GainFrame from ChatGPT.</strong><p>When the connector is available, open it in ChatGPT and approve the connection in GainFrame. On desktop, use the connection code shown on the linking page.</p></li>
-            <li><strong>Describe your meal, then edit if needed.</strong><p>Try “Log two eggs for breakfast” or “What have I logged today?” ChatGPT may show its own tool-permission prompts.</p></li>
+            {chatGPTSetup.steps.map((step, index) => <li key={index}><strong>{step.title}</strong>{step.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}</li>)}
           </ol>
+          {chatGPTSetup.availability.linkURL.startsWith("https://chatgpt.com/") && <a className={styles.textLink} href={chatGPTSetup.availability.linkURL}>{chatGPTSetup.availability.linkTitle} <FeatureIcon name="chevron" /></a>}
         </section>
 
         <section className={styles.questions} aria-label="Food chat questions">

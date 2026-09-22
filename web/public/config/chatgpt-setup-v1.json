@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "navigationTitle": "ChatGPT setup",
+  "title": "Your food diary.\nIn ChatGPT.",
+  "subtitle": "Connect once, then log meals and check your daily totals from a conversation.",
+  "availability": {
+    "title": "Submitted for ChatGPT review",
+    "message": "GainFrame is awaiting OpenAI approval. Food chat is available in supported iPhone beta builds. Public availability is coming after approval.",
+    "linkTitle": "View setup and availability",
+    "linkURL": "https://gainframe.app/features/#connect"
+  },
+  "steps": [
+    {
+      "title": "Find GainFrame in ChatGPT",
+      "paragraphs": [
+        "Once the listing is approved, open GainFrame in ChatGPT and choose Connect to open GainFrame on your iPhone."
+      ]
+    },
+    {
+      "title": "Approve your diary connection",
+      "paragraphs": [
+        "Sign in with your usual Apple or Google account if needed. Tap Connect and sync diary to approve access once.",
+        "Using ChatGPT on a computer? Copy the connection code from its linking page and enter it in Settings → Integrations → ChatGPT → Connected diary."
+      ]
+    },
+    {
+      "title": "Say what you ate",
+      "paragraphs": [
+        "In ChatGPT, select GainFrame and try “Log two eggs for breakfast” or “What have I logged today?”",
+        "Check the saved receipt. Say “Make that three eggs” to correct it. ChatGPT may show its own permission prompts."
+      ]
+    }
+  ],
+  "connectionButtonTitle": "Open Connected diary",
+  "connectionButtonHint": "Enter a connection code or manage diary sync",
+  "privacyText": "Only your synced food diary is shared. Body photos, Apple Health records, and Coach conversations stay private.",
+  "managementText": "Manage access in Settings → Integrations → ChatGPT."
+}
