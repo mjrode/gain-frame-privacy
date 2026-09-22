@@ -13,9 +13,16 @@ const paths = {
   rewind: "M3 10a9 9 0 119 11 M3 4v6h6 M12 7v5l4 2",
   arrow: "M4 12h16m-6-6l6 6-6 6",
   check: "M5 12l4 4L19 6",
+  gallery: "M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z",
+  chevron: "M9 5l7 7-7 7",
+  expand: "M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5",
 } as const;
 
 export type FeatureIconName = keyof typeof paths;
+
+export function AppleMark() {
+  return <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.18-.07 2.04.66 2.75.72 1.05-.21 2.05-.81 3.17-.73 1.34.11 2.35.64 3.02 1.6-2.76 1.66-2.1 5.29.43 6.31-.5 1.32-1.15 2.63-2.37 4.07ZM12.03 7.25C11.88 5.28 13.5 3.65 15.34 3.5c.25 2.28-2.07 3.98-3.31 3.75Z" /></svg>;
+}
 
 export default function FeatureIcon({ name, className }: { name: FeatureIconName; className?: string }) {
   return (
