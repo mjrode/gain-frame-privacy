@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "fitbod-vs-hevy",
+    "original": "exec-3118bf21-5831-41f9-9e1e-6c7709cf1cd1.png",
+    "output": "docs/blog/fitbod-vs-hevy/assets/cover.webp",
+    "method": "Built-in image generation; WebP conversion via sharp",
+    "prompt": "Use case: illustration-story. Asset type: 4:3 editorial cover for GainFrame, a premium fitness progress-photo website. A workout planner and a training log side by side: two elegant abstract phone-shaped panels, one holding an exercise flow diagram and the other a clean set-and-rep grid, connected to a small progress photo frame. Style: refined editorial vector-like line illustration with tactile paper texture, restrained Swiss composition, thin precise charcoal outlines (#242821), warm ivory (#f5f2e9), muted sage (#779481), tiny terracotta accent. Spacious, sophisticated, flat shapes with subtle depth, no gradients. Main composition centered within generous margin, visually legible at thumbnail size. Landscape 4:3. No text, no letters, no numbers, no logos, no watermark, no fabricated screenshots, no photorealistic bodies."
+  },
+  {
+    "slug": "blur-faces-iphone-gym-photos",
+    "original": "exec-f379d34f-9e84-4975-8f70-37bd1ddea220.png",
+    "output": "docs/blog/blur-faces-iphone-gym-photos/assets/cover.webp",
+    "method": "Built-in image generation; WebP conversion via sharp",
+    "prompt": "Use case: illustration-story. Asset type: 4:3 editorial cover for GainFrame, a premium fitness progress-photo website. An elegant smartphone photo frame containing a fully clothed adult gym-goer represented in precise graphic silhouettes, with an opaque dark privacy rectangle covering the face; small crop corners and a separate clean exported photograph. Style: refined editorial vector-like line illustration with tactile paper texture, restrained Swiss composition, thin precise charcoal outlines (#242821), warm ivory (#f5f2e9), muted sage (#779481), tiny terracotta accent. Spacious, sophisticated, flat shapes with subtle depth, no gradients. Main composition centered within generous margin, visually legible at thumbnail size. Landscape 4:3. No text, no letters, no numbers, no logos, no watermark, no fabricated screenshots, no photorealistic bodies."
+  },
+  {
+    "slug": "macrofactor-workouts-review",
+    "original": "exec-5fa10cbc-574f-41a6-bc0b-deff602c817d.png",
+    "output": "docs/blog/macrofactor-workouts-review/assets/cover.webp",
+    "method": "Built-in image generation; WebP conversion via sharp",
+    "prompt": "Use case: illustration-story. Asset type: 4:3 editorial cover for GainFrame, a premium fitness progress-photo website. A refined lifting logbook with stepped progression bars, a small dumbbell, and three organized photo frames. Suggest systematic strength training and tracking. Do not show any real app interface or brand logo. Style: refined editorial vector-like line illustration with tactile paper texture, restrained Swiss composition, thin precise charcoal outlines (#242821), warm ivory (#f5f2e9), muted sage (#779481), tiny terracotta accent. Spacious, sophisticated, flat shapes with subtle depth, no gradients. Main composition centered within generous margin, visually legible at thumbnail size. Landscape 4:3. No text, no letters, no numbers, no logos, no watermark, no fabricated screenshots, no photorealistic bodies."
+  },
+  {
+    "slug": "pump-vs-no-pump-progress-photos",
+    "original": "exec-81106ab4-a720-40a4-aabd-1dc3940648c7.png",
+    "output": "docs/blog/pump-vs-no-pump-progress-photos/assets/cover.webp",
+    "method": "Built-in image generation; WebP conversion via sharp",
+    "prompt": "Use case: illustration-story. Asset type: 4:3 editorial cover for GainFrame, a premium fitness progress-photo website. A pair of identical camera frames around the same neutral athletic silhouette beside a small clock and dumbbell; focus on repeating photo conditions. Do not show physical transformation, changes in body size, or a before-and-after claim. Style: refined editorial vector-like line illustration with tactile paper texture, restrained Swiss composition, thin precise charcoal outlines (#242821), warm ivory (#f5f2e9), muted sage (#779481), tiny terracotta accent. Spacious, sophisticated, flat shapes with subtle depth, no gradients. Main composition centered within generous margin, visually legible at thumbnail size. Landscape 4:3. No text, no letters, no numbers, no logos, no watermark, no fabricated screenshots, no photorealistic bodies."
+  },
+  {
+    "slug": "hume-vs-withings",
+    "original": "exec-66cd223a-ae0e-4f52-955a-02232624ec5c.png",
+    "output": "docs/blog/hume-vs-withings/assets/cover.webp",
+    "method": "Built-in image generation; WebP conversion via sharp",
+    "prompt": "Use case: illustration-story. Asset type: 4:3 editorial cover for GainFrame, a premium fitness progress-photo website. Two refined abstract smart scales with retractable hand grips beside a small simple trend chart and a photograph frame. Conceptual consumer technology illustration, not a faithful product rendering. Style: refined editorial vector-like line illustration with tactile paper texture, restrained Swiss composition, thin precise charcoal outlines (#242821), warm ivory (#f5f2e9), muted sage (#779481), tiny terracotta accent. Spacious, sophisticated, flat shapes with subtle depth, no gradients. Main composition centered within generous margin, visually legible at thumbnail size. Landscape 4:3. No text, no letters, no numbers, no logos, no watermark, no fabricated screenshots, no photorealistic bodies."
+  }
+]

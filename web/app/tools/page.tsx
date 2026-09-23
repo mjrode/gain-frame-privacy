@@ -14,13 +14,13 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: {
     absolute:
-      "22 Free Fitness & Body Composition Tools | GainFrame",
+      "24 Free Fitness & Body Composition Tools | GainFrame",
   },
   description:
-    "Twenty-two free fitness tools from GainFrame: compare progress photos privately, check recomp signals, visualize body shape, estimate body fat, and calculate TDEE, macros and FFMI — no signup.",
+    "Twenty-four free fitness tools from GainFrame: compare progress photos privately, check recomp signals, visualize body shape, estimate body fat, and calculate TDEE, macros and FFMI — no signup.",
   alternates: { canonical: "/tools/" },
   openGraph: {
-    title: "22 Free Fitness & Body Composition Tools",
+    title: "24 Free Fitness & Body Composition Tools",
     description:
       "Private progress-photo comparison, a recomp reality check, body visualizers, AI photo tools, and practical fitness calculators — instant, no signup.",
     type: "website",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "22 Free Fitness & Body Composition Tools",
+    title: "24 Free Fitness & Body Composition Tools",
     description:
       "Private photo comparison, a recomp reality check, body visualizers, AI photo tools, and practical fitness calculators — instant, no signup.",
   },
@@ -67,6 +67,8 @@ const itemListSchema = {
     { "@type": "ListItem", position: 20, name: "Measurement-Driven Body Shape Compare", url: "https://gainframe.app/tools/body-visualizer/?mode=measurements" },
     { "@type": "ListItem", position: 21, name: "Lean Body Mass Calculator", url: "https://gainframe.app/tools/lean-body-mass-calculator/" },
     { "@type": "ListItem", position: 22, name: "Winter Arc Planner", url: "https://gainframe.app/tools/winter-arc-planner/" },
+    { "@type": "ListItem", position: 23, name: "Gym Photo Privacy Editor", url: "https://gainframe.app/tools/gym-photo-privacy-editor/" },
+    { "@type": "ListItem", position: 24, name: "Progress Photo Timelapse Maker", url: "https://gainframe.app/tools/progress-photo-timelapse-maker/" },
   ],
 };
 
@@ -107,7 +109,7 @@ export default function ToolsPage() {
             #cl-count IDs are consumed by ToolsInteractions; do not rename. */}
         <div className="cl-search-rail">
           <div className="cl-tool-meta-pill">
-            <strong id="cl-count">22</strong>&nbsp;tools available
+            <strong id="cl-count">24</strong>&nbsp;tools available
           </div>
           <div className="cl-search-bar-compact" id="cl-search-wrap">
             <span className="cl-search-icon">
@@ -412,7 +414,7 @@ export default function ToolsPage() {
         <div className="cl-section-intro">
           <h2>Free Fitness Calculators</h2>
           <p>
-            Twenty-one practical tools for body composition, progress, nutrition,
+            Twenty-four practical tools for body composition, progress, nutrition,
             and performance. Instant results, no signup.
           </p>
         </div>
@@ -429,6 +431,7 @@ export default function ToolsPage() {
             <a href="#performance" className="cl-nav-link">
               Performance <span className="cl-nav-count">3</span>
             </a>
+            <a href="#photo-editing" className="cl-nav-link">Photo editing <span className="cl-nav-count">2</span></a>
             <a href="#documentation" className="cl-nav-link">
               Documentation <span className="cl-nav-count">1</span>
             </a>
@@ -1042,6 +1045,20 @@ export default function ToolsPage() {
                     calories burned with food-equivalent comparisons.
                   </p>
                   <span className="cl-card-link">Open →</span>
+                </a>
+              </div>
+            </section>
+
+            <section className="cl-section" id="photo-editing">
+              <div className="cl-section-header"><h2>Photo editing</h2><span className="cl-count-badge">2 tools</span></div>
+              <div className="cl-grid cl-grid-2">
+                <a href="/tools/gym-photo-privacy-editor/" className="cl-card" data-search="gym photo privacy editor blur face cover crop private">
+                  <div className="cl-card-icon ic-pp" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="5" width="18" height="15" rx="3"/><path d="M8 5V3h8v2M7 10h10v5H7z"/></svg></div>
+                  <h3>Gym Photo Privacy Editor</h3><p className="cl-card-desc">Cover faces, blur details and crop reflections. Edit up to 10 photos locally and save clean PNG copies.</p><span className="cl-card-link">Edit a photo →</span>
+                </a>
+                <a href="/tools/progress-photo-timelapse-maker/" className="cl-card" data-search="progress photo timelapse time lapse gif animation contact sheet transformation">
+                  <div className="cl-card-icon ic-pp" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m10 8 6 4-6 4z"/></svg></div>
+                  <h3>Progress Photo Timelapse Maker</h3><p className="cl-card-desc">Arrange and align 3 to 24 real check-ins. Create a GIF or a contact sheet, entirely in your browser.</p><span className="cl-card-link">Make a timelapse →</span>
                 </a>
               </div>
             </section>

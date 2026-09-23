@@ -38,6 +38,9 @@ export type WebAnalyticsContext = {
 };
 
 export type AnalyticsEvent =
+  | "photo_studio_export_ready"
+  | "photo_studio_demo"
+  | "photo_studio_error"
   // Progress-photo demo use stays separate from the personal-photo funnel.
   | "progress_photo_compare_sample_loaded"
   | "progress_photo_compare_demo_result_shown"

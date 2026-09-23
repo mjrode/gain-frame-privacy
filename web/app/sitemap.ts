@@ -62,6 +62,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await loadBlogPosts();
 
   const staticEntries: MetadataRoute.Sitemap = [
+    ...["gym-photo-privacy-editor", "progress-photo-timelapse-maker"].map((slug) => ({
+      url: `${SITE.url}/tools/${slug}/`,
+      lastModified: "2026-09-23",
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
     {
       url: `${SITE.url}/features/`,
       lastModified: "2026-09-22",
