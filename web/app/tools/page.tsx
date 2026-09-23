@@ -423,7 +423,7 @@ export default function ToolsPage() {
           <nav className="cl-sidebar" aria-label="Tool categories">
             <p className="cl-sidebar-label">Categories</p>
             <a href="#body-composition" className="cl-nav-link cl-active">
-              Body Composition <span className="cl-nav-count">13</span>
+              Body Composition <span className="cl-nav-count">15</span>
             </a>
             <a href="#nutrition" className="cl-nav-link">
               Nutrition &amp; Energy <span className="cl-nav-count">3</span>
@@ -441,7 +441,7 @@ export default function ToolsPage() {
             <section className="cl-section" id="body-composition">
               <div className="cl-section-header">
                 <h2>Body Composition</h2>
-                <span className="cl-count-badge">13 tools</span>
+                <span className="cl-count-badge">15 tools</span>
               </div>
               <div className="cl-grid cl-grid-2">
                 <a
