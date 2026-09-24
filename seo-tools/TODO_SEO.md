@@ -14,6 +14,11 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 ## ACTIVE (fresh start 2026-06-28)
 
+### September 24: live GSC content-gap implementation
+
+- [x] **Five focused answers**: bicep length, shoulder-to-hip ratio, third-party iOS body-fat scale apps, AI fitness apps for athletes, and body-scanning platforms for coaches. Owner approved all recommendations and publication. Implementation and release checks: [execution receipt](content-audits/2026-09-24-content-gap-execution.md).
+- [x] **Eight existing-page improvements**: women's waist size, shoulder width, hand size, body-fat chart, skinny arms, AI personal trainers, newbie gains and DEXA alternatives; six supporting articles provide contextual links. Unsupported accuracy/testing claims corrected and comparison evidence refreshed.
+
 ### September 21: approved customer-intent improvements
 
 - [x] **F1/F2/F3/F5/F6/F7/F8/F9/F10** (seo-content-cycle) - approved via `all`; published and verified September 21 at 13:05:01 UTC in `ed96f821`. Existing score explainer, solo-photo guide, free/main photo-app roundups, body-tracking roundup, pose guide, setup tool, frequency guide and physique rater. Source: [audit](content-audits/2026-09-21.md).

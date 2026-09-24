@@ -132,3 +132,13 @@ GROUP BY variant
 The approved customer-intent SEO refresh revised seven existing articles: understanding-ai-physique-score, take-progress-photos-by-yourself, best-free-progress-photo-apps, best-progress-photo-apps, best-body-tracking-apps, progress-photo-poses and how-often-progress-photos. Six supporting posts received contextual links and required schema/style repairs. Content order, first-section length and the surrounding material at the editorial insertion point changed. The active sticky_vs_editorial_inline_v2_stable_assignment phase, cohort, allocation, treatment configuration, CTA copy and eligibility remain unchanged. Preserve the September 11 experiment clock; annotate this release and report a before/after-content sensitivity slice without calling a causal content win. Legacy fallback CTAs in the free roundup, solo-photo guide and frequency guide had obsolete price/allowance claims corrected; experiment treatment copy was not edited.
 
 Release timestamp: September 21, 2026, **13:05:01 UTC**, content commit `ed96f821`, verified at 100% production traffic.
+
+## September 24 content annotation
+
+The owner approved implementing and publishing the complete live-GSC content-gap analysis. Eight existing target articles were revised: average-waist-size-women, average-shoulder-width, average-hand-size, body-fat-percentage-chart, why-do-i-have-skinny-arms, best-ai-personal-trainer-apps, newbie-gains and dexa-scan-alternative. Six supporting articles received contextual links and necessary content/schema repairs: average-bicep-size, shoulder-to-waist-ratio, best-smart-scales-apple-health, gravl-vs-fitbod, best-body-composition-apps and styku-body-scan-accuracy. Five focused articles were added without expanding the fixed experiment cohort.
+
+Opening answers, section order and material around the editorial insertion point changed. The stable-assignment phase, allocation, eligibility and treatment configuration were not edited. Preserve the September 11 experiment clock; annotate the deployment and report a before/after-content sensitivity slice without attributing causality to this content batch.
+
+The AI personal-trainer article's prior metadata hold was superseded by the owner's approval to implement all recommendations. Its unsupported claim of hands-on testing was removed; current publisher documentation and App Store evidence replaced obsolete comparisons. Treat September 24 as a new content/metadata boundary for that page, rather than an uninterrupted continuation of the September 16 observation window. The body-fat chart's existing control title was preserved.
+
+Release details and verification: [September 24 execution receipt](../../seo-tools/content-audits/2026-09-24-content-gap-execution.md).
