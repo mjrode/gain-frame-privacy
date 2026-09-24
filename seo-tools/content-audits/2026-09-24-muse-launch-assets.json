@@ -1,0 +1,21 @@
+{
+  "createdAt": "2026-09-24",
+  "approvedReferenceTask": "01a0d34f-61a3-7e91-beab-79a6125747b3",
+  "approvedReference": "User's latest attached correction: cream square head, googly eyes, S-shaped nose, charcoal body.",
+  "method": "Built-in image generation; converted to WebP with sharp. No source reference or generator temporary paths are served.",
+  "assets": [
+    {
+      "slug": "meta-muse-workout-plan",
+      "cover": "docs/blog/meta-muse-workout-plan/assets/cover.webp",
+      "prompt": "Create a new polished photorealistic studio editorial illustration, landscape 4:3, using the EXACT plush GainFrame mascot from the supplied reference as the sole main character. Preserve cream rounded-square plush head, three black corner brackets and one red lower-right bracket, mismatched expressive googly eyes, distinctive long black S-shaped nose, charcoal plush small body, the same muted shorts and taupe sneakers. Do not change to charcoal furry head or a different mascot. The mascot is enthusiastically holding a small white workout-plan clipboard with simple cobalt blue checkmarks and has a smartphone standing nearby showing only simple empty photo cards, with one small dumbbell on the floor. Story: planning a workout and saving a starting photo. Bright seamless white studio background, soft grounded shadows, beautiful tactile plush detail, playful but premium product-photo styling. Plenty of whitespace and generous margins. No text, letters, numbers, company logos, watermarks or real human photographs. Do not add Meta's mascot. Single coherent scene, not a concept sheet.",
+      "screenshot": "docs/app-screenshots/1.21/photo-gallery.webp"
+    },
+    {
+      "slug": "meta-muse-fitness-tracking",
+      "cover": "docs/blog/meta-muse-fitness-tracking/assets/cover.webp",
+      "prompt": "Create a new polished photorealistic studio editorial illustration, landscape 4:3, using the EXACT plush GainFrame mascot from the supplied reference as the sole main character. Preserve cream rounded-square plush head, three black corner brackets and one red lower-right bracket, mismatched expressive googly eyes, distinctive long black S-shaped nose, charcoal plush small body, same muted shorts and taupe sneakers. Do not use a charcoal furry head or a different mascot. The mascot sits proudly next to an open white progress scrapbook, gently pointing at two small matching photo cards showing the SAME mascot in the SAME pose with no body transformation, while a minimalist weekly checklist with a few cobalt blue checkmarks rests nearby. Story: reviewing your weekly check-in, consistency and comparing records. Bright seamless white studio background, soft grounded shadows, tactile plush detail, friendly expressive face. Plenty of whitespace and generous margins. No text, lettering, numbers, logos, watermarks or real human photographs. Do not add Meta's mascot. Single coherent scene, not a concept sheet.",
+      "revision": "Removed the unrequested decorative green potted plant, preserving the rest of the scene.",
+      "screenshot": "docs/app-screenshots/1.21/compare.webp"
+    }
+  ]
+}
