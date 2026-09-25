@@ -91,6 +91,7 @@ async function loadPosts() {
         sortDate: data.displayDate ? new Date(data.displayDate).getTime() : 0,
         cardText: data.subtitle || data.description || "",
         cardImage: data.cardImage || "",
+        coverImage: data.coverImage || "",
         coverAlt: data.coverAlt || data.description || data.title || slug,
       };
     }),
@@ -102,9 +103,14 @@ async function loadPosts() {
 
 export function renderCard(post, index) {
   const loadingAttr = index < 3 ? "eager" : "lazy";
+  const cover = post.coverImage || "assets/cover.webp";
+  const image = post.cardImage ||
+    (/^https?:\/\//.test(cover) || cover.startsWith("/")
+      ? cover
+      : `/blog/${post.slug}/${cover}`);
   return `                <a href="/blog/${post.slug}/" class="blog-card scroll-reveal" data-category="${escapeHtml(post.categorySlug)}">
                     <div class="blog-card-image">
-                        <img src="${escapeHtml(post.cardImage || `/blog/${post.slug}/assets/cover.webp`)}"
+                        <img src="${escapeHtml(image)}"
                             alt="${escapeHtml(post.coverAlt)}"
                             width="800" height="500"
                             loading="${loadingAttr}"

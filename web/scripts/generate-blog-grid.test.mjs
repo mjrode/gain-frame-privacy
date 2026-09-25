@@ -1,11 +1,40 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFileSync } from "node:fs";
+import matter from "gray-matter";
 import {
   getBlogPage,
   getBlogPageCount,
   renderCard,
   renderPagination,
 } from "./generate-blog-grid.mjs";
+
+test("founder story cards use the configured versioned cover", () => {
+  const { data } = matter(readFileSync(
+    new URL("../content/blog/free-tools-app-growth.mdx", import.meta.url),
+    "utf8",
+  ));
+  const html = renderCard(data, 0);
+
+  assert.match(html, /src="\/blog\/free-tools-app-growth\/assets\/cover-v2.webp"/);
+});
+
+test("cards preserve absolute cover URLs and explicit card overrides", () => {
+  for (const coverImage of ["/assets/shared/cover.webp", "https://example.com/cover.webp"]) {
+    assert.ok(renderCard({ slug: "test-post", coverImage }, 0).includes(`src="${coverImage}"`));
+  }
+
+  const html = renderCard({
+    slug: "test-post",
+    coverImage: "assets/cover-v2.webp",
+    cardImage: "/assets/card.webp",
+  }, 0);
+  assert.match(html, /src="\/assets\/card.webp"/);
+});
+
+test("cards without a configured image keep the default cover path", () => {
+  assert.match(renderCard({ slug: "test-post" }, 0), /src="\/blog\/test-post\/assets\/cover.webp"/);
+});
 
 test("splits the current archive into eight 30-post pages", () => {
   const posts = Array.from({ length: 239 }, (_, index) => index + 1);
