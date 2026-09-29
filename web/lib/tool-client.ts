@@ -243,7 +243,7 @@ function rawFallbackError(
   return null;
 }
 
-async function fileAsBase64(file: File): Promise<string> {
+async function fileReaderBase64(file: File): Promise<string> {
   return await new Promise<string>((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -253,8 +253,25 @@ async function fileAsBase64(file: File): Promise<string> {
       else reject(new Error("The original file was empty."));
     };
     reader.onerror = () => reject(reader.error ?? new Error("Couldn't read that file."));
+    reader.onabort = () => reject(new Error("File read was interrupted."));
     reader.readAsDataURL(file);
   });
+}
+
+async function fileAsBase64(file: File): Promise<string> {
+  try {
+    return await fileReaderBase64(file);
+  } catch {
+    // Some mobile providers fail FileReader while the selected Blob is still
+    // readable. Try its bytes once; a revoked handle must be reselected.
+    const bytes = new Uint8Array(await file.arrayBuffer());
+    if (!bytes.length) throw new Error("The original file was empty.");
+    let binary = "";
+    for (let offset = 0; offset < bytes.length; offset += 8192) {
+      binary += String.fromCharCode(...bytes.subarray(offset, offset + 8192));
+    }
+    return btoa(binary);
+  }
 }
 
 async function rawImageFallback(
@@ -274,7 +291,7 @@ async function rawImageFallback(
       method: "raw_fallback",
     };
   } catch (error) {
-    throw new ToolClientError("Couldn't read the original image file.", {
+    throw new ToolClientError("Your browser can no longer read that photo. Choose it again. If it is stored online, save it to your device first.", {
       errorType: "image_processing",
       code: "raw_file_read_failed",
       retryable: false,

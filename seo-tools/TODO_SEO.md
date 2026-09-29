@@ -6,6 +6,15 @@ This file tracks keyword targets for blog posts and comparison articles. Items a
 
 When a post is published, replace `[ ]` with `[x]` and append ` — published YYYY-MM-DD as /blog/[slug]/`.
 
+## September 29 approved batch
+
+- [x] oxiline vs hume (US 390, KD 0, comparison-article-generator) - approved September 29; /blog/oxiline-vs-hume/.
+- [x] renpho vs withings (US 50, KD 5, comparison-article-generator) - approved September 29; /blog/renpho-vs-withings/.
+- [x] withings body comp vs body smart (US 70, KD 6, comparison-article-generator) - approved September 29; /blog/withings-body-smart-vs-body-comp/.
+- [x] bod pod vs dexa (US 590, KD 0, comparison-article-generator) - approved September 29; /blog/bod-pod-vs-dexa/. Published-source comparison, no fabricated BOD POD trial.
+- [ ] macrofactor workouts vs hevy (US 30, KD 0, comparison-article-generator) - approved but HELD. Existing September 23 review reaches 28 days October 21; read settled data around October 24 before writing. Preserve that owner and reassess cannibalization.
+- [x] F1 device-specific blog rollout with desktop positioning repair, F2 photo upload recovery and estimator framing guidance, F3 three Winter Arc contextual links. Exact deployment/indexing receipt: content-audits/2026-09-29-execution.md.
+
 ## Backlog (priority order)
 
 > **🧹 BACKLOG RESET — 2026-06-28.** Everything below this line was closed in a clean-slate reset. Most items were genuinely shipped/published; the remaining open `[ ]` items (stale CTR tweaks, monitor gates whose windows passed, manual GSC indexing tasks, internal-link refreshes) were marked `[x]` to clear the slate — **do not assume each was individually executed.** New work lives in the **ACTIVE** section directly below. If an old item still matters, re-add it to ACTIVE with fresh data.

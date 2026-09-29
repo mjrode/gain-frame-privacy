@@ -1343,11 +1343,13 @@ body.has-blog-sticky-cta {
 .blog-post-page .blog-contextual-cta--sticky {
     position: fixed;
     z-index: 120;
-    left: 50%;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
     bottom: max(12px, env(safe-area-inset-bottom));
     width: min(1160px, calc(100vw - 32px));
     grid-template-columns: minmax(0, 1fr) minmax(210px, 31%);
-    transform: translateX(-50%);
+    transform: none;
     overflow: visible;
     border-radius: 18px;
     box-shadow: 0 18px 48px rgba(24, 26, 23, 0.22);

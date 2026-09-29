@@ -110,7 +110,7 @@ test("direct and QR attribution names preserve the experiment variant", () => {
   assert.equal(BLOG_CTA_EXPERIMENT_ID, "blog_contextual_cta_v1");
   assert.equal(
     BLOG_CTA_EXPERIMENT_PHASE,
-    "sticky_vs_editorial_inline_v2_stable_assignment",
+    "ios_inline_desktop_sticky_v3_rollout",
   );
 });
 
@@ -121,4 +121,21 @@ test("clean phase ignores assignments from the contaminated phase", () => {
   assert.notEqual(BLOG_CTA_EXPERIMENT_STORAGE_KEY, "gainframe:experiment:blog_contextual_cta_v1");
   assert.equal(getBlogCtaAssignment(storage, "", () => 0.1).variant, "sticky_control");
   assert.equal(values.get("gainframe:experiment:blog_contextual_cta_v1"), "editorial_inline");
+});
+
+
+test("approved device rollout overrides old random choices without overwriting Android storage", () => {
+  for (const stored of BLOG_CTA_VARIANTS) {
+    const values = new Map([[BLOG_CTA_EXPERIMENT_STORAGE_KEY, stored]]);
+    const storage = { getItem: key => values.get(key), setItem: (key, value) => values.set(key, value) };
+    assert.deepEqual(getBlogCtaAssignment(storage, "", () => 0, "ios"), {variant: "editorial_inline", forced: false});
+    assert.deepEqual(getBlogCtaAssignment(storage, "", () => 1, "desktop"), {variant: "sticky_control", forced: false});
+    assert.equal(values.get(BLOG_CTA_EXPERIMENT_STORAGE_KEY), stored);
+    assert.equal(getBlogCtaAssignment(storage, "", () => 0, "android").variant, stored);
+  }
+});
+
+test("device rollout QA remains forced and separate from the shared tool parameter", () => {
+  assert.deepEqual(getBlogCtaAssignment(null, "?gf_blog_cta_variant=sticky_control", Math.random, "ios"), {variant: "sticky_control", forced: true});
+  assert.deepEqual(getBlogCtaAssignment(null, "?gf_cta_variant=future", Math.random, "ios"), {variant: "editorial_inline", forced: false});
 });

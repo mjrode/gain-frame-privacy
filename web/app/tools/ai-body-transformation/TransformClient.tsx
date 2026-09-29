@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import PhotoRecoveryActions from "@/components/PhotoRecoveryActions";
+import { usePhotoRecovery } from "@/components/usePhotoRecovery";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import type { RegionalAdjustments } from "@/lib/body-proportions";
 import { buildToolResultCtaExperiment } from "@/lib/tool-cta-experiment";
@@ -98,12 +100,12 @@ type Stage =
       remaining: number;
       canUnlock: boolean;
     }
-  | { kind: "unusable"; message: string }
+  | { kind: "unusable"; message: string; reason?: string }
   // canUnlock: an email unlocks one more lifetime render — offered on every
   // limit screen (lifetime AND ip-daily/capacity: the extra render persists
   // past the daily reset). Only hidden once already unlocked.
   | { kind: "rate_limited"; message: string; canUnlock: boolean; title?: string }
-  | { kind: "error"; message: string };
+  | { kind: "error"; message: string; retryable?: boolean };
 
 type UnlockStage = "idle" | "sending" | "error";
 
@@ -358,6 +360,7 @@ export default function TransformClient({
   const replaceInputRef = useRef<HTMLInputElement>(null);
   const viewedRef = useRef(false);
   const submittingRef = useRef(false);
+  const photoRecovery = usePhotoRecovery(measurementsMode ? "body_measurements" : "ai_body_transformation");
   const unlockSubmittingRef = useRef(false);
   const clientIdRef = useRef<string | null>(null);
   const afterUrlRef = useRef<string | null>(null);
@@ -569,6 +572,7 @@ export default function TransformClient({
   }, [stage.kind]);
 
   function reset() {
+    photoRecovery.clear();
     if (previewUrl) URL.revokeObjectURL(previewUrl);
     setFile(null);
     setPreviewUrl(null);
@@ -606,6 +610,7 @@ export default function TransformClient({
         blocking: true,
         ...fileTelemetry(picked),
       });
+      photoRecovery.failed(attemptId, "unsupported_format");
       setStage({
         kind: "unusable",
         message:
@@ -702,6 +707,7 @@ export default function TransformClient({
       if (res.ok) {
         phase = "response_parse";
         const json = await validatedJson(res, isSuccessResponse);
+        photoRecovery.succeeded(attemptId);
         const afterUrl = `data:${json.image_mime};base64,${json.image_base64}`;
         afterUrlRef.current = afterUrl;
         track("bt_tool_result_shown", {
@@ -742,6 +748,7 @@ export default function TransformClient({
 
       const err = errorResponse(await errorResponseJson(res));
       if (res.status === 429) {
+        photoRecovery.clear();
         track("bt_tool_rate_limited", {
           kind: err.error,
           ...terminalTelemetry({
@@ -768,6 +775,7 @@ export default function TransformClient({
         });
       } else if (res.status === 422) {
         const reason = err.reason ?? err.error ?? "photo_unusable";
+        photoRecovery.failed(attemptId, reason);
         track("bt_tool_unusable", {
           reason,
           ...terminalTelemetry({
@@ -785,6 +793,7 @@ export default function TransformClient({
         });
         setStage({
           kind: "unusable",
+          reason,
           message: err.message ??
             "We can't render that photo. Use a clear, recent photo of yourself with at least your torso visible.",
         });
@@ -808,13 +817,16 @@ export default function TransformClient({
           new Error(`Transformation request failed with HTTP ${res.status}`),
           { tool: "body_transformation", ...common },
         );
+        photoRecovery.failed(attemptId, err.error);
         setStage({
           kind: "error",
+          retryable: res.status >= 500 || res.status === 408,
           message: "Something went wrong. Your render wasn't used — try again.",
         });
       }
     } catch (err) {
       const failure = asToolClientError(err);
+      photoRecovery.failed(attemptId, failure.code);
       const common = {
         ...terminalTelemetry({
           attemptId,
@@ -833,7 +845,7 @@ export default function TransformClient({
         failure.code,
       )) {
         track("bt_tool_unusable", { ...common, reason: failure.code });
-        setStage({ kind: "unusable", message: failure.message });
+        setStage({ kind: "unusable", message: failure.message, reason: failure.code });
         return;
       }
       track("bt_tool_error", { ...common, error: failure.message });
@@ -842,7 +854,10 @@ export default function TransformClient({
       }
       setStage({
         kind: "error",
-        message: failure.errorType === "timeout"
+        retryable: failure.retryable,
+        message: failure.code === "raw_file_read_failed"
+          ? failure.message
+          : failure.errorType === "timeout"
           ? "That render took too long. Please try again."
           : "Something went wrong preparing that photo. Please try again.",
       });
@@ -1306,14 +1321,10 @@ export default function TransformClient({
           <p className="btf-msg-fine">
             Failed photos don&apos;t count against your free render.
           </p>
-          <button
-            type="button"
+          <PhotoRecoveryActions
             className="btf-submit"
-            style={{ maxWidth: 280, margin: "0 auto" }}
-            onClick={reset}
-          >
-            Try a different photo <span className="arrow" aria-hidden>→</span>
-          </button>
+            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked); }}
+          />
         </div>
       </div>
     );
@@ -1377,14 +1388,11 @@ export default function TransformClient({
           </div>
           <p className="btf-msg-title">Something went wrong</p>
           <p className="btf-msg-sub">{stage.message}</p>
-          <button
-            type="button"
+          <PhotoRecoveryActions
             className="btf-submit"
-            style={{ maxWidth: 280, margin: "0 auto" }}
-            onClick={() => setStage({ kind: "idle" })}
-          >
-            Try again <span className="arrow" aria-hidden>→</span>
-          </button>
+            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked); }}
+            onRetry={stage.retryable && file ? () => { photoRecovery.started("retry"); void submit(); } : undefined}
+          />
         </div>
       </div>
     );

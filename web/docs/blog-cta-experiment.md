@@ -1,8 +1,47 @@
 # Blog contextual CTA experiment
 
-Prepared 2026-09-02; assignment repaired 2026-09-11. The active phase is
-`sticky_vs_editorial_inline_v2_stable_assignment` for `blog_contextual_cta_v1`.
-The original v1 phase is retired because assignment crossover contaminated it.
+Prepared 2026-09-02; assignment repaired 2026-09-11; device rollout approved
+2026-09-29. Current phase: `ios_inline_desktop_sticky_v3_rollout` for
+`blog_contextual_cta_v1`. The v2 randomized phase is closed by this release.
+The original v1 phase was retired because assignment crossover contaminated it.
+
+## September 29, 2026: approved device rollout
+
+The owner approved all September 29 proposals. At this release the randomized
+`sticky_vs_editorial_inline_v2_stable_assignment` phase ends. The new phase is
+`ios_inline_desktop_sticky_v3_rollout`: iOS receives editorial inline; desktop
+receives sticky control. Android preserves its saved v2 random assignment and
+allocation because it was outside the App Store decision population. Its storage
+key remains the v2 key deliberately. QA overrides remain forced and separate
+from shared tool overrides. The fixed 79-post cohort, treatment copy, destination
+and material-exposure definition remain intact.
+
+The completed-day read through September 28 showed 65/3,656 inline assigned
+clickers versus 33/3,631 sticky (1.78% versus 0.91%). The pooled registered gates
+passed. The device split was exploratory: iOS 61/2,525 versus 20/2,485; desktop
+4/1,131 versus 13/1,146. This rollout is an owner-approved product decision,
+not a separately powered device-level causal result or proof of install lift.
+
+Visual QA found the existing desktop dock offset beyond the viewport: a later
+reading-style rule removed its translateX centering while leaving left:50%.
+The dock now uses left/right insets and automatic margins, so positioning does
+not depend on a transform. Annotate this rendering repair alongside the phase
+boundary; do not compare post-repair desktop rates causally against old control.
+
+Continue the existing event names with the new phase. Report assignments,
+material exposures, App Store link clicks, continued reading, exceptions and
+exact native arrivals separately by device. QR visibility is not a scan or click.
+Do not pool old and new phases or call the deterministic rollout an A/B test.
+Review the first complete 7 and 14 days after the verified deployment. Preserve
+Body Visualizer and Improve/Future allocations and clocks.
+
+Release timestamp and exact Git/Workers revision: see
+[September 29 execution receipt](../../seo-tools/content-audits/2026-09-29-execution.md).
+
+## Historical randomized test contract
+
+The sections below describe the completed v2 test. The rollout above supersedes
+its allocation and phase, while retaining event and visibility definitions.
 
 ## Why this test exists
 

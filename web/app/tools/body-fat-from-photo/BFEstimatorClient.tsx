@@ -1,6 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import PhotoRecoveryActions from "@/components/PhotoRecoveryActions";
+import { usePhotoRecovery } from "@/components/usePhotoRecovery";
+import PhotoFramingGuide from "@/components/PhotoFramingGuide";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 import {
@@ -66,11 +69,11 @@ type Stage =
       confidence: Confidence;
       one_line: string;
     }
-  | { kind: "unusable"; message: string }
+  | { kind: "unusable"; message: string; reason?: string }
   // lifetime: true = all 3 free scans used, terminal — vs the daily limit
   // where tomorrow works. Different title + CTA label on the same screen.
   | { kind: "rate_limited"; message: string; lifetime: boolean }
-  | { kind: "error"; message: string };
+  | { kind: "error"; message: string; retryable?: boolean };
 
 type SuccessResponse = {
   estimate: string;
@@ -220,6 +223,7 @@ export default function BFEstimatorClient() {
   const replaceInputRef = useRef<HTMLInputElement>(null);
   const viewedRef = useRef(false);
   const submittingRef = useRef(false);
+  const photoRecovery = usePhotoRecovery("body_fat_estimator");
 
   // Email capture (result screen). The report call must reuse the exact
   // client_id and photo bytes from the estimate call: the backend gates on
@@ -275,6 +279,7 @@ export default function BFEstimatorClient() {
   }, [stage]);
 
   function reset() {
+    photoRecovery.clear();
     if (previewUrl) URL.revokeObjectURL(previewUrl);
     setFile(null);
     setPreviewUrl(null);
@@ -472,6 +477,7 @@ export default function BFEstimatorClient() {
         blocking: true,
         ...fileTelemetry(picked),
       });
+      photoRecovery.failed(attemptId, "unsupported_format");
       setStage({
         kind: "unusable",
         message: "That file isn't a supported image. Use JPEG, PNG, WebP, HEIC, or HEIF.",
@@ -547,6 +553,7 @@ export default function BFEstimatorClient() {
       if (res.ok) {
         phase = "response_parse";
         const json = await validatedJson(res, isSuccessResponse);
+        photoRecovery.succeeded(attemptId);
         track("bf_tool_result_shown", {
           estimate: json.estimate,
           confidence: json.confidence,
@@ -579,6 +586,7 @@ export default function BFEstimatorClient() {
 
       const err = errorResponse(await errorResponseJson(res));
       if (res.status === 429) {
+        photoRecovery.clear();
         const lifetime = err.error === "lifetime_limited";
         track("bf_tool_rate_limited", {
           kind: lifetime ? "lifetime" : "daily",
@@ -605,6 +613,7 @@ export default function BFEstimatorClient() {
         });
       } else if (res.status === 422) {
         const reason = err.reason ?? err.error ?? "photo_unusable";
+        photoRecovery.failed(attemptId, reason);
         track("bf_tool_photo_unusable", {
           reason,
           ...terminalTelemetry({
@@ -622,6 +631,7 @@ export default function BFEstimatorClient() {
         });
         setStage({
           kind: "unusable",
+          reason,
           message:
             err.message ??
             "Couldn't analyze that photo. Try a clearer, well-lit shot.",
@@ -646,13 +656,16 @@ export default function BFEstimatorClient() {
           new Error(`Body-fat estimate failed with HTTP ${res.status}`),
           { tool: "body_fat_estimator", ...common },
         );
+        photoRecovery.failed(attemptId, err.error);
         setStage({
           kind: "error",
+          retryable: res.status >= 500 || res.status === 408,
           message: "Something went wrong. Please try again.",
         });
       }
     } catch (err) {
       const failure = asToolClientError(err);
+      photoRecovery.failed(attemptId, failure.code);
       const common = {
         ...terminalTelemetry({
           attemptId,
@@ -671,7 +684,7 @@ export default function BFEstimatorClient() {
         failure.code,
       )) {
         track("bf_tool_photo_unusable", { ...common, reason: failure.code });
-        setStage({ kind: "unusable", message: failure.message });
+        setStage({ kind: "unusable", message: failure.message, reason: failure.code });
         return;
       }
       track("bf_tool_error", { ...common, error: failure.message });
@@ -680,7 +693,10 @@ export default function BFEstimatorClient() {
       }
       setStage({
         kind: "error",
-        message: failure.errorType === "timeout"
+        retryable: failure.retryable,
+        message: failure.code === "raw_file_read_failed"
+          ? failure.message
+          : failure.errorType === "timeout"
           ? "That scan took too long. Please try again."
           : "Something went wrong preparing that photo. Please try again.",
       });
@@ -1008,9 +1024,11 @@ export default function BFEstimatorClient() {
           />
           <p className="bff-msg-title">Couldn't read that one</p>
           <p className="bff-msg-sub">{stage.message}</p>
-          <button type="button" className="bff-submit" style={{ maxWidth: 280, margin: "0 auto" }} onClick={reset}>
-            Try a different photo <span className="arrow" aria-hidden>→</span>
-          </button>
+          {stage.reason === "insufficient_visual_evidence" && <PhotoFramingGuide />}
+          <PhotoRecoveryActions
+            className="bff-submit"
+            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked); }}
+          />
         </div>
       </div>
     );
@@ -1067,9 +1085,11 @@ export default function BFEstimatorClient() {
           </div>
           <p className="bff-msg-title">Something went wrong</p>
           <p className="bff-msg-sub">{stage.message}</p>
-          <button type="button" className="bff-submit" style={{ maxWidth: 280, margin: "0 auto" }} onClick={reset}>
-            Start over <span className="arrow" aria-hidden>→</span>
-          </button>
+          <PhotoRecoveryActions
+            className="bff-submit"
+            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked); }}
+            onRetry={stage.retryable && file ? () => { photoRecovery.started("retry"); void submit(); } : undefined}
+          />
         </div>
       </div>
     );

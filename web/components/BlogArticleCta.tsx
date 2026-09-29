@@ -340,8 +340,9 @@ export default function BlogArticleCta({
       setAssignment(null);
       return;
     }
-    setAssignment(getBlogCtaAssignment());
-  }, [experimentEligible, slug]);
+    if (platform === "unknown") return;
+    setAssignment(getBlogCtaAssignment(undefined, undefined, undefined, platform));
+  }, [experimentEligible, platform, slug]);
 
   useEffect(() => {
     if (!assignment || !rollout || platform === "unknown") return;

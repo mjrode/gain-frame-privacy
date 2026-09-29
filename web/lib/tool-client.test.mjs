@@ -242,3 +242,33 @@ test("image preprocessing rejects unsupported and oversized fallback files stabl
     (error) => error instanceof ToolClientError && error.code === "decode_failed_large",
   );
 });
+
+test("Android-style FileReader failure recovers when the selected Blob is still readable", async () => {
+  const revoked = installDecodeFailureBrowser();
+  Object.defineProperty(globalThis, "FileReader", {
+    configurable: true,
+    value: class {
+      readAsDataURL() {
+        this.error = new DOMException("The file could not be read", "NotReadableError");
+        queueMicrotask(() => this.onerror());
+      }
+    },
+  });
+  const file = new File([new Uint8Array([255, 0, 127, 128])], "photo.jpg", { type: "image/jpeg" });
+  const result = await preprocessImageForUpload(file, { allowedRawMimes: ["image/jpeg"] });
+  assert.equal(result.base64, "/wB/gA==");
+  assert.equal(result.photoMime, "image/jpeg");
+  assert.deepEqual(revoked, ["blob:test"]);
+});
+
+test("a revoked mobile file handle requires reselection instead of an endless retry", async () => {
+  const revoked = installDecodeFailureBrowser();
+  const file = new File([new Uint8Array([1])], "cloud-photo.jpg", { type: "image/jpeg" });
+  file.arrayBuffer = async () => { throw new DOMException("Access revoked", "NotReadableError"); };
+  await assert.rejects(
+    preprocessImageForUpload(file, { allowedRawMimes: ["image/jpeg"] }),
+    error => error instanceof ToolClientError && error.code === "raw_file_read_failed" &&
+      !error.retryable && /Choose it again/.test(error.message),
+  );
+  assert.deepEqual(revoked, ["blob:test"]);
+});

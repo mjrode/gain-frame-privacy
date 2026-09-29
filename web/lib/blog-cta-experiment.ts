@@ -1,9 +1,10 @@
 import type { BlogCtaIntent } from "./blog-cta.ts";
 
 export const BLOG_CTA_EXPERIMENT_ID = "blog_contextual_cta_v1";
-export const BLOG_CTA_EXPERIMENT_PHASE = "sticky_vs_editorial_inline_v2_stable_assignment";
+export const BLOG_CTA_EXPERIMENT_PHASE = "ios_inline_desktop_sticky_v3_rollout";
+// Android keeps its existing allocation; the new phase is a device rollout, not an A/B test.
 export const BLOG_CTA_EXPERIMENT_STORAGE_KEY =
-  `gainframe:experiment:blog_contextual_cta_v1:${BLOG_CTA_EXPERIMENT_PHASE}`;
+  "gainframe:experiment:blog_contextual_cta_v1:sticky_vs_editorial_inline_v2_stable_assignment";
 
 export const BLOG_CTA_VARIANTS = [
   "sticky_control",
@@ -44,6 +45,7 @@ export function getBlogCtaAssignment(
   storage: Pick<Storage, "getItem" | "setItem"> | null | undefined = undefined,
   search = typeof window === "undefined" ? "" : window.location.search,
   random = Math.random,
+  platform: "ios" | "android" | "desktop" | "unknown" = "unknown",
 ): BlogCtaAssignment {
   try {
     const forced = new URLSearchParams(search).get("gf_blog_cta_variant");
@@ -53,6 +55,10 @@ export function getBlogCtaAssignment(
   } catch {
     // A malformed query string should never block article content.
   }
+
+  // Ignore historical random choices on the two approved rollout platforms.
+  if (platform === "ios") return { variant: "editorial_inline", forced: false };
+  if (platform === "desktop") return { variant: "sticky_control", forced: false };
 
   let resolvedStorage = storage ?? null;
   if (storage === undefined && typeof window !== "undefined") {

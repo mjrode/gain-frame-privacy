@@ -38,6 +38,8 @@ export type WebAnalyticsContext = {
 };
 
 export type AnalyticsEvent =
+  | "tool_photo_recovery_started"
+  | "tool_photo_recovery_succeeded"
   | "photo_studio_export_ready"
   | "photo_studio_demo"
   | "photo_studio_error"
