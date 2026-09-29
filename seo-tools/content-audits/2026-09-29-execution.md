@@ -1,6 +1,6 @@
 # September 29 SEO execution
 
-Status: approved via `All`; implementation and release checks complete locally, deployment pending.
+Status: **shipped and verified September 29, 2026, 17:33:40 UTC**, following owner approval via `All`.
 
 ## Approved scope
 
@@ -41,7 +41,15 @@ Body Visualizer's four arms, the shared Improve/Future result CTA test, in-app e
 
 ## Deployment and indexing
 
-Pending release verification. Only exact selected files will be committed; unrelated comic, Visualizer styling, mockup and prior analytics changes remain in the shared checkout. Generated blog index/grid will come from the selected production snapshot.
+Content/code commit: `81187297b7952b79626a48b9641902da16b39fb1`.
+
+Cloudflare Workers deployment: **100%** version `4fc16e18-560c-4096-8aa0-6c00bd6fe81b`, created **2026-09-29T17:33:40.133Z**, annotated with that exact Git revision. Workers Builds, Cloudflare Pages and the GitHub build/deploy checks all succeeded. This timestamp starts the new blog rollout phase and upload-recovery observation window.
+
+Thirty production checks passed: 19 page URLs, seven article assets, the stylesheet, exact public IndexNow key, sitemap and blog index. All four new pages return 200 with correct canonical URLs; all new assets and the repaired CSS match source bytes; sitemap and blog index include all four slugs. The live RENPHO comparison has no browser console errors or mobile horizontal overflow. Local-only QA interception code is absent from production.
+
+IndexNow submitted **19 live URLs** after verification: four new comparisons, 12 edited link-source articles, and three photo-tool routes. **Yandex 202, Seznam 200, Naver 200** accepted. **Bing and Microsoft's aggregator returned 403 `UserForbiddedToAccessSite`**, continuing the existing host-authorization problem despite a valid exact key file. Do not report those two as accepted. No Google request was submitted, and new-page Google indexing has not yet been established.
+
+Evidence: `analytics/raw/2026-09-29/seo-cycle/execution/` contains the exact live checks, deployment stamp, build/test logs, submitted URLs and engine responses. The repository IndexNow log also records each endpoint. Only exact selected files were committed; unrelated comic, Visualizer styling, mockup and earlier analytics changes remain in the shared checkout. Generated blog index/grid came from the selected production snapshot.
 
 Manual Google request candidates after launch:
 

@@ -1,5 +1,7 @@
 # CTA tracking: how to read App Store click data
 
+Release: `81187297`, live **2026-09-29 17:33:40 UTC**, Worker version `4fc16e18-560c-4096-8aa0-6c00bd6fe81b`. See [execution receipt](../../seo-tools/content-audits/2026-09-29-execution.md).
+
 ## September 29, 2026: approved device rollout
 
 The owner approved all September 29 proposals. At this release the randomized

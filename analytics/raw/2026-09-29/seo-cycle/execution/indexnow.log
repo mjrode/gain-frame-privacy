@@ -1,0 +1,35 @@
+Host: gainframe.app
+Key location: https://gainframe.app/99929eeb331db70cd363352a87102acf.txt
+Key file: ok
+
+Submitting 19 URL(s)
+---
+  https://gainframe.app/blog/oxiline-scale-review/
+  https://gainframe.app/blog/hume-body-pod-review/
+  https://gainframe.app/blog/best-body-composition-scales/
+  https://gainframe.app/blog/renpho-scale-review/
+  https://gainframe.app/blog/withings-body-scan-review/
+  https://gainframe.app/blog/best-smart-scales-apple-health/
+  https://gainframe.app/blog/inbody-vs-dexa/
+  https://gainframe.app/blog/dexa-scan-alternative/
+  https://gainframe.app/blog/dexa-scan-body-fat-percentage/
+  https://gainframe.app/blog/how-long-to-see-results-from-lifting/
+  https://gainframe.app/blog/track-body-recomposition-photos/
+  https://gainframe.app/blog/before-after-comparing-progress-photos/
+  https://gainframe.app/blog/oxiline-vs-hume/
+  https://gainframe.app/blog/renpho-vs-withings/
+  https://gainframe.app/blog/withings-body-smart-vs-body-comp/
+  https://gainframe.app/blog/bod-pod-vs-dexa/
+  https://gainframe.app/tools/body-fat-from-photo/
+  https://gainframe.app/tools/ai-body-transformation/
+  https://gainframe.app/tools/body-measurements-calculator/
+---
+FAIL  https://api.indexnow.org/indexnow  HTTP 403  {"errorCode":"UserForbiddedToAccessSite","message":"User is unauthorized to access the site. Please verify the site usin
+FAIL  https://www.bing.com/indexnow  HTTP 403  {"errorCode":"UserForbiddedToAccessSite","message":"User is unauthorized to access the site. Please verify the site usin
+OK   https://yandex.com/indexnow  HTTP 202  {
+  "success":true
+}
+OK   https://search.seznam.cz/indexnow  HTTP 200
+OK   https://searchadvisor.naver.com/indexnow  HTTP 200
+
+3 of 5 endpoint(s) accepted the submission.

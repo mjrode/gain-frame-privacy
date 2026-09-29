@@ -1,0 +1,188 @@
+{
+  "checked_at": "2026-09-29T17:34:43.841215+00:00",
+  "results": [
+    {
+      "url": "https://gainframe.app/blog/oxiline-scale-review/",
+      "status": 200,
+      "bytes": 55572
+    },
+    {
+      "url": "https://gainframe.app/blog/hume-body-pod-review/",
+      "status": 200,
+      "bytes": 70751
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-composition-scales/",
+      "status": 200,
+      "bytes": 80523
+    },
+    {
+      "url": "https://gainframe.app/blog/renpho-scale-review/",
+      "status": 200,
+      "bytes": 62299
+    },
+    {
+      "url": "https://gainframe.app/blog/withings-body-scan-review/",
+      "status": 200,
+      "bytes": 66979
+    },
+    {
+      "url": "https://gainframe.app/blog/best-smart-scales-apple-health/",
+      "status": 200,
+      "bytes": 73117
+    },
+    {
+      "url": "https://gainframe.app/blog/inbody-vs-dexa/",
+      "status": 200,
+      "bytes": 70510
+    },
+    {
+      "url": "https://gainframe.app/blog/dexa-scan-alternative/",
+      "status": 200,
+      "bytes": 56485
+    },
+    {
+      "url": "https://gainframe.app/blog/dexa-scan-body-fat-percentage/",
+      "status": 200,
+      "bytes": 81446
+    },
+    {
+      "url": "https://gainframe.app/blog/how-long-to-see-results-from-lifting/",
+      "status": 200,
+      "bytes": 69725
+    },
+    {
+      "url": "https://gainframe.app/blog/track-body-recomposition-photos/",
+      "status": 200,
+      "bytes": 42694
+    },
+    {
+      "url": "https://gainframe.app/blog/before-after-comparing-progress-photos/",
+      "status": 200,
+      "bytes": 44483
+    },
+    {
+      "url": "https://gainframe.app/blog/oxiline-vs-hume/",
+      "status": 200,
+      "bytes": 63247,
+      "h1": "Oxiline vs Hume: Scale MD Pro and Body Pod Compared",
+      "canonical_correct": true,
+      "qa_wrapper_absent": true
+    },
+    {
+      "url": "https://gainframe.app/blog/renpho-vs-withings/",
+      "status": 200,
+      "bytes": 68479,
+      "h1": "RENPHO vs Withings: Which Scale Fits Apple Health?",
+      "canonical_correct": true,
+      "qa_wrapper_absent": true
+    },
+    {
+      "url": "https://gainframe.app/blog/withings-body-smart-vs-body-comp/",
+      "status": 200,
+      "bytes": 66694,
+      "h1": "Withings Body Smart vs Body Comp: Which Is Worth It?",
+      "canonical_correct": true,
+      "qa_wrapper_absent": true
+    },
+    {
+      "url": "https://gainframe.app/blog/bod-pod-vs-dexa/",
+      "status": 200,
+      "bytes": 69380,
+      "h1": "BOD POD vs DEXA: Reports, Accuracy and Repeat Testing",
+      "canonical_correct": true,
+      "qa_wrapper_absent": true
+    },
+    {
+      "url": "https://gainframe.app/tools/body-fat-from-photo/",
+      "status": 200,
+      "bytes": 52944
+    },
+    {
+      "url": "https://gainframe.app/tools/ai-body-transformation/",
+      "status": 200,
+      "bytes": 41878
+    },
+    {
+      "url": "https://gainframe.app/tools/body-measurements-calculator/",
+      "status": 200,
+      "bytes": 30307
+    },
+    {
+      "url": "https://gainframe.app/blog/oxiline-vs-hume/assets/cover.webp",
+      "status": 200,
+      "bytes": 32774,
+      "matches_source": true
+    },
+    {
+      "url": "https://gainframe.app/blog/renpho-vs-withings/assets/cover.webp",
+      "status": 200,
+      "bytes": 28068,
+      "matches_source": true
+    },
+    {
+      "url": "https://gainframe.app/blog/renpho-vs-withings/assets/integrations.webp",
+      "status": 200,
+      "bytes": 59408,
+      "matches_source": true
+    },
+    {
+      "url": "https://gainframe.app/blog/withings-body-smart-vs-body-comp/assets/cover.webp",
+      "status": 200,
+      "bytes": 27128,
+      "matches_source": true
+    },
+    {
+      "url": "https://gainframe.app/blog/withings-body-smart-vs-body-comp/assets/weight-chart.webp",
+      "status": 200,
+      "bytes": 61454,
+      "matches_source": true
+    },
+    {
+      "url": "https://gainframe.app/blog/bod-pod-vs-dexa/assets/cover.webp",
+      "status": 200,
+      "bytes": 43640,
+      "matches_source": true
+    },
+    {
+      "url": "https://gainframe.app/blog/bod-pod-vs-dexa/assets/dexa-report.webp",
+      "status": 200,
+      "bytes": 661722,
+      "matches_source": true
+    },
+    {
+      "url": "https://gainframe.app/styles/blog-post-page.css",
+      "status": 200,
+      "bytes": 94482,
+      "matches_source": true
+    },
+    {
+      "url": "https://gainframe.app/99929eeb331db70cd363352a87102acf.txt",
+      "status": 200,
+      "bytes": 32,
+      "key_exact": true
+    },
+    {
+      "url": "https://gainframe.app/sitemap.xml",
+      "status": 200,
+      "bytes": 90760,
+      "new_slugs_present": {
+        "oxiline-vs-hume": true,
+        "renpho-vs-withings": true,
+        "withings-body-smart-vs-body-comp": true,
+        "bod-pod-vs-dexa": true
+      }
+    },
+    {
+      "url": "https://gainframe.app/blog-index.json",
+      "status": 200,
+      "bytes": 374954,
+      "new_slugs_present": {
+        "oxiline-vs-hume": true,
+        "renpho-vs-withings": true,
+        "withings-body-smart-vs-body-comp": true,
+        "bod-pod-vs-dexa": true
+      }
+    }
+  ]
+}

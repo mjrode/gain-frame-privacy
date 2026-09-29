@@ -1,0 +1,237 @@
+
+> web@0.1.0 test:tools
+> node --test --experimental-strip-types lib/analytics.test.mjs lib/photo-studio.test.mjs lib/lean-body-mass.test.mjs lib/web-attribution.test.mjs lib/tool-client.test.mjs lib/tool-funnel.test.mjs lib/waist-percentiles.test.mjs lib/six-pack-timeline.test.mjs lib/body-proportions.test.mjs lib/body-visualizer.test.mjs lib/body-shape-compare.test.mjs lib/progress-photo-compare.test.mjs lib/recomp-reality-checker.test.mjs lib/winter-arc.test.mjs lib/tool-cta-experiment.test.mjs lib/body-visualizer-cta-experiment.test.mjs lib/tool-cta-assets.test.mjs lib/blog-cta.test.mjs lib/blog-cta-experiment.test.mjs lib/download-cta-context.test.mjs scripts/generate-blog-grid.test.mjs
+
+(node:40135) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/analytics.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ queues early lifecycle events until both providers are ready (1.63875ms)
+✔ replays queued events to each provider in original FIFO order (0.133208ms)
+✔ legacy consent state does not suppress page-load analytics (0.092084ms)
+✔ track isolates GA failures and still delivers to PostHog (0.086792ms)
+✔ track and captureException never propagate PostHog failures (0.154583ms)
+✔ trackOncePerDay uses the memory guard when storage writes fail (10.604583ms)
+✔ web analytics context strips query strings and keeps acquisition details (0.972917ms)
+✔ experiment assignments queue while providers load (0.091958ms)
+✔ analytics SDKs are enabled only on the production domain (0.151125ms)
+✔ Next inline-script readiness flushes early events after the SDK stub exists (37.568375ms)
+(node:40136) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/blog-cta-experiment.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ blog CTA buckets split the random range 50/50 (5.623958ms)
+✔ blog CTA assignment reuses a stored variant (0.254375ms)
+✔ dedicated QA override is forced and does not replace stable assignment (0.907792ms)
+✔ a saved choice replaces a temporary storage fallback across pages (0.147458ms)
+✔ new visitors persist their assignment immediately and reuse it on reload (0.143417ms)
+✔ blocked browser storage keeps a stable page choice without throwing (0.286792ms)
+✔ direct and QR attribution names preserve the experiment variant (0.130167ms)
+✔ clean phase ignores assignments from the contaminated phase (0.117584ms)
+✔ approved device rollout overrides old random choices without overwriting Android storage (1.49075ms)
+✔ device rollout QA remains forced and separate from the shared tool parameter (0.687834ms)
+(node:40137) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/blog-cta.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ sticky blog CTA cohorts preserve the initial 20 and expansion 59 (0.647167ms)
+✔ every sticky blog CTA has page-specific copy (0.112833ms)
+✔ every sticky CTA slug resolves to a published blog post (0.377333ms)
+✔ blog CTA experiment keeps tools isolated and measures material exposure (1.724625ms)
+(node:40138) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/body-proportions.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ converts imperial measurements to centimeters (1.748083ms)
+✔ calculates all five reference ratios and a bounded score (0.175167ms)
+✔ suggested targets preserve frame measurements and cap changes (0.112333ms)
+✔ maps tape targets to bounded regional percentage changes (0.6515ms)
+✔ rejects missing and implausible values (0.086292ms)
+(node:40139) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/body-shape-compare.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ normalizes U.S. inputs and converts display values in both directions (0.688375ms)
+✔ validates required ranges, optional body fat, and inseam coherence (0.697166ms)
+✔ builds a deterministic, bounded silhouette from proportions (0.435208ms)
+✔ reports neutral raw deltas and responds to changed measurements (0.116709ms)
+(node:40140) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/body-visualizer-cta-experiment.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ four equal allocation buckets cover boundaries without an undefined arm (2.374791ms)
+✔ the stored arm survives reloads and never consumes the site-wide assignment (0.243292ms)
+✔ all four preview links are forced and never overwrite live assignment (0.175208ms)
+✔ blocked storage is stable within the page and saved storage wins when restored (0.112875ms)
+✔ unknown stored values recover into a valid current-phase arm (0.112208ms)
+✔ preview controls can only render on exact local hostnames (0.099042ms)
+✔ copy, style, phase and outbound placement identify each treatment independently (0.146208ms)
+✔ a sliver intersecting the viewport is not a qualified exposure (0.076375ms)
+(node:40141) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/body-visualizer.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ invalid BMI never displays a default body or invalid image URL (0.821583ms)
+✔ selection advances at half-band boundaries and flags endpoints honestly (0.275333ms)
+✔ both sexes use all 30 distinct stages in ascending display order (0.9205ms)
+✔ weight slider bounds stay within supported inputs in metric and US units (0.698875ms)
+✔ every stage ships with two unique, consistently sized, bounded image files (73.593541ms)
+✔ unit conversion preserves supported endpoints through a round trip (2.296833ms)
+✔ rounding carries inches into feet instead of producing 12 inches (0.0985ms)
+✔ empty, nonfinite and fractional feet inputs cannot produce a result (0.074625ms)
+(node:40142) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/download-cta-context.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ blog CTA presentations have plain-language visual descriptions (0.637542ms)
+✔ download CTA identifiers resolve to useful Slack descriptions (0.196167ms)
+(node:40143) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/lean-body-mass.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ fat and fat-free mass partition the supplied body weight (0.705416ms)
+✔ equivalent kg and lb inputs produce equivalent tissue estimates (0.077458ms)
+✔ a range is a bounded sensitivity illustration, including zero uncertainty (0.056542ms)
+✔ rejects missing, nonfinite, and out-of-domain inputs (0.193833ms)
+✔ report example uses fat divided by total mass, and includes bone mineral in fat-free mass (0.1125ms)
+(node:40144) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/photo-studio.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ portrait crop preserves ratio and stays within the original at every pan extreme (2.216208ms)
+✔ reverse-drawn selection maps through a zoomed crop into source pixels (0.88375ms)
+✔ region clamping prevents covers extending outside the image (0.06675ms)
+✔ blur changes detailed pixels without mutating the source or introducing transparency (0.16175ms)
+✔ blur matches a reference box blur including edge clamping (0.263333ms)
+✔ dates reject impossible input and remain stable across timezones (12.448208ms)
+✔ unsupported formats and oversized files are rejected (0.193791ms)
+(node:40145) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/progress-photo-compare-tracking.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ accepts declared photo formats and rejects other image MIME types (2.383917ms)
+✔ clamps invalid and out-of-range alignment controls (0.108375ms)
+✔ cover placement keeps portrait images inside the frame while panning (0.73825ms)
+✔ shared zoom creates predictable pan room in both directions (0.066708ms)
+✔ export layouts preserve a 4:5 frame in every comparison mode (0.098125ms)
+✔ export filenames are deterministic and date-safe (4.222792ms)
+✔ only two personal images qualify as a personal result (0.091625ms)
+✔ sample and mixed comparisons never emit a personal result event (0.2135ms)
+✔ exports distinguish demo usage without sending filenames, labels or dates (0.155375ms)
+✔ optional export labels validate dates, preserve calendar days and bound text (22.387792ms)
+✔ wipe captions follow the after image on the left (0.106833ms)
+(node:40146) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/recomp-reality-checker.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ classifies a stable-weight, smaller-waist pattern as likely recomp (1.11425ms)
+✔ allows a rising-weight recomp pattern only with leaner and performance support (0.094375ms)
+✔ assigns high confidence to four agreeing recomp signals over eight weeks (0.092458ms)
+✔ classifies agreeing downward weight and waist signals as likely cut (0.127292ms)
+✔ classifies agreeing upward signals as likely surplus without claiming tissue gain (0.155458ms)
+✔ returns mixed evidence when weight and waist directly disagree (0.065583ms)
+✔ does not call stable measurements a recomp solely because performance improved (0.059792ms)
+✔ a consistent downward body-fat estimate can add the missing leaner signal (0.068209ms)
+✔ an upward body-fat estimate blocks a cut call even when weight and waist fall (0.08025ms)
+✔ threshold boundaries are directional while values just inside remain neutral (0.752209ms)
+✔ validates the 4 to 12 week boundary and requires whole weeks (0.077542ms)
+✔ requires both optional body-fat values and rejects out-of-range estimates (0.055625ms)
+✔ rejects invalid and mismatched-unit inputs with structured errors (0.220417ms)
+✔ assessment output is deterministic and always includes a non-medical boundary (0.107209ms)
+(node:40147) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/six-pack-timeline.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ uses sex-specific defined-abs thresholds (2.097ms)
+✔ calculates a range from photo uncertainty and adherence (0.526ms)
+✔ returns zero weeks when the full estimate range is already at target (1.010125ms)
+✔ flags a selected pace above one percent of bodyweight per week (7.085709ms)
+✔ rejects impossible inputs (0.230458ms)
+(node:40148) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/tool-client.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ web tool usage payload contains only completion metadata (1.223792ms)
+✔ web tool usage reports immediately in production and skips local QA (3.097ms)
+✔ fetchWithTimeout classifies a timed-out request (5.367875ms)
+✔ fetchWithTimeout distinguishes network failures (0.26575ms)
+✔ validatedJson rejects a malformed successful response (23.857041ms)
+✔ image preprocessing falls back to original supported bytes and MIME (0.590916ms)
+✔ image preprocessing allows provider-supported HEIC raw fallback (0.17075ms)
+✔ image preprocessing rejects unsupported and oversized fallback files stably (0.942166ms)
+✔ Android-style FileReader failure recovers when the selected Blob is still readable (0.243542ms)
+✔ a revoked mobile file handle requires reselection instead of an endless retry (0.19525ms)
+(node:40149) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/tool-cta-assets.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ shared tool CTA images use fingerprints matching their content (4.884125ms)
+✔ ToolConversionCard references both versioned shared image URLs (7.108583ms)
+(node:40150) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/tool-cta-experiment.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ tool CTA buckets split the random range evenly (0.758916ms)
+✔ tool CTA assignment reuses a stored variant (0.765875ms)
+✔ retired Track assignments migrate to an active variant and survive reload (0.13325ms)
+✔ a retired Track QA override cannot render the retired variant (0.125625ms)
+✔ QA override is marked forced and does not replace stable assignment (0.108709ms)
+✔ a saved choice replaces a temporary storage fallback across pages (0.119834ms)
+✔ new visitors persist their assignment immediately and reuse it on reload (0.086833ms)
+✔ blocked browser storage keeps a stable page choice without throwing (0.088083ms)
+✔ every major result card uses the same complete message-angle experiment (0.261583ms)
+✔ result-specific facts are safely interpolated into the matching copy (0.171042ms)
+✔ clean phase ignores assignments from the contaminated phase (0.095ms)
+(node:40151) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/tool-funnel.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ normalizes legacy calculator slugs into stable funnel ids (0.654375ms)
+✔ recognizes body-fat visualizer query and hash journeys without treating attribution as a result (0.262708ms)
+✔ emits the typed funnel event with controlled tool and step fields (0.721333ms)
+(node:40152) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/waist-percentiles.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ swrBand matches the published men's chart boundaries (0.68275ms)
+✔ swrWomenBand matches the published women's target zone (0.064583ms)
+✔ whrBand applies the men's cutoffs from the published chart (0.064209ms)
+✔ whrBand applies the women's cutoffs from the published chart (0.068416ms)
+✔ whtrBand boundaries are unchanged (0.065666ms)
+(node:40153) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/web-attribution.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ builds the stable iOS deferred-deep-link mapping on page load (2.339792ms)
+✔ download attribution does not wait for a consent decision (0.223792ms)
+✔ custom product page routing survives attribution and direct fallback (0.257166ms)
+✔ invalid product page identifiers fail closed to the default listing (0.079958ms)
+✔ anonymous PostHog identity fails closed for email-like values (0.084958ms)
+✔ derives first-touch traffic source without leaking referrer URLs (0.048458ms)
+✔ only GainFrame download destinations are rewritten (0.058375ms)
+✔ preserves the exact event key and CTA for tool_result_improve (0.122958ms)
+✔ preserves the exact event key and CTA for tool_result_improve_qr (0.114542ms)
+(node:40154) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/lib/winter-arc.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /private/var/folders/nb/t8d_2kpj0054t_45t5zkwh3c0000gp/T/gainframe-seo-0929-ba0jgat1/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 90 inclusive days include the baseline, weekly photos, and final comparison (2.676958ms)
+✔ date arithmetic survives leap days, year boundaries, and daylight saving (1.901125ms)
+✔ invalid or normalized dates and invalid goals are rejected (0.213209ms)
+✔ default date uses October 1 before autumn and the local day afterward (0.084875ms)
+✔ calendar exports complete all-day events with exclusive end dates and RFC line folding (3.567958ms)
+✔ downloadable checklist contains every date, the setup, and the app destination (11.332917ms)
+✔ founder story cards use the configured versioned cover (4.197334ms)
+✔ cards preserve absolute cover URLs and explicit card overrides (0.146375ms)
+✔ cards without a configured image keep the default cover path (0.060959ms)
+✔ splits the current archive into eight 30-post pages (0.712417ms)
+✔ pagination links page one directly back to the canonical blog URL (0.091291ms)
+✔ generated cards escape frontmatter before it reaches the HTML archive (0.068208ms)
+ℹ tests 145
+ℹ suites 0
+ℹ pass 145
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 584.743708

@@ -1,0 +1,92 @@
+
+> web@0.1.0 prebuild
+> node scripts/optimize-images.mjs && node scripts/generate-comics-manifest-js.mjs && node scripts/generate-blog-grid.mjs
+
+[optimize-images] converted=0 skipped=1931 errors=0
+[generate-comics-manifest-js] wrote 233 entries to ../docs/assets/tiktok/comic/comics-manifest.js
+[blog-grid] Wrote 30 initial cards + 272-post deferred index
+
+> web@0.1.0 build
+> next build
+
+▲ Next.js 16.2.4 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1458ms
+  Running TypeScript ...
+  Finished TypeScript in 3.2s ...
+  Collecting page data using 13 workers ...
+  Generating static pages using 13 workers (0/576) ...
+  Generating static pages using 13 workers (144/576)
+  Generating static pages using 13 workers (288/576)
+  Generating static pages using 13 workers (432/576)
+✓ Generating static pages using 13 workers (576/576) in 1997ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /admin
+├ ○ /alien
+├ ○ /blog
+├ ● /blog/[slug]
+│ ├ /blog/10-pounds-fat-vs-muscle
+│ ├ /blog/1000-mrr-five-months
+│ ├ /blog/1500-mrr-better-problems
+│ └ [+269 more paths]
+├ ● /blog/page/[page]
+│ ├ /blog/page/2
+│ ├ /blog/page/3
+│ ├ /blog/page/4
+│ └ [+6 more paths]
+├ ○ /body-fat
+├ ● /body-fat/[slug]
+│ ├ /body-fat/8-percent-body-fat-male
+│ ├ /body-fat/10-percent-body-fat-male
+│ ├ /body-fat/12-percent-body-fat-male
+│ └ [+11 more paths]
+├ ○ /comics
+├ ● /comics/[slug]
+│ ├ /comics/how-often-should-you-train
+│ ├ /comics/how-many-exercises-do-you-need
+│ ├ /comics/how-many-warm-up-sets
+│ └ [+230 more paths]
+├ ○ /community-guidelines
+├ ○ /connected-diary-terms
+├ ○ /features
+├ ○ /get
+├ ○ /giveaway
+├ ○ /landing-v2
+├ ○ /leaderboard
+├ ○ /leaderboard/member
+├ ○ /privacy
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+├ ○ /tools
+├ ● /tools/[slug]
+│ ├ /tools/body-fat-estimator
+│ ├ /tools/body-fat-visualizer
+│ ├ /tools/calorie-deficit-calculator
+│ └ [+7 more paths]
+├ ○ /tools/ab-analyzer
+├ ○ /tools/ai-body-transformation
+├ ○ /tools/body-fat-from-photo
+├ ○ /tools/body-measurements-calculator
+├ ○ /tools/body-visualizer
+├ ○ /tools/gym-photo-privacy-editor
+├ ○ /tools/lean-body-mass-calculator
+├ ○ /tools/physique-rater
+├ ○ /tools/progress-photo-compare
+├ ○ /tools/progress-photo-timelapse-maker
+├ ○ /tools/recomp-reality-checker
+├ ○ /tools/six-pack-timeline
+├ ○ /tools/winter-arc-planner
+├ ○ /trainers
+├ ○ /trainers/thanks
+├ ○ /unsubscribe
+└ ○ /wilmington
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)

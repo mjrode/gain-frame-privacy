@@ -1,5 +1,7 @@
 # Blog contextual CTA experiment
 
+Release: `81187297`, live **2026-09-29 17:33:40 UTC**, Worker version `4fc16e18-560c-4096-8aa0-6c00bd6fe81b`. See [execution receipt](../../seo-tools/content-audits/2026-09-29-execution.md).
+
 Prepared 2026-09-02; assignment repaired 2026-09-11; device rollout approved
 2026-09-29. Current phase: `ios_inline_desktop_sticky_v3_rollout` for
 `blog_contextual_cta_v1`. The v2 randomized phase is closed by this release.

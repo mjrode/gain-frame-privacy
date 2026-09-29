@@ -1,5 +1,7 @@
 # Photo upload recovery, September 29, 2026
 
+Release: `81187297`, live **2026-09-29 17:33:40 UTC**, Worker version `4fc16e18-560c-4096-8aa0-6c00bd6fe81b`. See [execution receipt](../../seo-tools/content-audits/2026-09-29-execution.md).
+
 Applies to the photo body-fat estimator and the shared transformation client,
 including its measurements mode. The server, safety rejection rules, raw MIME
 allowlist, size limits, request timeouts, rate limits and result CTAs are unchanged.
