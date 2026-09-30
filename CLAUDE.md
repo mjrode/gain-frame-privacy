@@ -1,5 +1,17 @@
 # gain-frame-privacy
 
+## Communication style (applies to all replies)
+
+Always write replies to the user in ASD-STE100 Simplified Technical English:
+
+- Use the active voice.
+- Keep sentences short: no more than 20 words in an instruction, no more than
+  25 words in a description.
+- Give only one instruction in each sentence.
+- Use simple, approved words. Use one word for one meaning.
+- Use vertical lists to present complex data.
+- Start safety-related items with a clear command.
+
 ## Repo layout
 
 | Path | Purpose |
