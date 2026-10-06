@@ -1,0 +1,63 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #181a17;
+  border-radius: 8px;
+  background: #fffdf7;
+  color: #181a17;
+  font: 600 14px/1.4 "DM Sans", sans-serif;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button svg { flex-shrink: 0; }
+.button:hover { background: #e5f5e9; }
+.button:focus-visible { outline: 3px solid #0f8b43; outline-offset: 4px; }
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 24px;
+  padding: 28px 20px;
+  border-top: 1px solid rgba(24, 26, 23, 0.2);
+  background: #f3f0e8;
+  color: #181a17;
+  font: 400 14px/1.5 "DM Sans", sans-serif;
+  text-align: center;
+}
+
+.footer p { margin: 0; }
+
+/* Keep the footer link clear of the blog's floating app promotion. */
+:global(body.has-blog-sticky-cta) .footer { padding-bottom: 80px; }
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px 28px;
+  margin: 40px 0;
+  padding: 24px;
+  border: 1px solid rgba(24, 26, 23, 0.2);
+  border-radius: 8px;
+  background: #fffdf7;
+  color: #181a17;
+  font-family: "DM Sans", sans-serif;
+}
+
+.card > div { flex: 1 1 280px; }
+.card h2 { margin: 0 0 8px; font-size: 20px; line-height: 1.3; }
+.card p { margin: 0; color: #5e625d; font-size: 15px; line-height: 1.6; }
+
+@media (max-width: 600px) {
+  .card { padding: 20px; }
+  .card .button { width: 100%; }
+}

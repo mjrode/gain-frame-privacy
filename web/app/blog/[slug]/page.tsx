@@ -12,6 +12,7 @@ import AuthorByline from "@/components/AuthorByline";
 import ByLine from "@/components/ByLine";
 import PostTable from "@/components/PostTable";
 import BlogArticleCta from "@/components/BlogArticleCta";
+import { GooglePreferredSourceCard } from "@/components/GooglePreferredSource";
 import WaistPercentile from "@/components/WaistPercentile";
 import ShoulderToWaistRatioCalculator from "@/components/ShoulderToWaistRatioCalculator";
 import WaistToHeightRatioCalculator from "@/components/WaistToHeightRatioCalculator";
@@ -239,6 +240,8 @@ export default async function BlogPostPage({
           <PostHeader frontmatter={frontmatter} cover={cover} />
 
           <article className="post-body">{content}</article>
+
+          <GooglePreferredSourceCard />
 
           <BlogArticleCta intent={ctaIntent} slug={slug} />
 
