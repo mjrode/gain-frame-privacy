@@ -1,0 +1,33 @@
+{
+  "query": "WITH a AS (SELECT distinct_id,argMin(properties.experiment_variant,timestamp) v,min(timestamp) t FROM events WHERE timestamp >= toDateTime('2026-09-15 19:27:22','UTC') AND timestamp < toDateTime('2026-10-06 12:04:08','UTC') AND properties.$host IN ('gainframe.app','www.gainframe.app') AND properties.experiment_id='body_visualizer_cta_v1' AND properties.experiment_phase='four_treatments_v1' AND coalesce(properties.experiment_forced,false)=false AND properties.platform IN ('ios','desktop') AND event='tool_cta_viewed' GROUP BY distinct_id HAVING uniq(properties.experiment_variant)=1), e AS (SELECT distinct_id,event,timestamp FROM events WHERE timestamp >= toDateTime('2026-09-15 19:27:22','UTC') AND timestamp < toDateTime('2026-10-06 12:04:08','UTC') AND properties.$host IN ('gainframe.app','www.gainframe.app') AND event IN ('outbound_app_store_click','web_download_clicked','$exception','tool_cta_dismissed') AND properties.$pathname='/tools/body-visualizer/') SELECT a.v,count(DISTINCT a.distinct_id) mature_viewers,uniqIf(a.distinct_id,e.event='outbound_app_store_click' AND e.timestamp>=a.t AND e.timestamp<a.t+INTERVAL 24 HOUR) store_clickers,uniqIf(a.distinct_id,e.event='$exception' AND e.timestamp>=a.t AND e.timestamp<a.t+INTERVAL 24 HOUR) exception_people,uniqIf(a.distinct_id,e.event='tool_cta_dismissed' AND e.timestamp>=a.t AND e.timestamp<a.t+INTERVAL 24 HOUR) dismissers FROM a LEFT JOIN e ON a.distinct_id=e.distinct_id WHERE a.t<=toDateTime('2026-10-05 12:04:08','UTC') GROUP BY a.v LIMIT 4",
+  "rows": [
+    [
+      "progress",
+      2164,
+      134,
+      11,
+      15
+    ],
+    [
+      "analysis",
+      2032,
+      293,
+      16,
+      14
+    ],
+    [
+      "direct",
+      2196,
+      53,
+      21,
+      9
+    ],
+    [
+      "future",
+      2114,
+      72,
+      12,
+      8
+    ]
+  ]
+}

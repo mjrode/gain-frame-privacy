@@ -32,7 +32,7 @@ export function useBodyVisualizerCta() {
         BODY_VISUALIZER_CTA_QUERY,
       );
       setAssignment({
-        variant: isBodyVisualizerCtaVariant(requested) ? requested : "direct",
+        variant: isBodyVisualizerCtaVariant(requested) ? requested : "analysis",
         forced: true,
       });
     } else {

@@ -1,0 +1,34 @@
+{
+  "posts": [],
+  "fixes": [
+    {
+      "id": "F1",
+      "page": "/tools/body-visualizer/",
+      "action": "Roll out the existing Personal analysis treatment (headline \u201cSee your body breakdown.\u201d; body \u201cBody fat + muscle in the app.\u201d; button \u201cAnalyze my photo\u201d) to eligible iOS and desktop users. Close four_treatments_v1 with this frozen readout and start deterministic phase analysis_rollout_v2; preserve Android email behavior, forced QA exclusions, the current campaign/placement attribution contract, and separate shared-tool Improve/Future assignment. Retain desktop QR attribution. Run the existing assignment/link tests, mobile and desktop rendering checks, production build and live checks before shipping.",
+      "reason": "286/2,032 mature clickers (14.07%) versus direct 47/2,196 (2.14%), +557.6% relative. More than 14 days and 1,600 viewers per arm; adjusted control comparison passes. All-event crossover exclusion leaves 286/2,032 versus 47/2,195. This is a web-click rollout, not an install or revenue winner.",
+      "role": "Tool activation -> App Store click. The same tool produced 5,331 weekly result people and 200 Store-click people."
+    },
+    {
+      "id": "F2",
+      "page": "body-fat-visible-jawline-men",
+      "action": "Add a 40\u201360 word Quick Answer (currently 0) explaining that facial appearance cannot establish an exact body-fat percentage, results vary with facial structure and fat distribution, and comparable photos are more useful than a promised threshold. Replace the four face-type percentage targets and the numerical jawline deadlines with qualitative variation and uncertainty; remove the FAQ claim that a few percentage points \u201cwill get you there.\u201d Align the visible FAQs and FAQPage JSON. Set title/ogTitle/twitterTitle/Article headline to \u201cBody Fat Percentage and Jawline Definition: What Varies\u201d; description and Article description to \u201cLearn how body fat, facial structure and photo conditions affect jawline appearance, why exact percentage targets vary, and how to compare progress photos.\u201d Preserve the existing body-photo estimator link and its explicit inability to measure face fat. Keep the sibling face-fat-and-body-fat focused on general face changes; no merge or new URL.",
+      "reason": "289 search clicks / 24,080 impressions. DataForSEO records rank-1 AI references for face-percentage variants; the live SERP cites the existing general face-fat sibling. The target has a missing answer and unsupported precision, so this is an accuracy/extraction repair despite a -48% annual head-keyword trend.",
+      "role": "Informational discovery and citation quality -> /tools/body-fat-from-photo/. One Store clicker among 358 canonical-path visitors is directional; no conversion-lift claim."
+    },
+    {
+      "id": "F3",
+      "page": "skinny-fat-to-muscular",
+      "action": "Replace the 61-word Quick Answer with a counted 40\u201360 word summary of the existing resistance-training, nutrition and repeatable-progress-tracking sections. Remove claims that stored fat guarantees muscle growth or that the scale \u201clies.\u201d Synchronize all seven visible FAQ answers with FAQPage JSON (seven mismatches), convert reader-visible long dashes, and add a contextual \u201ccompare standardized progress photos\u201d link from the tracking section to /tools/progress-photo-compare/. Preserve title and description.",
+      "reason": "46 clicks / 5,504 impressions; seven inbound links. DataForSEO records AI references for skinny-fat transformation/recomposition queries. Live results include an AI Overview, imagery, coaching guides and forums; qualify the guidance instead of promising a fixed transformation deadline.",
+      "role": "Recomposition education -> personal-photo comparison activation. Zero direct Store clickers among 98 canonical-path visitors; the comparison tool has five personal-result people in the latest week, so this remains a small supporting path."
+    },
+    {
+      "id": "F4",
+      "page": "average-thigh-size (inbound links only)",
+      "action": "Add contextual links IN average-hip-size-women using \u201caverage thigh and calf measurements\u201d, IN average-waist-size-men using \u201cthigh circumference reference\u201d, and IN ideal-body-measurements-men using \u201caverage thigh and calf sizes\u201d. All three point TO /blog/average-thigh-size/. Use the body-measurement/proportion passages, not only Related Articles. Keep the existing how-to-take-body-measurements inbound. Preserve target metadata and content; validate the three touched source articles, including necessary schema/style parity.",
+      "reason": "787 clicks / 79,849 impressions, but only one inbound link. \u201cthigh measurement\u201d has 1,342 impressions at 7.9 and current US volume 880; its KD is no data. Mechanical title overlap: hip source .364 (5 inbound), waist-men .250 (17 inbound); the hub is a deliberate contextual addition (10 inbound).",
+      "role": "Strengthen a proven measurement reference and its existing link back to ideal-body-measurements-men, which supports /tools/body-fat-visualizer/. Zero direct Store clickers among 817 page visitors; the job is discovery and internal navigation."
+    }
+  ],
+  "held_prior_approval": "September 29 P5, MacroFactor Workouts vs Hevy; October 21 age gate / around October 24 settled read"
+}

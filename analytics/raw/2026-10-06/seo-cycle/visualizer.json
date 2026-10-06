@@ -1,0 +1,111 @@
+{
+  "experiment": "body_visualizer_cta_v1",
+  "phase": "four_treatments_v1",
+  "status": "ready_for_fixed_horizon_review",
+  "elapsed_days": 20.69,
+  "target_viewers_per_arm": 1600,
+  "sample_ratio_mismatch_p": 0.08058554071883518,
+  "variants": [
+    {
+      "variant": "direct",
+      "assigned": 2376,
+      "viewers": 2196,
+      "clickers": 47,
+      "ctr": 0.021402550091074682,
+      "relative_lift": null,
+      "p_value_vs_control": null,
+      "qualifies_vs_control": false
+    },
+    {
+      "variant": "analysis",
+      "assigned": 2215,
+      "viewers": 2032,
+      "clickers": 286,
+      "ctr": 0.140748031496063,
+      "relative_lift": 5.576227173730943,
+      "p_value_vs_control": 5.659390237775047e-47,
+      "qualifies_vs_control": true
+    },
+    {
+      "variant": "progress",
+      "assigned": 2354,
+      "viewers": 2164,
+      "clickers": 128,
+      "ctr": 0.059149722735674676,
+      "relative_lift": 1.7636764069689699,
+      "p_value_vs_control": 2.167110933230362e-10,
+      "qualifies_vs_control": true
+    },
+    {
+      "variant": "future",
+      "assigned": 2294,
+      "viewers": 2114,
+      "clickers": 66,
+      "ctr": 0.03122043519394513,
+      "relative_lift": 0.4587250145936914,
+      "p_value_vs_control": 0.043738839198205176,
+      "qualifies_vs_control": false
+    }
+  ],
+  "platform_segments": [
+    {
+      "variant": "future",
+      "platform": "ios",
+      "viewers": 1465,
+      "clickers": 50,
+      "ctr": 0.034129692832764506
+    },
+    {
+      "variant": "direct",
+      "platform": "ios",
+      "viewers": 1562,
+      "clickers": 34,
+      "ctr": 0.02176696542893726
+    },
+    {
+      "variant": "direct",
+      "platform": "desktop",
+      "viewers": 634,
+      "clickers": 13,
+      "ctr": 0.02050473186119874
+    },
+    {
+      "variant": "progress",
+      "platform": "ios",
+      "viewers": 1524,
+      "clickers": 90,
+      "ctr": 0.05905511811023622
+    },
+    {
+      "variant": "analysis",
+      "platform": "desktop",
+      "viewers": 584,
+      "clickers": 59,
+      "ctr": 0.10102739726027397
+    },
+    {
+      "variant": "future",
+      "platform": "desktop",
+      "viewers": 649,
+      "clickers": 16,
+      "ctr": 0.02465331278890601
+    },
+    {
+      "variant": "progress",
+      "platform": "desktop",
+      "viewers": 640,
+      "clickers": 38,
+      "ctr": 0.059375
+    },
+    {
+      "variant": "analysis",
+      "platform": "ios",
+      "viewers": 1448,
+      "clickers": 227,
+      "ctr": 0.15676795580110497
+    }
+  ],
+  "note": "Mature 24-hour web-click conversion only. No install claim. Three comparisons against A, not proof of differences between challengers.",
+  "start": "2026-09-15T19:27:22.736891+00:00",
+  "generated_at": "2026-10-06T12:04:08.495309+00:00"
+}

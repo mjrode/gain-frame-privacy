@@ -2,6 +2,109 @@
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
 
+## October 6, 2026: F1-F4 approved and validated
+
+**Latest decision record:** [October 6 audit](2026-10-06.md). Owner approved **All**:
+F1-F4 only, no new posts. Implementation passed scoped checks and the selected-source
+production build. See [execution receipt](2026-10-06-execution.md) for release,
+indexing and exact measurement boundaries. Older notes below are historical.
+
+- **Search:** final through October 3. September 6–October 3 versus August 9–September 5:
+  **44,743 / 19,729 clicks (+126.8%)**, disclosed nonbrand **20,669 / 6,722 (+207.5%)**,
+  brand **711 / 715**. Latest week **13,206 / 12,151 (+8.7%)**. Tools/directory
+  **28,256 clicks**, blog **14,970**. GA4 Organic Search **44,115 / 17,992 sessions**;
+  collection changed September 11, so behavioral pre/post comparisons remain descriptive.
+- **Indexing/inventory:** **54/54 inspected URLs indexed**, including all four September 29
+  comparisons. Those four have **5 clicks / 526 impressions** and remain young. Inventory
+  **272 posts, 1,571 internal links, zero broken links, no SEO-lane orphans**. All seven
+  orphans are founder/product pieces; skip an SEO link-cleanup batch for them.
+- **Cluster bets:** tools and measurement references remain strongest. Body Visualizer
+  **16,807 search clicks**; Winter Arc Planner **406**, its article **156**. Latest full
+  website week September 29–October 5: planner **262 result people, 164 exporters,
+  30 Store clickers**, plus 10 Android-email people. Existing seasonal assets are working;
+  do not create another planner, privacy editor or timelapse tool.
+- **Protect commercial owners:** `best-ai-body-fat-apps` drops **470 -> 325 clicks** while
+  position improves **5.69 -> 4.90** and CTR improves **7.67% -> 8.54%**. It still has
+  **35 Store clickers / 377 canonical-path visitors**. This is not demonstrated rank loss;
+  no retitle proposed. Exact plural market keyword has no current provider record.
+- **Rating ownership:** `rate-my-physique` **158 -> 55 clicks**, but the tool takes
+  **458** disclosed `rate my physique` clicks versus article **15**, and `rate my body`
+  **345 versus 6**. Fifty shared queries confirm overlap, not a reason to delete useful
+  explanation or add a sibling. Preserve September 16 bridge observation through October 14,
+  settled around October 17. Rating-cluster blog decline is not a tool-conversion decline.
+
+### Approved scope F1-F4
+
+| Item | Concrete decision | Business job and evidence |
+|---|---|---|
+| **F1, first** | Body Visualizer: roll out existing **Analyze my photo** to eligible iOS/desktop, close `four_treatments_v1`, create deterministic `analysis_rollout_v2`; preserve Android/email behavior, QR/direct attribution and the separate Improve/Future test. 142 tool tests, 10 report tests, desktop/mobile/Android browser checks and the 576-page build passed. | Mature web clickers **286/2,032 (14.07%)** versus Direct **47/2,196 (2.14%)**; 20.69 days and all arms above 1,600. SRM p=.0806. Removing all-event crossovers leaves **286/2,032 versus 47/2,195**. Store-click sensitivity supports it; exact native arrivals **9 vs 5** are too sparse for install/paid claims. |
+| **F2** | `body-fat-visible-jawline-men`: add missing 40–60 word answer, replace precise face-type BF targets/deadlines with uncertainty, correct matching FAQs, use the exact title/description in the audit. Keep general face-fat sibling distinct. | **289 clicks / 24,080 impressions**, provider-recorded AI references; one Store clicker / 358 canonical-path visitors. Supports the photo estimator with its explicit inability to measure facial fat. Accuracy/citation job, not promised conversion lift. |
+| **F3** | `skinny-fat-to-muscular`: 61-word answer -> 40–60; correct seven FAQ/schema mismatches and visible long dashes; remove guarantees and add “compare standardized progress photos” -> `/tools/progress-photo-compare/`. Preserve title/description apart from required dash punctuation; remove the misleading Twitter scale claim. | **46 clicks / 5,504 impressions**, provider-recorded AI references, zero Store clickers / 98 canonical-path visitors. Supports repeatable personal-photo comparison; current comparison tool has five weekly result people. |
+| **F4** | Add contextual links **from** `average-hip-size-women`, `average-waist-size-men`, `ideal-body-measurements-men` **to** `average-thigh-size`, using the exact anchors in the audit. Target metadata/content stay unchanged. | **787 clicks / 79,849 impressions**, only one inbound link. Measurement discovery/internal navigation; zero Store clickers / 817 visitors. Target already returns readers to measurement hub -> Body Fat Visualizer. |
+
+**No new post proposed.** Fresh US DataForSEO and five saved live SERPs support these decisions:
+Hevy app review **480/KD12/+84% yearly** held because the sample is community/store/review
+platforms and existing review-family evidence is two impressions; Fitbod review
+**1,000/KD2/-28%** held because the map's site-specific brand-query gate is unmet and no original
+test was collected. Do not turn these holds into approved work. The prior approved
+**MacroFactor Workouts vs Hevy remains held** to October 21 age / around October 24 settled read;
+fresh volume is 30, with **KD and yearly trend no data**, not the previous KD reused.
+
+Exact-query targets for fixes: `body fat percentage face` **140 / KD no data / -48% yearly**;
+`skinny fat to muscular` **390 / KD10 / -19%**; `thigh measurement` **880 / KD no data /
+yearly no data**, with 1,342 GSC impressions at 7.9. These are repairs to established owners,
+not new declining-market expansion. The live face query cites `face-fat-and-body-fat`;
+database rank-1 jawline references are a separate, earlier observation.
+
+### What was tried and what remains under observation
+
+- September 29 upload recovery is active: estimator **107 recovery starters / 40 later
+  recoveries / 42 later results**; transformation **92 / 42 / 48** through October 5.
+  Android raw-file errors remain (estimator 19 people, transformation 10). Do not call
+  recovery eliminated errors or attribute a before/after change causally.
+- Shared Improve/Future stays collecting: **2,955 / 2,939 exposed**, below **4,600/arm**.
+  New blog rollout remains separate from old randomized v2: iOS **36/1,753 assigned**
+  clickers, desktop **3/788**, six complete post-release calendar days. First seven-day
+  read September 30–October 6, available October 7. QR visibility is not a scan.
+- Twenty DataForSEO calls; 113 unique keywords requested, 96 returned. Missing records,
+  difficulty and yearly trends remain no data. The 1,271 AI-reference total is provider
+  database visibility, not a live-verified citation census. Top sample answer blocks are
+  healthy; targeted deficiency slice identifies F2/F3. Broad nutrition/medical competitor
+  gaps are outside this product's content priorities.
+- October 1 operating records still identify first-period product value/return as the
+  constraint. No new App Store Connect/RevenueCat financial read here. Annual-price
+  original D28 October 13, shared $9.99 monthly phase earliest D28 around October 24.
+
+### October 6 release observation
+
+Hold the jawline metadata for ten days after the verified deployment timestamp.
+First complete rollout week: October 7-13; two weeks: October 7-20. Review v2
+assignment, exposures, clicks, errors, QR visibility and exact native arrivals
+separately from frozen v1. Full content window: October 7-November 3, settled GSC
+around November 6. F4 also includes source dash/schema repairs, so label it a
+combined internal-link/editorial change. Target `average-thigh-size` remains untouched.
+
+### Measurement windows to carry forward
+
+| Posts / change | Fair observation date |
+|---|---|
+| September 3 `dexa-scan-body-fat-percentage`, `inbody-vs-dexa` | Settled full 28-day window now available; protect ownership. |
+| September 6 `arboleaf-scale-review`, `bodyspec-review`, `cronometer-vs-macrofactor`, `evolt-360-body-scan-accuracy`, `gravl-app-review`, `hume-vs-renpho`, `oxiline-scale-review`, `styku-body-scan-accuracy`, `weight-watchers-body-scanner-review`, `zozofit-review` | Age 28 October 4; full September 7–October 4 data not yet final, read around **October 7**. |
+| September 7 `rirlift-vs-hevy` | Full days through October 5, settled around **October 8**. |
+| September 26 `average-bicep-size` snippet | Ten days October 6 at release time; final data only through October 3. Read around **October 9**. |
+| September 16 `gravl-vs-fitbod`, Lean Body Mass Calculator, rating bridge | October 14 age/full-window checkpoint; settled around **October 17**. |
+| September 19 `winter-arc-challenge`, Winter Arc Planner | October 17; settled around **October 20**. |
+| September 21 progress-photo/physique refresh | Full September 22–October 19; settled around **October 22**. |
+| September 23 `blur-faces-iphone-gym-photos`, `fitbod-vs-hevy`, `hume-vs-withings`, `macrofactor-workouts-review`, `pump-vs-no-pump-progress-photos`, Privacy Editor, Timelapse Maker | October 21 age gate; settled around **October 24**. |
+| September 24 `best-ai-fitness-apps-for-athletes`, `bicep-length`, `body-fat-scale-third-party-app-ios`, `body-scanning-platforms-for-coaches`, `meta-muse-fitness-tracking`, `meta-muse-workout-plan`, `shoulder-to-hip-ratio` | October 22 age gate; settled around **October 25**. |
+| September 29 `oxiline-vs-hume`, `renpho-vs-withings`, `withings-body-smart-vs-body-comp`, `bod-pod-vs-dexa` | October 27 age gate; settled full-day read around **October 30**. |
+
+The full dated audit includes all recent post rows, exact fix replacements/anchors, live result
+URLs and features, business denominators, limitations and approval syntax. No recurring follow-up
+was created. Preserve prior first-person device-test/caliper holds; do not revive a page factory.
+
+---
+
 > **September 29 execution, approved `all`:** Four comparisons (Oxiline/Hume, RENPHO/Withings, Body Smart/Comp, BOD POD/DEXA), their exact inbound links, F1 device rollout, F2 upload recovery and F3 Winter Arc links are live in `81187297` as of **September 29, 17:33:40 UTC**. All 30 production checks passed. IndexNow accepted by Yandex, Seznam and Naver; Bing/aggregator remain 403. Google indexing of the new pages is not yet established. Deployment and indexing status: [execution receipt](2026-09-29-execution.md). P5 MacroFactor Workouts vs Hevy is **approved but held** until the October 21 age gate and settled read around October 24. No fifth draft or URL exists. New articles have a 28-day age gate of October 27, with settled GSC around October 30.
 > **New blog phase:** `ios_inline_desktop_sticky_v3_rollout`. iOS inline, desktop sticky, Android prior choices preserved. Desktop clipping discovered in visual QA is repaired and must be annotated as a separate rendering change. Do not pool this deterministic rollout with the completed randomized phase or claim its device subgroup was independently powered. Body Visualizer and shared tool result experiments remain unchanged.
 

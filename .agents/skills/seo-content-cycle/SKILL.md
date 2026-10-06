@@ -62,6 +62,27 @@ section in the same commit.
 | PostHog (`mcp__c90fac73-…__*`) | Available, project `seoreceipts` by default — **switch to GainFrame before querying**. **The GainFrame data lives in project `357433` ("Default project", GainFrame org) and contains BOTH app and website events** — verified 2026-08-13 with `outbound_app_store_click` (671/14d), `bf_tool_*`, `physique_rater_*`, `waist_tool_calculated` all present. The 2026-08-11/12 runs recorded "zero events" — that was a wrong-scope query, not missing instrumentation. If the MCP connector only exposes render-ui, query the REST API directly: `POSTHOG_PERSONAL_API_KEY` in `~/.zshrc`, `POST us.posthog.com/api/projects/357433/query/` with a HogQLQuery (build the JSON in a python file — nested bash quoting corrupts `$pathname` escapes). Never record PostHog as unavailable without querying project 357433 via REST first | Landing-page conversion paths: tool results, email submissions, and App Store clicks. Use in every decision run when available |
 | `seo-tools/content-inventory.mjs` | **Working.** No network, no model | Every local fact: link graph, orphans, cannibalization, freshness, Quick Answer lengths |
 
+### Source checks verified 2026-10-06
+
+- October 6 owner approval closes Body Visualizer `four_treatments_v1` and rolls
+  Personal analysis out to eligible iOS/desktop in `analysis_rollout_v2`.
+  Use the frozen October 6 12:04:08 UTC v1 snapshot for the decision; later
+  reruns against `now()` are not the same cohort. Old open tabs can still emit
+  v1 events after rollout. Exact release boundary belongs in the execution receipt.
+
+- Build the recent-post inspection list from `content-inventory.mjs`'s
+  `posts[].published`. Many posts put `datePublished` only in JSON-LD; a grep
+  for a top-level YAML `datePublished:` silently omitted the September 29 batch.
+- URL Inspection can return HTTP 500 `Internal error encountered.` for an
+  indexed URL. Retry those failed reads up to twice, separately from successful
+  inspections. On October 6 all six transient failures recovered (one needed
+  both retries). An API failure is an unavailable verdict, never evidence of
+  non-indexation or an unknown URL.
+- There is no normalized `tool_funnel_error` event in the website contract.
+  Read `bf_tool_error`, `bt_tool_error`, the tool-specific unusable events, and
+  `tool_photo_recovery_started` / `tool_photo_recovery_succeeded`. An empty query
+  for an invented normalized error event is not evidence that uploads work.
+
 ### Source checks verified 2026-09-29
 
 - Use `https://www.googleapis.com/auth/webmasters.readonly` for the direct GSC analytics and URL-inspection fallback. Resolve the key from local Codex `mcp_servers.gsc.env.GSC_CREDENTIALS_PATH`; never print it. The configured path still matches the documented service-account file.

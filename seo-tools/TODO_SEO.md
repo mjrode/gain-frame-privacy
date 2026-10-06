@@ -6,6 +6,15 @@ This file tracks keyword targets for blog posts and comparison articles. Items a
 
 When a post is published, replace `[ ]` with `[x]` and append ` — published YYYY-MM-DD as /blog/[slug]/`.
 
+## October 6 approved fixes
+
+- [x] **F1 Body Visualizer analysis rollout** - implemented October 6; `analysis_rollout_v2` for eligible iOS/desktop, Android email and shared Improve/Future preserved. Deployment receipt: [October 6 execution](content-audits/2026-10-06-execution.md).
+- [x] **F2 jawline accuracy and extraction repair** - `/blog/body-fat-visible-jawline-men/`: 49-word Quick Answer, qualified face variation and timelines, matched FAQs and approved metadata.
+- [x] **F3 recomp accuracy and extraction repair** - `/blog/skinny-fat-to-muscular/`: 51-word Quick Answer, seven matched FAQs, corrected guarantees and contextual photo-comparison link.
+- [x] **F4 thigh-guide contextual inbounds** - links from `average-hip-size-women`, `average-waist-size-men` and `ideal-body-measurements-men`; destination article unchanged. Necessary source style/schema parity repairs included.
+- [ ] **October 6 measurement** - hold jawline metadata for ten days after verified deployment; first complete content window October 7-November 3, settled around November 6. Body Visualizer first complete week October 7-13, then October 7-20. Keep randomized v1 frozen and new rollout separate.
+- [ ] **October 6 Google recrawl requests** - manual URLs and endpoint receipts in the execution record. IndexNow is not Google submission.
+
 ## September 29 approved batch
 
 - [x] oxiline vs hume (US 390, KD 0, comparison-article-generator) - approved September 29; /blog/oxiline-vs-hume/.

@@ -1,0 +1,9 @@
+{
+  "query": "SELECT count() groups,countIf(n>1) crossover FROM (SELECT distinct_id, properties.$session_id,uniq(properties.experiment_variant) n FROM events WHERE timestamp >= toDateTime('2026-09-15 19:27:22','UTC') AND timestamp < toDateTime('2026-10-06 12:04:08','UTC') AND properties.$host IN ('gainframe.app','www.gainframe.app') AND properties.experiment_id='body_visualizer_cta_v1' AND properties.experiment_phase='four_treatments_v1' AND coalesce(properties.experiment_forced,false)=false AND properties.platform IN ('ios','desktop') AND event IN ('tool_cta_assigned','tool_cta_viewed','tool_cta_clicked') GROUP BY distinct_id, properties.$session_id)",
+  "rows": [
+    [
+      10230,
+      5
+    ]
+  ]
+}

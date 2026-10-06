@@ -2,6 +2,40 @@
 
 Release: `81187297`, live **2026-09-29 17:33:40 UTC**, Worker version `4fc16e18-560c-4096-8aa0-6c00bd6fe81b`. See [execution receipt](../../seo-tools/content-audits/2026-09-29-execution.md).
 
+## October 6, 2026: Body Visualizer analysis rollout
+
+Owner approval: `All`, October 6. Eligible iOS and desktop visitors now receive
+Personal analysis: **See your body breakdown.** / **Body fat + muscle in the app.** /
+**Analyze my photo**. The experiment ID remains `body_visualizer_cta_v1`;
+`four_treatments_v1` closes and deterministic `analysis_rollout_v2` begins at the
+verified production deployment. See the [execution receipt](../../seo-tools/content-audits/2026-10-06-execution.md)
+for that exact timestamp and revision.
+
+The frozen decision snapshot is [visualizer.json](../../analytics/raw/2026-10-06/seo-cycle/visualizer.json),
+collected October 6 at 12:04:08 UTC after 20.69 days. Mature 24-hour clickers:
+Analysis 286/2,032 (14.07%), Direct 47/2,196 (2.14%), Progress 128/2,164 (5.91%),
+Future 66/2,114 (3.12%). All arms exceeded 1,600 mature viewers and 14 days.
+Analysis versus Direct passed the registered adjusted comparison; SRM p=.0806.
+Excluding all-event crossovers leaves Analysis 286/2,032 versus Direct 47/2,195.
+This establishes a web-click decision. Sparse exact native arrivals do not
+establish install or paid-conversion lift.
+
+The rollout ignores old visualizer assignment storage without deleting it.
+Android remains outside this experiment with its existing email form and
+`atlas_v6_android` placement. Shared Improve/Future assignment is unchanged.
+Explicit `bv_cta` overrides remain forced and excluded; local preview defaults
+to Analysis and is also forced. Historical four-treatment reports must stay
+filtered to v1; use the frozen snapshot for this decision, not a later rerun of
+its helper against `now()`. Old open tabs can still emit v1 events after release.
+
+Campaign remains `web-body-visualizer`. Both direct and desktop QR paths use
+`atlas_v6_analysis_rollout_v2_analysis`; QR companion-link suffixes and unique
+click keys retain their existing meanings. QR visibility is not a scan or click.
+Keep current assignment/view/click events and material-exposure rules, segment
+by platform, and never pool the deterministic rollout with the randomized test.
+Review first complete 7/14 days for exposure, clicks, exceptions, QR visibility
+and exact native joins separately. Do not interpret before/after rates causally.
+
 ## September 29, 2026: approved device rollout
 
 The owner approved all September 29 proposals. At this release the randomized

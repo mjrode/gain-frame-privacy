@@ -1,0 +1,25 @@
+{
+  "query": "WITH good AS (SELECT distinct_id FROM events WHERE timestamp >= toDateTime('2026-09-15 19:27:22','UTC') AND timestamp < toDateTime('2026-10-06 12:04:08','UTC') AND properties.$host IN ('gainframe.app','www.gainframe.app') AND properties.experiment_id='body_visualizer_cta_v1' AND properties.experiment_phase='four_treatments_v1' AND coalesce(properties.experiment_forced,false)=false AND properties.platform IN ('ios','desktop') AND event IN ('tool_cta_assigned','tool_cta_viewed','tool_cta_clicked') GROUP BY distinct_id HAVING uniq(properties.experiment_variant)=1),v AS (SELECT distinct_id,argMin(properties.experiment_variant,timestamp) variant,min(timestamp) t FROM events WHERE timestamp >= toDateTime('2026-09-15 19:27:22','UTC') AND timestamp < toDateTime('2026-10-06 12:04:08','UTC') AND properties.$host IN ('gainframe.app','www.gainframe.app') AND properties.experiment_id='body_visualizer_cta_v1' AND properties.experiment_phase='four_treatments_v1' AND coalesce(properties.experiment_forced,false)=false AND properties.platform IN ('ios','desktop') AND event='tool_cta_viewed' AND distinct_id IN (SELECT distinct_id FROM good) GROUP BY distinct_id), c AS (SELECT distinct_id,properties.experiment_variant variant,timestamp FROM events WHERE timestamp >= toDateTime('2026-09-15 19:27:22','UTC') AND timestamp < toDateTime('2026-10-06 12:04:08','UTC') AND properties.$host IN ('gainframe.app','www.gainframe.app') AND properties.experiment_id='body_visualizer_cta_v1' AND properties.experiment_phase='four_treatments_v1' AND coalesce(properties.experiment_forced,false)=false AND properties.platform IN ('ios','desktop') AND event='tool_cta_clicked') SELECT v.variant,uniq(v.distinct_id) viewers,uniqIf(v.distinct_id,c.distinct_id!='' AND c.timestamp>=v.t AND c.timestamp<v.t+INTERVAL 24 HOUR) clickers FROM v LEFT JOIN c ON v.distinct_id=c.distinct_id AND v.variant=c.variant WHERE v.t<=toDateTime('2026-10-05 12:04:08','UTC') GROUP BY v.variant LIMIT 4",
+  "rows": [
+    [
+      "progress",
+      2163,
+      128
+    ],
+    [
+      "analysis",
+      2032,
+      286
+    ],
+    [
+      "direct",
+      2195,
+      47
+    ],
+    [
+      "future",
+      2114,
+      66
+    ]
+  ]
+}
