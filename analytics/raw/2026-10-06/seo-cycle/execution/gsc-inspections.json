@@ -1,0 +1,2438 @@
+[
+  {
+    "url": "https://gainframe.app/blog/absmaxx-vs-gainframe/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=rV0IQ1L5bcAJGp-h4Nj95Q&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-10-01T03:57:36Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/absmaxx-vs-gainframe/",
+          "userCanonical": "https://gainframe.app/blog/absmaxx-vs-gainframe/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/recomp-ai-vs-gainframe/",
+            "https://gainframe.app/blog"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/ai-body-fat-estimator-accuracy-dexa-test/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=35CSqH1q-ZrA50LVLRfPZQ&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-08-25T01:11:19Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/ai-body-fat-estimator-accuracy-dexa-test/",
+          "userCanonical": "https://gainframe.app/blog/ai-body-fat-estimator-accuracy-dexa-test/",
+          "referringUrls": [
+            "https://gainframe.app/blog/inbody-vs-dexa/",
+            "https://gainframe.app/blog/",
+            "https://gainframe.app/blog"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/arboleaf-scale-review/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=PBFJZ6__6nGhno9mxpwA_g&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-06T15:21:10Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/arboleaf-scale-review/",
+          "userCanonical": "https://gainframe.app/blog/arboleaf-scale-review/",
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/are-smart-scales-worth-it/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=U8MsazHs_D81QH5asPyDZQ&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T11:27:32Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/are-smart-scales-worth-it/",
+          "userCanonical": "https://gainframe.app/blog/are-smart-scales-worth-it/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/",
+            "https://gainframe.app/blog/renpho-gainframe-integration/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/average-hip-size-women/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=AuaTou62Y9kAA38EjbMQow&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-25T05:03:08Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/average-hip-size-women/",
+          "userCanonical": "https://gainframe.app/blog/average-hip-size-women/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/page/3/",
+            "https://gainframe.app/blog/how-to-take-body-measurements/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/average-waist-size-men/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=P0cbW6qclb8TI6fIRi_13Q&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-26T10:32:54Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/average-waist-size-men/",
+          "userCanonical": "https://gainframe.app/blog/average-waist-size-men/",
+          "referringUrls": [
+            "https://gainframe.app/blog/how-long-does-it-take-to-lose-belly-fat/",
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/best-ai-fitness-apps-for-athletes/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=eceMRr5UtP15kBWtMY2Wtg&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T16:36:24Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/best-ai-fitness-apps-for-athletes/",
+          "userCanonical": "https://gainframe.app/blog/best-ai-fitness-apps-for-athletes/",
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/best-smart-scales-apple-health/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=TpNgMBOVMwi4J8hY4391eg&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-28T18:34:57Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/best-smart-scales-apple-health/",
+          "userCanonical": "https://gainframe.app/blog/best-smart-scales-apple-health/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/",
+            "https://gainframe.app/blog/renpho-gainframe-integration/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/bicep-length/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=NMP2MBZJd_-P7P589btEmw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T16:36:23Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/bicep-length/",
+          "userCanonical": "https://gainframe.app/blog/bicep-length/",
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/blur-faces-iphone-gym-photos/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=RMFidos6MDaQKgP-YDW-zA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T00:33:21Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/blur-faces-iphone-gym-photos/",
+          "userCanonical": "https://gainframe.app/blog/blur-faces-iphone-gym-photos/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/bod-pod-vs-dexa/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=SC66BsGUcYVMJhGIKYEDQA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-30T00:49:40Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/bod-pod-vs-dexa/",
+          "userCanonical": "https://gainframe.app/blog/bod-pod-vs-dexa/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/sitemap.xml",
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/body-composition-experiment/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=R-emY4pTu1jIoLsNZY9Kxw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-27T17:17:22Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/body-composition-experiment/",
+          "userCanonical": "https://gainframe.app/blog/body-composition-experiment/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/",
+            "https://gainframe.app/blog/stop-weighing-yourself-daily/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/body-fat-scale-third-party-app-ios/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=_gKaXzHmynEjqN5EMQiAjQ&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T16:36:23Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/body-fat-scale-third-party-app-ios/",
+          "userCanonical": "https://gainframe.app/blog/body-fat-scale-third-party-app-ios/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/body-fat-visible-jawline-men/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=cuiY85jaPQ627Vv0ZNxRvw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-25T13:44:56Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/body-fat-visible-jawline-men/",
+          "userCanonical": "https://gainframe.app/blog/body-fat-visible-jawline-men/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/body-scanning-platforms-for-coaches/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=2S4baDM4OWHeG5bKjn443Q&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T16:36:24Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/body-scanning-platforms-for-coaches/",
+          "userCanonical": "https://gainframe.app/blog/body-scanning-platforms-for-coaches/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/bodyspec-review/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=ZHXkM9pdt-trFG9iBDcEIA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-06T16:41:51Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/bodyspec-review/",
+          "userCanonical": "https://gainframe.app/blog/bodyspec-review/",
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/cronometer-vs-macrofactor/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=xoc9iSbo12LSdiAhMLCcQw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-30T21:29:23Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/cronometer-vs-macrofactor/",
+          "userCanonical": "https://gainframe.app/blog/cronometer-vs-macrofactor/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/deep-dive-compare/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=P9960qXgNpOzK5q1stpH7w&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-30T08:35:42Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/deep-dive-compare/",
+          "userCanonical": "https://gainframe.app/blog/deep-dive-compare/",
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/dexa-scan-body-fat-percentage/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=QZmq7Guef4hpecKkhUACAQ&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-09T03:42:06Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/dexa-scan-body-fat-percentage/",
+          "userCanonical": "https://gainframe.app/blog/dexa-scan-body-fat-percentage/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/evolt-360-body-scan-accuracy/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=ZAFXrEZT5y8ZkOMDK0eSlQ&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-06T15:17:09Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/evolt-360-body-scan-accuracy/",
+          "userCanonical": "https://gainframe.app/blog/evolt-360-body-scan-accuracy/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/inbody-vs-dexa/",
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/first-1000-mrr-next-920/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=yI_SfEcGfxppFspqkFsyQw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-30T16:00:42Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/first-1000-mrr-next-920/",
+          "userCanonical": "https://gainframe.app/blog/first-1000-mrr-next-920/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/fitbod-vs-hevy/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=xNIBs4-hHeiXOvxjAj7OuA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T00:33:21Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/fitbod-vs-hevy/",
+          "userCanonical": "https://gainframe.app/blog/fitbod-vs-hevy/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/free-tools-app-growth/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=NT0oJmkSlNA7fH1m27yC7A&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-16T00:35:49Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/free-tools-app-growth/",
+          "userCanonical": "https://gainframe.app/blog/free-tools-app-growth/",
+          "referringUrls": [
+            "https://gainframe.app/blog/",
+            "https://www.reddit.com/r/AppBusiness/comments/1wh8uuq/free_tools_brought_9923_google_clicks_to_my_apps/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/gainframe-leaderboard-nutrition-tracking/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=99Sthbm0ct846rUr0d66aA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-21T21:09:31Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/gainframe-leaderboard-nutrition-tracking/",
+          "userCanonical": "https://gainframe.app/blog/gainframe-leaderboard-nutrition-tracking/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/",
+            "https://www.reddit.com/r/gainframe/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/gravl-app-review/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=onmiz0R_DSe0pOhjAUyxCg&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-06T15:17:09Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/gravl-app-review/",
+          "userCanonical": "https://gainframe.app/blog/gravl-app-review/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/gravl-vs-fitbod/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=DZicWqpjCOjlu4uLfhEdHg&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-17T00:33:22Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/gravl-vs-fitbod/",
+          "userCanonical": "https://gainframe.app/blog/gravl-vs-fitbod/",
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/hume-vs-renpho/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=uGoRligKHHVYS7pW204_QA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-06T15:19:09Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/hume-vs-renpho/",
+          "userCanonical": "https://gainframe.app/blog/hume-vs-renpho/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/hume-vs-withings/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=all5na_YYx1UXwpDm1hEeg&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T00:33:21Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/hume-vs-withings/",
+          "userCanonical": "https://gainframe.app/blog/hume-vs-withings/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/",
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/ideal-body-measurements-men/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=uN9rnnlsComO4jClr-4ixg&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-10-01T05:10:20Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/ideal-body-measurements-men/",
+          "userCanonical": "https://gainframe.app/blog/ideal-body-measurements-men/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/",
+            "https://gainframe.app/blog/average-forearm-size/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/inbody-vs-dexa/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=hlqISxGApzR4C53-FFwKLw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-03T16:50:10Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/inbody-vs-dexa/",
+          "userCanonical": "https://gainframe.app/blog/inbody-vs-dexa/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/bod-pod-vs-dexa/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/macrofactor-workouts-review/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=loVZF0Of1DfLvRzn1vravg&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-10-01T16:18:55Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/macrofactor-workouts-review/",
+          "userCanonical": "https://gainframe.app/blog/macrofactor-workouts-review/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/meta-muse-fitness-tracking/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=FM_Pil2DyR_QfrabYFuOWw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T16:36:24Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/meta-muse-fitness-tracking/",
+          "userCanonical": "https://gainframe.app/blog/meta-muse-fitness-tracking/",
+          "referringUrls": [
+            "https://gainframe.app/blog/",
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/meta-muse-workout-plan/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=Z1_8N4QQJ71qU8HR58K8Zg&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T16:36:24Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/meta-muse-workout-plan/",
+          "userCanonical": "https://gainframe.app/blog/meta-muse-workout-plan/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/",
+            "https://gainframe.app/blog/meta-muse-fitness-tracking/",
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/oxiline-scale-review/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=wTC2Yg0glcSMmVZ4et_rdw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-10-01T17:21:17Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/oxiline-scale-review/",
+          "userCanonical": "https://gainframe.app/blog/oxiline-scale-review/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/oxiline-vs-hume/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=4MugpgdCvjyAnBIborBD_w&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-30T00:49:41Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/oxiline-vs-hume/",
+          "userCanonical": "https://gainframe.app/blog/oxiline-vs-hume/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/sitemap.xml",
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/pump-vs-no-pump-progress-photos/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=G1m6XsHK8-vXZc7Tn3_AGg&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T00:33:21Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/pump-vs-no-pump-progress-photos/",
+          "userCanonical": "https://gainframe.app/blog/pump-vs-no-pump-progress-photos/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/renpho-gainframe-integration/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=zVP9UMlwvl1p1J4YVjAcww&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-27T16:29:06Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/renpho-gainframe-integration/",
+          "userCanonical": "https://gainframe.app/blog/renpho-gainframe-integration/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/renpho-vs-withings/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=xPrR8Ma4KKX9prRsNizzDA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-30T00:49:41Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/renpho-vs-withings/",
+          "userCanonical": "https://gainframe.app/blog/renpho-vs-withings/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/withings-body-smart-vs-body-comp/",
+            "https://gainframe.app/sitemap.xml",
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/rirlift-vs-hevy/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=GAYNTl5l3wM3cT3B4izYSw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-10-04T02:20:41Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/rirlift-vs-hevy/",
+          "userCanonical": "https://gainframe.app/blog/rirlift-vs-hevy/",
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/seo-weekly-audit-loop/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=fS-H5MpVUWgC7RgA3Ec5ng&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-21T13:46:56Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/seo-weekly-audit-loop/",
+          "userCanonical": "https://gainframe.app/blog/seo-weekly-audit-loop/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/shoulder-to-hip-ratio/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=Pz82fyoKsE_ArLi0GA1vHA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T16:36:23Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/shoulder-to-hip-ratio/",
+          "userCanonical": "https://gainframe.app/blog/shoulder-to-hip-ratio/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/skinny-fat-to-muscular/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=P-UPh8QTY_ymkA22Xr_OYA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-10-03T02:46:02Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/skinny-fat-to-muscular/",
+          "userCanonical": "https://gainframe.app/blog/skinny-fat-to-muscular/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/how-to-lean-bulk-without-gaining-fat/",
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/stuck-around-2000-mrr/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=JOWaExjgpJ-j0c0MLhkfmA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-11T00:41:03Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/stuck-around-2000-mrr/",
+          "userCanonical": "https://gainframe.app/blog/stuck-around-2000-mrr/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/styku-body-scan-accuracy/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=_tor-I_HGzN2hzle4pA8QQ&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-06T16:41:51Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/styku-body-scan-accuracy/",
+          "userCanonical": "https://gainframe.app/blog/styku-body-scan-accuracy/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/the-velocity-advantage/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=O9pXSYsEzsrCrnIk9hs5Dg&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-08-22T15:27:18Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/the-velocity-advantage/",
+          "userCanonical": "https://gainframe.app/blog/the-velocity-advantage/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/thelo-app-review/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=DItitrWyAtwVz707fVjAjQ&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-26T09:47:20Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/thelo-app-review/",
+          "userCanonical": "https://gainframe.app/blog/thelo-app-review/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/",
+            "https://gainframe.app/blog/best-ai-personal-trainer-apps/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/weight-watchers-body-scanner-review/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=M2pKvau0g3Lh7loSFUYg3g&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-21T11:52:59Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/weight-watchers-body-scanner-review/",
+          "userCanonical": "https://gainframe.app/blog/weight-watchers-body-scanner-review/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/winter-arc-challenge/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=1Ade6VcFMl15_JSb5fxYLw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-24T11:42:29Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/winter-arc-challenge/",
+          "userCanonical": "https://gainframe.app/blog/winter-arc-challenge/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/tools/winter-arc-planner/",
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/withings-body-smart-vs-body-comp/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=7a8t9Yt-KZKh3EJIen7Zrg&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-30T00:49:40Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/withings-body-smart-vs-body-comp/",
+          "userCanonical": "https://gainframe.app/blog/withings-body-smart-vs-body-comp/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/sitemap.xml",
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/blog/zozofit-review/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=h_KiRQbhQLjICbVUlALjcQ&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-21T09:54:11Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/blog/zozofit-review/",
+          "userCanonical": "https://gainframe.app/blog/zozofit-review/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/tools/body-fat-estimator/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=LIWZcoLJlL5G5WKyvFElPQ&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-10-03T15:21:07Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/tools/body-fat-estimator/",
+          "userCanonical": "https://gainframe.app/tools/body-fat-estimator/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/tools/ffmi-calculator/",
+            "https://gainframe.app/tools/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/tools/body-fat-from-photo/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=UTjsa9J4nA9lqZ6DzBC-Ig&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-10-06T10:53:40Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/tools/body-fat-from-photo/",
+          "userCanonical": "https://gainframe.app/tools/body-fat-from-photo/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/body-fat-from-photo-app/",
+            "https://gainframe.app/tools/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/tools/body-visualizer/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=NXNkFJUZCa1vsK1FFpFxlw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-10-06T10:51:41Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/tools/body-visualizer/",
+          "userCanonical": "https://gainframe.app/tools/body-visualizer/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/tools"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/tools/gym-photo-privacy-editor/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=o-x6h8GtSQgY5R5Vi5SSXA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-30T20:59:44Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/tools/gym-photo-privacy-editor/",
+          "userCanonical": "https://gainframe.app/tools/gym-photo-privacy-editor/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/tools/lean-body-mass-calculator/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=INCm-D6-mJsrSyzllpz32Q&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-23T16:14:06Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/tools/lean-body-mass-calculator/",
+          "userCanonical": "https://gainframe.app/tools/lean-body-mass-calculator/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/tools/physique-rater/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=drYgU0Rl5KoDCcYZeMIMAA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-10-01T07:52:22Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/tools/physique-rater/",
+          "userCanonical": "https://gainframe.app/tools/physique-rater/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/tools/ab-analyzer/",
+            "https://gainframe.app/tools/",
+            "https://gainframe.app/blog/am-i-skinny-fat-quiz/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/tools/progress-photo-compare/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=rjCZW-ydkQ8ZO5W5IHufRw&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-15T15:28:53Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/tools/progress-photo-compare/",
+          "userCanonical": "https://gainframe.app/tools/progress-photo-compare/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/hume-vs-renpho/",
+            "https://gainframe.app/tools/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/tools/progress-photo-timelapse-maker/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=3n5loziLGSoZVDmhYFDBOA&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-09-23T16:58:18Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/tools/progress-photo-timelapse-maker/",
+          "userCanonical": "https://gainframe.app/tools/progress-photo-timelapse-maker/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        }
+      }
+    },
+    "attempts": 1
+  },
+  {
+    "url": "https://gainframe.app/tools/winter-arc-planner/",
+    "status": 200,
+    "response": {
+      "inspectionResult": {
+        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:gainframe.app&id=U2pHuZeN9DCeElBITOO94Q&utm_medium=link&utm_source=api",
+        "indexStatusResult": {
+          "verdict": "PASS",
+          "coverageState": "Submitted and indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-10-01T11:49:16Z",
+          "pageFetchState": "SUCCESSFUL",
+          "googleCanonical": "https://gainframe.app/tools/winter-arc-planner/",
+          "userCanonical": "https://gainframe.app/tools/winter-arc-planner/",
+          "sitemap": [
+            "https://gainframe.app/sitemap.xml"
+          ],
+          "referringUrls": [
+            "https://gainframe.app/blog/winter-arc-challenge/"
+          ],
+          "crawledAs": "MOBILE"
+        },
+        "mobileUsabilityResult": {
+          "verdict": "VERDICT_UNSPECIFIED"
+        },
+        "richResultsResult": {
+          "verdict": "PASS",
+          "detectedItems": [
+            {
+              "richResultType": "Breadcrumbs",
+              "items": [
+                {
+                  "name": "Unnamed item"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "attempts": 1
+  }
+]

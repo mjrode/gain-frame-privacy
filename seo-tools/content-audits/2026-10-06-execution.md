@@ -1,6 +1,6 @@
 # October 6 SEO execution
 
-Status: **implementation validated; deployment pending**, following owner approval via `All`.
+Status: **shipped and verified October 6, 2026, 13:16:11 UTC**, following owner approval via `All`.
 
 ## Approved scope
 
@@ -28,8 +28,15 @@ Frozen evidence: `analytics/raw/2026-10-06/seo-cycle/visualizer.json` and the `p
 
 ## Deployment and indexing
 
-Pending exact release commit, Workers version, deployment timestamp and live checks.
-IndexNow will be submitted after all six affected URLs return 200 and the public key matches exactly. Google requests are manual; acceptance by another engine does not prove recrawling.
+Release commit: `15ef1dc912dbfc3c4ba812a2d5f378323fb14a1f`. Workers deployment **100%** version `a13c8ee5-e9eb-4dc6-a29e-72f9b83ea518` at **2026-10-06T13:16:11.009384Z**, annotated with that exact Git revision. Workers Builds and all GitHub build/deploy/Pages checks succeeded. This is the phase boundary; a later records-only commit does not restart it.
+
+All **six affected URLs return 200** with correct canonicals. The approved jawline metadata, both new Quick Answers, photo-comparison link and three thigh links are present. Live JavaScript contains `analysis_rollout_v2`; the live browser shows unforced Analysis with no QA controls, and no console errors. The public blog search index matches selected source bytes. The public IndexNow key is an exact 32-byte match with no newline. Screenshot: `analytics/raw/2026-10-06/seo-cycle/execution/visualizer-live.png`.
+
+IndexNow submitted these six URLs at October 6, 13:17 UTC: **Yandex 202, Seznam 200, Naver 200 accepted**. **Bing and api.indexnow.org returned 403 UserForbiddedToAccessSite**, continuing the existing site-authorization failure. The helper log and repository's ignored CSV both recorded each endpoint. Acceptance is a notification receipt, not evidence of crawling.
+
+The post-release Search Console sweep inspected **59 distinct URLs, all PASS / Submitted and indexed**, including all six updated pages and the original 54-page sample. Existing crawl timestamps do not establish that Google has fetched today's revisions. No Google indexing request was sent. No sitemap resubmission was needed.
+
+Exact deployment, live checks, browser evidence, engine receipts and Search Console results are saved under `analytics/raw/2026-10-06/seo-cycle/execution/`. The temporary selected-source build and its separate dependency installation were removed after verification; unrelated working-copy changes remain untouched.
 
 Manual Google recrawl list:
 
@@ -42,4 +49,4 @@ Manual Google recrawl list:
 
 ## Measurement
 
-The verified deployment starts the new visualizer phase and ten-day jawline metadata hold. First full rollout week: October 7-13; first two weeks: October 7-20. Review exposures, web clicks, errors, QR visibility and exact native arrivals separately by platform. QR visibility is not a scan. Full content read: October 7-November 3, settled GSC around November 6. Source-article editorial cleanup accompanies F4, so this is not a pure link-only causal test. No recurring automation was created.
+The verified deployment starts the new visualizer phase. Preserve jawline metadata through **October 16 at 13:16:11 UTC**. First full rollout week: October 7-13; first two weeks: October 7-20. Review exposures, web clicks, errors, QR visibility and exact native arrivals separately by platform. QR visibility is not a scan. Full content read: October 7-November 3, settled GSC around November 6. Source-article editorial cleanup accompanies F4, so this is not a pure link-only causal test. No recurring automation was created.

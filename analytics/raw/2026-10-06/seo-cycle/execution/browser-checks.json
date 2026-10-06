@@ -1,0 +1,61 @@
+{
+  "desktop": {
+    "viewport": [
+      1440,
+      1000
+    ],
+    "phase": "analysis_rollout_v2",
+    "variant": "analysis",
+    "local_forced": true,
+    "live_forced": false,
+    "live_preview_controls": 0,
+    "qr_present": true,
+    "card_bounds": [
+      745.7265625,
+      678.8203125,
+      1175,
+      749.8203125
+    ],
+    "campaign": "web-body-visualizer",
+    "placement": "atlas_v6_analysis_rollout_v2_analysis",
+    "direct_and_qr_keys_distinct": true
+  },
+  "ios_simulated": {
+    "viewport": [
+      390,
+      844
+    ],
+    "phase": "analysis_rollout_v2",
+    "variant": "analysis",
+    "qr_present": false,
+    "page_overflow": false
+  },
+  "android_simulated": {
+    "viewport": [
+      390,
+      844
+    ],
+    "email_form_present": true,
+    "experiment_attributes_absent": true,
+    "page_overflow": false,
+    "submitted": false
+  },
+  "articles": {
+    "body-fat-visible-jawline-men": {
+      "viewport": [
+        390,
+        844
+      ],
+      "page_overflow": false
+    },
+    "skinny-fat-to-muscular": {
+      "viewport": [
+        390,
+        844
+      ],
+      "page_overflow": false,
+      "comparison_link": "/tools/progress-photo-compare/"
+    }
+  },
+  "limitations": "Mobile branch checks used a temporary local user-agent injection before hydration. No physical-device or fresh-install test. QA wrapper was absent from shipped source and live assets."
+}

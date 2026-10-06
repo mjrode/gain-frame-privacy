@@ -2,11 +2,11 @@
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
 
-## October 6, 2026: F1-F4 approved and validated
+## October 6, 2026: F1-F4 shipped
 
 **Latest decision record:** [October 6 audit](2026-10-06.md). Owner approved **All**:
-F1-F4 only, no new posts. Implementation passed scoped checks and the selected-source
-production build. See [execution receipt](2026-10-06-execution.md) for release,
+F1-F4 only, no new posts. Live in `15ef1dc9` since **October 6, 13:16:11 UTC**. Checks passed; all six URLs
+return 200. IndexNow accepted 3/5; the post-release GSC sweep is 59/59 PASS. See [execution receipt](2026-10-06-execution.md) for release,
 indexing and exact measurement boundaries. Older notes below are historical.
 
 - **Search:** final through October 3. September 6–October 3 versus August 9–September 5:
@@ -77,7 +77,7 @@ database rank-1 jawline references are a separate, earlier observation.
 
 ### October 6 release observation
 
-Hold the jawline metadata for ten days after the verified deployment timestamp.
+Hold the jawline metadata through **October 16 at 13:16:11 UTC**.
 First complete rollout week: October 7-13; two weeks: October 7-20. Review v2
 assignment, exposures, clicks, errors, QR visibility and exact native arrivals
 separately from frozen v1. Full content window: October 7-November 3, settled GSC

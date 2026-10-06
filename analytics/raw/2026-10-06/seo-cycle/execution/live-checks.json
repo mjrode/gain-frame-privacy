@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-10-06T13:16:52.087889+00:00",
+  "checks": [
+    {
+      "url": "https://gainframe.app/tools/body-visualizer/",
+      "status": 200,
+      "canonical": "https://gainframe.app/tools/body-visualizer/",
+      "verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/body-fat-visible-jawline-men/",
+      "status": 200,
+      "canonical": "https://gainframe.app/blog/body-fat-visible-jawline-men/",
+      "verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/skinny-fat-to-muscular/",
+      "status": 200,
+      "canonical": "https://gainframe.app/blog/skinny-fat-to-muscular/",
+      "verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/average-hip-size-women/",
+      "status": 200,
+      "canonical": "https://gainframe.app/blog/average-hip-size-women/",
+      "verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/average-waist-size-men/",
+      "status": 200,
+      "canonical": "https://gainframe.app/blog/average-waist-size-men/",
+      "verified": true
+    },
+    {
+      "url": "https://gainframe.app/blog/ideal-body-measurements-men/",
+      "status": 200,
+      "canonical": "https://gainframe.app/blog/ideal-body-measurements-men/",
+      "verified": true
+    },
+    {
+      "url": "https://gainframe.app/99929eeb331db70cd363352a87102acf.txt",
+      "status": 200,
+      "exact_key": true
+    },
+    {
+      "url": "https://gainframe.app/blog-index.json",
+      "status": 200,
+      "matches_source": true
+    }
+  ]
+}

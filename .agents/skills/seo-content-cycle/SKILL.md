@@ -65,7 +65,8 @@ section in the same commit.
 ### Source checks verified 2026-10-06
 
 - October 6 owner approval closes Body Visualizer `four_treatments_v1` and rolls
-  Personal analysis out to eligible iOS/desktop in `analysis_rollout_v2`.
+  Personal analysis out to eligible iOS/desktop in `analysis_rollout_v2`, live
+  **2026-10-06T13:16:11.009384Z** (`15ef1dc9`).
   Use the frozen October 6 12:04:08 UTC v1 snapshot for the decision; later
   reruns against `now()` are not the same cohort. Old open tabs can still emit
   v1 events after rollout. Exact release boundary belongs in the execution receipt.

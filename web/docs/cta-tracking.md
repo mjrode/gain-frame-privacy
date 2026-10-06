@@ -1,14 +1,14 @@
 # CTA tracking: how to read App Store click data
 
-Release: `81187297`, live **2026-09-29 17:33:40 UTC**, Worker version `4fc16e18-560c-4096-8aa0-6c00bd6fe81b`. See [execution receipt](../../seo-tools/content-audits/2026-09-29-execution.md).
+Release: `15ef1dc9`, live **2026-10-06 13:16:11 UTC**, Worker version `a13c8ee5-e9eb-4dc6-a29e-72f9b83ea518`. See [execution receipt](../../seo-tools/content-audits/2026-10-06-execution.md).
 
 ## October 6, 2026: Body Visualizer analysis rollout
 
 Owner approval: `All`, October 6. Eligible iOS and desktop visitors now receive
 Personal analysis: **See your body breakdown.** / **Body fat + muscle in the app.** /
 **Analyze my photo**. The experiment ID remains `body_visualizer_cta_v1`;
-`four_treatments_v1` closes and deterministic `analysis_rollout_v2` begins at the
-verified production deployment. See the [execution receipt](../../seo-tools/content-audits/2026-10-06-execution.md)
+`four_treatments_v1` closed and deterministic `analysis_rollout_v2` began at
+**2026-10-06T13:16:11.009384Z**. See the [execution receipt](../../seo-tools/content-audits/2026-10-06-execution.md)
 for that exact timestamp and revision.
 
 The frozen decision snapshot is [visualizer.json](../../analytics/raw/2026-10-06/seo-cycle/visualizer.json),
