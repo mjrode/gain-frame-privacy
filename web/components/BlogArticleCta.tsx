@@ -22,6 +22,7 @@ import {
   type BlogCtaVariant,
 } from "@/lib/blog-cta-experiment";
 import { blogCtaCardName } from "@/lib/download-cta-context";
+import styles from "./BlogArticleCta.module.css";
 
 type BlogArticleCtaProps = {
   intent: BlogCtaIntent;
@@ -133,6 +134,24 @@ function ContextualCta({
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
+    const element = cardRef.current;
+    if (presentation !== "sticky_control" || !element) return;
+    const updateHeight = () => {
+      document.body.style.setProperty(
+        "--blog-sticky-cta-height",
+        `${element.getBoundingClientRect().height}px`,
+      );
+    };
+    updateHeight();
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+      document.body.style.removeProperty("--blog-sticky-cta-height");
+    };
+  }, [presentation]);
+
+  useEffect(() => {
     if (platform === "unknown" || viewedRef.current) return;
     const element = cardRef.current;
     if (!element) return;
@@ -189,6 +208,8 @@ function ContextualCta({
   const editorial = presentation === "editorial_inline";
   const placement = sticky ? "sticky" : "inline";
   const cardName = blogCtaCardName(presentation);
+  const preview = sticky && config.stickyPreview ? config.stickyPreview : config;
+  const title = sticky && config.stickyTitle ? config.stickyTitle : config.title;
   const attribution = assignment
     ? getBlogCtaAttribution(intent, assignment.variant)
     : {
@@ -196,10 +217,36 @@ function ContextualCta({
         content: `contextual_${placement}_${intent}`,
       };
 
+  const actions = (
+    <div className={sticky ? styles.actions : "blog-contextual-cta-actions"}>
+      <PlatformDownloadLink
+        className={sticky ? styles.button : "blog-contextual-cta-button"}
+        source={source}
+        content={attribution.content}
+        campaign={attribution.campaign}
+        androidLabel="Try the free body-fat tool"
+      >
+        {config.button}
+      </PlatformDownloadLink>
+      <DownloadQr
+        backgroundColor={editorial || sticky ? "#ffffff" : undefined}
+        className={sticky ? styles.qr : "blog-contextual-cta-qr"}
+        source={source}
+        content={`${attribution.content}_qr`}
+        campaign={attribution.campaign}
+        foregroundColor={editorial || sticky ? "#0a1323" : undefined}
+      />
+    </div>
+  );
+
   return (
     <aside
       ref={cardRef}
-      className={`blog-contextual-cta blog-contextual-cta--${intent}${sticky ? " blog-contextual-cta--sticky" : ""}${editorial ? " blog-contextual-cta--editorial" : ""}`}
+      className={
+        sticky
+          ? styles.sticky
+          : `blog-contextual-cta blog-contextual-cta--${intent}${editorial ? " blog-contextual-cta--editorial" : ""}`
+      }
       data-blog-cta-intent={intent}
       data-blog-cta-placement={placement}
       data-blog-cta-in-view={inView ? "true" : "false"}
@@ -208,9 +255,9 @@ function ContextualCta({
       data-cta-card="blog_contextual"
       data-cta-card-name={cardName}
       data-cta-card-label={config.label}
-      data-cta-card-headline={config.title}
+      data-cta-card-headline={title}
       data-cta-card-button={config.button}
-      data-cta-card-image={config.image}
+      data-cta-card-image={preview.image}
       data-experiment-id={assignment ? BLOG_CTA_EXPERIMENT_ID : undefined}
       data-experiment-phase={
         assignment ? BLOG_CTA_EXPERIMENT_PHASE : undefined
@@ -258,7 +305,7 @@ function ContextualCta({
     >
       {sticky ? (
         <button
-          className="blog-contextual-cta-dismiss"
+          className={styles.dismiss}
           type="button"
           aria-label="Dismiss app promotion"
           title="Dismiss app promotion"
@@ -269,45 +316,40 @@ function ContextualCta({
           </svg>
         </button>
       ) : null}
-      <div className="blog-contextual-cta-copy">
+      <div className={sticky ? styles.copy : "blog-contextual-cta-copy"}>
         {editorial ? (
           <div className="blog-contextual-cta-chapter" aria-hidden="true">
             <span>The next useful step</span>
             <span>01 — 03</span>
           </div>
         ) : null}
-        <p className="blog-contextual-cta-label">{config.label}</p>
-        <h3 id={`blog-cta-title-${slug}`}>{config.title}</h3>
-        <p>{config.copy}</p>
-        <div className="blog-contextual-cta-actions">
-          <PlatformDownloadLink
-            className="blog-contextual-cta-button"
-            source={source}
-            content={attribution.content}
-            campaign={attribution.campaign}
-            androidLabel="Try the free body-fat tool"
-          >
-            {config.button}
-          </PlatformDownloadLink>
-          <DownloadQr
-            backgroundColor={editorial ? "#ffffff" : undefined}
-            className="blog-contextual-cta-qr"
-            source={source}
-            content={`${attribution.content}_qr`}
-            campaign={attribution.campaign}
-            foregroundColor={editorial ? "#0a1323" : undefined}
-          />
-        </div>
-        <p className="blog-contextual-cta-proof">
+        <p className={sticky ? styles.label : "blog-contextual-cta-label"}>
+          {config.label}
+        </p>
+        <h3
+          className={sticky ? styles.title : undefined}
+          id={`blog-cta-title-${slug}`}
+        >
+          {title}
+        </h3>
+        {!sticky ? <p>{config.copy}</p> : null}
+        {!sticky ? actions : null}
+        <p className={sticky ? styles.proof : "blog-contextual-cta-proof"}>
           {config.proof ?? "4.9 ★ · 5,000 lifters"}
         </p>
       </div>
+      {sticky ? actions : null}
       {editorial ? (
         <EditorialPreview image={config.image} imageAlt={config.imageAlt} />
       ) : (
-        <figure className="blog-contextual-cta-visual">
-          <img src={config.image} alt={config.imageAlt} loading="lazy" />
-          <figcaption>One photo. A clearer signal.</figcaption>
+        <figure className={sticky ? styles.preview : "blog-contextual-cta-visual"}>
+          <img
+            className={sticky && config.stickyPreview ? styles.detail : undefined}
+            src={preview.image}
+            alt={preview.imageAlt}
+            loading="lazy"
+          />
+          {!sticky ? <figcaption>One photo. A clearer signal.</figcaption> : null}
         </figure>
       )}
     </aside>

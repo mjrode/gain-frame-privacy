@@ -13,6 +13,8 @@ export type BlogCtaConfig = {
   imageAlt: string;
   label: string;
   proof?: string;
+  stickyPreview?: { image: string; imageAlt: string };
+  stickyTitle?: string;
   title: string;
 };
 
@@ -90,12 +92,17 @@ export const BLOG_CTA_OVERRIDES: Record<string, BlogCtaConfig> = {
   "best-body-scanning-measurement-apps": {
     label: "What a scanner cannot show",
     title: "See the visible change behind the measurements.",
+    stickyTitle: "See what your measurements miss.",
     copy:
       "Compare your real progress photos with body fat, FFMI, and 12 muscle-group scores attached to every check-in.",
     button: "Compare my progress",
     image: "/app-screenshots/2.33-live-2026-08-05/01.webp",
     imageAlt:
       "GainFrame side-by-side progress comparison with body-fat and weight changes.",
+    stickyPreview: {
+      image: "/assets/blog-cta/progress-compare.webp",
+      imageAlt: "GainFrame comparing two dated progress photos side by side.",
+    },
     proof: "4.96 ★ on the US App Store · Free to start",
   },
   "average-bicep-size": {

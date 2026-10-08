@@ -1,0 +1,237 @@
+/* Keep the floating bar independent of the article's inline promotion styles. */
+.sticky {
+  position: fixed;
+  z-index: 120;
+  inset-inline: 0;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 218px;
+  grid-template-areas: "preview copy actions";
+  align-items: center;
+  gap: 24px;
+  width: min(1060px, calc(100% - 32px));
+  margin-inline: auto;
+  padding: 16px 56px 16px 16px;
+  border: 1px solid #e1e5e9;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 40px rgb(17 24 39 / 12%);
+  color: #171918;
+  font-family: var(--font-body);
+}
+
+.copy {
+  grid-area: copy;
+  min-width: 0;
+}
+
+.sticky .label {
+  margin: 0 0 9px;
+  color: #2457d6;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.sticky .title {
+  max-width: 18ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.14;
+  text-wrap: balance;
+}
+
+.sticky .proof {
+  margin: 12px 0 0;
+  color: #626a65;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.actions {
+  grid-area: actions;
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.sticky .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: #2457d6;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  transition: background 150ms ease;
+}
+
+.sticky .button:hover {
+  background: #193fa5;
+}
+
+.qr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qr svg {
+  flex: 0 0 96px;
+  width: 96px;
+  height: 96px;
+  padding: 8px;
+  background: #fff;
+}
+
+.qr span {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.qr strong {
+  font-weight: 600;
+}
+
+.sticky .qr a {
+  color: #2457d6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sticky .preview {
+  grid-area: preview;
+  height: 160px;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #e3e6eb;
+  border-radius: 12px;
+  background: #f1f2f6;
+}
+
+.preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.preview .detail {
+  object-fit: cover;
+  object-position: center 27.2%;
+}
+
+.sticky .dismiss {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #69736d;
+  cursor: pointer;
+}
+
+.sticky .dismiss:hover {
+  background: #f0f3f6;
+  color: #171918;
+}
+
+.dismiss svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+}
+
+@media (max-width: 1000px) {
+  .sticky {
+    grid-template-columns: 184px minmax(0, 1fr) 210px;
+    gap: 20px;
+  }
+
+  .sticky .title {
+    font-size: 24px;
+  }
+
+  .sticky .preview {
+    height: 124px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sticky {
+    bottom: max(8px, env(safe-area-inset-bottom));
+    grid-template-columns: 104px minmax(0, 1fr);
+    grid-template-areas: "preview copy" "actions actions";
+    gap: 14px;
+    width: calc(100% - 16px);
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .copy {
+    padding-right: 32px;
+  }
+
+  .sticky .label {
+    margin-bottom: 6px;
+    font-size: 11px;
+  }
+
+  .sticky .title {
+    font-size: 18px;
+    line-height: 1.18;
+  }
+
+  .sticky .proof {
+    margin-top: 8px;
+    font-size: 11px;
+  }
+
+  .sticky .preview {
+    height: 100px;
+    border-radius: 8px;
+  }
+
+  .preview .detail {
+    object-fit: cover;
+    object-position: center 27.2%;
+  }
+
+  .qr {
+    display: none;
+  }
+
+  .sticky .dismiss {
+    top: 2px;
+    right: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky .button {
+    transition: none;
+  }
+}
