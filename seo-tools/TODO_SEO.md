@@ -6,6 +6,14 @@ This file tracks keyword targets for blog posts and comparison articles. Items a
 
 When a post is published, replace `[ ]` with `[x]` and append ` — published YYYY-MM-DD as /blog/[slug]/`.
 
+## October 9 approved fixes
+
+- [x] **F1 visceral-fat accuracy and extraction** - implemented October 9 as `/blog/visceral-fat-level/`: device-specific Tanita ranges, measurement limits, 51-word answer, metadata and five matching FAQs.
+- [x] **F2 Jefit vs Hevy accuracy and links** - implemented October 9 as `/blog/jefit-vs-hevy/`: current photos/measurements, ratings, tiers and import limits; contextual links from `hevy-vs-strong` and `best-workout-tracker-apps`. Source roundup FAQ parity restored.
+- [x] **F3 natty-limit evidence and calculator bridge** - implemented October 9 as `/blog/natty-limit/`: 50-word answer, study-specific FFMI limits, worked arithmetic, uncertainty and five matching FAQs.
+- [ ] **October 9 measurement** - preserve changed metadata for ten days from verified release. First full content window October 10-November 6, settled around November 9. [Execution receipt](content-audits/2026-10-09-execution.md).
+- [ ] **October 9 Google recrawl requests** - five manual URLs in the execution receipt; IndexNow does not submit to Google.
+
 ## October 6 approved fixes
 
 - [x] **F1 Body Visualizer analysis rollout** - implemented October 6; `analysis_rollout_v2` for eligible iOS/desktop, Android email and shared Improve/Future preserved. Deployment receipt: [October 6 execution](content-audits/2026-10-06-execution.md).

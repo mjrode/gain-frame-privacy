@@ -2,6 +2,96 @@
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
 
+## October 9, 2026: approved F1-F3, no new posts
+
+**Latest decision record:** [October 9 audit](2026-10-09.md). **Status: Approved; release verification in progress.**
+F1-F3 and both specified contextual inbound links are implemented. See the [execution receipt](2026-10-09-execution.md).
+Preserve the October 6 shipped changes below. October 9 F1-F3 are new proposal IDs,
+not a reopening of the previous run's approved scope.
+
+- **Search through October 6:** September 9–October 6 versus August 12–September 8:
+  **47,646 / 21,645 clicks (+120.1%)**; disclosed nonbrand **22,520 / 7,540
+  (+198.7%)**; brand **747 / 724**. Latest week **13,519 / 12,775 (+5.8%)**.
+  Tools/directory **30,987 clicks**, blog **15,110**. GA4 Organic Search
+  **47,421 / 19,345 sessions**, engagement **77.93% / 72.28%**; September 11's
+  collection change makes behavioral pre/post comparisons descriptive.
+- **Coverage:** 51/51 recent/zero-impression/watch URLs PASS, including September 29's
+  four comparisons. Scope ages forward, not a decline from the earlier 54-URL sweep.
+  **272 posts / 1,574 internal links**, no broken links or missing covers, no SEO-lane
+  orphans. All seven orphans are founder/product-lane; skip cleanup.
+- **Mature batch:** September 6 articles, first full September 7–October 4 window:
+  **131 clicks / 16,359 impressions**. Hume/RENPHO 50, Evolt 25, Arboleaf 15,
+  Gravl 13, ZOZOFIT 12. Subsequent edits/adjacent publications are intervening events.
+  Hume/RENPHO's separate current business window has 0 Store clickers / 85 canonical
+  visitors; discovery is demonstrated, paid value is not.
+- **Protect money owner:** `best-ai-body-fat-apps` 468 -> 287 clicks, impressions
+  5,821 -> 3,561, position improves 5.57 -> 5.04, CTR 8.04% -> 8.06%.
+  26/345 current canonical-path Store clickers. No evidence-backed snippet retitle.
+  Exact plural keyword is no data; national demand decay is unproven.
+- **Bicep checkpoint:** September 27–October 6 289 clicks / 59,430 impressions /
+  0.486% CTR / position 6.10 versus September 16–25 338 / 58,849 / 0.574% / 5.59.
+  No win. September 24 content changes contaminate the before interval. Hold through
+  October 10 complete days; settled second read around October 13 before a title decision.
+
+### October 9 approved fixes
+
+| Item | Concrete scope | Business/search job |
+|---|---|---|
+| **F1, first** | `visceral-fat-level`: legacy visible answer is 65 words despite inventory 0. Replace with the saved 51-word canonical answer; correct unsupported CT bands, exact fluctuation magnitudes and photo-to-visceral inferences; repair truncated metadata/schema/FAQ. Exact replacement text in audit. | 69 clicks / 8,449 impressions; narrower database AI citations. 0 Store clickers / 134 visitors. Accurate device interpretation -> `visceral-fat-test`; photo comparison only for external appearance. |
+| **F2** | `jefit-vs-hevy`: 61 -> saved 50-word answer; acknowledge Hevy private photo comparison and entered measurements, correct old allowances/inference wording and source current product facts. Contextual links from `hevy-vs-strong` and `best-workout-tracker-apps`, exact anchors in audit. | 47 clicks / 743 impressions; **live AI Overview citation**. 0/53 Store reach; partner-adjacent discovery -> Hevy integration / Physique Rater. No proven conversion lift. |
+| **F3** | `natty-limit`: missing answer -> saved 50-word block; remove personal FFMI ceiling/drug-use certainty, unsupported female limits and training-time guarantees; correct five FAQs/social description; calculator bridge. | 37 clicks / 5,039 impressions; provider rank-1 AI reference, live organic #6. Live AIO asynchronous, citation unconfirmed. 1/99 Store reach. Accurate discovery -> FFMI Calculator. |
+
+**No new posts.** Hevy review family has only one GSC impression on the prerequisite
+comparison; Fitbod/GymStreak have none on the four-way owner. Hevy's October 9 live
+SERP now includes editorial comparisons as well as videos/forums/vendor/app results;
+do not repeat October 6's editorial-free characterization. The site-specific evidence
+and original-test gates still fail. Hevy app review 480/KD12/+84% yearly; Fitbod review
+1,000/KD2/-28%; GymStreak 10/KD22/yearly no data. MacroFactor Workouts/Hevy remains
+**approved but held** to October 21 age / October 24 settled read; fresh volume 30,
+KD/yearly no data. Calipers still requires original technique assets; 3,600/KD9/-34%.
+
+`bulk-cut-or-recomp` remains a future claim/schema review, **not an F4 proposal**.
+It has a 33-word legacy short-version callout rather than no visible explanation.
+Its live comparison SERP does not justify another URL. `body recomposition vs cutting`
+is 170/KD2/+50%; the existing owner is preserved. Pure typography expansion of a legacy
+answer is insufficient when its claims need correction.
+
+### Current rollout / measurement state
+
+- Visualizer `analysis_rollout_v2` through October 8: iOS 1,193 assigned / 1,156 viewed /
+  163 clickers; desktop 440 / 433 / 45. No observed phase crossover among 1,633 people.
+  Exact native arrivals 10/220 phase-tagged web click keys; sparse app arrivals, not
+  proven installs/paid. QR shown to 427 people, not scans. Only two complete post-release
+  days. First full week October 7–13; two weeks October 7–20. Frozen v1 stays separate.
+- Blog first full week September 30–October 6: iOS 39/1,918 assigned clickers,
+  desktop 4/865. Through October 8, crossover 0/3,791 people and 0/4,165 person-session
+  groups. Deterministic device rollout remains descriptive; no new randomized claim.
+  Full 14 days end October 13, read October 14. Exact later app arrivals through October 8
+  are inline 10/51 click keys, desktop 0/6; no paid claim.
+- Shared Improve/Future: 3,275/3,226 exposed, 192/158 clickers; still below 4,600/arm.
+  Crossover affects 8/6,513 people and 5/6,996 sessions. These raw reaches are not the
+  ordered exclusive-arm decision analysis. Keep collecting and exclude crossover at readout.
+- Body Visualizer 19,311 rolling GSC clicks. Winter Arc Planner 474; October 2–8:
+  87 result people, 56 exporters, 10 Store clickers, 3 Android-email people. Seasonal
+  interval differs from prior run; existing assets remain owners.
+- Twenty current DataForSEO calls; 110 unique keywords requested, 99 returned. Missing
+  values remain no data. Median KD of ten high-click top-10 calibration queries is 4.
+  1,271 AI references is provider database visibility, not a live census. Six competitor
+  gap slices and unknown-win continuation support existing ownership; no new cluster.
+- Product-context, writer-spec pricing/allowances and app-marketing context are stale.
+  October 1 operating records remain the dated business baseline. No fresh Apple/RevenueCat
+  read or financial claim this run. Annual original D28 October 13, monthly-price phase
+  no earlier than approximately October 24.
+
+Measurement windows below continue unchanged: September 16 -> settled October 17;
+September 19 -> October 20; September 21 -> October 22; September 23 -> October 24;
+September 24 -> October 25; September 29 comparisons -> October 30. October 6 jawline
+metadata protected through October 16 at 13:16:11 UTC, content window October 7–November 3,
+settled around November 6. Proposed fixes gain new clocks only after verified deployment.
+All recent article age gates are tabulated in the October 9 audit. No recurring follow-up created.
+
+---
+
 ## October 6, 2026: F1-F4 shipped
 
 **Latest decision record:** [October 6 audit](2026-10-06.md). Owner approved **All**:

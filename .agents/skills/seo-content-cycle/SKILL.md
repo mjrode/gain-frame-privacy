@@ -62,6 +62,18 @@ section in the same commit.
 | PostHog (`mcp__c90fac73-…__*`) | Available, project `seoreceipts` by default — **switch to GainFrame before querying**. **The GainFrame data lives in project `357433` ("Default project", GainFrame org) and contains BOTH app and website events** — verified 2026-08-13 with `outbound_app_store_click` (671/14d), `bf_tool_*`, `physique_rater_*`, `waist_tool_calculated` all present. The 2026-08-11/12 runs recorded "zero events" — that was a wrong-scope query, not missing instrumentation. If the MCP connector only exposes render-ui, query the REST API directly: `POSTHOG_PERSONAL_API_KEY` in `~/.zshrc`, `POST us.posthog.com/api/projects/357433/query/` with a HogQLQuery (build the JSON in a python file — nested bash quoting corrupts `$pathname` escapes). Never record PostHog as unavailable without querying project 357433 via REST first | Landing-page conversion paths: tool results, email submissions, and App Store clicks. Use in every decision run when available |
 | `seo-tools/content-inventory.mjs` | **Working.** No network, no model | Every local fact: link graph, orphans, cannibalization, freshness, Quick Answer lengths |
 
+### Source checks verified 2026-10-09
+
+- The inventory's zero Quick Answer count does not prove there is no visible
+  answer. Before the October 9 repair, `visceral-fat-level` had a legacy
+  65-word “Quick answer” callout;
+  `bulk-cut-or-recomp` has a 33-word “The short version,” both reported as zero
+  (counts exclude the label). Inspect
+  the rendered/source passage and count it before calling it missing. Report
+  recognized-block count separately from legacy visible-answer count; a
+  formatting repair must also correct unsupported claims rather than making
+  them easier to extract unchanged.
+
 ### Source checks verified 2026-10-06
 
 - October 6 owner approval closes Body Visualizer `four_treatments_v1` and rolls
