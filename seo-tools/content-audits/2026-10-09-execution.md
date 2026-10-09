@@ -24,7 +24,7 @@ No new post, image, dependency, tool or experiment treatment. Existing assets re
 
 Global inventory and strict checks for all five modified articles pass. Quick Answers are 51/50/50 words; each repaired article has five matching 40-70-word FAQs. No long dashes in changed MDX. The original seven founder/product orphans remain; no new orphan was introduced. Exact checks are in `analytics/raw/2026-10-09/seo-cycle/execution/content-validation.json`.
 
-Selected-source production build passed: 576 static pages, compilation and TypeScript checks successful. The snapshot contains committed base `11c62801` plus only these five article edits, excluding unrelated dirty/untracked work. Both generated blog index files were copied from that build. At 390px, all three repaired pages render their new Quick Answers and FAQ headings without horizontal page overflow, broken loaded images, or observed console errors. Browser receipts and a screenshot are saved in the execution directory. 
+Selected-source production build passed: 576 static pages, compilation and TypeScript checks successful. The snapshot contains committed base `11c62801` plus only these five article edits, excluding unrelated dirty/untracked work. Both generated blog index files were copied from that build. At 390px, all three repaired pages render their new Quick Answers and FAQ headings without horizontal page overflow, broken loaded images, or observed console errors. Browser receipts and a screenshot are saved in the execution directory.
 
 ## Deployment and indexing
 
