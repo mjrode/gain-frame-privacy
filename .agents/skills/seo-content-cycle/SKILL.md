@@ -74,6 +74,11 @@ section in the same commit.
   formatting repair must also correct unsupported claims rather than making
   them easier to extract unchanged.
 
+- During October 9 live verification, Python `urllib.request` received HTTP 403
+  for a public article while ordinary `curl` and the browser returned 200 with
+  the correct deployed revision. Recheck the public URL with curl/browser before
+  reporting a site outage; validate response content, not just the status code.
+
 ### Source checks verified 2026-10-06
 
 - October 6 owner approval closes Body Visualizer `four_treatments_v1` and rolls

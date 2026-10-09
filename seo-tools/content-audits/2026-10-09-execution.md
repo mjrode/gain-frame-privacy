@@ -1,6 +1,6 @@
 # October 9 SEO execution
 
-Status: **approved and implemented; release verification in progress**. Owner approval: “All, ship the three fixes.”
+Status: **shipped and verified October 9, 2026, 21:18:15 UTC**. Owner approval: “All, ship the three fixes.”
 
 ## Scope
 
@@ -24,7 +24,19 @@ No new post, image, dependency, tool or experiment treatment. Existing assets re
 
 Global inventory and strict checks for all five modified articles pass. Quick Answers are 51/50/50 words; each repaired article has five matching 40-70-word FAQs. No long dashes in changed MDX. The original seven founder/product orphans remain; no new orphan was introduced. Exact checks are in `analytics/raw/2026-10-09/seo-cycle/execution/content-validation.json`.
 
-Selected-source production build passed: 576 static pages, compilation and TypeScript checks successful. The snapshot contains committed base `11c62801` plus only these five article edits, excluding unrelated dirty/untracked work. Both generated blog index files were copied from that build. At 390px, all three repaired pages render their new Quick Answers and FAQ headings without horizontal page overflow, broken loaded images, or observed console errors. Browser receipts and a screenshot are saved in the execution directory. Deployment, live verification and indexing: pending.
+Selected-source production build passed: 576 static pages, compilation and TypeScript checks successful. The snapshot contains committed base `11c62801` plus only these five article edits, excluding unrelated dirty/untracked work. Both generated blog index files were copied from that build. At 390px, all three repaired pages render their new Quick Answers and FAQ headings without horizontal page overflow, broken loaded images, or observed console errors. Browser receipts and a screenshot are saved in the execution directory. 
+
+## Deployment and indexing
+
+Release commit: `cd7a33eb5eddf994bad0a149e243aa6bd574f2ec`. Cloudflare Workers deployment version **`26bc71e4-b074-498c-89bc-36cc6f473021`**, **100%**, at **2026-10-09T21:18:15.662401Z**, annotated with the exact Git revision. All five remote build/deployment checks succeeded. This timestamp is the content-release boundary; a later records-only commit does not restart it.
+
+All five affected URLs return **200** with the new visible Quick Answers, matching FAQ text/schema, October 9 modification date and correct canonicals. Both source anchors and all approved destination links are present. The public blog index matches the validated build bytes. Live browser verification of Jefit vs Hevy shows the new answer and headings without page overflow or observed console errors. Screenshots and structured receipts are under `analytics/raw/2026-10-09/seo-cycle/execution/`.
+
+The public IndexNow key returns 200 and exactly 32 bytes without a newline. **Yandex 202, Seznam 200, Naver 200** accepted all five URLs. **Bing and api.indexnow.org 403 UserForbiddedToAccessSite** continue the known site-authorization failure. Acceptance is a notification receipt, not proof of a new crawl. Per-engine results are in `indexnow.txt` and the existing ignored CSV log.
+
+Post-release GSC inspection sweep: **56/56 PASS / Submitted and indexed**, comprising the original 51 URLs plus all five changed pages. No crawled-not-indexed, discovered-not-indexed, unknown or unavailable verdicts remain. Existing crawl dates cannot establish that Google has fetched today's revisions. No Google indexing request or sitemap resubmission was sent.
+
+The temporary build snapshot, its separate dependencies and the local preview server were removed after verification. Unrelated shared-checkout changes were preserved.
 
 ## Google recrawl list
 
@@ -38,4 +50,4 @@ No Google indexing request has been sent. Manual Search Console URL Inspection l
 
 ## Measurement
 
-Start the ten-day metadata hold from verified production release. First full content window: October 10-November 6, with settled GSC around November 9. The edits combine accuracy, extraction and links; any later change is descriptive, not an isolated causal test. Existing October 6 and earlier observation windows remain intact. No recurring automation was created.
+Preserve changed metadata through **October 19 at 21:18:15 UTC** (ten days after verified production release). First full content window: October 10-November 6, with settled GSC around November 9. The edits combine accuracy, extraction and links; any later change is descriptive, not an isolated causal test. Existing October 6 and earlier observation windows remain intact. No recurring automation was created.

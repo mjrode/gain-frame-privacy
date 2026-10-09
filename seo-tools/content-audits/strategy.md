@@ -2,10 +2,11 @@
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
 
-## October 9, 2026: approved F1-F3, no new posts
+## October 9, 2026: F1-F3 shipped, no new posts
 
-**Latest decision record:** [October 9 audit](2026-10-09.md). **Status: Approved; release verification in progress.**
-F1-F3 and both specified contextual inbound links are implemented. See the [execution receipt](2026-10-09-execution.md).
+**Latest decision record:** [October 9 audit](2026-10-09.md). **Status: Shipped.**
+F1-F3 and both contextual inbound links are live in `cd7a33eb` since **October 9, 21:18:15 UTC**. All five pages and the 576-page build passed verification. IndexNow accepted 3/5; existing Bing authorization failure remains. Post-release GSC inspection: **56/56 PASS**, including the five changed pages; this does not establish a fresh crawl. See the [execution receipt](2026-10-09-execution.md).
+Changed metadata is protected through **October 19 at 21:18:15 UTC**. First full content window: **October 10-November 6**, settled around **November 9**.
 Preserve the October 6 shipped changes below. October 9 F1-F3 are new proposal IDs,
 not a reopening of the previous run's approved scope.
 
@@ -33,7 +34,7 @@ not a reopening of the previous run's approved scope.
   No win. September 24 content changes contaminate the before interval. Hold through
   October 10 complete days; settled second read around October 13 before a title decision.
 
-### October 9 approved fixes
+### October 9 shipped scope (original evidence)
 
 | Item | Concrete scope | Business/search job |
 |---|---|---|
