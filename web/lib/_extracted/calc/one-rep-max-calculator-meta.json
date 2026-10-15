@@ -1,19 +1,19 @@
 {
   "slug": "one-rep-max-calculator",
-  "title": "1RM Calculator — One Rep Max &amp; Strength Standards | GainFrame",
-  "description": "Free one rep max calculator using 6 proven formulas (Epley, Brzycki, Lombardi, Mayhew, O",
+  "title": "1RM Calculator: Six Formulas and Strength Standards | GainFrame",
+  "description": "Estimate your one rep max with six formulas, compare their results, and view training percentages. See a worked example and understand strength-reference limits.",
   "canonical": "https://gainframe.app/tools/one-rep-max-calculator/",
-  "ogTitle": "1RM Calculator — GainFrame",
-  "ogDescription": "Calculate your one rep max with 6 formulas and see where you rank on the strength-standards scale from Untrained to Elite.",
+  "ogTitle": "1RM Calculator: Compare Six Estimates",
+  "ogDescription": "Estimate your one rep max with six formulas, compare their results, and view training percentages. See a worked example and understand strength-reference limits.",
   "ogImage": "https://gainframe.app/assets/gainframe-og-1200x630.png",
-  "twitterTitle": "1RM Calculator — GainFrame",
-  "twitterDescription": "Calculate your one rep max with 6 formulas and see where you rank on the strength-standards scale from Untrained to Elite.",
+  "twitterTitle": "1RM Calculator: Compare Six Estimates",
+  "twitterDescription": "Estimate your one rep max with six formulas, compare their results, and view training percentages. See a worked example and understand strength-reference limits.",
   "schemas": [
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "1RM Calculator",
-      "description": "Calculate your one rep max using 6 validated formulas. See training percentages and your strength standard tier for squat, bench, deadlift, and overhead press. Free, no signup required.",
+      "description": "Estimate your one rep max with six formulas, compare their results, and view training percentages. See a worked example and understand strength-reference limits.",
       "url": "https://gainframe.app/tools/one-rep-max-calculator/",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Any",
@@ -37,7 +37,7 @@
           "name": "What is a 1RM?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "1RM stands for one rep max — the heaviest weight you can lift for a single repetition with good form. Knowing your 1RM is essential for setting training weights, tracking strength progress, and comparing yourself to strength standards."
+            "text": "A one-repetition maximum is the heaviest load you can lift once with the defined technique for an exercise. This calculator estimates it from a completed set. An estimated value is a planning reference and does not confirm that you can safely lift that load today."
           }
         },
         {
@@ -45,7 +45,7 @@
           "name": "How accurate are 1RM calculators?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "1RM calculators are most accurate when reps are low — typically within 2–3% of your true max at 3–5 reps. Accuracy decreases at higher rep counts because muscular endurance becomes the limiting factor rather than pure strength. For the most reliable estimate, use a set taken close to failure at 3–6 reps."
+            "text": "There is no universal error margin for every person, exercise and repetition count. Technique, fatigue, effort and muscular endurance can affect an estimate. Record the conditions of the set and follow the trend consistently. Avoid treating an estimated maximum as a load you must attempt."
           }
         },
         {
@@ -53,7 +53,7 @@
           "name": "Which 1RM formula is most accurate?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No single formula is universally the most accurate — each was derived from different populations and lift types. Epley and Brzycki are the most cited and tend to agree closely at low rep ranges (1–5). Mayhew and Wathan use exponential curves and can be more accurate at higher reps. Averaging several formulas typically gives the most reliable estimate, which is why this calculator shows all six."
+            "text": "No formula is guaranteed to be most accurate for every lifter and exercise. This calculator displays six estimates and uses their arithmetic average for its headline. The average does not guarantee reduced bias. Inspect the spread and use the same method when comparing sessions."
           }
         },
         {
@@ -61,15 +61,15 @@
           "name": "What are strength standards?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Strength standards are benchmarks that compare your lifts to the general lifting population, scaled to your bodyweight. They are typically split into five tiers — Untrained, Novice, Intermediate, Advanced, and Elite — and differ by lift and sex. A 1.5× bodyweight bench press is considered Intermediate-to-Advanced for most men, while 1× bodyweight is solid Novice-to-Intermediate territory."
+            "text": "Strength standards compare a load with a reference category, often relative to bodyweight and grouped by exercise and sex. They answer a different question from estimating a maximum. The categories provide context, but they cannot determine your personal training readiness, technique quality or recovery needs."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I use the training percentage table?",
+          "name": "How should I use the training percentage table?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Once you know your 1RM, you can target specific percentages to train different qualities: 85–100% for pure strength, 75–85% for hypertrophy (muscle growth), and 60–75% for endurance or technique work. The table shows the weight you should load for common rep targets — for example, 85% of your 1RM for a set of 6 reps is a classic hypertrophy scheme."
+            "text": "The table multiplies the estimated maximum by preset percentages. Those loads are starting references rather than guaranteed repetition targets or a complete program. Select working weights according to your plan, technique and current capacity. If the estimate changes, review the underlying set before changing every training load."
           }
         }
       ]

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import PhotoFramingGuide from "@/components/PhotoFramingGuide";
 import PhotoRecoveryActions from "@/components/PhotoRecoveryActions";
 import { usePhotoRecovery } from "@/components/usePhotoRecovery";
 import ToolConversionCard from "@/components/ToolConversionCard";
@@ -26,6 +27,8 @@ import {
   toolNow,
   validatedJson,
   type PreprocessedImage,
+  type PhotoInputSource,
+  type PhotoDiagnostics,
 } from "@/lib/tool-client";
 
 const FUNCTION_URL =
@@ -360,6 +363,7 @@ export default function TransformClient({
   const replaceInputRef = useRef<HTMLInputElement>(null);
   const viewedRef = useRef(false);
   const submittingRef = useRef(false);
+  const inputSourceRef = useRef<PhotoInputSource>("file_picker");
   const photoRecovery = usePhotoRecovery(measurementsMode ? "body_measurements" : "ai_body_transformation");
   const unlockSubmittingRef = useRef(false);
   const clientIdRef = useRef<string | null>(null);
@@ -591,8 +595,10 @@ export default function TransformClient({
     });
   }
 
-  function onPick(picked: File | null) {
+  function onPick(picked: File | null, inputSource: PhotoInputSource = "file_picker") {
     if (!picked) return;
+    inputSourceRef.current = inputSource;
+    const diagnostics: PhotoDiagnostics = { input_source: inputSource, preprocessing_stage: "selected" };
     if (!isLikelyImageFile(picked)) {
       const attemptId = createAttemptId();
       const startedAt = toolNow();
@@ -609,8 +615,9 @@ export default function TransformClient({
         }),
         blocking: true,
         ...fileTelemetry(picked),
+        ...diagnostics,
       });
-      photoRecovery.failed(attemptId, "unsupported_format");
+      photoRecovery.failed(attemptId, "unsupported_format", diagnostics);
       setStage({
         kind: "unusable",
         message:
@@ -647,6 +654,10 @@ export default function TransformClient({
     const startedAt = toolNow();
     let phase = "preprocess";
     let processed: PreprocessedImage | undefined;
+    const diagnostics: PhotoDiagnostics = {
+      input_source: inputSourceRef.current,
+      preprocessing_stage: "selected",
+    };
     const effectiveGoal = measurementsMode
       ? goalForAdjustments(regionalAdjustments)
       : goal;
@@ -668,11 +679,13 @@ export default function TransformClient({
         : undefined,
       attempt_id: attemptId,
       ...fileTelemetry(file),
+      ...diagnostics,
     });
 
     try {
       processed = await preprocessImageForUpload(file, {
         allowedRawMimes: TRANSFORM_RAW_MIMES,
+        onStage: (stage) => { diagnostics.preprocessing_stage = stage; },
       });
       const clientId = clientIdRef.current ?? getOrCreateClientId();
       clientIdRef.current = clientId;
@@ -707,7 +720,7 @@ export default function TransformClient({
       if (res.ok) {
         phase = "response_parse";
         const json = await validatedJson(res, isSuccessResponse);
-        photoRecovery.succeeded(attemptId);
+        photoRecovery.succeeded(attemptId, diagnostics);
         const afterUrl = `data:${json.image_mime};base64,${json.image_base64}`;
         afterUrlRef.current = afterUrl;
         track("bt_tool_result_shown", {
@@ -725,6 +738,7 @@ export default function TransformClient({
           }),
           blocking: false,
           ...fileTelemetry(file, processed),
+        ...diagnostics,
         });
         trackToolFunnelStep(
           measurementsMode ? "body_measurements" : CTA_CAMPAIGN,
@@ -763,6 +777,7 @@ export default function TransformClient({
           }),
           blocking: true,
           ...fileTelemetry(file, processed),
+        ...diagnostics,
         });
         setStage({
           kind: "rate_limited",
@@ -775,7 +790,7 @@ export default function TransformClient({
         });
       } else if (res.status === 422) {
         const reason = err.reason ?? err.error ?? "photo_unusable";
-        photoRecovery.failed(attemptId, reason);
+        photoRecovery.failed(attemptId, reason, diagnostics);
         track("bt_tool_unusable", {
           reason,
           ...terminalTelemetry({
@@ -790,6 +805,7 @@ export default function TransformClient({
           }),
           blocking: true,
           ...fileTelemetry(file, processed),
+        ...diagnostics,
         });
         setStage({
           kind: "unusable",
@@ -811,13 +827,14 @@ export default function TransformClient({
           }),
           blocking: true,
           ...fileTelemetry(file, processed),
+        ...diagnostics,
         };
         track("bt_tool_error", { ...common, status: res.status, code: err.error });
         captureException(
           new Error(`Transformation request failed with HTTP ${res.status}`),
           { tool: "body_transformation", ...common },
         );
-        photoRecovery.failed(attemptId, err.error);
+        photoRecovery.failed(attemptId, err.error, diagnostics);
         setStage({
           kind: "error",
           retryable: res.status >= 500 || res.status === 408,
@@ -826,7 +843,7 @@ export default function TransformClient({
       }
     } catch (err) {
       const failure = asToolClientError(err);
-      photoRecovery.failed(attemptId, failure.code);
+      photoRecovery.failed(attemptId, failure.code, diagnostics);
       const common = {
         ...terminalTelemetry({
           attemptId,
@@ -840,6 +857,7 @@ export default function TransformClient({
         }),
         blocking: true,
         ...fileTelemetry(file, processed),
+        ...diagnostics,
       };
       if (["unsupported_format", "corrupt_image", "decode_failed_large"].includes(
         failure.code,
@@ -1074,7 +1092,7 @@ export default function TransformClient({
     e.preventDefault();
     setIsDragging(false);
     const dropped = e.dataTransfer.files[0];
-    if (dropped) onPick(dropped);
+    if (dropped) onPick(dropped, "drop");
   }
 
   const unlockForm = (ctaLabel: string) => (
@@ -1318,12 +1336,13 @@ export default function TransformClient({
           />
           <p className="btf-msg-title">Couldn&apos;t render that one</p>
           <p className="btf-msg-sub">{stage.message}</p>
+          {(stage.reason === "low_quality" || stage.reason === "multiple_people") && <PhotoFramingGuide />}
           <p className="btf-msg-fine">
             Failed photos don&apos;t count against your free render.
           </p>
           <PhotoRecoveryActions
             className="btf-submit"
-            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked); }}
+            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked, "reselect"); }}
           />
         </div>
       </div>
@@ -1390,7 +1409,7 @@ export default function TransformClient({
           <p className="btf-msg-sub">{stage.message}</p>
           <PhotoRecoveryActions
             className="btf-submit"
-            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked); }}
+            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked, "reselect"); }}
             onRetry={stage.retryable && file ? () => { photoRecovery.started("retry"); void submit(); } : undefined}
           />
         </div>
@@ -1423,6 +1442,7 @@ export default function TransformClient({
         </span>
       </div>
 
+      {!file && <PhotoFramingGuide compact />}
       {!file ? (
         <label
           className={`btf-target ${isDragging ? "is-active" : ""}`}

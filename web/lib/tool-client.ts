@@ -174,6 +174,21 @@ export async function errorResponseJson(
   }
 }
 
+/** Bounded diagnostic values; never describe file names, providers or contents. */
+export type PhotoInputSource = "file_picker" | "drop" | "reselect";
+export type ImagePreparationStage =
+  | "selected"
+  | "validation"
+  | "image_decode"
+  | "resize_encode"
+  | "raw_validation"
+  | "raw_file_read"
+  | "ready";
+export type PhotoDiagnostics = {
+  input_source: PhotoInputSource;
+  preprocessing_stage: ImagePreparationStage;
+};
+
 export type ImagePreprocessingMethod =
   | "resized_jpeg"
   | "bitmap_resized_jpeg"
@@ -277,13 +292,17 @@ async function fileAsBase64(file: File): Promise<string> {
 async function rawImageFallback(
   file: File,
   allowedRawMimes: readonly string[],
+  onStage?: (stage: ImagePreparationStage) => void,
 ): Promise<PreprocessedImage> {
+  onStage?.("raw_validation");
   const mime = imageMime(file);
   const classification = rawFallbackError(file, mime, allowedRawMimes);
   if (classification) throw classification;
 
+  onStage?.("raw_file_read");
   try {
     const base64 = await fileAsBase64(file);
+    onStage?.("ready");
     return {
       base64,
       sizeKb: Math.round(file.size / 1024),
@@ -314,8 +333,10 @@ export async function preprocessImageForUpload(
   options: {
     allowedRawMimes: readonly string[];
     maxDimension?: number;
+    onStage?: (stage: ImagePreparationStage) => void;
   },
 ): Promise<PreprocessedImage> {
+  options.onStage?.("validation");
   const mime = imageMime(file);
   if (mime === "image/dng" || mime === "image/x-adobe-dng") {
     throw new ToolClientError(
@@ -327,6 +348,7 @@ export async function preprocessImageForUpload(
       },
     );
   }
+  options.onStage?.("image_decode");
   const url = URL.createObjectURL(file);
   let bitmap: ImageBitmap | null = null;
   let source: CanvasImageSource | null = null;
@@ -355,9 +377,10 @@ export async function preprocessImageForUpload(
     }
 
     if (!source || width <= 0 || height <= 0) {
-      return await rawImageFallback(file, options.allowedRawMimes);
+      return await rawImageFallback(file, options.allowedRawMimes, options.onStage);
     }
 
+    options.onStage?.("resize_encode");
     try {
       const maxDimension = options.maxDimension ?? 1024;
       const ratio = Math.min(1, maxDimension / Math.max(width, height));
@@ -369,6 +392,7 @@ export async function preprocessImageForUpload(
       context.drawImage(source, 0, 0, canvas.width, canvas.height);
       const base64 = canvas.toDataURL("image/jpeg", 0.85).split(",", 2)[1] ?? "";
       if (!base64) throw new Error("Canvas encoding returned no data.");
+      options.onStage?.("ready");
       return {
         base64,
         sizeKb: Math.round((base64.length * 3) / 4 / 1024),
@@ -376,7 +400,7 @@ export async function preprocessImageForUpload(
         method: usedBitmap ? "bitmap_resized_jpeg" : "resized_jpeg",
       };
     } catch {
-      return await rawImageFallback(file, options.allowedRawMimes);
+      return await rawImageFallback(file, options.allowedRawMimes, options.onStage);
     }
   } finally {
     bitmap?.close();

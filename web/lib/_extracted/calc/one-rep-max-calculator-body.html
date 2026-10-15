@@ -10,7 +10,7 @@
             <div class="tool-header hero-text-stagger">
                 <span class="tool-badge">Free Tool</span>
                 <h1>1RM Calculator</h1>
-                <p>Estimate your one rep max with six proven formulas, see training percentages for every rep range, and find out where you rank on the strength-standards scale.</p>
+                <p>Estimate your one rep max with six estimation formulas, see training percentages for every rep range, and find out where you rank on the strength-standards scale.</p>
             </div>
 
             <!-- Calculator Card -->
@@ -39,7 +39,7 @@
                     <div class="tool-input-group" style="margin-bottom:0">
                         <label class="tool-input-label">
                             Reps completed
-                            <span class="tool-input-hint">1–12</span>
+                            <span class="tool-input-hint">1 to 12</span>
                         </label>
                         <input type="number" class="tool-input-field" id="reps" placeholder="5" min="1" max="12" step="1" inputmode="numeric">
                     </div>
@@ -47,7 +47,7 @@
 
                 <!-- Optional section -->
                 <div class="tool-optional">
-                    <div class="tool-optional-label">Optional — for strength tier</div>
+                    <div class="tool-optional-label">Optional - for strength tier</div>
 
                     <div class="tool-gender-toggle">
                         <button class="tool-gender-btn active" data-gender="male" type="button">Male</button>
@@ -75,12 +75,12 @@
                 <div class="tool-result-hero">
                     <div class="tool-result-exercise" id="resultExercise">Back Squat · Estimated</div>
                     <div>
-                        <span class="tool-result-number" id="resultMax">—</span>
+                        <span class="tool-result-number" id="resultMax">-</span>
                         <span class="tool-result-unit" id="resultUnit">lb</span>
                     </div>
                     <div class="tool-result-sub">One rep max · average of 6 formulas</div>
 
-                    <span class="tool-result-category cat-untrained" id="resultCat" style="display:none;">—</span>
+                    <span class="tool-result-category cat-untrained" id="resultCat" style="display:none;">-</span>
 
                     <div class="tool-gauge">
                         <div class="tool-gauge-fill" id="resultGauge" style="width: 0%"></div>
@@ -176,8 +176,16 @@
                         <div class="formula-item-eq">100W / (48.8 + 53.8·e<sup>−0.075<em>r</em></sup>)</div>
                     </div>
                 </div>
-                <p>All six formulas estimate 1RM from a submaximal set. They were developed independently from different populations, so each gives a slightly different number. Averaging them reduces the bias of any single formula. Accuracy is best when reps are low — typically within 2–3% of true 1RM at 3–5 reps.</p>
+                <p>Each formula estimates a one-repetition maximum from the same weight and repetition count. The headline is their arithmetic average. Averaging does not guarantee reduced bias or a particular error margin. Your exercise, technique, fatigue and the effort of the recorded set can affect how useful an estimate is.</p>
             </div>
+
+            <section class="tool-formula scroll-reveal">
+                <h2>What does 100 kg for 5 reps estimate?</h2>
+                <p>Before display rounding, Epley gives 100 × (1 + 5/30) = <strong>116.7 kg</strong>. Brzycki gives 100 × 36 / (37 - 5) = <strong>112.5 kg</strong>. The same set produces different estimates because the equations differ. The calculator shows all six outputs so you can inspect that spread, rounding displayed loads to the nearest 0.5 unit.</p>
+                <p>The spread is not a confidence interval or proof that your true maximum falls inside it. Use the estimate as a planning reference, and keep the exercise, technique and set conditions consistent when tracking it over time.</p>
+                <h2>How is a strength tier different from an estimated 1RM?</h2>
+                <p>An estimated 1RM converts a completed set into a possible single-rep load. A strength tier compares that load with a bodyweight-based reference. You can inspect the separate <a href="/tools/strength-standards-calculator/">strength standards calculator</a> for that comparison. Its categories are reference labels, not a personalized training prescription.</p>
+            </section>
 
             <!-- Other tools ribbon -->
             <div class="tool-other scroll-reveal">
@@ -189,6 +197,8 @@
                     <a href="/tools/macro-calculator/">Macro Calculator</a>
                 </div>
             </div>
+
+<section class="tool-formula scroll-reveal"><h2>What else should you know?</h2><h3>What is a 1RM?</h3><p>A one-repetition maximum is the heaviest load you can lift once with the defined technique for an exercise. This calculator estimates it from a completed set. An estimated value is a planning reference and does not confirm that you can safely lift that load today.</p><h3>How accurate are 1RM calculators?</h3><p>There is no universal error margin for every person, exercise and repetition count. Technique, fatigue, effort and muscular endurance can affect an estimate. Record the conditions of the set and follow the trend consistently. Avoid treating an estimated maximum as a load you must attempt.</p><h3>Which 1RM formula is most accurate?</h3><p>No formula is guaranteed to be most accurate for every lifter and exercise. This calculator displays six estimates and uses their arithmetic average for its headline. The average does not guarantee reduced bias. Inspect the spread and use the same method when comparing sessions.</p><h3>What are strength standards?</h3><p>Strength standards compare a load with a reference category, often relative to bodyweight and grouped by exercise and sex. They answer a different question from estimating a maximum. The categories provide context, but they cannot determine your personal training readiness, technique quality or recovery needs.</p><h3>How should I use the training percentage table?</h3><p>The table multiplies the estimated maximum by preset percentages. Those loads are starting references rather than guaranteed repetition targets or a complete program. Select working weights according to your plan, technique and current capacity. If the estimate changes, review the underlying set before changing every training load.</p></section>
 
             <!-- CTA Section -->
             <div class="tool-cta-section scroll-reveal">
@@ -204,7 +214,7 @@
                     </svg>
                 </div>
                 <h2>Track strength and physique together</h2>
-                <p>GainFrame ties your lifting progress to your body composition so you know if you're actually building muscle — not just adding weight to the bar.</p>
+                <p>GainFrame brings your training record and progress photos together so you can review strength and visible changes over time.</p>
                 <ul class="tool-cta-list">
                     <li>Body fat, FFMI, and muscle scores from a photo</li>
                     <li>Spot muscle groups that aren't keeping up</li>

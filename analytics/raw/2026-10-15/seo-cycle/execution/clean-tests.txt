@@ -1,0 +1,244 @@
+
+> web@0.1.0 test:tools
+> node --test --experimental-strip-types lib/analytics.test.mjs lib/photo-studio.test.mjs lib/lean-body-mass.test.mjs lib/web-attribution.test.mjs lib/tool-client.test.mjs lib/tool-funnel.test.mjs lib/waist-percentiles.test.mjs lib/six-pack-timeline.test.mjs lib/body-proportions.test.mjs lib/body-visualizer.test.mjs lib/body-shape-compare.test.mjs lib/progress-photo-compare.test.mjs lib/recomp-reality-checker.test.mjs lib/winter-arc.test.mjs lib/tool-cta-experiment.test.mjs lib/body-visualizer-cta-experiment.test.mjs lib/tool-cta-assets.test.mjs lib/blog-cta.test.mjs lib/google-preferred-source.test.mjs lib/blog-cta-experiment.test.mjs lib/download-cta-context.test.mjs scripts/generate-blog-grid.test.mjs
+
+(node:80386) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/analytics.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ queues early lifecycle events until both providers are ready (1.420875ms)
+✔ replays queued events to each provider in original FIFO order (0.127166ms)
+✔ legacy consent state does not suppress page-load analytics (0.091083ms)
+✔ track isolates GA failures and still delivers to PostHog (0.086708ms)
+✔ track and captureException never propagate PostHog failures (0.168ms)
+✔ trackOncePerDay uses the memory guard when storage writes fail (15.102625ms)
+✔ web analytics context strips query strings and keeps acquisition details (1.011375ms)
+✔ experiment assignments queue while providers load (0.105083ms)
+✔ analytics SDKs are enabled only on the production domain (0.118875ms)
+✔ Next inline-script readiness flushes early events after the SDK stub exists (20.630041ms)
+(node:80387) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/blog-cta-experiment.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ blog CTA buckets split the random range 50/50 (1.789042ms)
+✔ blog CTA assignment reuses a stored variant (0.213ms)
+✔ dedicated QA override is forced and does not replace stable assignment (0.132791ms)
+✔ a saved choice replaces a temporary storage fallback across pages (0.108292ms)
+✔ new visitors persist their assignment immediately and reuse it on reload (0.129042ms)
+✔ blocked browser storage keeps a stable page choice without throwing (0.117208ms)
+✔ direct and QR attribution names preserve the experiment variant (0.100292ms)
+✔ clean phase ignores assignments from the contaminated phase (0.0865ms)
+✔ approved device rollout overrides old random choices without overwriting Android storage (0.129625ms)
+✔ device rollout QA remains forced and separate from the shared tool parameter (0.102042ms)
+(node:80388) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/blog-cta.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ sticky blog CTA cohorts preserve the initial 20 and expansion 59 (1.153333ms)
+✔ every sticky blog CTA has page-specific copy (0.162958ms)
+✔ every sticky CTA slug resolves to a published blog post (0.501958ms)
+✔ blog CTA experiment keeps tools isolated and measures material exposure (1.7385ms)
+(node:80389) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/body-proportions.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ converts imperial measurements to centimeters (1.08275ms)
+✔ calculates all five reference ratios and a bounded score (0.171125ms)
+✔ suggested targets preserve frame measurements and cap changes (0.100875ms)
+✔ maps tape targets to bounded regional percentage changes (0.757084ms)
+✔ rejects missing and implausible values (0.089ms)
+(node:80390) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/body-shape-compare.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ normalizes U.S. inputs and converts display values in both directions (0.69575ms)
+✔ validates required ranges, optional body fat, and inseam coherence (3.546709ms)
+✔ builds a deterministic, bounded silhouette from proportions (0.46025ms)
+✔ reports neutral raw deltas and responds to changed measurements (0.1315ms)
+(node:80391) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/body-visualizer-cta-experiment.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ eligible visitors receive analysis without consuming historical or shared storage (1.519166ms)
+✔ all four explicit QA treatments stay forced and do not affect the rollout (0.116291ms)
+✔ preview controls can only render on exact local hostnames (0.079959ms)
+✔ copy, style, phase and outbound placement identify each treatment independently (0.130583ms)
+✔ a sliver intersecting the viewport is not a qualified exposure (0.062084ms)
+(node:80392) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/body-visualizer.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ invalid BMI never displays a default body or invalid image URL (0.702292ms)
+✔ selection advances at half-band boundaries and flags endpoints honestly (0.104ms)
+✔ both sexes use all 30 distinct stages in ascending display order (0.702875ms)
+✔ weight slider bounds stay within supported inputs in metric and US units (0.988625ms)
+✔ every stage ships with two unique, consistently sized, bounded image files (180.31925ms)
+✔ unit conversion preserves supported endpoints through a round trip (2.294625ms)
+✔ rounding carries inches into feet instead of producing 12 inches (0.10675ms)
+✔ empty, nonfinite and fractional feet inputs cannot produce a result (0.072667ms)
+(node:80393) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/download-cta-context.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ blog CTA presentations have plain-language visual descriptions (0.600459ms)
+✔ download CTA identifiers resolve to useful Slack descriptions (0.171875ms)
+(node:80394) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/google-preferred-source.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ server rendering does not require browser globals (1.658959ms)
+✔ multiple placements and remounts load one async manual-mode script (1.061167ms)
+✔ an early click is replayed once, after initialization (0.590458ms)
+✔ a load failure after an early click follows the deeplink (0.392958ms)
+✔ a blocked script leaves the link usable without opening anything automatically (0.130042ms)
+✔ local and preview links always select the production domain (0.186459ms)
+(node:80395) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/lean-body-mass.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ fat and fat-free mass partition the supplied body weight (0.671792ms)
+✔ equivalent kg and lb inputs produce equivalent tissue estimates (0.070416ms)
+✔ a range is a bounded sensitivity illustration, including zero uncertainty (0.055458ms)
+✔ rejects missing, nonfinite, and out-of-domain inputs (1.256042ms)
+✔ report example uses fat divided by total mass, and includes bone mineral in fat-free mass (0.188041ms)
+(node:80396) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/photo-studio.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ portrait crop preserves ratio and stays within the original at every pan extreme (1.63625ms)
+✔ reverse-drawn selection maps through a zoomed crop into source pixels (0.719334ms)
+✔ region clamping prevents covers extending outside the image (0.059208ms)
+✔ blur changes detailed pixels without mutating the source or introducing transparency (0.150875ms)
+✔ blur matches a reference box blur including edge clamping (0.242166ms)
+✔ dates reject impossible input and remain stable across timezones (11.692917ms)
+✔ unsupported formats and oversized files are rejected (0.159375ms)
+(node:80397) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/progress-photo-compare-tracking.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ accepts declared photo formats and rejects other image MIME types (0.749458ms)
+✔ clamps invalid and out-of-range alignment controls (0.069333ms)
+✔ cover placement keeps portrait images inside the frame while panning (0.663375ms)
+✔ shared zoom creates predictable pan room in both directions (0.054833ms)
+✔ export layouts preserve a 4:5 frame in every comparison mode (0.091125ms)
+✔ export filenames are deterministic and date-safe (1.986375ms)
+✔ only two personal images qualify as a personal result (0.0955ms)
+✔ sample and mixed comparisons never emit a personal result event (0.203625ms)
+✔ exports distinguish demo usage without sending filenames, labels or dates (0.141292ms)
+✔ optional export labels validate dates, preserve calendar days and bound text (12.470625ms)
+✔ wipe captions follow the after image on the left (0.088959ms)
+(node:80398) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/recomp-reality-checker.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ classifies a stable-weight, smaller-waist pattern as likely recomp (1.063708ms)
+✔ allows a rising-weight recomp pattern only with leaner and performance support (0.090083ms)
+✔ assigns high confidence to four agreeing recomp signals over eight weeks (0.08625ms)
+✔ classifies agreeing downward weight and waist signals as likely cut (0.112209ms)
+✔ classifies agreeing upward signals as likely surplus without claiming tissue gain (0.149917ms)
+✔ returns mixed evidence when weight and waist directly disagree (0.064125ms)
+✔ does not call stable measurements a recomp solely because performance improved (0.057917ms)
+✔ a consistent downward body-fat estimate can add the missing leaner signal (0.077333ms)
+✔ an upward body-fat estimate blocks a cut call even when weight and waist fall (0.084ms)
+✔ threshold boundaries are directional while values just inside remain neutral (0.723292ms)
+✔ validates the 4 to 12 week boundary and requires whole weeks (0.080792ms)
+✔ requires both optional body-fat values and rejects out-of-range estimates (0.060708ms)
+✔ rejects invalid and mismatched-unit inputs with structured errors (0.214125ms)
+✔ assessment output is deterministic and always includes a non-medical boundary (0.11425ms)
+(node:80399) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/six-pack-timeline.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ uses sex-specific defined-abs thresholds (1.350875ms)
+✔ calculates a range from photo uncertainty and adherence (0.196834ms)
+✔ returns zero weeks when the full estimate range is already at target (4.330042ms)
+✔ flags a selected pace above one percent of bodyweight per week (0.184084ms)
+✔ rejects impossible inputs (3.608292ms)
+(node:80400) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/tool-client.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ web tool usage payload contains only completion metadata (1.252334ms)
+✔ web tool usage reports immediately in production and skips local QA (3.003167ms)
+✔ fetchWithTimeout classifies a timed-out request (5.8935ms)
+✔ fetchWithTimeout distinguishes network failures (0.294ms)
+✔ validatedJson rejects a malformed successful response (21.105916ms)
+✔ image preprocessing falls back to original supported bytes and MIME (0.547875ms)
+✔ image preprocessing allows provider-supported HEIC raw fallback (0.134875ms)
+✔ image preprocessing rejects unsupported and oversized fallback files stably (0.848583ms)
+✔ Android-style FileReader failure recovers when the selected Blob is still readable (0.172042ms)
+✔ a revoked mobile file handle requires reselection instead of an endless retry (0.170292ms)
+(node:80401) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/tool-cta-assets.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ shared tool CTA images use fingerprints matching their content (3.909833ms)
+✔ ToolConversionCard references both versioned shared image URLs (1.1165ms)
+(node:80402) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/tool-cta-experiment.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ tool CTA buckets split the random range evenly (1.602959ms)
+✔ tool CTA assignment reuses a stored variant (0.870708ms)
+✔ retired Track assignments migrate to an active variant and survive reload (0.155375ms)
+✔ a retired Track QA override cannot render the retired variant (0.152916ms)
+✔ QA override is marked forced and does not replace stable assignment (0.133417ms)
+✔ a saved choice replaces a temporary storage fallback across pages (0.13ms)
+✔ new visitors persist their assignment immediately and reuse it on reload (0.096667ms)
+✔ blocked browser storage keeps a stable page choice without throwing (0.107958ms)
+✔ every major result card uses the same complete message-angle experiment (0.293791ms)
+✔ result-specific facts are safely interpolated into the matching copy (0.188583ms)
+✔ clean phase ignores assignments from the contaminated phase (0.09275ms)
+(node:80403) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/tool-funnel.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ normalizes legacy calculator slugs into stable funnel ids (0.627042ms)
+✔ recognizes body-fat visualizer query and hash journeys without treating attribution as a result (0.26025ms)
+✔ emits the typed funnel event with controlled tool and step fields (0.720583ms)
+(node:80404) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/waist-percentiles.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ swrBand matches the published men's chart boundaries (1.321417ms)
+✔ swrWomenBand matches the published women's target zone (0.165042ms)
+✔ whrBand applies the men's cutoffs from the published chart (0.129209ms)
+✔ whrBand applies the women's cutoffs from the published chart (0.103834ms)
+✔ whtrBand boundaries are unchanged (0.111166ms)
+(node:80405) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/web-attribution.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ builds the stable iOS deferred-deep-link mapping on page load (2.147625ms)
+✔ download attribution does not wait for a consent decision (0.201667ms)
+✔ custom product page routing survives attribution and direct fallback (0.261583ms)
+✔ invalid product page identifiers fail closed to the default listing (0.06725ms)
+✔ anonymous PostHog identity fails closed for email-like values (0.073375ms)
+✔ derives first-touch traffic source without leaking referrer URLs (0.046375ms)
+✔ only GainFrame download destinations are rewritten (0.062625ms)
+✔ preserves the exact event key and CTA for tool_result_improve (0.125791ms)
+✔ preserves the exact event key and CTA for tool_result_improve_qr (0.124334ms)
+(node:80406) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/lib/winter-arc.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/michael.rode/.codex/worktrees/seo-oct15-release/gain-frame-privacy/web/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 90 inclusive days include the baseline, weekly photos, and final comparison (1.924709ms)
+✔ date arithmetic survives leap days, year boundaries, and daylight saving (2.000042ms)
+✔ invalid or normalized dates and invalid goals are rejected (0.206125ms)
+✔ default date uses October 1 before autumn and the local day afterward (0.076167ms)
+✔ calendar exports complete all-day events with exclusive end dates and RFC line folding (3.016208ms)
+✔ downloadable checklist contains every date, the setup, and the app destination (9.460584ms)
+✔ founder story cards use the configured versioned cover (3.268125ms)
+✔ cards preserve absolute cover URLs and explicit card overrides (0.204542ms)
+✔ cards without a configured image keep the default cover path (0.069333ms)
+✔ splits the current archive into eight 30-post pages (0.692542ms)
+✔ pagination links page one directly back to the canonical blog URL (0.089791ms)
+✔ generated cards escape frontmatter before it reaches the HTML archive (0.067542ms)
+ℹ tests 148
+ℹ suites 0
+ℹ pass 148
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 510.991208

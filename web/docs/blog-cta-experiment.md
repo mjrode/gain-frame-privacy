@@ -7,6 +7,21 @@ Prepared 2026-09-02; assignment repaired 2026-09-11; device rollout approved
 `blog_contextual_cta_v1`. The v2 randomized phase is closed by this release.
 The original v1 phase was retired because assignment crossover contaminated it.
 
+## October 15, 2026: approved editorial intervention
+
+The October 14 SEO audit's P1-P2 and F1-F4 were approved on October 15.
+The two body-fat app roundups and original Hume/Withings reviews now have current
+availability, offer, model and evidence wording. Other source articles receive the
+approved contextual links. Treat these content changes as interventions when
+reading subsequent CTA performance; do not attribute a pre/post change entirely
+to the CTA rollout. The fixed cohort, assignment, device allocation, CTA treatment,
+destinations and exposure definitions remain unchanged. The two new posts are not
+added to the fixed experiment cohort. Photo input guidance/diagnostics also change
+upstream tool activation; shared Improve/Future treatment remains unchanged.
+
+The exact verified release timestamp and measurement windows will be recorded in
+[the October 15 execution receipt](../../seo-tools/content-audits/2026-10-15-execution.md).
+
 ## September 29, 2026: approved device rollout
 
 The owner approved all September 29 proposals. At this release the randomized

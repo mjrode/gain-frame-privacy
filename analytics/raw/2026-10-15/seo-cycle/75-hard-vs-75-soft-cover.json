@@ -1,0 +1,6 @@
+{
+  "model": "gemini-3.1-flash-image-preview",
+  "prompt": "A minimalist, abstract vector line-art illustration of two parallel 75-day habit-tracking calendars, one with two small workout symbols and the other with one workout and a rest symbol, beside a phone camera and a pair of aligned progress-photo frames. No before-and-after body transformation. Thin, precise UI-style lines in dark charcoal gray (#2D3748) against a very light off-white/cream background (#F7FAFC). Subtle, muted pastel accent colors (coral red #FF6B6B, sage green #48BB78, golden yellow #ECC94B) used sparingly to highlight key elements. The style should resemble high-end SaaS product illustrations, clean, geometric, with plenty of negative space. No text, no text rendering. Aspect ratio: 4:3 landscape composition.",
+  "path": "docs/blog/75-hard-vs-75-soft/assets/cover.webp",
+  "estimated_cost_usd": 0.039
+}

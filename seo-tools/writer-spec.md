@@ -21,9 +21,9 @@ No inline styles needed — the class handles centering, sizing, caption styling
 4. Closing CTA div + Related Articles div (5 links). datePublished/dateModified/displayDate per task brief.
 
 ## Voice & honesty
-- Authority first. GainFrame max twice (once in body, once CTA). Honest limits: iOS only; estimates from photos; free tier 25 photos lifetime; Pro $5.99/mo or $39.99/yr.
+- Authority first. GainFrame max twice (once in body, once CTA). Honest limits: iOS only; estimates from photos. Public offer: "Free download with limited check-ins. Optional Pro subscription; current price and limits are shown in the app." Eligibility and remote configuration affect free allowances; the legacy 25-photo limit is not universal. See the October 15 source notes in `seo-tools/product-context.md` and verify current offers before quoting fixed prices.
 - Hedge every stat: "commonly cited", "survey data generally reports". NEVER invent studies or precise figures. Reference ranges from existing posts must stay consistent (men athletic 6–13 / fitness 14–17 / average 18–24 / obese 25+; women 14–20 / 21–24 / 25–31 / 32+).
-- GainFrame facts allowed: AI photo → BF%, BMI, FFMI, 1–100 score, 12 muscle ratings; Deep Dive Compare; Future Physique (with its "Illustrative AI projection" disclaimer); Smart Import; Hevy integration; on-device, no account, photos never stored on a server.
+- GainFrame facts allowed: AI photo → BF%, BMI, FFMI, 1–100 score, 12 muscle ratings; Deep Dive Compare; Future Physique (with its "Illustrative AI projection" disclaimer); Smart Import; Hevy integration; an on-device photo library and no required account. Selected photos are sent for AI processing and are not stored on GainFrame servers; never describe AI inference as entirely on-device. Automatic scoring is free within applicable limits; check `SubscriptionManager.swift` and `FreeTierPolicy.swift` before describing a feature as free or Pro-only.
 - Reader-visible copy must contain no U+2013 en dashes or U+2014 em dashes. Rewrite with a period, comma, parentheses, a plain hyphen, or the word "to". This is a voice rule, not an SEO claim.
 
 ## Visualizer renders (the differentiating asset)

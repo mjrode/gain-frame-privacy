@@ -6,6 +6,14 @@ This file tracks keyword targets for blog posts and comparison articles. Items a
 
 When a post is published, replace `[ ]` with `[x]` and append ` — published YYYY-MM-DD as /blog/[slug]/`.
 
+## October 15 approved batch
+
+- [x] **P1 BodyScan 2** - implemented as `/blog/withings-body-scan-2/`; sourced evaluation and three contextual inbound links.
+- [x] **P2 75 Hard vs 75 Soft** - implemented as `/blog/75-hard-vs-75-soft/`; one adjacent experiment and three contextual inbound links.
+- [x] **F1–F4** - implemented: photo guidance/diagnostics, two commercial roundups, original Hume/Withings reviews, and existing 1RM evidence/FAQs/links. [Release and indexing receipt](content-audits/2026-10-15-execution.md).
+- [ ] **October 15 measurement** - metadata hold through October 25 at release time; photo week October 16–22 / fortnight October 16–29; content window October 16–November 12, settled read around November 15. Keep CTA interventions separate.
+- [ ] **October 15 Google requests** - manual new/revised URL list in the execution receipt. IndexNow does not submit to Google.
+
 ## October 9 approved fixes
 
 - [x] **F1 visceral-fat accuracy and extraction** - shipped October 9 as `/blog/visceral-fat-level/`: device-specific Tanita ranges, measurement limits, 51-word answer, metadata and five matching FAQs.

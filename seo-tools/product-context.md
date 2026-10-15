@@ -11,7 +11,9 @@
 
 GainFrame is an **iOS-only solo-developer project**. Body composition is estimated from photos via **Google Gemini AI** — this is **NOT direct measurement** like DEXA or BIA scales. Photos are sent to Gemini for inference but **never persisted on any server**; results are stored on-device via SwiftData with no account required.
 
-Free tier hard-caps at **25 photos lifetime** (not a trial — a permanent ceiling). Pro is **$5.99/mo or $39.99/yr** via RevenueCat.
+**Offer facts refreshed October 15, 2026:** Free access depends on install eligibility and the `free_tier_limits` remote flag. Legacy installs retain 25 lifetime photos and uncapped check-ins. Eligible new installs (first version 2.20+, flag enabled) use the configured policy, whose compiled defaults are 5 lifetime imports plus 1 check-in per rolling 7 days, up to 3 photos. If the flag is disabled or unavailable, the implementation falls back to legacy behavior. Automatic AI scoring is free within the applicable volume allowance.
+
+Use this public wording: **Free download with limited check-ins. Optional Pro subscription; current price and limits are shown in the app.** The dated October 1 experiment audit records the September 26 US monthly $9.99 phase and the ongoing $39.99/$49.99 annual comparison. This is experiment history, not a universal current offer. Verify the actual in-app purchase screen before quoting a fixed price.
 
 GainFrame sits at the intersection of **two competitor classes** that an article writer might confuse:
 - **AI body composition apps** (trackBod, Spren, BodyScan/FitnessAI) — these compete on AI/scoring accuracy
@@ -99,14 +101,16 @@ Built specifically for **serious gym-goers (intermediate lifters, 18-35)** — N
 
 | Tier | Price | Key inclusions / limits |
 |---|---|---|
-| **Free** | $0 | Up to **25 photos lifetime** (hard cap, not a trial). Camera capture, manual import, grid/timeline, basic compare. **No AI Deep Dive, no Future Physique, no album sync.** All exports carry a watermark. |
-| **Pro Monthly** | **$5.99 / mo** | Unlimited photos, AI Deep Dive Reports, Future Physique Prediction, Album Sync, watermark-free exports |
-| **Pro Yearly** | **$39.99 / yr** | Same as Monthly, ~44% cheaper per month |
+| **Free** | $0 | Eligibility and remote configuration determine photo/import and check-in limits; automatic scoring is free within those limits. |
+| **Pro Monthly** | Current in-app offer | Deep Dive, AI Compare, Future Physique, precision estimates, album sync and other gated features; verify current implementation before describing each feature. |
+| **Pro Yearly** | Current in-app offer | Annual subscription; price varies with offer, country and experiments. Do not quote a universal discount. |
 
-**Notes:**
-- Free tier is gated by *lifetime total photo count*, not by feature usage trials
-- Watermarks are always applied on free, never on Pro
-- Reels feature currently disabled behind a feature flag (do not mention as live)
+**Source of truth, checked October 15, 2026:**
+- `../gain-frame/GainFrame/Services/SubscriptionManager.swift` for feature entitlements and legacy allowance.
+- `../gain-frame/GainFrame/Services/FreeTierPolicy.swift` for install-version eligibility, flag fallback and configurable limits.
+- `../gain-frame/docs/audits/experiments/2026-10-01.md` for the dated pricing experiment state. It is not a live price lookup.
+- Library photos remain on-device. Selected photos are sent for AI processing and are not stored on GainFrame servers. Do not call the analysis entirely on-device.
+- Public offer wording: “Free download with limited check-ins. Optional Pro subscription; current price and limits are shown in the app.”
 
 ---
 
@@ -136,7 +140,7 @@ These are GainFrame's truthful limitations. Use them in content for E-E-A-T cred
 
 3. **Photos are sent to Google's Gemini API for inference.** They are never stored on any server (no cloud sync, no account required) but they DO leave the device temporarily during analysis. Users who want pure on-device AI should know this upfront.
 
-4. **Free tier hard-caps at 25 photos lifetime.** This is a permanent ceiling, not a free trial. Serious users hit this fast and need Pro to continue.
+4. **Free allowances vary by eligibility and remote configuration.** Describe limited check-ins and optional Pro, and refer readers to the current in-app limits. The legacy 25-photo allowance is not universal.
 
 5. **New product (43 days live as of 2026-04-23).** Smaller review count than older competitors (Progress by Lasmit has 9.1K reviews; PhotoJourney has 88; GainFrame has 20). Trust signal is still being built — content should not pretend the app has a years-long track record.
 

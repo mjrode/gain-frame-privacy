@@ -1,0 +1,2 @@
+PASS — 274 posts, no broken links, missing assets, or malformed JSON-LD
+  review: 7 orphan(s) · 0 cannibalization pair(s) · 35 Quick Answer issue(s) · 19 stale post(s) · 61 structured-data contract issue(s) · 152 post(s) with legacy long dashes

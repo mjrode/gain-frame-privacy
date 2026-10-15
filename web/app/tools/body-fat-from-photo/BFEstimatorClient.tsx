@@ -29,6 +29,8 @@ import {
   toolNow,
   validatedJson,
   type PreprocessedImage,
+  type PhotoInputSource,
+  type PhotoDiagnostics,
 } from "@/lib/tool-client";
 
 const FUNCTION_URL =
@@ -223,6 +225,7 @@ export default function BFEstimatorClient() {
   const replaceInputRef = useRef<HTMLInputElement>(null);
   const viewedRef = useRef(false);
   const submittingRef = useRef(false);
+  const inputSourceRef = useRef<PhotoInputSource>("file_picker");
   const photoRecovery = usePhotoRecovery("body_fat_estimator");
 
   // Email capture (result screen). The report call must reuse the exact
@@ -458,8 +461,10 @@ export default function BFEstimatorClient() {
     }
   }
 
-  function onPick(picked: File | null) {
+  function onPick(picked: File | null, inputSource: PhotoInputSource = "file_picker") {
     if (!picked) return;
+    inputSourceRef.current = inputSource;
+    const diagnostics: PhotoDiagnostics = { input_source: inputSource, preprocessing_stage: "selected" };
     if (!isLikelyImageFile(picked)) {
       const attemptId = createAttemptId();
       const startedAt = toolNow();
@@ -476,8 +481,9 @@ export default function BFEstimatorClient() {
         }),
         blocking: true,
         ...fileTelemetry(picked),
+        ...diagnostics,
       });
-      photoRecovery.failed(attemptId, "unsupported_format");
+      photoRecovery.failed(attemptId, "unsupported_format", diagnostics);
       setStage({
         kind: "unusable",
         message: "That file isn't a supported image. Use JPEG, PNG, WebP, HEIC, or HEIF.",
@@ -512,17 +518,23 @@ export default function BFEstimatorClient() {
     const startedAt = toolNow();
     let phase = "preprocess";
     let processed: PreprocessedImage | undefined;
+    const diagnostics: PhotoDiagnostics = {
+      input_source: inputSourceRef.current,
+      preprocessing_stage: "selected",
+    };
     track("bf_tool_estimate_requested", {
       sex: sex ?? "skip",
       run_index: nextRunIndex(),
       attempt_id: attemptId,
       source: "client",
       ...fileTelemetry(file),
+      ...diagnostics,
     });
 
     try {
       processed = await preprocessImageForUpload(file, {
         allowedRawMimes: BF_RAW_MIMES,
+        onStage: (stage) => { diagnostics.preprocessing_stage = stage; },
       });
       const clientId = getOrCreateClientId();
       estimateClientIdRef.current = clientId;
@@ -553,7 +565,7 @@ export default function BFEstimatorClient() {
       if (res.ok) {
         phase = "response_parse";
         const json = await validatedJson(res, isSuccessResponse);
-        photoRecovery.succeeded(attemptId);
+        photoRecovery.succeeded(attemptId, diagnostics);
         track("bf_tool_result_shown", {
           estimate: json.estimate,
           confidence: json.confidence,
@@ -570,6 +582,7 @@ export default function BFEstimatorClient() {
           }),
           blocking: false,
           ...fileTelemetry(file, processed),
+        ...diagnostics,
         });
         trackToolFunnelStep(CTA_CAMPAIGN, "result_shown", {
           input_mode: "photo",
@@ -603,6 +616,7 @@ export default function BFEstimatorClient() {
           }),
           blocking: true,
           ...fileTelemetry(file, processed),
+        ...diagnostics,
         });
         setStage({
           kind: "rate_limited",
@@ -613,7 +627,7 @@ export default function BFEstimatorClient() {
         });
       } else if (res.status === 422) {
         const reason = err.reason ?? err.error ?? "photo_unusable";
-        photoRecovery.failed(attemptId, reason);
+        photoRecovery.failed(attemptId, reason, diagnostics);
         track("bf_tool_photo_unusable", {
           reason,
           ...terminalTelemetry({
@@ -628,6 +642,7 @@ export default function BFEstimatorClient() {
           }),
           blocking: true,
           ...fileTelemetry(file, processed),
+        ...diagnostics,
         });
         setStage({
           kind: "unusable",
@@ -650,13 +665,14 @@ export default function BFEstimatorClient() {
           }),
           blocking: true,
           ...fileTelemetry(file, processed),
+        ...diagnostics,
         };
         track("bf_tool_error", { ...common, status: res.status, code: err.error });
         captureException(
           new Error(`Body-fat estimate failed with HTTP ${res.status}`),
           { tool: "body_fat_estimator", ...common },
         );
-        photoRecovery.failed(attemptId, err.error);
+        photoRecovery.failed(attemptId, err.error, diagnostics);
         setStage({
           kind: "error",
           retryable: res.status >= 500 || res.status === 408,
@@ -665,7 +681,7 @@ export default function BFEstimatorClient() {
       }
     } catch (err) {
       const failure = asToolClientError(err);
-      photoRecovery.failed(attemptId, failure.code);
+      photoRecovery.failed(attemptId, failure.code, diagnostics);
       const common = {
         ...terminalTelemetry({
           attemptId,
@@ -679,6 +695,7 @@ export default function BFEstimatorClient() {
         }),
         blocking: true,
         ...fileTelemetry(file, processed),
+        ...diagnostics,
       };
       if (["unsupported_format", "corrupt_image", "decode_failed_large"].includes(
         failure.code,
@@ -719,7 +736,7 @@ export default function BFEstimatorClient() {
     e.preventDefault();
     setIsDragging(false);
     const dropped = e.dataTransfer.files[0];
-    if (dropped) onPick(dropped);
+    if (dropped) onPick(dropped, "drop");
   }
 
   // ============ RENDER ============
@@ -1027,7 +1044,7 @@ export default function BFEstimatorClient() {
           {stage.reason === "insufficient_visual_evidence" && <PhotoFramingGuide />}
           <PhotoRecoveryActions
             className="bff-submit"
-            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked); }}
+            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked, "reselect"); }}
           />
         </div>
       </div>
@@ -1087,7 +1104,7 @@ export default function BFEstimatorClient() {
           <p className="bff-msg-sub">{stage.message}</p>
           <PhotoRecoveryActions
             className="bff-submit"
-            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked); }}
+            onPick={(picked) => { photoRecovery.started("reselect"); onPick(picked, "reselect"); }}
             onRetry={stage.retryable && file ? () => { photoRecovery.started("retry"); void submit(); } : undefined}
           />
         </div>
@@ -1104,6 +1121,7 @@ export default function BFEstimatorClient() {
         <span className="bff-card-head-meta">Step 1 of 2</span>
       </div>
 
+      {!file && <PhotoFramingGuide compact />}
       {!file ? (
         <label
           className={`bff-target ${isDragging ? "is-active" : ""}`}

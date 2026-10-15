@@ -200,10 +200,13 @@ test("image preprocessing falls back to original supported bytes and MIME", asyn
     type: "image/jpeg",
   });
 
+  const stages = [];
   const result = await preprocessImageForUpload(file, {
     allowedRawMimes: ["image/jpeg"],
+    onStage: stage => stages.push(stage),
   });
 
+  assert.deepEqual(stages, ["validation", "image_decode", "raw_validation", "raw_file_read", "ready"]);
   assert.equal(result.method, "raw_fallback");
   assert.equal(result.photoMime, "image/jpeg");
   assert.equal(result.base64, "AQID");
@@ -263,12 +266,27 @@ test("Android-style FileReader failure recovers when the selected Blob is still 
 
 test("a revoked mobile file handle requires reselection instead of an endless retry", async () => {
   const revoked = installDecodeFailureBrowser();
+  // FileReader fails independently; only the single byte fallback calls arrayBuffer.
+  Object.defineProperty(globalThis, "FileReader", {
+    configurable: true,
+    value: class {
+      readAsDataURL() {
+        this.error = new DOMException("Access revoked", "NotReadableError");
+        queueMicrotask(() => this.onerror?.());
+      }
+    },
+  });
   const file = new File([new Uint8Array([1])], "cloud-photo.jpg", { type: "image/jpeg" });
-  file.arrayBuffer = async () => { throw new DOMException("Access revoked", "NotReadableError"); };
+  let reads = 0;
+  const stages = [];
+  file.arrayBuffer = async () => { reads += 1; throw new DOMException("Access revoked", "NotReadableError"); };
   await assert.rejects(
-    preprocessImageForUpload(file, { allowedRawMimes: ["image/jpeg"] }),
+    preprocessImageForUpload(file, { allowedRawMimes: ["image/jpeg"], onStage: stage => stages.push(stage) }),
     error => error instanceof ToolClientError && error.code === "raw_file_read_failed" &&
       !error.retryable && /Choose it again/.test(error.message),
   );
+  assert.equal(reads, 1);
+  assert.equal(stages.at(-1), "raw_file_read");
+  assert.ok(!stages.includes("ready"));
   assert.deepEqual(revoked, ["blob:test"]);
 });

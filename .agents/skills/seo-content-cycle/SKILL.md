@@ -62,6 +62,20 @@ section in the same commit.
 | PostHog (`mcp__c90fac73-…__*`) | Available, project `seoreceipts` by default — **switch to GainFrame before querying**. **The GainFrame data lives in project `357433` ("Default project", GainFrame org) and contains BOTH app and website events** — verified 2026-08-13 with `outbound_app_store_click` (671/14d), `bf_tool_*`, `physique_rater_*`, `waist_tool_calculated` all present. The 2026-08-11/12 runs recorded "zero events" — that was a wrong-scope query, not missing instrumentation. If the MCP connector only exposes render-ui, query the REST API directly: `POSTHOG_PERSONAL_API_KEY` in `~/.zshrc`, `POST us.posthog.com/api/projects/357433/query/` with a HogQLQuery (build the JSON in a python file — nested bash quoting corrupts `$pathname` escapes). Never record PostHog as unavailable without querying project 357433 via REST first | Landing-page conversion paths: tool results, email submissions, and App Store clicks. Use in every decision run when available |
 | `seo-tools/content-inventory.mjs` | **Working.** No network, no model | Every local fact: link graph, orphans, cannibalization, freshness, Quick Answer lengths |
 
+### Source checks verified 2026-10-14
+
+- DataForSEO Google Trends graphs can mix sparse numeric-key objects and arrays
+  inside `data[].values` in the same response. Normalize both against `keywords`
+  before calculating summaries. A day with no `values` is unavailable, not zero
+  interest; report the observed-day count. The October 14 read omitted September
+  19-21. Use complete seven-day comparisons when the longer window has gaps.
+- Treat Labs monthly/yearly growth as dated database evidence. Validate a claimed
+  current breakout against a fresh trend window; October 14 Winter Arc was up
+  annually but down about 55% in the latest complete week from its October peak.
+- Enumerate tools from the live sitemap or resolved `CALC_SLUGS` plus static
+  routes, never from literal Next.js dynamic folders such as `tools/[slug]`.
+  Exclude accidental placeholder inspections from the coverage denominator.
+
 ### Source checks verified 2026-10-09
 
 - The inventory's zero Quick Answer count does not prove there is no visible
@@ -709,6 +723,12 @@ rg -n '[—–]' web/content/blog/<slug>.mdx
 The strict slug check must find valid JSON-LD, the canonical author/publisher contract, matching
 frontmatter and Article fields, a correct final breadcrumb, and FAQ schema text that appears in the
 visible body. The `rg` command must produce no output; exit status 1 means the file is clean.
+
+October 15 MDX compilation check: an inline `<div><table>...<tbody>` opening followed by
+separate `<tr>` lines can pass inventory yet fail compilation with “Expected a closing tag
+for `<tbody>` before the end of paragraph.” Keep compact JSX tables on one line as in the
+exemplars, or use a fully block-formatted JSX structure. Compile the actual articles in the
+production build; JSON-LD parity alone does not validate MDX.
 
 The strict slug check is not a substitute for compiling the frontmatter. A plain YAML scalar that
 contains `: ` can pass the inventory check and then fail `generate-blog-grid.mjs` during the

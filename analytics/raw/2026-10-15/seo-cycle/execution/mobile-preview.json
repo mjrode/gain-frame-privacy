@@ -1,0 +1,111 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "checks": [
+    {
+      "brokenImages": [],
+      "headings": [
+        "Withings BodyScan 2 for Lifters: Features, Costs and Tracking Limits",
+        "What does BodyScan 2 add over the original Body Scan?",
+        "How much does BodyScan 2 cost to own?",
+        "Which features matter for lifting progress?",
+        "Can BodyScan 2 sync with Apple Health?",
+        "How should you interpret accuracy claims?",
+        "What should you check before buying?",
+        "What else should you know?",
+        "See GainFrame more often in Google"
+      ],
+      "loadedImages": 3,
+      "scrollWidth": 390,
+      "title": "Withings BodyScan 2 for Lifters: Features, Costs and Tracking Limits | GainFrame",
+      "viewport": 390
+    },
+    {
+      "brokenImages": [],
+      "headings": [
+        "5 Best AI Body Fat Estimator Apps in 2026",
+        "How did we choose these five apps?",
+        "Which kind of output should you choose?",
+        "1. When should you consider GainFrame?",
+        "2. When should you consider Spren?",
+        "3. When should you consider trackBod?",
+        "4. When should you consider Recomp AI?",
+        "5. When should you consider MeThreeSixty?",
+        "How should you compare accuracy claims?",
+        "What should you check before your first scan?",
+        "What else should you know?",
+        "See GainFrame more often in Google"
+      ],
+      "loadedImages": 4,
+      "scrollWidth": 390,
+      "title": "5 Best AI Body Fat Estimator Apps in 2026 | GainFrame",
+      "viewport": 390
+    },
+    {
+      "brokenImages": [],
+      "headings": [
+        "Body Fat Scanner Apps Compared: Photos, 3D Scans and Limits",
+        "What is the difference between a photo scanner and a 3D scanner?",
+        "Which scanner apps are available now?",
+        "1. When should you consider GainFrame?",
+        "2. When should you consider Spren?",
+        "3. When should you consider trackBod?",
+        "4. When should you consider Recomp AI?",
+        "5. When should you consider MeThreeSixty?",
+        "Are body-fat scanner apps more accurate than smart scales?",
+        "How can you make the record useful over time?",
+        "What else should you know?",
+        "See GainFrame more often in Google"
+      ],
+      "loadedImages": 4,
+      "scrollWidth": 390,
+      "title": "Body Fat Scanner Apps Compared: Photos, 3D Scans and Limits | GainFrame",
+      "viewport": 390
+    },
+    {
+      "brokenImages": [],
+      "headings": [
+        "Hume Body Pod Review (2026): Accuracy, Price & Subscription",
+        "Which Hume Body Pod does this review cover?",
+        "What can the original Body Pod help you track?",
+        "How accurate is the Hume Body Pod?",
+        "What does the original Body Pod cost now?",
+        "Do you need a Hume app subscription?",
+        "How should you combine scale readings and photos?",
+        "What should you check before buying a used or discounted Body Pod?",
+        "What else should you know?",
+        "See GainFrame more often in Google"
+      ],
+      "loadedImages": 5,
+      "scrollWidth": 390,
+      "title": "Hume Body Pod Review (2026): Accuracy, Price & Subscription | GainFrame",
+      "viewport": 390
+    },
+    {
+      "brokenImages": [],
+      "headings": [
+        "Withings Body Scan Review: Original Model Features and Limits",
+        "What does the original Withings Body Scan do?",
+        "How should you interpret the body-composition readings?",
+        "What does the original model cost, and is Withings+ required?",
+        "Does the original Body Scan work with Apple Health?",
+        "When are progress photos useful alongside a scale?",
+        "Who should consider the original Body Scan?",
+        "What else should you know?",
+        "See GainFrame more often in Google"
+      ],
+      "loadedImages": 5,
+      "scrollWidth": 390,
+      "title": "Withings Body Scan Review: Original Model Features and Limits | GainFrame",
+      "viewport": 390
+    }
+  ],
+  "notes": [
+    "Initial guidance visible on estimator and transformation",
+    "100 kg x 5 calculator: average 116 kg, Epley 116.5 kg, Brzycki 112.5 kg with existing 0.5-unit rounding",
+    "Final clean build title verified separately on port 8766",
+    "Lazy images not forced to load in every article"
+  ]
+}

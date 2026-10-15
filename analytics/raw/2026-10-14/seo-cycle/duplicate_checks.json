@@ -1,0 +1,147 @@
+{
+  "withings-body-scan-2": {
+    "filename_matches": [],
+    "content_matches": [
+      {
+        "slug": "hume-vs-withings",
+        "lines": [
+          24,
+          37,
+          53,
+          89
+        ]
+      }
+    ]
+  },
+  "75-hard-vs-75-soft": {
+    "filename_matches": [],
+    "content_matches": []
+  },
+  "cal-ai-vs-myfitnesspal": {
+    "filename_matches": [],
+    "content_matches": [
+      {
+        "slug": "best-before-after-transformations-men",
+        "lines": [
+          32
+        ]
+      },
+      {
+        "slug": "personalized-ai-fitness-coach",
+        "lines": [
+          125
+        ]
+      },
+      {
+        "slug": "ai-body-fat-estimator-accuracy-dexa-test",
+        "lines": [
+          29
+        ]
+      },
+      {
+        "slug": "best-apps-track-weight-loss-ozempic",
+        "lines": [
+          21,
+          71,
+          209,
+          215,
+          223,
+          225,
+          303,
+          311,
+          337,
+          359,
+          361
+        ]
+      },
+      {
+        "slug": "best-before-after-transformation-apps-women",
+        "lines": [
+          26,
+          83,
+          85
+        ]
+      },
+      {
+        "slug": "visceral-fat-app",
+        "lines": [
+          73
+        ]
+      },
+      {
+        "slug": "idea-validator-scored-my-live-app",
+        "lines": [
+          78,
+          80,
+          82
+        ]
+      },
+      {
+        "slug": "how-to-take-progress-photos-weight-loss",
+        "lines": [
+          134
+        ]
+      },
+      {
+        "slug": "macrofactor-review",
+        "lines": [
+          3,
+          11,
+          19,
+          21,
+          50,
+          55,
+          59,
+          67,
+          98,
+          100
+        ]
+      }
+    ]
+  },
+  "renpho-morphoscan-nova-review": {
+    "filename_matches": [],
+    "content_matches": [
+      {
+        "slug": "best-body-composition-scales",
+        "lines": [
+          36
+        ]
+      },
+      {
+        "slug": "hume-vs-renpho",
+        "lines": [
+          2,
+          3,
+          6,
+          7,
+          10,
+          11,
+          17,
+          19,
+          20,
+          21,
+          25,
+          27,
+          33,
+          37,
+          93,
+          99,
+          105
+        ]
+      },
+      {
+        "slug": "best-smart-scales-apple-health",
+        "lines": [
+          39
+        ]
+      },
+      {
+        "slug": "are-smart-scales-worth-it",
+        "lines": [
+          33
+        ]
+      }
+    ]
+  }
+}

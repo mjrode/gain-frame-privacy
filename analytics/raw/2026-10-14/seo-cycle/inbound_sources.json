@@ -1,0 +1,38 @@
+{
+  "withings-body-scan-review": {
+    "inbound": 7,
+    "contextual": 7
+  },
+  "best-body-composition-scales": {
+    "inbound": 8,
+    "contextual": 5
+  },
+  "best-smart-scales-apple-health": {
+    "inbound": 12,
+    "contextual": 9
+  },
+  "winter-arc-challenge": {
+    "inbound": 2,
+    "contextual": 2
+  },
+  "how-often-progress-photos": {
+    "inbound": 22,
+    "contextual": 10
+  },
+  "take-progress-photos-by-yourself": {
+    "inbound": 11,
+    "contextual": 8
+  },
+  "body-frame-size": {
+    "inbound": 4,
+    "contextual": 4
+  },
+  "ideal-body-measurements-men": {
+    "inbound": 10,
+    "contextual": 8
+  },
+  "ideal-body-measurements-women": {
+    "inbound": 7,
+    "contextual": 3
+  }
+}

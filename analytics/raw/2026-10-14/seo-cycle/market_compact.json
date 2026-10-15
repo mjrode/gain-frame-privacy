@@ -1,0 +1,1141 @@
+[
+  {
+    "keyword": "75 hard alternatives",
+    "volume": 140,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 27,
+      "quarterly": 27,
+      "yearly": 27
+    },
+    "updated": "2026-09-16 05:59:00 +00:00"
+  },
+  {
+    "keyword": "75 hard progress photos",
+    "volume": 20,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "quarterly": -33
+    },
+    "updated": "2026-09-15 04:01:24 +00:00"
+  },
+  {
+    "keyword": "75 hard vs 75 soft",
+    "volume": 1900,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 26,
+      "yearly": 50
+    },
+    "updated": "2026-09-13 19:50:44 +00:00"
+  },
+  {
+    "keyword": "75 soft challenge",
+    "volume": 33100,
+    "difficulty": 2,
+    "intent": "informational",
+    "trend": {
+      "quarterly": -18,
+      "yearly": 22
+    },
+    "updated": "2026-09-13 08:44:18 +00:00"
+  },
+  {
+    "keyword": "90 day body transformation",
+    "volume": 210,
+    "difficulty": 1,
+    "intent": "informational",
+    "trend": {
+      "quarterly": 21,
+      "yearly": -47
+    },
+    "updated": "2026-09-12 19:17:23 +00:00"
+  },
+  {
+    "keyword": "ai body fat estimator",
+    "volume": 210,
+    "difficulty": 11,
+    "intent": "informational",
+    "trend": {
+      "quarterly": 23,
+      "yearly": 256
+    },
+    "updated": "2026-09-13 16:19:33 +00:00"
+  },
+  {
+    "keyword": "arboleaf scale review",
+    "volume": 140,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 27,
+      "quarterly": -18,
+      "yearly": 56
+    },
+    "updated": "2026-09-14 01:53:37 +00:00"
+  },
+  {
+    "keyword": "average arm size",
+    "volume": 260,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 24,
+      "quarterly": 24,
+      "yearly": -33
+    },
+    "updated": "2026-09-15 03:36:52 +00:00"
+  },
+  {
+    "keyword": "average bicep size",
+    "volume": 1300,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "quarterly": 30,
+      "yearly": -46
+    },
+    "updated": "2026-09-15 10:26:47 +00:00"
+  },
+  {
+    "keyword": "average thigh size",
+    "volume": 260,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 24
+    },
+    "updated": "2026-09-13 13:09:06 +00:00"
+  },
+  {
+    "keyword": "best ai body fat estimator",
+    "volume": 20,
+    "difficulty": null,
+    "intent": "commercial",
+    "trend": {
+      "monthly": 33,
+      "quarterly": 33
+    },
+    "updated": "2026-09-14 22:59:32 +00:00"
+  },
+  {
+    "keyword": "best ai calorie counter",
+    "volume": 110,
+    "difficulty": 50,
+    "intent": "commercial",
+    "trend": {
+      "monthly": -21,
+      "yearly": -35
+    },
+    "updated": "2026-09-14 04:19:59 +00:00"
+  },
+  {
+    "keyword": "best body fat calipers",
+    "volume": 90,
+    "difficulty": 1,
+    "intent": "commercial",
+    "trend": {
+      "yearly": -22
+    },
+    "updated": "2026-09-14 11:53:50 +00:00"
+  },
+  {
+    "keyword": "best body measurement app",
+    "volume": 50,
+    "difficulty": 39,
+    "intent": "informational",
+    "trend": {
+      "monthly": 25,
+      "yearly": -29
+    },
+    "updated": "2026-09-13 11:38:30 +00:00"
+  },
+  {
+    "keyword": "best body scanner app",
+    "volume": 50,
+    "difficulty": 9,
+    "intent": "transactional",
+    "trend": {
+      "monthly": -40,
+      "quarterly": -25,
+      "yearly": -67
+    },
+    "updated": "2026-09-14 11:46:48 +00:00"
+  },
+  {
+    "keyword": "best fitness apps for men",
+    "volume": 1900,
+    "difficulty": 22,
+    "intent": "commercial",
+    "trend": {
+      "quarterly": 19
+    },
+    "updated": "2026-09-12 20:00:03 +00:00"
+  },
+  {
+    "keyword": "best gym apps apple watch",
+    "volume": 30,
+    "difficulty": 24,
+    "intent": "commercial",
+    "trend": {
+      "quarterly": -50,
+      "yearly": -75
+    },
+    "updated": "2026-09-12 21:48:31 +00:00"
+  },
+  {
+    "keyword": "best protein tracker app",
+    "volume": 480,
+    "difficulty": 59,
+    "intent": "commercial",
+    "trend": {
+      "quarterly": 23
+    },
+    "updated": "2026-09-16 01:43:27 +00:00"
+  },
+  {
+    "keyword": "best smart scale",
+    "volume": 5400,
+    "difficulty": 2,
+    "intent": "commercial",
+    "trend": {
+      "quarterly": -19
+    },
+    "updated": "2026-09-12 18:48:42 +00:00"
+  },
+  {
+    "keyword": "best smart scales for athletes",
+    "volume": 10,
+    "difficulty": null,
+    "intent": "commercial",
+    "trend": null,
+    "updated": "2026-09-17 08:28:52 +00:00"
+  },
+  {
+    "keyword": "best whoop alternatives",
+    "volume": 390,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "yearly": 85
+    },
+    "updated": "2026-09-12 04:20:58 +00:00"
+  },
+  {
+    "keyword": "bicep length",
+    "volume": 320,
+    "difficulty": 4,
+    "intent": "informational",
+    "trend": {
+      "monthly": -19,
+      "quarterly": 24,
+      "yearly": -19
+    },
+    "updated": "2026-09-12 14:56:53 +00:00"
+  },
+  {
+    "keyword": "bmi visualizer",
+    "volume": 8100,
+    "difficulty": 39,
+    "intent": "informational",
+    "trend": {
+      "monthly": -19,
+      "quarterly": -45
+    },
+    "updated": "2026-09-12 08:51:54 +00:00"
+  },
+  {
+    "keyword": "bod pod vs dexa",
+    "volume": 590,
+    "difficulty": null,
+    "intent": "commercial",
+    "trend": {
+      "yearly": 23
+    },
+    "updated": "2026-09-12 03:24:55 +00:00"
+  },
+  {
+    "keyword": "body fat calipers",
+    "volume": 3600,
+    "difficulty": 9,
+    "intent": "transactional",
+    "trend": {
+      "quarterly": -19,
+      "yearly": -34
+    },
+    "updated": "2026-09-17 00:34:36 +00:00"
+  },
+  {
+    "keyword": "body fat distribution",
+    "volume": 1000,
+    "difficulty": 37,
+    "intent": "informational",
+    "trend": {
+      "yearly": -12
+    },
+    "updated": "2026-09-15 10:43:32 +00:00"
+  },
+  {
+    "keyword": "body fat distribution men",
+    "volume": 10,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": null,
+    "updated": "2026-09-14 07:42:00 +00:00"
+  },
+  {
+    "keyword": "body fat estimator",
+    "volume": 74000,
+    "difficulty": 24,
+    "intent": "informational",
+    "trend": {
+      "quarterly": 22,
+      "yearly": 22
+    },
+    "updated": "2026-09-14 03:08:06 +00:00"
+  },
+  {
+    "keyword": "body fat percentage chart",
+    "volume": 14800,
+    "difficulty": 32,
+    "intent": "informational",
+    "trend": {
+      "monthly": -18,
+      "quarterly": -18,
+      "yearly": -55
+    },
+    "updated": "2026-09-13 00:41:53 +00:00"
+  },
+  {
+    "keyword": "body fat percentage face",
+    "volume": 140,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": -21,
+      "yearly": -48
+    },
+    "updated": "2026-09-16 16:06:42 +00:00"
+  },
+  {
+    "keyword": "body fat percentage pictures",
+    "volume": 2900,
+    "difficulty": 13,
+    "intent": "informational",
+    "trend": {
+      "monthly": 21,
+      "quarterly": 21,
+      "yearly": -34
+    },
+    "updated": "2026-09-15 02:22:03 +00:00"
+  },
+  {
+    "keyword": "body fat percentage vs bmi",
+    "volume": 2400,
+    "difficulty": 17,
+    "intent": "informational",
+    "trend": null,
+    "updated": "2026-09-12 22:30:45 +00:00"
+  },
+  {
+    "keyword": "body recomposition vs cutting",
+    "volume": 170,
+    "difficulty": 2,
+    "intent": "informational",
+    "trend": {
+      "yearly": 50
+    },
+    "updated": "2026-09-14 10:10:35 +00:00"
+  },
+  {
+    "keyword": "body scan app",
+    "volume": 720,
+    "difficulty": 16,
+    "intent": "transactional",
+    "trend": null,
+    "updated": "2026-09-13 05:06:29 +00:00"
+  },
+  {
+    "keyword": "body shape visualizer",
+    "volume": 12100,
+    "difficulty": 5,
+    "intent": "informational",
+    "trend": {
+      "monthly": 22,
+      "quarterly": -18
+    },
+    "updated": "2026-09-15 15:51:40 +00:00"
+  },
+  {
+    "keyword": "body tracker app",
+    "volume": 210,
+    "difficulty": 10,
+    "intent": "transactional",
+    "trend": {
+      "monthly": 50,
+      "quarterly": 22,
+      "yearly": 179
+    },
+    "updated": "2026-09-17 01:04:47 +00:00"
+  },
+  {
+    "keyword": "body visualiser",
+    "volume": 40500,
+    "difficulty": 5,
+    "intent": "transactional",
+    "trend": {
+      "monthly": -18,
+      "quarterly": -18,
+      "yearly": 6849
+    },
+    "updated": "2026-09-13 16:01:31 +00:00"
+  },
+  {
+    "keyword": "body visualizer",
+    "volume": 40500,
+    "difficulty": 4,
+    "intent": "transactional",
+    "trend": {
+      "monthly": -18,
+      "quarterly": -18
+    },
+    "updated": "2026-09-16 06:08:56 +00:00"
+  },
+  {
+    "keyword": "bulk cut or recomp",
+    "volume": 10,
+    "difficulty": 32,
+    "intent": "informational",
+    "trend": {
+      "monthly": 100,
+      "quarterly": 100,
+      "yearly": 100
+    },
+    "updated": "2026-09-12 03:00:13 +00:00"
+  },
+  {
+    "keyword": "cal ai review",
+    "volume": 1600,
+    "difficulty": 4,
+    "intent": "informational",
+    "trend": {
+      "monthly": 30,
+      "yearly": -19
+    },
+    "updated": "2026-09-17 02:31:09 +00:00"
+  },
+  {
+    "keyword": "cal ai vs myfitnesspal",
+    "volume": 320,
+    "difficulty": null,
+    "intent": "commercial",
+    "trend": {
+      "yearly": 24
+    },
+    "updated": "2026-09-15 06:40:45 +00:00"
+  },
+  {
+    "keyword": "dexa scan cost",
+    "volume": 9900,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 49,
+      "quarterly": 49,
+      "yearly": 49
+    },
+    "updated": "2026-09-15 21:18:22 +00:00"
+  },
+  {
+    "keyword": "dexa scan near me",
+    "volume": 49500,
+    "difficulty": 7,
+    "intent": "navigational",
+    "trend": {
+      "monthly": -18,
+      "yearly": 22
+    },
+    "updated": "2026-09-15 18:42:34 +00:00"
+  },
+  {
+    "keyword": "evolt 360 body scan accuracy",
+    "volume": 170,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 24,
+      "quarterly": 24,
+      "yearly": 50
+    },
+    "updated": "2026-09-15 17:51:23 +00:00"
+  },
+  {
+    "keyword": "fitbod review",
+    "volume": 1000,
+    "difficulty": 2,
+    "intent": "informational",
+    "trend": {
+      "quarterly": -18,
+      "yearly": -28
+    },
+    "updated": "2026-09-15 09:55:47 +00:00"
+  },
+  {
+    "keyword": "fittrack dara review",
+    "volume": 10,
+    "difficulty": 5,
+    "intent": "informational",
+    "trend": {
+      "yearly": -100
+    },
+    "updated": "2026-09-13 14:04:26 +00:00"
+  },
+  {
+    "keyword": "fittrack vs renpho",
+    "volume": 10,
+    "difficulty": 10,
+    "intent": "commercial",
+    "trend": null,
+    "updated": "2026-09-16 20:39:47 +00:00"
+  },
+  {
+    "keyword": "glp 1 muscle loss",
+    "volume": 1900,
+    "difficulty": 35,
+    "intent": "informational",
+    "trend": {
+      "yearly": 46
+    },
+    "updated": "2026-09-14 05:25:50 +00:00"
+  },
+  {
+    "keyword": "gravl app review",
+    "volume": 390,
+    "difficulty": 8,
+    "intent": "navigational",
+    "trend": {
+      "monthly": 22,
+      "quarterly": 125,
+      "yearly": 177
+    },
+    "updated": "2026-09-16 18:05:02 +00:00"
+  },
+  {
+    "keyword": "gravl vs fitbod",
+    "volume": 390,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 14,
+      "quarterly": 39,
+      "yearly": 809
+    },
+    "updated": "2026-09-13 01:32:05 +00:00"
+  },
+  {
+    "keyword": "gymstreak review",
+    "volume": 10,
+    "difficulty": 22,
+    "intent": "informational",
+    "trend": null,
+    "updated": "2026-09-14 15:54:58 +00:00"
+  },
+  {
+    "keyword": "hevy app review",
+    "volume": 480,
+    "difficulty": 12,
+    "intent": "informational",
+    "trend": {
+      "quarterly": 23,
+      "yearly": 84
+    },
+    "updated": "2026-09-16 06:43:37 +00:00"
+  },
+  {
+    "keyword": "hevy vs strong",
+    "volume": 390,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "yearly": 23
+    },
+    "updated": "2026-09-12 16:17:28 +00:00"
+  },
+  {
+    "keyword": "hip size",
+    "volume": 1900,
+    "difficulty": 6,
+    "intent": "informational",
+    "trend": {
+      "yearly": 26
+    },
+    "updated": "2026-09-13 01:40:03 +00:00"
+  },
+  {
+    "keyword": "how to track muscle gain",
+    "volume": 10,
+    "difficulty": 23,
+    "intent": "informational",
+    "trend": {
+      "yearly": -67
+    },
+    "updated": "2026-09-17 00:01:05 +00:00"
+  },
+  {
+    "keyword": "hume body pod review",
+    "volume": 390,
+    "difficulty": null,
+    "intent": "commercial",
+    "trend": {
+      "yearly": -71
+    },
+    "updated": "2026-10-01 07:22:46 +00:00"
+  },
+  {
+    "keyword": "hume health body pod",
+    "volume": 18100,
+    "difficulty": 8,
+    "intent": "transactional",
+    "trend": {
+      "monthly": -18,
+      "quarterly": -18,
+      "yearly": -64
+    },
+    "updated": "2026-09-13 19:40:47 +00:00"
+  },
+  {
+    "keyword": "hume vs renpho",
+    "volume": 140,
+    "difficulty": 4,
+    "intent": "informational",
+    "trend": {
+      "yearly": 56
+    },
+    "updated": "2026-09-14 11:05:52 +00:00"
+  },
+  {
+    "keyword": "hyrox training app",
+    "volume": 320,
+    "difficulty": null,
+    "intent": "transactional",
+    "trend": {
+      "quarterly": -74,
+      "yearly": 189
+    },
+    "updated": "2026-09-12 16:15:34 +00:00"
+  },
+  {
+    "keyword": "inbody scan cost",
+    "volume": 880,
+    "difficulty": 9,
+    "intent": "informational",
+    "trend": {
+      "monthly": -18,
+      "quarterly": -33
+    },
+    "updated": "2026-09-12 15:17:41 +00:00"
+  },
+  {
+    "keyword": "inbody vs renpho",
+    "volume": 20,
+    "difficulty": 5,
+    "intent": "informational",
+    "trend": {
+      "monthly": 100,
+      "quarterly": 100,
+      "yearly": -33
+    },
+    "updated": "2026-09-13 05:25:58 +00:00"
+  },
+  {
+    "keyword": "inbody vs tanita",
+    "volume": 20,
+    "difficulty": null,
+    "intent": "commercial",
+    "trend": {
+      "monthly": 200,
+      "quarterly": 50
+    },
+    "updated": "2026-09-13 21:19:54 +00:00"
+  },
+  {
+    "keyword": "jefit vs hevy",
+    "volume": 50,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "quarterly": 40,
+      "yearly": 40
+    },
+    "updated": "2026-09-13 06:36:59 +00:00"
+  },
+  {
+    "keyword": "long torso short legs",
+    "volume": 8100,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": -18,
+      "quarterly": -18
+    },
+    "updated": "2026-09-13 13:12:48 +00:00"
+  },
+  {
+    "keyword": "macrofactor vs myfitnesspal",
+    "volume": 720,
+    "difficulty": null,
+    "intent": "commercial",
+    "trend": {
+      "monthly": -18,
+      "quarterly": -18,
+      "yearly": -33
+    },
+    "updated": "2026-09-12 03:11:09 +00:00"
+  },
+  {
+    "keyword": "macrofactor workouts vs hevy",
+    "volume": 30,
+    "difficulty": null,
+    "intent": "commercial",
+    "trend": {
+      "monthly": -29
+    },
+    "updated": "2026-09-16 05:32:48 +00:00"
+  },
+  {
+    "keyword": "muscle asymmetry",
+    "volume": 3600,
+    "difficulty": 27,
+    "intent": "informational",
+    "trend": {
+      "monthly": 24,
+      "quarterly": 24,
+      "yearly": -33
+    },
+    "updated": "2026-09-12 03:11:19 +00:00"
+  },
+  {
+    "keyword": "muscle imbalance",
+    "volume": 3600,
+    "difficulty": 19,
+    "intent": "informational",
+    "trend": {
+      "monthly": 24,
+      "quarterly": 24,
+      "yearly": -33
+    },
+    "updated": "2026-09-15 11:40:46 +00:00"
+  },
+  {
+    "keyword": "muscle imbalance test",
+    "volume": 20,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 100,
+      "yearly": -33
+    },
+    "updated": "2026-09-15 01:41:08 +00:00"
+  },
+  {
+    "keyword": "myfitnesspal vs macrofactor",
+    "volume": 210,
+    "difficulty": null,
+    "intent": "commercial",
+    "trend": {
+      "yearly": -19
+    },
+    "updated": "2026-09-15 11:24:32 +00:00"
+  },
+  {
+    "keyword": "one arm bigger than the other",
+    "volume": 880,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "yearly": -12
+    },
+    "updated": "2026-09-13 03:12:16 +00:00"
+  },
+  {
+    "keyword": "oxiline vs hume",
+    "volume": 390,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": -19,
+      "quarterly": -56,
+      "yearly": 950
+    },
+    "updated": "2026-09-12 12:34:03 +00:00"
+  },
+  {
+    "keyword": "physique rater",
+    "volume": 390,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 23,
+      "yearly": 129
+    },
+    "updated": "2026-09-16 14:17:31 +00:00"
+  },
+  {
+    "keyword": "progress photo app",
+    "volume": 110,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": -22,
+      "yearly": -50
+    },
+    "updated": "2026-09-16 16:07:05 +00:00"
+  },
+  {
+    "keyword": "progress photo poses",
+    "volume": 30,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 33,
+      "quarterly": 100,
+      "yearly": 33
+    },
+    "updated": "2026-09-14 18:49:29 +00:00"
+  },
+  {
+    "keyword": "protein tracking app",
+    "volume": 590,
+    "difficulty": 56,
+    "intent": "transactional",
+    "trend": {
+      "yearly": -46
+    },
+    "updated": "2026-09-16 19:32:59 +00:00"
+  },
+  {
+    "keyword": "rate my physique",
+    "volume": 720,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 30,
+      "quarterly": 30,
+      "yearly": 306
+    },
+    "updated": "2026-09-15 14:46:36 +00:00"
+  },
+  {
+    "keyword": "renpho morphoscan nova review",
+    "volume": 140,
+    "difficulty": 3,
+    "intent": "commercial",
+    "trend": {
+      "monthly": 21
+    },
+    "updated": "2026-09-14 08:52:41 +00:00"
+  },
+  {
+    "keyword": "renpho morphoscan review",
+    "volume": 110,
+    "difficulty": 8,
+    "intent": "informational",
+    "trend": {
+      "yearly": -84
+    },
+    "updated": "2026-09-12 20:36:32 +00:00"
+  },
+  {
+    "keyword": "renpho scale review",
+    "volume": 320,
+    "difficulty": 15,
+    "intent": "informational",
+    "trend": {
+      "monthly": 50,
+      "quarterly": 22,
+      "yearly": 22
+    },
+    "updated": "2026-09-16 14:55:44 +00:00"
+  },
+  {
+    "keyword": "renpho vs inbody",
+    "volume": 30,
+    "difficulty": 5,
+    "intent": "informational",
+    "trend": {
+      "monthly": -33,
+      "quarterly": -33
+    },
+    "updated": "2026-09-14 01:08:49 +00:00"
+  },
+  {
+    "keyword": "renpho vs withings",
+    "volume": 50,
+    "difficulty": 5,
+    "intent": "informational",
+    "trend": {
+      "yearly": 75
+    },
+    "updated": "2026-09-16 12:12:44 +00:00"
+  },
+  {
+    "keyword": "short legs long torso",
+    "volume": 8100,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": -18,
+      "quarterly": -18
+    },
+    "updated": "2026-09-15 07:47:32 +00:00"
+  },
+  {
+    "keyword": "shoulder to hip ratio",
+    "volume": 390,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": -33,
+      "quarterly": -18,
+      "yearly": -18
+    },
+    "updated": "2026-09-16 13:25:48 +00:00"
+  },
+  {
+    "keyword": "skinny arms",
+    "volume": 3600,
+    "difficulty": 6,
+    "intent": "informational",
+    "trend": null,
+    "updated": "2026-09-14 08:36:00 +00:00"
+  },
+  {
+    "keyword": "skinny fat to muscular",
+    "volume": 390,
+    "difficulty": 10,
+    "intent": "informational",
+    "trend": {
+      "yearly": -19
+    },
+    "updated": "2026-09-16 18:46:30 +00:00"
+  },
+  {
+    "keyword": "smart scale black friday",
+    "volume": 10,
+    "difficulty": null,
+    "intent": "commercial",
+    "trend": null,
+    "updated": "2026-09-15 22:05:18 +00:00"
+  },
+  {
+    "keyword": "tanita vs inbody",
+    "volume": 20,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 200,
+      "quarterly": 50
+    },
+    "updated": "2026-09-15 20:32:34 +00:00"
+  },
+  {
+    "keyword": "uneven shoulders",
+    "volume": 1600,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "quarterly": 23
+    },
+    "updated": "2026-09-12 08:49:39 +00:00"
+  },
+  {
+    "keyword": "waist to height ratio",
+    "volume": 14800,
+    "difficulty": 20,
+    "intent": "informational",
+    "trend": {
+      "monthly": -18,
+      "quarterly": 124,
+      "yearly": 311
+    },
+    "updated": "2026-09-12 20:38:04 +00:00"
+  },
+  {
+    "keyword": "waist to hip ratio",
+    "volume": 22200,
+    "difficulty": 29,
+    "intent": "informational",
+    "trend": {
+      "monthly": 22,
+      "quarterly": 22,
+      "yearly": 50
+    },
+    "updated": "2026-09-12 09:32:55 +00:00"
+  },
+  {
+    "keyword": "whoop alternatives",
+    "volume": 2400,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": -17,
+      "quarterly": -17
+    },
+    "updated": "2026-09-12 12:21:00 +00:00"
+  },
+  {
+    "keyword": "winter arc",
+    "volume": 12100,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 519,
+      "quarterly": 890,
+      "yearly": 22
+    },
+    "updated": "2026-09-13 09:11:20 +00:00"
+  },
+  {
+    "keyword": "winter arc 2026",
+    "volume": 40,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 2500,
+      "quarterly": 2500,
+      "yearly": 2500
+    },
+    "updated": "2026-09-14 06:04:50 +00:00"
+  },
+  {
+    "keyword": "winter arc challenge",
+    "volume": 880,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 1660,
+      "quarterly": 2833,
+      "yearly": 700
+    },
+    "updated": "2026-09-15 18:13:58 +00:00"
+  },
+  {
+    "keyword": "winter arc tracker",
+    "volume": 10,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": null,
+    "updated": "2026-09-15 02:04:13 +00:00"
+  },
+  {
+    "keyword": "winter arc workout plan",
+    "volume": 50,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": null,
+    "updated": "2026-09-15 22:23:00 +00:00"
+  },
+  {
+    "keyword": "winter bulk",
+    "volume": 110,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": 40,
+      "quarterly": 75,
+      "yearly": -36
+    },
+    "updated": "2026-09-14 01:58:44 +00:00"
+  },
+  {
+    "keyword": "winter bulk workout plan",
+    "volume": 10,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "yearly": -100
+    },
+    "updated": "2026-09-12 11:34:29 +00:00"
+  },
+  {
+    "keyword": "withings body scan 2",
+    "volume": 4400,
+    "difficulty": 9,
+    "intent": "informational",
+    "trend": {
+      "monthly": -56,
+      "quarterly": -46,
+      "yearly": 43900
+    },
+    "updated": "2026-09-14 00:27:03 +00:00"
+  },
+  {
+    "keyword": "withings body smart vs body comp",
+    "volume": 90,
+    "difficulty": 24,
+    "intent": "informational",
+    "trend": {
+      "monthly": -44,
+      "quarterly": -64,
+      "yearly": -29
+    },
+    "updated": "2026-09-13 09:22:39 +00:00"
+  },
+  {
+    "keyword": "zozofit reviews",
+    "volume": 720,
+    "difficulty": 8,
+    "intent": "informational",
+    "trend": {
+      "yearly": 22
+    },
+    "updated": "2026-09-13 19:32:44 +00:00"
+  },
+  {
+    "keyword": "body recomposition calculator",
+    "volume": 5400,
+    "difficulty": null,
+    "intent": "informational",
+    "trend": {
+      "monthly": -18,
+      "quarterly": -18,
+      "yearly": 23
+    },
+    "updated": "2026-09-13 17:37:57 +00:00"
+  },
+  {
+    "keyword": "withings body scan 2 review",
+    "volume": 260,
+    "difficulty": 19,
+    "intent": "commercial",
+    "trend": {
+      "monthly": -45
+    },
+    "updated": "2026-09-14 09:04:31 +00:00"
+  },
+  {
+    "keyword": "withings body scan vs body scan 2",
+    "volume": 70,
+    "difficulty": null,
+    "intent": "commercial",
+    "trend": {
+      "monthly": -19,
+      "quarterly": 21
+    },
+    "updated": "2026-09-12 22:16:59 +00:00"
+  },
+  {
+    "keyword": "withings bodyfit",
+    "volume": 720,
+    "difficulty": 14,
+    "intent": "commercial",
+    "trend": {
+      "monthly": -21,
+      "quarterly": -34
+    },
+    "updated": "2026-09-13 02:31:58 +00:00"
+  }
+]
