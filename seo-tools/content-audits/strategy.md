@@ -2,15 +2,15 @@
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
 
-## October 15, 2026: full approved batch implemented
+## October 15, 2026: full approved batch shipped
 
-Owner approved **P1–P2 and F1–F4**. [Execution and release record](2026-10-15-execution.md) supersedes the October 14 Proposed status; historical metrics remain dated October 11 final GSC / October 13 operational evidence. BodyScan 2 owns new-generation discovery; the original Withings review retains original-model ownership. 75 Hard vs 75 Soft is one adjacent experiment, not a new series commitment.
+Owner approved **P1–P2 and F1–F4**; all shipped in `0c20a176`, verified live at **13:53:05 UTC**. [Execution and release record](2026-10-15-execution.md) supersedes the October 14 Proposed status; historical metrics remain dated October 11 final GSC / October 13 operational evidence. BodyScan 2 owns new-generation discovery; the original Withings review retains original-model ownership. 75 Hard vs 75 Soft is one adjacent experiment, not a new series commitment.
 
 F1 improves the initial photo choice and bounded failure diagnostics while retaining recovery and CTA allocation. F2 refreshes both commercial roundups with five available US apps, new screenshots and truthful offer/privacy/evidence language. F3 repairs original Hume/Withings model and pricing claims. F4 repairs existing 1RM copy/schema and adds two inbounds while keeping arithmetic unchanged. New articles have three approved contextual inbound links each. No new tool was added.
 
 Live US App Store lookup did not return bodyfatAI, Formfy or the old Recomp ID. The five current listings used are GainFrame, Spren, trackBod, Recomp AI and MeThreeSixty; the new Recomp listing is a distinct current ID. trackBod has a publisher App Store link because its listing supplied no verifiable standalone site. Do not revive unavailable products from stale screenshots or pretend a published-source evaluation was hands-on.
 
-Current measurement contract, assuming October 15 verified release: hold changed metadata through October 25 at release time. First complete photo week October 16–22 (read October 23), fortnight October 16–29 (read October 30); first complete content window October 16–November 12, settled GSC around November 15. New URLs reach 28 days November 12. No outcome is established at launch. Keep fixed 79-post CTA cohort unchanged; editorial refreshes are an intervention on affected pages, not evidence of treatment lift. Existing October 6/9 and September 29 windows remain in force. Exact release and indexing statuses live in the execution record.
+Current measurement contract: hold changed metadata through **October 25 at 13:53:05 UTC**. First complete photo week October 16–22 (read October 23), fortnight October 16–29 (read October 30); first complete content window October 16–November 12, settled GSC around November 15. New URLs reach 28 days November 12. No outcome is established at launch. Keep fixed 79-post CTA cohort unchanged; editorial refreshes are an intervention on affected pages, not evidence of treatment lift. Existing October 6/9 and September 29 windows remain in force. IndexNow accepted all 17 changed URLs via Yandex/Seznam/Naver; Bing and aggregator retain 403. Fresh 74-URL GSC sweep: 71 PASS, new articles unknown and too young (November 12 age / November 15 settled read), 1RM still crawled-not-indexed with its August 21 crawl. The F4 repair is live; request recrawl and confirm a newer crawl before judging it. Exact receipts live in the execution record.
 
 ## October 14, 2026: review complete, two posts and four fixes proposed
 

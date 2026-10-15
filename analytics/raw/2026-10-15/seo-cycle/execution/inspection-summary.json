@@ -1,0 +1,45 @@
+{
+  "inspected_at": "2026-10-15T13:55:55.686109+00:00",
+  "property": "sc-domain:gainframe.app",
+  "count": 74,
+  "verdicts": {
+    "NEUTRAL": 3,
+    "PASS": 71
+  },
+  "not_pass": [
+    {
+      "url": "https://gainframe.app/blog/75-hard-vs-75-soft/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://gainframe.app/blog/withings-body-scan-2/",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://gainframe.app/tools/one-rep-max-calculator/",
+      "verdict": "NEUTRAL",
+      "coverageState": "Crawled - currently not indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-21T20:42:35Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://gainframe.app/tools/one-rep-max-calculator/",
+      "userCanonical": "https://gainframe.app/tools/one-rep-max-calculator/",
+      "sitemap": [
+        "https://gainframe.app/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://gainframe.app/tools/"
+      ],
+      "crawledAs": "MOBILE"
+    }
+  ]
+}

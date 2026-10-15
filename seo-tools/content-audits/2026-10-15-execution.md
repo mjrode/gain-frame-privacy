@@ -1,6 +1,6 @@
 # October 15 SEO execution
 
-Status: **approved, implemented and awaiting verified production release**. Owner approval: “Lets do all, both new articles and all four fixes.” Scope is P1–P2 and F1–F4 from the [October 14 audit](2026-10-14.md).
+Status: **shipped and verified October 15, 2026, 13:53:05 UTC**. Owner approval: “Lets do all, both new articles and all four fixes.” Scope is P1–P2 and F1–F4 from the [October 14 audit](2026-10-14.md).
 
 ## New articles
 
@@ -39,7 +39,19 @@ Mobile preview at 390 × 844 confirms initial guidance on both photo tools, func
 
 ## Deployment and indexing
 
-Pending. Record exact content commit, verified Cloudflare version/time, live URL checks, key-file check, per-engine IndexNow receipts and a fresh read-only GSC inspection sweep here after publication. Google requests remain manual.
+Content release commit: `0c20a176fcee4206743ad633893b938ea8c62463`. Cloudflare Workers version **`64d509a6-05a6-4f51-93d9-56308a714170`**, **100%**, deployed **2026-10-15T13:53:05.74914Z**. All five remote build/deployment checks succeeded. A later records-only commit does not restart this content-release boundary.
+
+All **17 affected URLs** return 200 with the expected titles and canonicals; all 13 changed article JSON-LD blocks match the verified build. The initial photo guidance and the corrected 1RM example are live. All **12 new image assets** match local hashes, and the live blog index matches the validated release bytes. The live 75 Hard comparison was also browser-verified at desktop width. Receipts and screenshots: `analytics/raw/2026-10-15/seo-cycle/execution/`.
+
+The public IndexNow key returns 200 and exactly 32 bytes without a newline. **Yandex 202, Seznam 200 and Naver 200** accepted all 17 URLs. **Bing and api.indexnow.org returned 403 UserForbiddedToAccessSite**, the existing site-authorization issue. Acceptance is notification, not proof of a crawl. Google is not part of IndexNow; no Google indexing request or sitemap resubmission was sent.
+
+Post-release read-only GSC sweep at **13:55:55 UTC**: **74 URLs inspected, 71 PASS, 3 NEUTRAL, zero unavailable**. This is the prior 62 valid URLs union all 17 changed URLs.
+
+- **Crawled, currently not indexed:** `/tools/one-rep-max-calculator/`. Last crawl **August 21**, fetch successful, indexing allowed, canonical correct and sitemap present. F4's quality/FAQ/link repair is now live; the old verdict cannot assess that repair. Request a manual recrawl, verify that the crawl timestamp advances, and reassess after the October 25 hold before proposing further content changes. Do not claim that this release fixed indexing.
+- **Unknown, too new to judge:** `/blog/withings-body-scan-2/` and `/blog/75-hard-vs-75-soft/`, published today. Both reach 28 days **November 12**; use the full-window settled read around **November 15**. No discovered-not-indexed URLs were returned.
+- The 71 PASS results do not establish that Google has fetched today's revised copy; existing crawl times can precede deployment.
+
+Both preview servers have stopped, and the temporary Codex-managed release worktree was archived after preserving verification receipts. Unrelated checkout changes remain intact.
 
 ## Google recrawl list
 
@@ -60,11 +72,11 @@ No Google indexing request has been sent. Paste these into Search Console URL In
 - https://gainframe.app/blog/beginner-intermediate-advanced-lifter/
 - https://gainframe.app/tools/body-fat-from-photo/
 - https://gainframe.app/tools/ai-body-transformation/
-- https://gainframe.app/tools/body-measurements/
+- https://gainframe.app/tools/body-measurements-calculator/
 - https://gainframe.app/tools/one-rep-max-calculator/
 
 ## Measurement
 
-Start from verified production release, not the audit or commit date. Assuming October 15 release: metadata hold ends October 25 at the exact release time. Photo activation: first complete week October 16–22, read October 23; fortnight October 16–29, read October 30. Separate estimator and transformation, input sources, error stages, recovery and downstream Store clicks. First complete content window October 16–November 12; read settled GSC around November 15. New posts reach 28 days on November 12.
+Start from verified production release, not the audit or commit date. Metadata hold ends **October 25 at 13:53:05 UTC** (ten days after the content release). Photo activation: first complete week October 16–22, read October 23; fortnight October 16–29, read October 30. Separate estimator and transformation, input sources, error stages, recovery and downstream Store clicks. First complete content window October 16–November 12; read settled GSC around November 15. New posts reach 28 days on November 12.
 
 Keep the fixed 79-post blog CTA cohort and treatment assignments intact. New posts do not join it automatically. October 15 editorial changes confound naive before/after CTA comparisons on the four rewritten pages; compare contemporaneous groups and report this intervention. F1 changes happen upstream of CTA exposure. September/October observation windows remain intact. No recurring automation was created.

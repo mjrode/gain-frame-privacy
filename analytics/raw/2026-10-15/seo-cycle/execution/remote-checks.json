@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Cloudflare Pages",
+    "status": "completed",
+    "conclusion": "success",
+    "completed_at": "2026-10-15T13:53:54Z",
+    "details_url": "https://dash.cloudflare.com/?to=/405ab083552f95d425c4ed47aac60df2/pages/view/gain-frame-privacy/c447713f-305e-4658-be09-ac01cc33320b"
+  },
+  {
+    "name": "Workers Builds: gain-frame-privacy",
+    "status": "completed",
+    "conclusion": "success",
+    "completed_at": "2026-10-15T13:53:11Z",
+    "details_url": "https://dash.cloudflare.com/405ab083552f95d425c4ed47aac60df2/workers/services/view/gain-frame-privacy/production/builds/c83b079c-dc7f-4cc6-82e4-8e9cbf13b51c"
+  },
+  {
+    "name": "deploy",
+    "status": "completed",
+    "conclusion": "success",
+    "completed_at": "2026-10-15T13:52:29Z",
+    "details_url": "https://github.com/mjrode/gain-frame-privacy/actions/runs/38745914593/job/116460326587"
+  },
+  {
+    "name": "report-build-status",
+    "status": "completed",
+    "conclusion": "success",
+    "completed_at": "2026-10-15T13:50:54Z",
+    "details_url": "https://github.com/mjrode/gain-frame-privacy/actions/runs/38745914593/job/116460326286"
+  },
+  {
+    "name": "build",
+    "status": "completed",
+    "conclusion": "success",
+    "completed_at": "2026-10-15T13:50:47Z",
+    "details_url": "https://github.com/mjrode/gain-frame-privacy/actions/runs/38745914593/job/116459400786"
+  }
+]

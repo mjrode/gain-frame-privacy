@@ -19,7 +19,8 @@ destinations and exposure definitions remain unchanged. The two new posts are no
 added to the fixed experiment cohort. Photo input guidance/diagnostics also change
 upstream tool activation; shared Improve/Future treatment remains unchanged.
 
-The exact verified release timestamp and measurement windows will be recorded in
+The intervention is live from **October 15, 2026 at 13:53:05 UTC**, content commit
+`0c20a176`. Verified release and measurement windows are recorded in
 [the October 15 execution receipt](../../seo-tools/content-audits/2026-10-15-execution.md).
 
 ## September 29, 2026: approved device rollout

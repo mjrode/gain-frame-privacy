@@ -1,0 +1,30 @@
+{
+  "unchanged_arithmetic": true,
+  "faq_parity": [
+    {
+      "question": "What is a 1RM?",
+      "question_visible": true,
+      "answer_visible": true
+    },
+    {
+      "question": "How accurate are 1RM calculators?",
+      "question_visible": true,
+      "answer_visible": true
+    },
+    {
+      "question": "Which 1RM formula is most accurate?",
+      "question_visible": true,
+      "answer_visible": true
+    },
+    {
+      "question": "What are strength standards?",
+      "question_visible": true,
+      "answer_visible": true
+    },
+    {
+      "question": "How should I use the training percentage table?",
+      "question_visible": true,
+      "answer_visible": true
+    }
+  ]
+}

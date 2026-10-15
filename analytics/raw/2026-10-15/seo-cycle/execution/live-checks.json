@@ -1,0 +1,242 @@
+{
+  "checked_at": "2026-10-15T13:54:04.907638+00:00",
+  "pages": [
+    {
+      "url": "https://gainframe.app/blog/withings-body-scan-2/",
+      "status": 200,
+      "title": "Withings BodyScan 2: Features, Costs and Tracking for Lifters | GainFrame",
+      "expected_title": "Withings BodyScan 2: Features, Costs and Tracking for Lifters | GainFrame",
+      "canonical": "https://gainframe.app/blog/withings-body-scan-2/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/75-hard-vs-75-soft/",
+      "status": 200,
+      "title": "75 Hard vs 75 Soft: Rules, Recovery and Tracking Your Progress | GainFrame",
+      "expected_title": "75 Hard vs 75 Soft: Rules, Recovery and Tracking Your Progress | GainFrame",
+      "canonical": "https://gainframe.app/blog/75-hard-vs-75-soft/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-ai-body-fat-apps/",
+      "status": 200,
+      "title": "5 Best AI Body Fat Estimator Apps in 2026 | GainFrame",
+      "expected_title": "5 Best AI Body Fat Estimator Apps in 2026 | GainFrame",
+      "canonical": "https://gainframe.app/blog/best-ai-body-fat-apps/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-fat-scanner-apps/",
+      "status": 200,
+      "title": "Body Fat Scanner Apps Compared: Photos, 3D Scans and Limits | GainFrame",
+      "expected_title": "Body Fat Scanner Apps Compared: Photos, 3D Scans and Limits | GainFrame",
+      "canonical": "https://gainframe.app/blog/best-body-fat-scanner-apps/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/hume-body-pod-review/",
+      "status": 200,
+      "title": "Hume Body Pod Review (2026): Accuracy, Price & Subscription | GainFrame",
+      "expected_title": "Hume Body Pod Review (2026): Accuracy, Price & Subscription | GainFrame",
+      "canonical": "https://gainframe.app/blog/hume-body-pod-review/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/withings-body-scan-review/",
+      "status": 200,
+      "title": "Withings Body Scan Review: Original Model Features and Limits | GainFrame",
+      "expected_title": "Withings Body Scan Review: Original Model Features and Limits | GainFrame",
+      "canonical": "https://gainframe.app/blog/withings-body-scan-review/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-composition-scales/",
+      "status": 200,
+      "title": "Best Smart Scales for Body Composition in 2026 (6 Ranked) | GainFrame",
+      "expected_title": "Best Smart Scales for Body Composition in 2026 (6 Ranked) | GainFrame",
+      "canonical": "https://gainframe.app/blog/best-body-composition-scales/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-smart-scales-apple-health/",
+      "status": 200,
+      "title": "Best Smart Scales That Sync With Apple Health (2026) | GainFrame",
+      "expected_title": "Best Smart Scales That Sync With Apple Health (2026) | GainFrame",
+      "canonical": "https://gainframe.app/blog/best-smart-scales-apple-health/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/winter-arc-challenge/",
+      "status": 200,
+      "title": "Winter Arc 2026: Rules, Dates & a Free 90-Day Planner | GainFrame",
+      "expected_title": "Winter Arc 2026: Rules, Dates & a Free 90-Day Planner | GainFrame",
+      "canonical": "https://gainframe.app/blog/winter-arc-challenge/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/how-often-progress-photos/",
+      "status": 200,
+      "title": "How Often Should You Take Progress Photos? A Practical Schedule | GainFrame",
+      "expected_title": "How Often Should You Take Progress Photos? A Practical Schedule | GainFrame",
+      "canonical": "https://gainframe.app/blog/how-often-progress-photos/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/take-progress-photos-by-yourself/",
+      "status": 200,
+      "title": "How to Take Progress Photos: Gym Poses, Lighting and Solo Setup | GainFrame",
+      "expected_title": "How to Take Progress Photos: Gym Poses, Lighting and Solo Setup | GainFrame",
+      "canonical": "https://gainframe.app/blog/take-progress-photos-by-yourself/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/strength-standards/",
+      "status": 200,
+      "title": "Strength Standards: How Strong Is 'Strong' Actually? | GainFrame",
+      "expected_title": "Strength Standards: How Strong Is 'Strong' Actually? | GainFrame",
+      "canonical": "https://gainframe.app/blog/strength-standards/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/beginner-intermediate-advanced-lifter/",
+      "status": 200,
+      "title": "Beginner, Intermediate, or Advanced Lifter? A Real Self-Assessment | GainFrame",
+      "expected_title": "Beginner, Intermediate, or Advanced Lifter? A Real Self-Assessment | GainFrame",
+      "canonical": "https://gainframe.app/blog/beginner-intermediate-advanced-lifter/",
+      "title_matches": true,
+      "modified_date_matches": true,
+      "jsonld_matches": true
+    },
+    {
+      "url": "https://gainframe.app/tools/body-fat-from-photo/",
+      "status": 200,
+      "title": "Free AI Body Fat Estimator from a Photo | GainFrame",
+      "expected_title": "Free AI Body Fat Estimator from a Photo | GainFrame",
+      "canonical": "https://gainframe.app/tools/body-fat-from-photo/",
+      "title_matches": true,
+      "guidance_present": true
+    },
+    {
+      "url": "https://gainframe.app/tools/ai-body-transformation/",
+      "status": 200,
+      "title": "What Would I Look Like If I Lost Weight? Free AI Body Transformation | GainFrame",
+      "expected_title": "What Would I Look Like If I Lost Weight? Free AI Body Transformation | GainFrame",
+      "canonical": "https://gainframe.app/tools/ai-body-transformation/",
+      "title_matches": true,
+      "guidance_present": true
+    },
+    {
+      "url": "https://gainframe.app/tools/body-measurements-calculator/",
+      "status": 200,
+      "title": "AI Body Proportion & Measurements Calculator | GainFrame",
+      "expected_title": "AI Body Proportion & Measurements Calculator | GainFrame",
+      "canonical": "https://gainframe.app/tools/body-measurements-calculator/",
+      "title_matches": true,
+      "guidance_present": true
+    },
+    {
+      "url": "https://gainframe.app/tools/one-rep-max-calculator/",
+      "status": 200,
+      "title": "1RM Calculator: Six Formulas and Strength Standards | GainFrame",
+      "expected_title": "1RM Calculator: Six Formulas and Strength Standards | GainFrame",
+      "canonical": "https://gainframe.app/tools/one-rep-max-calculator/",
+      "title_matches": true,
+      "updated_example_present": true
+    }
+  ],
+  "assets": [
+    {
+      "url": "https://gainframe.app/blog/best-body-fat-scanner-apps/assets/gainframe-oct2026.webp",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-fat-scanner-apps/assets/methreesixty-oct2026.webp",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-fat-scanner-apps/assets/trackbod-oct2026.webp",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-fat-scanner-apps/assets/spren-oct2026.webp",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-body-fat-scanner-apps/assets/recomp-ai-oct2026.webp",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-ai-body-fat-apps/assets/gainframe-oct2026.webp",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-ai-body-fat-apps/assets/methreesixty-oct2026.webp",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-ai-body-fat-apps/assets/trackbod-oct2026.webp",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-ai-body-fat-apps/assets/spren-oct2026.webp",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/best-ai-body-fat-apps/assets/recomp-ai-oct2026.webp",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/withings-body-scan-2/assets/cover.webp",
+      "status": 200,
+      "sha256_matches": true
+    },
+    {
+      "url": "https://gainframe.app/blog/75-hard-vs-75-soft/assets/cover.webp",
+      "status": 200,
+      "sha256_matches": true
+    }
+  ],
+  "indexnow_key": {
+    "status": 200,
+    "exact_match": true,
+    "bytes": 32
+  },
+  "blog_index": {
+    "status": 200,
+    "exact_match": true
+  }
+}
