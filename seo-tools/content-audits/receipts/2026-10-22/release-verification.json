@@ -1,0 +1,173 @@
+{
+  "content_commit": "7b3b3cb93cb54b19e2520c59f58a63c629f5c13a",
+  "deployment": {
+    "id": "3a795d2f-f855-4a54-b1ff-285f871bbba9",
+    "created_on": "2026-10-22T22:31:40.720784Z",
+    "annotations": {
+      "workers/message": "git:7b3b3cb93cb54b19e2520c59f58a63c629f5c13a",
+      "workers/triggered_by": "deployment"
+    },
+    "versions": [
+      {
+        "version_id": "decabe69-1708-4976-a320-223981d98307",
+        "percentage": 100
+      }
+    ]
+  },
+  "remote_checks": [
+    {
+      "name": "Workers Builds: gain-frame-privacy",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-10-22T22:31:45Z"
+    },
+    {
+      "name": "Cloudflare Pages",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-10-22T22:31:30Z"
+    },
+    {
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-10-22T22:31:08Z"
+    },
+    {
+      "name": "report-build-status",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-10-22T22:29:59Z"
+    },
+    {
+      "name": "build",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-10-22T22:29:53Z"
+    }
+  ],
+  "live_verified_at": "2026-10-22T22:32:04.248992+00:00",
+  "pages": [
+    {
+      "url": "https://gainframe.app/blog/bulk-cut-or-recomp/",
+      "http_status": 200,
+      "title": "Bulk, Cut, or Recomp: Which Should You Actually Choose? | GainFrame",
+      "description": "Choose a bulk, cut, or recomp using your training goals, progress and recovery. Learn what body fat estimates can tell you and how to track each phase.",
+      "matches_verified_export": true,
+      "visible_text_sha256": "d7dda61585c9940ee1eeba061b3844cc41ba59b8522edaf22455c9168a0cec96",
+      "schema_types": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "HowTo"
+      ]
+    },
+    {
+      "url": "https://gainframe.app/blog/visceral-fat-appearance/",
+      "http_status": 200,
+      "title": "What Does Visceral Fat Look Like? Why Photos Cannot Measure It | GainFrame",
+      "description": "Visceral fat sits around internal organs. Learn why belly shape and firmness cannot diagnose it, what waist measurements mean, and when to seek medical advice.",
+      "matches_verified_export": true,
+      "visible_text_sha256": "668be5099ff15f5202769bdc4541b380671c994ca195f118ccd0c839e0dc61a9",
+      "schema_types": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    {
+      "url": "https://gainframe.app/blog/visceral-fat-vs-subcutaneous-fat/",
+      "http_status": 200,
+      "title": "Visceral Fat vs Subcutaneous Fat: What's the Difference? | GainFrame",
+      "description": "Compare where visceral and subcutaneous fat are stored, what health-risk screening can tell you, and why photos cannot measure either fat compartment.",
+      "matches_verified_export": true,
+      "visible_text_sha256": "52d6244eb36cd9fb41f245838aac0afaaab1fb6e80dab5fdea7c2c6460e1c704",
+      "schema_types": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    }
+  ],
+  "blog_index": {
+    "url": "https://gainframe.app/blog-index.json",
+    "status": 200,
+    "matches_verified_export": true,
+    "sha256": "fb8fc7728157591cabea711a96c2107f275024c7b72961208bdee4233eecde8b"
+  },
+  "indexnow_key": {
+    "url": "https://gainframe.app/99929eeb331db70cd363352a87102acf.txt",
+    "status": 200,
+    "bytes": 32,
+    "exact_match": true,
+    "trailing_newline": false,
+    "verified_at": "2026-10-22T22:32:12.467908+00:00"
+  },
+  "inventory": {
+    "posts": 274,
+    "seoPosts": 226,
+    "founderLanePosts": 48,
+    "internalLinks": 1580,
+    "medianInbound": 4,
+    "medianBodyWords": 1651.5
+  },
+  "strict_slug_checks": "PASS all3",
+  "quick_answer_words": [
+    50,
+    50,
+    50
+  ],
+  "faq_count_per_article": 5,
+  "long_dashes_in_changed_articles": 0,
+  "production_build": "PASS (578 routes)",
+  "blog_grid_tests": "6 passed",
+  "browser_qa": {
+    "verified_at": "2026-10-22T22:29:23.361141+00:00",
+    "method": "Codex in-app browser, isolated static production export",
+    "mobile_viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "pages": [
+      {
+        "slug": "bulk-cut-or-recomp",
+        "page_width": 390,
+        "table_wrapper_width": 354,
+        "tables_scroll_within_wrapper": true,
+        "covers_after_fix": 1
+      },
+      {
+        "slug": "visceral-fat-appearance",
+        "page_width": 390,
+        "table_wrapper_width": 354,
+        "tables_scroll_within_wrapper": true,
+        "covers_after_fix": 1,
+        "cover_caption": "A skinfold pinch and waist measurement are external observations. Neither can measure the fat around your organs."
+      },
+      {
+        "slug": "visceral-fat-vs-subcutaneous-fat",
+        "page_width": 390,
+        "table_wrapper_width": 354,
+        "tables_scroll_within_wrapper": true,
+        "covers_after_fix": 1
+      }
+    ],
+    "desktop_recomp": {
+      "viewport_width": 1280,
+      "page_width": 1280,
+      "table_widths": [
+        860,
+        860
+      ]
+    },
+    "links_verified": [
+      "/tools/recomp-reality-checker/",
+      "/tools/progress-photo-compare/",
+      "/blog/visceral-fat-appearance/"
+    ],
+    "viewport_reset": true
+  }
+}

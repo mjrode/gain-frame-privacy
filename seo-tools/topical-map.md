@@ -1,6 +1,6 @@
 # GainFrame Topical Map
 
-> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-10-15 (BodyScan 2 and 75 Hard vs 75 Soft added; release receipt in content-audits).
+> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-10-22 (recomp hub and visceral appearance/comparison accuracy repairs; no new posts).
 > **Current inventory:** 274 blog posts; 23 actual tool URLs, including the measurement-mode entry. The old 289-URL inventory is superseded; use the generated sitemap for current coverage.
 > **Intent legend:** 💰 commercial (drives installs/clicks) · 📊 informational (impressions/AEO/links) · 🤝 brand/social (founder lane, not SEO) · 🔧 tool.
 > **Programmatic SEO:** broad page factories remain deferred. One finite 14-page body-fat picture gallery plus its hub shipped 2026-08-06 around the proprietary standardized render library; do not expand it without query evidence and a strategy update.
@@ -48,6 +48,8 @@ best-progress-photo-apps · best-free-progress-photo-apps · best-body-transform
 
 ## Cluster 5 — Recomp / bulk-cut / skinny-fat 💰📊
 
+**October 22:** bulk-cut-or-recomp refreshed as the existing hub: goal/recovery framework, measurement limits and contextual Recomp Reality Checker / Progress Photo Compare links. No sibling or merge. Hold metadata through November 1 at 22:31:40 UTC; full settled content read around November 22.
+
 **October 15 adjacent experiment:** 75-hard-vs-75-soft, with progress-photo cluster support. Rules, recovery and consistent photo tracking; three contextual inbounds. No expansion into a challenge series before its November 15 settled read.
 
 bulk-cut-or-recomp (hub) · should-i-bulk-or-cut-quiz · best-body-recomposition-apps · body-recomposition-tracker · how-long-does-body-recomposition-take · body-recomposition-before-and-after · track-body-recomposition-photos · how-to-lean-bulk-without-gaining-fat · is-your-lean-bulk-working · how-to-tell-if-skinny-fat · am-i-skinny-fat-quiz · skinny-fat-to-muscular · signs-you-are-building-muscle · how-long-to-see-results-from-lifting · why-weight-goes-up-when-lifting · measure-muscle-gain-without-scale · how-to-track-muscle-gain-progress · stop-weighing-yourself-daily · body-composition-for-lifters · body-composition-experiment · groom-wedding-shred · **Tool:** /tools/recomp-reality-checker/
@@ -64,7 +66,8 @@ what-is-ffmi · ffmi-chart · ffmi-percentiles · natty-limit · lean-mass-vs-mu
 ## Cluster 7 — Visceral fat 📊
 
 visceral-fat-level · visceral-fat-appearance · visceral-fat-test · visceral-fat-app 💰 · visceral-fat-vs-subcutaneous-fat
-**Gaps:** none; complete mini-cluster.
+**October 22:** appearance and comparison owners repaired for pinch/firmness/photo limits, waist risk screening and DXA VAT distinctions. Comparison contextually supports appearance; photo bridges document external change only. Keep the October 9 level/rating owner separate.
+**Gaps:** no new URL needed; maintain existing owners and measurement accuracy. Hold the repaired pair's metadata through November 1 at 22:31:40 UTC; full settled content read around November 22.
 
 ## Cluster 8 — GLP-1 / medication audiences 💰📊 (YMYL — always hedged)
 

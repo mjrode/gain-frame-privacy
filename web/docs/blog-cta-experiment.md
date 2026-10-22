@@ -7,6 +7,19 @@ Prepared 2026-09-02; assignment repaired 2026-09-11; device rollout approved
 `blog_contextual_cta_v1`. The v2 randomized phase is closed by this release.
 The original v1 phase was retired because assignment crossover contaminated it.
 
+## October 22, 2026: recomp hub editorial intervention
+
+The approved SEO repair rewrote `bulk-cut-or-recomp`, which belongs to the
+fixed 79-post cohort (`expansion_59`). Its opening answer, section order,
+surrounding content, legacy fallback offer wording and duplicate-cover rendering
+changed. The active `ios_inline_desktop_sticky_v3_rollout`, September 29 clock,
+cohort, assignment, device allocation, treatment copy and exposure definitions
+remain unchanged. The two revised visceral-fat articles are outside the cohort.
+
+Annotate subsequent exposure and click reads with the content release at
+**October 22, 2026, 22:31:40 UTC**, commit `7b3b3cb9`. A pre/post change does
+not establish CTA lift. See the [October 22 execution receipt](../../seo-tools/content-audits/2026-10-22-execution.md).
+
 ## October 15, 2026: approved editorial intervention
 
 The October 14 SEO audit's P1-P2 and F1-F4 were approved on October 15.

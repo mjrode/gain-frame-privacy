@@ -6,6 +6,13 @@ This file tracks keyword targets for blog posts and comparison articles. Items a
 
 When a post is published, replace `[ ]` with `[x]` and append ` — published YYYY-MM-DD as /blog/[slug]/`.
 
+## October 22 approved repairs
+
+- [x] **F1 recomp hub** - shipped October 22 as `/blog/bulk-cut-or-recomp/`: goal/recovery framework, qualified FFMI and training evidence, exact answer/metadata/FAQs and two tracking-tool bridges.
+- [x] **F2 visceral accuracy pair** - shipped October 22 as `/blog/visceral-fat-appearance/` and `/blog/visceral-fat-vs-subcutaneous-fat/`: measurement boundaries, risk-screening context, matched FAQs/schema and contextual comparison-to-appearance link. [Release and indexing receipt](content-audits/2026-10-22-execution.md).
+- [ ] **October 22 measurement** - hold all three repaired pages' metadata through November 1 at 22:31:40 UTC; first complete content window October 23-November 19, settled around November 22. Annotate the recomp hub's editorial intervention in the existing blog CTA rollout.
+- [ ] **October 22 Google recrawl requests** - three paste-ready URLs in the execution receipt. IndexNow does not submit to Google.
+
 ## October 15 approved batch
 
 - [x] **P1 BodyScan 2** - published October 15 as `/blog/withings-body-scan-2/`; sourced evaluation and three contextual inbound links.
