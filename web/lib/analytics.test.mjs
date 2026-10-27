@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
+import { runInNewContext } from "node:vm";
+import ts from "typescript";
 
 import {
   captureException,
@@ -21,6 +24,93 @@ function setWindow(value) {
     writable: true,
   });
 }
+
+function renderPosthogScript() {
+  const source = readFileSync(new URL("../components/AnalyticsProvider.tsx", import.meta.url), "utf8");
+  const { outputText } = ts.transpileModule(source, {
+    compilerOptions: {
+      module: ts.ModuleKind.CommonJS,
+      jsx: ts.JsxEmit.ReactJSX,
+    },
+  });
+  const imports = {
+    "next/script": { default: "Script" },
+    react: { useEffect() {}, useState: () => [true, () => {}] },
+    "react/jsx-runtime": { jsx: (type, props) => ({ type, props }) },
+    "@/lib/analytics": { flushAnalyticsAfterInlineScript },
+    "@/lib/site": {
+      SITE: { posthogKey: "test-project", posthogHost: "https://us.i.posthog.com" },
+    },
+  };
+  const module = { exports: {} };
+  runInNewContext(outputText, {
+    exports: module.exports,
+    require(name) {
+      assert.ok(name in imports, `Unexpected provider dependency: ${name}`);
+      return imports[name];
+    },
+  });
+  return module.exports.default().props;
+}
+
+test("PostHog bootstrap disables autocapture and silently enables capture on every visit", () => {
+  const script = renderPosthogScript();
+  const initialized = [];
+  const optIns = [];
+  const posthog = {
+    __SV: 1,
+    init: (key, config) => initialized.push([key, structuredClone(config)]),
+    opt_in_capturing: (options) => optIns.push(structuredClone(options)),
+  };
+  const browser = { posthog, document: {} };
+  browser.window = browser;
+
+  // Exercise both first-page initialization and a subsequent page bootstrap.
+  runInNewContext(script.children, browser);
+  runInNewContext(script.children, browser);
+
+  assert.deepEqual(initialized, Array(2).fill([
+    "test-project",
+    { api_host: "https://us.i.posthog.com", defaults: "2025-05-24", autocapture: false },
+  ]));
+  assert.deepEqual(optIns, [{ captureEventName: false }, { captureEventName: false }]);
+});
+
+test("PostHog loader queues silent opt-in before explicit attribution and experiment events", async () => {
+  const script = renderPosthogScript();
+  const injected = [];
+  const browser = {
+    gtag() {},
+    document: {
+      createElement: () => ({}),
+      getElementsByTagName: () => [{ parentNode: { insertBefore: (element) => injected.push(element) } }],
+    },
+  };
+  browser.window = browser;
+  setWindow(browser);
+  const events = [
+    ["web_download_clicked", { web_click_id: "click-123" }],
+    ["tool_funnel_result_shown", { tool: "body_visualizer" }],
+    ["tool_cta_assigned", { experiment_variant: "improve" }],
+    ["tool_cta_viewed", { experiment_variant: "improve" }],
+  ];
+  for (const [name, properties] of events) track(name, properties);
+
+  // Match Next's inline script ordering: onReady fires before execution.
+  script.onReady();
+  runInNewContext(script.children, browser);
+  await Promise.resolve();
+  browser.posthog.getFeatureFlag("active-experiment");
+
+  assert.equal(injected[0].src, "https://us-assets.i.posthog.com/static/array.js");
+  assert.equal(browser.posthog._i[0][1].autocapture, false);
+  assert.deepEqual(JSON.parse(JSON.stringify(browser.posthog)), [
+    ["opt_in_capturing", { captureEventName: false }],
+    ...events.map(([name, properties]) => ["capture", name, properties]),
+    ["getFeatureFlag", "active-experiment"],
+  ]);
+  assert.equal(flushQueuedAnalyticsEvents(), 0);
+});
 
 test("queues early lifecycle events until both providers are ready", () => {
   let decision = "pending";
