@@ -87,7 +87,7 @@ export const BLOG_CTA_OVERRIDES: Record<string, BlogCtaConfig> = {
     image: "/app-screenshots/2.33-live-2026-08-05/02.webp",
     imageAlt:
       "GainFrame check-in showing body fat, weight, a physique score, and Coach's verdict.",
-    proof: "4.96 ★ on the US App Store · Free to start",
+    proof: "iPhone app · Free download with limited check-ins",
   },
   "best-body-scanning-measurement-apps": {
     label: "What a scanner cannot show",
@@ -103,7 +103,7 @@ export const BLOG_CTA_OVERRIDES: Record<string, BlogCtaConfig> = {
       image: "/assets/blog-cta/progress-compare.webp",
       imageAlt: "GainFrame comparing two dated progress photos side by side.",
     },
-    proof: "4.96 ★ on the US App Store · Free to start",
+    proof: "iPhone app · Free download with limited check-ins",
   },
   "average-bicep-size": {
     label: "Track more than the tape",

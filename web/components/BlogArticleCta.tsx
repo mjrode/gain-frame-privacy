@@ -22,6 +22,7 @@ import {
   type BlogCtaVariant,
 } from "@/lib/blog-cta-experiment";
 import { blogCtaCardName } from "@/lib/download-cta-context";
+import { observeBlogStickyTrigger } from "@/lib/blog-sticky-trigger";
 import styles from "./BlogArticleCta.module.css";
 
 type BlogArticleCtaProps = {
@@ -417,45 +418,13 @@ export default function BlogArticleCta({
 
     if (presentation === "sticky_control") {
       const trigger = article.querySelector<HTMLElement>("h2");
-      const activate = () => setStickyVisible(true);
-
-      if (!trigger || typeof IntersectionObserver === "undefined") {
-        activate();
-        return () => {
-          legacyCtas.forEach((cta) => {
-            cta.hidden = false;
-          });
-        };
-      }
-
-      if (trigger.getBoundingClientRect().top <= window.innerHeight * 0.4) {
-        activate();
-        return () => {
-          legacyCtas.forEach((cta) => {
-            cta.hidden = false;
-          });
-        };
-      }
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          if (
-            entries.some(
-              (entry) =>
-                entry.isIntersecting ||
-                entry.boundingClientRect.top <= window.innerHeight * 0.4,
-            )
-          ) {
-            activate();
-            observer.disconnect();
-          }
-        },
-        { rootMargin: "0px 0px -60% 0px" },
+      const stopObserving = observeBlogStickyTrigger(
+        trigger,
+        () => setStickyVisible(true),
       );
-      observer.observe(trigger);
 
       return () => {
-        observer.disconnect();
+        stopObserving();
         legacyCtas.forEach((cta) => {
           cta.hidden = false;
         });

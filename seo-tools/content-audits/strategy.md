@@ -2,6 +2,19 @@
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
 
+## October 27, 2026: approved twelve articles and conversion repairs
+
+**Latest decision:** owner approved all missing ten articles and fixes plus ChatGPT body-fat and lagging-muscle guides. [Audit and historical results](2026-10-27.md); [execution and release record](2026-10-27-execution.md). Implementation complete, final release verification in progress.
+
+- All ten exact standalone URLs were absent; related review/comparison coverage is preserved. Official US H30/H40 listings cleared the prior hold. Twelve new articles deepen app evaluation, hardware/scan interpretation and photo-review intent. These are sourced evaluations and demand tests, not proven download winners or hands-on accuracy trials.
+- Existing `how-to-track-muscle-gain-progress` and `signs-you-are-building-muscle` are refreshed instead of creating another general gym-progress page. New user themes use cautious image prompts and visual/training-record review; photos cannot establish muscle tissue gained or diagnose physical weakness.
+- F1 desktop sticky activation repaired; F2 transformation roundup rebuilt with current listings, six screenshots, correct Recomp comparisons and photo-tool bridge; F3 current offer/proof copy applied. Body-editor guide now covers three verified current editors. New contextual inbound links, six commercial recovery links and necessary source schema/style/nearby fact repairs included.
+- Preserve October15 AI/scanner destination metadata and October22 recomp/visceral holds. Annotate global CTA repair and link additions as new interventions. Substantive source corrections include Hevy/Strong, MacroFactor review, Hevy integration, workout roundup and app stack; updated dates are not invisible clean-cohort observations.
+- Baseline: final GSC through October25, all clicks56,421/39,104 (+44.3%), blog15,592/14,647 (+6.5%), tools39,259/23,001 (+70.7%). Historical traffic leaders are measurements; September12-October25 ordered article-session Store reach is strongest for scanner45/254, transformation48/389, AI40/370 and freephotos15/143. Native arrivals are not verified first-time downloads.
+- Apple current28first-time downloads1,182, including344WebReferrer across all websites. No article-level install attribution or clean prior28comparison. No cross-system conversion rate. Shared Improve/Future has no significant winner; preserve allocation and existing phase clocks.
+- Measure from verified production timestamp in execution record. First complete new-content window begins the next full day and runs28days; read settled GSC approximately3days later. Separate discovery, tool/result/Store reach, native arrivals and Apple downloads. Do not expand the adjacency batch based only on early impressions.
+- Original comparative device/app trials remain future evidence work. No false firsthand evidence was created. Manual Google URL list and IndexNow engine results belong in the release record; IndexNow does not submit to Google.
+
 ## October 22, 2026: F1 and F2 shipped, no new posts
 
 **Latest decision:** owner approved **all**, superseding the pre-approval October 22 review. [Audit](2026-10-22.md) and [execution receipt](2026-10-22-execution.md). Content commit `7b3b3cb9`, live **2026-10-22 22:31:40 UTC**, Worker `decabe69-1708-4976-a320-223981d98307` at 100%; all five remote checks and three-page live parity pass.

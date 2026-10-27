@@ -6,6 +6,14 @@ This file tracks keyword targets for blog posts and comparison articles. Items a
 
 When a post is published, replace `[ ]` with `[x]` and append ` — published YYYY-MM-DD as /blog/[slug]/`.
 
+## October 27 approved publication batch
+
+- [x] **Ten missing article intents plus two user-requested guides** - implemented October 27; exact URLs, duplicate boundaries and release evidence in the [execution record](content-audits/2026-10-27-execution.md). H30/H40 hold cleared by current official US listings.
+- [x] **Existing gym-progress owners refreshed** - `how-to-track-muscle-gain-progress` and `signs-you-are-building-muscle`; preserved URLs and original publication dates.
+- [x] **F1-F3 and traffic recovery** - desktop sticky trigger repaired; transformation roundup rebuilt with verified listings/screenshots; scanning offer and two CTA proof strings corrected; editor comparison repaired; contextual internal links and necessary source schema/style repairs implemented.
+- [ ] **October 27 release measurement** - start from verified production timestamp. Read discovery and ordered article/tool/Store reach separately from exact native arrivals and Apple first-time downloads. Annotate source-link and CTA repairs in older intervention windows.
+- [ ] **October 27 Google recrawl requests** - manual URL list in execution record; IndexNow does not submit to Google.
+
 ## October 22 approved repairs
 
 - [x] **F1 recomp hub** - shipped October 22 as `/blog/bulk-cut-or-recomp/`: goal/recovery framework, qualified FFMI and training evidence, exact answer/metadata/FAQs and two tracking-tool bridges.

@@ -62,6 +62,28 @@ section in the same commit.
 | PostHog (`mcp__c90fac73-…__*`) | Available, project `seoreceipts` by default — **switch to GainFrame before querying**. **The GainFrame data lives in project `357433` ("Default project", GainFrame org) and contains BOTH app and website events** — verified 2026-08-13 with `outbound_app_store_click` (671/14d), `bf_tool_*`, `physique_rater_*`, `waist_tool_calculated` all present. The 2026-08-11/12 runs recorded "zero events" — that was a wrong-scope query, not missing instrumentation. If the MCP connector only exposes render-ui, query the REST API directly: `POSTHOG_PERSONAL_API_KEY` in `~/.zshrc`, `POST us.posthog.com/api/projects/357433/query/` with a HogQLQuery (build the JSON in a python file — nested bash quoting corrupts `$pathname` escapes). Never record PostHog as unavailable without querying project 357433 via REST first | Landing-page conversion paths: tool results, email submissions, and App Store clicks. Use in every decision run when available |
 | `seo-tools/content-inventory.mjs` | **Working.** No network, no model | Every local fact: link graph, orphans, cannibalization, freshness, Quick Answer lengths |
 
+### Source checks verified 2026-10-27
+
+- Recompute historical format winners instead of treating the baseline below as
+  permanent. The July 28–October 25 article traffic leaders are measurement/reference
+  pages; app-selection and photo roundups retain much stronger observed Store reach.
+  Separate traffic leaders from conversion leaders, and include ordered
+  article-landing session → tool → Store → exact native-arrival paths. Same-path
+  clicks alone miss article-assisted conversions. Native arrivals still are not
+  verified first-time downloads.
+- Apple Analytics current daily downloads are available through the existing
+  read-only report requests. In this run, September 28–October 25 is complete;
+  the prior 28-day history is incomplete. Report Apple `First-time download` and
+  `Web referrer` separately; the latter includes all referring websites and has
+  no article field. Product-page views are counts, not an install-cohort denominator.
+- A production desktop CTA defect was reproduced at 1280×720:
+  `BlogArticleCta.tsx` uses bottom `rootMargin: -60%`, whose percentage resolves
+  against viewport **width**, not height. The effective trigger region collapses
+  at this aspect ratio; scrolling past the first H2 leaves no card, while reloading
+  below it renders the card through the initial bounds check. Check actual rendering
+  and viewport geometry before blaming desktop copy or QR preferences. The approved October 27 execution adds a height-based trigger, scroll fallback
+  and regression coverage; the release timestamp is recorded in the execution receipt.
+
 ### Source checks verified 2026-10-14
 
 - DataForSEO Google Trends graphs can mix sparse numeric-key objects and arrays

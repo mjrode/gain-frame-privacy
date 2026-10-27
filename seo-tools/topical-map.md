@@ -1,7 +1,7 @@
 # GainFrame Topical Map
 
-> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-10-22 (recomp hub and visceral appearance/comparison accuracy repairs; no new posts).
-> **Current inventory:** 274 blog posts; 23 actual tool URLs, including the measurement-mode entry. The old 289-URL inventory is superseded; use the generated sitemap for current coverage.
+> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-10-27 (12 approved new intents, existing gym-progress owners and commercial-page repairs).
+> **Current inventory:** 286 blog posts; 23 actual tool URLs, including the measurement-mode entry. The old 289-URL inventory is superseded; use the generated sitemap for current coverage.
 > **Intent legend:** 💰 commercial (drives installs/clicks) · 📊 informational (impressions/AEO/links) · 🤝 brand/social (founder lane, not SEO) · 🔧 tool.
 > **Programmatic SEO:** broad page factories remain deferred. One finite 14-page body-fat picture gallery plus its hub shipped 2026-08-06 around the proprietary standardized render library; do not expand it without query evidence and a strategy update.
 
@@ -15,6 +15,7 @@ The flagship cluster; drives the majority of non-brand clicks.
 **Commercial:** best-body-fat-scanner-apps · best-body-fat-calculator-from-photo · best-ai-body-composition-app
 **Supporting 📊:** body-fat-from-photo-app · how-to-estimate-body-fat-from-photo · ai-body-fat-photo-accuracy-study (CTR test 7/6) · every-way-to-measure-body-fat · dexa-scan-vs-ai-body-composition · dexa-scan-alternative · why-body-fat-score-wrong · how-ai-body-composition-analysis-works · ai-fitness-analysis
 **Jul 9–23 backfill:** ai-body-fat-apps-android · apps-like-gainframe · best-body-tracking-apps · best-free-body-fat-apps · how-accurate-are-body-fat-calculators · how-to-measure-body-fat-with-tape
+**October 27:** chatgpt-body-fat-percentage owns the specific ChatGPT image-prompt workflow and uncertainty/privacy questions. It links to the existing visual-estimation owner and the gym-progress tracking guide.
 **Gaps:** none; Best LeanLens Alternatives shipped Jul 9. The cluster is saturated: protect, don't expand.
 
 ## Cluster 2 — Body-fat visual reference (AEO + volume) 📊
@@ -37,12 +38,14 @@ best-body-scanning-measurement-apps (hub) · best-inbody-alternatives · inbody-
 **Sep 6 sourced evaluations:** weight-watchers-body-scanner-review · zozofit-review · evolt-360-body-scan-accuracy · oxiline-scale-review · hume-vs-renpho (Body Pod / MorphoScan Nova only) · arboleaf-scale-review · styku-body-scan-accuracy · bodyspec-review. These own specific product/service questions; preserve the alternatives, individual Hume/RENPHO review, and DEXA-report owners. [Ownership and measurement contract](keyword-research/2026-09-06-blog-ownership.md).
 **October 15:** withings-body-scan-2 (sourced evaluation; original-model review retains its intent). Original Hume and Withings reviews refreshed for model/price/evidence boundaries.
 **September 29 comparisons:** oxiline-vs-hume · renpho-vs-withings · withings-body-smart-vs-body-comp · bod-pod-vs-dexa. Preserve the existing standalone reviews, Hume review ownership of Hume-vs-InBody, and DEXA-report guide. Each comparison has three contextual inbound sources and links to the measurement hub/photo tool.
+**October 27:** best-hume-body-pod-alternatives · runstar-scale-review · garmin-index-s2-review · dexa-scan-cost · inbody-score-explained · inbody-h30-vs-h40. Preserve the standalone Hume review, DEXA-report explanation and InBody-vs-DEXA comparison. Cost covers consumer fitness appointments; no diagnostic billing intent. Official US H30/H40 listings cleared the proposal hold.
 **Gaps:** BodyScan 2 discovery intent is now covered; preserve original-model ownership. Original WW/Evolt and other device tests remain unperformed; add later evidence to these URLs. Caliper coverage still requires its first-party evidence contract. Withings Body Scan and average thigh/calf coverage already exist. "renpho vs withings" is now covered by the September 29 comparison. ⚠️ Parallel-session rule: re-list web/content/blog before briefing ANY batch — Jul 13 near-miss duplicated Jul 11 session's stats pages.
 
 ## Cluster 4 — Progress photos 💰📊
 
 best-progress-photo-apps · best-free-progress-photo-apps · best-body-transformation-apps · best-before-after-transformations-men · best-before-after-transformation-apps-women · body-transformation-tracker-apps · 5-tips-better-progress-photos · how-often-progress-photos · take-progress-photos-by-yourself · how-to-take-progress-photos-fast · how-to-take-progress-photos-weight-loss · import-progress-photos · before-after-comparing-progress-photos · timeline-tracking-guide · why-do-i-look-smaller-in-photos 📊 · why-abs-show-in-some-lighting 📊 · **Tools:** /tools/progress-photo-setup/ · /tools/progress-photo-compare/
 **Jul 9–23 backfill:** best-progress-photo-apps-android · progress-photo-poses · progress-photos-body-image · progress-photos-vs-scale · why-do-i-look-better-in-the-gym-mirror · why-do-i-look-fat-in-pictures
+**October 27:** transformation roundup repaired with current listings and original-photo versus 3D-model comparisons; editor guide now evaluates three verified editors and separates image effects from progress records.
 **Housekeeping:** Snapsie fold-in completed in the Jul 21 batch.
 **Gaps:** none. `progress-photo-poses` already exists; hold it rather than proposing another page for the declining query.
 
@@ -54,6 +57,7 @@ best-progress-photo-apps · best-free-progress-photo-apps · best-body-transform
 
 bulk-cut-or-recomp (hub) · should-i-bulk-or-cut-quiz · best-body-recomposition-apps · body-recomposition-tracker · how-long-does-body-recomposition-take · body-recomposition-before-and-after · track-body-recomposition-photos · how-to-lean-bulk-without-gaining-fat · is-your-lean-bulk-working · how-to-tell-if-skinny-fat · am-i-skinny-fat-quiz · skinny-fat-to-muscular · signs-you-are-building-muscle · how-long-to-see-results-from-lifting · why-weight-goes-up-when-lifting · measure-muscle-gain-without-scale · how-to-track-muscle-gain-progress · stop-weighing-yourself-daily · body-composition-for-lifters · body-composition-experiment · groom-wedding-shred · **Tool:** /tools/recomp-reality-checker/
 **Jul 9–23 backfill:** am-i-bulking-too-fast · body-recomposition-for-women · body-recomposition-over-40 · cutting-without-counting-calories · first-cut-guide · how-long-does-it-take-to-lose-belly-fat · how-much-muscle-can-you-gain-in-a-month · how-to-get-a-toned-stomach · how-to-get-toned-arms · lean-bulk-vs-dirty-bulk · maintenance-calories · mini-cut · newbie-gains · reverse-dieting · skinny-fat-women · strong-but-look-small · water-weight · why-am-i-losing-inches-but-not-weight · why-do-i-have-skinny-arms · why-does-my-weight-fluctuate
+**October 27:** refresh existing `how-to-track-muscle-gain-progress` and `signs-you-are-building-muscle`; no third general gym-progress sibling. New `how-to-identify-lagging-muscle-groups` owns regional appearance and training-record review, without diagnosing physical weakness.
 **Gaps:** none pressing. `first-cut-guide` and `mini-cut` already exist; the head market is declining, so hold rather than expand. Note: how-to-tell-if-skinny-fat folded into am-i-skinny-fat-quiz 2026-08-02 (zero imp in 28d), 301 in place.
 
 ## Cluster 6 — FFMI & muscle metrics 📊
@@ -78,7 +82,8 @@ best-glp1-muscle-tracking-apps (hub 💰) · glp-1-muscle-loss-tracking · track
 ## Cluster 9 — AI coach / trainer apps 💰
 
 best-ai-personal-trainer-apps (striking-distance, links-only until plateau) · ray-fitness-app-review · thelo-app-review (Aug 9; "thelo app reviews" 65 imp @ 6.5, brand-new app, profile in competitor-research/thelo.md) · gainframe-vs-fitbod-ray-gymstreak · ai-fitness-coach-vs-chatgpt · chatgpt-workout-plan · do-ai-fitness-trainers-work · personalized-ai-fitness-coach · gainframe-coach · ai-fitness-coach-strava-integration
-**Gaps:** Fitbod review? GymStreak review? (only if 4-way post shows brand-query impressions in GSC first).
+**October 27:** fitbod-app-review fills the standalone evaluation intent, with current body-composition import and recovery-model boundaries. Preserve existing direct-comparison URLs.
+**Gaps:** GymStreak review requires fresh demand and ownership evidence.
 
 **Sep 6 addition:** gravl-app-review, a sourced product evaluation with a proposed usability checklist. It owns Gravl review intent, not the AI-trainer roundup.
 
@@ -88,7 +93,8 @@ best-ai-personal-trainer-apps (striking-distance, links-only until plateau) · r
 
 hevy-vs-strong · hevy-app-gainframe-integration · smart-integrations-hevy · best-fitness-app-stack-2026 · recovery-score-for-lifters · resistance-training-guidelines · best-apps-track-muscle-gain · best-ai-fitness-apps-track-body
 **Jul 9–23 backfill:** am-i-overtraining-quiz · beginner-intermediate-advanced-lifter · best-fitness-apps-for-men · best-fitness-apps-for-women · best-whoop-alternatives-for-lifters · best-workout-tracker-apps · jefit-vs-hevy · macrofactor-review · strength-standards
-**Gaps:** "Hevy review" standalone (only if hevy-vs-strong shows brand impressions). Jefit vs Hevy already shipped Jul 20.
+**October 27:** hevy-app-review · boostcamp-app-review · macrofactor-vs-myfitnesspal. These are demand tests adjacent to lifters, not demonstrated install winners. Preserve the existing Hevy/Strong, Fitbod/Hevy, MacroFactor review and Cronometer pairing.
+**Gaps:** Hevy review is now covered. Jefit vs Hevy already shipped Jul 20.
 
 **Sep 6 addition:** cronometer-vs-macrofactor, comparing nutrient logging and adaptive nutrition targets. Preserve macrofactor-review as the individual product owner.
 
