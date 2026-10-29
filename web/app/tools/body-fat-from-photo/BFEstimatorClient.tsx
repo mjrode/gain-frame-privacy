@@ -1,11 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import PhotoRecoveryActions from "@/components/PhotoRecoveryActions";
 import { usePhotoRecovery } from "@/components/usePhotoRecovery";
 import PhotoFramingGuide from "@/components/PhotoFramingGuide";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
+import BodyFatAppBridge from "./BodyFatAppBridge";
+import { getBodyFatAppPreview } from "@/lib/body-fat-app-preview";
+import { createBodyFatBridgeAnalytics } from "@/lib/body-fat-bridge-analytics";
 import {
   captureException,
   getPosthogDistinctId,
@@ -210,10 +213,15 @@ function ConfidenceChip({ value }: { value: Confidence }) {
 
 export default function BFEstimatorClient() {
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
+  const [appPreview, setAppPreview] = useState({ enabled: false, demo: false, local: false });
   // Android (~half of this tool's users) can't install — the result screen
   // reframes the existing email report as the capture instead of showing an
   // iOS download button.
   const downloadPlatform = useDownloadPlatform();
+  const bridgeAnalytics = useMemo(
+    () => createBodyFatBridgeAnalytics(downloadPlatform),
+    [downloadPlatform],
+  );
   const isAndroid = downloadPlatform === "android";
   const [file, setFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -242,6 +250,20 @@ export default function BFEstimatorClient() {
   useEffect(() => {
     if (viewedRef.current) return;
     viewedRef.current = true;
+    const preview = getBodyFatAppPreview(window.location.hostname, window.location.search);
+    const local = preview.enabled && !isProductionAnalyticsHost(window.location.hostname);
+    setAppPreview({ ...preview, local });
+    if (preview.demo) {
+      // Local fixture: no photo, request, scan allowance, or experiment assignment.
+      setSex("male");
+      setStage({
+        kind: "result",
+        estimate: "18",
+        confidence: "medium",
+        one_line: "Example result for this local preview. No photo has been uploaded or analyzed.",
+      });
+    }
+    if (local) return;
     track("bf_tool_view");
     trackToolFunnelStep(CTA_CAMPAIGN, "viewed", { input_mode: "photo" });
   }, []);
@@ -297,6 +319,7 @@ export default function BFEstimatorClient() {
   }
 
   async function submitReport() {
+    if (appPreview.demo) return;
     if (stage.kind !== "result") return;
     if (emailSubmittingRef.current) return;
     const attemptId = createAttemptId();
@@ -505,6 +528,7 @@ export default function BFEstimatorClient() {
   }
 
   async function submit() {
+    if (appPreview.demo) return;
     if (!file) return;
     // Guard against rapid duplicate taps: setStage is async, so the submit
     // button stays mounted/clickable until the next render. Without this, a
@@ -780,7 +804,7 @@ export default function BFEstimatorClient() {
     const targetNum = parseEstimateNumber(stage.estimate);
     return (
       <>
-        <div className="bff-card bff-card--result">
+        <div className="bff-card bff-card--result" id="body-fat-result">
           {/* Mascot celebrates from the top-right of the card,
               clear of the centered number on every viewport. */}
           <img
@@ -795,7 +819,7 @@ export default function BFEstimatorClient() {
           <div className="bff-result">
             <span className="bff-result-tag">
               <span className="dot" aria-hidden />
-              Scan complete
+              {appPreview.demo ? "Example result · Local preview" : "Scan complete"}
             </span>
 
             <div className="bff-result-figure">
@@ -825,7 +849,7 @@ export default function BFEstimatorClient() {
             download copy). The email report follows as its own card — and
             becomes the primary capture on Android, where the app card
             hides itself. */}
-        <ToolConversionCard
+        {appPreview.enabled && !isAndroid ? <BodyFatAppBridge analytics={bridgeAnalytics} previewOnly={appPreview.local} /> : <ToolConversionCard
           tool={CTA_CAMPAIGN}
           campaign={SEO_PHYSIQUE_TOOLS_CPP.campaign}
           placement="result"
@@ -840,9 +864,9 @@ export default function BFEstimatorClient() {
           onCtaClick={() =>
             track("bf_tool_cta_clicked", { cta_content: "cta_primary" })
           }
-        />
+        />}
 
-        <div className="bff-cta-block">
+        {!appPreview.demo && <div className="bff-cta-block">
           <span className="bff-cta-glow" aria-hidden />
           <p className="bff-cta-block-title">
             {isAndroid
@@ -914,7 +938,7 @@ export default function BFEstimatorClient() {
               </p>
             </>
           )}
-        </div>
+        </div>}
 
         <div className="bff-disclaimer">
           <span className="bff-disclaimer-mark">i</span>
@@ -957,7 +981,7 @@ export default function BFEstimatorClient() {
                       href={vizHref(bf)}
                       title={`See ${bf}% body fat in the visualizer`}
                       onClick={() =>
-                        track("bf_tool_visualizer_clicked", { bf, is_you: isYou })
+                        !appPreview.demo && track("bf_tool_visualizer_clicked", { bf, is_you: isYou })
                       }
                     >
                       <span className="frame">
@@ -984,7 +1008,7 @@ export default function BFEstimatorClient() {
                 className="bff-spectrum-link"
                 href={vizHref(steps[nearest])}
                 onClick={() =>
-                  track("bf_tool_visualizer_clicked", {
+                  !appPreview.demo && track("bf_tool_visualizer_clicked", {
                     bf: steps[nearest],
                     is_you: true,
                     cta: true,
@@ -1004,7 +1028,7 @@ export default function BFEstimatorClient() {
           style={{ marginTop: 18 }}
           href="/tools/ai-body-transformation/"
           onClick={() =>
-            track("bf_tool_cta_clicked", { cta_content: "future_you_crosslink" })
+            !appPreview.demo && track("bf_tool_cta_clicked", { cta_content: "future_you_crosslink" })
           }
         >
           <div className="bff-crosslink-text">
@@ -1019,7 +1043,9 @@ export default function BFEstimatorClient() {
         </a>
 
         <p className="bff-retry-note">
-          Today's free scan used · 3 per person total · The app has no limits
+          {appPreview.demo
+            ? "Local sample result · No scan used"
+            : "Today's free scan used · 3 per person total · The app has no limits"}
         </p>
       </>
     );

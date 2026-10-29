@@ -87,6 +87,11 @@ export type AnalyticsEvent =
   | "bfv_cta_clicked"
   // BMI body visualizer
   | "body_visualizer_result_shown"
+  | "body_visualizer_bridge_viewed"
+  | "body_visualizer_bridge_cta_clicked"
+  // Body Fat from Photo app-analysis preview (separate from the live CTA experiment)
+  | "body_fat_bridge_viewed"
+  | "body_fat_bridge_cta_clicked"
   // Waist percentile widget (embedded in the average-waist-size posts)
   | "waist_tool_calculated"
   // Physique rater tool

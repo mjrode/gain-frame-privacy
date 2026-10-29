@@ -337,6 +337,7 @@
   grid-area: app;
   min-width: 0;
 }
+.appInvitationAction { min-width: 0; }
 .appInvitation :global(.tcc-card) {
   margin: 0;
   padding: 14px 0 0;
@@ -683,3 +684,70 @@
     font-size: 0.75rem;
   }
 }
+
+/* Compact proof for the Future You app walkthrough. */
+.appInvitation[data-visualizer-cta-preview="future"] {
+  display: grid;
+  grid-template-columns: minmax(96px, 0.52fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid #e5e7dc;
+}
+.appInvitation[data-visualizer-cta-preview="future"] :global(.tcc-card) {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "copy" "actions";
+  padding: 0;
+  border: 0;
+  gap: 10px;
+}
+.appInvitation[data-visualizer-cta-preview="future"] :global(.tcc-actions) {
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.futureTeaser { min-width: 0; margin: 0; }
+.futureTeaserLabels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 6px;
+  color: #62635b;
+  font-size: 0.5625rem;
+  font-weight: 650;
+  text-align: center;
+}
+.futureTeaserImage {
+  aspect-ratio: 1.55;
+  overflow: hidden;
+  border: 1px solid #e7e7eb;
+  border-radius: 10px;
+  background: #f2f2f7;
+}
+.futureTeaserImage img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  /* Frame the pair here; the walkthrough below keeps the entire screen. */
+  transform: translateY(-22%);
+}
+.futureTeaser figcaption {
+  margin-top: 6px;
+  color: #707267;
+  font-size: 0.5625rem;
+  line-height: 1.4;
+  text-align: center;
+}
+.walkthroughLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: #575b50;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.walkthroughLink:hover { color: #20221b; }
+.walkthroughLink:focus-visible { outline: 2px solid #697b2a; outline-offset: 2px; border-radius: 4px; }

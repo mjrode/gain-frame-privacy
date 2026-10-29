@@ -37,6 +37,7 @@ import {
 } from "@/lib/body-visualizer-measurements";
 import BodyShapeCompare from "./BodyShapeCompare";
 import BodyReferenceImage from "./BodyReferenceImage";
+import BodyVisualizerAppBridgePreview from "./BodyVisualizerAppBridge";
 
 type ReferenceSex = BodyVisualizerSex;
 type ReferenceView = "front" | "back";
@@ -532,8 +533,6 @@ export default function BodyVisualizerClient() {
           )}
         </div>
 
-        <BodyVisualizerCtaPreview state={ctaState} />
-
         <div className={styles.moreTools}>
           <details className={styles.bmiDetails}>
             <summary>
@@ -612,6 +611,11 @@ export default function BodyVisualizerClient() {
             Compare body measurements <span aria-hidden="true">↗</span>
           </button>
         </div>
+
+        {mode === "height_weight" && bmi !== null && (
+          <BodyVisualizerAppBridgePreview analytics={ctaState.bridgeAnalytics} />
+        )}
+        <BodyVisualizerCtaPreview state={ctaState} />
       </div>
 
       {mode === "measurements" && (

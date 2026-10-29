@@ -1,0 +1,124 @@
+.preview { margin-top: 24px; }
+
+.previewLabel {
+  margin: 0 0 16px;
+  color: #666;
+  font-size: 0.6875rem;
+}
+.futureScreenshot:focus-visible,
+.video:focus-visible { outline: 2px solid #252525; outline-offset: 4px; }
+
+.bridge {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 26px 44px;
+  padding: 34px 0 24px;
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+  color: #202020;
+  scroll-margin-top: 18px;
+}
+.progressBridge { border-top: 0; }
+.futureBridge { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+.futureIntro { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+.futureIntro .description { max-width: 46ch; }
+.appFlow {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) 100px minmax(0, 300px);
+  justify-content: center;
+  align-items: start;
+  gap: 24px;
+}
+.flowStep { width: 100%; }
+.resultAction { display: grid; gap: 8px; margin-top: 14px; }
+.resultButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 10px 14px;
+  border-radius: 11px;
+  background: #20221b;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+.resultButton:hover { background: #414637; }
+.resultButton:focus-visible { outline: 2px solid #697b2a; outline-offset: 3px; }
+.resultAction p { margin: 0; color: #666; font-size: 0.6875rem; line-height: 1.5; text-align: center; }
+.example .stepCaption { display: flex; gap: 10px; min-height: 83px; margin: 0 0 18px; }
+.stepNumber { display: grid; place-items: center; flex: 0 0 28px; height: 28px; border: 1px solid #d6d6d6; border-radius: 50%; color: #333; font-size: 0.75rem; font-weight: 650; }
+.stepCaption h3 { margin: 3px 0 6px; font-size: 0.9375rem; font-weight: 650; color: #202020; }
+.stepCaption p { margin: 0; font-size: 0.8125rem; line-height: 1.5; }
+.flowConnector { align-self: center; display: grid; justify-items: center; gap: 8px; color: #666; text-align: center; font-size: 0.75rem; line-height: 1.4; }
+.flowArrow { font-size: 2rem; line-height: 1; color: #333; }
+.eyebrow,
+.exampleLabel { font-size: 0.6875rem; font-weight: 650; letter-spacing: 0.04em; line-height: 1.5; color: #666; }
+.copy h2 {
+  margin: 14px 0 18px;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 750;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+.description { max-width: 40ch; margin: 0; color: #575757; font-size: 0.9375rem; line-height: 1.65; }
+.journey {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+  color: #333;
+  font-size: 0.6875rem;
+  font-weight: 650;
+}
+.journey > span[aria-hidden] { color: #888; }
+.returnReason { margin-top: 28px; padding-left: 14px; border-left: 2px solid #d6d6d6; }
+.returnReason h3 { margin: 0 0 5px; font-size: 0.8125rem; line-height: 1.4; }
+.returnReason p { max-width: 38ch; margin: 0; color: #666; font-size: 0.8125rem; line-height: 1.55; }
+.example { min-width: 0; margin: 0; }
+.exampleLabel { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.futureScreenshot {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #e7e7eb;
+  border-radius: 22px;
+  background: #f2f2f7;
+}
+.futureScreenshot img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
+.example figcaption { margin-top: 12px; color: #666; font-size: 0.6875rem; line-height: 1.5; }
+.videoExample { width: 100%; max-width: 300px; justify-self: center; }
+.video {
+  display: block;
+  width: 100%;
+  max-height: 540px;
+  aspect-ratio: 540 / 1170;
+  margin-inline: auto;
+  border: 1px solid #e7e7eb;
+  border-radius: 16px;
+  background: #f2f2f7;
+}
+.boundary { grid-column: 1 / -1; max-width: 100ch; margin: 0; color: #707070; font-size: 0.6875rem; line-height: 1.6; }
+
+@media (max-width: 700px) {
+  .bridge { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-top: 24px; }
+  .copy h2 { margin-block: 12px 14px; font-size: 2rem; }
+  .description { font-size: 0.875rem; }
+  .journey { margin-top: 16px; }
+  .returnReason { margin-top: 20px; }
+  .videoExample { max-width: 280px; }
+  .futureIntro { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .appFlow { grid-template-columns: minmax(0, 300px); gap: 24px; }
+  .example .stepCaption { min-height: 0; margin-bottom: 16px; }
+  .flowConnector { gap: 12px; }
+  .flowArrow { transform: rotate(90deg); }
+}
