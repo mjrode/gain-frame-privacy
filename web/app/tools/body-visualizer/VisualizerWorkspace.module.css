@@ -185,7 +185,7 @@
   min-width: 0;
   overflow: hidden;
   border-radius: 16px;
-  background: #f5f7f7;
+  background: #fff;
 }
 
 .previewToolbar {
@@ -231,6 +231,17 @@
   position: relative;
   height: 480px;
   overflow: hidden;
+}
+
+.imageChamber::after {
+  /* Blend the studio backdrop's outer edges into the white canvas. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, #fff, transparent 5%, transparent 95%, #fff),
+    linear-gradient(to bottom, #fff, transparent 2%, transparent 98%, #fff);
 }
 
 .invalidImage {
@@ -618,7 +629,8 @@
     padding: 0 6px 0 12px;
   }
   .imageChamber {
-    height: clamp(200px, calc(100svh - 536px), 380px);
+    /* Reserve room for inputs, slider and the full CTA even with browser bars. */
+    height: clamp(120px, calc(100svh - 560px), 420px);
   }
   .explorePanel {
     padding-top: 10px;
@@ -656,6 +668,34 @@
   }
 }
 
+/* Share the middle row on short phones instead of shrinking the touch targets. */
+@media (max-width: 760px) and (max-height: 740px) and (orientation: portrait) {
+  .workspace {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "controls controls" "display explore" "app app";
+    column-gap: 12px;
+  }
+  .previewToolbar {
+    justify-content: center;
+    padding: 0;
+  }
+  .previewToolbar > span {
+    display: none;
+  }
+  .imageChamber {
+    height: clamp(120px, calc(100svh - 440px), 260px);
+  }
+  .explorePanel {
+    align-self: center;
+    padding-top: 8px;
+  }
+  .weightExplorerHeading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
 @media (max-width: 360px) {
   .hero h1 {
     font-size: 1.625rem;
@@ -684,70 +724,3 @@
     font-size: 0.75rem;
   }
 }
-
-/* Compact proof for the Future You app walkthrough. */
-.appInvitation[data-visualizer-cta-preview="future"] {
-  display: grid;
-  grid-template-columns: minmax(96px, 0.52fr) minmax(0, 1fr);
-  gap: 14px;
-  align-items: center;
-  padding-top: 14px;
-  border-top: 1px solid #e5e7dc;
-}
-.appInvitation[data-visualizer-cta-preview="future"] :global(.tcc-card) {
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-areas: "copy" "actions";
-  padding: 0;
-  border: 0;
-  gap: 10px;
-}
-.appInvitation[data-visualizer-cta-preview="future"] :global(.tcc-actions) {
-  min-width: 0;
-  flex-wrap: wrap;
-}
-.futureTeaser { min-width: 0; margin: 0; }
-.futureTeaserLabels {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px;
-  margin-bottom: 6px;
-  color: #62635b;
-  font-size: 0.5625rem;
-  font-weight: 650;
-  text-align: center;
-}
-.futureTeaserImage {
-  aspect-ratio: 1.55;
-  overflow: hidden;
-  border: 1px solid #e7e7eb;
-  border-radius: 10px;
-  background: #f2f2f7;
-}
-.futureTeaserImage img {
-  display: block;
-  width: 100%;
-  max-width: none;
-  height: auto;
-  /* Frame the pair here; the walkthrough below keeps the entire screen. */
-  transform: translateY(-22%);
-}
-.futureTeaser figcaption {
-  margin-top: 6px;
-  color: #707267;
-  font-size: 0.5625rem;
-  line-height: 1.4;
-  text-align: center;
-}
-.walkthroughLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  color: #575b50;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.walkthroughLink:hover { color: #20221b; }
-.walkthroughLink:focus-visible { outline: 2px solid #697b2a; outline-offset: 2px; border-radius: 4px; }

@@ -113,6 +113,7 @@ export function createBodyVisualizerBridgeAnalytics(
         seen.add(key);
         emit("body_visualizer_bridge_viewed", {
           ...common, element: key,
+          cta_angle: key === "result_cta" ? "future" : common.cta_angle,
           visibility_ratio: BRIDGE_VISIBILITY_RATIO,
           visible_ms: BRIDGE_VISIBILITY_MS,
         });
@@ -136,6 +137,7 @@ export function createBodyVisualizerBridgeAnalytics(
       if (!element) return;
       emit("body_visualizer_bridge_cta_clicked", {
         ...common, element, cta_content: content,
+        cta_angle: element === "result_cta" ? "future" : common.cta_angle,
       });
     },
   };

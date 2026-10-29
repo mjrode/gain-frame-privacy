@@ -154,6 +154,7 @@ export type AnalyticsEvent =
   | "leaderboard_share_template_selected"
   | "leaderboard_share_clicked"
   // Generic
+  | "article_next_step_clicked"
   | "cta_platform_alternative_click"
   | "web_download_clicked"
   | "web_download_qr_shown"

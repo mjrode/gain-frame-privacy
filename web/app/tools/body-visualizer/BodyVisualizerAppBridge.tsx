@@ -49,9 +49,9 @@ function FutureYouBridge({ analytics }: { analytics: BodyVisualizerBridgeAnalyti
             aria-label="Enlarge the Future You setup screenshot (opens in a new tab)"
           >
             <Image
-              src={`${MEDIA}/future-you-setup.png`}
-              width={1290}
-              height={2796}
+              src={`${MEDIA}/future-you-setup-600.webp`}
+              width={600}
+              height={1300}
               sizes="(max-width: 360px) 90vw, 300px"
               alt="Full Future You setup screen with an intensity slider, target body areas, and Generate Preview button."
             />
@@ -77,9 +77,9 @@ function FutureYouBridge({ analytics }: { analytics: BodyVisualizerBridgeAnalyti
             aria-label="View full Future You app screenshot (opens in a new tab)"
           >
             <Image
-              src={`${MEDIA}/future-you-split.png`}
-              width={1290}
-              height={2796}
+              src={`${MEDIA}/future-you-split-600.webp`}
+              width={600}
+              height={1300}
               sizes="(max-width: 360px) 90vw, 300px"
               alt="Full Future You result screen: the starting photo and an illustrative six-month AI preview, comparison modes, and refinement options. Not a prediction."
             />
@@ -193,7 +193,7 @@ export default function BodyVisualizerAppBridgePreview({ analytics }: { analytic
   }, []);
 
   if (!rollout.enabled) return null;
-  const experiment = bodyVisualizerBridgeExperiment(rollout.local);
+  const experiment = bodyVisualizerBridgeExperiment(rollout.local, "future");
 
   return (
     <div

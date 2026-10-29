@@ -2,9 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import DownloadQr from "@/components/DownloadQr";
 import PlatformDownloadLink from "@/components/PlatformDownloadLink";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
-import { SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
+import { ANALYSIS_APP_STORE_PAGE, SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
 import { BODY_FAT_BRIDGE_EXPERIMENT_ID, BODY_FAT_BRIDGE_VERSION, BODY_FAT_CTA_CONTENT, type BodyFatBridgeAnalytics } from "@/lib/body-fat-bridge-analytics";
 import styles from "./BodyFatAppBridge.module.css";
 
@@ -16,17 +17,37 @@ function AnalysisLink({ placement, analytics }: { placement: "result" | "walkthr
   const element = placement === "result" ? "main_cta" : "result_cta";
   if (platform === "android") return <p className={styles.note}>GainFrame is available on iPhone.</p>;
   return (
-    <div ref={analytics.refs[element]} className={styles.action}>
-      <PlatformDownloadLink
-        className={styles.button}
-        source="bf_from_photo"
-        campaign={SEO_PHYSIQUE_TOOLS_CPP.campaign}
-        content={BODY_FAT_CTA_CONTENT[element]}
-      >
-        Get my physique analysis <span aria-hidden="true">→</span>
-      </PlatformDownloadLink>
-      <p className={styles.note}>iPhone app · Full analysis requires Pro</p>
-    </div>
+    <>
+      <div ref={analytics.refs[element]} className={styles.action}>
+        <PlatformDownloadLink
+          className={styles.button}
+          source="bf_from_photo"
+          campaign={SEO_PHYSIQUE_TOOLS_CPP.campaign}
+          customProductPageId={ANALYSIS_APP_STORE_PAGE.id}
+          content={BODY_FAT_CTA_CONTENT[element]}
+        >
+          Get my physique analysis <span aria-hidden="true">→</span>
+        </PlatformDownloadLink>
+        <p className={styles.note}>iPhone app · Full analysis requires Pro</p>
+      </div>
+      {placement === "result" && platform === "desktop" && (
+        <div className={styles.desktopHandoff}>
+          <DownloadQr
+            className={styles.handoffQr}
+            source="bf_from_photo"
+            campaign={SEO_PHYSIQUE_TOOLS_CPP.campaign}
+            customProductPageId={ANALYSIS_APP_STORE_PAGE.id}
+            content={`${BODY_FAT_CTA_CONTENT[element]}_qr`}
+            label="Continue on your iPhone"
+            backgroundColor="#fff"
+          />
+          <p className={styles.handoffNote}>
+            Scan with your iPhone camera, then add your photo in GainFrame.
+            Your web photo and result won’t transfer.
+          </p>
+        </div>
+      )}
+    </>
   );
 }
 

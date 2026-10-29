@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import localFont from "next/font/local";
-import { SITE } from "@/lib/site";
+import { ANALYSIS_APP_STORE_PAGE, SITE } from "@/lib/site";
 import PlatformDownloadLink from "@/components/PlatformDownloadLink";
 import HeroFilm from "./HeroFilm";
 import HomepageHeroProof from "./HomepageHeroProof";
@@ -47,6 +47,7 @@ function AppStoreCta({ className, content, children }: AppStoreCtaProps) {
       source="landing_v2"
       content={content}
       campaign={campaign}
+      customProductPageId={content === "hero_download" ? ANALYSIS_APP_STORE_PAGE.id : undefined}
       androidLabel={
         content === "floating_nav_download" ? "Try the tool" : "Try free web tool"
       }
@@ -123,23 +124,35 @@ export default function LandingV2() {
       </header>
 
       <main id="main-content">
-        <section className={styles.hero}>
-          <div className={styles.gridTexture} aria-hidden="true" />
+        <section className={styles.hero} aria-labelledby="homepage-heading">
           <div className={styles.heroCopy}>
             <p className={styles.kicker}>
               <span>Physique intelligence</span>
               <span>iPhone · private by design</span>
             </p>
-            <h1>Progress photos that explain what changed.</h1>
+            <h1 id="homepage-heading">Progress photos that explain what changed.</h1>
             <p className={styles.heroLead}>
-              Pair a gym selfie with weight, estimated body fat, and training
-              context—then see whether you&apos;re gaining muscle, losing fat,
-              or just moving the scale.
+              Start with a photo. See your estimated body fat and physique
+              breakdown, then compare check-ins to follow your progress.
             </p>
             <div className={styles.heroActions}>
               <AppStoreCta className={styles.primaryCta} content="hero_download">
-                Download free
+                Analyze my photo
               </AppStoreCta>
+            </div>
+            <p className={styles.heroNote}>
+              iPhone · Free download with limited check-ins.<br />
+              Full physique analysis requires Pro.
+            </p>
+            <div className={styles.heroExplore} aria-label="Explore before downloading">
+              <Link
+                className={styles.textCta}
+                href="/tools/body-fat-from-photo/"
+                data-cta-source="landing_v2"
+                data-cta-content="hero_free_photo_estimate"
+              >
+                Try a free photo estimate
+              </Link>
               <a
                 className={styles.textCta}
                 href="#film"
@@ -652,7 +665,6 @@ export default function LandingV2() {
         </section>
 
         <section className={styles.finalCta}>
-          <div className={styles.finalGrid} aria-hidden="true" />
           <p className={styles.finalLabel}>Your progress starts here</p>
           <h2>Take the photo.<br />See the signal.</h2>
           <p>Start free with one check-in. Your future trend starts there.</p>

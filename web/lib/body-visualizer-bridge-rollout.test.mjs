@@ -19,7 +19,7 @@ import { assignedCtaProperties } from "./assigned-cta-experiment.ts";
 
 const LOCAL_HOSTS = ["localhost", "127.0.0.1", "::1", "[::1]"];
 
-test("both production hosts enable Future You despite old preview query parameters", () => {
+test("both production hosts use analysis with the walkthrough despite old preview queries", () => {
   for (const host of ["gainframe.app", "www.gainframe.app"]) {
     for (const search of [
       "",
@@ -29,13 +29,13 @@ test("both production hosts enable Future You despite old preview query paramete
       "?bv_bridge=unknown&bv_cta=unknown",
     ]) {
       assert.deepEqual(getBodyVisualizerBridgeRollout(host, search), {
-        enabled: true, local: false, variant: "future",
+        enabled: true, local: false, variant: "analysis",
       }, `${host}${search}`);
     }
   }
 });
 
-test("local preview defaults to Future You and supersedes stale CTA selections", () => {
+test("local preview defaults to analysis with the walkthrough and supersedes stale selections", () => {
   for (const host of LOCAL_HOSTS) {
     for (const search of [
       "",
@@ -44,7 +44,7 @@ test("local preview defaults to Future You and supersedes stale CTA selections",
       ...BODY_VISUALIZER_CTA_VARIANTS.map((variant) => `?bv_cta=${variant}`),
     ]) {
       assert.deepEqual(getBodyVisualizerBridgeRollout(host, search), {
-        enabled: true, local: true, variant: "future",
+        enabled: true, local: true, variant: "analysis",
       }, `${host}${search}`);
     }
   }
@@ -107,7 +107,7 @@ test("rollout resolution does not consume or overwrite saved experiment assignme
   });
 
   assert.deepEqual(getBodyVisualizerBridgeRollout("gainframe.app", "?bv_cta=analysis"), {
-    enabled: true, local: false, variant: "future",
+    enabled: true, local: false, variant: "analysis",
   });
   assert.deepEqual(getBodyVisualizerBridgeRollout("localhost", "?bv_bridge=current"), {
     enabled: false, local: true, variant: "analysis",
@@ -116,9 +116,9 @@ test("rollout resolution does not consume or overwrite saved experiment assignme
 
 test("the bridge has fresh main and result attribution without changing the frozen rollout", () => {
   assert.equal(BODY_VISUALIZER_BRIDGE_EXPERIMENT_ID, "body_visualizer_app_bridge");
-  assert.equal(BODY_VISUALIZER_BRIDGE_PHASE, "future_you_walkthrough_v1");
-  assert.equal(BODY_VISUALIZER_BRIDGE_MAIN_CTA, "body_visualizer_future_you_walkthrough_v1_main");
-  assert.equal(BODY_VISUALIZER_BRIDGE_RESULT_CTA, "body_visualizer_future_you_walkthrough_v1_result");
+  assert.equal(BODY_VISUALIZER_BRIDGE_PHASE, "analysis_primary_walkthrough_v2");
+  assert.equal(BODY_VISUALIZER_BRIDGE_MAIN_CTA, "body_visualizer_analysis_primary_walkthrough_v2_main");
+  assert.equal(BODY_VISUALIZER_BRIDGE_RESULT_CTA, "body_visualizer_analysis_primary_walkthrough_v2_future_result");
   assert.notEqual(BODY_VISUALIZER_BRIDGE_MAIN_CTA, BODY_VISUALIZER_BRIDGE_RESULT_CTA);
 
   assert.equal(BODY_VISUALIZER_CTA_EXPERIMENT_ID, "body_visualizer_cta_v1");
@@ -135,12 +135,12 @@ test("the bridge has fresh main and result attribution without changing the froz
   }
 });
 
-test("bridge experiment metadata matches Future You and marks only explicit QA as forced", () => {
+test("bridge metadata identifies the restored analysis offer and marks only explicit QA as forced", () => {
   const expected = {
     id: "body_visualizer_app_bridge",
-    phase: "future_you_walkthrough_v1",
-    variant: "future",
-    angle: "future",
+    phase: "analysis_primary_walkthrough_v2",
+    variant: "analysis",
+    angle: "analysis",
     style: "ink",
     forced: false,
   };
@@ -150,9 +150,22 @@ test("bridge experiment metadata matches Future You and marks only explicit QA a
   assert.deepEqual(assignedCtaProperties(bodyVisualizerBridgeExperiment()), {
     experiment_id: expected.id,
     experiment_phase: expected.phase,
-    experiment_variant: "future",
+    experiment_variant: "analysis",
     experiment_forced: false,
-    cta_angle: "future",
+    cta_angle: "analysis",
     cta_style: "ink",
   });
+});
+
+test("the supporting Future You CTA keeps the page treatment while identifying its own angle", () => {
+  for (const forced of [false, true]) {
+    const main = bodyVisualizerBridgeExperiment(forced);
+    const supporting = bodyVisualizerBridgeExperiment(forced, "future");
+    assert.deepEqual(supporting, { ...main, angle: "future" });
+    assert.deepEqual(assignedCtaProperties(supporting), {
+      ...assignedCtaProperties(main),
+      cta_angle: "future",
+    });
+    assert.equal(supporting.variant, "analysis");
+  }
 });

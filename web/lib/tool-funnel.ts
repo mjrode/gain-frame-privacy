@@ -1,4 +1,5 @@
 import { track } from "./analytics.ts";
+import { getArticleAssistanceProperties } from "./article-assistance.ts";
 
 const BODY_FAT_VISUALIZER_DEEP_LINK_KEYS = [
   "g",
@@ -131,6 +132,7 @@ export function trackToolFunnelStep(
   properties: Record<string, unknown> = {},
 ): boolean {
   return track(TOOL_FUNNEL_EVENTS[step], {
+    ...getArticleAssistanceProperties(),
     ...properties,
     tool: normalizeToolFunnelId(source),
     funnel_step: step,

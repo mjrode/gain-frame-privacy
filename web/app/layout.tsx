@@ -3,6 +3,7 @@ import { DM_Sans, Outfit } from "next/font/google";
 import { SITE } from "@/lib/site";
 import AppStoreClickTracker from "@/components/AppStoreClickTracker";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
+import ArticleJourneyTracker from "@/components/ArticleJourneyTracker";
 import { GooglePreferredSourceFooter } from "@/components/GooglePreferredSource";
 
 // Self-hosted fonts via next/font — emits @font-face declarations using these
@@ -124,6 +125,7 @@ export default function RootLayout({
         {children}
         <GooglePreferredSourceFooter />
         <AppStoreClickTracker />
+        <ArticleJourneyTracker />
         <AnalyticsProvider />
       </body>
     </html>

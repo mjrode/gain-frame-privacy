@@ -224,7 +224,9 @@ test("each element is reported once per page controller, even when delivery queu
   assert.ok(captures.every(([, props]) =>
     props.experiment_id === BODY_VISUALIZER_BRIDGE_EXPERIMENT_ID &&
     props.experiment_phase === BODY_VISUALIZER_BRIDGE_PHASE &&
-    props.experiment_variant === "future" && props.experiment_forced === false));
+    props.experiment_variant === "analysis" && props.experiment_forced === false));
+  assert.equal(captures.find(([, props]) => props.element === "main_cta")[1].cta_angle, "analysis");
+  assert.equal(captures.find(([, props]) => props.element === "result_cta")[1].cta_angle, "future");
 
   const nextVisit = createBodyVisualizerBridgeAnalytics("ios", (...args) => captures.push(args), spy.observe);
   nextVisit.refs.walkthrough({});
@@ -301,7 +303,8 @@ test("click tracking distinguishes both buttons while ignoring walkthrough, scre
   assert.ok(captures.every(([, props]) =>
     props.experiment_id === BODY_VISUALIZER_BRIDGE_EXPERIMENT_ID &&
     props.experiment_phase === BODY_VISUALIZER_BRIDGE_PHASE &&
-    props.experiment_variant === "future"));
+    props.experiment_variant === "analysis"));
+  assert.deepEqual(captures.map(([, props]) => props.cta_angle), ["analysis", "future"]);
   analytics.onClick({ target: main });
   assert.equal(captures.length, 3, "a separate deliberate click remains measurable");
 
@@ -311,8 +314,10 @@ test("click tracking distinguishes both buttons while ignoring walkthrough, scre
   }
 });
 
-test("CTA classification does not mistake arbitrary links for either Future You button", () => {
+test("CTA classification does not mistake arbitrary or historical links for either bridge button", () => {
   assert.equal(bridgeCtaElement(null, false), null);
+  assert.equal(bridgeCtaElement("body_visualizer_future_you_walkthrough_v1_main", true), null);
+  assert.equal(bridgeCtaElement("body_visualizer_future_you_walkthrough_v1_result", false), null);
   assert.equal(bridgeCtaElement("future_you_walkthrough_result_other", false), null);
   assert.equal(bridgeCtaElement("future_you_walkthrough_result", false), null);
   assert.equal(bridgeCtaElement(bodyVisualizerCtaPlacement("analysis"), true), null);

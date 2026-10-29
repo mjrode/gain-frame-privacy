@@ -12,6 +12,7 @@ import AuthorByline from "@/components/AuthorByline";
 import ByLine from "@/components/ByLine";
 import PostTable from "@/components/PostTable";
 import BlogArticleCta from "@/components/BlogArticleCta";
+import ArticleNextStep from "@/components/ArticleNextStep";
 import { GooglePreferredSourceCard } from "@/components/GooglePreferredSource";
 import WaistPercentile from "@/components/WaistPercentile";
 import ShoulderToWaistRatioCalculator from "@/components/ShoulderToWaistRatioCalculator";
@@ -27,6 +28,7 @@ import { getBlogCtaIntent } from "@/lib/blog-cta";
 // body with <WaistPercentile /> — see .waist-tool in blog-post-page.css for the
 // scoped styles that come with it.
 const mdxComponents = {
+  ArticleNextStep,
   PostTable,
   WaistPercentile,
   ShoulderToWaistRatioCalculator,

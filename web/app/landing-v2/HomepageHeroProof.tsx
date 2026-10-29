@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import DownloadQr from "@/components/DownloadQr";
+import { ANALYSIS_APP_STORE_PAGE } from "@/lib/site";
 import styles from "./page.module.css";
 
 type LiveStats = {
@@ -46,6 +47,7 @@ export default function HomepageHeroProof() {
         source="landing_v2"
         content="hero_download"
         campaign="web-home-qr"
+        customProductPageId={ANALYSIS_APP_STORE_PAGE.id}
       />
     </div>
   );

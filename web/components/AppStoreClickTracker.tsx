@@ -9,6 +9,7 @@ import {
   rememberAcquisitionParams,
 } from "@/lib/web-attribution";
 import { describeDownloadCta } from "@/lib/download-cta-context";
+import { getArticleAssistanceProperties } from "@/lib/article-assistance";
 
 const CTA_CARD_SELECTOR = [
   "[data-cta-card]",
@@ -175,6 +176,8 @@ export default function AppStoreClickTracker() {
       );
       const cardType = inferredCardType(cardRoot);
       const cardContext = {
+        ...getArticleAssistanceProperties(),
+        ...(customProductPageId ? { custom_product_page_id: customProductPageId } : {}),
         cta_card_name: cardName,
         ...(actionText ? { cta_action_text: actionText } : {}),
         ...(cardType ? { cta_card_type: cardType } : {}),

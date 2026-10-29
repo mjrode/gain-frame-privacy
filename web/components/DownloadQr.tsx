@@ -3,6 +3,7 @@
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useRef, useState } from "react";
 import { track } from "@/lib/analytics";
+import { getArticleAssistanceProperties } from "@/lib/article-assistance";
 import {
   buildWebAttributionLink,
   directAppStoreUrl,
@@ -58,6 +59,8 @@ export default function DownloadQr({
           "[data-experiment-id]",
         )?.dataset;
         const recorded = track("web_download_qr_shown", {
+          ...getArticleAssistanceProperties(),
+          ...(customProductPageId ? { custom_product_page_id: customProductPageId } : {}),
           ...payload,
           source,
           cta_content: content,

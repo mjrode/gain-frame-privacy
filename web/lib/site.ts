@@ -30,13 +30,18 @@ export const APP_STORE_PROVIDER_TOKEN = "128456047";
  *
  * Keep this centralized so the page identifier and Apple campaign token move
  * together through direct App Store links, AppsFlyer OneLinks, and PostHog.
- * The creative is still PREPARE_FOR_SUBMISSION (September 16, 2026). Tool
+ * The creative is still PREPARE_FOR_SUBMISSION (verified October 29, 2026). Tool
  * surfaces retain its historical campaign for continuity, but MUST NOT pass
  * its id until Apple approves it and the public destination is verified.
  */
 export const SEO_PHYSIQUE_TOOLS_CPP = {
   id: "ba181e7f-4bf8-44f3-8be6-94077b918f89",
   campaign: "seo-physique-cpp-v1",
+} as const;
+
+/** Approved October 29 API check; public creative verified: photo body-fat analysis. */
+export const ANALYSIS_APP_STORE_PAGE = {
+  id: "3f5f18c6-de93-4958-a3d3-48dd92d0c4c1",
 } as const;
 
 /**

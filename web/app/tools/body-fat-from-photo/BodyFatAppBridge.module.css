@@ -8,6 +8,13 @@
 .button { display: inline-flex; justify-content: center; align-items: center; gap: 12px; min-height: 48px; padding: 12px 18px; border-radius: 12px; background: #20221b; color: white; font-size: .8125rem; font-weight: 650; line-height: 1.4; text-decoration: none; }
 .button:hover { background: #3e4535; }
 .note { margin: 9px 0 0; color: #777774; font-size: .6875rem; line-height: 1.6; }
+.desktopHandoff { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--bff-line); }
+.handoffQr { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.handoffQr svg { flex: 0 0 auto; width: 184px; height: 184px; box-sizing: content-box; padding: 12px; background: #fff; border: 1px solid var(--bff-line); border-radius: 12px; }
+.handoffQr > span { display: flex; flex: 1 1 130px; flex-direction: column; align-items: flex-start; gap: 9px; }
+.handoffQr strong { color: #34372e; font-size: .8125rem; line-height: 1.4; font-weight: 650; }
+.handoffQr a { color: #34372e; font-size: .75rem; line-height: 1.5; text-underline-offset: 4px; }
+.handoffNote { margin: 12px 0 0; color: #777774; font-size: .6875rem; line-height: 1.6; max-width: 48ch; }
 .howLink { display: inline-flex; align-items: center; gap: 8px; padding: 10px 0; margin-top: 4px; color: #34372e; font-size: .8125rem; text-underline-offset: 4px; }
 .compactExample { margin: 0; }
 .compactImage { display: block; position: relative; overflow: hidden; aspect-ratio: .72; border: 1px solid #e5e5e9; border-radius: 18px; background: #f2f2f7; }
@@ -33,6 +40,10 @@
 .video { display: block; width: 100%; aspect-ratio: 540 / 1170; border: 1px solid #e5e5e9; border-radius: 18px; background: #f2f2f7; }
 .videoExample figcaption { margin-top: 10px; color: #777774; font-size: .6875rem; line-height: 1.6; }
 .bridge a:focus-visible, .video:focus-visible { outline: 2px solid #617c42; outline-offset: 4px; }
+
+@media (max-width: 760px) {
+  .desktopHandoff { display: none; }
+}
 
 @media (max-width: 700px) {
   .summary { padding: 26px; gap: 24px; grid-template-columns: minmax(0, 1fr) 180px; }

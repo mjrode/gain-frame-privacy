@@ -1,0 +1,76 @@
+.panel {
+  margin-block: 32px;
+  padding: clamp(20px, 4vw, 28px);
+  border: 1px solid var(--post-accent-line, #cbd7ea);
+  border-radius: 12px;
+  background: var(--post-accent-soft, #f1f5fd);
+  scroll-margin-top: 100px;
+}
+
+/* The article stylesheet supplies broad heading, paragraph and link rules. */
+:global(.post-body) .panel .label {
+  margin: 0 0 10px;
+  color: var(--post-accent-strong, #234ca8);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+:global(.post-body) .panel .title {
+  margin: 0 0 12px;
+  color: var(--post-graphite, #181a17);
+  font-size: clamp(24px, 4vw, 30px);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+:global(.post-body) .panel .copy {
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+:global(.post-body) .panel .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: var(--post-accent-strong, #234ca8);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+}
+
+:global(.post-body) .panel .button:hover {
+  background: var(--post-graphite, #181a17);
+}
+
+:global(.post-body) .panel .note {
+  margin: 10px 0 18px;
+  color: var(--post-muted, #5e625d);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+:global(.post-body) .panel .guide {
+  display: inline-block;
+  padding-block: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  :global(.post-body) .panel .button {
+    width: 100%;
+  }
+}
