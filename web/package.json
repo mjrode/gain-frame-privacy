@@ -15,7 +15,9 @@
     "build:blog-grid": "node scripts/generate-blog-grid.mjs",
     "build:images": "node scripts/optimize-images.mjs",
     "build:comics-manifest": "node scripts/generate-comics-manifest-js.mjs",
-    "build:scoring-eval": "node scripts/extract-scoring-eval.mjs"
+    "build:scoring-eval": "node scripts/extract-scoring-eval.mjs",
+    "test:fonts": "node --test lib/fonts.test.mjs",
+    "test:homepage": "node --test --experimental-strip-types components/AppStoreClickTracker.test.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.3",

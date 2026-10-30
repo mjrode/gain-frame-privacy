@@ -1,20 +1,34 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import BlogNav from "@/components/BlogNav";
 import { SITE } from "@/lib/site";
 import BodyMeasurementsClient from "./BodyMeasurementsClient";
 
-const display = Barlow_Condensed({
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
+const display = localFont({
+  src: [
+    { path: "../../../fonts/barlow-condensed/semibold.woff2", weight: "600", style: "normal" },
+    { path: "../../../fonts/barlow-condensed/bold.woff2", weight: "700", style: "normal" },
+    { path: "../../../fonts/barlow-condensed/extrabold.woff2", weight: "800", style: "normal" },
+  ],
   variable: "--bmc-display",
   display: "swap",
+  fallback: ["Barlow Condensed", "sans-serif"],
+  adjustFontFallback: false,
+  declarations: [{ prop: "font-family", value: "Barlow Condensed" }],
 });
-const body = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+const body = localFont({
+  src: [
+    { path: "../../../fonts/manrope/normal.woff2", weight: "400", style: "normal" },
+    { path: "../../../fonts/manrope/normal.woff2", weight: "500", style: "normal" },
+    { path: "../../../fonts/manrope/normal.woff2", weight: "600", style: "normal" },
+    { path: "../../../fonts/manrope/normal.woff2", weight: "700", style: "normal" },
+    { path: "../../../fonts/manrope/normal.woff2", weight: "800", style: "normal" },
+  ],
   variable: "--bmc-body",
   display: "swap",
+  fallback: ["Manrope", "sans-serif"],
+  adjustFontFallback: false,
+  declarations: [{ prop: "font-family", value: "Manrope" }],
 });
 
 const PAGE_PATH = "/tools/body-measurements-calculator/";

@@ -1,23 +1,38 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Outfit } from "next/font/google";
+import localFont from "next/font/local";
 import { SITE } from "@/lib/site";
 import AppStoreClickTracker from "@/components/AppStoreClickTracker";
 import AnalyticsProvider from "@/components/AnalyticsProvider";
 import ArticleJourneyTracker from "@/components/ArticleJourneyTracker";
 import { GooglePreferredSourceFooter } from "@/components/GooglePreferredSource";
 
-// Self-hosted fonts via next/font — emits @font-face declarations using these
-// family names so existing CSS that references 'DM Sans' / 'Outfit' / etc.
-// resolves to locally-hosted woff2. No fonts.googleapis.com requests.
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+// Vendored fonts keep builds independent of Google Fonts. Explicit family names
+// preserve existing CSS references; see fonts/README.md for sources and licenses.
+const dmSans = localFont({
+  src: [
+    { path: "../fonts/dm-sans/normal.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/dm-sans/normal.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/dm-sans/normal.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/dm-sans/normal.woff2", weight: "700", style: "normal" },
+  ],
   display: "swap",
+  fallback: ["DM Sans", "sans-serif"],
+  adjustFontFallback: false,
+  declarations: [{ prop: "font-family", value: "DM Sans" }],
 });
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+const outfit = localFont({
+  src: [
+    { path: "../fonts/outfit/normal.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/outfit/normal.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/outfit/normal.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/outfit/normal.woff2", weight: "700", style: "normal" },
+    { path: "../fonts/outfit/normal.woff2", weight: "800", style: "normal" },
+    { path: "../fonts/outfit/normal.woff2", weight: "900", style: "normal" },
+  ],
   display: "swap",
+  fallback: ["Outfit", "sans-serif"],
+  adjustFontFallback: false,
+  declarations: [{ prop: "font-family", value: "Outfit" }],
 });
 // Playfair Display and UnifrakturCook are loaded per-route via
 // components/EditorialFonts — only /comics and /alien use them.

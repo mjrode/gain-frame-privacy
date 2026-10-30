@@ -1,0 +1,433 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "https://github.com/google/fonts",
+  "sourceRevision": "6157dfaa640ca5738b4d1a7070fe389c3036d7fc",
+  "license": "SIL Open Font License 1.1",
+  "conversion": {
+    "fontTools": "4.58.5",
+    "brotli": "1.1.0",
+    "format": "WOFF2",
+    "subsetting": false,
+    "axisInstancing": {
+      "DM Sans": {
+        "opsz": 14,
+        "reason": "Matches the optical size frozen into the previously served Google Fonts v17 face; weight axis and all glyphs remain available."
+      }
+    },
+    "recalculateTimestamp": false
+  },
+  "families": [
+    {
+      "name": "DM Sans",
+      "directory": "dm-sans",
+      "sourceDirectory": "https://github.com/google/fonts/tree/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/dmsans",
+      "license": {
+        "file": "dm-sans/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/dmsans/OFL.txt",
+        "sha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1"
+      },
+      "subsets": [
+        "latin",
+        "latin-ext",
+        "menu"
+      ],
+      "files": [
+        {
+          "file": "dm-sans/normal.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/dmsans/DMSans%5Bopsz%2Cwght%5D.ttf",
+          "sourceSha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
+          "sha256": "0364172ca60c815fd8f6d855da3549cd8c40417df544bc7b9aee42ce2e048c20",
+          "bytes": 54300,
+          "version": "Version 4.004;gftools[0.9.30]",
+          "glyphCount": 486,
+          "mappedCharacters": 403,
+          "axes": [
+            {
+              "tag": "wght",
+              "min": 100.0,
+              "default": 400.0,
+              "max": 1000.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Outfit",
+      "directory": "outfit",
+      "sourceDirectory": "https://github.com/google/fonts/tree/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/outfit",
+      "license": {
+        "file": "outfit/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/outfit/OFL.txt",
+        "sha256": "c676351bf8576b9aba743cd5eaa8c0e7ee0d51f805d720447b4df4ddb6a2e416"
+      },
+      "subsets": [
+        "latin",
+        "latin-ext",
+        "menu"
+      ],
+      "files": [
+        {
+          "file": "outfit/normal.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/outfit/Outfit%5Bwght%5D.ttf",
+          "sourceSha256": "fc7287273e66929776e2ba54f144fe699080bec29f61bf649d70d871468aeade",
+          "sha256": "ed629d88c2db8ace1b3ac85fbf1fe0223d7272defaa817d1955100101966f0fb",
+          "bytes": 45100,
+          "version": "Version 1.100;gftools[0.9.27]",
+          "glyphCount": 416,
+          "mappedCharacters": 360,
+          "axes": [
+            {
+              "tag": "wght",
+              "min": 100.0,
+              "default": 100.0,
+              "max": 900.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Playfair Display",
+      "directory": "playfair-display",
+      "sourceDirectory": "https://github.com/google/fonts/tree/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/playfairdisplay",
+      "license": {
+        "file": "playfair-display/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/playfairdisplay/OFL.txt",
+        "sha256": "566be814f8e96e93dfa16101331557eb6b5467e9e03f627c0910fe93ca12300e"
+      },
+      "subsets": [
+        "cyrillic",
+        "latin",
+        "latin-ext",
+        "menu",
+        "vietnamese"
+      ],
+      "files": [
+        {
+          "file": "playfair-display/normal.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/playfairdisplay/PlayfairDisplay%5Bwght%5D.ttf",
+          "sourceSha256": "c40f2293766a503bc70cce9e512ef844a4ccb7cbcde792fe2ea31d191917d8d6",
+          "sha256": "4297e9ec39f1b8157623d048fb99eab03c90e482669599e8fc662ee178994c49",
+          "bytes": 106440,
+          "version": "Version 1.203",
+          "glyphCount": 1103,
+          "mappedCharacters": 659,
+          "axes": [
+            {
+              "tag": "wght",
+              "min": 400.0,
+              "default": 400.0,
+              "max": 900.0
+            }
+          ]
+        },
+        {
+          "file": "playfair-display/italic.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/playfairdisplay/PlayfairDisplay-Italic%5Bwght%5D.ttf",
+          "sourceSha256": "a5e26dc5e2e77fb2803a0bf02fd4f81ee136ec8dea863ccdb0c59a263b21378b",
+          "sha256": "07dd1cb3a11ed07a7d706e25b64b1a1a46c0ab1bbd53f7e4b5dff9052fc6dd26",
+          "bytes": 103728,
+          "version": "Version 1.203",
+          "glyphCount": 1101,
+          "mappedCharacters": 659,
+          "axes": [
+            {
+              "tag": "wght",
+              "min": 400.0,
+              "default": 400.0,
+              "max": 900.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "UnifrakturCook",
+      "directory": "unifraktur-cook",
+      "sourceDirectory": "https://github.com/google/fonts/tree/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/unifrakturcook",
+      "license": {
+        "file": "unifraktur-cook/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/unifrakturcook/OFL.txt",
+        "sha256": "99d2f30e282d6174af8ff68597f58bb53c0dcb2b104a4c1b8d19da49021d00d3"
+      },
+      "subsets": [
+        "menu",
+        "latin"
+      ],
+      "files": [
+        {
+          "file": "unifraktur-cook/bold.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/unifrakturcook/UnifrakturCook-Bold.ttf",
+          "sourceSha256": "ea002fa9c65f1a612af100e00d87ab65f16381f450020ec3d021f3dbf79a6dcd",
+          "sha256": "9ac7992c766ecce90ec8ef86e7975173118662c1a82c5700311e66d057402aa4",
+          "bytes": 22700,
+          "version": "Version 2011-09-01 ",
+          "glyphCount": 271,
+          "mappedCharacters": 246,
+          "axes": []
+        }
+      ]
+    },
+    {
+      "name": "Geist",
+      "directory": "geist",
+      "sourceDirectory": "https://github.com/google/fonts/tree/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/geist",
+      "license": {
+        "file": "geist/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/geist/OFL.txt",
+        "sha256": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f"
+      },
+      "subsets": [
+        "cyrillic",
+        "cyrillic-ext",
+        "latin",
+        "latin-ext",
+        "menu",
+        "vietnamese"
+      ],
+      "files": [
+        {
+          "file": "geist/normal.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/geist/Geist%5Bwght%5D.ttf",
+          "sourceSha256": "73894e0448cae90a92b6c2f8732b7bb9acb7b94c418bff559dad4a18e1de9659",
+          "sha256": "2ffebe993e969069a9789d15164b7715d42491b5835516c5e3b935d5f81b05f1",
+          "bytes": 69760,
+          "version": "Version 1.800",
+          "glyphCount": 975,
+          "mappedCharacters": 728,
+          "axes": [
+            {
+              "tag": "wght",
+              "min": 100.0,
+              "default": 400.0,
+              "max": 900.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Geist Mono",
+      "directory": "geist-mono",
+      "sourceDirectory": "https://github.com/google/fonts/tree/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/geistmono",
+      "license": {
+        "file": "geist-mono/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/geistmono/OFL.txt",
+        "sha256": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f"
+      },
+      "subsets": [
+        "cyrillic",
+        "cyrillic-ext",
+        "latin",
+        "latin-ext",
+        "menu",
+        "symbols2",
+        "vietnamese"
+      ],
+      "files": [
+        {
+          "file": "geist-mono/normal.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/geistmono/GeistMono%5Bwght%5D.ttf",
+          "sourceSha256": "d00e590b8eb3a59acc329b2d044fd143ae935090b7da33199ebee27cc7de8196",
+          "sha256": "09853cd11045cf50e8ac07faf08bd5420f181b924f4c65b93b8ee49259a03734",
+          "bytes": 71124,
+          "version": "Version 1.701",
+          "glyphCount": 1159,
+          "mappedCharacters": 889,
+          "axes": [
+            {
+              "tag": "wght",
+              "min": 100.0,
+              "default": 400.0,
+              "max": 900.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Plus Jakarta Sans",
+      "directory": "plus-jakarta-sans",
+      "sourceDirectory": "https://github.com/google/fonts/tree/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/plusjakartasans",
+      "license": {
+        "file": "plus-jakarta-sans/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/plusjakartasans/OFL.txt",
+        "sha256": "995c7199cab65954f545996326755daee7b63cc6b42b06c13da1f9502ab08a99"
+      },
+      "subsets": [
+        "cyrillic-ext",
+        "latin",
+        "latin-ext",
+        "menu",
+        "vietnamese"
+      ],
+      "files": [
+        {
+          "file": "plus-jakarta-sans/normal.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/plusjakartasans/PlusJakartaSans%5Bwght%5D.ttf",
+          "sourceSha256": "89b3fb38aa0d275d7a731d0d817a4f1622b316b4d7fbdedcf02ee9099ff68bc8",
+          "sha256": "7c59703703f40fb5ff0d634b2a15c9d72dab6377841bd273eb4c8ce9a02f0143",
+          "bytes": 60636,
+          "version": "Version 2.071;gftools[0.9.30]",
+          "glyphCount": 1188,
+          "mappedCharacters": 721,
+          "axes": [
+            {
+              "tag": "wght",
+              "min": 200.0,
+              "default": 400.0,
+              "max": 800.0
+            }
+          ]
+        },
+        {
+          "file": "plus-jakarta-sans/italic.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/plusjakartasans/PlusJakartaSans-Italic%5Bwght%5D.ttf",
+          "sourceSha256": "9529eb888668b6a3c6dd75b6341a2fc5263fb6c9e788822e6117c29dd9e8b115",
+          "sha256": "b509c2b4b46e7f0500c06cf5fe9d16d543c9cdb1a5329f84d9fea3c9042e90f3",
+          "bytes": 65912,
+          "version": "Version 2.071;gftools[0.9.30]",
+          "glyphCount": 1188,
+          "mappedCharacters": 721,
+          "axes": [
+            {
+              "tag": "wght",
+              "min": 200.0,
+              "default": 400.0,
+              "max": 800.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Barlow Condensed",
+      "directory": "barlow-condensed",
+      "sourceDirectory": "https://github.com/google/fonts/tree/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/barlowcondensed",
+      "license": {
+        "file": "barlow-condensed/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/barlowcondensed/OFL.txt",
+        "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f"
+      },
+      "subsets": [
+        "latin",
+        "latin-ext",
+        "menu",
+        "vietnamese"
+      ],
+      "files": [
+        {
+          "file": "barlow-condensed/semibold.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/barlowcondensed/BarlowCondensed-SemiBold.ttf",
+          "sourceSha256": "7b619d14bc2327509a9ef32b0890f709626f7ecc9ff61191c2a4314c5499d2d9",
+          "sha256": "fa9dce30a032594dc73eabdee132dd851120e606fd35452e3cb870006bd54475",
+          "bytes": 39264,
+          "version": "Version 1.408",
+          "glyphCount": 694,
+          "mappedCharacters": 525,
+          "axes": []
+        },
+        {
+          "file": "barlow-condensed/bold.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/barlowcondensed/BarlowCondensed-Bold.ttf",
+          "sourceSha256": "e476562ec9c1e16cf16475895b511f08c804f438cc9a9f80a44ea50a0eeb5b65",
+          "sha256": "2e41b146e59a32f84f32301aa7891e0e07323d08d4d6991af06b0ee347d943b0",
+          "bytes": 39432,
+          "version": "Version 1.408",
+          "glyphCount": 694,
+          "mappedCharacters": 525,
+          "axes": []
+        },
+        {
+          "file": "barlow-condensed/extrabold.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/barlowcondensed/BarlowCondensed-ExtraBold.ttf",
+          "sourceSha256": "724c9c25952d5f4a2d87185d9767aa006144c5f0d944dc05bf7d5d603551c260",
+          "sha256": "ffe330bdf2dc59a4aa36e4b1442552cb133049512ecca78c84c93af6f4317f19",
+          "bytes": 39456,
+          "version": "Version 1.408",
+          "glyphCount": 694,
+          "mappedCharacters": 525,
+          "axes": []
+        }
+      ]
+    },
+    {
+      "name": "Manrope",
+      "directory": "manrope",
+      "sourceDirectory": "https://github.com/google/fonts/tree/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/manrope",
+      "license": {
+        "file": "manrope/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/manrope/OFL.txt",
+        "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
+      },
+      "subsets": [
+        "cyrillic",
+        "cyrillic-ext",
+        "greek",
+        "latin",
+        "latin-ext",
+        "menu",
+        "vietnamese"
+      ],
+      "files": [
+        {
+          "file": "manrope/normal.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/manrope/Manrope%5Bwght%5D.ttf",
+          "sourceSha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+          "sha256": "30b83738add8c9edd9e3450b98036a9a8fb5668d0cbd4eb0ce5fe6761197f21f",
+          "bytes": 53892,
+          "version": "Version 4.505",
+          "glyphCount": 742,
+          "mappedCharacters": 678,
+          "axes": [
+            {
+              "tag": "wght",
+              "min": 200.0,
+              "default": 200.0,
+              "max": 800.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cormorant Garamond",
+      "directory": "cormorant-garamond",
+      "sourceDirectory": "https://github.com/google/fonts/tree/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/cormorantgaramond",
+      "license": {
+        "file": "cormorant-garamond/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/cormorantgaramond/OFL.txt",
+        "sha256": "60700d351cac4650c51f3f9db318d2a420f8b45052dba2715eb5fec41f0f6956"
+      },
+      "subsets": [
+        "cyrillic",
+        "cyrillic-ext",
+        "latin",
+        "latin-ext",
+        "menu",
+        "vietnamese"
+      ],
+      "files": [
+        {
+          "file": "cormorant-garamond/normal.woff2",
+          "source": "https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/cormorantgaramond/CormorantGaramond%5Bwght%5D.ttf",
+          "sourceSha256": "b20b7d9626dd956b2c5e558692ad328b1f19e3275e2782db4fa07670d83f35e0",
+          "sha256": "1c7136dcfe2ba0c22bd2e4ab48467813cb6dd7b5728a73920dd9eb6452b8a558",
+          "bytes": 209428,
+          "version": "Version 4.001",
+          "glyphCount": 3241,
+          "mappedCharacters": 974,
+          "axes": [
+            {
+              "tag": "wght",
+              "min": 300.0,
+              "default": 300.0,
+              "max": 700.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

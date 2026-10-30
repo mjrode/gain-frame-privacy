@@ -79,6 +79,8 @@ function absoluteAssetUrl(path: string | undefined): string | undefined {
  *   - `data-cta-source`   overrides the default source (the page pathname)
  *   - `data-cta-content`  overrides the inferred placement (floating_pill /
  *                         store_badge / link)
+ *   - `data-app-store-intent="reviews"` keeps review links direct and skips
+ *     download attribution and events.
  *   - `data-track-exempt` skips only the legacy outbound event — attribution
  *     rewriting and the web-download event still apply.
  *
@@ -108,6 +110,7 @@ export default function AppStoreClickTracker() {
       const target = event.target as Element | null;
       const anchor = target?.closest?.<HTMLAnchorElement>("a[href]");
       if (!anchor || !isGainFrameDownloadUrl(anchor.href)) return;
+      if (anchor.getAttribute("data-app-store-intent") === "reviews") return;
 
       const source =
         anchor.getAttribute("data-cta-source") ??

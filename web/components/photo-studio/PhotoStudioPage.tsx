@@ -1,18 +1,30 @@
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import BlogNav from "@/components/BlogNav";
 import PhotoStudio from "./PhotoStudio";
 import styles from "./studio.module.css";
-const display = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600"],
+const display = localFont({
+  src: [
+    { path: "../../fonts/cormorant-garamond/normal.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/cormorant-garamond/normal.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--studio-display",
   display: "swap",
+  fallback: ["Cormorant Garamond", "serif"],
+  adjustFontFallback: false,
+  declarations: [{ prop: "font-family", value: "Cormorant Garamond" }],
 });
-const body = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const body = localFont({
+  src: [
+    { path: "../../fonts/manrope/normal.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/manrope/normal.woff2", weight: "500", style: "normal" },
+    { path: "../../fonts/manrope/normal.woff2", weight: "600", style: "normal" },
+    { path: "../../fonts/manrope/normal.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--studio-body",
   display: "swap",
+  fallback: ["Manrope", "sans-serif"],
+  adjustFontFallback: false,
+  declarations: [{ prop: "font-family", value: "Manrope" }],
 });
 export const STUDIO_INFO = {
   privacy: {

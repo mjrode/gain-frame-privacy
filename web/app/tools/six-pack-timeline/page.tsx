@@ -1,18 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import BlogNav from "@/components/BlogNav";
 import { SITE } from "@/lib/site";
 import SixPackTimelineClient from "./SixPackTimelineClient";
 
-const geist = Geist({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+const geist = localFont({
+  src: [
+    { path: "../../../fonts/geist/normal.woff2", weight: "400", style: "normal" },
+    { path: "../../../fonts/geist/normal.woff2", weight: "500", style: "normal" },
+    { path: "../../../fonts/geist/normal.woff2", weight: "600", style: "normal" },
+    { path: "../../../fonts/geist/normal.woff2", weight: "700", style: "normal" },
+    { path: "../../../fonts/geist/normal.woff2", weight: "800", style: "normal" },
+  ],
   display: "swap",
+  fallback: ["Geist", "sans-serif"],
+  adjustFontFallback: false,
+  declarations: [{ prop: "font-family", value: "Geist" }],
 });
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+const geistMono = localFont({
+  src: [
+    { path: "../../../fonts/geist-mono/normal.woff2", weight: "400", style: "normal" },
+    { path: "../../../fonts/geist-mono/normal.woff2", weight: "500", style: "normal" },
+    { path: "../../../fonts/geist-mono/normal.woff2", weight: "600", style: "normal" },
+  ],
   display: "swap",
+  fallback: ["Geist Mono", "monospace"],
+  adjustFontFallback: false,
+  declarations: [{ prop: "font-family", value: "Geist Mono" }],
 });
 
 const PAGE_PATH = "/tools/six-pack-timeline/";
