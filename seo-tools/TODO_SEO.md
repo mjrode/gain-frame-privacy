@@ -6,6 +6,12 @@ This file tracks keyword targets for blog posts and comparison articles. Items a
 
 When a post is published, replace `[ ]` with `[x]` and append ` — published YYYY-MM-DD as /blog/[slug]/`.
 
+## November 9 approved articles and fixes
+
+- [x] P1 iPhone side-by-side photos, P3 InBody preparation and P4 Fit3D report interpretation. Published as `put-two-photos-side-by-side-iphone`, `inbody-scan-preparation` and `fit3d-body-scan-report`.
+- [x] F1–F7. Photo-estimator accuracy and Android photo reads, women's waist landmarks, women's age-band reference, illustrated body-fat chart, ten-site tape log and women's recomp check-in. [Release and indexing record](content-audits/2026-11-09-execution.md).
+- [ ] [Seven nonbrand story options](keyword-research/2026-11-09-nonbrand-post-ideas.md) await selection. P2 and P5–P7 from the original November 9 menu remain unapproved.
+
 ## October 27 approved publication batch
 
 - [x] **Ten missing article intents plus two user-requested guides** - published October 27 at 15:13:37 UTC; exact URLs, duplicate boundaries and release evidence in the [execution record](content-audits/2026-10-27-execution.md). H30/H40 hold cleared by current official US listings.

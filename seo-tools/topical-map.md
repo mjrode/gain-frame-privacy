@@ -1,7 +1,7 @@
 # GainFrame Topical Map
 
-> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-10-27 (12 approved new intents, existing gym-progress owners and commercial-page repairs).
-> **Current inventory:** 286 blog posts; 23 actual tool URLs, including the measurement-mode entry. The old 289-URL inventory is superseded; use the generated sitemap for current coverage.
+> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-11-09 (three approved reader tasks and seven repairs).
+> **Current inventory:** 289 blog posts; 23 actual tool URLs, including the measurement-mode entry. The old 289-URL inventory is superseded; use the generated sitemap for current coverage.
 > **Intent legend:** 💰 commercial (drives installs/clicks) · 📊 informational (impressions/AEO/links) · 🤝 brand/social (founder lane, not SEO) · 🔧 tool.
 > **Programmatic SEO:** broad page factories remain deferred. One finite 14-page body-fat picture gallery plus its hub shipped 2026-08-06 around the proprietary standardized render library; do not expand it without query evidence and a strategy update.
 
@@ -30,6 +30,8 @@ body-fat-percentage-chart-women (Jul 18, female per-level visuals) · body-fat-p
 
 ## Cluster 3 — Scanning, measurement & hardware alternatives 💰
 
+**November 9:** `inbody-scan-preparation` covers preparation and repeat-test conditions. `fit3d-body-scan-report` covers participant report fields. These two gaps are filled; retain the existing score and coach-platform owners.
+
 The brand-alternatives lane (InBody template). Best new-post velocity: top-6 within a week.
 
 best-body-scanning-measurement-apps (hub) · best-inbody-alternatives · inbody-vs-dexa (Sep 3) · dexa-scan-body-fat-percentage (Sep 3, first-party GE Lunar report guide) · best-zozofit-alternatives · best-renpho-alternatives · best-leanlens-alternatives · hume-body-pod-review · methreesixty-vs-gainframe · recomp-ai-vs-gainframe · fitnessai-bodyscan-vs-gainframe · spren-app-review · spren-vs-gainframe · **Measurement stats sub-cluster 📊 (breakout format — 5K imp/5d):** ideal-body-measurements-men (hub) · average-waist-size-men · average-bicep-size · average-shoulder-width (Jul 11 session) · average-chest-size (Jul 11) · average-neck-size (Jul 11) · average-wrist-size · average-forearm-size · waist-to-height-ratio · shoulder-to-waist-ratio · why-is-my-waist-not-shrinking
@@ -42,6 +44,8 @@ best-body-scanning-measurement-apps (hub) · best-inbody-alternatives · inbody-
 **Gaps:** BodyScan 2 discovery intent is now covered; preserve original-model ownership. Original WW/Evolt and other device tests remain unperformed; add later evidence to these URLs. Caliper coverage still requires its first-party evidence contract. Withings Body Scan and average thigh/calf coverage already exist. "renpho vs withings" is now covered by the September 29 comparison. ⚠️ Parallel-session rule: re-list web/content/blog before briefing ANY batch — Jul 13 near-miss duplicated Jul 11 session's stats pages.
 
 ## Cluster 4 — Progress photos 💰📊
+
+**November 9:** `put-two-photos-side-by-side-iphone` covers native Shortcuts, horizontal layout and matched cropping. The comparison tool performs the task. This native how-to gap is filled.
 
 best-progress-photo-apps · best-free-progress-photo-apps · best-body-transformation-apps · best-before-after-transformations-men · best-before-after-transformation-apps-women · body-transformation-tracker-apps · 5-tips-better-progress-photos · how-often-progress-photos · take-progress-photos-by-yourself · how-to-take-progress-photos-fast · how-to-take-progress-photos-weight-loss · import-progress-photos · before-after-comparing-progress-photos · timeline-tracking-guide · why-do-i-look-smaller-in-photos 📊 · why-abs-show-in-some-lighting 📊 · **Tools:** /tools/progress-photo-setup/ · /tools/progress-photo-compare/
 **Jul 9–23 backfill:** best-progress-photo-apps-android · progress-photo-poses · progress-photos-body-image · progress-photos-vs-scale · why-do-i-look-better-in-the-gym-mirror · why-do-i-look-fat-in-pictures

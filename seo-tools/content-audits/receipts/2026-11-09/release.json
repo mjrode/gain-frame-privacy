@@ -1,0 +1,602 @@
+{
+  "firstRelease": {
+    "commit": "c3c1f84883baf5f5394dca9ade9ba718bc4db6fc",
+    "cloudflareDeployment": "5ed212a4-4d00-4eb6-9e2e-57e6ab7a8dce",
+    "deploymentUTC": "2026-11-10T01:09:45.725725Z",
+    "versions": [
+      {
+        "version_id": "b6203732-e356-4ebc-aa20-f7fc6202790c",
+        "percentage": 100
+      }
+    ],
+    "checks": [
+      {
+        "name": "Cloudflare Pages",
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-10T01:09:52Z"
+      },
+      {
+        "name": "Workers Builds: gain-frame-privacy",
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-10T01:09:50Z"
+      },
+      {
+        "name": "deploy",
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-10T01:09:41Z"
+      },
+      {
+        "name": "report-build-status",
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-10T01:07:57Z"
+      },
+      {
+        "name": "build",
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-10T01:07:52Z"
+      }
+    ],
+    "verifiedHTTP": [
+      {
+        "path": "/blog/average-waist-size-men/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/average-waist-size-women/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/average-waist-size-women/assets/nhanes-waist-landmark.webp",
+        "status": 200,
+        "passed": true,
+        "bytes": 40542
+      },
+      {
+        "path": "/blog/average-waist-size-women/assets/nhanes-waist-tape.webp",
+        "status": 200,
+        "passed": true,
+        "bytes": 49886
+      },
+      {
+        "path": "/styles/body-fat-from-photo.css",
+        "status": 200,
+        "passed": true,
+        "bytes": 35255
+      },
+      {
+        "path": "/tools/body-fat-from-photo/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      }
+    ]
+  },
+  "secondRelease": {
+    "commit": "268983b41444a4c153ac2af3761d6d459eb1c838",
+    "cloudflareDeployment": "60baad4b-ae26-4ef3-9388-34c444d96632",
+    "deploymentUTC": "2026-11-10T01:17:29.548328Z",
+    "versions": [
+      {
+        "version_id": "c817db1e-b4ed-46af-b0d0-eead1052991c",
+        "percentage": 100
+      }
+    ],
+    "checks": [
+      {
+        "name": "Cloudflare Pages",
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-10T01:18:13Z"
+      },
+      {
+        "name": "report-build-status",
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-10T01:17:47Z"
+      },
+      {
+        "name": "deploy",
+        "status": "in_progress",
+        "conclusion": null,
+        "completed_at": null
+      },
+      {
+        "name": "Workers Builds: gain-frame-privacy",
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-10T01:17:33Z"
+      },
+      {
+        "name": "build",
+        "status": "completed",
+        "conclusion": "success",
+        "completed_at": "2026-11-10T01:17:41Z"
+      }
+    ],
+    "verifiedHTTP": [
+      {
+        "path": "/blog/average-body-fat-percentage-women/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/average-waist-size-men/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/average-waist-size-women/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/average-waist-size-women/assets/nhanes-waist-landmark.webp",
+        "status": 200,
+        "passed": true,
+        "bytes": 40542
+      },
+      {
+        "path": "/blog/average-waist-size-women/assets/nhanes-waist-tape.webp",
+        "status": 200,
+        "passed": true,
+        "bytes": 49886
+      },
+      {
+        "path": "/blog/before-after-comparing-progress-photos/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/best-body-scanning-measurement-apps/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/best-free-progress-photo-apps/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/best-inbody-alternatives/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/body-fat-percentage-chart/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/body-recomposition-for-women/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/body-scanning-platforms-for-coaches/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/fit3d-body-scan-report/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/fit3d-body-scan-report/assets/cover.webp",
+        "status": 200,
+        "passed": true,
+        "bytes": 19828
+      },
+      {
+        "path": "/blog/fit3d-body-scan-report/assets/fit3d-report-field-guide.pdf",
+        "status": 200,
+        "passed": true,
+        "bytes": 8661
+      },
+      {
+        "path": "/blog/fit3d-body-scan-report/assets/snap-field-map.webp",
+        "status": 200,
+        "passed": true,
+        "bytes": 59812
+      },
+      {
+        "path": "/blog/how-to-take-body-measurements/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/how-to-take-body-measurements/assets/four-date-measurement-log.pdf",
+        "status": 200,
+        "passed": true,
+        "bytes": 29531
+      },
+      {
+        "path": "/blog/import-progress-photos/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/inbody-scan-preparation/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/inbody-scan-preparation/assets/cover.webp",
+        "status": 200,
+        "passed": true,
+        "bytes": 28728
+      },
+      {
+        "path": "/blog/inbody-scan-preparation/assets/inbody-appointment-checklist.pdf",
+        "status": 200,
+        "passed": true,
+        "bytes": 9972
+      },
+      {
+        "path": "/blog/inbody-score-explained/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/inbody-vs-dexa/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/put-two-photos-side-by-side-iphone/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/blog/put-two-photos-side-by-side-iphone/assets/Progress Photo Pair.shortcut",
+        "status": 200,
+        "passed": true,
+        "bytes": 21920
+      },
+      {
+        "path": "/blog/put-two-photos-side-by-side-iphone/assets/cover.webp",
+        "status": 200,
+        "passed": true,
+        "bytes": 12774
+      },
+      {
+        "path": "/blog/put-two-photos-side-by-side-iphone/assets/crop-example.webp",
+        "status": 200,
+        "passed": true,
+        "bytes": 46204
+      },
+      {
+        "path": "/blog/put-two-photos-side-by-side-iphone/assets/shortcut-editor.webp",
+        "status": 200,
+        "passed": true,
+        "bytes": 49152
+      },
+      {
+        "path": "/blog/styku-body-scan-accuracy/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      },
+      {
+        "path": "/styles/body-fat-from-photo.css",
+        "status": 200,
+        "passed": true,
+        "bytes": 35255
+      },
+      {
+        "path": "/tools/body-fat-from-photo/",
+        "status": 200,
+        "passed": true,
+        "checks": [
+          "title",
+          "canonical",
+          "visible article or estimator",
+          "links",
+          "images",
+          "structured data"
+        ],
+        "differ": []
+      }
+    ]
+  },
+  "discoveryAndDownloads": [
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "totalURLs": 569,
+      "slugs": [
+        "put-two-photos-side-by-side-iphone",
+        "inbody-scan-preparation",
+        "fit3d-body-scan-report"
+      ],
+      "occurrences": [
+        1,
+        1,
+        1
+      ],
+      "passed": true
+    },
+    {
+      "path": "/blog-index.json",
+      "status": 200,
+      "contentType": "application/json",
+      "total": 289,
+      "rows": 289,
+      "slugs": [
+        "put-two-photos-side-by-side-iphone",
+        "inbody-scan-preparation",
+        "fit3d-body-scan-report"
+      ],
+      "occurrences": [
+        1,
+        1,
+        1
+      ],
+      "passed": true
+    },
+    {
+      "path": "/blog/put-two-photos-side-by-side-iphone/assets/Progress Photo Pair.shortcut",
+      "status": 200,
+      "contentType": null,
+      "sha256": "7f4a7ebf925679a19521bc4891d3b5c44241b786d269b0dd891ec5505b730f55",
+      "bytes": 21920,
+      "passed": true
+    },
+    {
+      "path": "/blog/inbody-scan-preparation/assets/inbody-appointment-checklist.pdf",
+      "status": 200,
+      "contentType": "application/pdf",
+      "sha256": "127fef1fda011e20ac0552781fea66346dba06396982bd74174a338ddda791e4",
+      "bytes": 9972,
+      "passed": true
+    },
+    {
+      "path": "/blog/fit3d-body-scan-report/assets/fit3d-report-field-guide.pdf",
+      "status": 200,
+      "contentType": "application/pdf",
+      "sha256": "49c52892f22405dfea25ca8cc993b1b0dcd64f3810f8f92148686e8d9e826fb1",
+      "bytes": 8661,
+      "passed": true
+    },
+    {
+      "path": "/blog/how-to-take-body-measurements/assets/four-date-measurement-log.pdf",
+      "status": 200,
+      "contentType": "application/pdf",
+      "sha256": "f6cca07e11fd5a5f7d9d0dd80d74dc8b7c76e35dfc80633f7e42baf855d1934c",
+      "bytes": 29531,
+      "passed": true
+    }
+  ],
+  "indexNow": {
+    "count": 19,
+    "keyFileHTTP": 200,
+    "keyExactBytes": 32,
+    "endpoints": [
+      {
+        "atUTC": "2026-11-10T01:18:30+00:00",
+        "endpoint": "https://api.indexnow.org/indexnow",
+        "http": 403,
+        "detail": "{\"errorCode\":\"UserForbiddedToAccessSite\",\"message\":\"User is unauthorized to access the site. Please verify the site using the key and try again\",\"details\":null}"
+      },
+      {
+        "atUTC": "2026-11-10T01:18:30+00:00",
+        "endpoint": "https://www.bing.com/indexnow",
+        "http": 403,
+        "detail": "{\"errorCode\":\"UserForbiddedToAccessSite\",\"message\":\"User is unauthorized to access the site. Please verify the site using the key and try again\",\"details\":null}"
+      },
+      {
+        "atUTC": "2026-11-10T01:18:31+00:00",
+        "endpoint": "https://yandex.com/indexnow",
+        "http": 202,
+        "detail": "{   \"success\":true }"
+      },
+      {
+        "atUTC": "2026-11-10T01:18:32+00:00",
+        "endpoint": "https://search.seznam.cz/indexnow",
+        "http": 200,
+        "detail": ""
+      },
+      {
+        "atUTC": "2026-11-10T01:18:34+00:00",
+        "endpoint": "https://searchadvisor.naver.com/indexnow",
+        "http": 200,
+        "detail": ""
+      }
+    ]
+  }
+}

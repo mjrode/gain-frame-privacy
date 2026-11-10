@@ -578,6 +578,8 @@ pointing at `/tools/body-fat-from-photo/`. Check that commercial-bridge before w
 stats pages), `$comparison-article-generator` (X vs Y), `$feature-page-generator` (tool/feature
 pages).
 
+**Fresh ideas beyond vendor reviews (owner feedback, November 9, 2026).** When the owner asks for fresh topics beyond brands, start with the site's successful nonbrand formats. Compare exact article clicks and ordered tool or Store reach across measurement references, visual explainers, practical photo workflows and training questions. Use each winner to identify a different unanswered reader task and a concrete asset we can make. Check the current inventory, tool and query owners for each. Present selectable new ideas alongside the observed comparable, with direct-conversion evidence and discovery evidence labeled separately. Keep newly brainstormed topics at proposal stage until selected; previously approved branded work retains its scope.
+
 Bias toward **deepening a cluster with existing traction** over opening a new one, and toward
 roundup and brand-"alternatives" formats over informational ones, because that is what converts
 to clicks on this site.
