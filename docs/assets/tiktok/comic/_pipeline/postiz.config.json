@@ -1,0 +1,34 @@
+{
+  "api_base": "https://api.postiz.com/public/v1",
+  "slots": [
+    "18:30"
+  ],
+  "channels": [
+    {
+      "name": "tiktok",
+      "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+      "posting_method": "UPLOAD",
+      "auto_add_music": "yes",
+      "privacy_level": "PUBLIC_TO_EVERYONE",
+      "allow_comments": true,
+      "enabled": true,
+      "account": "GainFrameGuy (gainframeguy)"
+    },
+    {
+      "name": "tiktok-2",
+      "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+      "posting_method": "UPLOAD",
+      "auto_add_music": "yes",
+      "privacy_level": "PUBLIC_TO_EVERYONE",
+      "allow_comments": true,
+      "enabled": false,
+      "account": "gainframeapp (gainframeapp)"
+    },
+    {
+      "name": "instagram",
+      "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+      "enabled": true,
+      "account": "GainFrame (gainframe.app)"
+    }
+  ]
+}

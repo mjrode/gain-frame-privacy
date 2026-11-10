@@ -9,7 +9,7 @@ machine runs this.
 
 Setup (once):
   1. Connect the TikTok / Instagram accounts in the Postiz dashboard.
-  2. Postiz -> Settings -> Public API: copy the key, then
+  2. Postiz -> Settings -> Developers: copy the key, then
        export POSTIZ_API_KEY=...        (in ~/.zshrc is fine; it is read from there too)
   3. python3 schedule_postiz.py channels
      Copy the integration ids into postiz.config.json
@@ -23,6 +23,12 @@ Everyday use:
   python3 schedule_postiz.py status                   # ledger + live Postiz state
   python3 schedule_postiz.py unschedule slug-a        # delete from Postiz + ledger
   python3 schedule_postiz.py mark-posted slug-a ...   # record a manual post
+  python3 schedule_postiz.py skip slug-a --reason ... # never book this post
+
+Two lanes, a different comic on each TikTok account every day (run in order;
+the second run skips what the first booked):
+  python3 schedule_postiz.py schedule --next N --channels tiktok,instagram --commit
+  python3 schedule_postiz.py schedule --next N --channels tiktok-2 --commit
 
 Slots come from config "slots" (local wall-clock times) starting tomorrow,
 one day apart (--every N to space out). A slot is skipped when the ledger or
@@ -285,7 +291,7 @@ def logged_slugs():
     return order
 
 
-DONE_STATUSES = ("scheduled", "posted_manually")
+DONE_STATUSES = ("scheduled", "posted_manually", "skipped")
 
 
 def is_booked(ledger, slug):
@@ -423,7 +429,7 @@ def build_payload(when, caption, media, targets):
 def client_or_exit(cfg):
     key = api_key()
     if not key:
-        sys.exit("POSTIZ_API_KEY is not set (env or ~/.zshrc). Postiz -> Settings -> Public API.")
+        sys.exit("POSTIZ_API_KEY is not set (env or ~/.zshrc). Postiz -> Settings -> Developers.")
     base = os.environ.get("POSTIZ_API_URL") or cfg.get("api_base") or DEFAULT_API
     return Postiz(key, base)
 
@@ -686,6 +692,14 @@ def cmd_mark_posted(args):
     save_ledger(ledger)
 
 
+def cmd_skip(args):
+    ledger = load_json(LEDGER_PATH, {"posts": {}})
+    for slug in args.slugs:
+        ledger["posts"][slug] = {"status": "skipped", "reason": args.reason}
+        print(f"{slug}: skipped ({args.reason})")
+    save_ledger(ledger)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -715,6 +729,10 @@ def main():
     m.add_argument("slugs", nargs="+")
     m.add_argument("--date", help="YYYY-MM-DD (default today)")
 
+    k = sub.add_parser("skip", help="never book these posts")
+    k.add_argument("slugs", nargs="+")
+    k.add_argument("--reason", default="excluded")
+
     args = ap.parse_args()
     if args.cmd == "schedule" and args.every < 1:
         sys.exit("--every must be >= 1")
@@ -734,6 +752,7 @@ def run(args):
         "status": cmd_status,
         "unschedule": cmd_unschedule,
         "mark-posted": cmd_mark_posted,
+        "skip": cmd_skip,
     }[args.cmd](args)
 
 
