@@ -16,8 +16,6 @@ import {
   toCm,
   toInches,
   waistToHeight,
-  WHTR_COPY,
-  whtrBand,
 } from "@/lib/waist-percentiles";
 
 /* Interactive waist percentile check, embedded above the fold in the
@@ -146,7 +144,7 @@ export default function WaistPercentile({
 
         <div className="waist-tool-field">
           <label className="waist-tool-label" htmlFor="waist-value">
-            Waist at the navel
+            Waist just above the right hip bone
           </label>
           <div className="waist-tool-input-row">
             <input
@@ -213,8 +211,7 @@ export default function WaistPercentile({
         <a href={SOURCE.url} rel="nofollow noopener" target="_blank">
           {SOURCE.label}
         </a>
-        . Measured at the iliac crest, not at your pants label — the two differ by
-        several inches on most people.
+        . Survey examiners placed the tape just above the top of the right hip bone.
       </p>
     </div>
   );
@@ -257,8 +254,7 @@ function Result({
       </>
     ) : result.kind === "below" ? (
       <>
-        Your waist is <strong>below the 5th percentile</strong> for {noun} aged {band} —
-        smaller than at least 95% of them.
+        Your waist is <strong>below the 5th percentile</strong> for {noun} aged {band}.
       </>
     ) : (
       <>
@@ -302,16 +298,15 @@ function Result({
         ) : null}
         {whtr !== null ? (
           <li>
-            Waist-to-height ratio <strong>{whtr.toFixed(2)}</strong> —{" "}
-            {WHTR_COPY[whtrBand(whtr)]}
+            Waist-to-height ratio using this hip-bone measurement: <strong>{whtr.toFixed(2)}</strong>.
           </li>
         ) : null}
       </ul>
 
       <p className="waist-tool-note">
-        Percentile is a description of the population, not a health verdict — the US
-        average sits above the threshold most guidance flags. The waist-to-height
-        ratio is the more useful personal target.
+        The percentile compares your measurement with this age group in the
+        2015 to 2018 US survey. For a health assessment, follow the waist
+        measurement method your clinician recommends.
       </p>
     </div>
   );

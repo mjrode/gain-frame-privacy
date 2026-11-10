@@ -224,6 +224,8 @@ export default function BFEstimatorClient() {
   );
   const isAndroid = downloadPlatform === "android";
   const [file, setFile] = useState<File | null>(null);
+  const [preparedAndroidPhoto, setPreparedAndroidPhoto] = useState<PreprocessedImage | "preparing" | null>(null);
+  const selectedFileRef = useRef<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [sex, setSex] = useState<Sex | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -270,7 +272,7 @@ export default function BFEstimatorClient() {
 
   useEffect(() => {
     return () => {
-      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      if (previewUrl?.startsWith("blob:")) URL.revokeObjectURL(previewUrl);
     };
   }, [previewUrl]);
 
@@ -305,7 +307,8 @@ export default function BFEstimatorClient() {
 
   function reset() {
     photoRecovery.clear();
-    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    selectedFileRef.current = null;
+    setPreparedAndroidPhoto(null);
     setFile(null);
     setPreviewUrl(null);
     setSex(null);
@@ -484,11 +487,15 @@ export default function BFEstimatorClient() {
     }
   }
 
-  function onPick(picked: File | null, inputSource: PhotoInputSource = "file_picker") {
-    if (!picked) return;
+  async function onPick(picked: File | null, inputSource: PhotoInputSource = "file_picker") {
+    if (!picked || submittingRef.current) return;
+    selectedFileRef.current = picked;
+    setPreparedAndroidPhoto(null);
+    setPreviewUrl(null);
     inputSourceRef.current = inputSource;
     const diagnostics: PhotoDiagnostics = { input_source: inputSource, preprocessing_stage: "selected" };
     if (!isLikelyImageFile(picked)) {
+      setFile(null);
       const attemptId = createAttemptId();
       const startedAt = toolNow();
       track("bf_tool_photo_unusable", {
@@ -513,9 +520,7 @@ export default function BFEstimatorClient() {
       });
       return;
     }
-    if (previewUrl) URL.revokeObjectURL(previewUrl);
     setFile(picked);
-    setPreviewUrl(URL.createObjectURL(picked));
     setStage({ kind: "idle" });
     track("bf_tool_photo_uploaded", {
       size_kb: Math.round(picked.size / 1024),
@@ -525,11 +530,83 @@ export default function BFEstimatorClient() {
       input_mode: "photo",
       start_trigger: "photo_selected",
     });
+    if (!isAndroid) {
+      setPreviewUrl(URL.createObjectURL(picked));
+      return;
+    }
+
+    // Read while the Android picker still grants access. The prepared bytes stay
+    // in memory and are submitted only after the user requests an estimate.
+    setPreparedAndroidPhoto("preparing");
+    const startedAt = toolNow();
+    try {
+      const prepared = await preprocessImageForUpload(picked, {
+        allowedRawMimes: BF_RAW_MIMES,
+        onStage: (stage) => { diagnostics.preprocessing_stage = stage; },
+      });
+      if (selectedFileRef.current !== picked) return;
+      setPreparedAndroidPhoto(prepared);
+      setPreviewUrl(`data:${prepared.photoMime};base64,${prepared.base64}`);
+    } catch (err) {
+      if (selectedFileRef.current !== picked) return;
+      selectedFileRef.current = null;
+      setPreparedAndroidPhoto(null);
+      setFile(null);
+      handleEstimateFailure(err, picked, createAttemptId(), startedAt, "preprocess", diagnostics);
+    }
+  }
+
+  function handleEstimateFailure(
+    err: unknown,
+    file: File,
+    attemptId: string,
+    startedAt: number,
+    phase: string,
+    diagnostics: PhotoDiagnostics,
+    processed?: PreprocessedImage,
+  ) {
+    const failure = asToolClientError(err);
+    photoRecovery.failed(attemptId, failure.code, diagnostics);
+    const common = {
+      ...terminalTelemetry({
+        attemptId,
+        startedAt,
+        phase,
+        errorType: failure.errorType,
+        code: failure.code,
+        status: failure.status,
+        retryable: failure.retryable,
+        source: "client",
+      }),
+      blocking: true,
+      ...fileTelemetry(file, processed),
+      ...diagnostics,
+    };
+    if (["unsupported_format", "corrupt_image", "decode_failed_large"].includes(
+      failure.code,
+    )) {
+      track("bf_tool_photo_unusable", { ...common, reason: failure.code });
+      setStage({ kind: "unusable", message: failure.message, reason: failure.code });
+      return;
+    }
+    track("bf_tool_error", { ...common, error: failure.message });
+    if (shouldCaptureTechnicalError(failure.code)) {
+      captureException(err, { tool: "body_fat_estimator", ...common });
+    }
+    setStage({
+      kind: "error",
+      retryable: failure.retryable,
+      message: failure.code === "raw_file_read_failed"
+        ? failure.message
+        : failure.errorType === "timeout"
+        ? "That scan took too long. Please try again."
+        : "Something went wrong preparing that photo. Please try again.",
+    });
   }
 
   async function submit() {
     if (appPreview.demo) return;
-    if (!file) return;
+    if (!file || selectedFileRef.current !== file || preparedAndroidPhoto === "preparing") return;
     // Guard against rapid duplicate taps: setStage is async, so the submit
     // button stays mounted/clickable until the next render. Without this, a
     // double/triple-tap (or a mobile browser emitting duplicate click events)
@@ -556,10 +633,11 @@ export default function BFEstimatorClient() {
     });
 
     try {
-      processed = await preprocessImageForUpload(file, {
+      processed = preparedAndroidPhoto ?? await preprocessImageForUpload(file, {
         allowedRawMimes: BF_RAW_MIMES,
         onStage: (stage) => { diagnostics.preprocessing_stage = stage; },
       });
+      diagnostics.preprocessing_stage = "ready";
       const clientId = getOrCreateClientId();
       estimateClientIdRef.current = clientId;
       photoBase64Ref.current = processed.base64;
@@ -704,43 +782,7 @@ export default function BFEstimatorClient() {
         });
       }
     } catch (err) {
-      const failure = asToolClientError(err);
-      photoRecovery.failed(attemptId, failure.code, diagnostics);
-      const common = {
-        ...terminalTelemetry({
-          attemptId,
-          startedAt,
-          phase,
-          errorType: failure.errorType,
-          code: failure.code,
-          status: failure.status,
-          retryable: failure.retryable,
-          source: "client",
-        }),
-        blocking: true,
-        ...fileTelemetry(file, processed),
-        ...diagnostics,
-      };
-      if (["unsupported_format", "corrupt_image", "decode_failed_large"].includes(
-        failure.code,
-      )) {
-        track("bf_tool_photo_unusable", { ...common, reason: failure.code });
-        setStage({ kind: "unusable", message: failure.message, reason: failure.code });
-        return;
-      }
-      track("bf_tool_error", { ...common, error: failure.message });
-      if (shouldCaptureTechnicalError(failure.code)) {
-        captureException(err, { tool: "body_fat_estimator", ...common });
-      }
-      setStage({
-        kind: "error",
-        retryable: failure.retryable,
-        message: failure.code === "raw_file_read_failed"
-          ? failure.message
-          : failure.errorType === "timeout"
-          ? "That scan took too long. Please try again."
-          : "Something went wrong preparing that photo. Please try again.",
-      });
+      handleEstimateFailure(err, file, attemptId, startedAt, phase, diagnostics, processed);
     } finally {
       // Release the guard so a legitimate retry (after error / unusable / rate
       // limit → reset → idle) can submit again.
@@ -1139,7 +1181,8 @@ export default function BFEstimatorClient() {
   }
 
   // -------- Idle (default) --------
-  const submitDisabled = !file || sex === null;
+  const preparingPhoto = preparedAndroidPhoto === "preparing";
+  const submitDisabled = !file || sex === null || preparingPhoto;
   return (
     <div className="bff-card">
       <div className="bff-card-head">
@@ -1263,7 +1306,7 @@ export default function BFEstimatorClient() {
         disabled={submitDisabled}
         onClick={submit}
       >
-        {submitDisabled ? "Pick a photo & reference" : (
+        {preparingPhoto ? "Preparing your photo…" : submitDisabled ? "Pick a photo & reference" : (
           <>
             Get my estimate <span className="arrow" aria-hidden>→</span>
           </>

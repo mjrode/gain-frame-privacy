@@ -195,10 +195,11 @@ export default function BodyFatFromPhotoPage() {
             <div className="bff-hero-meta">
               <span>Free · No signup</span>
               <span className="sep" aria-hidden />
-              <span>±4–5% margin</span>
+              <span>Approximate estimate</span>
               <span className="sep" aria-hidden />
               <span>~8s scan</span>
             </div>
+            <p className="bff-hero-method"><a href="#accuracy">How accurate is it?</a></p>
             {/* Mascot peeks in from the right */}
             <img
               className="bff-hero-mascot"
@@ -252,7 +253,7 @@ export default function BodyFatFromPhotoPage() {
         <section className="bff-section">
           <div className="bff-section-inner">
             <p className="bff-section-eyebrow">Accuracy &amp; Methodology</p>
-            <h2>How accurate is body fat from a photo?</h2>
+            <h2 id="accuracy">How accurate is body fat from a photo?</h2>
             <p>
               A photo can provide a rough starting estimate, but lighting,
               posture, clothing, and individual fat distribution affect the

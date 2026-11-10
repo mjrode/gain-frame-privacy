@@ -131,6 +131,18 @@
   border-radius: 50%;
   background: var(--bff-line-2);
 }
+.bff-hero-method {
+  margin: 8px 0 0;
+  font-size: 0.875rem;
+}
+.bff-hero-method a {
+  color: var(--bff-muted);
+  text-decoration: underline;
+}
+
+#accuracy {
+  scroll-margin-top: 5rem;
+}
 
 /* Hero mascot — peeks from bottom-right of hero on desktop */
 .bff-hero-mascot {
