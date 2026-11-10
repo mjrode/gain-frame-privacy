@@ -11,9 +11,8 @@ Setup (once):
   1. Connect the TikTok / Instagram accounts in the Postiz dashboard.
   2. Postiz -> Settings -> Public API: copy the key, then
        export POSTIZ_API_KEY=...        (in ~/.zshrc is fine; it is read from there too)
-  3. python3 schedule_postiz.py channels
-     Copy the integration ids into postiz.config.json
-     (start from postiz.config.example.json).
+  3. python3 schedule_postiz.py init            # writes postiz.config.json
+     (or `channels` + hand-edit, starting from postiz.config.example.json)
 
 Everyday use:
   python3 schedule_postiz.py queue                    # built posts not booked yet
@@ -101,8 +100,7 @@ def load_config():
     if cfg is None:
         sys.exit(
             f"No config at {CONFIG_PATH}.\n"
-            "Copy postiz.config.example.json to postiz.config.json, run "
-            "`schedule_postiz.py channels`, and fill in the integration ids."
+            "Run `schedule_postiz.py init` to generate it from your Postiz accounts."
         )
     channels = cfg.get("channels") or []
     for ch in channels:
@@ -441,6 +439,47 @@ def cmd_channels(args):
               f"{r.get('name')} ({r.get('profile') or ''})")
 
 
+def cmd_init(args):
+    """Write postiz.config.json from the accounts connected in Postiz."""
+    if os.path.exists(CONFIG_PATH) and not args.force:
+        sys.exit(f"{CONFIG_PATH} already exists; pass --force to overwrite it.")
+    client = client_or_exit(load_json(CONFIG_PATH, {}))
+    rows = [r for r in (client.integrations() or []) if not r.get("disabled")]
+    channels, used = [], set()
+    for r in rows:
+        ident = r["identifier"]
+        if ident.startswith("tiktok"):
+            base, extra = "tiktok", {"posting_method": args.tiktok_mode, "auto_add_music": "yes",
+                                     "privacy_level": "PUBLIC_TO_EVERYONE", "allow_comments": True}
+        elif ident.startswith("instagram"):
+            base, extra = "instagram", {}
+        else:
+            print(f"skipping {r.get('name')} ({ident}): only TikTok and Instagram are supported")
+            continue
+        name = base
+        n = 2
+        while name in used:
+            name = f"{base}-{n}"
+            n += 1
+        used.add(name)
+        # Only the first account per platform is on by default: the same
+        # carousel on two TikTok accounts invites duplicate-content throttling.
+        enabled = name == base
+        channels.append({"name": name, "integration_id": r["id"], **extra,
+                         "enabled": enabled, "account": f"{r.get('name')} ({r.get('profile') or ''})"})
+    if not channels:
+        sys.exit("No TikTok or Instagram accounts are connected in Postiz yet. Connect them in the dashboard first.")
+    cfg = {"api_base": os.environ.get("POSTIZ_API_URL") or DEFAULT_API,
+           "slots": args.slots.split(","), "channels": channels}
+    with open(CONFIG_PATH, "w") as f:
+        json.dump(cfg, f, indent=2)
+        f.write("\n")
+    print(f"Wrote {os.path.relpath(CONFIG_PATH, ROOT)}:")
+    for ch in channels:
+        print(f"  {ch['name']:<12} {'on ' if ch['enabled'] else 'off'} {ch['account']}")
+    print(f"Slots: {', '.join(cfg['slots'])} ({local_zone(cfg)})")
+
+
 def cmd_queue(args):
     ledger = load_json(LEDGER_PATH, {"posts": {}})
     ready, not_ready = [], []
@@ -613,7 +652,7 @@ def cmd_schedule(args):
     except ApiError as e:
         print(f"\nStopped after {booked} posts: {e}\nProgress is saved; fix and re-run.")
         sys.exit(1)
-    print(f"\nBooked {booked} posts. Ledger: {os.path.relpath(LEDGER_PATH, ROOT)} (commit it).")
+    print(f"\nBooked {booked} post{'s' if booked != 1 else ''}. Ledger: {os.path.relpath(LEDGER_PATH, ROOT)} (commit it).")
 
 
 def cmd_status(args):
@@ -692,6 +731,11 @@ def main():
 
     sub.add_parser("channels", help="list Postiz integrations and their ids")
 
+    i = sub.add_parser("init", help="write postiz.config.json from connected Postiz accounts")
+    i.add_argument("--slots", default="18:30", help="daily slot times, e.g. 18:30 or 12:15,19:30")
+    i.add_argument("--tiktok-mode", choices=["UPLOAD", "DIRECT_POST"], default="UPLOAD")
+    i.add_argument("--force", action="store_true", help="overwrite an existing config")
+
     q = sub.add_parser("queue", help="built posts that aren't booked yet")
     q.add_argument("-v", "--verbose", action="store_true")
 
@@ -729,6 +773,7 @@ def main():
 def run(args):
     {
         "channels": cmd_channels,
+        "init": cmd_init,
         "queue": cmd_queue,
         "schedule": cmd_schedule,
         "status": cmd_status,

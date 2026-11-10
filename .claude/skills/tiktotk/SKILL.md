@@ -145,9 +145,10 @@ daily slot, on TikTok plus Instagram. It records every booking in
 twice from any machine.
 
 One-time setup: connect the accounts in Postiz, put `POSTIZ_API_KEY` in the
-environment or `~/.zshrc`, run `schedule_postiz.py channels`, and copy the
-integration ids into `_pipeline/postiz.config.json`. Start from
-`postiz.config.example.json`. `timezone` defaults to the machine's zone.
+environment or `~/.zshrc`, then run `schedule_postiz.py init [--slots 18:30]`.
+It writes `_pipeline/postiz.config.json` from the connected accounts, with the
+first TikTok and first Instagram account on and any extras off. `timezone`
+defaults to the machine's zone.
 
 ```bash
 P=docs/assets/tiktok/comic/_pipeline/schedule_postiz.py
