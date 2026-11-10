@@ -137,6 +137,42 @@ Scene-writing rules (each has caused production failures):
       "$HOME/Library/Mobile Documents/com~apple~CloudDocs/TikTok-Drafts/$SLUG/"
    ```
 
+### Phase 4 — Schedule via Postiz
+
+`_pipeline/schedule_postiz.py` books finished posts into Postiz, one per
+daily slot, on TikTok plus Instagram. It records every booking in
+`_pipeline/postiz-ledger.json`, which is committed, so no post is queued
+twice from any machine.
+
+One-time setup: connect the accounts in Postiz, put `POSTIZ_API_KEY` in the
+environment or `~/.zshrc`, run `schedule_postiz.py channels`, and copy the
+integration ids into `_pipeline/postiz.config.json`. Start from
+`postiz.config.example.json`. `timezone` defaults to the machine's zone.
+
+```bash
+P=docs/assets/tiktok/comic/_pipeline/schedule_postiz.py
+python3 $P queue                          # built + unbooked, POST_LOG order
+python3 $P schedule --next 10             # dry run: prints the slot plan
+python3 $P schedule --next 10 --commit    # upload slides + book
+python3 $P status                         # QUEUE / PUBLISHED / ERROR per channel
+python3 $P unschedule <slug>              # pull it from Postiz + ledger
+python3 $P mark-posted <slug> --date YYYY-MM-DD   # hand-posted; keep out of queue
+```
+
+- Always show the dry-run plan and get approval before `--commit`.
+- Commit `postiz-ledger.json` after every `--commit`, `unschedule` or
+  `mark-posted`.
+- TikTok `posting_method: "UPLOAD"` (default) sends each carousel to the
+  TikTok inbox at its slot. It has to be finished in the app (add a trending
+  sound, post) within 24h or TikTok discards it. `"DIRECT_POST"` publishes
+  outright with TikTok's auto-added music. Instagram always publishes directly.
+- Slots already used by the ledger or by Postiz (±60 min on the same channel)
+  are skipped, so each new batch lines up after the existing queue.
+- Don't send the same carousel to two TikTok accounts. Give each account its
+  own lanes with `--channels`.
+- If Postiz rate-limits POST /posts (default 90/hour), the script stops and
+  saves progress. Re-run the same command later; uploaded slides are reused.
+
 ## Series (recurring franchises)
 
 Prefer batch themes that can become named, repeatable series — recognisable
