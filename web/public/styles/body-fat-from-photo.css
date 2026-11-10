@@ -31,15 +31,11 @@
 }
 
 /* ================================================================
-   Page shell — match homepage cream + grid background
+   Page shell
    ================================================================ */
 
 .bff-body {
-  background:
-    linear-gradient(rgba(23, 23, 23, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(23, 23, 23, 0.035) 1px, transparent 1px),
-    var(--bff-bg);
-  background-size: 98px 98px;
+  background: var(--bff-bg);
   color: var(--bff-ink);
   font-family: var(--bff-sans);
   line-height: 1.5;
