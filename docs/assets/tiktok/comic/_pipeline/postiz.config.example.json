@@ -1,0 +1,26 @@
+{
+  "api_base": "https://api.postiz.com/public/v1",
+  "slots": ["18:30"],
+  "channels": [
+    {
+      "name": "tiktok-main",
+      "integration_id": "PASTE_FROM_schedule_postiz.py_channels",
+      "posting_method": "UPLOAD",
+      "auto_add_music": "yes",
+      "privacy_level": "PUBLIC_TO_EVERYONE",
+      "allow_comments": true,
+      "enabled": true
+    },
+    {
+      "name": "instagram",
+      "integration_id": "PASTE_FROM_schedule_postiz.py_channels",
+      "enabled": true
+    },
+    {
+      "name": "tiktok-second",
+      "integration_id": "PASTE_FROM_schedule_postiz.py_channels",
+      "posting_method": "UPLOAD",
+      "enabled": false
+    }
+  ]
+}
