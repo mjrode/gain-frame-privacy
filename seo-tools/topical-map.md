@@ -1,7 +1,7 @@
 # GainFrame Topical Map
 
-> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-11-09 (three approved reader tasks and seven repairs).
-> **Current inventory:** 289 blog posts; 23 actual tool URLs, including the measurement-mode entry. The old 289-URL inventory is superseded; use the generated sitemap for current coverage.
+> **Created:** 2026-07-07 · **Owner:** seo-tools workflow · **Update:** 2026-11-09 (seven new guides and seven repairs).
+> **Current inventory:** 293 blog posts; 23 actual tool URLs, including the measurement-mode entry. The old 289-URL inventory is superseded; use the generated sitemap for current coverage.
 > **Intent legend:** 💰 commercial (drives installs/clicks) · 📊 informational (impressions/AEO/links) · 🤝 brand/social (founder lane, not SEO) · 🔧 tool.
 > **Programmatic SEO:** broad page factories remain deferred. One finite 14-page body-fat picture gallery plus its hub shipped 2026-08-06 around the proprietary standardized render library; do not expand it without query evidence and a strategy update.
 
@@ -30,6 +30,8 @@ body-fat-percentage-chart-women (Jul 18, female per-level visuals) · body-fat-p
 
 ## Cluster 3 — Scanning, measurement & hardware alternatives 💰
 
+**November 9 nonbrand release.** `how-to-measure-grip-strength` covers the standing dynamometer protocol and three-trial scorecard. The hand-size and forearm-size references retain their measurement/percentile queries.
+
 **November 9:** `inbody-scan-preparation` covers preparation and repeat-test conditions. `fit3d-body-scan-report` covers participant report fields. These two gaps are filled; retain the existing score and coach-platform owners.
 
 The brand-alternatives lane (InBody template). Best new-post velocity: top-6 within a week.
@@ -55,6 +57,8 @@ best-progress-photo-apps · best-free-progress-photo-apps · best-body-transform
 
 ## Cluster 5 — Recomp / bulk-cut / skinny-fat 💰📊
 
+**November 9 nonbrand release.** `creatine-water-weight` covers a dated supplement start and four-week tracking log. Keep food, fluid and weigh-in variability with the two general weight articles.
+
 **October 22:** bulk-cut-or-recomp refreshed as the existing hub: goal/recovery framework, measurement limits and contextual Recomp Reality Checker / Progress Photo Compare links. No sibling or merge. Hold metadata through November 1 at 22:31:40 UTC; full settled content read around November 22.
 
 **October 15 adjacent experiment:** 75-hard-vs-75-soft, with progress-photo cluster support. Rules, recovery and consistent photo tracking; three contextual inbounds. No expansion into a challenge series before its November 15 settled read.
@@ -65,6 +69,8 @@ bulk-cut-or-recomp (hub) · should-i-bulk-or-cut-quiz · best-body-recomposition
 **Gaps:** none pressing. `first-cut-guide` and `mini-cut` already exist; the head market is declining, so hold rather than expand. Note: how-to-tell-if-skinny-fat folded into am-i-skinny-fat-quiz 2026-08-02 (zero imp in 28d), 301 in place.
 
 ## Cluster 6 — FFMI & muscle metrics 📊
+
+**November 9 nonbrand release.** `one-arm-bigger-than-the-other` addresses within-person asymmetry and matched photographic views. The bicep guide continues to own normative size questions.
 
 what-is-ffmi · ffmi-chart · ffmi-percentiles · natty-limit · lean-mass-vs-muscle-mass · **Tool:** /tools/ffmi-calculator/, /tools/strength-standards-calculator/, /tools/one-rep-max-calculator/, /tools/lean-body-mass-calculator/
 **Jul 9–23 backfill:** skeletal-muscle-mass-percentage
@@ -94,6 +100,8 @@ best-ai-personal-trainer-apps (striking-distance, links-only until plateau) · r
 **Sep 16 addition:** gravl-vs-fitbod owns direct app-comparison intent, with current vendor sources and publisher screenshots, no claimed hands-on trial. Three contextual inbounds from the trainer hub, four-way Fitbod comparison and Hevy vs Strong; onward physique-rater bridge. Comparison gap filled; preserve the young standalone review. First full settled read around October 17.
 
 ## Cluster 10 — Workout-tracker adjacency (top-of-funnel lifters) 💰
+
+**November 9 nonbrand release.** `how-long-does-it-take-to-lose-muscle` covers measured outcomes during training interruptions and a return log. Keep starting-to-lift and general muscle-tracking questions on their existing pages.
 
 hevy-vs-strong · hevy-app-gainframe-integration · smart-integrations-hevy · best-fitness-app-stack-2026 · recovery-score-for-lifters · resistance-training-guidelines · best-apps-track-muscle-gain · best-ai-fitness-apps-track-body
 **Jul 9–23 backfill:** am-i-overtraining-quiz · beginner-intermediate-advanced-lifter · best-fitness-apps-for-men · best-fitness-apps-for-women · best-whoop-alternatives-for-lifters · best-workout-tracker-apps · jefit-vs-hevy · macrofactor-review · strength-standards

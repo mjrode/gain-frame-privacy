@@ -10,7 +10,8 @@ When a post is published, replace `[ ]` with `[x]` and append ` — published YY
 
 - [x] P1 iPhone side-by-side photos, P3 InBody preparation and P4 Fit3D report interpretation. Published as `put-two-photos-side-by-side-iphone`, `inbody-scan-preparation` and `fit3d-body-scan-report`.
 - [x] F1–F7. Photo-estimator accuracy and Android photo reads, women's waist landmarks, women's age-band reference, illustrated body-fat chart, ten-site tape log and women's recomp check-in. [Release and indexing record](content-audits/2026-11-09-execution.md).
-- [ ] [Seven nonbrand story options](keyword-research/2026-11-09-nonbrand-post-ideas.md) await selection. P2 and P5–P7 from the original November 9 menu remain unapproved.
+- [x] Published N2 `one-arm-bigger-than-the-other`, N4 `how-to-measure-grip-strength`, N5 `how-long-does-it-take-to-lose-muscle` and N6 `creatine-water-weight` on November 9. [Release and indexing](content-audits/2026-11-09-nonbrand-execution.md).
+- [ ] N1, N3 and N7 from the [nonbrand menu](keyword-research/2026-11-09-nonbrand-post-ideas.md) await selection. P2 and P5–P7 from the original November 9 menu remain unapproved.
 
 ## October 27 approved publication batch
 

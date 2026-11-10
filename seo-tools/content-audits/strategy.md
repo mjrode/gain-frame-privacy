@@ -2,11 +2,15 @@
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
 
+## November 9, 2026: four nonbrand questions published
+
+[Four nonbrand articles and verification](2026-11-09-nonbrand-execution.md). N2 answers left/right arm differences, N4 documents the grip-strength protocol, N5 covers a training break, and N6 covers weight changes after starting creatine. The guides each have two contextual links. Measure the arm and break articles on photo comparisons and the grip and creatine articles on search discovery and worksheet use where measurable. The first full 28 days run November 10 through December 7. Review settled Search Console data around December 10. N1, N3 and N7 are still open.
+
 ## November 9, 2026: three approved articles and all seven fixes
 
 [Execution record](2026-11-09-execution.md). P1, P3, P4 and F1–F7 were approved. The original P2/P5–P7 remain proposals. The three new articles have distinct jobs: create an iPhone photo pair, prepare for an InBody appointment and read a Fit3D report. Follow tool and Store outcomes independently of discovery. The first wave addresses the estimator and women's waist guide. Use the production boundaries in the execution record for the Android +7/+14 and editorial +28 reads.
 
-[Seven new nonbrand ideas](../keyword-research/2026-11-09-nonbrand-post-ideas.md) remain **proposed**. The owner asked for fresh stories based on formats that have worked beyond vendor reviews. Nine of the ten most-clicked blog articles cover measurements or visual proportions. The future-appearance article produced 20 Store-reaching sessions from 155 entries. N1 long femurs and N2 arm asymmetry build on proven proportions/measurements. N3 blind photo reveal is a first-party editorial test. N4 grip strength, N5 time off lifting, N6 creatine weight change and N7 double progression are additional options. The thigh guide keeps its existing calf-size/ratio searches.
+[Seven nonbrand ideas](../keyword-research/2026-11-09-nonbrand-post-ideas.md) were proposed at this earlier stage. The later release above records the four selected. The owner asked for fresh stories based on formats that have worked beyond vendor reviews. Nine of the ten most-clicked blog articles cover measurements or visual proportions. The future-appearance article produced 20 Store-reaching sessions from 155 entries. N1 long femurs and N2 arm asymmetry build on proven proportions/measurements. N3 blind photo reveal is a first-party editorial test. N4 grip strength, N5 time off lifting, N6 creatine weight change and N7 double progression are additional options. The thigh guide keeps its existing calf-size/ratio searches.
 
 ## November 9, 2026: seven new post options and seven fixes awaiting selection
 

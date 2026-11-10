@@ -1,6 +1,6 @@
 # Seven GainFrame stories beyond product reviews
 
-**Editorial menu, November 9, 2026.** These are proposals. The separately approved iPhone, InBody and Fit3D articles belong to the [November 9 execution](../content-audits/2026-11-09-execution.md).
+**Editorial menu, November 9, 2026.** N2, N4, N5 and N6 were approved and published. N1, N3 and N7 are still open. [Four-article release record](../content-audits/2026-11-09-nonbrand-execution.md). The separately approved iPhone, InBody and Fit3D articles belong to the [November 9 execution](../content-audits/2026-11-09-execution.md).
 
 ## What readers already choose
 
@@ -33,7 +33,7 @@ DataForSEO US/English estimates for exact phrases retrieved November 9. Annual g
 | N6 | Started Creatine and the Scale Jumped? Read the Next Four Weeks | creatine water weight | 1,000 | 2 | unavailable | A labeled illustrative weight chart and weekly photo/waist/training log |
 | N7 | Add a Rep or Add Weight? Four Workouts Using Double Progression | double progression method | 320 | unavailable | +129% | A four-workout worked log and a printable blank copy |
 
-**I would choose N1 and N3 together.** N1 builds on an article that already brings in readers consistently. N3 uses GainFrame’s own editorial assets and tests whether a reader moves from seeing a comparison to making one. Choose N2 for a second search-led article or N4 for a less appearance-focused test.
+**Recommendation at proposal time:** N1 and N3 together. N1 builds on an article that already brings in readers consistently. N3 uses GainFrame’s own editorial assets and tests whether a reader moves from seeing a comparison to making one. Choose N2 for a second search-led article or N4 for a less appearance-focused test.
 
 ### N1. Long femurs and squat proportions
 
@@ -81,4 +81,4 @@ An English web search found dated November guides, worked logs and printable pro
 
 Average calf size already has a section in the thigh guide. That guide averaged position 9.5 on 42 “average calf size female” impressions, and already wins the two calf-to-thigh ratio word orders at 1.8 and 2.1. Improve that section if selected later. The soreness/growth question is in the muscle-gain signs FAQ. Camera lenses and distance are central to both the “fat in pictures” and “smaller in photos” guides. A generic mirror-versus-camera post would repeat them. A pump-versus-no-pump comparison and the tape measurement worksheet also have existing owners. No new Hume, RENPHO, Thelo or other vendor review is part of this menu.
 
-**Research receipt.** Final GSC 90-day page report plus the current 58,851 query × page rows, including tool URLs. Current PostHog all-channel ordered article sessions, with trailing-slash variants combined. Live inventory and source headings checked. Additional market research comprised two US keyword batches, five fresh US Google mobile SERPs and supplementary public web searches on November 9 local time. Source metrics use their own windows, geographies and privacy thresholds. No content from N1–N7 has been commissioned.
+**Research receipt.** Final GSC 90-day page report plus the current 58,851 query × page rows, including tool URLs. Current PostHog all-channel ordered article sessions, with trailing-slash variants combined. Live inventory and source headings checked. Additional market research comprised two US keyword batches, five fresh US Google mobile SERPs and supplementary public web searches on November 9 local time. Source metrics use their own windows, geographies and privacy thresholds. The historical keyword and ownership figures above predate publication. N2, N4, N5 and N6 are live.

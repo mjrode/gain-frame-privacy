@@ -1,0 +1,333 @@
+{
+  "contentCommit": "84098df78d27aeff7093f605665c057908d66df7",
+  "cloudflare": {
+    "id": "e3f612c4-2014-4a0b-8858-5d3f5e581f3c",
+    "created_on": "2026-11-10T04:08:49.848073Z",
+    "versions": [
+      {
+        "version_id": "f966934b-f5e1-46a2-8f41-0ad9ec47527c",
+        "percentage": 100
+      }
+    ]
+  },
+  "releaseCheckedPagesAndAssets": [
+    {
+      "path": "/blog/average-bicep-size/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/average-forearm-size/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/average-hand-size/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/average-waist-size-women/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/creatine-water-weight/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/creatine-water-weight/assets/cover.webp",
+      "status": 200,
+      "passed": true,
+      "bytes": 37298
+    },
+    {
+      "path": "/blog/creatine-water-weight/assets/four-week-creatine-log.pdf",
+      "status": 200,
+      "passed": true,
+      "bytes": 41956
+    },
+    {
+      "path": "/blog/creatine-water-weight/assets/four-week-scale-example.webp",
+      "status": 200,
+      "passed": true,
+      "bytes": 42522
+    },
+    {
+      "path": "/blog/how-long-does-it-take-to-lose-muscle/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/how-long-does-it-take-to-lose-muscle/assets/cover.webp",
+      "status": 200,
+      "passed": true,
+      "bytes": 62026
+    },
+    {
+      "path": "/blog/how-long-does-it-take-to-lose-muscle/assets/training-break-timeline.webp",
+      "status": 200,
+      "passed": true,
+      "bytes": 97460
+    },
+    {
+      "path": "/blog/how-long-to-see-results-from-lifting/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/how-to-identify-lagging-muscle-groups/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/how-to-measure-grip-strength/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/how-to-measure-grip-strength/assets/cover.webp",
+      "status": 200,
+      "passed": true,
+      "bytes": 56452
+    },
+    {
+      "path": "/blog/how-to-measure-grip-strength/assets/grip-strength-scorecard.pdf",
+      "status": 200,
+      "passed": true,
+      "bytes": 32681
+    },
+    {
+      "path": "/blog/how-to-measure-grip-strength/assets/nhanes-handle-setup.webp",
+      "status": 200,
+      "passed": true,
+      "bytes": 24740
+    },
+    {
+      "path": "/blog/how-to-measure-grip-strength/assets/nhanes-index-finger-fit.webp",
+      "status": 200,
+      "passed": true,
+      "bytes": 19018
+    },
+    {
+      "path": "/blog/how-to-measure-grip-strength/assets/nhanes-standing-posture.webp",
+      "status": 200,
+      "passed": true,
+      "bytes": 30684
+    },
+    {
+      "path": "/blog/how-to-track-muscle-gain-progress/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/one-arm-bigger-than-the-other/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/one-arm-bigger-than-the-other/assets/cover.webp",
+      "status": 200,
+      "passed": true,
+      "bytes": 26710
+    },
+    {
+      "path": "/blog/one-arm-bigger-than-the-other/assets/left-right-arm-log.pdf",
+      "status": 200,
+      "passed": true,
+      "bytes": 25656
+    },
+    {
+      "path": "/blog/one-arm-bigger-than-the-other/assets/muybridge-arm-views.webp",
+      "status": 200,
+      "passed": true,
+      "bytes": 63718
+    },
+    {
+      "path": "/blog/water-weight/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    },
+    {
+      "path": "/blog/why-does-my-weight-fluctuate/",
+      "status": 200,
+      "passed": true,
+      "checks": [
+        "title",
+        "canonical",
+        "visible article or estimator",
+        "links",
+        "images",
+        "structured data"
+      ],
+      "differ": []
+    }
+  ],
+  "publicIndex": {
+    "sitemapURLs": 573,
+    "blogIndexPosts": 293,
+    "firstPageCards": 30,
+    "fourNewInIndexAndSitemap": true,
+    "firstPagePositions": {
+      "one-arm-bigger-than-the-other": 11,
+      "how-to-measure-grip-strength": 8,
+      "how-long-does-it-take-to-lose-muscle": 7,
+      "creatine-water-weight": 5
+    },
+    "indexNowKeyBytes": 32
+  },
+  "verifiedAssetSHA256": {
+    "/blog/creatine-water-weight/assets/cover.webp": "17ae7ccec8f38357cacf6ddc1a8ea47e6b47d345c8068ad91b346e4794e6aa9f",
+    "/blog/creatine-water-weight/assets/four-week-creatine-log.pdf": "9ff0808eca35ef17eb04eff4d13e1e3eb9b5fb379ddeb8e2b7cad6c20089caa8",
+    "/blog/creatine-water-weight/assets/four-week-scale-example.webp": "d14807894d7a66851293b4d07627ccc8733dbd5be67894b3d1bb8b531660155c",
+    "/blog/how-long-does-it-take-to-lose-muscle/assets/cover.webp": "e8a848244a6ee3deada2563f9f83d74be8b6db62c718addb10bc681f01c45fd1",
+    "/blog/how-long-does-it-take-to-lose-muscle/assets/training-break-timeline.webp": "d11fcb1a58dd391c4647e34f39b47bdb448e486ad5c0e9884b6be67b9b9d93c0",
+    "/blog/how-to-measure-grip-strength/assets/cover.webp": "2d6fbf006e96c9e5986598c378829a8f3149ea1a0b0b01b92b393ff753b6a573",
+    "/blog/how-to-measure-grip-strength/assets/grip-strength-scorecard.pdf": "70d5c08103821597d4e719563defb0b2e72e0243a260640b147ddd14df691235",
+    "/blog/how-to-measure-grip-strength/assets/nhanes-handle-setup.webp": "4b4d6d8353403be4d791b9a8202dd35b9d185871a80067b230bc70f362cc0a05",
+    "/blog/how-to-measure-grip-strength/assets/nhanes-index-finger-fit.webp": "e4509048190be022bd62bff0e70a16679ad10e3eeb14918c9013a0444228d699",
+    "/blog/how-to-measure-grip-strength/assets/nhanes-standing-posture.webp": "b08965e7e46312ac233255354c6409510c657b616eba450e7fcbdbfb2798fd96",
+    "/blog/one-arm-bigger-than-the-other/assets/cover.webp": "e5416f5f769f5b37546eff5e18c8f9fd666a2143e6cfcfdf7bfd93285a5ee742",
+    "/blog/one-arm-bigger-than-the-other/assets/left-right-arm-log.pdf": "67403de9f384630d659a84eab879dda049594edd42b8938de978263a5eaa887e",
+    "/blog/one-arm-bigger-than-the-other/assets/muybridge-arm-views.webp": "63d03e7a6ac40da12bff5c292d8efadc83556ac2c2cb2a87e751842a793c86a0"
+  },
+  "indexNow": {
+    "urls": 13,
+    "endpoints": [
+      {
+        "atUTC": "2026-11-10T04:09:09+00:00",
+        "endpoint": "https://api.indexnow.org/indexnow",
+        "httpStatus": 403
+      },
+      {
+        "atUTC": "2026-11-10T04:09:09+00:00",
+        "endpoint": "https://www.bing.com/indexnow",
+        "httpStatus": 403
+      },
+      {
+        "atUTC": "2026-11-10T04:09:10+00:00",
+        "endpoint": "https://yandex.com/indexnow",
+        "httpStatus": 200
+      },
+      {
+        "atUTC": "2026-11-10T04:09:10+00:00",
+        "endpoint": "https://search.seznam.cz/indexnow",
+        "httpStatus": 200
+      },
+      {
+        "atUTC": "2026-11-10T04:09:13+00:00",
+        "endpoint": "https://searchadvisor.naver.com/indexnow",
+        "httpStatus": 200
+      }
+    ]
+  }
+}
