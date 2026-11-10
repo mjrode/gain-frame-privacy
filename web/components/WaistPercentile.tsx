@@ -101,7 +101,7 @@ export default function WaistPercentile({
          * it entirely. */}
         <div className="waist-tool-sub">
           Enter your measurement to see your percentile against US {noun} your age.
-          Nothing is sent anywhere — this runs in your browser.
+          Your browser calculates the percentile.
         </div>
       </div>
 
