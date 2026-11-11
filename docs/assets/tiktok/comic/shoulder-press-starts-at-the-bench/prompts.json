@@ -1,0 +1,189 @@
+{
+  "slide-0-cover.png": {
+    "model": "gpt-image-2",
+    "size": "1080x1350",
+    "api_size": "1088x1360",
+    "returned_size": "1088x1360",
+    "quality": "high",
+    "refs": [
+      "docs/assets/tiktok/comic/two-day-full-body-plan/slide-0-cover.png",
+      "docs/assets/gainframe-guy/illustrations/gary-badge.png"
+    ],
+    "prompt": "Create one finished 4:5 portrait GainFrame Guy fitness comic. Image 1 is the approved current style: copy its lean-athletic charcoal body, olive shorts, taupe trainers, clean two-tone cel shading, mascot size in the frame, light grounded gym background (racks, plates, bench in soft grey) and small pale blue/lavender washes. Image 2 is the exact face only: FOUR SEPARATE floating L scan-frame corners, three black and the lower-right red, open WHITE interior, large asymmetric left eye connected to a sweeping S curve, small right eye. Never a filled head, helmet or plush; no extra mouth or bracket inside the face. Moderate shoulders and arms, smaller chest, natural waist, no bodybuilder bulk. Exactly two arms, two hands with five fingers each, two legs; uniform charcoal skin on both hands. White covers at least 75% of the canvas; no red streak. Crisp comic linework, grounded neutral equipment drawn with correct mechanics. Impact/Bebas bold titles and Helvetica body text. All requested text verbatim, no extra copy. Do not copy any words from the reference images.\n\nCOVER. Small \"GAINFRAME GUY\" wordmark badge (face icon plus the two words) at the top-left, same style and size as image 1. Broad empty white band below the badge. Main headline in THREE short centered lines, all letters between 19% and 38% of the canvas height and inside the central 70% of the width, no banner or shape behind it:\n\"YOUR SHOULDER PRESS\" with \"SHOULDER PRESS\" in red #E53935\n\"STARTS AT\" in near-black\n\"THE BENCH\" in near-black\nScene starts below 42% height and fits inside the canvas: GainFrame Guy stands confidently beside an adjustable bench whose backrest is set almost upright, one hand resting on top of the backrest, the other hand empty and relaxed. A pair of hex dumbbells rests on the floor beside the bench. Soft grey gym background like image 1.",
+    "generated_at": "2026-11-11T11:34:45+00:00",
+    "usage": {
+      "input_tokens": 2962,
+      "input_tokens_details": {
+        "image_tokens": 2529,
+        "text_tokens": 433
+      },
+      "output_tokens": 6431,
+      "output_tokens_details": {
+        "image_tokens": 6431,
+        "text_tokens": 0
+      },
+      "total_tokens": 9393
+    }
+  },
+  "slide-1.png": {
+    "model": "gpt-image-2",
+    "size": "1080x1350",
+    "api_size": "1088x1360",
+    "returned_size": "1088x1360",
+    "quality": "high",
+    "refs": [
+      "docs/assets/tiktok/comic/shoulder-press-starts-at-the-bench/slide-0-cover.png",
+      "docs/assets/gainframe-guy/illustrations/gary-badge.png",
+      "docs/assets/gainframe-guy/illustrations/gainframe-guy-default-numbered.png"
+    ],
+    "prompt": "Create one finished 4:5 portrait GainFrame Guy fitness comic, numbered slide. Image 1 is the accepted cover of this same carousel: copy its exact character design, lean-athletic charcoal body, olive shorts, taupe trainers, cel shading, line weight, light grey gym background and small pale blue wash. Image 2 is the exact face only: FOUR SEPARATE floating L scan-frame corners, three black and the lower-right red, open WHITE interior, large asymmetric left eye connected to a sweeping S curve, small right eye; no filled head, no extra mouth. Image 3 controls the numbered header layout only, never body size or a red brush streak. Moderate shoulders and arms, no bodybuilder bulk. Exactly two arms, two hands with five fingers each, two legs; uniform charcoal skin on both hands. Equipment drawn with correct mechanics. All requested text verbatim, no extra copy; do not copy words from the reference images.\nLAYOUT: top edge-to-edge black bar with square corners, about 13% of the height, with a red \"#1\" at the left and the white uppercase title on the same baseline in Impact/Bebas bold. Below the bar, one dark centered Helvetica sentence. Top 28% free of scene artwork. Scene in the lower 70%, fully inside the frame. No badge, no cover title.\nTitle: \"SET THE BENCH NEAR UPRIGHT\"\nSentence: \"One notch back from vertical keeps your back supported.\"\nScene: GainFrame Guy stands behind an adjustable bench and moves its backrest to almost vertical with both hands on the top of the backrest; the adjustment ladder and pin are visible behind the seat. A pair of hex dumbbells rests on the floor beside the bench. Nothing near his head.",
+    "generated_at": "2026-11-11T11:36:26+00:00",
+    "usage": {
+      "input_tokens": 4316,
+      "input_tokens_details": {
+        "image_tokens": 3948,
+        "text_tokens": 368
+      },
+      "output_tokens": 6431,
+      "output_tokens_details": {
+        "image_tokens": 6431,
+        "text_tokens": 0
+      },
+      "total_tokens": 10747
+    }
+  },
+  "slide-2.png": {
+    "model": "gpt-image-2",
+    "size": "1080x1350",
+    "api_size": "1088x1360",
+    "returned_size": "1088x1360",
+    "quality": "high",
+    "refs": [
+      "docs/assets/tiktok/comic/shoulder-press-starts-at-the-bench/slide-0-cover.png",
+      "docs/assets/gainframe-guy/illustrations/gary-badge.png",
+      "docs/assets/gainframe-guy/illustrations/gainframe-guy-default-numbered.png"
+    ],
+    "prompt": "Create one finished 4:5 portrait GainFrame Guy fitness comic, numbered slide. Image 1 is the accepted cover of this same carousel: copy its exact character design, lean-athletic charcoal body, olive shorts, taupe trainers, cel shading, line weight, light grey gym background and small pale blue wash. Image 2 is the exact face only: FOUR SEPARATE floating L scan-frame corners, three black and the lower-right red, open WHITE interior, large asymmetric left eye connected to a sweeping S curve, small right eye; no filled head, no extra mouth. Image 3 controls the numbered header layout only, never body size or a red brush streak. Moderate shoulders and arms, no bodybuilder bulk. Exactly two arms, two hands with five fingers each, two legs; uniform charcoal skin on both hands. Equipment drawn with correct mechanics. All requested text verbatim, no extra copy; do not copy words from the reference images.\nLAYOUT: top edge-to-edge black bar with square corners, about 13% of the height, with a red \"#2\" at the left and the white uppercase title on the same baseline in Impact/Bebas bold. Below the bar, one dark centered Helvetica sentence. Top 28% free of scene artwork. Scene in the lower 70%, fully inside the frame. No badge, no cover title.\nTitle: \"KICK THE DUMBBELLS UP\"\nSentence: \"Rest them on your thighs, then lift one knee at a time.\"\nScene: side three-quarter view. GainFrame Guy sits on an adjustable bench with the backrest almost upright, back against the pad, feet flat. He holds one hex dumbbell in each hand, each dumbbell standing on end on top of a thigh near the knee. His right knee is lifting slightly to help raise the right dumbbell toward his shoulder; small motion ticks beside that knee. Both hands grip the dumbbell handles. Nothing near his head.",
+    "generated_at": "2026-11-11T11:38:12+00:00",
+    "usage": {
+      "input_tokens": 4353,
+      "input_tokens_details": {
+        "image_tokens": 3948,
+        "text_tokens": 405
+      },
+      "output_tokens": 6431,
+      "output_tokens_details": {
+        "image_tokens": 6431,
+        "text_tokens": 0
+      },
+      "total_tokens": 10784
+    }
+  },
+  "slide-3.png": {
+    "model": "gpt-image-2",
+    "size": "1080x1350",
+    "api_size": "1088x1360",
+    "returned_size": "1088x1360",
+    "quality": "high",
+    "refs": [
+      "docs/assets/tiktok/comic/shoulder-press-starts-at-the-bench/slide-0-cover.png",
+      "docs/assets/gainframe-guy/illustrations/gary-badge.png",
+      "docs/assets/gainframe-guy/illustrations/gainframe-guy-default-numbered.png"
+    ],
+    "prompt": "Create one finished 4:5 portrait GainFrame Guy fitness comic, numbered slide. Image 1 is the accepted cover of this same carousel: copy its exact character design, lean-athletic charcoal body, olive shorts, taupe trainers, cel shading, line weight, light grey gym background and small pale blue wash. Image 2 is the exact face only: FOUR SEPARATE floating L scan-frame corners, three black and the lower-right red, open WHITE interior, large asymmetric left eye connected to a sweeping S curve, small right eye; no filled head, no extra mouth. Image 3 controls the numbered header layout only, never body size or a red brush streak. Moderate shoulders and arms, no bodybuilder bulk. Exactly two arms, two hands with five fingers each, two legs; uniform charcoal skin on both hands. Equipment drawn with correct mechanics. All requested text verbatim, no extra copy; do not copy words from the reference images.\nLAYOUT: top edge-to-edge black bar with square corners, about 13% of the height, with a red \"#3\" at the left and the white uppercase title on the same baseline in Impact/Bebas bold. Below the bar, one dark centered Helvetica sentence. Top 28% free of scene artwork. Scene in the lower 70%, fully inside the frame. No badge, no cover title.\nTitle: \"START AT SHOULDER HEIGHT\"\nSentence: \"Wrists over elbows, dumbbells just outside your shoulders.\"\nScene: front view. GainFrame Guy sits upright on an adjustable bench with the backrest almost upright, back against the pad, feet flat on the floor. He holds one hex dumbbell in each hand at shoulder height, just outside his shoulders, palms facing forward, forearms vertical with each wrist stacked directly above its elbow. Two thin dashed vertical guide lines run from each dumbbell down through the elbow to show the stacked line. The dumbbells are beside the head at ear level, never touching or overlapping the head brackets.",
+    "generated_at": "2026-11-11T11:39:49+00:00",
+    "usage": {
+      "input_tokens": 4362,
+      "input_tokens_details": {
+        "image_tokens": 3948,
+        "text_tokens": 414
+      },
+      "output_tokens": 6431,
+      "output_tokens_details": {
+        "image_tokens": 6431,
+        "text_tokens": 0
+      },
+      "total_tokens": 10793
+    }
+  },
+  "slide-4.png": {
+    "model": "gpt-image-2",
+    "size": "1080x1350",
+    "api_size": "1088x1360",
+    "returned_size": "1088x1360",
+    "quality": "high",
+    "refs": [
+      "docs/assets/tiktok/comic/shoulder-press-starts-at-the-bench/slide-0-cover.png",
+      "docs/assets/gainframe-guy/illustrations/gary-badge.png",
+      "docs/assets/gainframe-guy/illustrations/gainframe-guy-default-numbered.png"
+    ],
+    "prompt": "Create one finished 4:5 portrait GainFrame Guy fitness comic, numbered slide. Image 1 is the accepted cover of this same carousel: copy its exact character design, lean-athletic charcoal body, olive shorts, taupe trainers, cel shading, line weight, light grey gym background and small pale blue wash. Image 2 is the exact face only: FOUR SEPARATE floating L scan-frame corners, three black and the lower-right red, open WHITE interior, large asymmetric left eye connected to a sweeping S curve, small right eye; no filled head, no extra mouth. Image 3 controls the numbered header layout only, never body size or a red brush streak. Moderate shoulders and arms, no bodybuilder bulk. Exactly two arms, two hands with five fingers each, two legs; uniform charcoal skin on both hands. Equipment drawn with correct mechanics. All requested text verbatim, no extra copy; do not copy words from the reference images.\nLAYOUT: top edge-to-edge black bar with square corners, about 13% of the height, with a red \"#4\" at the left and the white uppercase title on the same baseline in Impact/Bebas bold. Below the bar, one dark centered Helvetica sentence. Top 28% free of scene artwork. Scene in the lower 70%, fully inside the frame. No badge, no cover title.\nTitle: \"PRESS UP, NOT OUT\"\nSentence: \"Keep your ribs down. No big back arch to finish the rep.\"\nScene: two side-by-side panels separated by a thin black vertical divider, each showing GainFrame Guy seated on an adjustable bench with the backrest almost upright, side three-quarter view, both hands holding hex dumbbells overhead near the top of a press.\nLeft panel: a large green check mark in a circle above him. Good form: dumbbells pressed straight up over the shoulders, arms nearly straight, back and hips flat against the pad, ribs down.\nRight panel: a large red X in a circle above him. Bad form: elbows flared wide to the sides, dumbbells drifting out wide, lower back arched far off the pad with a visible gap, chest pushed up.\nSame character, equipment and gym background in both panels. No other words or labels in the panels.",
+    "generated_at": "2026-11-11T11:42:00+00:00",
+    "usage": {
+      "input_tokens": 4416,
+      "input_tokens_details": {
+        "image_tokens": 3948,
+        "text_tokens": 468
+      },
+      "output_tokens": 6431,
+      "output_tokens_details": {
+        "image_tokens": 6431,
+        "text_tokens": 0
+      },
+      "total_tokens": 10847
+    }
+  },
+  "slide-5.png": {
+    "model": "gpt-image-2",
+    "size": "1080x1350",
+    "api_size": "1088x1360",
+    "returned_size": "1088x1360",
+    "quality": "high",
+    "refs": [
+      "docs/assets/tiktok/comic/shoulder-press-starts-at-the-bench/slide-0-cover.png",
+      "docs/assets/gainframe-guy/illustrations/gary-badge.png",
+      "docs/assets/gainframe-guy/illustrations/gainframe-guy-default-numbered.png"
+    ],
+    "prompt": "Create one finished 4:5 portrait GainFrame Guy fitness comic, numbered slide. Image 1 is the accepted cover of this same carousel: copy its exact character design, lean-athletic charcoal body, olive shorts, taupe trainers, cel shading, line weight, light grey gym background and small pale blue wash. Image 2 is the exact face only: FOUR SEPARATE floating L scan-frame corners, three black and the lower-right red, open WHITE interior, large asymmetric left eye connected to a sweeping S curve, small right eye; no filled head, no extra mouth. Image 3 controls the numbered header layout only, never body size or a red brush streak. Moderate shoulders and arms, no bodybuilder bulk. Exactly two arms, two hands with five fingers each, two legs; uniform charcoal skin on both hands. Equipment drawn with correct mechanics. All requested text verbatim, no extra copy; do not copy words from the reference images.\nLAYOUT: top edge-to-edge black bar with square corners, about 13% of the height, with a red \"#5\" at the left and the white uppercase title on the same baseline in Impact/Bebas bold. Below the bar, one dark centered Helvetica sentence. Top 28% free of scene artwork. Scene in the lower 70%, fully inside the frame. No badge, no cover title.\nTitle: \"SAVE YOUR SETUP CARD\"\nSentence: \"Same notch, same weight, then try to beat your reps.\"\nBelow the sentence, a clean compact table card with thin dark borders, red header row, white body rows, large readable Helvetica text, exactly this content:\nHeader row: \"EXAMPLE\" (left cell) and \"YOUR SETUP\" (right cell), white text on red #E53935.\nRow 1: \"Bench notch\" | \"1 back from upright\"\nRow 2: \"Dumbbells\" | \"25 lb each\"\nRow 3: \"Sets \u00d7 reps\" | \"3 \u00d7 8\u201312\"\nRow 4: \"Rest\" | \"2 min\"\nScene below the table, smaller: GainFrame Guy seated on the adjustable bench with a pair of hex dumbbells resting on his thighs, giving a thumbs-up with his free right hand while his left hand keeps hold of one dumbbell. Nothing near his head.",
+    "generated_at": "2026-11-11T11:43:46+00:00",
+    "usage": {
+      "input_tokens": 4429,
+      "input_tokens_details": {
+        "image_tokens": 3948,
+        "text_tokens": 481
+      },
+      "output_tokens": 6431,
+      "output_tokens_details": {
+        "image_tokens": 6431,
+        "text_tokens": 0
+      },
+      "total_tokens": 10860
+    }
+  },
+  "slide-6.png": {
+    "model": "gpt-image-2",
+    "size": "1080x1350",
+    "api_size": "1088x1360",
+    "returned_size": "1088x1360",
+    "quality": "high",
+    "refs": [
+      "docs/assets/tiktok/comic/shoulder-press-starts-at-the-bench/slide-0-cover.png",
+      "docs/assets/tiktok/comic/shoulder-press-starts-at-the-bench/_refs/compare-screen.png"
+    ],
+    "prompt": "Create one finished 4:5 portrait GainFrame Guy comic promo slide. Image 1 is the accepted cover of this carousel: copy its charcoal comic skin, crisp linework, cel shading and pale blue wash. Image 2 is a real GainFrame app screen: reproduce it faithfully on the phone (the Compare header \"Compare \u00b7 Dec 25 \u2192 Aug 6\", the two progress photos with their dates, body-fat and weight labels, the score card \"74 SCORE +10 vs before\" with Body Fat ~19% \u2192 ~14%, Weight 243 lbs \u2192 229 lbs, Goal Lose Weight, and the Overview / Muscles / Plan tabs). Do not invent or change any numbers or text on the screen.\nLAYOUT: mostly pure white background. At the top, a bold Impact/Bebas headline in two centered lines: \"COMPARE YOUR\" in near-black and \"CHECK-INS\" in red #E53935. Directly below, one dark centered Helvetica line: \"Track your progress in GainFrame\". Below that, one large portrait smartphone, slightly tilted, showing the app screen from image 2, held by exactly one charcoal comic hand entering from the bottom-right corner (five fingers, wrist only; no arm, no body, no head). A small GainFrame face mark (four bracket corners, red lower-right) sits beside the phone at the lower left, never over the screen. No badge, no extra text.",
+    "generated_at": "2026-11-11T11:45:25+00:00",
+    "usage": {
+      "input_tokens": 3182,
+      "input_tokens_details": {
+        "image_tokens": 2883,
+        "text_tokens": 299
+      },
+      "output_tokens": 6431,
+      "output_tokens_details": {
+        "image_tokens": 6431,
+        "text_tokens": 0
+      },
+      "total_tokens": 9613
+    }
+  }
+}

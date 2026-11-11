@@ -880,3 +880,10 @@ Format: counterintuitive-promise hook (the winning `diet-tips-sound-fake` DNA) â
 - Format: Standard myth-bust question hook; red-knockout grid-safe cover
 - GainFrame mention: No
 - Status: Complete (head QA gate + white-bg gate enforced in build.py)
+
+## 2026-11-11 â€” Your Shoulder Press Starts at the Bench
+- Slug: shoulder-press-starts-at-the-bench
+- Slides: 7
+- GainFrame mention: Yes (separate lesson-linked final promo and caption CTA)
+- Style: Original lean-athletic comic GainFrame Guy; OpenAI gpt-image-2 via _pipeline/openai_image.py
+- Status: Done

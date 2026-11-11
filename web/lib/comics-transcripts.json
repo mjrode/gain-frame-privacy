@@ -1,4 +1,44 @@
 {
+ "shoulder-press-starts-at-the-bench": {
+  "summary": "Set up a seated dumbbell shoulder press the same way every session: bench angle, getting the dumbbells up, start position, press path and a saved setup card.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. YOUR SHOULDER PRESS STARTS AT THE BENCH.",
+    "alt": "Gary stands beside an adjustable bench set almost upright, one hand on the backrest, with a pair of hex dumbbells on the floor."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 SET THE BENCH NEAR UPRIGHT. One notch back from vertical keeps your back supported.",
+    "alt": "Gary moves the bench backrest to almost vertical with both hands; the adjustment ladder is visible."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 KICK THE DUMBBELLS UP. Rest them on your thighs, then lift one knee at a time.",
+    "alt": "Seated on the bench, Gary holds dumbbells upright on his thighs and lifts one knee to bring a dumbbell up."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 START AT SHOULDER HEIGHT. Wrists over elbows, dumbbells just outside your shoulders.",
+    "alt": "Front view of Gary seated with dumbbells at shoulder height and dashed guide lines showing wrists stacked over elbows."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 PRESS UP, NOT OUT. Keep your ribs down. No big back arch to finish the rep.",
+    "alt": "Two panels: a green check over Gary pressing straight up with his back on the pad, and a red X over Gary with flared elbows leaning off the pad."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "#5 SAVE YOUR SETUP CARD. Same notch, same weight, then try to beat your reps. EXAMPLE / YOUR SETUP. Bench notch: 1 back from upright. Dumbbells: 25 lb each. Sets \u00d7 reps: 3 \u00d7 8\u201312. Rest: 2 min.",
+    "alt": "A red-header table with an example setup above Gary seated on the bench giving a thumbs-up."
+   },
+   {
+    "file": "slide-6.webp",
+    "text": "COMPARE YOUR CHECK-INS. Track your progress in GainFrame.",
+    "alt": "A comic hand holds a phone showing the GainFrame Compare screen with two progress photos, a score of 74 and body fat and weight changes."
+   }
+  ]
+ },
  "fat-loss-backwards": {
   "summary": "This guide shares four counterintuitive tips for effective fat loss, focusing on sustainable lifestyle changes rather than extreme restriction. It recommends increasing protein intake, scheduling regular refeed days, prioritizing walking over intense running, and lifting weights to build calorie-burning muscle.",
   "slides": [
