@@ -130,9 +130,15 @@ python3 $H --out docs/assets/tiktok/comic/<slug>/slide-1.png \
 - `--quality high` is the default for finished slides. Use `--quality low` only
   for throwaway composition tests.
 - `OPENAI_API_KEY` is read from the environment or `~/.zshrc`.
-- Cover refs: lean-athletic reference, badge/face. Numbered refs: lean-athletic
-  reference, numbered master (layout only), optional face. Promo refs:
-  lean-athletic reference (hand/linework) plus the real app screenshot.
+- **References (learned 2026-11-11):** the lean-athletic master alone renders a
+  bulkier mascot than the shipped posts. For the **cover**, use an accepted cover
+  from a recent shipped post as image 1 (e.g.
+  `docs/assets/tiktok/comic/two-day-full-body-plan/slide-0-cover.png`) plus
+  `gary-badge.png`, and tell the model to copy its body, mascot size, light grey
+  gym background and wordmark badge. For **slides 1-5**, image 1 is this
+  carousel's accepted cover, then `gary-badge.png`, then the numbered master
+  (layout only). For the **promo**, this carousel's cover (hand/linework) plus
+  the real app screenshot, cropped to the phone screen.
 - Generate one slide at a time and look at it (Read the PNG) before the next.
   Independent carousels may run in parallel.
 
