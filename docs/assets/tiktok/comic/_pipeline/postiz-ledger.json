@@ -1677,6 +1677,58 @@
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "shoulder-press-starts-at-the-bench": {
+      "booked_at": "2026-11-11T11:55:56.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2byux067rr0076enfz9n1",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2byum067qr007mayuuttv",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "ef3bfc17-ef78-4223-9790-3646535d24c6",
+          "path": "https://uploads.postiz.com/2mqIlwgUVG.jpg"
+        },
+        {
+          "id": "0e5609d7-dc79-46e8-a7cc-d92658a3ed15",
+          "path": "https://uploads.postiz.com/eNMhqFVzwk.jpg"
+        },
+        {
+          "id": "4c547099-ec69-45ce-b5a4-e84f1377398a",
+          "path": "https://uploads.postiz.com/QZ4NERYFDj.jpg"
+        },
+        {
+          "id": "435a27ff-0c2d-486a-8f44-10ee4a4dd1b8",
+          "path": "https://uploads.postiz.com/Ok6Qa9jM0D.jpg"
+        },
+        {
+          "id": "366f7501-be2b-492e-b53e-254a049c89c3",
+          "path": "https://uploads.postiz.com/VoTJb8y2Wr.jpg"
+        },
+        {
+          "id": "e9d1822f-e3fc-4564-91e1-dfd78b30c318",
+          "path": "https://uploads.postiz.com/havWmRzhcz.jpg"
+        },
+        {
+          "id": "2efc6785-fd99-4a4c-b063-2b5110738333",
+          "path": "https://uploads.postiz.com/7hO2OPaOUz.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-01T23:30:00.000Z",
+      "status": "scheduled"
+    },
     "shredded-is-a-season": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
