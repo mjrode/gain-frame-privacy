@@ -92,6 +92,8 @@ export type AnalyticsEvent =
   // Body Fat from Photo app-analysis preview (separate from the live CTA experiment)
   | "body_fat_bridge_viewed"
   | "body_fat_bridge_cta_clicked"
+  // Body Fat from Photo result CTA test (body_fat_result_cta_v1)
+  | "body_fat_result_cta_assigned"
   // Waist percentile widget (embedded in the average-waist-size posts)
   | "waist_tool_calculated"
   // Physique rater tool

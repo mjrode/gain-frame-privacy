@@ -2,6 +2,51 @@
 
 Release: `15ef1dc9`, live **2026-10-06 13:16:11 UTC**, Worker version `a13c8ee5-e9eb-4dc6-a29e-72f9b83ea518`. See [execution receipt](../../seo-tools/content-audits/2026-10-06-execution.md).
 
+## Body Fat From Photo result CTA test (`body_fat_result_cta_v1`), pending release
+
+Branch `bf-result-cta-test`. Not live until merged; record the release timestamp
+here when it ships.
+
+**Question.** On iOS, the analysis ask sits below the fold after a scan: the
+result renders mid-page under the hero, and the result card alone fills a phone
+screen. Does moving the ask onto the first screen raise Store click-through?
+
+**Eligibility.** Real results on iOS only. Android keeps the email form; desktop
+keeps today's bridge with its QR handoff. The local sample result never draws a
+random arm. `?bf_cta=<arm>` forces an arm on any non-Android platform and is
+always `experiment_forced=true`; exclude forced rows.
+
+**Arms** (phase `fold_v1_stable_assignment`, 25% each, saved in localStorage at
+first assignment, the September 11 stable-assignment pattern):
+
+| Arm | What the visitor sees | `cta_angle` / `cta_style` |
+|---|---|---|
+| `control` | Today's result card, then the analysis bridge | analysis / bridge_card |
+| `analysis` | Compact result card with the ask inside: "~22% today. See what’s behind it." → **Analyze my physique**. Bridge top card hidden | analysis / inline_result |
+| `goal` | Compact result card with the visitor's own photo beside a locked, blurred "goal" tile → **Preview my goal physique**. Bridge top card hidden | future / inline_result |
+| `sticky` | Today's layout plus a dismissible bottom bar, hidden while the bridge button is on screen | analysis / bridge_card_sticky_bar |
+
+Every arm scrolls the result card to the top of the screen, so the comparison is
+between offers, not scroll positions. All arms link to the approved analysis
+Store page (`ANALYSIS_APP_STORE_PAGE`), so the destination is constant; note
+that the `goal` arm therefore lands on analysis creative.
+
+**Events.** `body_fat_result_cta_assigned` fires once per page at the first real
+result. Assignment properties ride on `body_fat_bridge_viewed`,
+`body_fat_bridge_cta_clicked` (new elements `inline_cta`, `sticky_cta`) and, via
+the `data-experiment-*` wrapper, on `web_download_clicked` and
+`outbound_app_store_click`.
+
+**Pre-registered read.** Primary outcome: share of assigned, non-forced iOS
+visitors with a `body_fat_result_cta_v1` `web_download_clicked` after
+assignment. Read only after at least 14 days and 400 assigned visitors per arm.
+Each treatment is compared with `control` at adjusted p < .0167 and at least 20%
+relative lift. Report exposure (`body_fat_bridge_viewed`) and email-report sends
+per assigned visitor as diagnostics, and native arrivals separately: a click
+lift is not an install or revenue lift. At current volume (1,687 iOS people with
+a result, Oct 14–Nov 10) the minimum takes about four weeks; small differences
+will not be detectable.
+
 ## October 6, 2026: Body Visualizer analysis rollout
 
 Owner approval: `All`, October 6. Eligible iOS and desktop visitors now receive

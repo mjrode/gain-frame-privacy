@@ -1,5 +1,6 @@
 import { isProductionAnalyticsHost, track } from "./analytics.ts";
 import { isBodyVisualizerCtaPreviewHost } from "./body-visualizer-cta-experiment.ts";
+import { assignedCtaProperties, type AssignedCtaExperiment } from "./assigned-cta-experiment.ts";
 import {
   BRIDGE_VISIBILITY_MS,
   BRIDGE_VISIBILITY_RATIO,
@@ -11,9 +12,12 @@ export const BODY_FAT_BRIDGE_EXPERIMENT_ID = "body_fat_app_bridge";
 export const BODY_FAT_CTA_CONTENT = {
   main_cta: "body_fat_analysis_walkthrough_v1_main",
   result_cta: "body_fat_analysis_walkthrough_v1_result",
+  inline_cta: "body_fat_result_cta_v1_inline",
+  sticky_cta: "body_fat_result_cta_v1_sticky",
 } as const;
 
-type BridgeElement = "main_cta" | "walkthrough" | "result_cta" | "video";
+type BridgeElement = "main_cta" | "walkthrough" | "result_cta" | "video" | "inline_cta" | "sticky_cta";
+const CTA_ELEMENTS = new Set<BridgeElement>(["main_cta", "result_cta", "inline_cta", "sticky_cta"]);
 type BridgeEvent = "body_fat_bridge_viewed" | "body_fat_bridge_cta_clicked";
 type BridgePlatform = "unknown" | "ios" | "android" | "desktop";
 type Emit = (event: BridgeEvent, properties: Record<string, unknown>) => void;
@@ -35,6 +39,8 @@ export const emitBodyFatBridgeEvent: Emit = (event, properties) => {
 export function bodyFatBridgeCtaElement(content: string | null) {
   if (content === BODY_FAT_CTA_CONTENT.main_cta) return "main_cta" as const;
   if (content === BODY_FAT_CTA_CONTENT.result_cta) return "result_cta" as const;
+  if (content === BODY_FAT_CTA_CONTENT.inline_cta) return "inline_cta" as const;
+  if (content === BODY_FAT_CTA_CONTENT.sticky_cta) return "sticky_cta" as const;
   return null;
 }
 
@@ -43,11 +49,13 @@ export function createBodyFatBridgeAnalytics(
   platform: BridgePlatform,
   emit: Emit = emitBodyFatBridgeEvent,
   observe: Observe = observeBridgeVisibility,
+  experiment: AssignedCtaExperiment | null = null,
 ) {
   const seen = new Set<BridgeElement>();
   const cleanups = new Map<BridgeElement, () => void>();
   const eligible = platform === "ios" || platform === "desktop";
   const common = {
+    ...(experiment ? assignedCtaProperties(experiment) : {}),
     tool: "bf_from_photo",
     bridge_version: BODY_FAT_BRIDGE_VERSION,
     campaign: "seo-physique-cpp-v1",
@@ -59,7 +67,7 @@ export function createBodyFatBridgeAnalytics(
       cleanups.get(element)?.();
       cleanups.delete(element);
       if (!node || seen.has(element) || platform === "unknown") return;
-      if (!eligible && (element === "main_cta" || element === "result_cta")) return;
+      if (!eligible && CTA_ELEMENTS.has(element)) return;
       cleanups.set(element, observe(node, () => {
         if (seen.has(element)) return;
         seen.add(element);
@@ -78,6 +86,8 @@ export function createBodyFatBridgeAnalytics(
       walkthrough: observeRef("walkthrough"),
       result_cta: observeRef("result_cta"),
       video: observeRef("video"),
+      inline_cta: observeRef("inline_cta"),
+      sticky_cta: observeRef("sticky_cta"),
     },
     onClick(event: { target: EventTarget | null }) {
       if (!eligible || !(event.target instanceof Element)) return;
