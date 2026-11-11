@@ -1,8 +1,24 @@
 {
   "posts": {
+    "1-year-progressive-overload": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
     "150g-protein-made-simple": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "30g-of-protein": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "5-girls-at-every-gym": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "5-guys-at-every-gym": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "80-20-of-building-muscle": {
       "booked_at": "2026-11-10T17:43:41.000Z",
@@ -45,9 +61,29 @@
       "scheduled_for": "2026-11-15T23:30:00.000Z",
       "status": "scheduled"
     },
+    "abs-at-8am-belly-by-8pm": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
     "abs-sound-backwards": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "alcohol-stealing-gains": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "anabolic-window-lie": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "are-bcaas-a-scam": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "are-eggs-actually-bad": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "are-machines-cheating": {
       "booked_at": "2026-11-10T17:44:40.000Z",
@@ -89,6 +125,10 @@
     "are-protein-bars-junk-food": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "are-seed-oils-killing-gains": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "are-you-recovered-yet": {
       "booked_at": "2026-11-10T17:43:20.000Z",
@@ -719,9 +759,69 @@
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "assisted-pullup-stack-direction": {
+      "booked_at": "2026-11-11T12:14:31.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2zvcm06njr007xqa9m5bc",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2zvcc06nir007hdyyxscd",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "74187776-c059-4ccb-813e-b1ee35f91197",
+          "path": "https://uploads.postiz.com/ldVQecmwMy.jpg"
+        },
+        {
+          "id": "53ba2ca5-ac1b-4f22-91e8-53cbdb6631d0",
+          "path": "https://uploads.postiz.com/4WLb0MkTgo.jpg"
+        },
+        {
+          "id": "e543f98f-e093-4974-9cc3-a5ff88e6d622",
+          "path": "https://uploads.postiz.com/IxWQWJJkLO.jpg"
+        },
+        {
+          "id": "dcc8f755-3e1f-4245-8d2a-f2c45f1f9945",
+          "path": "https://uploads.postiz.com/IZLOH7OsWW.jpg"
+        },
+        {
+          "id": "61425658-7477-488a-9022-5473871258a4",
+          "path": "https://uploads.postiz.com/hmR8yUgjYB.jpg"
+        },
+        {
+          "id": "1a52d954-408e-458a-94a5-08fb8e9e57ea",
+          "path": "https://uploads.postiz.com/bNT1LC9Abe.jpg"
+        },
+        {
+          "id": "05b93b03-3581-4a42-bcc5-80e532a63d61",
+          "path": "https://uploads.postiz.com/o9flUNitjG.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-15T23:30:00.000Z",
+      "status": "scheduled"
+    },
     "beginner-gains-sound-fake": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "best-upper-body-exercises": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "best-v-taper-exercises": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "blame-genetics": {
       "posted_at": "2026-11-10T12:00:00Z",
@@ -779,9 +879,219 @@
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "break-up-the-desk-marathon": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "breakfast-keeps-you-full": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "build-a-no-cook-lunch": {
+      "booked_at": "2026-11-11T12:11:55.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2wiqe06rvl507cox0ffvs",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "13c3fcc7-8bc7-4d95-852a-c311bf58f794",
+          "path": "https://uploads.postiz.com/FgUd1JmBrc.jpg"
+        },
+        {
+          "id": "03fc8512-73bc-4590-a4be-0204163a3cec",
+          "path": "https://uploads.postiz.com/O0jjbDfYGv.jpg"
+        },
+        {
+          "id": "127cf426-fea8-492e-805a-e7925f0374a3",
+          "path": "https://uploads.postiz.com/XP1ugeyTmN.jpg"
+        },
+        {
+          "id": "7ceac9b5-fc0b-445c-998d-837e82dc6c89",
+          "path": "https://uploads.postiz.com/6SrIfnieQv.jpg"
+        },
+        {
+          "id": "565a8f61-880a-4662-be20-20358fa0e689",
+          "path": "https://uploads.postiz.com/X02R5l4Oin.jpg"
+        },
+        {
+          "id": "630af58e-c488-4dfc-967a-9ff3cb9a39ef",
+          "path": "https://uploads.postiz.com/Jc1IVCcp2x.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-14T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "build-a-reverse-fly-setup": {
+      "booked_at": "2026-11-11T12:15:28.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc312tt06xul5071bgu496o",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc312t606xtl507wnnitkjb",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "19eaf1f4-c86e-4f84-9a0a-f84fae46f270",
+          "path": "https://uploads.postiz.com/uq0MAsiTUH.jpg"
+        },
+        {
+          "id": "1ddcc215-b00a-4475-b05f-241fc4b3b520",
+          "path": "https://uploads.postiz.com/P9meXfBwTM.jpg"
+        },
+        {
+          "id": "9fdaae88-c954-46ad-9962-6f7b368076f3",
+          "path": "https://uploads.postiz.com/CIGTSx5kpl.jpg"
+        },
+        {
+          "id": "960e50fb-c89c-4a98-ae48-cfa1c0f25102",
+          "path": "https://uploads.postiz.com/5hQk9vVtkQ.jpg"
+        },
+        {
+          "id": "fc5cd55c-46a0-411d-9085-1951d5783f43",
+          "path": "https://uploads.postiz.com/h6YdBRf7Dt.jpg"
+        },
+        {
+          "id": "fd806770-7363-4fe3-b2b9-bcd6d5c48482",
+          "path": "https://uploads.postiz.com/VvTvhC4IvZ.jpg"
+        },
+        {
+          "id": "0d3ef3c1-6355-4bb7-afb1-a4396f1c8259",
+          "path": "https://uploads.postiz.com/H1OisUyvNJ.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-25T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "build-a-treadmill-hill-session": {
+      "booked_at": "2026-11-11T12:15:16.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc30tk006xbl5077r7ifrro",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc30tjh06xal507f14496z2",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "d6d5607a-4bbb-4d7d-a585-0b6dea9aea4e",
+          "path": "https://uploads.postiz.com/RM8IN6PVzC.jpg"
+        },
+        {
+          "id": "4a337def-524e-4e41-87e4-e8b566eb561e",
+          "path": "https://uploads.postiz.com/p3Bzs11k2m.jpg"
+        },
+        {
+          "id": "8f734457-8e6f-4308-bba5-5fe053a12c72",
+          "path": "https://uploads.postiz.com/AXn20fhj0i.jpg"
+        },
+        {
+          "id": "f02a1e96-cb69-4672-829c-64f699d0bf56",
+          "path": "https://uploads.postiz.com/N6HxbH9OeG.jpg"
+        },
+        {
+          "id": "4f08d3ae-63f7-41b2-af94-2e4634db5ba4",
+          "path": "https://uploads.postiz.com/ehhj42u7Xc.jpg"
+        },
+        {
+          "id": "e8fd9ceb-3501-4b20-b0c0-1ccedbb509e4",
+          "path": "https://uploads.postiz.com/V7ZgBoPWvd.jpg"
+        },
+        {
+          "id": "8028f74e-4877-4022-a08e-a91355f59684",
+          "path": "https://uploads.postiz.com/WiVitrhbEC.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-23T23:30:00.000Z",
+      "status": "scheduled"
+    },
     "build-a-workout-in-4-steps": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "build-muscle-after-40": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "building-muscle-truth": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "bulk-or-cut": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "cable-lateral-raise-setup-card": {
+      "booked_at": "2026-11-11T12:13:11.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2y5kb06llr0075slq8kn6",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "b4256057-6d82-460d-9dd8-a7abff342a25",
+          "path": "https://uploads.postiz.com/4fQ0AzwGc4.jpg"
+        },
+        {
+          "id": "d11cfcda-f27e-4144-874b-5a38ece58de2",
+          "path": "https://uploads.postiz.com/Nv8TBV1rAr.jpg"
+        },
+        {
+          "id": "65861101-0fc9-4bbf-a9fb-b3617c8f17ad",
+          "path": "https://uploads.postiz.com/rGZIygmCFo.jpg"
+        },
+        {
+          "id": "12df11f6-bac1-46d5-8b17-59b1c3a86b44",
+          "path": "https://uploads.postiz.com/nEX3hcoslI.jpg"
+        },
+        {
+          "id": "2d8682dd-90e3-4bef-bed6-74393056a4df",
+          "path": "https://uploads.postiz.com/1VlpfG9vxH.jpg"
+        },
+        {
+          "id": "cacea427-f594-40f3-9a01-c51f4ec17183",
+          "path": "https://uploads.postiz.com/zqvjuMG3ba.jpg"
+        },
+        {
+          "id": "f5817493-228c-4ee1-ab95-8754916f87cb",
+          "path": "https://uploads.postiz.com/CMhcIrQd9I.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-26T23:30:00.000Z",
+      "status": "scheduled"
     },
     "can-3-days-build-muscle": {
       "posted_at": "2026-11-10T12:00:00Z",
@@ -791,9 +1101,276 @@
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "cardio-ate-my-gains": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "cardio-kill-gains": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "carry-weights-with-control": {
+      "booked_at": "2026-11-11T12:11:11.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2vl0y06khr007k25ewfp0",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "2a9eda93-6929-4df7-9ac0-9c869edeb13b",
+          "path": "https://uploads.postiz.com/Kdu7u3zga8.jpg"
+        },
+        {
+          "id": "6df4bb8d-a849-4a7e-a824-01e7b5654775",
+          "path": "https://uploads.postiz.com/PFT5dkNceF.jpg"
+        },
+        {
+          "id": "05dff214-d1d7-4c59-8d62-83b7b52ca927",
+          "path": "https://uploads.postiz.com/mlL0LAZfrY.jpg"
+        },
+        {
+          "id": "15c32cb9-f0a2-4e51-89c3-2347aadd9646",
+          "path": "https://uploads.postiz.com/HdTcgNCUrB.jpg"
+        },
+        {
+          "id": "06094aed-a9d3-48ee-8350-4c8aa6079e1e",
+          "path": "https://uploads.postiz.com/Q2cnoMPvAG.jpg"
+        },
+        {
+          "id": "285a7068-18d4-427a-8392-59dc5218109a",
+          "path": "https://uploads.postiz.com/DR34sSmch8.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-06T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "check-your-resistance-band": {
+      "booked_at": "2026-11-11T12:11:05.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2vgdh06r5l507zo8b6nhx",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "6338ecde-c3d6-4ec2-bcb8-d64d1e3d9013",
+          "path": "https://uploads.postiz.com/9niEXCPN7Z.jpg"
+        },
+        {
+          "id": "327493f1-af4e-474a-a348-d1323cd6e63e",
+          "path": "https://uploads.postiz.com/LOJTNrghpE.jpg"
+        },
+        {
+          "id": "1188502c-b7e4-4793-a866-54c208f71ea6",
+          "path": "https://uploads.postiz.com/ocBRQrsXux.jpg"
+        },
+        {
+          "id": "d7c1811f-ab8f-4804-bfe9-06c2be9c4adf",
+          "path": "https://uploads.postiz.com/CzzyDjHVBt.jpg"
+        },
+        {
+          "id": "32f92701-2b09-4b85-94e0-e12b957dc192",
+          "path": "https://uploads.postiz.com/6fGQKXiTfM.jpg"
+        },
+        {
+          "id": "f4ec0866-d568-40e2-adff-a6b38210c886",
+          "path": "https://uploads.postiz.com/RubYwgGai0.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-05T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "chest-press-machine-setup-card": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "chest-tier-list": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "choose-a-step-up-box": {
+      "booked_at": "2026-11-11T12:15:34.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc317mh06p4r0076kagamb0",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc317m306p3r00786qaftys",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "1f6096c2-e4ed-4fc4-b151-c273ba6cdf5c",
+          "path": "https://uploads.postiz.com/i9CQ183Wgl.jpg"
+        },
+        {
+          "id": "1c840c1a-f2f3-41dc-ace6-2cbbb1a262c4",
+          "path": "https://uploads.postiz.com/TSF4a131Kb.jpg"
+        },
+        {
+          "id": "28b476d2-39bc-4ce8-8a83-c608f05d552e",
+          "path": "https://uploads.postiz.com/0vRcwTFesP.jpg"
+        },
+        {
+          "id": "69b8e1f3-101a-451a-808d-c329f80bf5fb",
+          "path": "https://uploads.postiz.com/1FIaf8NM72.jpg"
+        },
+        {
+          "id": "c83c0910-196c-4e5c-ad81-abd703c7d169",
+          "path": "https://uploads.postiz.com/jT4ePQBQXH.jpg"
+        },
+        {
+          "id": "3ccaffbb-791a-4ede-ba93-a1bc2b25481a",
+          "path": "https://uploads.postiz.com/knxRQYDHXQ.jpg"
+        },
+        {
+          "id": "95dba43c-59d2-4d06-8436-7876242104b8",
+          "path": "https://uploads.postiz.com/ZOyuHZWqYs.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-26T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "cost-to-get-fit": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "count-your-weekly-work-sets": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "creatine-myths-vs-facts": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "creatine-scale-three-mornings": {
+      "booked_at": "2026-11-11T12:15:10.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc30pl806x2l50764aufu9i",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc30pko06x1l507nkeseckw",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "69342f12-ec19-49b6-a818-828408893f20",
+          "path": "https://uploads.postiz.com/zAGGT5vRaT.jpg"
+        },
+        {
+          "id": "4ffd0622-f3d9-4888-926d-34eec392ff6a",
+          "path": "https://uploads.postiz.com/LeT8gNoBTL.jpg"
+        },
+        {
+          "id": "3522b5a9-584e-4d58-956e-951c48e43c6d",
+          "path": "https://uploads.postiz.com/cBwyaJxuGK.jpg"
+        },
+        {
+          "id": "84822f15-3ea0-4273-992b-50009d2d180b",
+          "path": "https://uploads.postiz.com/RXYXcKY0C0.jpg"
+        },
+        {
+          "id": "aad0711e-e9dc-4a02-98e4-d863536060ed",
+          "path": "https://uploads.postiz.com/FvBMnoRi4x.jpg"
+        },
+        {
+          "id": "adab3300-5bc7-4c8b-abe9-b00909e9c24f",
+          "path": "https://uploads.postiz.com/9Jrwf76kBN.jpg"
+        },
+        {
+          "id": "1f018c86-1fca-4e37-a220-182225ca095a",
+          "path": "https://uploads.postiz.com/kps1Ai2prg.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-22T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "curls-without-the-body-swing": {
+      "booked_at": "2026-11-11T12:11:33.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2w21g06kor007pm6p19xw",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "6c087614-21df-4722-86a7-14e757e1b3b1",
+          "path": "https://uploads.postiz.com/6B4M2fesCJ.jpg"
+        },
+        {
+          "id": "3e4deddb-5f48-415a-a242-3001706a39d6",
+          "path": "https://uploads.postiz.com/4zHpHYPRzV.jpg"
+        },
+        {
+          "id": "1b381ba0-a373-48af-9922-dace7f0f9755",
+          "path": "https://uploads.postiz.com/DzsNYxd6og.jpg"
+        },
+        {
+          "id": "be8660ea-6eda-4e86-bad9-6f700254e752",
+          "path": "https://uploads.postiz.com/puSH3Ntez9.jpg"
+        },
+        {
+          "id": "2088e18d-4f20-4a44-834c-457b431d7efa",
+          "path": "https://uploads.postiz.com/3krvnt4EZB.jpg"
+        },
+        {
+          "id": "5df4f0d7-bc0c-4e0c-bded-7e28c71b1e4c",
+          "path": "https://uploads.postiz.com/yORH8VgQdk.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-10T23:30:00.000Z",
+      "status": "scheduled"
+    },
     "cutting-in-4-rules": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "dating-a-guy-who-lifts": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "deficit-isnt-starvation": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "deload-before-you-break": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "dexa-isnt-always-right": {
       "booked_at": "2026-11-10T17:42:30.000Z",
@@ -847,9 +1424,21 @@
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "dirty-bulk-debt": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "do-you-need-10k-steps": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
     "do-you-need-a-spotter": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "do-you-need-to-deadlift": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "do-you-need-to-squat": {
       "posted_at": "2026-11-10T12:00:00Z",
@@ -858,6 +1447,22 @@
     "does-a-belt-make-you-weak": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "does-full-range-of-motion-matter": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "does-muscle-weigh-more-than-fat": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "does-the-sauna-do-anything": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "dont-be-that-guy": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "dont-need-the-big-three": {
       "booked_at": "2026-11-10T17:42:52.000Z",
@@ -906,6 +1511,34 @@
       ],
       "scheduled_for": "2026-11-28T23:30:00.000Z",
       "status": "scheduled"
+    },
+    "eat-in-a-day-200g": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "efficient-workouts-wasting-time": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "ego-lifting-tax": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "excuses-youve-all-used": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "exercise-order": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "exercises-killing-your-biceps": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "fake-progress-traps": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "fasted-cardio-myth": {
       "booked_at": "2026-11-10T17:44:34.000Z",
@@ -981,6 +1614,122 @@
       "scheduled_for": "2026-11-27T23:30:00.000Z",
       "status": "scheduled"
     },
+    "favorite-lift-personality": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "feel-lost-in-the-weights-area": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "find-your-calf-raise-baseline": {
+      "booked_at": "2026-11-11T12:14:48.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc3081a06wll507bivvwng8",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc3080w06wkl507a1bjhz17",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "6d083862-3e15-4bb8-9455-10326db8fe84",
+          "path": "https://uploads.postiz.com/nm4EQWGsNb.jpg"
+        },
+        {
+          "id": "a715d9fe-68f8-4639-9483-32f948ef9cd9",
+          "path": "https://uploads.postiz.com/RBfN9Ey3fO.jpg"
+        },
+        {
+          "id": "7d242848-7221-42ec-ae5e-337b7fb4f922",
+          "path": "https://uploads.postiz.com/ZWmYCGLIlg.jpg"
+        },
+        {
+          "id": "ba3f686c-30a8-490f-87d2-1eb52303b198",
+          "path": "https://uploads.postiz.com/PA0gjihilK.jpg"
+        },
+        {
+          "id": "0d74463f-7292-433e-8496-9f839cf8cee1",
+          "path": "https://uploads.postiz.com/7gniY6qMkm.jpg"
+        },
+        {
+          "id": "dd341cc9-2118-4d66-9dd2-e2200b9877e1",
+          "path": "https://uploads.postiz.com/31fOQSKTpb.jpg"
+        },
+        {
+          "id": "b00d11a1-724f-4e69-b30d-33d2f297ee99",
+          "path": "https://uploads.postiz.com/sTT50wDbAP.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-18T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "first-landmine-press-session": {
+      "booked_at": "2026-11-11T12:15:45.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc31g8l06pcr007byhvgyi9",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc31g4h06pbr007vqboxacc",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "f157f0a9-1663-4069-a440-59747c2562a1",
+          "path": "https://uploads.postiz.com/SDJ5Nc7UUq.jpg"
+        },
+        {
+          "id": "29e762b2-2ca7-4f32-9e56-ea6c4dd9e091",
+          "path": "https://uploads.postiz.com/NUok9Y9xYZ.jpg"
+        },
+        {
+          "id": "7378c866-7da2-43de-9c7d-65475cd4f7f2",
+          "path": "https://uploads.postiz.com/TIxc3ZIXgL.jpg"
+        },
+        {
+          "id": "dabdeac4-5844-4101-8b92-71b1dcb29566",
+          "path": "https://uploads.postiz.com/TDPhsKKLWJ.jpg"
+        },
+        {
+          "id": "28796685-388a-4832-9249-c7e4c5a8a38d",
+          "path": "https://uploads.postiz.com/uv5tvndUur.jpg"
+        },
+        {
+          "id": "80964157-778b-4ac3-8b2b-e6666d2d710b",
+          "path": "https://uploads.postiz.com/AhBKV3ViF0.jpg"
+        },
+        {
+          "id": "ec9c778b-3afd-4152-b447-05548b660287",
+          "path": "https://uploads.postiz.com/TqVBAjp3Tz.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-28T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "first-workout-back-after-a-break": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
     "fix-muscle-imbalances-in-4-steps": {
       "booked_at": "2026-11-10T17:43:34.000Z",
       "channels": {
@@ -1021,6 +1770,55 @@
       ],
       "scheduled_for": "2026-11-14T23:30:00.000Z",
       "status": "scheduled"
+    },
+    "four-day-upper-lower-plan": {
+      "booked_at": "2026-11-11T12:12:30.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2x9ox06shl507s8xmtmhq",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "91d7e02b-6755-4ba7-845c-8e32820d4866",
+          "path": "https://uploads.postiz.com/2vgRfc9ups.jpg"
+        },
+        {
+          "id": "997c9528-31cb-4051-b0db-e63cb6b8e80c",
+          "path": "https://uploads.postiz.com/NUOdUdsT9j.jpg"
+        },
+        {
+          "id": "ca4e51be-74b3-4d78-b95f-f45ef70c4057",
+          "path": "https://uploads.postiz.com/cNYdbqMw7W.jpg"
+        },
+        {
+          "id": "a86ff912-c533-4dc0-9611-62e43c92ea39",
+          "path": "https://uploads.postiz.com/jbtBnee83o.jpg"
+        },
+        {
+          "id": "2c7513b5-0d97-40bc-a461-1a4dbd764c6c",
+          "path": "https://uploads.postiz.com/ajwGwQjaNV.jpg"
+        },
+        {
+          "id": "4cfd0481-12ac-4b5f-87de-7dee828ed237",
+          "path": "https://uploads.postiz.com/urzOfWHZYs.jpg"
+        },
+        {
+          "id": "d12cd91f-e31b-412f-91cb-17f248158233",
+          "path": "https://uploads.postiz.com/KvheA2sNQe.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-20T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "gift-guide-lifter": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "grow-with-just-dumbbells": {
       "booked_at": "2026-11-10T17:43:56.000Z",
@@ -1140,6 +1938,26 @@
       ],
       "scheduled_for": "2026-11-19T23:30:00.000Z",
       "status": "scheduled"
+    },
+    "gym-myths-still-believe": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "gym-rankings-s-to-f": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "gym-red-flags": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "gym-splits-ranked": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "healthy-foods-cut": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "how-close-to-failure": {
       "posted_at": "2026-11-10T12:00:00Z",
@@ -1274,6 +2092,10 @@
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "influencer-lies-you-fell-for": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
     "is-12-3-30-actually-good": {
       "booked_at": "2026-11-10T17:44:22.000Z",
       "channels": {
@@ -1314,6 +2136,10 @@
       ],
       "scheduled_for": "2026-11-21T23:30:00.000Z",
       "status": "scheduled"
+    },
+    "is-bmi-useless-if-you-lift": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "is-fasting-better-for-fat-loss": {
       "booked_at": "2026-11-10T17:44:16.000Z",
@@ -1360,6 +2186,10 @@
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "is-pre-workout-worth-it": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
     "is-running-bad-for-your-knees": {
       "booked_at": "2026-11-10T17:44:29.000Z",
       "channels": {
@@ -1405,9 +2235,17 @@
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "is-stretching-a-waste": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
     "is-sugar-really-the-enemy": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "is-the-smith-machine-a-joke": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "is-your-workout-too-long": {
       "booked_at": "2026-11-10T17:43:48.000Z",
@@ -1550,6 +2388,193 @@
       "scheduled_for": "2026-11-27T23:30:00.000Z",
       "status": "scheduled"
     },
+    "learn-the-hip-hinge-first": {
+      "booked_at": "2026-11-11T12:11:22.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2vt6v06rbl5073onl5ye5",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "31f6015b-bc0b-4671-bbe1-aaf369189e72",
+          "path": "https://uploads.postiz.com/hdIv6Zhc4j.jpg"
+        },
+        {
+          "id": "d4f97819-279c-4008-962a-071e3dbf056a",
+          "path": "https://uploads.postiz.com/2Dott1rDct.jpg"
+        },
+        {
+          "id": "04fbab1e-2d1c-4700-af69-0a695e320b63",
+          "path": "https://uploads.postiz.com/WZi4gUjj7H.jpg"
+        },
+        {
+          "id": "2ebdbc8e-9aa9-4e35-ac1c-bb7edda8409f",
+          "path": "https://uploads.postiz.com/tlLJJmWWCB.jpg"
+        },
+        {
+          "id": "a61a5ca9-3c62-465a-8f9e-23952197401d",
+          "path": "https://uploads.postiz.com/2Ce3mu77KD.jpg"
+        },
+        {
+          "id": "e0aa280b-0647-45f1-b14a-cdc005da3a37",
+          "path": "https://uploads.postiz.com/xOOFDcANCh.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-08T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "left-right-arm-photo-check": {
+      "booked_at": "2026-11-11T12:14:42.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc303hr06whl507vt6i2c6d",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc303hd06wgl50736xvyv3e",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "c4026316-e522-44e2-a711-4564d119a84b",
+          "path": "https://uploads.postiz.com/VN74z3rrNZ.jpg"
+        },
+        {
+          "id": "8848bff9-db20-40a0-b0f9-e70830502697",
+          "path": "https://uploads.postiz.com/U3xYBh0IH7.jpg"
+        },
+        {
+          "id": "b361bf56-5690-4a7c-8374-462d37f87d90",
+          "path": "https://uploads.postiz.com/Nq3qGKCn7u.jpg"
+        },
+        {
+          "id": "8dceb38b-ac2b-4e67-b760-b9c3de6843b1",
+          "path": "https://uploads.postiz.com/kIR1oW1bQ2.jpg"
+        },
+        {
+          "id": "ff7d1143-d423-4d50-a4f7-04b73112f94d",
+          "path": "https://uploads.postiz.com/pRALhOoM22.jpg"
+        },
+        {
+          "id": "840eed6f-e41c-40f9-80b5-56385f6b8ad6",
+          "path": "https://uploads.postiz.com/vYxy508dgA.jpg"
+        },
+        {
+          "id": "45642cf5-67f7-4415-a179-3511e9d7e481",
+          "path": "https://uploads.postiz.com/wxHUHwdfHJ.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-17T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "leg-extension-setup-card": {
+      "booked_at": "2026-11-11T12:12:56.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2xu7y06ssl507vpx7acby",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "b3cc0f47-2f78-440d-876b-3fe183557dd6",
+          "path": "https://uploads.postiz.com/xWdbawLSxZ.jpg"
+        },
+        {
+          "id": "03c001b2-0d7a-4baa-99c3-94a086f30df8",
+          "path": "https://uploads.postiz.com/9YSAQjPZUJ.jpg"
+        },
+        {
+          "id": "9e7becf4-86bf-48fd-a05d-31962e1d92a9",
+          "path": "https://uploads.postiz.com/RXXd3qDtlN.jpg"
+        },
+        {
+          "id": "ded5a923-ac2d-4cd5-af62-aae2811a3a12",
+          "path": "https://uploads.postiz.com/BDr41ahehI.jpg"
+        },
+        {
+          "id": "539582d0-3f75-4170-84cc-adbad214ab5d",
+          "path": "https://uploads.postiz.com/JQtxGXbYEg.jpg"
+        },
+        {
+          "id": "75d7d035-7938-48ce-874d-093237dc7065",
+          "path": "https://uploads.postiz.com/LBwlCPaqD2.jpg"
+        },
+        {
+          "id": "58289ebb-1a0a-4bdc-a456-34b28d4685b9",
+          "path": "https://uploads.postiz.com/Js0I8Y3Gh6.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-24T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "leg-press-depth-you-can-control": {
+      "booked_at": "2026-11-11T12:11:28.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2vxy906rcl507j07oxpng",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "f5e5770a-8e62-4fdc-8000-199e94ba1edd",
+          "path": "https://uploads.postiz.com/NStvD4Yf3e.jpg"
+        },
+        {
+          "id": "b7bff3d0-7da8-4983-91a5-cf048fefdcca",
+          "path": "https://uploads.postiz.com/QSh6dPxrro.jpg"
+        },
+        {
+          "id": "941e64d4-b60e-42ca-a792-0905bb0257d4",
+          "path": "https://uploads.postiz.com/jrFOdHiAkL.jpg"
+        },
+        {
+          "id": "10343a13-3d88-47cd-b65e-0c4ecb5dc252",
+          "path": "https://uploads.postiz.com/bebXTLKfQM.jpg"
+        },
+        {
+          "id": "cb58d706-7b7c-46fa-ab2b-03ced91904bd",
+          "path": "https://uploads.postiz.com/d1bpHInP3V.jpg"
+        },
+        {
+          "id": "c5c6ff8f-7d1d-457b-97c9-b11f57c09cef",
+          "path": "https://uploads.postiz.com/La1ogVTFct.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-09T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "lifting-in-your-30s": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "lifting-wont-make-you-bulky": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
     "lose-fat-build-muscle": {
       "booked_at": "2026-11-10T17:44:47.000Z",
       "channels": {
@@ -1591,9 +2616,171 @@
       "scheduled_for": "2026-11-25T23:30:00.000Z",
       "status": "scheduled"
     },
+    "love-island-gym-types": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "lower-body-exercise-swap-map": {
+      "booked_at": "2026-11-11T12:12:42.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2xiuo06sil507v59ckgbq",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "fa99bb54-058d-45fc-a956-daa600ac529b",
+          "path": "https://uploads.postiz.com/SahFbt3Dug.jpg"
+        },
+        {
+          "id": "5ff2a9ca-6eb6-4af1-8ed6-ca1c58d239bb",
+          "path": "https://uploads.postiz.com/OoS3nVTgWy.jpg"
+        },
+        {
+          "id": "3a71c70d-068a-40f3-a68d-cfafe3ce4409",
+          "path": "https://uploads.postiz.com/tDIeNsNiP9.jpg"
+        },
+        {
+          "id": "766c1c13-51e0-4e5c-975a-11293806fcc9",
+          "path": "https://uploads.postiz.com/JOUT8joURV.jpg"
+        },
+        {
+          "id": "e886fcdb-e594-44f0-a559-bc49471d4b34",
+          "path": "https://uploads.postiz.com/j648pRrk98.jpg"
+        },
+        {
+          "id": "d21ee5bc-8b4a-4798-9ff7-b0fdcfbab6f0",
+          "path": "https://uploads.postiz.com/qPH1vUs4po.jpg"
+        },
+        {
+          "id": "9a0e2190-53d2-4d09-9bbd-1eb28ef7b8f0",
+          "path": "https://uploads.postiz.com/hY8nAKm3pA.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-22T23:30:00.000Z",
+      "status": "scheduled"
+    },
     "maintenance-in-4-rules": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "make-your-dumbbell-row-repeatable": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "match-your-sled-push-route": {
+      "booked_at": "2026-11-11T12:15:39.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc31bqt06ybl507slsjs490",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc31bq406yal507yillutbw",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "a04a94cf-8554-4a07-a381-a1be3d867a54",
+          "path": "https://uploads.postiz.com/kwOt0kkAPo.jpg"
+        },
+        {
+          "id": "8a03d342-1995-4151-8114-d2e6345b7293",
+          "path": "https://uploads.postiz.com/CdNIz622rb.jpg"
+        },
+        {
+          "id": "7db553d4-6dc8-4dd5-b008-78f940ec4576",
+          "path": "https://uploads.postiz.com/wDHPxhHZiU.jpg"
+        },
+        {
+          "id": "3ae1e84a-4fb5-46f9-877a-79ee461f455d",
+          "path": "https://uploads.postiz.com/6cj5V56mH5.jpg"
+        },
+        {
+          "id": "4801a86a-e56d-4fb7-8ada-bb9921f565ea",
+          "path": "https://uploads.postiz.com/Y8b0YdFrUy.jpg"
+        },
+        {
+          "id": "749f9f1c-0489-4d01-9f0d-3de9e279939d",
+          "path": "https://uploads.postiz.com/9YGwh3GAjG.jpg"
+        },
+        {
+          "id": "cf738a2d-be78-4b27-927d-50b2a2f8a4d2",
+          "path": "https://uploads.postiz.com/fty4aZRKTN.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-27T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "missed-monday-do-this-next": {
+      "booked_at": "2026-11-11T12:12:02.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2wnvq06rxl507sin6mpnb",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "97185ccd-5980-4c2e-bbaf-4f382b78d82a",
+          "path": "https://uploads.postiz.com/Gn26rzuEIl.jpg"
+        },
+        {
+          "id": "866b099d-cf41-4995-a1a9-5952b2b7fbc6",
+          "path": "https://uploads.postiz.com/V7quGLFbRR.jpg"
+        },
+        {
+          "id": "e763defa-d263-4907-a953-b8b0358f8f02",
+          "path": "https://uploads.postiz.com/bWNWBYPG4s.jpg"
+        },
+        {
+          "id": "6d84cef5-1d69-49bd-877b-887ab0c5e5c5",
+          "path": "https://uploads.postiz.com/Z9vQHZtXt0.jpg"
+        },
+        {
+          "id": "11bc6856-f8ef-4146-8396-4fdecbfaf58f",
+          "path": "https://uploads.postiz.com/fgvTIvl4ZU.jpg"
+        },
+        {
+          "id": "b2450a6b-4067-4aae-a6f0-c3a0ac3998e9",
+          "path": "https://uploads.postiz.com/Y1408pkc8i.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-15T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "mistakes-killing-your-back": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "mistakes-killing-your-glutes": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "mistakes-killing-your-shoulders": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "moms-built-different": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "motivation-too-easy": {
       "booked_at": "2026-11-10T17:45:17.000Z",
@@ -1669,13 +2856,620 @@
       "scheduled_for": "2026-11-26T23:30:00.000Z",
       "status": "scheduled"
     },
+    "muscle-turn-to-fat": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "muscles-are-a-gift": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "next-dumbbell-too-heavy": {
+      "booked_at": "2026-11-11T12:10:31.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2upte06qql507g5vrw02b",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2upsx06qpl507gx7rnuea",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "43348b77-f551-4ebb-9752-269a940b1df2",
+          "path": "https://uploads.postiz.com/mAPVVbygoZ.jpg"
+        },
+        {
+          "id": "b16c8c38-599f-4b67-b484-5569ab2ff32b",
+          "path": "https://uploads.postiz.com/UfuBxWG7nO.jpg"
+        },
+        {
+          "id": "baa0e19f-cc5d-48ba-ba45-6c190ce61eb8",
+          "path": "https://uploads.postiz.com/AdUUGNfSKu.jpg"
+        },
+        {
+          "id": "78726aae-5209-4ce8-be9e-464ddaf8632f",
+          "path": "https://uploads.postiz.com/6Ua144rueK.jpg"
+        },
+        {
+          "id": "3eb8fb99-cc91-4a3f-9375-2f40082d3bb1",
+          "path": "https://uploads.postiz.com/s0PZPf9cDE.jpg"
+        },
+        {
+          "id": "e444a89b-3e05-4281-838c-04268d2f8fa3",
+          "path": "https://uploads.postiz.com/l81GvxHhrT.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-12T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "no-gains-habits": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "no-gym-no-problem": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "not-drinking-enough-water": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "numbers-can-talk": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "only-look-big-with-a-pump": {
+      "booked_at": "2026-11-11T12:09:05.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2svra06j5r007sqkqx8zh",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2svqy06j4r007u2mbbxdr",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "401f981e-bfe9-4027-98f6-b3c3105b7885",
+          "path": "https://uploads.postiz.com/WMjqgyy2v7.jpg"
+        },
+        {
+          "id": "1fb80096-97b2-4a8e-be00-39c3981338e9",
+          "path": "https://uploads.postiz.com/B7YNUwc7zd.jpg"
+        },
+        {
+          "id": "d9cbb63a-98be-43e4-8a6e-b9f6f43cfea0",
+          "path": "https://uploads.postiz.com/kMWCvaoW7r.jpg"
+        },
+        {
+          "id": "0d6a062a-8d3d-4313-ab35-6f037168b379",
+          "path": "https://uploads.postiz.com/5RuLv59I2J.jpg"
+        },
+        {
+          "id": "866b0aa4-6f80-44a6-bf72-44fdc99e5bf5",
+          "path": "https://uploads.postiz.com/vAU5rwMGps.jpg"
+        },
+        {
+          "id": "38030ed7-8e58-4b62-ad7c-3eb8dfdbb45f",
+          "path": "https://uploads.postiz.com/GjOGGxZqgb.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-08T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "out-train-a-bad-diet": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "pack-your-gym-bag-tonight": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "pick-your-rower-damper": {
+      "booked_at": "2026-11-11T12:14:37.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2zzie06nlr0078q18bm4b",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2zzi406nkr007fddvnze9",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "0aa2cf62-4e6d-4494-a784-71d4ecca89a5",
+          "path": "https://uploads.postiz.com/SwVIzOJvNH.jpg"
+        },
+        {
+          "id": "6020d31f-264a-4067-9513-2480ccf670e2",
+          "path": "https://uploads.postiz.com/oNa8QGtIGx.jpg"
+        },
+        {
+          "id": "3976ec78-1f7b-4480-ad85-e4bed818b01d",
+          "path": "https://uploads.postiz.com/dOZnDKoTdw.jpg"
+        },
+        {
+          "id": "a9d46c5e-006f-4fe2-b2f1-da829780e7a3",
+          "path": "https://uploads.postiz.com/l1o9e6OyH5.jpg"
+        },
+        {
+          "id": "f7686602-7143-4be8-9878-2f3a178961fe",
+          "path": "https://uploads.postiz.com/GqBQXLfXEI.jpg"
+        },
+        {
+          "id": "7dd0b820-b0f8-4ad8-b405-702fcf2c3e89",
+          "path": "https://uploads.postiz.com/Cbk7lLlXJw.jpg"
+        },
+        {
+          "id": "89464a61-9a4d-49aa-a24d-5d4f3ff3b233",
+          "path": "https://uploads.postiz.com/z85kI3HDMZ.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-16T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "planks-before-the-timer": {
+      "booked_at": "2026-11-11T12:10:49.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2v3jg06kcr0074su2bi0u",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "9c2877b1-efd5-4fd9-a035-28214b55fa02",
+          "path": "https://uploads.postiz.com/VmA0C36nct.jpg"
+        },
+        {
+          "id": "c1f04738-8711-46c8-bfd1-69b882a0bf3f",
+          "path": "https://uploads.postiz.com/3TEWcjJLVK.jpg"
+        },
+        {
+          "id": "9cd1816a-8eb6-430c-9af2-a1132190f305",
+          "path": "https://uploads.postiz.com/yc6uTgbqqb.jpg"
+        },
+        {
+          "id": "bf8e2458-7651-4b63-9896-d47eadc5a6a1",
+          "path": "https://uploads.postiz.com/7FxkjXCqU1.jpg"
+        },
+        {
+          "id": "0cea2232-509d-4175-ad54-dcd94204bfe7",
+          "path": "https://uploads.postiz.com/H3n1mteDj8.jpg"
+        },
+        {
+          "id": "a3c75134-235c-4d51-adff-4d108079579f",
+          "path": "https://uploads.postiz.com/chAJdls0VA.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-02T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "pov-225-bench": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "pre-lift-mistakes": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "proof-your-gains-promo": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
     "protein-hacks-sound-fake": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "protein-isnt-magic": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "push-ups-start-higher": {
+      "booked_at": "2026-11-11T12:10:43.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2uz5r06qtl507hmrvq0t9",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "f5ee442d-32f1-4782-b6af-6e3c02123f58",
+          "path": "https://uploads.postiz.com/ge7H22qUqz.jpg"
+        },
+        {
+          "id": "3e16ff42-3686-43b7-b905-9475800bdfb0",
+          "path": "https://uploads.postiz.com/tqMPe5HKJ7.jpg"
+        },
+        {
+          "id": "aa0e53ce-f7eb-45c2-a3d8-296b96e88915",
+          "path": "https://uploads.postiz.com/QzxLKFsjOk.jpg"
+        },
+        {
+          "id": "e9c09827-1073-4245-a119-3841ec4dd647",
+          "path": "https://uploads.postiz.com/aIfBZmKW9u.jpg"
+        },
+        {
+          "id": "23b7cb47-c714-47b9-bdfd-ac2cf169ab1c",
+          "path": "https://uploads.postiz.com/86mXZmdbuf.jpg"
+        },
+        {
+          "id": "abd9599d-19b1-4069-952e-88d9e9f16a46",
+          "path": "https://uploads.postiz.com/f89Bzag6va.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-01T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "recovery-habits-wrecking-gains": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
     "recovery-sound-fake": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "repeat-your-pec-deck-setup": {
+      "booked_at": "2026-11-11T12:15:05.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc30lca06wrl5073724ffb6",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc30lbu06wql507v9z1o597",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "690032ac-3262-4317-8fa5-dc3ad3ba3125",
+          "path": "https://uploads.postiz.com/9TbB1M1ajd.jpg"
+        },
+        {
+          "id": "83ebe804-eea6-4066-b7da-232f8005c100",
+          "path": "https://uploads.postiz.com/lHPEyGwWqc.jpg"
+        },
+        {
+          "id": "0a5b32ad-1efa-471d-b269-6c276f1cbe2e",
+          "path": "https://uploads.postiz.com/6Q8ulUWikd.jpg"
+        },
+        {
+          "id": "b70daad7-fd03-433c-a118-d3c05723d5e2",
+          "path": "https://uploads.postiz.com/Qyc9MFxmsk.jpg"
+        },
+        {
+          "id": "c8b4688a-f8af-41df-b91c-7e1127c19d38",
+          "path": "https://uploads.postiz.com/nfQSIkBpww.jpg"
+        },
+        {
+          "id": "63477a78-28f2-45f8-aaa9-06a91e5eda6c",
+          "path": "https://uploads.postiz.com/lxtKojim7J.jpg"
+        },
+        {
+          "id": "56c2331f-cb9a-4fc4-9bf8-4fb5604b5197",
+          "path": "https://uploads.postiz.com/9upQFzwadP.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-21T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "reps-crashed-check-your-rest": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "rest-days-build-muscle": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "revenge-bedtime-kills-gains": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "scale-stalls-lie": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "scale-weight-trap": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "scared-to-bulk-start-here": {
+      "booked_at": "2026-11-11T12:09:11.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2szsx06p4l507mub39j9i",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2szsi06p3l507fn28q7r6",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "12562cdc-ad60-4fc4-b0e3-f1fbf306c7f7",
+          "path": "https://uploads.postiz.com/dIt0Zj3cg5.jpg"
+        },
+        {
+          "id": "82ecb66e-4f8a-4552-8093-48c4356c2b57",
+          "path": "https://uploads.postiz.com/6wrvr0qYYE.jpg"
+        },
+        {
+          "id": "1099b60d-7b85-4b82-b696-6713f9b4de8b",
+          "path": "https://uploads.postiz.com/1zLkZJqcpC.jpg"
+        },
+        {
+          "id": "6c42d0b8-0482-4c18-a2e4-6c029588d186",
+          "path": "https://uploads.postiz.com/0102JLE1rH.jpg"
+        },
+        {
+          "id": "76bd91e1-7b5c-4a60-b761-b1ec3126d7bf",
+          "path": "https://uploads.postiz.com/1GX7Wstjz9.jpg"
+        },
+        {
+          "id": "62b230b8-ec8c-415c-b6a6-4ad757afbc2f",
+          "path": "https://uploads.postiz.com/CABV7uvG7a.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-09T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "seated-leg-curl-setup-card": {
+      "booked_at": "2026-11-11T12:13:04.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2y06y06lhr007z8q17m1d",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "c1eca4fb-6307-45c5-affd-21daef66fe86",
+          "path": "https://uploads.postiz.com/ln4XgMFt5M.jpg"
+        },
+        {
+          "id": "fa198f8e-747e-4863-a453-73fb7c4b4002",
+          "path": "https://uploads.postiz.com/dLasESIfkG.jpg"
+        },
+        {
+          "id": "de3dbb58-1770-42f1-9bee-f553fce65b49",
+          "path": "https://uploads.postiz.com/Umfi6fvadx.jpg"
+        },
+        {
+          "id": "6cd60b0e-c79c-4d34-90a1-3658b2d586ba",
+          "path": "https://uploads.postiz.com/OwekZTOtnl.jpg"
+        },
+        {
+          "id": "f7309aba-802f-4ac9-8ee7-4e8f51fd6aa9",
+          "path": "https://uploads.postiz.com/lYksv5F0bJ.jpg"
+        },
+        {
+          "id": "80c4be49-9080-4fb3-a595-fad15810d6a0",
+          "path": "https://uploads.postiz.com/IPFnxeKV2n.jpg"
+        },
+        {
+          "id": "8e36f783-00fa-410b-80a7-c2415fa81cd5",
+          "path": "https://uploads.postiz.com/aOhPUbXDLt.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-25T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "set-a-repeatable-box-squat": {
+      "booked_at": "2026-11-11T12:15:22.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc30ycp06our0078mra4tns",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc30yc006otr007cp3s0f89",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "ccd85e70-545a-40b4-8acf-854d7c9fff91",
+          "path": "https://uploads.postiz.com/t4Aos14fCv.jpg"
+        },
+        {
+          "id": "263c49d3-0229-4770-bf9a-75a6ed0f432d",
+          "path": "https://uploads.postiz.com/OnuZK8aYEp.jpg"
+        },
+        {
+          "id": "3798153d-c1e0-4478-83eb-edaf0ed7397d",
+          "path": "https://uploads.postiz.com/S3BWVFHvWT.jpg"
+        },
+        {
+          "id": "18d1cbae-3db2-4b5a-b3fe-76101a6c366f",
+          "path": "https://uploads.postiz.com/qo70UH4kGN.jpg"
+        },
+        {
+          "id": "b3dcc1ef-a572-41fc-a776-ac07cc0a6eca",
+          "path": "https://uploads.postiz.com/YXdISJc82c.jpg"
+        },
+        {
+          "id": "9323250f-cbbd-4104-97cf-a75672f8295b",
+          "path": "https://uploads.postiz.com/FtWxtyTFtF.jpg"
+        },
+        {
+          "id": "f3019625-5951-4dfc-858c-1d6437da2161",
+          "path": "https://uploads.postiz.com/YUYvzaNweC.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-24T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "set-your-bike-saddle": {
+      "booked_at": "2026-11-11T12:14:54.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc30cnx06nnr007m8kpkuhz",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc30cnp06nmr007i41ytw65",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "f5f6c459-f9ed-44f7-9440-22409c88f5dd",
+          "path": "https://uploads.postiz.com/gxCffBPeyJ.jpg"
+        },
+        {
+          "id": "d87f70b3-e87e-4d37-bba5-3bc191c3f46d",
+          "path": "https://uploads.postiz.com/NoagZIeVqZ.jpg"
+        },
+        {
+          "id": "ef88c50f-44a2-46af-b9eb-b69ee7c16735",
+          "path": "https://uploads.postiz.com/TPBAXKwnBB.jpg"
+        },
+        {
+          "id": "079bf4b3-ccc3-435f-920f-d1144a682f46",
+          "path": "https://uploads.postiz.com/hAcUJT4Sys.jpg"
+        },
+        {
+          "id": "a392c8cd-20d0-4278-b17d-2535b7961497",
+          "path": "https://uploads.postiz.com/pU1hvuSLgL.jpg"
+        },
+        {
+          "id": "3cc3324c-1646-4c82-aac9-41d255cf500d",
+          "path": "https://uploads.postiz.com/WyAqUzkd08.jpg"
+        },
+        {
+          "id": "4aca8b55-724a-4e5d-92a8-bf5260d17a11",
+          "path": "https://uploads.postiz.com/gLv9GEb9Et.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-19T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "set-your-smith-squat-stops": {
+      "booked_at": "2026-11-11T12:14:59.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc30h0406nsr00756wa9aev",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc30gzw06nrr0074ymmifvl",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "35f04925-3920-4065-a431-2b017f96b10a",
+          "path": "https://uploads.postiz.com/z8hcC6PscJ.jpg"
+        },
+        {
+          "id": "068cbf4f-c95a-4535-b8d2-3e360729b4dc",
+          "path": "https://uploads.postiz.com/XlvWGwbX2h.jpg"
+        },
+        {
+          "id": "425301b2-538c-4a0f-8e41-60a97dd6c697",
+          "path": "https://uploads.postiz.com/TiCx2OePqG.jpg"
+        },
+        {
+          "id": "4077bcf1-bcc8-4806-aaca-8693764d4798",
+          "path": "https://uploads.postiz.com/mDVxCxiAKD.jpg"
+        },
+        {
+          "id": "0121f445-d749-4981-8645-580cc3f83636",
+          "path": "https://uploads.postiz.com/XiQ5s8ulZV.jpg"
+        },
+        {
+          "id": "8cf06570-a7e2-48ab-979a-f465e9254381",
+          "path": "https://uploads.postiz.com/BdtDn7qcQa.jpg"
+        },
+        {
+          "id": "51751a17-9571-4335-a2a5-42eaf7709741",
+          "path": "https://uploads.postiz.com/7WNAIYaqz9.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-20T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "should-you-train-when-sore": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "shoulder-press-starts-at-the-bench": {
       "booked_at": "2026-11-11T11:55:56.000Z",
@@ -1733,6 +3527,10 @@
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "sleep-beats-supplements": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
     "sleep-hacks-sound-fake": {
       "booked_at": "2026-11-10T17:45:05.000Z",
       "channels": {
@@ -1774,6 +3572,228 @@
       "scheduled_for": "2026-11-28T23:30:00.000Z",
       "status": "scheduled"
     },
+    "sleep-killing-gains": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "sleep-runs-your-diet": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "soreness-isnt-growth": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "split-squats-with-less-wobble": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "stages-of-a-summer-cut": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "stalled-lift-troubleshooting": {
+      "booked_at": "2026-11-11T12:14:20.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2zmxn06w6l507i2ny08ef",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2zmx806w5l5077zw2iuwn",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "15986756-5a8c-4e18-b0bb-f4f6eaf2a6a7",
+          "path": "https://uploads.postiz.com/8VyiU3zooU.jpg"
+        },
+        {
+          "id": "c6cd24f6-7330-4743-a1ec-96cb15589eea",
+          "path": "https://uploads.postiz.com/eYw2vlzKf1.jpg"
+        },
+        {
+          "id": "060d5fd9-08a7-4188-a7c9-5aeadd6ba65b",
+          "path": "https://uploads.postiz.com/DRUKR4v9Ts.jpg"
+        },
+        {
+          "id": "f754ea7a-6c4c-4635-82d3-7dd35adf7d79",
+          "path": "https://uploads.postiz.com/rtlJ6UGReG.jpg"
+        },
+        {
+          "id": "5d33046b-24bc-4cc6-a7aa-59803119030a",
+          "path": "https://uploads.postiz.com/Hjg3oRc6uZ.jpg"
+        },
+        {
+          "id": "96029f44-4805-4947-9c31-22af88ee665f",
+          "path": "https://uploads.postiz.com/2AtTyEjiNi.jpg"
+        },
+        {
+          "id": "c091732a-9f4b-41de-99e8-e8d0fe946680",
+          "path": "https://uploads.postiz.com/e1cBVTCzks.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-13T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "start-running-with-walk-breaks": {
+      "booked_at": "2026-11-11T12:10:55.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2v86r06kdr007v1l5f1nb",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "22bedbb6-85f1-452a-8f77-add84fd3cea0",
+          "path": "https://uploads.postiz.com/plAGIvscsI.jpg"
+        },
+        {
+          "id": "303274c8-b355-4983-b747-a8de054344e6",
+          "path": "https://uploads.postiz.com/cmLAmNQQ9p.jpg"
+        },
+        {
+          "id": "fe5a9344-6e3a-41c7-b2c8-96bb4687cdc2",
+          "path": "https://uploads.postiz.com/yrNLe9PIN0.jpg"
+        },
+        {
+          "id": "12d4ef2e-e5dd-4a35-bf2e-c24c9d812935",
+          "path": "https://uploads.postiz.com/9Fjlppy2uT.jpg"
+        },
+        {
+          "id": "02db5bbb-487e-42cd-8928-c997db6184a7",
+          "path": "https://uploads.postiz.com/e52NXUyvok.jpg"
+        },
+        {
+          "id": "c35585a3-d432-4499-9847-8ce830be47b3",
+          "path": "https://uploads.postiz.com/ctzUsfZULy.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-03T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "steps-beat-hiit": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "stop-chasing-pump": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "stop-copying-his-workout": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "stop-failing-the-same-pull-up": {
+      "booked_at": "2026-11-11T12:08:39.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2sbpw06iur007wxm9hs37",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2sbpf06itr007z1hjy065",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "064252dd-e198-46ed-96fe-2e2ba911bd48",
+          "path": "https://uploads.postiz.com/XAMNOInF4A.jpg"
+        },
+        {
+          "id": "7448b2f5-be29-4ced-90eb-4919f4d2ead9",
+          "path": "https://uploads.postiz.com/aF83XeRsnz.jpg"
+        },
+        {
+          "id": "55bdfe1d-6ccc-4774-a18b-a95f9a92eecc",
+          "path": "https://uploads.postiz.com/mm1p1tsiC9.jpg"
+        },
+        {
+          "id": "cd53ccf3-7f12-47e7-980c-f99091475341",
+          "path": "https://uploads.postiz.com/PTm8g6stEa.jpg"
+        },
+        {
+          "id": "37d5221e-70b3-4242-ab86-5bc40bca09ea",
+          "path": "https://uploads.postiz.com/On7ccsHfLo.jpg"
+        },
+        {
+          "id": "061aeb9c-4d1c-49f7-9895-f42dfff7d5cd",
+          "path": "https://uploads.postiz.com/TS8uf6ogAz.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-03T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "stop-guessing-body-fat": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "stop-program-hopping": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "stop-turning-pulldowns-into-rows": {
+      "booked_at": "2026-11-11T12:11:17.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2vpd606kjr007qkxrgpt0",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "34b5412a-a4ec-45ba-a2f8-68e6496c4e91",
+          "path": "https://uploads.postiz.com/O7H8wJX1oL.jpg"
+        },
+        {
+          "id": "9e922780-c809-4e5c-a92b-bf1ddcd50745",
+          "path": "https://uploads.postiz.com/HqZiJOMLYq.jpg"
+        },
+        {
+          "id": "dc3e28d4-be47-4334-8b70-f0ee42501f76",
+          "path": "https://uploads.postiz.com/Txm1kFpQTl.jpg"
+        },
+        {
+          "id": "0951723f-ade8-4d29-a48b-ccf5998f6fdd",
+          "path": "https://uploads.postiz.com/Yk2rxPaB13.jpg"
+        },
+        {
+          "id": "b66deb10-de30-4ce9-a1cd-f24ec7ca482a",
+          "path": "https://uploads.postiz.com/hH1Q33Ky6Z.jpg"
+        },
+        {
+          "id": "8dc5e303-f057-4ae2-9186-5615f5d1ce20",
+          "path": "https://uploads.postiz.com/oC6RbIAYYx.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-07T23:30:00.000Z",
+      "status": "scheduled"
+    },
     "strength-sounds-illegal": {
       "booked_at": "2026-11-10T17:45:11.000Z",
       "channels": {
@@ -1811,6 +3831,55 @@
       "scheduled_for": "2026-11-29T23:30:00.000Z",
       "status": "scheduled"
     },
+    "summer-shred-checklist": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "supersets-without-the-chaos": {
+      "booked_at": "2026-11-11T12:12:12.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2wvvb06kxr007x6rf2om1",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "8fc1211f-aa2c-4ca0-87db-6258f9573782",
+          "path": "https://uploads.postiz.com/zuZtcCRWn5.jpg"
+        },
+        {
+          "id": "92f8cabf-7da0-4fb9-9843-115baaefcac1",
+          "path": "https://uploads.postiz.com/yyd7UXe2Ta.jpg"
+        },
+        {
+          "id": "326631fb-67ba-45c4-83d3-05043e60fce9",
+          "path": "https://uploads.postiz.com/WUHlMFLrVN.jpg"
+        },
+        {
+          "id": "e0451667-48e2-474a-baad-30ffb38ae5ce",
+          "path": "https://uploads.postiz.com/7rcVt1ZHv5.jpg"
+        },
+        {
+          "id": "08669b11-4e48-4d63-81ba-24e6023907fa",
+          "path": "https://uploads.postiz.com/3hJLecfBVg.jpg"
+        },
+        {
+          "id": "3d91d45a-5a93-481e-8391-efefbd874658",
+          "path": "https://uploads.postiz.com/a4f7GXPreA.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-17T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "sweat-isnt-fat-loss": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
     "target-belly-fat": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
@@ -1819,6 +3888,195 @@
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "the-cable-attachment-cheat-sheet": {
+      "booked_at": "2026-11-11T12:08:55.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2so3506otl507sqkeg3bf",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2so2p06osl507t8l7d5jx",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "efbfd35c-70ec-4780-9372-77c6b223e76c",
+          "path": "https://uploads.postiz.com/icLnl1qcca.jpg"
+        },
+        {
+          "id": "c86fcde5-4d1d-410f-8e99-d876192aef17",
+          "path": "https://uploads.postiz.com/AIzm1q2nKa.jpg"
+        },
+        {
+          "id": "3bf18a3a-ac1b-4c63-90ab-92d65cc702cc",
+          "path": "https://uploads.postiz.com/IXZWSvlit1.jpg"
+        },
+        {
+          "id": "275371d3-699f-4d56-92de-0b75df439b60",
+          "path": "https://uploads.postiz.com/P5ssRuWlI1.jpg"
+        },
+        {
+          "id": "f2a0cf9a-466f-47c1-96f0-8d8a50ffc41a",
+          "path": "https://uploads.postiz.com/N57bM7Cg6B.jpg"
+        },
+        {
+          "id": "38b7f3fd-8dbd-4876-b902-e571adfd8dbd",
+          "path": "https://uploads.postiz.com/RTij6iPukf.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-06T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "the-gym-is-full-now-what": {
+      "booked_at": "2026-11-11T12:08:45.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2sfsz06iyr0071vvmuo9l",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2sfs506ixr00755iei7oo",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "ede46f2a-ab81-49a8-994d-08c973c9615c",
+          "path": "https://uploads.postiz.com/JeWS3yQUbZ.jpg"
+        },
+        {
+          "id": "dcfe5647-3cdf-4cb2-89c5-5709f3d81943",
+          "path": "https://uploads.postiz.com/yhqE50dQOv.jpg"
+        },
+        {
+          "id": "bc741f2d-d35f-4843-8303-58512750dad6",
+          "path": "https://uploads.postiz.com/LztyjAtYby.jpg"
+        },
+        {
+          "id": "e2f2ed69-a1a3-4b2c-8df5-65791d8d9dbf",
+          "path": "https://uploads.postiz.com/CVmdLgrYqm.jpg"
+        },
+        {
+          "id": "815ffffb-3280-45fb-b9b1-0ab1188f967a",
+          "path": "https://uploads.postiz.com/Mzlgx0z3jB.jpg"
+        },
+        {
+          "id": "2b714346-6643-4634-9b44-4cb18020c423",
+          "path": "https://uploads.postiz.com/AfB06nBLGj.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-04T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "the-hotel-gym-still-counts": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "the-label-is-not-the-whole-bag": {
+      "booked_at": "2026-11-11T12:11:39.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2w69306rnl50720qyjaya",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "096223b3-3415-4fd0-9a2f-b3f06f20efe7",
+          "path": "https://uploads.postiz.com/VuIJqFqiEp.jpg"
+        },
+        {
+          "id": "6da1921f-6a61-41e7-8c80-dc7516289686",
+          "path": "https://uploads.postiz.com/VjYv0bMPOO.jpg"
+        },
+        {
+          "id": "5ff5b5d0-30fa-4408-bcaa-def3dccd89c9",
+          "path": "https://uploads.postiz.com/1BYgwXTK0y.jpg"
+        },
+        {
+          "id": "bb825c35-6bd6-48a5-bc92-a76652e4db46",
+          "path": "https://uploads.postiz.com/akBjfecI4B.jpg"
+        },
+        {
+          "id": "5b755e1c-7cc6-4a5e-96bd-48e554545b2c",
+          "path": "https://uploads.postiz.com/6A2kRkb2Xp.jpg"
+        },
+        {
+          "id": "93ff69bb-7857-4b41-bf30-6078bef138dd",
+          "path": "https://uploads.postiz.com/449a1DW2QV.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-11T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "the-machine-doesnt-fit-you": {
+      "booked_at": "2026-11-11T12:08:34.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2s7zi06oel507k5p1k92f",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2s7z306odl507e064crmd",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "361c2a4f-47f8-4b7b-bdcb-695f34df36e3",
+          "path": "https://uploads.postiz.com/gWFjwb3eUX.jpg"
+        },
+        {
+          "id": "becb16ef-a435-4640-97d4-176b1672b717",
+          "path": "https://uploads.postiz.com/gxRzcWo6Tc.jpg"
+        },
+        {
+          "id": "9259c651-9a89-4b26-8812-655b74753299",
+          "path": "https://uploads.postiz.com/tTEsf99PU0.jpg"
+        },
+        {
+          "id": "02ff8dbc-4ff4-4b7e-a706-7ff9d0597ab6",
+          "path": "https://uploads.postiz.com/ug9c2hmBtV.jpg"
+        },
+        {
+          "id": "60c1f989-1acd-44a4-8815-5d9cfafbe8bc",
+          "path": "https://uploads.postiz.com/Uoyr30RsVG.jpg"
+        },
+        {
+          "id": "b25de658-a402-42f5-8457-15e0d8baf318",
+          "path": "https://uploads.postiz.com/hYuzczRB1M.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-02T23:30:00.000Z",
+      "status": "scheduled"
+    },
     "the-only-4-numbers-to-track": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
@@ -1826,6 +4084,356 @@
     "the-only-6-lifts-you-need": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "three-day-a-b-rotation": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "three-sets-what-to-lift-next": {
+      "booked_at": "2026-11-11T12:13:19.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2ybkz06lur007nq62q2ev",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "929c4fad-cfb9-4ce5-b339-3e97f5dfa138",
+          "path": "https://uploads.postiz.com/LEpsotnfKO.jpg"
+        },
+        {
+          "id": "1564d4d8-f12d-4e9f-90ae-6d97c50a7f78",
+          "path": "https://uploads.postiz.com/JwTbtIMlRg.jpg"
+        },
+        {
+          "id": "dab258f9-95ca-4735-ae20-195c45948c0e",
+          "path": "https://uploads.postiz.com/RRNR6IMx0M.jpg"
+        },
+        {
+          "id": "eb7b81c8-5f74-4e3f-b462-9c4adf051ce3",
+          "path": "https://uploads.postiz.com/5edyt9n03z.jpg"
+        },
+        {
+          "id": "6ab378aa-3bfb-4445-a8c4-8cc3f3194dd7",
+          "path": "https://uploads.postiz.com/glcylHFNhM.jpg"
+        },
+        {
+          "id": "9d7d5f9c-ab47-4f6c-9e66-9ad647b524cb",
+          "path": "https://uploads.postiz.com/V3J88zaFsB.jpg"
+        },
+        {
+          "id": "674a76aa-1115-4eac-81f0-c3519ae02962",
+          "path": "https://uploads.postiz.com/aRQfWhS20h.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-27T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "three-trials-grip-test": {
+      "booked_at": "2026-11-11T12:14:26.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2zr4k06n9r007qoakgr6b",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2zr4206n8r007zwcb02dc",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "f84db3e4-cfb3-4bee-a67a-1f0dfeb33780",
+          "path": "https://uploads.postiz.com/pUGy4W36gG.jpg"
+        },
+        {
+          "id": "de6e99d4-ed51-4016-bd38-99ba3dd187bb",
+          "path": "https://uploads.postiz.com/j2gQrUtdVx.jpg"
+        },
+        {
+          "id": "60c885fc-9e2b-4f27-969d-38cc8fafe302",
+          "path": "https://uploads.postiz.com/0rlzoAkRJX.jpg"
+        },
+        {
+          "id": "cb8e320d-931c-437f-9401-ce841ebfbdb1",
+          "path": "https://uploads.postiz.com/mECO4ihkp7.jpg"
+        },
+        {
+          "id": "6b270420-ada9-4990-98a9-57200a67b8d6",
+          "path": "https://uploads.postiz.com/TPdmbmGtnW.jpg"
+        },
+        {
+          "id": "e5fc2ada-f074-4d82-99b9-c9cf23bcdf92",
+          "path": "https://uploads.postiz.com/h5DzFbzet0.jpg"
+        },
+        {
+          "id": "cc90a85b-1b99-44a6-a0e5-24de873a159b",
+          "path": "https://uploads.postiz.com/G0HatO8geX.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-14T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "top-5-core-exercises": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "tracking-progress-wrong": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "train-less-grow-more": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "training-to-failure-trap": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "two-day-full-body-plan": {
+      "booked_at": "2026-11-11T12:12:24.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2x4vq06sel507s0z4y260",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "2ce7af2f-8ec9-4072-9701-9db0351cc84f",
+          "path": "https://uploads.postiz.com/gSh3ECSExf.jpg"
+        },
+        {
+          "id": "5b1b3472-ccb4-4798-bb92-b879d8f3c08a",
+          "path": "https://uploads.postiz.com/1jSJq8MMgp.jpg"
+        },
+        {
+          "id": "8f496ebc-62b6-4429-b8b3-29978ccb432f",
+          "path": "https://uploads.postiz.com/ViyUmjAzwu.jpg"
+        },
+        {
+          "id": "7cb81aa4-4146-4794-8506-8f89c19b66e0",
+          "path": "https://uploads.postiz.com/55Py78gbtU.jpg"
+        },
+        {
+          "id": "b6f3090f-26e5-4b85-8ca8-01494d4a35ec",
+          "path": "https://uploads.postiz.com/ZpD0ewxUm4.jpg"
+        },
+        {
+          "id": "480264a2-8717-4ab7-bcba-eb959b38cc0b",
+          "path": "https://uploads.postiz.com/Ojurqrm6p3.jpg"
+        },
+        {
+          "id": "306390c2-fdbe-48df-b498-99d85857a43a",
+          "path": "https://uploads.postiz.com/VAkOah8nLe.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-19T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "unilateral-set-counting-card": {
+      "booked_at": "2026-11-11T12:12:50.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2xov406sml507al5s6z1j",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "65a79e2b-2abd-4737-bd9c-10da721b4016",
+          "path": "https://uploads.postiz.com/Kb3sPBYwqj.jpg"
+        },
+        {
+          "id": "d70cbcf8-003e-4f3c-b1d1-8b97796f1cf1",
+          "path": "https://uploads.postiz.com/cK4q1ENyWm.jpg"
+        },
+        {
+          "id": "00bc2d83-9af1-4b7f-b7c1-e3e9053ca554",
+          "path": "https://uploads.postiz.com/DBvityqGxZ.jpg"
+        },
+        {
+          "id": "15356392-ee82-446a-9413-311b4d6a63a9",
+          "path": "https://uploads.postiz.com/76soujn07t.jpg"
+        },
+        {
+          "id": "5e62573b-f11e-4fd5-829d-bd4db43bca02",
+          "path": "https://uploads.postiz.com/OmGaBkJJr7.jpg"
+        },
+        {
+          "id": "9b529853-b660-4a0f-9263-f03c0d57e9c5",
+          "path": "https://uploads.postiz.com/fPJYh0U0u5.jpg"
+        },
+        {
+          "id": "a109a912-4ab6-427d-a294-1251b7b09864",
+          "path": "https://uploads.postiz.com/EtQYtVDWcA.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-23T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "upgrade-your-freezer-dinner": {
+      "booked_at": "2026-11-11T12:11:44.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2wadh06rql507bj7d32sb",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "fb292fb9-4c02-4e25-8f20-c0c049c06cd0",
+          "path": "https://uploads.postiz.com/4gtoXmU3v3.jpg"
+        },
+        {
+          "id": "84d433d9-8a74-4463-8826-4fc111f921d9",
+          "path": "https://uploads.postiz.com/qh28ZfAs5S.jpg"
+        },
+        {
+          "id": "9c0c616b-b92a-4019-ac56-30a5fa0ecceb",
+          "path": "https://uploads.postiz.com/3jkfFUMWuC.jpg"
+        },
+        {
+          "id": "8d3af157-94f8-47af-84c2-e332ef2be815",
+          "path": "https://uploads.postiz.com/ggDnAjg0FP.jpg"
+        },
+        {
+          "id": "4e210f6d-84b7-445a-8eaa-d43a3d9b456c",
+          "path": "https://uploads.postiz.com/wDafvFQxoY.jpg"
+        },
+        {
+          "id": "0ca83d56-4aed-4ab6-a2e5-9c64e85c5eec",
+          "path": "https://uploads.postiz.com/3ZPfGWL23s.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-12T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "upper-body-exercise-swap-map": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "use-the-talk-test": {
+      "booked_at": "2026-11-11T12:11:00.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2vcf306kfr0073f71i0i1",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "b0f25574-6c3c-4942-808f-1b7821d345c7",
+          "path": "https://uploads.postiz.com/WAtPQmJT4K.jpg"
+        },
+        {
+          "id": "bb61dd9f-c67f-4211-8f32-6cdf2194eb6c",
+          "path": "https://uploads.postiz.com/tyIu8KT3bn.jpg"
+        },
+        {
+          "id": "d3bba7d5-76ea-4418-a44a-3357c0d62ee4",
+          "path": "https://uploads.postiz.com/BYwQmrREAn.jpg"
+        },
+        {
+          "id": "4cad96ca-5c4c-4caa-845e-5fdbea8001fc",
+          "path": "https://uploads.postiz.com/k73kjRAXOR.jpg"
+        },
+        {
+          "id": "6ffbc4a5-bbd8-4265-a188-bfe06ee41b09",
+          "path": "https://uploads.postiz.com/H14tlTnZzY.jpg"
+        },
+        {
+          "id": "784296e1-f86e-4a2d-813c-641ef535da73",
+          "path": "https://uploads.postiz.com/lptbrlPQ0a.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-04T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "vacation-wont-ruin-gains": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "warm-up-or-lose": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "warm-up-set-examples": {
+      "booked_at": "2026-11-11T12:12:36.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2xe8i06lbr0078dz65azz",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "9830fe36-6241-4466-b0ba-cdcfd2ed8028",
+          "path": "https://uploads.postiz.com/PEtpDTGtnB.jpg"
+        },
+        {
+          "id": "2c9f5cfe-04a1-453f-b15b-99b09c801f6b",
+          "path": "https://uploads.postiz.com/IlifIXwaXa.jpg"
+        },
+        {
+          "id": "cfc08ba8-b614-4963-9dae-a219c3d3982b",
+          "path": "https://uploads.postiz.com/4dj7ynovwe.jpg"
+        },
+        {
+          "id": "f97f7667-46ae-43de-afed-872f5f6184d8",
+          "path": "https://uploads.postiz.com/guWFXfYCPJ.jpg"
+        },
+        {
+          "id": "56422c36-45e1-4f90-aff1-d845309a3104",
+          "path": "https://uploads.postiz.com/DjP4I3WVBR.jpg"
+        },
+        {
+          "id": "62531f5b-5da3-420b-914d-466034caf017",
+          "path": "https://uploads.postiz.com/QqLIBlPMDK.jpg"
+        },
+        {
+          "id": "76ef59f4-1a39-4b82-947e-f8167b28a25d",
+          "path": "https://uploads.postiz.com/D8SnNtLFWw.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-21T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "weekends-ruin-cuts": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "what-builds-arm-thickness": {
       "reason": "2-slide build, not for release",
@@ -1870,6 +4478,10 @@
     "what-counts-as-a-hard-set": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "what-happens-365-days": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
     },
     "what-takes-longer-fat-or-muscle": {
       "posted_at": "2026-11-10T12:00:00Z",
@@ -1924,17 +4536,380 @@
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "when-to-add-weight": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "why-are-my-legs-still-small": {
+      "booked_at": "2026-11-11T12:09:16.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2t3rh06jar007b0jpahip",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2t3r606j9r007kih3i6ub",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "ff2519db-7aae-4a2a-8840-5f5d73c1c3ae",
+          "path": "https://uploads.postiz.com/gxt6UGTHe0.jpg"
+        },
+        {
+          "id": "250fa0c0-a2e7-4ecb-b848-99c80432036d",
+          "path": "https://uploads.postiz.com/sRQH2HR03v.jpg"
+        },
+        {
+          "id": "805e6730-2199-4676-aaa8-07bdb11c96b9",
+          "path": "https://uploads.postiz.com/M9skAjBvVr.jpg"
+        },
+        {
+          "id": "6e796e94-81e9-4f6b-aadb-c3e5f612a795",
+          "path": "https://uploads.postiz.com/Rr1Gi7OAWy.jpg"
+        },
+        {
+          "id": "96d186f6-0d05-4309-9e3b-d7a081f01803",
+          "path": "https://uploads.postiz.com/O1N71v4wD5.jpg"
+        },
+        {
+          "id": "f6dac408-7e2a-4fb2-b2c9-8d8f8de4385b",
+          "path": "https://uploads.postiz.com/o3I12o0UCn.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-10T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "why-arms-wont-grow": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "why-you-look-small-in-photos": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "why-your-abs-dont-show": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "winter-arc-before-october": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "winter-arc-checkpoint": {
+      "booked_at": "2026-11-11T12:09:21.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2t7xf06jdr007u3imlcy7",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2t7x506jcr007jy94lvi2",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "6736dfee-1b7a-4ab1-a5f3-f23aec9f47a3",
+          "path": "https://uploads.postiz.com/cHveLS9Hnp.jpg"
+        },
+        {
+          "id": "7db199c9-7448-4cbd-a30a-98fa2036a60e",
+          "path": "https://uploads.postiz.com/COxOyF4Ts1.jpg"
+        },
+        {
+          "id": "7400359e-8e0c-4f2f-bf6d-2ce22b0cb4cc",
+          "path": "https://uploads.postiz.com/lBhtsUWPZo.jpg"
+        },
+        {
+          "id": "59b92556-6206-4691-9cff-0cd1e7e69e1e",
+          "path": "https://uploads.postiz.com/lczW0joABW.jpg"
+        },
+        {
+          "id": "b3b4279e-60e7-4e4b-94c4-a4b66185444c",
+          "path": "https://uploads.postiz.com/UgTBUGBUL7.jpg"
+        },
+        {
+          "id": "32692bc9-415e-43d1-b528-1a9e6cfb1f02",
+          "path": "https://uploads.postiz.com/ITE5NKZVfl.jpg"
+        },
+        {
+          "id": "434c03a6-1457-4296-b69f-b0ef2f44e3f7",
+          "path": "https://uploads.postiz.com/q7gQXjt37x.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-11T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "winter-arc-photo-checklist": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "winter-arc-too-many-rules": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "your-barbell-math-is-missing-something": {
+      "booked_at": "2026-11-11T12:12:07.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2ws3j06kwr007gn8f3onp",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "bec91bd1-ec31-424a-81ee-c2648f1bc0ff",
+          "path": "https://uploads.postiz.com/5nh9IFMiNi.jpg"
+        },
+        {
+          "id": "686eb6db-f2e8-4f8c-84b8-64f453760e7f",
+          "path": "https://uploads.postiz.com/d8hGXHq10m.jpg"
+        },
+        {
+          "id": "3dfcc5f3-a06d-49b6-a2e5-e5f9ec21fba0",
+          "path": "https://uploads.postiz.com/jtHnD6eg6s.jpg"
+        },
+        {
+          "id": "9f446919-0775-4cdb-aa2f-7448ff6ab58a",
+          "path": "https://uploads.postiz.com/Z60kltNR7z.jpg"
+        },
+        {
+          "id": "dba63ae3-815e-44f4-9215-e8f2dcd10cbd",
+          "path": "https://uploads.postiz.com/o0rbxbBFzi.jpg"
+        },
+        {
+          "id": "be50d4d6-e454-4fac-accf-0672303132ed",
+          "path": "https://uploads.postiz.com/lgJTQ6hXzF.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-16T23:30:00.000Z",
+      "status": "scheduled"
+    },
     "your-body-type-isnt-a-plan": {
       "posted_at": "2026-11-10T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "your-camera-is-gaslighting-you": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "your-fiber-jump-was-too-fast": {
+      "booked_at": "2026-11-11T12:11:50.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2wekp06rul507c71biu5b",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "95d0fabb-5303-47b1-97f8-f1106c412bdb",
+          "path": "https://uploads.postiz.com/jUCsqmbzi4.jpg"
+        },
+        {
+          "id": "51149f8f-bf30-4ed4-acb8-d61b59fc00eb",
+          "path": "https://uploads.postiz.com/BQT0x7jHxA.jpg"
+        },
+        {
+          "id": "ad9f04a7-c0b8-4f41-a6b2-0e7d0656237e",
+          "path": "https://uploads.postiz.com/FtF05zE8MZ.jpg"
+        },
+        {
+          "id": "5c316f97-008c-4d3a-b5f3-aeb7ec4041f4",
+          "path": "https://uploads.postiz.com/ivbW9xcgBz.jpg"
+        },
+        {
+          "id": "4b0ad952-380b-453f-902d-59d84b803285",
+          "path": "https://uploads.postiz.com/kLYz03fpEh.jpg"
+        },
+        {
+          "id": "b0ef48f3-0fc4-4a08-8b79-09ba601440b2",
+          "path": "https://uploads.postiz.com/NteozWDVU2.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-13T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "your-first-gym-week": {
+      "reason": "pre-September 2026 style; not auto-scheduled",
+      "status": "skipped"
+    },
+    "your-muscles-cant-read-the-plates": {
+      "posted_at": "2026-11-11T12:00:00Z",
+      "status": "posted_manually"
+    },
+    "your-phone-is-stealing-your-workout": {
+      "posted_at": "2026-11-11T12:00:00Z",
       "status": "posted_manually"
     },
     "your-pr-doesnt-prove-muscle": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
     },
+    "your-towel-isnt-a-reservation": {
+      "booked_at": "2026-11-11T12:09:00.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2srwe06j2r007zxrfb3dm",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2srw306j1r007ehvx5u06",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "7b10ab1b-aec1-4b5d-936a-34c856f3e284",
+          "path": "https://uploads.postiz.com/w45CHVXvSe.jpg"
+        },
+        {
+          "id": "50734693-54bc-47b8-9f98-3e1b2096ff31",
+          "path": "https://uploads.postiz.com/VgPJ5ehVwt.jpg"
+        },
+        {
+          "id": "0092f6e1-4493-4b9c-bd7f-be58023f78ea",
+          "path": "https://uploads.postiz.com/y7UIgdVuEK.jpg"
+        },
+        {
+          "id": "f30c9e8d-3a06-436f-992b-f6df01bf6fd6",
+          "path": "https://uploads.postiz.com/toxBjQ5xvF.jpg"
+        },
+        {
+          "id": "a48a5a22-a2ad-4e70-9666-858db350cb8c",
+          "path": "https://uploads.postiz.com/wUTORAc8NQ.jpg"
+        },
+        {
+          "id": "06f8ea9d-9d57-405b-9823-5747197d0c74",
+          "path": "https://uploads.postiz.com/VdwqUHMF0K.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-07T23:30:00.000Z",
+      "status": "scheduled"
+    },
     "your-watch-is-guessing": {
       "posted_at": "2026-11-10T12:00:00Z",
       "status": "posted_manually"
+    },
+    "your-workout-log-needs-context": {
+      "booked_at": "2026-11-11T12:12:17.000Z",
+      "channels": {
+        "tiktok-2": {
+          "integration_id": "cmwayibtz0jjppq07ozvc3jci",
+          "post_id": "cmwc2wzsl06kzr007skzcia69",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "dbfb1d53-1d00-4ea7-a3f1-b49c8606136a",
+          "path": "https://uploads.postiz.com/Ht72lARfzb.jpg"
+        },
+        {
+          "id": "e17bb05b-a6ed-43b9-8e68-27651b43d312",
+          "path": "https://uploads.postiz.com/E5jgm6fCQl.jpg"
+        },
+        {
+          "id": "2eff0a9e-5d30-42c3-8a2c-a025a8ca2c4a",
+          "path": "https://uploads.postiz.com/bitMxwQs2b.jpg"
+        },
+        {
+          "id": "bcd50341-66a6-4fa2-bf12-7875256fb50d",
+          "path": "https://uploads.postiz.com/V5Kwd38v9S.jpg"
+        },
+        {
+          "id": "6f7f8536-8a86-4d8d-aa25-fbd1e68b50f6",
+          "path": "https://uploads.postiz.com/CGUYMOORgh.jpg"
+        },
+        {
+          "id": "e038eef5-d431-4597-893d-e654f05ea04a",
+          "path": "https://uploads.postiz.com/l290wHxYQA.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-18T23:30:00.000Z",
+      "status": "scheduled"
+    },
+    "youre-weighing-the-wrong-chicken": {
+      "booked_at": "2026-11-11T12:08:50.000Z",
+      "channels": {
+        "instagram": {
+          "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
+          "post_id": "cmwc2sjr806opl507jvgfi5i9",
+          "settings": {
+            "post_type": "post"
+          }
+        },
+        "tiktok": {
+          "integration_id": "cmwayjgm80jkmpq07i5obszu6",
+          "post_id": "cmwc2sjqr06ool507htgimh8u",
+          "settings": {
+            "autoAddMusic": "yes",
+            "content_posting_method": "UPLOAD"
+          }
+        }
+      },
+      "media": [
+        {
+          "id": "2b1f8cbe-9d2b-4595-ade1-03b2d03fff73",
+          "path": "https://uploads.postiz.com/El3cr30zz4.jpg"
+        },
+        {
+          "id": "aebd5672-2897-4684-a885-0c0a8feba5f2",
+          "path": "https://uploads.postiz.com/i2a6tCRI2a.jpg"
+        },
+        {
+          "id": "c106a915-00e0-443c-9f4d-d78d76b93946",
+          "path": "https://uploads.postiz.com/75kEherqwu.jpg"
+        },
+        {
+          "id": "8f9b5e4b-c9f8-4831-94e7-423ac7a7c7df",
+          "path": "https://uploads.postiz.com/z72tLhpIUk.jpg"
+        },
+        {
+          "id": "27347d79-5935-48cd-89d0-14098753839f",
+          "path": "https://uploads.postiz.com/r9nFYdbKBz.jpg"
+        },
+        {
+          "id": "776d908a-4bcf-4677-8a9d-7db63e5b5487",
+          "path": "https://uploads.postiz.com/SAGl5VqVW4.jpg"
+        }
+      ],
+      "scheduled_for": "2026-12-05T23:30:00.000Z",
+      "status": "scheduled"
     },
     "zone-2-isnt-magic": {
       "booked_at": "2026-11-10T17:42:58.000Z",

@@ -72,6 +72,7 @@ SLOT_CONFLICT_MINUTES = 60
 TIKTOK_MAX_IMAGES = 35
 INSTAGRAM_MAX_IMAGES = 10  # Graph API carousel limit
 TIKTOK_TITLE_MAX = 90
+MAX_SHORT_SIDE = 1080  # TikTok photo limit
 SLIDE_RE = re.compile(r"^slide-(\d+)(?:-[a-z]+)?\.png$")
 
 
@@ -284,7 +285,10 @@ def logged_slugs():
     seen, order = set(), []
     with open(POST_LOG) as f:
         for line in f:
-            m = re.match(r"^- ([a-z0-9][a-z0-9-]*) — ", line)
+            # Two log formats: batch lists ("- slug — 6 slides ...") and, since
+            # 2026-10-23, one section per post ("## date — Title" + "- Slug: slug").
+            m = (re.match(r"^- ([a-z0-9][a-z0-9-]*) — ", line)
+                 or re.match(r"^- Slug: ([a-z0-9][a-z0-9-]*)\s*$", line))
             if m and m.group(1) not in seen:
                 seen.add(m.group(1))
                 order.append(m.group(1))
@@ -325,6 +329,11 @@ def jpeg_bytes(path):
             im = bg
         else:
             im = im.convert("RGB")
+        # TikTok rejects photos whose shorter side is over 1080 px.
+        short = min(im.size)
+        if short > MAX_SHORT_SIDE:
+            scale = MAX_SHORT_SIDE / short
+            im = im.resize((round(im.size[0] * scale), round(im.size[1] * scale)), Image.LANCZOS)
         buf = io.BytesIO()
         im.save(buf, "JPEG", quality=92, optimize=True)
         return buf.getvalue(), "image/jpeg", ".jpg"
