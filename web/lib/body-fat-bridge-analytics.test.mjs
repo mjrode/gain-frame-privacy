@@ -50,12 +50,14 @@ test("qualified reach records each bridge element once, even after delivery queu
     ref({ element, remounted: true });
   }
 
-  assert.equal(f.observations.length, 4, "seen elements are not observed again on remount");
+  assert.equal(f.observations.length, 6, "seen elements are not observed again on remount");
   assert.deepEqual(f.events.map(([event, properties]) => [event, properties.element]), [
     ["body_fat_bridge_viewed", "main_cta"],
     ["body_fat_bridge_viewed", "walkthrough"],
     ["body_fat_bridge_viewed", "result_cta"],
     ["body_fat_bridge_viewed", "video"],
+    ["body_fat_bridge_viewed", "inline_cta"],
+    ["body_fat_bridge_viewed", "sticky_cta"],
   ]);
   for (const [, properties] of f.events) {
     assert.equal(properties.tool, "bf_from_photo");
@@ -70,7 +72,7 @@ test("qualified reach records each bridge element once, even after delivery queu
   const nextPage = createBodyFatBridgeAnalytics("ios", f.emit, f.observe);
   nextPage.refs.walkthrough({});
   f.observations.at(-1).callback();
-  assert.equal(f.events.length, 5, "a new page controller can record a new visit");
+  assert.equal(f.events.length, 7, "a new page controller can record a new visit");
 });
 
 test("detaching or replacing an unqualified ref cleans up observation and permits a fresh exposure", () => {

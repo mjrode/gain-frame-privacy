@@ -7,6 +7,15 @@ import PhotoFramingGuide from "@/components/PhotoFramingGuide";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 import BodyFatAppBridge from "./BodyFatAppBridge";
+import { BodyFatInlineCta, BodyFatStickyCta } from "./BodyFatResultCta";
+import { assignedCtaProperties, type AssignedCtaExperiment } from "@/lib/assigned-cta-experiment";
+import {
+  BODY_FAT_RESULT_CTA_QUERY,
+  bodyFatResultCtaExperiment,
+  getBodyFatResultCtaAssignment,
+  isBodyFatResultCtaVariant,
+  type BodyFatResultCtaAssignment,
+} from "@/lib/body-fat-result-cta-experiment";
 import { getBodyFatAppPreview } from "@/lib/body-fat-app-preview";
 import { createBodyFatBridgeAnalytics } from "@/lib/body-fat-bridge-analytics";
 import {
@@ -218,9 +227,13 @@ export default function BFEstimatorClient() {
   // reframes the existing email report as the capture instead of showing an
   // iOS download button.
   const downloadPlatform = useDownloadPlatform();
+  // body_fat_result_cta_v1 arm, chosen when the first result shows (iOS only).
+  const [resultCta, setResultCta] = useState<AssignedCtaExperiment | null>(null);
+  const resultCtaDecidedRef = useRef(false);
+  const scrolledResultRef = useRef<Stage | null>(null);
   const bridgeAnalytics = useMemo(
-    () => createBodyFatBridgeAnalytics(downloadPlatform),
-    [downloadPlatform],
+    () => createBodyFatBridgeAnalytics(downloadPlatform, undefined, undefined, resultCta),
+    [downloadPlatform, resultCta],
   );
   const isAndroid = downloadPlatform === "android";
   const [file, setFile] = useState<File | null>(null);
@@ -304,6 +317,41 @@ export default function BFEstimatorClient() {
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [stage]);
+
+  // Assign once, at the first result: assignment before exposure keeps the
+  // denominator honest. Android keeps today's page; the local sample result
+  // only takes an explicit QA arm, never a random one.
+  useEffect(() => {
+    if (stage.kind !== "result" || resultCtaDecidedRef.current) return;
+    if (downloadPlatform === "unknown") return;
+    resultCtaDecidedRef.current = true;
+    if (downloadPlatform === "android") return;
+    let assignment: BodyFatResultCtaAssignment | null = null;
+    const forced = new URLSearchParams(window.location.search).get(BODY_FAT_RESULT_CTA_QUERY);
+    if (isBodyFatResultCtaVariant(forced)) assignment = { variant: forced, forced: true };
+    else if (!appPreview.demo && downloadPlatform === "ios") assignment = getBodyFatResultCtaAssignment();
+    if (!assignment) return;
+    const experiment = bodyFatResultCtaExperiment(assignment);
+    setResultCta(experiment);
+    if (isProductionAnalyticsHost(window.location.hostname)) {
+      track("body_fat_result_cta_assigned", {
+        ...assignedCtaProperties(experiment),
+        tool: "bf_from_photo",
+        platform: downloadPlatform,
+      });
+    }
+  }, [stage.kind, downloadPlatform, appPreview.demo]);
+
+  // Every arm brings the result to the top of the screen, so the test
+  // compares the offers rather than the scroll position.
+  useEffect(() => {
+    if (stage.kind !== "result" || !resultCta || scrolledResultRef.current === stage) return;
+    scrolledResultRef.current = stage;
+    const card = document.getElementById("body-fat-result");
+    if (!card) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    card.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  }, [stage, resultCta]);
 
   function reset() {
     photoRecovery.clear();
@@ -844,9 +892,16 @@ export default function BFEstimatorClient() {
   // -------- Result --------
   if (stage.kind === "result") {
     const targetNum = parseEstimateNumber(stage.estimate);
+    const ctaVariant = appPreview.enabled && !isAndroid ? resultCta?.variant ?? null : null;
+    const inlineVariant = ctaVariant === "analysis" || ctaVariant === "goal" ? ctaVariant : null;
     return (
-      <>
-        <div className="bff-card bff-card--result" id="body-fat-result">
+      <div style={{ display: "contents" }}
+        data-experiment-id={ctaVariant ? resultCta?.id : undefined}
+        data-experiment-phase={ctaVariant ? resultCta?.phase : undefined}
+        data-experiment-variant={ctaVariant ?? undefined}
+        data-experiment-forced={ctaVariant && resultCta?.forced ? "true" : undefined}
+        data-cta-angle={ctaVariant ? resultCta?.angle : undefined}>
+        <div className={`bff-card bff-card--result${inlineVariant ? " bff-card--compact" : ""}`} id="body-fat-result">
           {/* Mascot celebrates from the top-right of the card,
               clear of the centered number on every viewport. */}
           <img
@@ -879,6 +934,11 @@ export default function BFEstimatorClient() {
 
             <p className="bff-result-obs">{stage.one_line}</p>
 
+            {inlineVariant && (
+              <BodyFatInlineCta variant={inlineVariant} estimate={stage.estimate}
+                photoUrl={previewUrl} analytics={bridgeAnalytics} />
+            )}
+
             <div className="bff-result-foot">
               <span><strong>Method</strong> · Single-photo AI</span>
               <span><strong>Use</strong> · Rough estimate</span>
@@ -891,7 +951,10 @@ export default function BFEstimatorClient() {
             download copy). The email report follows as its own card — and
             becomes the primary capture on Android, where the app card
             hides itself. */}
-        {appPreview.enabled && !isAndroid ? <BodyFatAppBridge analytics={bridgeAnalytics} previewOnly={appPreview.local} /> : <ToolConversionCard
+        {ctaVariant === "sticky" && <BodyFatStickyCta estimate={stage.estimate} analytics={bridgeAnalytics} />}
+
+        {appPreview.enabled && !isAndroid ? <BodyFatAppBridge analytics={bridgeAnalytics} previewOnly={appPreview.local}
+          experiment={ctaVariant ? resultCta : null} hideSummary={Boolean(inlineVariant)} /> : <ToolConversionCard
           tool={CTA_CAMPAIGN}
           campaign={SEO_PHYSIQUE_TOOLS_CPP.campaign}
           placement="result"
@@ -1089,7 +1152,7 @@ export default function BFEstimatorClient() {
             ? "Local sample result · No scan used"
             : "Today's free scan used · 3 per person total · The app has no limits"}
         </p>
-      </>
+      </div>
     );
   }
 

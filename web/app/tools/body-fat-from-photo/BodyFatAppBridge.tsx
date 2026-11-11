@@ -7,6 +7,7 @@ import PlatformDownloadLink from "@/components/PlatformDownloadLink";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 import { ANALYSIS_APP_STORE_PAGE, SEO_PHYSIQUE_TOOLS_CPP } from "@/lib/site";
 import { BODY_FAT_BRIDGE_EXPERIMENT_ID, BODY_FAT_BRIDGE_VERSION, BODY_FAT_CTA_CONTENT, type BodyFatBridgeAnalytics } from "@/lib/body-fat-bridge-analytics";
+import type { AssignedCtaExperiment } from "@/lib/assigned-cta-experiment";
 import styles from "./BodyFatAppBridge.module.css";
 
 const MEDIA = "/preview/body-fat-app-bridge";
@@ -52,7 +53,14 @@ function AnalysisLink({ placement, analytics }: { placement: "result" | "walkthr
 }
 
 /** Public result experience; the parent keeps sample results restricted to localhost. */
-export default function BodyFatAppBridge({ analytics, previewOnly }: { analytics: BodyFatBridgeAnalytics; previewOnly: boolean }) {
+export default function BodyFatAppBridge({ analytics, previewOnly, experiment = null, hideSummary = false }: {
+  analytics: BodyFatBridgeAnalytics;
+  previewOnly: boolean;
+  /** body_fat_result_cta_v1 arm; clicks inside the bridge carry its label. */
+  experiment?: AssignedCtaExperiment | null;
+  /** Inline arms move the ask into the result card, so the top card would repeat it. */
+  hideSummary?: boolean;
+}) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const observeVideo = useCallback((video: HTMLVideoElement | null) => {
     videoRef.current = video;
@@ -82,14 +90,14 @@ export default function BodyFatAppBridge({ analytics, previewOnly }: { analytics
 
   return (
     <div className={styles.bridge} data-body-fat-app-preview onClick={analytics.onClick}
-      data-experiment-id={BODY_FAT_BRIDGE_EXPERIMENT_ID}
-      data-experiment-phase={BODY_FAT_BRIDGE_VERSION}
-      data-experiment-variant="analysis"
-      data-experiment-forced={previewOnly ? "true" : undefined}
-      data-cta-angle="analysis"
-      data-cta-style="ink">
+      data-experiment-id={experiment?.id ?? BODY_FAT_BRIDGE_EXPERIMENT_ID}
+      data-experiment-phase={experiment?.phase ?? BODY_FAT_BRIDGE_VERSION}
+      data-experiment-variant={experiment?.variant ?? "analysis"}
+      data-experiment-forced={(experiment?.forced ?? previewOnly) ? "true" : undefined}
+      data-cta-angle={experiment?.angle ?? "analysis"}
+      data-cta-style={experiment?.style ?? "ink"}>
       {previewOnly && <p className={styles.previewLabel}>Local preview · not published</p>}
-      <section className={styles.summary} aria-labelledby="app-analysis-title" id="app-analysis-offer">
+      {!hideSummary && <section className={styles.summary} aria-labelledby="app-analysis-title" id="app-analysis-offer">
         <div className={styles.summaryCopy}>
           <span className={styles.eyebrow}>Your next step · GainFrame for iPhone</span>
           <h2 id="app-analysis-title">Go beyond a<br />single estimate.</h2>
@@ -109,7 +117,7 @@ export default function BodyFatAppBridge({ analytics, previewOnly }: { analytics
           </a>
           <figcaption>Example Deep Dive analysis</figcaption>
         </figure>
-      </section>
+      </section>}
 
       <section className={styles.walkthrough} id="app-analysis-walkthrough" aria-labelledby="analysis-walkthrough-title">
         <header ref={analytics.refs.walkthrough} className={styles.sectionIntro}>
