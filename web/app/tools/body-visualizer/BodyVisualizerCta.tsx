@@ -71,8 +71,8 @@ type CtaState = ReturnType<typeof useBodyVisualizerCta>;
 const SCREEN_OFFERS = {
   future_you: {
     image: "future-you-example.webp", height: 479, alt: "The Future You app showing a starting photo beside an AI-generated example",
-    label: "Future You · GainFrame Pro", headline: "Preview a change with your own photo",
-    body: "Choose a leaner or more muscular look. GainFrame Pro creates an AI illustration of your goal.",
+    label: "Future You · GainFrame Pro", headline: "See a leaner or more muscular version of yourself",
+    body: "Add one photo and choose a goal. GainFrame Pro shows your original beside an AI-generated preview.",
     iosLabel: "Preview my photo in the app",
   },
   front_side: {
