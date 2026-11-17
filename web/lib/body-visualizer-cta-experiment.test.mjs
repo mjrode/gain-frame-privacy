@@ -114,3 +114,27 @@ test("paired result example restores its arm and keeps forced previews out of st
     else globalThis.window = before;
   }
 });
+
+test("screen test previews every arm without changing the saved slider assignment", async () => {
+  const { SCREEN_ARMS, SCREEN_TEST_PHASE, screenPreview, visualizerScreenAssignment } = await import("./visualizer-screen-test.ts");
+  const key = `gainframe:experiment:visualizer_result_example:${SCREEN_TEST_PHASE}`;
+  const saved = new Map([[key, "future_you"]]);
+  const before = globalThis.window;
+  try {
+    globalThis.window = { localStorage: { getItem: k => saved.get(k), setItem: (k, v) => saved.set(k, v) } };
+    for (const arm of SCREEN_ARMS) {
+      const preview = screenPreview("?visualizer_result_example=" + arm);
+      const assignment = visualizerScreenAssignment(preview);
+      assert.equal(assignment.variant, arm);
+      assert.equal(assignment.forced, true);
+      assert.equal(saved.get(key), "future_you");
+    }
+    assert.equal(screenPreview("?visualizer_result_example=treatment"), "score_example");
+    assert.equal(screenPreview("?visualizer_result_example=unknown"), undefined);
+    assert.equal(visualizerScreenAssignment().variant, "future_you");
+    assert.equal(visualizerScreenAssignment().forced, false);
+  } finally {
+    if (before === undefined) delete globalThis.window;
+    else globalThis.window = before;
+  }
+});

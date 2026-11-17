@@ -733,3 +733,16 @@
 }
 .scoreExample img { width: min(58%, 240px); height: auto; border: 1px solid #e5e7dc; border-radius: 10px; }
 .scoreExample figcaption { max-width: 17ch; font-size: 0.875rem; line-height: 1.45; }
+
+.screenOffer {
+  background: #f6f6f2;
+  border: 1px solid #deded6;
+  border-radius: 18px;
+  padding: 14px;
+}
+.screenFigure { margin: 0; }
+.screenFigure img { display: block; width: 100%; max-height: 230px; object-fit: contain; border-radius: 10px; }
+.screenFigure figcaption { margin-top: 12px; color: #596343; font-size: 0.75rem; font-weight: 650; }
+.screenOffer :global(.tcc-card) { grid-template-columns: 1fr; grid-template-areas: "copy" "actions"; border: 0; padding: 4px 0 0; }
+.screenOffer :global(.tcc-card h3) { font-size: 1.25rem; line-height: 1.15; }
+.screenOffer :global(.tcc-card .tcc-copy > p) { font-size: 0.875rem; }

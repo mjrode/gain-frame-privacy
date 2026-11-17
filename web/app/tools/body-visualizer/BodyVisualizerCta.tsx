@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { usePairedCta } from "@/components/usePairedCta";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { track } from "@/lib/analytics";
+import { assignedCtaProperties, type AssignedCtaExperiment } from "@/lib/assigned-cta-experiment";
+import { screenPreview, visualizerScreenAssignment } from "@/lib/visualizer-screen-test";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 import { ANALYSIS_APP_STORE_PAGE } from "@/lib/site";
@@ -25,11 +27,17 @@ import styles from "./VisualizerWorkspace.module.css";
 export function useBodyVisualizerCta() {
   const platform = useDownloadPlatform();
   const [adjusted, setAdjusted] = useState(false);
-  const [forcedExample, setForcedExample] = useState(false);
-  const example = usePairedCta(
-    "visualizer_result_example", "score_example",
-    forcedExample || (platform === "ios" && adjusted), "report_3_33_v2",
-  );
+  const [example, setExample] = useState<AssignedCtaExperiment | null>(null);
+  const enrolled = useRef(false);
+  useEffect(() => {
+    const forced = screenPreview(window.location.search);
+    if (enrolled.current || platform === "unknown" || platform === "android") return;
+    if (!forced && (platform !== "ios" || !adjusted)) return;
+    const arm = visualizerScreenAssignment(forced);
+    enrolled.current = true;
+    track("paired_cta_assigned", assignedCtaProperties(arm));
+    setExample(arm);
+  }, [platform, adjusted]);
   const [preview, setPreview] = useState(false);
   const [bridgeEnabled, setBridgeEnabled] = useState(false);
   const [assignment, setAssignment] =
@@ -40,8 +48,6 @@ export function useBodyVisualizerCta() {
   );
 
   useEffect(() => {
-    const arm = new URLSearchParams(window.location.search).get("visualizer_result_example");
-    setForcedExample(arm === "control" || arm === "treatment");
     const rollout = getBodyVisualizerBridgeRollout(window.location.hostname, window.location.search);
     setPreview(rollout.local && platform !== "android");
     setBridgeEnabled(rollout.enabled);
@@ -62,6 +68,21 @@ export function useBodyVisualizerCta() {
 
 type CtaState = ReturnType<typeof useBodyVisualizerCta>;
 
+const SCREEN_OFFERS = {
+  future_you: {
+    image: "future-you-example.webp", height: 479, alt: "The Future You app showing a starting photo beside an AI-generated example",
+    label: "Future You · GainFrame Pro", headline: "Preview a change with your own photo",
+    body: "Choose a leaner or more muscular look. GainFrame Pro creates an AI illustration of your goal.",
+    iosLabel: "Preview my photo in the app",
+  },
+  front_side: {
+    image: "front-side-example.webp", height: 520, alt: "The app’s front and side sample photos used for a two-photo body-fat estimate",
+    label: "Body-fat estimate · GainFrame Pro", headline: "Estimate body fat from two photos",
+    body: "Add a front photo and a side photo. GainFrame Pro gives you an estimated body-fat percentage.",
+    iosLabel: "Estimate in the app",
+  },
+} as const;
+
 export function BodyVisualizerCta({ state }: { state: CtaState }) {
   if (
     state.platform === "unknown" ||
@@ -73,14 +94,20 @@ export function BodyVisualizerCta({ state }: { state: CtaState }) {
   const variant = assignment?.variant ?? "direct";
   // Android keeps its existing email capture instead of an unavailable app CTA.
   const bridgeOffer = state.bridgeEnabled && state.platform !== "android";
-  const copy = BODY_VISUALIZER_CTA_TREATMENTS[variant];
+  const screen = state.example?.variant;
+  const offer = screen === "future_you" || screen === "front_side" ? SCREEN_OFFERS[screen] : null;
+  const copy = offer ?? BODY_VISUALIZER_CTA_TREATMENTS[variant];
   return (
     <div
       ref={bridgeOffer ? state.bridgeAnalytics.refs.main_cta : undefined}
       onClick={bridgeOffer ? state.bridgeAnalytics.onClick : undefined}
-      className={styles.appInvitation}
-      data-visualizer-cta-style={copy.style}
+      className={offer ? `${styles.appInvitation} ${styles.screenOffer}` : styles.appInvitation}
+      data-visualizer-cta-style={BODY_VISUALIZER_CTA_TREATMENTS[variant].style}
     >
+      {offer && <figure className={styles.screenFigure}>
+        <img src={`/tools/body-visualizer/${offer.image}`} alt={offer.alt} width="720" height={offer.height} />
+        <figcaption>{offer.label}</figcaption>
+      </figure>}
       {state.example?.variant === "score_example" && (
         <figure className={styles.scoreExample}>
           <img src="/tools/body-visualizer/single-photo-report-3-33.webp" width="600" height="456" alt="GainFrame muscle map with front delts selected and an example area score of 82 out of 100" />
