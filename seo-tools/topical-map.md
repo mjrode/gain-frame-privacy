@@ -68,6 +68,8 @@ bulk-cut-or-recomp (hub) · should-i-bulk-or-cut-quiz · best-body-recomposition
 **October 27:** refresh existing `how-to-track-muscle-gain-progress` and `signs-you-are-building-muscle`; no third general gym-progress sibling. New `how-to-identify-lagging-muscle-groups` owns regional appearance and training-record review, without diagnosing physical weakness.
 **Gaps:** none pressing. `first-cut-guide` and `mini-cut` already exist; the head market is declining, so hold rather than expand. Note: how-to-tell-if-skinny-fat folded into am-i-skinny-fat-quiz 2026-08-02 (zero imp in 28d), 301 in place.
 
+**November 16 seasonal guide:** [January fitness challenge](/blog/january-fitness-challenge/) links to the photo comparison tool and receives contextual links from Winter Arc and 75 Hard vs 75 Soft. Calendar discovery and personal comparisons are its two outcomes.
+
 ## Cluster 6 — FFMI & muscle metrics 📊
 
 **November 9 nonbrand release.** `one-arm-bigger-than-the-other` addresses within-person asymmetry and matched photographic views. The bicep guide continues to own normative size questions.

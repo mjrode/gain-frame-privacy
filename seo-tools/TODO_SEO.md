@@ -6,6 +6,11 @@ This file tracks keyword targets for blog posts and comparison articles. Items a
 
 When a post is published, replace `[ ]` with `[x]` and append ` — published YYYY-MM-DD as /blog/[slug]/`.
 
+## November 16 approved work
+
+- [x] Published `january-fitness-challenge`, the Thanksgiving example, the iOS Visualizer example test and the men’s waist destination test.
+- [ ] Fitness Wrapped, prepared in [draft PR 45](https://github.com/mjrode/gain-frame-privacy/pull/45). Verify the December 1 release before publication. [Execution](content-audits/2026-11-16-execution.md).
+
 ## November 9 approved articles and fixes
 
 - [x] P1 iPhone side-by-side photos, P3 InBody preparation and P4 Fit3D report interpretation. Published as `put-two-photos-side-by-side-iphone`, `inbody-scan-preparation` and `fit3d-body-scan-report`.

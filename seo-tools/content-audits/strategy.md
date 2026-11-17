@@ -2,6 +2,17 @@
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
 
+## November 16 implementation and historical diagnosis
+
+[Release, weekly Google history, experiment contracts and remaining December check](2026-11-16-execution.md). F1–F3 and P1 shipped. P2 is staged in draft PR 45. The first two roundup declines predate the November 10 core update. Keep the conversion experiments separate from historical periods.
+
+## November 16, 2026: records driven by Body Visualizer
+
+[Search drivers, conversion cohorts, seasonal briefs and selectable tests](2026-11-16.md). Review only. Final Google data through November 14 set daily (3,392), rolling seven-day (21,080) and 28-day (71,309) records. The Body Visualizer added 16,717 clicks, 90.2% of the net gain. Search-referrer Store reach rose from 3.91% to 5.00%, while blog reach fell from 1.59% to 1.01%. Best-list articles lost 77 of the 90 net article Store sessions. The complete article → personal result → keyed download click → native arrival path produced 375 → 33 → 5 from 17,397 search entries.
+
+**Pending selection.** F1 test a real iPhone analysis-result screenshot on the Body Visualizer’s existing iOS card. F2 test a two-date comparison against the men’s waist article’s existing estimator panel. F3 add one Thanksgiving recording example to the existing weight-fluctuation guide. P1 printable January fitness challenge → personal photo pair; P2 Fitness Wrapped iPhone walkthrough → personal GIF/contact-sheet export. Verify annual recap availability before release. Retain the October 22/27 and November 9 maturity dates and the existing estimator four-way experiment. All 87 inspected URLs were indexed. No content shipped.
+
+
 ## November 9, 2026: four nonbrand questions published
 
 [Four nonbrand articles and verification](2026-11-09-nonbrand-execution.md). N2 answers left/right arm differences, N4 documents the grip-strength protocol, N5 covers a training break, and N6 covers weight changes after starting creatine. The guides each have two contextual links. Measure the arm and break articles on photo comparisons and the grip and creatine articles on search discovery and worksheet use where measurable. The first full 28 days run November 10 through December 7. Review settled Search Console data around December 10. N1, N3 and N7 are still open.
