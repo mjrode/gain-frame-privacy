@@ -500,11 +500,11 @@ export default function BodyVisualizerClient() {
                   )}
                   aria-valuetext={`${compactNumber(Math.min(sliderRange.max, Math.max(sliderRange.min, sliderWeight)))} ${unit === "us" ? "pounds" : "kilograms"}`}
                   aria-describedby="weight-slider-note"
-                  onChange={(event) =>
-                    unit === "metric"
-                      ? updateMetric("weightKg", event.target.value)
-                      : updateUs("pounds", event.target.value)
-                  }
+                  onChange={(event) => {
+                    ctaState.setAdjusted(true);
+                    if (unit === "metric") updateMetric("weightKg", event.target.value);
+                    else updateUs("pounds", event.target.value);
+                  }}
                 />
                 <div className={styles.sliderEndpoints} aria-hidden="true">
                   <span>

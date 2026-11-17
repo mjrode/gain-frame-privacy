@@ -724,3 +724,12 @@
     font-size: 0.75rem;
   }
 }
+
+.scoreExample {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 12px;
+}
+.scoreExample img { width: 114px; height: auto; border-radius: 10px; }
+.scoreExample figcaption { max-width: 17ch; font-size: 0.875rem; line-height: 1.45; }

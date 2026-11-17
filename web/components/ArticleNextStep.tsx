@@ -1,3 +1,6 @@
+"use client";
+
+import { usePairedCta } from "./usePairedCta";
 import styles from "./ArticleNextStep.module.css";
 
 const NEXT_STEPS = {
@@ -51,7 +54,17 @@ type MeasurementArticle = keyof typeof NEXT_STEPS;
 
 /** An editorial next step; existing app CTA experiment assignments stay intact. */
 export default function ArticleNextStep({ slug }: { slug: MeasurementArticle }) {
-  const step = NEXT_STEPS[slug];
+  const assignment = usePairedCta("waist_next_step", "compare_dates", slug === "average-waist-size-men");
+  const original = NEXT_STEPS[slug];
+  const step = assignment?.variant === "compare_dates" ? {
+    ...original,
+    title: "Compare your waist over time.",
+    copy: "Example: record 36 inches on November 1 and 35¾ inches on December 1. Put a front photo beside each reading, using the same camera height and tape landmark.",
+    tool: "/tools/progress-photo-compare/",
+    toolLabel: "Compare two check-in photos",
+    note: "Free browser tool · Photos stay in your browser · No signup",
+    intent: "progress",
+  } : original;
   const tracking = {
     "data-article-next-step": "measurement_v1",
     "data-article-slug": slug,

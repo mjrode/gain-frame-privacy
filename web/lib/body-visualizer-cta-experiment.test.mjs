@@ -98,3 +98,19 @@ test("a sliver intersecting the viewport is not a qualified exposure", () => {
     true,
   );
 });
+
+test("paired result example restores its arm and keeps forced previews out of storage", async () => {
+  const { pairedCtaAssignment } = await import("./paired-cta-assignment.ts");
+  const key = "gainframe:experiment:visualizer_result_example:v1";
+  const saved = new Map([[key, "control"]]);
+  const before = globalThis.window;
+  try {
+    globalThis.window = { localStorage: { getItem: k => saved.get(k), setItem: (k, v) => saved.set(k, v) } };
+    assert.deepEqual(pairedCtaAssignment("visualizer_result_example", "treatment"), { treatment: true, forced: true });
+    assert.deepEqual(pairedCtaAssignment("visualizer_result_example", null), { treatment: false, forced: false });
+    assert.equal(saved.get(key), "control");
+  } finally {
+    if (before === undefined) delete globalThis.window;
+    else globalThis.window = before;
+  }
+});

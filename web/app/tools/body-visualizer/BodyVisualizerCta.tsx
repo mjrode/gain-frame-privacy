@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { usePairedCta } from "@/components/usePairedCta";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 import { ANALYSIS_APP_STORE_PAGE } from "@/lib/site";
@@ -23,6 +24,8 @@ import styles from "./VisualizerWorkspace.module.css";
 
 export function useBodyVisualizerCta() {
   const platform = useDownloadPlatform();
+  const [adjusted, setAdjusted] = useState(false);
+  const example = usePairedCta("visualizer_result_example", "score_example", platform === "ios" && adjusted);
   const [preview, setPreview] = useState(false);
   const [bridgeEnabled, setBridgeEnabled] = useState(false);
   const [assignment, setAssignment] =
@@ -48,7 +51,7 @@ export function useBodyVisualizerCta() {
     window.history.replaceState(window.history.state, "", url);
   }
 
-  return { platform, preview, bridgeEnabled, assignment, selectVariant, bridgeAnalytics };
+  return { platform, example, setAdjusted, preview, bridgeEnabled, assignment, selectVariant, bridgeAnalytics };
 }
 
 type CtaState = ReturnType<typeof useBodyVisualizerCta>;
@@ -72,6 +75,12 @@ export function BodyVisualizerCta({ state }: { state: CtaState }) {
       className={styles.appInvitation}
       data-visualizer-cta-style={copy.style}
     >
+      {state.example?.variant === "score_example" && (
+        <figure className={styles.scoreExample}>
+          <img src="/blog/what-is-ffmi/assets/post-check-in-photo-score.webp" width="114" height="184" alt="Example GainFrame check-in with body fat, muscle and proportion scores" />
+          <figcaption>Example iPhone analysis<br /><strong>Your photo gets its own breakdown.</strong></figcaption>
+        </figure>
+      )}
       <div className={styles.appInvitationAction}>
         <ToolConversionCard
           key={variant}
@@ -83,10 +92,10 @@ export function BodyVisualizerCta({ state }: { state: CtaState }) {
               : assignment ? bodyVisualizerCtaPlacement(variant) : "atlas_v6_android"
           }
           assignedExperiment={
-            bridgeOffer && assignment
+            state.example ?? (bridgeOffer && assignment
               ? bodyVisualizerBridgeExperiment(assignment.forced)
               : assignment ? bodyVisualizerAssignedExperiment(assignment)
-              : undefined
+              : undefined)
           }
           sticky={false}
           headline={copy.headline}
