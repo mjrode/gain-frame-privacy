@@ -1,4 +1,704 @@
 {
+ "find-your-photo-twin": {
+  "summary": "Compare your pair in GainFrame. Choose the earliest clear front view you can find.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. Your best 2026 gym photo has a twin JAN 5, 2026. DEC 5, 2026.",
+    "alt": "Two gym snapshots held side by side: same front pose, different dates."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Find your starting photo Choose the earliest clear front view you can find.",
+    "alt": "Mascot searching a stack of photos."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Match the pose Pair a relaxed front view with another relaxed front view.",
+    "alt": "Three instant photos: two matching front poses and one off-angle one set aside."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Line up the framing Match head height and feet before judging the pair.",
+    "alt": "Mascot sliding two photos against a ruler."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Check the dates Save this checklist: same pose, similar crop, dates in order.",
+    "alt": "Three big ticks beside picture, crop and calendar icons."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Compare your pair in GainFrame Use the side-by-side view to see both check-ins. GainFrame Guy. Compare · May 22 → Sep 20. Overview. Changes. Plan. What changed. Score. Body fat. Visible change. Compare. Sample comparison.",
+    "alt": "A charcoal comic hand holds a phone displaying GainFrame. Use the side-by-side view to see both check-ins."
+   }
+  ]
+ },
+ "old-gym-photos-still-count": {
+  "summary": "Import your keepers in GainFrame. Look for a picture you can date confidently.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. Your old gym photos still count",
+    "alt": "Mascot unearths a stack of early gym photos from an archive box."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Start with one month Look for a picture you can date confidently.",
+    "alt": "Mascot opens a calendar and selects a picture."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Choose one clear keeper For each month, pick the photo with the clearest pose.",
+    "alt": "Mascot comparing blurry and clear photos."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Sort by pose Keep front, side and back views in separate piles. Front. Side. Back.",
+    "alt": "Three labeled stacks of silhouettes: FRONT, SIDE, BACK."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Keep the original date Example: a March photo belongs in March, even if you import it today. March.",
+    "alt": "Mascot pinning photograph to March calendar."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Import your keepers in GainFrame Review poses and dates before you save. GainFrame Guy. Import Photos. AI is importing your photos… 18 of 1,477. 13 matched. 18 with weight. 3 skipped. 1 Back. 12 Front. 1,377 more photos after this group. Photos are being imported automatically. Cancel Import.",
+    "alt": "A charcoal comic hand holds a phone displaying GainFrame. Review poses and dates before you save."
+   }
+  ]
+ },
+ "gym-recap-you-will-rewatch": {
+  "summary": "Revisit your year in GainFrame. Start with your earliest clear check-in.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. Make a gym recap you’ll actually rewatch",
+    "alt": "Mascot unfurls a filmstrip of three gym check-ins."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Choose the opener Start with your earliest clear check-in.",
+    "alt": "Mascot clips front-facing first photo to a board."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Keep the messy middle Pick a middle check-in from a week you actually remember.",
+    "alt": "Mascot considers gym snapshot with bag in tow."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Finish with the latest Look for the same pose in your most recent check-in.",
+    "alt": "Mascot matches two similar poses in hand."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Read the sequence First, middle, latest: check all three dates before sharing. MAR 10. JUN 25. NOV 2.",
+    "alt": "Three photos arranged with arrow from left to right."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Revisit your year in GainFrame Open Rewind to revisit your dated check-ins. GainFrame Guy. Front. Split. Grid. 2W. 1MO. 2MO. 3MO. 6MO. 1Y. 2Y. 6 months ago. 1 year ago. 2 years ago.",
+    "alt": "A charcoal comic hand holds a phone displaying GainFrame. Open Rewind to revisit your dated check-ins."
+   }
+  ]
+ },
+ "your-next-twelve-weeks": {
+  "summary": "Keep a starting point in GainFrame. Example: feel confident doing a goblet squat.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. What do you want your next 12 weeks to change? 12 weeks. 1 through 12.",
+    "alt": "Mascot pencils start and finish marks on a twelve-week calendar."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Name the outcome Example: feel confident doing a goblet squat.",
+    "alt": "Mascot considering a kettlebell."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Pick one action Example: practice the setup at two sessions each week.",
+    "alt": "Mascot holding a kettlebell at chest, setting stance."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Plan a smaller version Busy week? Practice the setup at the one session you can make.",
+    "alt": "Mascot circling one opening in a crowded calendar."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Give it a review date Copy this card: goal, weekly action, backup, review date. goal. weekly action. backup. review date.",
+    "alt": "Four-field checklist with pencil."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Keep a starting point in GainFrame Save a dated check-in to revisit in week twelve. GainFrame Guy. Check-In Streak. Week secured. 2 weeks active. Goal met this week. This week is locked in. Today's log. 239 lbs. 1 photo · Front. Overview. 8 wks best. 3 this month. 33 total.",
+    "alt": "A charcoal comic hand holds a phone displaying GainFrame. Save a dated check-in to revisit in week twelve."
+   }
+  ]
+ },
+ "what-counts-as-a-win": {
+  "summary": "Start the month in GainFrame. Choose one thing you want to feel comfortable doing.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. What counts as a win this month? My Goal: Squat 225 lb for 5 reps.",
+    "alt": "Mascot writing a small personal goal beside a squat rack."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Pick a skill Choose one thing you want to feel comfortable doing.",
+    "alt": "Mascot pointing to adjustable bench."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Describe a visible win Example: set the bench angle on my own.",
+    "alt": "Mascot sets angle on unloaded adjustable bench."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Book two practice slots Pick the two gym visits when you’ll practice. Mon Tue Wed Thu Fri Sat Sun.",
+    "alt": "Mascot circling two days on small paper calendar."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Give yourself a scorecard Save three boxes: practiced, did it solo, next step. practiced. did it solo. next step.",
+    "alt": "Mascot holds three-box scorecard."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Start the month in GainFrame Keep a dated check-in beside your skill goal. GainFrame Guy. Check-In Streak. Week secured. 2 weeks active. Goal met this week. This week is locked in. Today's log. 239 lbs. 1 photo · Front. Overview. 8 wks best. 3 this month. 33 total.",
+    "alt": "A charcoal comic hand holds a phone displaying GainFrame. Keep a dated check-in beside your skill goal."
+   }
+  ]
+ },
+ "your-first-cable-station": {
+  "summary": "Start your check-ins in GainFrame. Look for the adjustment handle beside the pulley.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. Your first cable station, decoded",
+    "alt": "Mascot examining an adjustable cable machine and unattached handle."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Find the height release Look for the adjustment handle beside the pulley.",
+    "alt": "Mascot pointing to release on upright cable station."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Move it with the stack down With the plates resting, adjust the pulley and lock it in place.",
+    "alt": "Mascot with one hand on carriage, stack resting."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Check the attachment Close the clip around the handle loop before pulling.",
+    "alt": "Close-up of closed carabiner around metal handle loop."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Try one light rep Check the path, then choose a load you can control.",
+    "alt": "Mascot doing a light single-arm cable curl from low pulley."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Start your check-ins in GainFrame Compare dated photos as your routine takes shape. GainFrame Guy. Check-In Streak. Week secured. 2 weeks active. Goal met this week. This week is locked in. Today's log. 239 lbs. 1 photo · Front. Overview. 8 wks best. 3 this month. 33 total.",
+    "alt": "A charcoal comic hand holds a phone displaying GainFrame. Compare dated photos as your routine takes shape."
+   }
+  ]
+ },
+ "ninety-minute-workout-cut": {
+  "summary": "Bring your Hevy workout into GainFrame. Write down when you started and finished each block.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. My workout takes 90 minutes. What can I cut? 90-minute workout. 15 min. 30 min. 30 min. 15 min. 90 minutes.",
+    "alt": "Mascot studies a 90-minute workout timeline with a stopwatch beside his gym bag."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Time one real session Write down when you started and finished each block. Timeline. Warm-up 5:00–5:10. Lift 5:10–5:50. Accessories 5:50–6:30. 90 minutes end to end.",
+    "alt": "Mascot timestamps three exercise blocks."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Circle your priority Keep the lift you came to practice near the front.",
+    "alt": "Mascot circles first entry on a workout card beside dumbbell rack."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Find the optional block Example: two curl variations today? Save one for another day.",
+    "alt": "Mascot crosses one of two similar curl accessories off a plan."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Try the shorter draft Example: 90 minutes minus a 15-minute block leaves 75. 90 − 15 minute block = 75.",
+    "alt": "A bold timeline shows 90, a 15-minute block removed, 75 left."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Bring your Hevy workout into GainFrame Review your session alongside a dated check-in. GainFrame Guy. Front. Thursday, February 5, 2026. 239.0 lbs. AI rating 74. Deep Dive. Shoulder · 33min · 4 exercises · 19,990 lbs volume. Hevy. Show less. Re-Crop. Delete.",
+    "alt": "A charcoal comic hand holds a phone displaying GainFrame. Review your session alongside a dated check-in."
+   }
+  ]
+ },
+ "thanksgiving-week-ate-my-gym-days": {
+  "summary": "Map two familiar workouts around travel and Thanksgiving dinner. Carry the next workout forward if your second opening disappears.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GainFrame Guy. Thanksgiving week ate my gym days ",
+    "alt": "Gary studies a torn planner over a Thanksgiving table."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Circle your two openings Look at travel, dinner and gym hours first.",
+    "alt": "Calendar with two open squares surrounded by modest autumn props."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Give each day one workout Put your usual A and B sessions in those slots. A. B.",
+    "alt": "Gary doing seated dumbbell press under a, goblet squat under b."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Save this two-day card Monday: workout A. Saturday: workout B. MON A. SAT B.",
+    "alt": "Two-row paper planner mon a and sat b; gary points to it."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Saturday disappears? B is next. Cross out the date and carry B forward. Mon. Tue. Wed. Thu. Fri. Sat. Sun. B.",
+    "alt": "Gary moving a b sticky note to next open day."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Keep your holiday check-in. Save a pre-trip progress photo in GainFrame. GainFrame Guy.",
+    "alt": "One comic hand holds a phone showing the GainFrame Check-in streak screen."
+   }
+  ]
+ },
+ "one-dumbbell-parents-basement": {
+  "summary": "Try a three-exercise dumbbell session during a trip. Save the example card for squats, presses and supported rows.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GainFrame Guy. One dumbbell in my parents’ basement ",
+    "alt": "Gary stands beside one dumbbell in a basement."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Goblet squat Hold the bell at your chest and sit down between your feet.",
+    "alt": "Accurate goblet squat one dumbbell."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 One-arm floor press Lie down with knees bent. Press one side, then switch.",
+    "alt": "Side perspective floor press clearly supported on floor, only one dumbbell."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Supported one-arm row Brace one hand on a stable bench and row with the other.",
+    "alt": "Three-quarter action shot one-hand row."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Save the basement workout Example: two rounds of eight comfortable reps. Do both sides on presses and rows. Squat • 8. Press • 8 per side. Row • 8 per side.",
+    "alt": "Saveable three-line list squat · 8; press · 8 per side; row · 8 per side."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Keep travel week in the picture. Add your travel-week check-in to GainFrame. GainFrame Guy.",
+    "alt": "One comic hand holds a phone showing the GainFrame Progress Photos library."
+   }
+  ]
+ },
+ "what-do-i-log-for-leftover-pie": {
+  "summary": "Estimate a slice of leftover Thanksgiving pie using its recipe or a similar bakery entry. Check the serving size against the slice on your plate.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GainFrame Guy. What do I log for leftover pie? ",
+    "alt": "Gary considers a slice of pumpkin pie on a small plate."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Start with your slice The wedge on your plate is the portion to estimate.",
+    "alt": "Gary holding small pie plate next to remaining pie."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Have the recipe? If the pie made eight equal slices, one is about an eighth of the recipe.",
+    "alt": "Overhead pie cut into eight equal wedges, one removed."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Bakery pie? Pick a close match. Choose the same filling and crust style.",
+    "alt": "Gary comparing two simple illustrated pumpkin pies."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Check the portion If the listed slice is bigger, adjust the amount you log. Actual slice. Listed slice.",
+    "alt": "Side-by-side small and large triangular slices visible."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Log the slice in GainFrame. Open your food diary while the portion is fresh in your mind. GainFrame Guy.",
+    "alt": "One comic hand holds a phone showing the GainFrame Today’s nutrition diary."
+   }
+  ]
+ },
+ "before-you-buy-a-lifter-a-gift": {
+  "summary": "Choose a gym gift using a short list of equipment preferences and measurements. Record the exact model, size and return window before buying.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GainFrame Guy. Before you buy a lifter a gym gift ",
+    "alt": "Gary holds two wrapped gifts in a gym locker room."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Straps? Ask what they lift. Check whether they already have a pair they like.",
+    "alt": "Gary inspecting a simple pair of lifting straps by a small gift box."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Belt? Check the size chart. Get their measurement using the brand’s instructions.",
+    "alt": "Gary examining boxed lifting belt next to measurement tape."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Shoes? Get the exact pair. Save the brand, model and size they tried on.",
+    "alt": "Gary in front of neat shoeboxes comparing two gym shoes."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Screenshot the gift list Model. Size. Return window. Gift receipt. Model. Size. Return window. Gift receipt.",
+    "alt": "Tidy gift shopping checklist, black pen, ribbon and gary."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Shopping for a progress tracker?. Show them a side-by-side photo comparison in GainFrame. GainFrame Guy.",
+    "alt": "One comic hand holds a phone showing the GainFrame side-by-side Compare screen."
+   }
+  ]
+ },
+ "christmas-eve-gym-closes-in-25": {
+  "summary": "Plan a short Christmas Eve session with two familiar exercises and time to rack your equipment before the gym closes.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GainFrame Guy. Christmas Eve gym closes in 25 minutes 25 minutes left. Gym closing.",
+    "alt": "Gary points at a clock beside a gym closing sign and wreath."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Ask when the floor closes Leave enough time to put your gear away.",
+    "alt": "Gary speaking to gym front desk by small holiday wreath and clock."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Pick two familiar lifts Choose a pair you can do in one spot.",
+    "alt": "Gary with dumbbell and bench in single station."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Example: squats and rows Warm up, then alternate goblet squats and supported rows. Goblet squat. Supported row.",
+    "alt": "Two panels accurate goblet squat and one-handed supported row."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Five minutes left? Wrap up. Finish your set, rack the weights and give the staff time to close.",
+    "alt": "Gary returning dumbbell to rack, wall clock."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Save a December baseline. Add a progress photo to your December check-ins in GainFrame. GainFrame Guy.",
+    "alt": "One comic hand holds a phone showing the GainFrame Progress Photos library."
+   }
+  ]
+ },
+ "christmas-tripod-mark-two-spots": {
+  "summary": "Mark the positions of your tripod and feet, check the framing and save a reference so you can repeat the same setup.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GainFrame Guy. Got a tripod for Christmas? Mark these two spots ",
+    "alt": "Gary unwraps a phone tripod beside two floor markers."
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 Mark the tripod feet Small pieces of tape show where each leg belongs.",
+    "alt": "Gary sticking tape on floor near tripod legs."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 Mark where you stand A second mark gives you the same starting spot.",
+    "alt": "Gary placing a length of tape on floor in front of the tripod."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 Check the frame Take one test shot. Leave room above your head and below your feet. 10s.",
+    "alt": "Gary using timer phone on tripod showing full body in frame."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 Save the setup, too Snap a photo of the tape, tripod and room so you can rebuild it.",
+    "alt": "Clearly diagrammed two floor markers and tripod against wall."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Make the next photo match. Save the first check-in in GainFrame and compare the framing next time. GainFrame Guy.",
+    "alt": "One comic hand holds a phone showing the GainFrame Progress Photos library."
+   }
+  ]
+ },
+ "workout-three-keeps-slipping": {
+  "summary": "What happened the last two times? Keep your weekly check-ins in GainFrame.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. I KEEP MISSING WORKOUT THREE",
+    "alt": "Gary holding gym bag looking at calendar showing two checkmarks and one empty circle"
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 FIND THE CONFLICT. What happened the last two times?",
+    "alt": "GainFrame Guy illustrates find the conflict: What happened the last two times?"
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 RESERVE TWO RELIABLE DAYS. Example: Tuesday and Saturday.",
+    "alt": "GainFrame Guy illustrates reserve two reliable days: Example: Tuesday and Saturday."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 GIVE WORKOUT C A TURN. Week one: A, B. Week two: C, A.",
+    "alt": "GainFrame Guy illustrates give workout c a turn: Week one: A, B. Week two: C, A."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 SAVE YOUR FALLBACK. Miss a day? Pick up the next letter.",
+    "alt": "GainFrame Guy illustrates save your fallback: Miss a day? Pick up the next letter."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Keep your weekly check-ins in GainFrame. Explore. Pose timelines. Tap a pose to see your full transformation timeline. Compact. Front, Back, Left Side, Add pose. Library. Day, Month, Quarter, Year, All. Select. Nov 11, 2026. 180 lbs. Apr 20, 2026. 178 lbs. Today, Photos, Compare, Trends, Food. Example screen.",
+    "alt": "A charcoal comic hand holds a phone showing a GainFrame screen."
+   }
+  ]
+ },
+ "five-uneven-meal-prep-bowls": {
+  "summary": "Weigh the finished stew without the pot. Log your share in GainFrame.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. MY MEAL PREP MADE FIVE UNEVEN BOWLS",
+    "alt": "Gary puzzling over five different-sized portions of a uniform lentil stew"
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 START WITH THE COOKED BATCH. Weigh the finished stew without the pot.",
+    "alt": "GainFrame Guy illustrates start with the cooked batch: Weigh the finished stew without the pot."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 WEIGH YOUR PORTION. This bowl holds 300 g of stew.",
+    "alt": "GainFrame Guy illustrates weigh your portion: This bowl holds 300 g of stew."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 DIVIDE BY THE BATCH WEIGHT. 300 g ÷ 1,200 g = ¼ of the batch.",
+    "alt": "GainFrame Guy illustrates divide by the batch weight: 300 g ÷ 1,200 g = ¼ of the batch."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 CHECK THE SCOOP. Stir first. Log toppings separately.",
+    "alt": "GainFrame Guy illustrates check the scoop: Stir first. Log toppings separately."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Log your share in GainFrame. Nutrition. Today. 1,900 of 2,250 kcal. 350 left. Protein 169 g of 180 g. Carbs 183 g of 225 g. Fat 57 g of 70 g. Your meals. Add food. Breakfast: Greek Yogurt Berry Bowl, 380 kcal. Lunch: Chicken Power Bowl, 620 kcal. Dinner: Salmon, Sweet Potato & Greens, 680 kcal. Snacks: Chocolate Protein Shake, 220 kcal. Example screen.",
+    "alt": "A charcoal comic hand holds a phone showing a GainFrame screen."
+   }
+  ]
+ },
+ "what-changed-this-month": {
+  "summary": "Example: 9 completed out of 12 planned. Compare the month in GainFrame.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. I HIT MY WORKOUTS. WHAT CHANGED?",
+    "alt": "Gary reviewing a calendar and comparing two dated training cards"
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 COUNT THE SESSIONS. Example: 9 completed out of 12 planned.",
+    "alt": "GainFrame Guy illustrates count the sessions: Example: 9 completed out of 12 planned."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 COMPARE ONE FAMILIAR LIFT. Same dumbbells: 8 reps then, 10 now.",
+    "alt": "GainFrame Guy illustrates compare one familiar lift: Same dumbbells: 8 reps then, 10 now."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 LINE UP TWO PHOTOS. Match pose, lighting and distance.",
+    "alt": "GainFrame Guy illustrates line up two photos: Match pose, lighting and distance."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 CHOOSE ONE NEXT STEP. Keep the same lift for your next review.",
+    "alt": "GainFrame Guy illustrates choose one next step: Keep the same lift for your next review."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Compare the month in GainFrame. All poses. Front. Best vs Worst. Side by Side. Slider. Earlier. Later. 199 lbs. 178 lbs. Share, Collage, Align, Lighting, Adjust. Compare my progress. Muscle groups, posture, body composition, and next focus. Example screen.",
+    "alt": "A charcoal comic hand holds a phone showing a GainFrame screen."
+   }
+  ]
+ },
+ "test-one-strength-goal": {
+  "summary": "Example: incline push-ups. Keep a dated baseline photo in GainFrame.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. PICK A STRENGTH GOAL YOU CAN TEST",
+    "alt": "Gary doing a controlled incline push-up on a firmly secured bench with feet on ground"
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 CHOOSE ONE REPEATABLE LIFT. Example: incline push-ups.",
+    "alt": "GainFrame Guy illustrates choose one repeatable lift: Example: incline push-ups."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 RECORD THE SETUP. Use the same bench height and hand position.",
+    "alt": "GainFrame Guy illustrates record the setup: Use the same bench height and hand position."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 WRITE DOWN YOUR BASELINE. Example: 6 controlled reps.",
+    "alt": "GainFrame Guy illustrates write down your baseline: Example: 6 controlled reps."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 PICK YOUR NEXT TEST. Try for 7 on that bench in four weeks.",
+    "alt": "GainFrame Guy illustrates pick your next test: Try for 7 on that bench in four weeks."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Keep a dated baseline photo in GainFrame. Front. Feed. Scrubber. November 2026. April 2026. March 2026. Score. Weight. Workouts. Today, Photos, Compare, Trends, Food. Example screen.",
+    "alt": "A charcoal comic hand holds a phone showing a GainFrame screen."
+   }
+  ]
+ },
+ "weekly-check-in-packing-list": {
+  "summary": "Use your usual pose and spot. Bring your question to GainFrame Coach.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. WHAT GOES IN A WEEKLY CHECK-IN?",
+    "alt": "Gary collecting a calendar, one printed progress photo and a handwritten question"
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 BRING ONE PHOTO. Use your usual pose and spot.",
+    "alt": "GainFrame Guy illustrates bring one photo: Use your usual pose and spot."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 BRING ONE TRAINING NOTE. Example: two sessions this week.",
+    "alt": "GainFrame Guy illustrates bring one training note: Example: two sessions this week."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 BRING ONE REAL OBSTACLE. Example: late shifts moved leg day.",
+    "alt": "GainFrame Guy illustrates bring one real obstacle: Example: late shifts moved leg day."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 BRING ONE QUESTION. Which session could I shorten next week?",
+    "alt": "GainFrame Guy illustrates bring one question: Which session could I shorten next week?"
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Bring your question to GainFrame Coach. Coach. Design preview • sample records. Let’s look at your week. Based on your progress. Review the action we agreed on. Try asking Coach. Find photos from my lowest weight. Picture me with more shoulder muscle. Common questions. Help me get back into a routine. Continue last chat. Message Coach. Example screen.",
+    "alt": "A charcoal comic hand holds a phone showing a GainFrame screen."
+   }
+  ]
+ },
+ "meal-prep-ran-out-thursday": {
+  "summary": "Five workdays means five lunches. Log a typical bowl in GainFrame.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. MY MEAL PREP RAN OUT THURSDAY",
+    "alt": "Gary looking into an empty meal container by a calendar page with Thursday highlighted"
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 COUNT THE LUNCHES YOU NEED. Five workdays means five lunches.",
+    "alt": "GainFrame Guy illustrates count the lunches you need: Five workdays means five lunches."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 MEASURE ONE USUAL SERVING. Example: 300 g of finished chili.",
+    "alt": "GainFrame Guy illustrates measure one usual serving: Example: 300 g of finished chili."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 SCALE THE COOKED YIELD. 5 bowls × 300 g = 1,500 g.",
+    "alt": "GainFrame Guy illustrates scale the cooked yield: 5 bowls × 300 g = 1,500 g."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 ADJUST THE RECIPE. Last batch made 1,200 g? Multiply ingredients by 1.25.",
+    "alt": "GainFrame Guy illustrates adjust the recipe: Last batch made 1,200 g? Multiply ingredients by 1.25."
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Log a typical bowl in GainFrame. Nutrition. Today. 1,900 of 2,250 kcal. 350 left. Protein 169 g of 180 g. Carbs 183 g of 225 g. Fat 57 g of 70 g. Your meals. Add food. Breakfast: Greek Yogurt Berry Bowl, 380 kcal. Lunch: Chicken Power Bowl, 620 kcal. Dinner: Salmon, Sweet Potato & Greens, 680 kcal. Snacks: Chocolate Protein Shake, 220 kcal. Example screen.",
+    "alt": "A charcoal comic hand holds a phone showing a GainFrame screen."
+   }
+  ]
+ },
+ "ask-a-better-coach-question": {
+  "summary": "Example: make it to two gym sessions. Ask that question in GainFrame Coach.",
+  "slides": [
+   {
+    "file": "slide-0-cover.webp",
+    "text": "GAINFRAME GUY. WHAT SHOULD I ASK MY FITNESS COACH?",
+    "alt": "Gary holding a training notebook and pointing at a single handwritten question mark on a whiteboard"
+   },
+   {
+    "file": "slide-1.webp",
+    "text": "#1 START WITH ONE GOAL. Example: make it to two gym sessions.",
+    "alt": "GainFrame Guy illustrates start with one goal: Example: make it to two gym sessions."
+   },
+   {
+    "file": "slide-2.webp",
+    "text": "#2 ADD WHAT HAPPENED. I trained Tuesday and missed Friday.",
+    "alt": "GainFrame Guy illustrates add what happened: I trained Tuesday and missed Friday."
+   },
+   {
+    "file": "slide-3.webp",
+    "text": "#3 NAME THE CONSTRAINT. My Friday shift ran late again.",
+    "alt": "GainFrame Guy illustrates name the constraint: My Friday shift ran late again."
+   },
+   {
+    "file": "slide-4.webp",
+    "text": "#4 ASK FOR A DECISION. How could I move Friday's session?",
+    "alt": "GainFrame Guy illustrates ask for a decision: How could I move Friday's session?"
+   },
+   {
+    "file": "slide-5.webp",
+    "text": "Ask that question in GainFrame Coach. Coach. Design preview • sample records. Let’s look at your week. Based on your progress. Review the action we agreed on. Try asking Coach. Find photos from my lowest weight. Picture me with more shoulder muscle. Common questions. Help me get back into a routine. Continue last chat. Message Coach. Example screen.",
+    "alt": "A charcoal comic hand holds a phone showing a GainFrame screen."
+   }
+  ]
+ },
  "shoulder-press-starts-at-the-bench": {
   "summary": "Set up a seated dumbbell shoulder press the same way every session: bench angle, getting the dumbbells up, start position, press path and a saved setup card.",
   "slides": [
@@ -29,7 +729,7 @@
    },
    {
     "file": "slide-5.webp",
-    "text": "#5 SAVE YOUR SETUP CARD. Same notch, same weight, then try to beat your reps. EXAMPLE / YOUR SETUP. Bench notch: 1 back from upright. Dumbbells: 25 lb each. Sets \u00d7 reps: 3 \u00d7 8\u201312. Rest: 2 min.",
+    "text": "#5 SAVE YOUR SETUP CARD. Same notch, same weight, then try to beat your reps. EXAMPLE / YOUR SETUP. Bench notch: 1 back from upright. Dumbbells: 25 lb each. Sets × reps: 3 × 8–12. Rest: 2 min.",
     "alt": "A red-header table with an example setup above Gary seated on the bench giving a thumbs-up."
    },
    {

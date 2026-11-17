@@ -1,0 +1,24 @@
+# GainFrame comic schedule
+
+| Eastern date and time | Comic | TikTok preview | Instagram preview |
+|---|---|---|---|
+| Nov 23, 2026 · 12:30 PM | Thanksgiving week ate my gym days | [@GainFrameGuy](https://platform.postiz.com/p/cmwk1piha0a3wqx07uaeb399r?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1piht0a3xqx07mrp5mh0j?share=true) |
+| Nov 25, 2026 · 12:30 PM | One dumbbell in my parents’ basement | [@GainFrameGuy](https://platform.postiz.com/p/cmwk1txt70a5bqx0753een2or?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1txto0a5cqx071nppm7g4?share=true) |
+| Nov 27, 2026 · 12:30 PM | What do I log for leftover pie? | [@gainframeapp](https://platform.postiz.com/p/cmwk1txu20a5dqx07aewyntqy?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1txul0a5eqx07bx9ueexn?share=true) |
+| Dec 18, 2026 · 12:30 PM | Before you buy a lifter a gym gift | [@GainFrameGuy](https://platform.postiz.com/p/cmwk1txv20a5fqx074bjuot27?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1txvo0a5gqx07xgwp412b?share=true) |
+| Dec 23, 2026 · 12:30 PM | Christmas Eve gym closes in 25 minutes | [@GainFrameGuy](https://platform.postiz.com/p/cmwk1txw80a5hqx07gmlmue32?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1txws0a5iqx07bat7bnyy?share=true) |
+| Dec 26, 2026 · 12:30 PM | Got a tripod for Christmas? Mark these two spots | [@gainframeapp](https://platform.postiz.com/p/cmwk1txx80a5jqx071hhe1epo?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1txxq0a5kqx0705owbklp?share=true) |
+| Dec 29, 2026 · 06:30 PM | Your best 2026 gym photo has a twin | [@gainframeapp](https://platform.postiz.com/p/cmwk1pii90a3yqx07y1effijh?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1piis0a3zqx07z62jdd0c?share=true) |
+| Dec 30, 2026 · 06:30 PM | Your old gym photos still count | [@gainframeapp](https://platform.postiz.com/p/cmwk1wydt0a6gqx0703x6oebs?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1wye80a6hqx07jfxdxsfq?share=true) |
+| Dec 31, 2026 · 06:30 PM | Make a gym recap you’ll actually rewatch | [@gainframeapp](https://platform.postiz.com/p/cmwk1wyeo0a6iqx07cusb613a?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1wyf50a6jqx07440kueza?share=true) |
+| Jan 01, 2027 · 06:30 PM | What do you want your next 12 weeks to change? | [@GainFrameGuy](https://platform.postiz.com/p/cmwk1uwag0a5lqx07no2akzo8?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1uwau0a5mqx07uj0m9pih?share=true) |
+| Jan 02, 2027 · 06:30 PM | What counts as a win this month? | [@GainFrameGuy](https://platform.postiz.com/p/cmwk1uwbd0a5nqx07mu1zym24?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1uwbu0a5oqx073hsxs6bs?share=true) |
+| Jan 03, 2027 · 06:30 PM | Your first cable station, decoded | [@GainFrameGuy](https://platform.postiz.com/p/cmwk1uwcf0a5pqx075fa7ljqa?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1uwcz0a5qqx07j4gazy5k?share=true) |
+| Jan 04, 2027 · 06:30 PM | My workout takes 90 minutes. What can I cut? | [@GainFrameGuy](https://platform.postiz.com/p/cmwk1wyfq0a6kqx07l647bovd?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1wyga0a6lqx07pc9e4lln?share=true) |
+| Jan 05, 2027 · 06:30 PM | I KEEP MISSING WORKOUT THREE | [@GainFrameGuy](https://platform.postiz.com/p/cmwk1uwdk0a5rqx07z25sq4cj?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1uwe40a5sqx07qikvdcdv?share=true) |
+| Jan 06, 2027 · 06:30 PM | MY MEAL PREP MADE FIVE UNEVEN BOWLS | [@gainframeapp](https://platform.postiz.com/p/cmwk1uwel0a5tqx07yxrsulsh?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1uwf40a5uqx07kzwtyiqa?share=true) |
+| Jan 07, 2027 · 06:30 PM | I HIT MY WORKOUTS. WHAT CHANGED? | [@gainframeapp](https://platform.postiz.com/p/cmwk1uwfm0a5vqx07e6msnanr?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1uwg40a5wqx07ycm46d0c?share=true) |
+| Jan 08, 2027 · 06:30 PM | PICK A STRENGTH GOAL YOU CAN TEST | [@GainFrameGuy](https://platform.postiz.com/p/cmwk1uwgn0a5xqx07a10lnom7?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1uwh50a5yqx07hf4nt89p?share=true) |
+| Jan 09, 2027 · 06:30 PM | WHAT GOES IN A WEEKLY CHECK-IN? | [@gainframeapp](https://platform.postiz.com/p/cmwk1uwhn0a5zqx07foybslzd?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1uwi60a60qx077emass9c?share=true) |
+| Jan 10, 2027 · 06:30 PM | MY MEAL PREP RAN OUT THURSDAY | [@gainframeapp](https://platform.postiz.com/p/cmwk1uwio0a61qx07nkc3w92d?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1uwjf0a62qx070v5kqbfw?share=true) |
+| Jan 11, 2027 · 06:30 PM | WHAT SHOULD I ASK MY FITNESS COACH? | [@gainframeapp](https://platform.postiz.com/p/cmwk1uwjx0a63qx07fj2iq08p?share=true) | [@gainframe.app](https://platform.postiz.com/p/cmwk1uwkh0a64qx07ggwj4kjr?share=true) |

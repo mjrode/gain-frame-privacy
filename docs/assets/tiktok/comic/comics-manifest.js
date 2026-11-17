@@ -2,6 +2,153 @@
 // To change comics, edit the .mjs file and run `npm run build:comics-manifest`.
 const COMICS_MANIFEST = [
   {
+    "slug": "find-your-photo-twin",
+    "title": "Your best 2026 gym photo has a twin",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "old-gym-photos-still-count",
+    "title": "Your old gym photos still count",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "gym-recap-you-will-rewatch",
+    "title": "Make a gym recap you’ll actually rewatch",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "your-next-twelve-weeks",
+    "title": "What do you want your next 12 weeks to change?",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "what-counts-as-a-win",
+    "title": "What counts as a win this month?",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "your-first-cable-station",
+    "title": "Your first cable station, decoded",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "ninety-minute-workout-cut",
+    "title": "My workout takes 90 minutes. What can I cut?",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "thanksgiving-week-ate-my-gym-days",
+    "title": "Thanksgiving week ate my gym days",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "one-dumbbell-parents-basement",
+    "title": "One dumbbell in my parents’ basement",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "what-do-i-log-for-leftover-pie",
+    "title": "What do I log for leftover pie?",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "before-you-buy-a-lifter-a-gift",
+    "title": "Before you buy a lifter a gym gift",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "christmas-eve-gym-closes-in-25",
+    "title": "Christmas Eve gym closes in 25 minutes",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "christmas-tripod-mark-two-spots",
+    "title": "Got a tripod for Christmas? Mark these two spots",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "workout-three-keeps-slipping",
+    "title": "I keep missing workout three",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "five-uneven-meal-prep-bowls",
+    "title": "My meal prep made five uneven bowls",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "what-changed-this-month",
+    "title": "I hit my workouts. what changed?",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "test-one-strength-goal",
+    "title": "Pick a strength goal you can test",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "weekly-check-in-packing-list",
+    "title": "What goes in a weekly check-in?",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "meal-prep-ran-out-thursday",
+    "title": "My meal prep ran out thursday",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "ask-a-better-coach-question",
+    "title": "What should i ask my fitness coach?",
+    "date": "2026-11-16",
+    "ext": "webp",
+    "slideCount": 6
+  },
+  {
+    "slug": "shoulder-press-starts-at-the-bench",
+    "title": "Your Shoulder Press Starts at the Bench",
+    "date": "2026-11-11",
+    "ext": "webp",
+    "slideCount": 7
+  },
+  {
     "slug": "how-often-should-you-train",
     "title": "How Often Should You Train?",
     "date": "2026-08-15",

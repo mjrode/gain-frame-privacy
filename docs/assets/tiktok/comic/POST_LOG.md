@@ -887,3 +887,143 @@ Format: counterintuitive-promise hook (the winning `diet-tips-sound-fake` DNA) �
 - GainFrame mention: Yes (separate lesson-linked final promo and caption CTA)
 - Style: Original lean-athletic comic GainFrame Guy; OpenAI gpt-image-2 via _pipeline/openai_image.py
 - Status: Done
+
+## 2026-11-16 — I keep missing workout three
+- Slug: workout-three-keeps-slipping
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic GainFrame Guy, built-in image generation
+- Status: Done
+
+## 2026-11-16 — My meal prep made five uneven bowls
+- Slug: five-uneven-meal-prep-bowls
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic GainFrame Guy, built-in image generation
+- Status: Done
+
+## 2026-11-16 — I hit my workouts. what changed?
+- Slug: what-changed-this-month
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic GainFrame Guy, built-in image generation
+- Status: Done
+
+## 2026-11-16 — Pick a strength goal you can test
+- Slug: test-one-strength-goal
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic GainFrame Guy, built-in image generation
+- Status: Done
+
+## 2026-11-16 — What goes in a weekly check-in?
+- Slug: weekly-check-in-packing-list
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic GainFrame Guy, built-in image generation
+- Status: Done
+
+## 2026-11-16 — My meal prep ran out thursday
+- Slug: meal-prep-ran-out-thursday
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic GainFrame Guy, built-in image generation
+- Status: Done
+
+## 2026-11-16 — What should i ask my fitness coach?
+- Slug: ask-a-better-coach-question
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic GainFrame Guy, built-in image generation
+- Status: Done
+
+## 2026-11-16 — Thanksgiving week ate my gym days
+- Slug: thanksgiving-week-ate-my-gym-days
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy
+- Status: Done
+
+## 2026-11-16 — One dumbbell in my parents’ basement
+- Slug: one-dumbbell-parents-basement
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy
+- Status: Done
+
+## 2026-11-16 — What do I log for leftover pie?
+- Slug: what-do-i-log-for-leftover-pie
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy
+- Status: Done
+
+## 2026-11-16 — Before you buy a lifter a gym gift
+- Slug: before-you-buy-a-lifter-a-gift
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy
+- Status: Done
+
+## 2026-11-16 — Christmas Eve gym closes in 25 minutes
+- Slug: christmas-eve-gym-closes-in-25
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy
+- Status: Done
+
+## 2026-11-16 — Got a tripod for Christmas? Mark these two spots
+- Slug: christmas-tripod-mark-two-spots
+- Slides: 6
+- GainFrame mention: Yes (dedicated promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy
+- Status: Done
+
+## 2026-11-16 — Your best 2026 gym photo has a twin
+- Slug: find-your-photo-twin
+- Slides: 6
+- GainFrame mention: Yes (lesson-linked app promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy; built-in image generation
+- Status: Done
+
+## 2026-11-16 — Your old gym photos still count
+- Slug: old-gym-photos-still-count
+- Slides: 6
+- GainFrame mention: Yes (lesson-linked app promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy; built-in image generation
+- Status: Done
+
+## 2026-11-16 — Make a gym recap you’ll actually rewatch
+- Slug: gym-recap-you-will-rewatch
+- Slides: 6
+- GainFrame mention: Yes (lesson-linked app promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy; built-in image generation
+- Status: Done
+
+## 2026-11-16 — What do you want your next 12 weeks to change?
+- Slug: your-next-twelve-weeks
+- Slides: 6
+- GainFrame mention: Yes (lesson-linked app promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy; built-in image generation
+- Status: Done
+
+## 2026-11-16 — What counts as a win this month?
+- Slug: what-counts-as-a-win
+- Slides: 6
+- GainFrame mention: Yes (lesson-linked app promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy; built-in image generation
+- Status: Done
+
+## 2026-11-16 — Your first cable station, decoded
+- Slug: your-first-cable-station
+- Slides: 6
+- GainFrame mention: Yes (lesson-linked app promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy; built-in image generation
+- Status: Done
+
+## 2026-11-16 — My workout takes 90 minutes. What can I cut?
+- Slug: ninety-minute-workout-cut
+- Slides: 6
+- GainFrame mention: Yes (lesson-linked app promo and caption)
+- Style: Original lean-athletic comic GainFrame Guy; built-in image generation
+- Status: Done
