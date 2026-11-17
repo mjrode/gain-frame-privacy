@@ -25,7 +25,11 @@ import styles from "./VisualizerWorkspace.module.css";
 export function useBodyVisualizerCta() {
   const platform = useDownloadPlatform();
   const [adjusted, setAdjusted] = useState(false);
-  const example = usePairedCta("visualizer_result_example", "score_example", platform === "ios" && adjusted);
+  const [forcedExample, setForcedExample] = useState(false);
+  const example = usePairedCta(
+    "visualizer_result_example", "score_example",
+    forcedExample || (platform === "ios" && adjusted), "report_3_33_v2",
+  );
   const [preview, setPreview] = useState(false);
   const [bridgeEnabled, setBridgeEnabled] = useState(false);
   const [assignment, setAssignment] =
@@ -36,6 +40,8 @@ export function useBodyVisualizerCta() {
   );
 
   useEffect(() => {
+    const arm = new URLSearchParams(window.location.search).get("visualizer_result_example");
+    setForcedExample(arm === "control" || arm === "treatment");
     const rollout = getBodyVisualizerBridgeRollout(window.location.hostname, window.location.search);
     setPreview(rollout.local && platform !== "android");
     setBridgeEnabled(rollout.enabled);
@@ -77,8 +83,8 @@ export function BodyVisualizerCta({ state }: { state: CtaState }) {
     >
       {state.example?.variant === "score_example" && (
         <figure className={styles.scoreExample}>
-          <img src="/blog/what-is-ffmi/assets/post-check-in-photo-score.webp" width="114" height="184" alt="Example GainFrame check-in with body fat, muscle and proportion scores" />
-          <figcaption>Example iPhone analysis<br /><strong>Your photo gets its own breakdown.</strong></figcaption>
+          <img src="/tools/body-visualizer/single-photo-report-3-33.webp" width="600" height="456" alt="GainFrame muscle map with front delts selected and an example area score of 82 out of 100" />
+          <figcaption>Example from the iPhone app<br /><strong>Single-photo Deep Dive</strong></figcaption>
         </figure>
       )}
       <div className={styles.appInvitationAction}>

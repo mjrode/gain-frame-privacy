@@ -62,6 +62,10 @@ section in the same commit.
 | PostHog (`mcp__c90fac73-…__*`) | Available, project `seoreceipts` by default — **switch to GainFrame before querying**. **The GainFrame data lives in project `357433` ("Default project", GainFrame org) and contains BOTH app and website events** — verified 2026-08-13 with `outbound_app_store_click` (671/14d), `bf_tool_*`, `physique_rater_*`, `waist_tool_calculated` all present. The 2026-08-11/12 runs recorded "zero events" — that was a wrong-scope query, not missing instrumentation. If the MCP connector only exposes render-ui, query the REST API directly: `POSTHOG_PERSONAL_API_KEY` in `~/.zshrc`, `POST us.posthog.com/api/projects/357433/query/` with a HogQLQuery (build the JSON in a python file — nested bash quoting corrupts `$pathname` escapes). Never record PostHog as unavailable without querying project 357433 via REST first | Landing-page conversion paths: tool results, email submissions, and App Store clicks. Use in every decision run when available |
 | `seo-tools/content-inventory.mjs` | **Working.** No network, no model | Every local fact: link graph, orphans, cannibalization, freshness, Quick Answer lengths |
 
+### Conversion preview checks, November 16
+
+Use a verified current app build for screenshot treatments. Show both variants inside the actual tool page. Open each forced preview in a desktop browser and on a mobile viewport without prior interaction, separately from testing normal device and interaction eligibility.
+
 ### Source checks verified 2026-10-27
 
 - Recompute historical format winners instead of treating the baseline below as

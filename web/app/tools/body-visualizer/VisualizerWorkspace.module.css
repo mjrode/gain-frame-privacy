@@ -731,5 +731,5 @@
   gap: 16px;
   margin: 0 0 12px;
 }
-.scoreExample img { width: 114px; height: auto; border-radius: 10px; }
+.scoreExample img { width: min(58%, 240px); height: auto; border: 1px solid #e5e7dc; border-radius: 10px; }
 .scoreExample figcaption { max-width: 17ch; font-size: 0.875rem; line-height: 1.45; }
