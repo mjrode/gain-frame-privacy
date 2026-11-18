@@ -17,20 +17,14 @@ type Props = {
 export default function CalcEmbed({ html, script, tool }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const trackedToolRef = useRef<ClientReportedWebTool>(tool);
-  const viewedRef = useRef(false);
   const startedRef = useRef(false);
   const resultRef = useRef(false);
 
   useEffect(() => {
     if (trackedToolRef.current !== tool) {
       trackedToolRef.current = tool;
-      viewedRef.current = false;
       startedRef.current = false;
       resultRef.current = false;
-    }
-    if (!viewedRef.current) {
-      viewedRef.current = true;
-      trackToolFunnelStep(tool, "viewed", { input_mode: "calculator" });
     }
 
     const container = containerRef.current;

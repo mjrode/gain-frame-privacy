@@ -190,9 +190,6 @@ export default function SixPackTimelineClient() {
     if (viewedRef.current) return;
     viewedRef.current = true;
     track("six_pack_tool_view");
-    trackToolFunnelStep("six_pack_timeline", "viewed", {
-      input_mode: "photo",
-    });
   }, []);
 
   useEffect(() => {

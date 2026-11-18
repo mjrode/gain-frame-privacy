@@ -367,7 +367,6 @@ function MeasurementFieldset({
 }
 
 export default function BodyShapeCompare({ active }: { active: boolean }) {
-  const viewedRef = useRef(false);
   const startedRef = useRef(false);
   const resultShownRef = useRef(false);
   const [hasInteracted, setHasInteracted] = useState(false);
@@ -395,14 +394,6 @@ export default function BodyShapeCompare({ active }: { active: boolean }) {
         ),
       }
     : null;
-
-  useEffect(() => {
-    if (!active || viewedRef.current) return;
-    viewedRef.current = true;
-    trackToolFunnelStep("body_shape_compare", "viewed", {
-      input_mode: "measurements",
-    });
-  }, [active]);
 
   useEffect(() => {
     if (!active || !hasInteracted || !result || resultShownRef.current) return;

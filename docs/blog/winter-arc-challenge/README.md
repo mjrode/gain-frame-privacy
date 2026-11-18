@@ -36,7 +36,7 @@ Use case: illustration-story. Generate a second NEW companion editorial illustra
 
 ## Measurement
 
-- Shared tool funnel: winter_arc_planner, with viewed, started, result_shown, and cta_clicked steps.
+- Shared tool funnel: winter_arc_planner, with started, result_shown, and cta_clicked steps. Views are `$pageview` on `/tools/winter-arc-planner/`.
 - Export action: winter_arc_export_clicked with calendar, checklist, or print format.
 - Web app CTA campaign: web-winter-arc.
 - Exported App Store campaigns: web-winter-arc-calendar and web-winter-arc-checklist.

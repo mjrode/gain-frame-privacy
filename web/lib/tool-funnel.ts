@@ -37,8 +37,8 @@ export function bodyFatVisualizerDeepLinkSource(
   return null;
 }
 
+// A tool view is the $pageview on the tool's path; it has no funnel event.
 export const TOOL_FUNNEL_STEPS = [
-  "viewed",
   "started",
   "result_shown",
   "cta_clicked",
@@ -108,7 +108,6 @@ export type ToolFunnelSource =
   | keyof typeof TOOL_FUNNEL_ALIASES;
 
 const TOOL_FUNNEL_EVENTS = {
-  viewed: "tool_funnel_viewed",
   started: "tool_funnel_started",
   result_shown: "tool_funnel_result_shown",
   cta_clicked: "tool_funnel_cta_clicked",

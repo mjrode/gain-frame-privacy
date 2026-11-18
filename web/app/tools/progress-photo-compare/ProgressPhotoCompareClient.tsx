@@ -452,7 +452,6 @@ export default function ProgressPhotoCompareClient() {
   const requestsRef = useRef<Record<PhotoSlot, number>>({ before: 0, after: 0 });
   const startedRef = useRef(false);
   const resultsShownRef = useRef(new Set<ProgressPhotoInputMode>());
-  const viewedRef = useRef(false);
 
   const ready = Boolean(photos.before && photos.after);
   const inputMode = progressPhotoInputMode(photos.before?.source, photos.after?.source);
@@ -466,12 +465,6 @@ export default function ProgressPhotoCompareClient() {
   const previewClass = mode === "side_by_side"
     ? styles.previewSideBySide
     : styles.previewOverlay;
-
-  useEffect(() => {
-    if (viewedRef.current) return;
-    viewedRef.current = true;
-    trackToolFunnelStep(TOOL_ID, "viewed", { input_mode: "local_images" });
-  }, []);
 
   useEffect(() => {
     if (!inputMode || resultsShownRef.current.has(inputMode)) return;

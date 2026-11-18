@@ -14,7 +14,6 @@ import {
   BodyVisualizerCtaPreview,
   useBodyVisualizerCta,
 } from "./BodyVisualizerCta";
-import { track } from "@/lib/analytics";
 import { trackToolFunnelStep } from "@/lib/tool-funnel";
 import {
   reportWebToolCompletion,
@@ -79,12 +78,10 @@ function compactNumber(value: number, decimals = 0): string {
 export default function BodyVisualizerClient() {
   const ctaState = useBodyVisualizerCta();
   const shellRef = useRef<HTMLElement>(null);
-  const viewedRef = useRef(false);
   const reportedUsage = useRef(false);
   const reportedCompletion = useRef(false);
   const reportedResultShown = useRef(false);
   const [mode, setMode] = useState<VisualizerMode>("height_weight");
-  const [locationResolved, setLocationResolved] = useState(false);
   const [unit, setUnit] = useState<UnitSystem>("us");
   const [referenceSex, setReferenceSex] = useState<ReferenceSex>("female");
   const [referenceView, setReferenceView] = useState<ReferenceView>("front");
@@ -142,18 +139,7 @@ export default function BodyVisualizerClient() {
       "mode",
     );
     if (requestedMode === "measurements") setMode("measurements");
-    setLocationResolved(true);
   }, []);
-
-  useEffect(() => {
-    if (!locationResolved || mode !== "height_weight" || viewedRef.current)
-      return;
-    viewedRef.current = true;
-    trackToolFunnelStep("body_visualizer", "viewed", {
-      input_mode: "height_weight",
-      visualizer_version: BODY_VISUALIZER_VERSION,
-    });
-  }, [locationResolved, mode]);
 
   function switchMode(nextMode: VisualizerMode) {
     if (nextMode === mode) return;
@@ -196,10 +182,6 @@ export default function BodyVisualizerClient() {
 
     if (!reportedResultShown.current && nextMeasurements) {
       reportedResultShown.current = true;
-      track("body_visualizer_result_shown", {
-        unit: nextUnit,
-        reference_sex: nextReferenceSex,
-      });
       trackToolFunnelStep("body_visualizer", "result_shown", {
         input_mode: "height_weight",
         visualizer_version: BODY_VISUALIZER_VERSION,

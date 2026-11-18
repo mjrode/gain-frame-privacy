@@ -373,14 +373,6 @@ export default function TransformClient({
     if (!viewedRef.current) {
       viewedRef.current = true;
       track("bt_tool_view");
-      trackToolFunnelStep(
-        measurementsMode ? "body_measurements" : CTA_CAMPAIGN,
-        "viewed",
-        {
-          input_mode: "photo",
-          tool_mode: measurementsMode ? "measurements" : "transformation",
-        },
-      );
     }
 
     // Visitors who can't render right now — lifetime spent, IP daily cap,

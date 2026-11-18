@@ -7,7 +7,7 @@ import {
   useDownloadPlatform,
   type DownloadPlatform,
 } from "@/components/useDownloadPlatform";
-import { track } from "@/lib/analytics";
+import { claimOncePerPageView, track } from "@/lib/analytics";
 import {
   getToolCtaAssignment,
   TOOL_CTA_EXPERIMENT_PHASE,
@@ -36,7 +36,8 @@ import {
  * compact QR with the primary App Store action, Android gets an email form posting to
  * /api/android-waitlist (never a link to another free web tool).
  *
- * Events: `tool_cta_viewed` once per mount when the card scrolls into
+ * Events: `tool_cta_assigned` and `tool_cta_viewed` once per page view for
+ * each exposure (the card can remount), the latter when the card scrolls into
  * view, `tool_cta_clicked` on any App Store anchor click, and
  * `tool_cta_dismissed` when the current result dock is closed, and
  * `tool_android_email_submitted` on the Android form. Tools keep their
@@ -248,6 +249,8 @@ export default function ToolConversionCard({
     const key = `${tool}:${placement}:${activeExperiment.id}:${activeExperiment.phase}:${activeExperiment.variant}:${activeExperiment.forced}`;
     if (assignedRef.current === key) return;
     assignedRef.current = key;
+    // The ref resets when the card remounts; the page-view claim does not.
+    if (!claimOncePerPageView(`tool_cta_assigned:${key}`)) return;
     track("tool_cta_assigned", {
       tool,
       placement,
@@ -301,12 +304,14 @@ export default function ToolConversionCard({
           )
         ) {
           viewedRef.current = exposureKey;
-          track("tool_cta_viewed", {
-            tool,
-            placement,
-            platform,
-            ...experimentProperties,
-          });
+          if (claimOncePerPageView(`tool_cta_viewed:${exposureKey}`)) {
+            track("tool_cta_viewed", {
+              tool,
+              placement,
+              platform,
+              ...experimentProperties,
+            });
+          }
           io.disconnect();
         }
       },

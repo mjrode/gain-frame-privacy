@@ -19,15 +19,11 @@ export default function WinterArcPlannerClient() {
   const [error, setError] = useState("");
   const [status, setStatus] = useState("");
   const started = useRef(false);
-  const viewed = useRef(false);
   const resultHeading = useRef<HTMLHeadingElement>(null);
   const dateInput = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setDefaultStart(defaultArcStart());
-    if (viewed.current) return;
-    viewed.current = true;
-    trackToolFunnelStep(TOOL, "viewed");
   }, []);
 
   useEffect(() => {

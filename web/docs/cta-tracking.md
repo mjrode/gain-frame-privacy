@@ -2,6 +2,54 @@
 
 Release: `15ef1dc9`, live **2026-10-06 13:16:11 UTC**, Worker version `a13c8ee5-e9eb-4dc6-a29e-72f9b83ea518`. See [execution receipt](../../seo-tools/content-audits/2026-10-06-execution.md).
 
+## November 17, 2026: fewer repeated and duplicate events, pending release
+
+Not live until deployed; record the release timestamp here when it ships. The
+site sent about 1.33M events a month to PostHog against a 1M free tier. These
+changes remove repeats and duplicates. Event names and properties are unchanged
+except where an event is removed. `track` feeds GA4 and PostHog, so GA4 sees
+the same changes; `$pageleave` is PostHog only.
+
+| Event | Change | How to read it now |
+|---|---|---|
+| `tool_cta_assigned`, `tool_cta_viewed` | At most once per page view for each exposure (tool, placement, experiment, phase, variant, forced; views also by platform). Before, a card that remounted sent them again: about 4.5 per page view on `/tools/body-visualizer/`. | Unique-visitor reads are unchanged. Raw event counts drop at the release; do not compare counts across it. |
+| `$pageleave` | No longer captured. `$pageview` is unchanged. | PostHog session duration, bounce rate and scroll depth lose their page-leave input; do not compare them across the release. |
+| `body_visualizer_bridge_viewed` | At most once per browser tab session for each `element` and `bridge_version`. Before, once per page load. | Count unique visitors. A reload or a return visit in the same tab sends no second event. |
+| `tool_funnel_viewed` | Removed. | `$pageview` filtered by `properties.$pathname` for the tool path (below). |
+| `body_visualizer_result_shown` | Removed. | `tool_funnel_result_shown` with `tool = 'body_visualizer'`. It carries the same `unit` and `reference_sex`. |
+| `web_download_qr_shown` | Unchanged. | Each displayed QR encodes its own `web_click_id`, and the app reports that ID back. Dropping an impression would leave a scan with no matching web event. |
+
+Tool page views replace `tool_funnel_viewed`:
+
+```sql
+SELECT properties.$pathname AS path, count(DISTINCT person_id) AS viewers
+FROM events
+WHERE event = '$pageview'
+  AND properties.$host IN ('gainframe.app', 'www.gainframe.app')
+  AND properties.$pathname = '/tools/body-visualizer/'
+  AND timestamp > now() - INTERVAL 7 DAY
+GROUP BY path
+```
+
+The path is `/tools/<tool id with hyphens>/`, with three exceptions:
+`body_fat_calculator` is `/tools/body-fat-estimator/`, `bf_from_photo` is
+`/tools/body-fat-from-photo/`, and `body_measurements` is
+`/tools/body-measurements-calculator/`.
+
+Three limits of the replacement:
+
+- `body_shape_compare` is the measurements mode of `/tools/body-visualizer/`
+  and has no page view of its own. A direct arrival is a `$pageview` on that
+  path with `mode=measurements` in `$current_url`. A switch to the mode inside
+  the page is no longer recorded; `tool_funnel_started` with
+  `tool = 'body_shape_compare'` is its first recorded step.
+- `$pageview` does not carry `tool`, `input_mode` or the `assisted_*` article
+  fields. For article-assisted arrivals read `article_next_step_clicked` (it
+  carries `destination_path`); the later funnel steps still carry `assisted_*`.
+- `$pageview` counts every visitor on the path. `tool_funnel_viewed` fired only
+  after the tool client mounted, so small differences from older numbers are
+  expected. Do not compare view counts across the release.
+
 ## Body Fat From Photo result CTA test (`body_fat_result_cta_v1`), pending release
 
 Branch `bf-result-cta-test`. Not live until merged; record the release timestamp
@@ -202,12 +250,14 @@ instead of showing only an internal CTA token.
 
 ## Normalized web-tool funnel
 
-The detailed per-tool events remain intact. A second, typed layer now makes the
-same four steps comparable across every major interactive tool:
+The detailed per-tool events remain intact. A second, typed layer makes the
+same steps comparable across every major interactive tool. The view step is the
+`$pageview` on the tool path; `tool_funnel_viewed` was removed on November 17,
+2026 (see the section at the top for the query and its limits).
 
 | Event | Meaning | Required properties |
 |---|---|---|
-| `tool_funnel_viewed` | Interactive tool client mounted | `tool`, `funnel_step=viewed`, `input_mode` |
+| `$pageview` on the tool path | The tool page was opened | `$pathname` |
 | `tool_funnel_started` | First valid upload or calculator interaction | `tool`, `funnel_step=started`, `start_trigger` where available |
 | `tool_funnel_result_shown` | A usable result was produced | `tool`, `funnel_step=result_shown`, `result_type` where available |
 | `tool_funnel_cta_clicked` | The result CTA was used (App Store link or Android email submit) | `tool`, `funnel_step=cta_clicked`, `placement`, `platform`, `cta_action` for Android, experiment fields when eligible |

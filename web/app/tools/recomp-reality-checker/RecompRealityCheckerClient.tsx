@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  useEffect,
   useMemo,
   useRef,
   useState,
@@ -114,17 +113,8 @@ export default function RecompRealityCheckerClient() {
   >({});
   const [submittedWithErrors, setSubmittedWithErrors] = useState(false);
   const startedRef = useRef(false);
-  const viewedRef = useRef(false);
   const formRef = useRef<HTMLFormElement>(null);
   const resultHeadingRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    if (viewedRef.current) return;
-    viewedRef.current = true;
-    trackToolFunnelStep(TOOL_ID, "viewed", {
-      input_mode: "measurements",
-    });
-  }, []);
 
   const unitLabels = useMemo(
     () => unit === "us"

@@ -102,7 +102,6 @@ export default function PhotoStudio({ mode }: { mode: Mode }) {
 
   useEffect(() => {
     mounted.current = true;
-    trackToolFunnelStep(tool, "viewed");
     return () => {
       mounted.current = false;
       cancelled.current = true;

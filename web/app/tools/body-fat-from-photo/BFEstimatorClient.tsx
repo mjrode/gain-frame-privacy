@@ -280,7 +280,6 @@ export default function BFEstimatorClient() {
     }
     if (local) return;
     track("bf_tool_view");
-    trackToolFunnelStep(CTA_CAMPAIGN, "viewed", { input_mode: "photo" });
   }, []);
 
   useEffect(() => {

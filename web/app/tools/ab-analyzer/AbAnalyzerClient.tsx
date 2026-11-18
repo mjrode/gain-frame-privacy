@@ -173,13 +173,6 @@ export default function AbAnalyzerClient() {
   const [preview, setPreview] = useState<string | null>(null);
   const [msgIdx, setMsgIdx] = useState(0);
   const fileRef = useRef<HTMLInputElement>(null);
-  const viewedRef = useRef(false);
-
-  useEffect(() => {
-    if (viewedRef.current) return;
-    viewedRef.current = true;
-    trackToolFunnelStep(CTA_CAMPAIGN, "viewed", { input_mode: "photo" });
-  }, []);
 
   useEffect(() => {
     if (stage.kind !== "processing") return;

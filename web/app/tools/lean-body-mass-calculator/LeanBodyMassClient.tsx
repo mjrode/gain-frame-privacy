@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import {
   calculateLeanBodyMass,
@@ -26,13 +26,8 @@ export default function LeanBodyMassClient() {
   const [uncertainty, setUncertainty] = useState("2");
   const [result, setResult] = useState<LeanBodyMassResult | null>(null);
   const [error, setError] = useState("");
-  const viewed = useRef(false);
   const started = useRef(false);
   const resultRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    if (!viewed.current) viewed.current = trackToolFunnelStep(TOOL, "viewed");
-  }, []);
 
   function begin() {
     if (!started.current)

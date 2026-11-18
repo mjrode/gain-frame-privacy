@@ -71,7 +71,7 @@ test("PostHog bootstrap disables autocapture and silently enables capture on eve
 
   assert.deepEqual(initialized, Array(2).fill([
     "test-project",
-    { api_host: "https://us.i.posthog.com", defaults: "2025-05-24", autocapture: false },
+    { api_host: "https://us.i.posthog.com", defaults: "2025-05-24", autocapture: false, capture_pageleave: false },
   ]));
   assert.deepEqual(optIns, [{ captureEventName: false }, { captureEventName: false }]);
 });
@@ -127,7 +127,7 @@ test("queues early lifecycle events until both providers are ready", () => {
   };
   setWindow(windowValue);
 
-  assert.equal(track("tool_funnel_viewed", { tool: "body_visualizer" }), false);
+  assert.equal(track("tool_funnel_started", { tool: "body_visualizer" }), false);
   assert.deepEqual(ga, []);
   assert.deepEqual(posthog, []);
 
@@ -138,10 +138,10 @@ test("queues early lifecycle events until both providers are ready", () => {
   };
   assert.equal(flushQueuedAnalyticsEvents(), 1);
   assert.deepEqual(ga, [
-    ["event", "tool_funnel_viewed", { tool: "body_visualizer" }],
+    ["event", "tool_funnel_started", { tool: "body_visualizer" }],
   ]);
   assert.deepEqual(posthog, [
-    ["tool_funnel_viewed", { tool: "body_visualizer" }],
+    ["tool_funnel_started", { tool: "body_visualizer" }],
   ]);
   assert.equal(flushQueuedAnalyticsEvents(), 0);
 });
@@ -161,9 +161,9 @@ test("replays queued events to each provider in original FIFO order", () => {
   };
   setWindow(windowValue);
 
-  track("tool_funnel_viewed", { sequence: 1 });
-  track("tool_funnel_started", { sequence: 2 });
-  track("tool_funnel_result_shown", { sequence: 3 });
+  track("tool_funnel_started", { sequence: 1 });
+  track("tool_funnel_result_shown", { sequence: 2 });
+  track("tool_funnel_cta_clicked", { sequence: 3 });
 
   decision = "granted";
   windowValue.gtag = (_command, event, properties) => {
@@ -177,9 +177,9 @@ test("replays queued events to each provider in original FIFO order", () => {
 
   assert.equal(flushQueuedAnalyticsEvents(), 3);
   assert.deepEqual(ga, [
-    ["tool_funnel_viewed", 1],
-    ["tool_funnel_started", 2],
-    ["tool_funnel_result_shown", 3],
+    ["tool_funnel_started", 1],
+    ["tool_funnel_result_shown", 2],
+    ["tool_funnel_cta_clicked", 3],
   ]);
   assert.deepEqual(posthog, ga);
 });

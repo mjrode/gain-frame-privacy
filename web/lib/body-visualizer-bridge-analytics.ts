@@ -1,4 +1,4 @@
-import { isProductionAnalyticsHost, track } from "./analytics.ts";
+import { isProductionAnalyticsHost, track, trackOncePerSession } from "./analytics.ts";
 import { isBodyVisualizerCtaPreviewHost } from "./body-visualizer-cta-experiment.ts";
 import { assignedCtaProperties } from "./assigned-cta-experiment.ts";
 import {
@@ -28,7 +28,14 @@ export const emitBodyVisualizerBridgeEvent: Emit = (event, properties) => {
       event, ...properties, experiment_forced: true, preview_only: true,
     }));
   } else if (isProductionAnalyticsHost(hostname)) {
-    track(event, { ...properties, preview_only: false });
+    const params = { ...properties, preview_only: false };
+    if (event === "body_visualizer_bridge_viewed") {
+      // Reach is recorded once per tab session for each element and bridge
+      // version; reloads and return visits do not repeat it.
+      trackOncePerSession(event, params, `${properties.element}:${properties.bridge_version}`);
+    } else {
+      track(event, params);
+    }
   }
 };
 

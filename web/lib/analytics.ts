@@ -15,6 +15,7 @@ declare global {
       get_distinct_id?: () => string;
       get_property?: (propertyName: string) => unknown;
       get_session_id?: () => string;
+      getPageViewId?: () => string | undefined;
       opt_in_capturing?: () => void;
       opt_out_capturing?: () => void;
     };
@@ -85,8 +86,7 @@ export type AnalyticsEvent =
   | "bfv_reference_selected"
   | "bfv_deep_link_loaded"
   | "bfv_cta_clicked"
-  // BMI body visualizer
-  | "body_visualizer_result_shown"
+  // BMI body visualizer (results are tool_funnel_result_shown, tool=body_visualizer)
   | "body_visualizer_bridge_viewed"
   | "body_visualizer_bridge_cta_clicked"
   // Body Fat from Photo app-analysis preview (separate from the live CTA experiment)
@@ -143,8 +143,8 @@ export type AnalyticsEvent =
   | "measurements_tool_preview_started"
   | "measurements_tool_cta_clicked"
   // Normalized cross-tool funnel. Per-tool events above remain the detailed
-  // source of truth; these four events make equivalent steps comparable.
-  | "tool_funnel_viewed"
+  // source of truth; these three events make equivalent steps comparable.
+  // Tool views are $pageview on the tool path, not a separate event.
   | "tool_funnel_started"
   | "tool_funnel_result_shown"
   | "tool_funnel_cta_clicked"
@@ -489,5 +489,81 @@ export function trackOncePerDay(
     // Fall through to the in-memory guard when persistent storage rejects.
   }
   memoryDedup.set(dedupKey, now);
+  return true;
+}
+
+const pageViewDedup = new Set<string>();
+
+/**
+ * True the first time `key` is claimed in the current page view. A component
+ * that remounts loses its refs, so exposure events that must fire once per
+ * page view claim their key here before they send.
+ *
+ * PostHog's page view id identifies the view. Until the SDK has loaded (or
+ * when it is blocked) the path stands in, and a key claimed under the path
+ * carries over to the page view id once it exists.
+ */
+export function claimOncePerPageView(key: string): boolean {
+  if (typeof window === "undefined") return false;
+
+  let pageViewId: unknown;
+  try {
+    pageViewId = window.posthog?.getPageViewId?.();
+  } catch {
+    // The path fallback below still works.
+  }
+  const pathKey = `${window.location.pathname}|${key}`;
+  if (typeof pageViewId !== "string" || !pageViewId) {
+    if (pageViewDedup.has(pathKey)) return false;
+    pageViewDedup.add(pathKey);
+    return true;
+  }
+
+  const idKey = `${pageViewId}|${key}`;
+  const claimed = pageViewDedup.has(idKey) || pageViewDedup.delete(pathKey);
+  pageViewDedup.add(idKey);
+  return !claimed;
+}
+
+// In-memory fallback for browsers where sessionStorage is unavailable: the
+// guard then lasts for the page load instead of the tab session.
+const sessionDedup = new Set<string>();
+
+/**
+ * Fires `event` at most once per browser tab session. Use it for view events
+ * that would otherwise repeat on every reload or return visit to a page.
+ *
+ * Dedup state is keyed by the event name plus a caller-supplied `key`
+ * (default: the event name) so distinct placements can each fire once. State
+ * persists in sessionStorage; if that is blocked it falls back to an in-memory
+ * guard. An event that is queued while the providers load still counts as sent.
+ *
+ * Returns true if the event was sent or queued, false if it was suppressed.
+ */
+export function trackOncePerSession(
+  event: AnalyticsEvent,
+  params: Record<string, unknown> = {},
+  key: string = event,
+): boolean {
+  if (typeof window === "undefined") return false;
+
+  const dedupKey = `gf_dedup:${event}:${key}`;
+  if (sessionDedup.has(dedupKey)) return false;
+
+  let store: Storage | null = null;
+  try {
+    store = window.sessionStorage;
+    if (store.getItem(dedupKey) !== null) return false;
+  } catch {
+    // Session storage is optional; the in-memory guard above still works.
+  }
+
+  track(event, params);
+  sessionDedup.add(dedupKey);
+  try {
+    store?.setItem(dedupKey, "1");
+  } catch {
+    // Fall through to the in-memory guard when session storage rejects.
+  }
   return true;
 }
