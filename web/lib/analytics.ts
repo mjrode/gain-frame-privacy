@@ -89,6 +89,7 @@ export type AnalyticsEvent =
   // BMI body visualizer (results are tool_funnel_result_shown, tool=body_visualizer)
   | "body_visualizer_bridge_viewed"
   | "body_visualizer_bridge_cta_clicked"
+  | "body_visualizer_button_viewed"
   // Body Fat from Photo app-analysis preview (separate from the live CTA experiment)
   | "body_fat_bridge_viewed"
   | "body_fat_bridge_cta_clicked"

@@ -6,6 +6,10 @@ export type AssignedCtaExperiment = {
   forced: boolean;
   angle: string;
   style: string;
+  buttonPlacement?: {
+    phase: string;
+    variant: "above_image" | "below_image";
+  };
 };
 
 export function assignedCtaProperties(experiment: AssignedCtaExperiment) {
@@ -16,6 +20,10 @@ export function assignedCtaProperties(experiment: AssignedCtaExperiment) {
     experiment_forced: experiment.forced,
     cta_angle: experiment.angle,
     cta_style: experiment.style,
+    ...(experiment.buttonPlacement && {
+      button_placement_phase: experiment.buttonPlacement.phase,
+      button_placement: experiment.buttonPlacement.variant,
+    }),
   };
 }
 

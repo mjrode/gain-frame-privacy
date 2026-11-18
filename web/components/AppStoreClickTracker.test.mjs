@@ -94,6 +94,29 @@ test("ordinary download links still receive attribution and both existing click 
   assert.equal(fixture.acquisitionReads.length, 2);
 });
 
+test("the keyed download and outbound click keep both the Future You offer and its button placement", () => {
+  const fixture = trackerFixture();
+  const anchor = anchorFixture();
+  const experiment = { dataset: {
+    experimentId: "visualizer_result_example", experimentPhase: "app_screens_v3",
+    experimentVariant: "future_you", buttonPlacementPhase: "future_you_placement_v1",
+    buttonPlacement: "above_image",
+  } };
+  anchor.closest = selector => {
+    if (selector === "a[href]") return anchor;
+    if (selector === "[data-experiment-id]") return experiment;
+    return null;
+  };
+  fixture.click(anchor);
+  assert.deepEqual(fixture.events.map(e => e.name), ["web_download_clicked", "outbound_app_store_click"]);
+  for (const { properties } of fixture.events) {
+    assert.equal(properties.experiment_variant, "future_you");
+    assert.equal(properties.experiment_forced, false);
+    assert.equal(properties.button_placement_phase, "future_you_placement_v1");
+    assert.equal(properties.button_placement, "above_image");
+  }
+});
+
 test("legacy track exemption still rewrites the link and only skips the legacy event", () => {
   const fixture = trackerFixture();
   const anchor = anchorFixture({ "data-track-exempt": "" });

@@ -2,6 +2,30 @@
 
 Release: `15ef1dc9`, live **2026-10-06 13:16:11 UTC**, Worker version `a13c8ee5-e9eb-4dc6-a29e-72f9b83ea518`. See [execution receipt](../../seo-tools/content-audits/2026-10-06-execution.md).
 
+## November 18, 2026: Future You button placement
+
+Only iOS slider users assigned to Future You in `visualizer_result_example/app_screens_v3`
+enter the 50/50 placement test. The parent offer stays saved. A separate draw persists
+`below_image` (original) or `above_image` per browser. Both use the same Future You
+image, caption, headline, body, button and analysis App Store destination.
+
+`paired_cta_assigned`, `body_visualizer_button_viewed` and the keyed
+`web_download_clicked` carry `button_placement_phase=future_you_placement_v1` and
+`button_placement`. A button view requires at least 50% of the actual anchor on
+screen for one continuous second with the document visible. It fires once per
+placement per page view. A fast tap still counts as a click. The historical
+`tool_cta_viewed` observes the card and is unsuitable for measuring button reach.
+
+The [placement report](../../analytics/posthog/future-you-placement.sql) counts
+unique assigned visitors and button viewers. Its primary outcome is an ordered
+Store click within 24 hours per assigned visitor with a full day of follow-up.
+Keep the placement arms separate from pre-release Future You traffic. The parent
+four-offer report pools the two Future You positions after release.
+
+On the Body Visualizer, `?future_you_button=below_image` and
+`?future_you_button=above_image` force the respective preview. Both are tagged
+`experiment_forced=true` and leave saved assignments intact.
+
 ## November 17, 2026: fewer repeated and duplicate events, pending release
 
 Not live until deployed; record the release timestamp here when it ships. The

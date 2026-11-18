@@ -148,6 +148,10 @@ export default function AppStoreClickTracker() {
               : {}),
             experiment_variant: experimentVariant,
             experiment_forced: experimentForced,
+            ...(experimentRoot?.dataset.buttonPlacementPhase && {
+              button_placement_phase: experimentRoot.dataset.buttonPlacementPhase,
+              button_placement: experimentRoot.dataset.buttonPlacement,
+            }),
             cta_angle: experimentRoot?.dataset.ctaAngle ?? experimentVariant,
           }
         : {};

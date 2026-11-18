@@ -746,3 +746,8 @@
 .screenOffer :global(.tcc-card) { grid-template-columns: 1fr; grid-template-areas: "copy" "actions"; border: 0; padding: 4px 0 0; }
 .screenOffer :global(.tcc-card h3) { font-size: 1.25rem; line-height: 1.15; }
 .screenOffer :global(.tcc-card .tcc-copy > p) { font-size: 0.875rem; }
+.screenOffer[data-button-first] :global(.tcc-card) {
+  grid-template-areas: "actions" "image" "copy";
+  padding-top: 0;
+}
+.screenOffer[data-button-first] .screenFigure { grid-area: image; }

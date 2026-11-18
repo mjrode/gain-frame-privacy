@@ -1,5 +1,7 @@
 -- Unique eligible slider users and clicks on their assigned card within 24 hours.
 -- Give each assignment a full day to convert. Forced previews and crossovers are excluded.
+-- From the November 18 placement release, Future You pools two button positions.
+-- Use future-you-placement.sql for their randomized comparison.
 WITH people AS (
     SELECT distinct_id,
         argMinIf(properties.experiment_variant, timestamp, event = 'paired_cta_assigned') AS arm,

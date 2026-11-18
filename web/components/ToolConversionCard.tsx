@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import DownloadQr from "@/components/DownloadQr";
 import PlatformDownloadLink from "@/components/PlatformDownloadLink";
 import {
@@ -73,6 +73,8 @@ type ToolConversionCardProps = {
   experiment?: ToolConversionExperiment;
   /** Page-owned assignment; callers provide the matching copy and placement. */
   assignedExperiment?: AssignedCtaExperiment;
+  /** Optional illustration following the primary action in a page-owned layout. */
+  afterActions?: ReactNode;
   /** Keep result CTAs visible after completion. Defaults to true for result. */
   sticky?: boolean;
   /** For tools whose CTA exists before interaction, wait for completion. */
@@ -174,6 +176,7 @@ export default function ToolConversionCard({
   androidProof = "One email, just the link · No spam",
   experiment,
   assignedExperiment,
+  afterActions,
   sticky,
   activation = "immediate",
   mascotSrc = TOOL_CTA_MASCOT_SRC,
@@ -356,6 +359,8 @@ export default function ToolConversionCard({
       data-experiment-phase={activeExperiment?.phase}
       data-experiment-variant={activeExperiment?.variant}
       data-experiment-forced={activeExperiment?.forced ? "true" : undefined}
+      data-button-placement-phase={assignedExperiment?.buttonPlacement?.phase}
+      data-button-placement={assignedExperiment?.buttonPlacement?.variant}
       data-cta-angle={activeExperiment?.angle}
       data-cta-style={!isAndroid ? assignedExperiment?.style : undefined}
       aria-labelledby={titleId}
@@ -464,6 +469,7 @@ export default function ToolConversionCard({
         </div>
       )}
 
+      {afterActions}
       <p className="tcc-proof">{isAndroid ? androidProof : displayedProof}</p>
     </aside>
   );

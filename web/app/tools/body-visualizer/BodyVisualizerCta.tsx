@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { track } from "@/lib/analytics";
+import { claimOncePerPageView, track } from "@/lib/analytics";
 import { assignedCtaProperties, type AssignedCtaExperiment } from "@/lib/assigned-cta-experiment";
-import { screenPreview, visualizerScreenAssignment } from "@/lib/visualizer-screen-test";
+import { placementPreview, screenPreview, visualizerScreenAssignment } from "@/lib/visualizer-screen-test";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 import { ANALYSIS_APP_STORE_PAGE } from "@/lib/site";
-import { createBodyVisualizerBridgeAnalytics } from "@/lib/body-visualizer-bridge-analytics";
+import { createBodyVisualizerBridgeAnalytics, observeBridgeVisibility } from "@/lib/body-visualizer-bridge-analytics";
 import {
   BODY_VISUALIZER_BRIDGE_MAIN_CTA,
   bodyVisualizerBridgeExperiment,
@@ -31,11 +31,12 @@ export function useBodyVisualizerCta() {
   const enrolled = useRef(false);
   useEffect(() => {
     const forced = screenPreview(window.location.search);
+    const forcedPlacement = placementPreview(window.location.search);
     if (enrolled.current || platform === "unknown" || platform === "android") return;
-    if (!forced && (platform !== "ios" || !adjusted)) return;
-    const arm = visualizerScreenAssignment(forced);
+    if (!forced && !forcedPlacement && (platform !== "ios" || !adjusted)) return;
+    const arm = visualizerScreenAssignment(forced, forcedPlacement);
     enrolled.current = true;
-    track("paired_cta_assigned", assignedCtaProperties(arm));
+    track("paired_cta_assigned", { ...assignedCtaProperties(arm), platform });
     setExample(arm);
   }, [platform, adjusted]);
   const [preview, setPreview] = useState(false);
@@ -84,6 +85,22 @@ const SCREEN_OFFERS = {
 } as const;
 
 export function BodyVisualizerCta({ state }: { state: CtaState }) {
+  const actionRef = useRef<HTMLDivElement>(null);
+  const experiment = state.example;
+  useEffect(() => {
+    const placement = experiment?.buttonPlacement;
+    const button = actionRef.current?.querySelector<HTMLAnchorElement>("a.tcc-primary");
+    if (!experiment || !placement || !button) return;
+    return observeBridgeVisibility(button, () => {
+      const key = `body_visualizer_button_viewed:${placement.phase}:${placement.variant}:${experiment.forced}`;
+      if (claimOncePerPageView(key)) {
+        track("body_visualizer_button_viewed", {
+          ...assignedCtaProperties(experiment), tool: "body_visualizer", platform: state.platform,
+        });
+      }
+    });
+  }, [experiment, state.platform, state.assignment]);
+
   if (
     state.platform === "unknown" ||
     (state.platform !== "android" && !state.assignment)
@@ -97,24 +114,29 @@ export function BodyVisualizerCta({ state }: { state: CtaState }) {
   const screen = state.example?.variant;
   const offer = screen === "future_you" || screen === "front_side" ? SCREEN_OFFERS[screen] : null;
   const copy = offer ?? BODY_VISUALIZER_CTA_TREATMENTS[variant];
+  const buttonFirst = experiment?.buttonPlacement?.variant === "above_image";
+  const offerFigure = offer && (
+    <figure className={styles.screenFigure}>
+      <img src={`/tools/body-visualizer/${offer.image}`} alt={offer.alt} width="720" height={offer.height} />
+      <figcaption>{offer.label}</figcaption>
+    </figure>
+  );
   return (
     <div
       ref={bridgeOffer ? state.bridgeAnalytics.refs.main_cta : undefined}
       onClick={bridgeOffer ? state.bridgeAnalytics.onClick : undefined}
       className={offer ? `${styles.appInvitation} ${styles.screenOffer}` : styles.appInvitation}
       data-visualizer-cta-style={BODY_VISUALIZER_CTA_TREATMENTS[variant].style}
+      data-button-first={buttonFirst || undefined}
     >
-      {offer && <figure className={styles.screenFigure}>
-        <img src={`/tools/body-visualizer/${offer.image}`} alt={offer.alt} width="720" height={offer.height} />
-        <figcaption>{offer.label}</figcaption>
-      </figure>}
+      {!buttonFirst && offerFigure}
       {state.example?.variant === "score_example" && (
         <figure className={styles.scoreExample}>
           <img src="/tools/body-visualizer/single-photo-report-3-33.webp" width="600" height="456" alt="GainFrame muscle map with front delts selected and an example area score of 82 out of 100" />
           <figcaption>Example from the iPhone app<br /><strong>Single-photo Deep Dive</strong></figcaption>
         </figure>
       )}
-      <div className={styles.appInvitationAction}>
+      <div className={styles.appInvitationAction} ref={actionRef}>
         <ToolConversionCard
           key={variant}
           tool="body_visualizer"
@@ -131,6 +153,7 @@ export function BodyVisualizerCta({ state }: { state: CtaState }) {
               : undefined)
           }
           sticky={false}
+          afterActions={buttonFirst ? offerFigure : undefined}
           headline={copy.headline}
           body={copy.body}
           androidBody="Email yourself the iPhone app link."

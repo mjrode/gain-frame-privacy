@@ -138,3 +138,36 @@ test("screen test previews every arm without changing the saved slider assignmen
     else globalThis.window = before;
   }
 });
+
+test("only Future You draws a stable placement; placement previews never write either assignment", async (t) => {
+  const { FUTURE_YOU_PLACEMENT_PHASE, SCREEN_TEST_ID, SCREEN_TEST_PHASE, placementPreview, visualizerScreenAssignment } =
+    await import("./visualizer-screen-test.ts");
+  const parent = `gainframe:experiment:${SCREEN_TEST_ID}:${SCREEN_TEST_PHASE}`;
+  const child = `gainframe:experiment:${SCREEN_TEST_ID}:${FUTURE_YOU_PLACEMENT_PHASE}`;
+  const saved = new Map([[parent, "score_example"]]);
+  const previous = globalThis.window;
+  t.after(() => { if (previous === undefined) delete globalThis.window; else globalThis.window = previous; });
+  globalThis.window = { localStorage: { getItem: k => saved.get(k), setItem: (k,v) => saved.set(k,v) } };
+  assert.equal(visualizerScreenAssignment().buttonPlacement, undefined);
+  for (const position of ["above_image", "below_image"]) {
+    const preview = placementPreview(`?future_you_button=${position}`);
+    const arm = visualizerScreenAssignment(undefined, preview);
+    assert.equal(arm.variant, "future_you");
+    assert.equal(arm.forced, true);
+    assert.equal(assignedCtaProperties(arm).button_placement, position);
+  }
+  assert.equal(placementPreview("?future_you_button=invalid"), undefined);
+  assert.equal(saved.get(parent), "score_example");
+  assert.equal(saved.has(child), false);
+  saved.set(parent, "future_you");
+  const live = visualizerScreenAssignment();
+  assert.equal(live.forced, false);
+  assert.equal(live.buttonPlacement.phase, FUTURE_YOU_PLACEMENT_PHASE);
+  assert.deepEqual(visualizerScreenAssignment().buttonPlacement, live.buttonPlacement);
+  for (const [stored, expected] of [["control","below_image"],["treatment","above_image"]]) {
+    saved.set(child, stored);
+    assert.equal(visualizerScreenAssignment().buttonPlacement.variant, expected);
+    assert.equal(visualizerScreenAssignment("future_you").buttonPlacement.variant, "below_image");
+    assert.equal(saved.get(child), stored);
+  }
+});
