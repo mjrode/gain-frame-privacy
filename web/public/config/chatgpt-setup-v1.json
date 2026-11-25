@@ -4,8 +4,8 @@
   "title": "Your food diary.\nIn ChatGPT.",
   "subtitle": "Connect once, then log meals and check your daily totals from a conversation.",
   "availability": {
-    "title": "Submitted for ChatGPT review",
-    "message": "GainFrame is awaiting OpenAI approval. Food chat is available in supported iPhone beta builds. Public availability is coming after approval.",
+    "title": "Coming soon to ChatGPT",
+    "message": "GainFrame isn’t in ChatGPT yet. OpenAI has to approve it first, and this page will update when it does. Connected diary is already in the GainFrame app.",
     "linkTitle": "View setup and availability",
     "linkURL": "https://gainframe.app/features/#connect"
   },
