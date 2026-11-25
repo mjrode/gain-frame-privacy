@@ -29,6 +29,20 @@
       "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
       "enabled": true,
       "account": "GainFrame (gainframe.app)"
+    },
+    {
+      "name": "facebook",
+      "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+      "enabled": false,
+      "account": "GainFrame (Facebook Page)",
+      "note": "carousels go out with lane 1: --channels tiktok,instagram,facebook"
+    },
+    {
+      "name": "youtube",
+      "integration_id": "cmwvjs2n60im3pj07xqrl6nmf",
+      "enabled": false,
+      "account": "GainFrame (@gainframeapp)",
+      "note": "videos only; never pass it for comic carousels"
     }
   ]
 }

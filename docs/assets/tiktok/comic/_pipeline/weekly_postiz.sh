@@ -52,7 +52,7 @@ echo "$ready ready; lane 1 gets $lane1 (has $lane1_q queued), lane 2 gets $lane2
 
 failed=0
 if (( lane1 > 0 )); then
-  $PY $P schedule --next $lane1 --channels tiktok,instagram $COMMIT | grep -v "^  uploaded " || failed=1
+  $PY $P schedule --next $lane1 --channels tiktok,instagram,facebook $COMMIT | grep -v "^  uploaded " || failed=1
 fi
 if (( lane2 > 0 )); then
   $PY $P schedule --next $lane2 --channels tiktok-2 $COMMIT | grep -v "^  uploaded " || failed=1

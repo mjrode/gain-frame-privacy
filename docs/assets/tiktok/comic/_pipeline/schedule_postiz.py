@@ -404,14 +404,25 @@ def channel_settings(ch, identifier, title):
         }
     if identifier.startswith("instagram"):
         return {"post_type": "post", "collaborators": []}
+    if identifier == "facebook":
+        # Photo carousels and videos on the Page feed. made_with_ai only when the owner asks.
+        return {"post_type": "post", **({"title": title} if ch.get("video") else {})}
+    if identifier == "youtube":
+        # Videos only (Shorts when vertical and under 60 s); YouTube takes no photo posts.
+        return {"title": title[:100], "type": ch.get("visibility", "public"),
+                "selfDeclaredMadeForKids": "no"}
     raise ApiError(
         f"Channel {ch['name']} is a {identifier!r} integration; this script "
-        "only knows TikTok and Instagram settings."
+        "only knows TikTok, Instagram, Facebook and YouTube settings."
     )
 
 
 def max_images(identifier):
-    return INSTAGRAM_MAX_IMAGES if identifier.startswith("instagram") else TIKTOK_MAX_IMAGES
+    if identifier == "youtube":
+        return 0  # photo posts are not possible on YouTube
+    if identifier.startswith("instagram") or identifier == "facebook":
+        return INSTAGRAM_MAX_IMAGES
+    return TIKTOK_MAX_IMAGES
 
 
 def build_payload(when, caption, media, targets):

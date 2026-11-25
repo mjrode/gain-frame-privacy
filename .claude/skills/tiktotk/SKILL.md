@@ -220,8 +220,15 @@ go out**. Keep unfinished work out of POST_LOG, or `skip` it. Log:
 `~/Library/Logs/gainframe-postiz-weekly.log`.
 
 Two lanes, a different comic on each TikTok account every day at 18:30:
-- lane 1 `--channels tiktok,instagram`: TikTok @gainframeguy + Instagram @gainframe.app
+- lane 1 `--channels tiktok,instagram,facebook`: TikTok @gainframeguy + Instagram @gainframe.app + Facebook Page "GainFrame"
 - lane 2 `--channels tiktok-2`: TikTok @gainframeapp
+
+Channels in `postiz.config.json`: `tiktok`, `tiktok-2`, `instagram` (Standalone, so no
+audio on Reels), `facebook` (Page; carousels and videos), `youtube` (@gainframeapp;
+**videos only**, never pass it for a carousel). Owner rule (2026-11-24): every video
+goes to YouTube; both videos and carousels go to Facebook. Videos are booked from
+their own folder (e.g. `gain-frame/outputs/real-footage-video-*/bookings.json`), not
+through the comic ledger.
 
 ```bash
 P=docs/assets/tiktok/comic/_pipeline/schedule_postiz.py

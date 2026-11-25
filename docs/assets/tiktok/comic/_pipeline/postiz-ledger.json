@@ -811,6 +811,13 @@
     "assisted-pullup-stack-direction": {
       "booked_at": "2026-11-11T12:14:31.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuqgb0huno30781hapcdh",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2zvcm06njr007xqa9m5bc",
@@ -863,6 +870,13 @@
     "before-you-buy-a-lifter-a-gift": {
       "booked_at": "2026-11-17T02:06:39.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuqvc0huqo3079gx9591f",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwk1txvo0a5gqx07xgwp412b",
@@ -1029,6 +1043,13 @@
     "build-a-reverse-fly-setup": {
       "booked_at": "2026-11-11T12:15:28.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjus8b0hv2o3071yj4ggcz",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc312tt06xul5071bgu496o",
@@ -1081,6 +1102,13 @@
     "build-a-treadmill-hill-session": {
       "booked_at": "2026-11-11T12:15:16.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjurxa0io1pj070j2v0z8x",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc30tk006xbl5077r7ifrro",
@@ -1300,6 +1328,13 @@
     "choose-a-step-up-box": {
       "booked_at": "2026-11-11T12:15:34.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjusf00j0cqd0718m7lkxd",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc317mh06p4r0076kagamb0",
@@ -1352,6 +1387,13 @@
     "christmas-eve-gym-closes-in-25": {
       "booked_at": "2026-11-17T02:06:39.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjursb0hv0o307ossupiwv",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwk1txws0a5iqx07bat7bnyy",
@@ -1462,6 +1504,13 @@
     "creatine-scale-three-mornings": {
       "booked_at": "2026-11-11T12:15:10.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjurnz0huzo307zgr894nj",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc30pl806x2l50764aufu9i",
@@ -1571,6 +1620,13 @@
     "dexa-isnt-always-right": {
       "booked_at": "2026-11-10T17:42:30.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjunbq0inqpj072e0e4u9i",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwaz9t2l0ixdn306s7m6ealv",
@@ -1663,6 +1719,13 @@
     "dont-need-the-big-three": {
       "booked_at": "2026-11-10T17:42:52.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuns60hu9o307qrckic7c",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwaza9lb0k8gpq07msoeuxtu",
@@ -1821,6 +1884,13 @@
     "find-your-calf-raise-baseline": {
       "booked_at": "2026-11-11T12:14:48.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjur040huro307604fbaor",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc3081a06wll507bivvwng8",
@@ -1922,6 +1992,13 @@
     "first-landmine-press-session": {
       "booked_at": "2026-11-11T12:15:45.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjusox0hv3o307bujfzcyq",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc31g8l06pcr007byhvgyi9",
@@ -2329,6 +2406,13 @@
     "how-many-exercises-do-you-need": {
       "booked_at": "2026-11-10T17:43:05.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuo3x0inspj07xrh7hn9l",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwazajvm0ixqn3068iguornw",
@@ -2634,6 +2718,13 @@
     "knees-can-pass-your-toes": {
       "booked_at": "2026-11-10T17:42:37.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjunh60hu7o307m7r28ept",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwaz9y8s0k8epq07ktr3eg8c",
@@ -2686,6 +2777,13 @@
     "late-preworkout-steals-sleep": {
       "booked_at": "2026-11-10T17:42:44.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjunnc0hu8o307wurfr75e",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwaza3ie0ixfn3066a214lds",
@@ -2775,6 +2873,13 @@
     "left-right-arm-photo-check": {
       "booked_at": "2026-11-11T12:14:42.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuqpz0hupo307zk6286mr",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc303hr06whl507vt6i2c6d",
@@ -3019,6 +3124,13 @@
     "match-your-sled-push-route": {
       "booked_at": "2026-11-11T12:15:39.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjusjv0io2pj075pc49e4q",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc31bqt06ybl507slsjs490",
@@ -3259,6 +3371,13 @@
     "next-dumbbell-too-heavy": {
       "booked_at": "2026-11-11T12:10:31.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjupzr0j0aqd07sxay5r2h",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2upte06qql507g5vrw02b",
@@ -3307,6 +3426,13 @@
     "ninety-minute-workout-cut": {
       "booked_at": "2026-11-17T02:06:39.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjutbc0j0dqd07vg5typu7",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwk1wyga0a6lqx07pc9e4lln",
@@ -3421,6 +3547,13 @@
     "one-dumbbell-parents-basement": {
       "booked_at": "2026-11-17T02:06:39.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjun6s0inppj07b17xpxmi",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwk1txto0a5cqx071nppm7g4",
@@ -3470,6 +3603,13 @@
     "only-look-big-with-a-pump": {
       "booked_at": "2026-11-11T12:09:05.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjupdm0j09qd07kmqc4blm",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2svra06j5r007sqkqx8zh",
@@ -3526,6 +3666,13 @@
     "pick-your-rower-damper": {
       "booked_at": "2026-11-11T12:14:37.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuqlg0huoo307mrcg2vc9",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2zzie06nlr0078q18bm4b",
@@ -3688,6 +3835,13 @@
     "repeat-your-pec-deck-setup": {
       "booked_at": "2026-11-11T12:15:05.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjurhb0huyo307387dfoa3",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc30lca06wrl5073724ffb6",
@@ -3760,6 +3914,13 @@
     "scared-to-bulk-start-here": {
       "booked_at": "2026-11-11T12:09:11.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjupi70hueo307figtkttc",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2szsx06p4l507mub39j9i",
@@ -3853,6 +4014,13 @@
     "set-a-repeatable-box-squat": {
       "booked_at": "2026-11-11T12:15:22.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjus370hv1o307k0ygl2pz",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc30ycp06our0078mra4tns",
@@ -3905,6 +4073,13 @@
     "set-your-bike-saddle": {
       "booked_at": "2026-11-11T12:14:54.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjur7c0huwo307614ru7cq",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc30cnx06nnr007m8kpkuhz",
@@ -3957,6 +4132,13 @@
     "set-your-smith-squat-stops": {
       "booked_at": "2026-11-11T12:14:59.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjurcb0huxo307f6mrgvba",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc30h0406nsr00756wa9aev",
@@ -4013,6 +4195,13 @@
     "shoulder-press-starts-at-the-bench": {
       "booked_at": "2026-11-11T11:55:56.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuo9b0j06qd07pq2dmwpu",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2byux067rr0076enfz9n1",
@@ -4134,6 +4323,13 @@
     "stalled-lift-troubleshooting": {
       "booked_at": "2026-11-11T12:14:20.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuq4x0huho307wqkf15p9",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2zmxn06w6l507i2ny08ef",
@@ -4239,6 +4435,13 @@
     "stop-failing-the-same-pull-up": {
       "booked_at": "2026-11-11T12:08:39.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuokt0hubo30709yypmnb",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2sbpw06iur007wxm9hs37",
@@ -4430,6 +4633,13 @@
     "test-one-strength-goal": {
       "booked_at": "2026-11-17T02:06:39.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjutmq0hv8o307m119tm9l",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwk1uwh50a5yqx07hf4nt89p",
@@ -4528,6 +4738,13 @@
     "the-cable-attachment-cheat-sheet": {
       "booked_at": "2026-11-11T12:08:55.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjup1q0huco307aa7t8sm0",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2so3506otl507sqkeg3bf",
@@ -4576,6 +4793,13 @@
     "the-gym-is-full-now-what": {
       "booked_at": "2026-11-11T12:08:45.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuorz0j08qd07k8n1bwms",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2sfsz06iyr0071vvmuo9l",
@@ -4669,6 +4893,13 @@
     "the-machine-doesnt-fit-you": {
       "booked_at": "2026-11-11T12:08:34.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuog60j07qd07cv4xgcoi",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2s7zi06oel507k5p1k92f",
@@ -4774,6 +5005,13 @@
     "three-trials-grip-test": {
       "booked_at": "2026-11-11T12:14:26.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuq9t0huio307lbvgpg35",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2zr4k06n9r007qoakgr6b",
@@ -5217,6 +5455,13 @@
     "what-counts-as-a-win": {
       "booked_at": "2026-11-17T02:06:39.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjut0j0hv5o307p08ub0vi",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwk1uwbu0a5oqx073hsxs6bs",
@@ -5376,6 +5621,13 @@
     "why-are-my-legs-still-small": {
       "booked_at": "2026-11-11T12:09:16.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjupnz0hufo307adeioc06",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2t3rh06jar007b0jpahip",
@@ -5440,6 +5692,13 @@
     "winter-arc-checkpoint": {
       "booked_at": "2026-11-11T12:09:21.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjupsu0inzpj07w3wbb0el",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2t7xf06jdr007u3imlcy7",
@@ -5500,6 +5759,13 @@
     "workout-three-keeps-slipping": {
       "booked_at": "2026-11-17T02:06:39.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjutge0hv7o307xeo8jm3a",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwk1uwe40a5sqx07qikvdcdv",
@@ -5639,6 +5905,13 @@
     "your-first-cable-station": {
       "booked_at": "2026-11-17T02:06:39.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjut6f0hv6o307xpo30o7e",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwk1uwcz0a5qqx07j4gazy5k",
@@ -5696,6 +5969,13 @@
     "your-next-twelve-weeks": {
       "booked_at": "2026-11-17T02:06:39.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjusvn0hv4o30747m8zyq0",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwk1uwau0a5mqx07uj0m9pih",
@@ -5753,6 +6033,13 @@
     "your-towel-isnt-a-reservation": {
       "booked_at": "2026-11-11T12:09:00.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjup8m0hudo307dljujl21",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2srwe06j2r007zxrfb3dm",
@@ -5846,6 +6133,13 @@
     "youre-weighing-the-wrong-chicken": {
       "booked_at": "2026-11-11T12:08:50.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjuox30intpj07qmqi0aei",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwc2sjr806opl507jvgfi5i9",
@@ -5894,6 +6188,13 @@
     "zone-2-isnt-magic": {
       "booked_at": "2026-11-10T17:42:58.000Z",
       "channels": {
+        "facebook": {
+          "integration_id": "cmwvjh6ay0ihdpj07dk7w64ov",
+          "post_id": "cmwvjunyx0huao307yk76kl45",
+          "settings": {
+            "post_type": "post"
+          }
+        },
         "instagram": {
           "integration_id": "cmwaypsjj0iewn306fxq6uv5o",
           "post_id": "cmwazaevr0k8ipq071yfneqyf",
