@@ -2,6 +2,77 @@
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
 
+## November 24, 2026: the conversion layer is where the leverage is
+
+[Full audit: performance, four live experiments, striking distance, 1,871 AI Overview
+citations, six fixes](2026-11-24.md). **Review mode; nothing approved yet.**
+
+Final Google data through November 22. Clicks 75,675 against 56,421 (+34.1%), nonbrand
+39,784 against 27,982, GA4 organic sessions 73,213 against 57,336. `/tools/body-visualizer/`
+supplied **89.6% of the net click gain** (+17,252 of +19,254), repeating the November 16
+finding in a fresh window. Blog clicks rose only 3.2% while 22 new posts entered the window.
+
+**The decisive result.** The Body Fat From Photo `analysis` arm, which puts the ask inside
+the result card, converts 88/220 assigned iOS visitors (40.00%) against control's 26/202
+(12.87%): +211% relative, z = 6.27, p = 3.6e-10. It survives conditioning on visitors who
+actually saw a bridge (40.18% vs 17.69%, p = 5e-6), so this is offer plus placement, not
+reach alone. Native arrivals are directional only (9 vs 3). Enrollment is ~220 per arm
+against the registered 400; the 14-day gate closes November 25 and 400 per arm arrives about
+December 5.
+
+**The decisive failure.** All three Body Visualizer treatments lose at ~750 per arm against
+control's 12.19%: `score_example` 6.60% (p = 1.8e-04), `front_side` 2.82% (p = 1.9e-11),
+`future_you` 1.80% (p = 1.6e-15). The test is taking ~75% of eligible slider traffic and
+costing roughly **24 Store clicks a day**. The `future_you_placement_v1` test is optimizing
+the weakest arm; its real finding is mechanical (anchor above the image gives 100% button
+visibility against 49.7%) and should be carried to surfaces that survive.
+
+**New posts still do not convert, fourth cohort running.** The 20 posts published October 27,
+November 9 and November 16 produced 300 landing sessions, 1 tool result and 3 Store clicks,
+all three from `chatgpt-body-fat-percentage`. The other 19 produced zero. One CTA arm beat 20
+posts by roughly 30 times in 13 days. **No new post is proposed this run**, and the November 9
+cohort stays inside its window until December 7.
+
+**Striking distance is empty, and the reason is intent, not position.** At matched positions
+5 to 9, tool-intent queries convert normally (`weight simulator` 11.11%, `body visualizer 3d`
+6.97%, `body maker` 6.25%) while definitional measurement queries do not (`hip size` 0.04%,
+`waist size` 0.00%, `chest size` 0.03%, `30 inch waist` 0.00%). About 30,000 impressions
+return about 30 clicks. No title or snippet fix addresses this; it re-confirms the August 1
+ruling with far more data.
+
+**Concentration risk, newly quantified.** DataForSEO puts "body visualizer" at −55% yearly and
+−33% quarterly, with 18,100 actual October searches against a 40,500 nominal. The asset
+carrying 90% of growth sits on a declining family; the site is taking a rising share of a
+shrinking pool. Working now, not a durable base. Worth a standing watch item.
+
+**AEO expanded enormously.** AI Overview citations are now **1,871** against the "30+" recorded
+below, led by the standardized render gallery and measurement pages at ranks 1 to 3 on
+high-volume terms. That explains the gallery click growth (+147 / +132 / +96 / +76 / +64 on the
+male percentage URLs). Every cited term is definitional, and those pages do not reach the
+Store: citations are discovery, not revenue.
+
+**Inventory and indexing are clean.** 296 posts, 1,747 internal links, zero broken links, zero
+cannibalization pairs, zero missing covers, 7 orphans (6 founder-lane). All 7 inspected URLs
+indexed with matching canonicals. Discovery is not the constraint.
+
+**Proposed, pending selection.** F1 stop the Body Visualizer four-way now and return to control.
+F2 ship the estimator `analysis` arm to 100% of eligible iOS, recording the departure from the
+400-per-arm gate. F3 fold the Future You placement test into F1 and keep the visibility lesson.
+F4 diagnose `/blog/dexa-scan-cost/`, which does not rank for its 12,100-volume KD-4 +49% head
+term at all (average position 31.2, 666 impressions, 0 clicks). F5 diagnose
+`/blog/best-body-scanning-measurement-apps/`, where impressions halved and clicks fell 500 to
+200 while positions slipped one place against a +22% market. F6 de-orphan
+`best-app-store-screenshot-tools`. F4 and F5 require a live SERP brief before execution.
+
+Checkpoints retained: October 27 cohort **November 27**, Improve vs Future **December 4**,
+November 9 cohort **December 10**, January calendar **December 17** plus a January read.
+
+## November 18, 2026 CTA and indexing check
+
+[Conversion rates, assignment checks and per-post Google clicks](2026-11-18.md). The current four-way iPhone Visualizer test began late November 16. At the first 24-hour read, the existing offer led with 4/36 Store clickers. The photo estimator’s inline analysis offer reached 41/120 against 16/95 for its control. Keep collecting to the estimator’s 400-per-arm and 14-day requirements. The men’s waist test has zero personal results among 107 assigned readers. Shared tool cards remain close at 5.73% Improve and 5.34% Future.
+
+Google indexed all 41 inspected posts published since September 19, including the January calendar. Through November 16, the October 27 batch earned 113 clicks and the seven November 9 search guides earned seven. The calendar recorded its first provisional impression November 17. Keep the November 27, December 10 and December 17 settled search checkpoints.
+
 ## November 16 implementation and historical diagnosis
 
 [Release, weekly Google history, experiment contracts and remaining December check](2026-11-16-execution.md). F1–F3 and P1 shipped. P2 is staged in draft PR 45. The first two roundup declines predate the November 10 core update. Keep the conversion experiments separate from historical periods.
@@ -11,7 +82,6 @@
 [Search drivers, conversion cohorts, seasonal briefs and selectable tests](2026-11-16.md). Review only. Final Google data through November 14 set daily (3,392), rolling seven-day (21,080) and 28-day (71,309) records. The Body Visualizer added 16,717 clicks, 90.2% of the net gain. Search-referrer Store reach rose from 3.91% to 5.00%, while blog reach fell from 1.59% to 1.01%. Best-list articles lost 77 of the 90 net article Store sessions. The complete article → personal result → keyed download click → native arrival path produced 375 → 33 → 5 from 17,397 search entries.
 
 **Pending selection.** F1 test a real iPhone analysis-result screenshot on the Body Visualizer’s existing iOS card. F2 test a two-date comparison against the men’s waist article’s existing estimator panel. F3 add one Thanksgiving recording example to the existing weight-fluctuation guide. P1 printable January fitness challenge → personal photo pair; P2 Fitness Wrapped iPhone walkthrough → personal GIF/contact-sheet export. Verify annual recap availability before release. Retain the October 22/27 and November 9 maturity dates and the existing estimator four-way experiment. All 87 inspected URLs were indexed. No content shipped.
-
 
 ## November 9, 2026: four nonbrand questions published
 
@@ -58,6 +128,243 @@
 - **Indexing:** IndexNow Yandex/Seznam/Naver accepted; Bing/aggregator remain 403 authorization failures. Fresh GSC **81/82 PASS**, one 1RM crawled-not-indexed with unchanged August 21 crawl. All three repaired pages PASS, but their crawls precede this release. Google requests are manual; three URLs in the execution receipt. No sitemap resubmission.
 - **Measurement:** metadata hold through **November 1 at 22:31:40 UTC**; first complete content window **October 23–November 19**, settled around **November 22**. Start from the production timestamp. The recomp hub is in the fixed 79-post cohort for `ios_inline_desktop_sticky_v3_rollout`; annotate the editorial intervention, preserve the September 29 phase clock, allocation and treatment. The visceral pair is outside the cohort. No causal CTA lift follows from a pre/post change.
 - **Held:** no new-post work, no October 15 metadata change before October 25 at 13:53:05 UTC, and no MacroFactor/Hevy comparison before the October 24 settled read and ownership check. Existing October 6/9/15 content windows and new-post gates remain intact. F1/F2 are complete, not pending proposals. No automation created.
+
+## October 22, 2026: review complete, retain two repairs and publish no new posts
+
+**Latest decision record:** [October 22 audit](2026-10-22.md). **Status: Proposed; review mode.**
+The October 19 F1/F2 proposals remain unbuilt. This invocation does not approve them.
+Only raw receipts, the dated audit and this rolling record changed. No article, tool,
+asset, TODO, commit, deployment or indexing submission. Preserve pre-existing edits.
+
+### Current evidence and decisions
+
+- **Final GSC through October 20:** September 23–October 20 versus August 26–September 22.
+  Total **54,108 / 34,251 clicks (+58.0%)**, **2,331,851 / 1,804,841 impressions (+29.2%)**.
+  Disclosed nonbrand **26,775 / 14,229 (+88.2%)**, brand **710 / 759**; unclassified
+  **26,623 / 19,263** stays unclassified. Latest complete week **14,220 / 13,594 (+4.6%)**.
+  Current query×page required three pages: **50,255 rows**, not a truncated 25,000/50,000.
+- Tools/directory **37,147 / 18,934 clicks**; blog/directory **15,421 / 13,931**.
+  Measurement/scanning **10,117 (+20.6%)**, visual reference **1,918 (+9.9%)**,
+  recomp **632 (+16.0%)**. AI-body-fat articles **879 (-39.0%)** and rating
+  articles **202 (-28.1%)**. Full 13-cluster table in audit; tools are separate.
+- Protect the October 15 commercial refresh: AI-body-fat roundup **421 → 159 clicks**,
+  impressions **4,979 → 2,767**, CTR **8.46% → 5.75%**, position **5.11 → 5.80**.
+  Scanner roundup **200 → 124 clicks**. These are concerns, but only five full
+  final-GSC days follow the release; keep metadata through **October 25, 13:53:05 UTC**.
+  Exact plural AI-roundup keyword still has no market data, so demand decay is unproved.
+- GA4 organic sessions **55,181 / 32,501**, engagement **78.86% / 74.42%**, with the
+  September 11 collection-change caveat. Ordered same-path Store reach: AI roundup
+  **15/201**, scanner roundup **15/156**, scanning hub **15/750**, free-photo roundup
+  **8/71**. These all-channel person denominators are not organic sessions.
+  Fresh RevenueCat overview **$2,385 booked MRR, 453 active subscriptions**, provider
+  last28d revenue **$2,942**. No SEO-paid revenue total or fresh Apple outcome read.
+- Inventory **274 posts / 23 actual tools / 1,580 links**, unchanged. **81/82
+  inspections PASS**; both October 15 posts indexed. Only 1RM remains crawled-not-indexed
+  with unchanged **August 21** crawl, predating its repair. No broad indexing blockage.
+- Market: **20 fresh DataForSEO calls**, including four live SERPs and one seasonal
+  Trends check. Overview batches **145/119** and **45/38** requested/returned,
+  **157 unique** records; missing means no data. KD calibration median **3.5**.
+  AIO database **1,576** references, unchanged, not a live citation census.
+
+### Proposed scope, still awaiting approval
+
+| ID | Scope | Fresh evidence and job |
+|---|---|---|
+| **F1, first** | `bulk-cut-or-recomp`: preserve URL/title; replace 33-word legacy summary with saved 50-word canonical answer; remove universal body-fat/FFMI cutoffs and guarantees; exact description, five FAQs/schema and style repairs. Contextual anchors **“compare your recomp tracking signals” → /tools/recomp-reality-checker/** and **“compare standardized progress photos” → /tools/progress-photo-compare/**. | **70 clicks / 6,594 impressions** versus 30/4,295; 80 organic sessions, **1/99** ordered Store reach. Two provider rank-5 AIO synonyms, no sampled live citation. Destination **22 viewers / 9 starters / 6 results / 2 Store clickers**. Accuracy and qualified tool activation, no uplift promise. |
+| **F2** | `visceral-fat-appearance` and `visceral-fat-vs-subcutaneous-fat`: correct pinch/hard-belly/photo diagnosis, unsupported waist thresholds and fixed depot-loss promises. Saved 50-word answers, accurate metadata and five matched FAQs each. Add **comparison → appearance**, anchor **“why appearance cannot identify visceral fat”**. External-photo tracking links only. | Appearance **5 clicks / 625 impressions**, **0/30** Store reach; comparison **1/3**, **0/17**. Comparison rank is not meaningful. Trust/measurement-accuracy repair; preserve separate intents and avoid treatment-guide expansion. |
+
+All three metadata histories last changed in the May 1 migration; preserve original
+April 25 publication dates. Exact descriptions, answers, claim removals, FAQ topics and
+sources are in the audit and `local/fix-specifications.json`. F2 adds the second source
+and first contextual inbound for appearance. No new assets or URLs. Product-context
+absolutes and `visceral-fat-test` remain unapproved backlog, not F3.
+**`all` means F1 and F2 only. No new posts.**
+
+### Newly mature reads and ownership
+
+- September 21 registered cohort is now final: **September 22–October 19** versus
+  **August 24–September 20**, excluding partial launch day. Free-photo roundup
+  **56/106 search clicks**, **71/110 organic sessions**, ordered Store **9/73 vs 4/120**.
+  Solo-photo clicks **13/9**, poses **11/1**, main photo roundup **34/34**.
+  Comparison/setup tools still **zero search clicks**. Physique Rater **4,532/4,346**
+  search clicks; Store **256/4,469 vs 236/3,830**. Mixed, observational outcomes;
+  September 29 CTA and later editorial changes prevent causal content claims.
+- Winter Arc first 28 days: article **168 clicks / 17,182 impressions**, planner
+  **539 / 9,079**, but recent exposure has collapsed from the seasonal peak.
+  October 7–13 → October 14–20 article impressions **395 → 26 (-93.4%)**,
+  planner **765 → 562 (-26.5%)**. Fresh US Trends fell **17.0%** over those weeks,
+  **61.5%** from the September 30–October 6 peak week. Seasonality explains direction,
+  not the entire article loss. Both indexed; check page-specific query visibility
+  before any rewrite. No seasonal expansion.
+- Waist/height remains an ownership trap: property query **54 impressions / 18.39**,
+  intended owner **41 / 26.37**. Do not call the intended article striking-distance.
+  Lean-body-mass calculator now has **84 owner impressions / 17.48**; preserve this
+  existing tool. Chart/women and FFMI have only one substantive shared-query split
+  each and retain distinct intents. Rating action belongs to the tool; no merges/siblings.
+- Hevy review **480/month, KD12, +127% yearly** still lacks prerequisite review/rating
+  queries and original workflow evidence; current SERP includes editorial results.
+  Fitbod/GymStreak standalone gates remain unmet. MacroFactor Workouts review is
+  **16 clicks / 942 impressions**, but comparison queries have only 1–2 impressions
+  per URL. Keep the already-approved comparison held until **October 24** settled
+  data and ownership review. Calipers/model/workflow evidence gaps remain.
+- Seven founder/product orphans skipped; no SEO orphans. QA issues35/schema drift61/
+  long-dash pages152 unchanged. Stale count20→21 is only an age threshold change,
+  not a new priority. Weak-link/contextual gaps are diagnostic receipts, not bulk scope.
+
+### Active measurement contracts
+
+- Shared `improve_vs_future_v4_stable_assignment` through complete October 21:
+  Improve **4,632 exposed / 263 raw clickers**, Future **4,570 / 228**. Future still
+  **30 short of 4,600**, before exclusions. Crossover **10/9,220 people**, **5/9,961
+  person-session groups**. No winner/allocation change; eventual ordered exclusive-arm,
+  assignment-denominator and nonvisualizer checks still required.
+- Visualizer `analysis_rollout_v2`: completed **October 7–20** fortnight has ordered
+  assigned clickers **839/6,131 iOS (13.68%)**, **230/2,206 desktop (10.43%)**.
+  Cumulative crossover **0/9,413 people**. Keep rollout; no new randomized lift claim.
+- Blog `ios_inline_desktop_sticky_v3_rollout`, fixed79-post cohort, complete
+  **September 30–October 21**: assigned clickers **138/5,950 iOS**, **15/2,886 desktop**;
+  137 iOS clickers have prior material exposure. Crossover **0/9,030 people**.
+  October 15 intervention stays annotated; preserve cohort.
+- Exact UUID web key → later native resolution → same-identity later positive billing
+  event now yields sparse observed paid links: visualizer **1**, blog inline **4**,
+  shared Improve **1**; Future/sticky **0**. Corresponding native keys **45/1,274**,
+  **21/143**, **16/287**, **9/241**, **0/16**. No summed people, install proof,
+  equal-follow-up paid rate or incremental lift. Exclude legacy recoveries and test
+  observations; QR visibility is neither click nor scan.
+- October 15 photo guidance currently has six full days **October 16–21**. Estimator
+  **871 starters / 711 result people / 26 Store**, transformation **389 / 251 / 10**;
+  event reaches are not a closed funnel. Errors/unusable outcomes overlap.
+  First full week ends **October 22**, read **October 23**; fortnight read **October 30**.
+- October 15 metadata hold **October 25, 13:53:05 UTC**; full content
+  **October 16–November 12**, age28 **November 12**, settled **November 15**.
+  New BodyScan2 and75Hard/Soft totals **0/141** and **0/14** clicks/impressions,
+  too young for judgment. 1RM needs a newer crawl.
+- September 23 cohort: settled **October 24**; September 24: settled **October 25**;
+  September 29 comparisons: age28 **October 27**, settled **October 30**.
+  October 6 content settled **November 6**; October 9 content **November 9**.
+  Scanner sponsor metadata hold ended October 20; expiry is not a retitle instruction.
+- Equal-maturity pricing outcomes were not refreshed; no pricing winner.
+  No automation created. New repair clocks start only after approval and verified deployment.
+
+---
+
+## October 19, 2026: review complete, no new posts, two repairs proposed
+
+**Latest decision record:** [October 19 audit](2026-10-19.md). **Status: Proposed; review mode.**
+No article, tool, asset, TODO, deployment or indexing submission changed; no commit.
+Only the dated audit, raw receipts and this rolling record were written. Preserve all
+pre-existing edits in this shared strategy and the invoked skill. October 15 remains
+shipped historical scope, not newly approved work.
+
+### Current evidence and cluster bets
+
+- **Final GSC through October 17:** September 20–October 17 versus August 23–September 19:
+  **52,783 / 31,584 clicks (+67.1%)**, **2,278,160 / 1,726,998 impressions (+31.9%)**.
+  Disclosed nonbrand **25,761 / 12,871 (+100.1%)**, brand **715 / 729**; unclassified
+  **26,307 / 17,984** stays unclassified. Latest full week **13,736 / 13,690 (+0.34%)**.
+  Tools/directory **35,782 / 16,908**, blog **15,432 / 13,369**. Do not call the current
+  week accelerating just because the longer comparison is strong.
+- Measurements/scanning **9,995 clicks (+24.5%)**, visual reference **1,909 (+14.7%)**,
+  progress photos **920 (+18.1%)**, recomp **628 (+21.2%)**. AI body-fat articles
+  **964 (-32.5%)**, rating articles **214 (-23.8%)**. All 13 clusters in the audit.
+- **Protect money owner:** `best-ai-body-fat-apps` **449 → 182 clicks**, impressions
+  **5,215 → 2,905**, CTR **8.61% → 6.27%**, position **5.26 → 5.53**. The former
+  “position improved” explanation no longer fits this window. Only two full final-GSC
+  days follow October 15's refresh; no verdict on that repair. Exact plural market
+  keyword has no data, so national-demand decay remains unproved.
+- **Business:** GA4 Organic Search **53,708 / 29,969 sessions**, engagement
+  **78.66% / 73.10%**, with September 11 collection-change caveat. Ordered same-path
+  Store reach: scanner roundup **23/181**, AI-body-fat roundup **16/229**, scanning hub
+  **15/816**, free-photo roundup **9/75**. All-channel PostHog reaches are separate
+  from organic sessions. RevenueCat fresh overview **$2,389 booked MRR, 453 active
+  subscriptions**, provider last28d revenue **$3,112**; no SEO-paid attribution and
+  no current Apple download read.
+- **Indexing/inventory:** **274 posts / 23 actual tools / 1,580 links**. No broken
+  links, missing covers, malformed JSON-LD or SEO-lane orphans; skip seven
+  founder/product orphans. **77/78 inspections PASS**, including both October 15
+  posts. Only 1RM remains crawled-not-indexed with the unchanged August 21 crawl;
+  its October 15 repair has not been evaluated by that verdict.
+- **Fresh market:** 19 DataForSEO calls; 136 first-batch terms / 111 returns,
+  second batch 14 / 13, 120 unique returned terms overall. Mostly October-updated
+  overview records now include September volume; older ranked records can still
+  carry August figures. Missing values are never zero. KD calibration median3.5.
+  AIO database records **1,576**, not a live citation census. Six competitor gaps
+  show no justified new cluster or direct-app review opportunity.
+
+### October 19 proposed scope
+
+| ID | Concrete scope | Evidence and intended outcome |
+|---|---|---|
+| **F1, first** | `bulk-cut-or-recomp`: keep URL/title; replace 33-word legacy summary with saved 50-word canonical answer; replace BF/FFMI cutoff rules with goal/training/recovery framework; correct truncated description, FAQs/schema and visible long dashes; contextual links to `/tools/recomp-reality-checker/` (“compare your recomp tracking signals”) and `/tools/progress-photo-compare/` (“compare standardized progress photos”). | **65 clicks / 6,299 impressions** versus 29/4,059; two provider rank 5 AIO records for recomp/cut synonyms, not confirmed in current live AIO. **1/96** Store reach,77 organic sessions. Destination **23 viewers / 10 starters / 6 results / 2 Store clickers** is sparse. Job: accurate C5 hub discovery and existing-tool activation; no uplift promise. |
+| **F2** | `visceral-fat-appearance` and `visceral-fat-vs-subcutaneous-fat`: correct pinch/hard-belly diagnosis, photo/AI organ-fat inference, unsupported waist thresholds and depot-change guarantees; each gets saved 50-word answer plus accurate metadata/FAQ/schema. Keep appearance vs comparison intents. Add contextual link **in comparison → appearance**, anchor “why appearance cannot identify visceral fat”; external-photo tracking bridge only. | Appearance **5 clicks / 608 impressions**, Store **0/30**; comparison **1 click / 3 impressions**, Store **0/13**. No reliable comparison rank, no live AIO citation. Medical SERPs and low conversion make this an accuracy/trust repair, not new competitive expansion. Existing appearance inbound plus new contextual source yields2 sources/1 contextual. |
+
+All three target metadata histories end at the May 1 migration, safely outside current
+holds; original publication remains April 25. Exact titles, descriptions, claim removals,
+50-word answers, FAQ topics and sources are in the audit and raw local specifications.
+F2 is a narrow measurement-accuracy repair, not a new treatment guide. Product-context's
+remaining competitor/DEXA absolutes are **unapproved backlog, not F3**. Do not silently
+expand into `visceral-fat-test`, which has a 47-word visible legacy answer and its own
+older claims needing separate review.
+
+Recommendation: **`all` = F1 and F2 only**; no new posts. F1 first. Neither is built.
+
+### Ownership, holds and ruled-out hypotheses
+
+- Fresh live briefs saved for recomp/cutting, visceral appearance, visceral comparison
+  and Hevy review. Recomp remains the existing hub. Visceral SERPs favor medical
+  explanations; repair current claims without opening more YMYL pages.
+- Hevy review **480/KD12/+127% yearly** still has no prerequisite review/rating
+  query family in complete GSC query×page; original workflow evidence also missing.
+  Editorial review results exist, so do not revive “no editorial SERP” reasoning.
+  Fitbod/GymStreak standalone brand gates remain unmet; Fitbod examples have at most
+  seven impressions and GymStreak none on the four-way owner.
+- MacroFactor Workouts/Hevy **40/month, KD/yearly no data** remains previously approved
+  but held: prerequisite age October 21, settled read around October 24, then shared-query
+  check. Calipers still requires original technique assets. Cal AI/MyFitnessPal and
+  RENPHO Nova need original workflow/model evidence. No new tool or page factory.
+- Waist/height property's49 impressions at 18.41 do **not** make the intended owner
+  striking-distance: that article has 38 query×page impressions at 27.95; another URL
+  contributes favorable positions. Preserve owner and investigate before any retitle.
+- Chart/women shared queries have no pair with≥10 impressions on both; FFMI has one
+  substantive split (ffmi22) but distinct reference intents; rating tool owns actions.
+  No merge and no rating sibling. Query ownership precedes a new-URL proposal.
+- October 15 BodyScan2 and 75Hard/Soft are now indexed; **0/67 and 0/3** search
+  clicks/impressions are too young. September 29 comparisons all indexed,
+  **45 clicks / 3,233 impressions**; do not declare winners before their maturity dates.
+
+### Active measurement contract
+
+- October 15 metadata hold through **October 25 13:53:05 UTC**; first complete photo
+  week October 16–22, read **October 23**, fortnight read **October 30**.
+  Only three completed operational days exist now. Content window
+  October 16–November 12; new posts age 28 **November 12**, settled read **November 15**.
+- 1RM: await a crawl newer than October 15; preserve its repair through October 25.
+  Manual Google recrawl remains previously documented, not performed by this review.
+- Shared Improve/Future through October 18: **4,306/4,236 exposed**,246/205 raw
+  clickers, below 4,600/arm. Crossover9/8,558 people and 5/9,219 person-session groups.
+  No winner/allocation change; final ordered exclusive-arm and nonvisualizer read required.
+- Visualizer rollout October 12–18: ordered assigned408/2,985 iOS and 97/1,093 desktop;
+  crossover0/7,363 people. First full fortnight endsOctober20, readOctober21.
+  Frozen October 6 randomized evidence stays separate.
+- Blog rollout September 30–October 18,19 days:116/5,144 iOS and 13/2,465 desktop assigned
+  clickers; crossover0/7,803. Fixed79-post cohort unchanged; October 15 edits are an
+  intervention, not randomized lift.
+- Exact later native arrivals: visualizer41/998 keys; inline17/121; sticky0/14;
+  shared Improve14/270, Future7/216. These are arrivals, not installs/paid outcomes.
+  QR visibility remains outside click denominators.
+- September 21 content settled aroundOctober22; September 23 five-post cohort ageOctober21/
+  settledOctober24; September 24 seven-post cohort ageOctober22/settledOctober25;
+  September 29 four comparisons ageOctober27/settledOctober30. Full per-slug list in audit.
+- October 10 scanner sponsor metadata hold endsOctober20; October 12 attributed copy
+  is a separate intervention. October 9 metadata hold endedOctober19 21:18:15 UTC,
+  full content read~November 9. October 6 full content read~November 6.
+- Annual-price test still running; all-age 49/813 vs58/865 paid is not equal-D28.
+  September 26 monthly phase earliest D28 approximatelyOctober24. No pricing winner.
+- No recurring automation created. Proposed repairs start their own clocks only after
+  approval and verified deployment.
+
+---
+
 
 ## October 15, 2026: full approved batch shipped
 
@@ -362,6 +669,9 @@ was created. Preserve prior first-person device-test/caliper holds; do not reviv
 > **September 29 execution, approved `all`:** Four comparisons (Oxiline/Hume, RENPHO/Withings, Body Smart/Comp, BOD POD/DEXA), their exact inbound links, F1 device rollout, F2 upload recovery and F3 Winter Arc links are live in `81187297` as of **September 29, 17:33:40 UTC**. All 30 production checks passed. IndexNow accepted by Yandex, Seznam and Naver; Bing/aggregator remain 403. Google indexing of the new pages is not yet established. Deployment and indexing status: [execution receipt](2026-09-29-execution.md). P5 MacroFactor Workouts vs Hevy is **approved but held** until the October 21 age gate and settled read around October 24. No fifth draft or URL exists. New articles have a 28-day age gate of October 27, with settled GSC around October 30.
 > **New blog phase:** `ios_inline_desktop_sticky_v3_rollout`. iOS inline, desktop sticky, Android prior choices preserved. Desktop clipping discovered in visual QA is repaired and must be annotated as a separate rendering change. Do not pool this deterministic rollout with the completed randomized phase or claim its device subgroup was independently powered. Body Visualizer and shared tool result experiments remain unchanged.
 
+
+
+
 > **Latest review: September 29, 2026.** [Review evidence and approval](2026-09-29.md). GSC final through September 27: **39,104 vs 16,370 clicks (+138.9%)**; disclosed nonbrand **17,138 vs 5,254 (+226.2%)**; latest week **12,391 vs 10,929 (+13.4%)**. GA4 organic sessions 37,455 vs 15,354, descriptive across the September 11 collection change. Tools/directory contribute 23,001 path clicks. **49/49 recent/watch URLs indexed**; Lean Body Mass is now PASS. Inventory is 268 articles; September added 29, including two founder pieces. The 27 September SEO/editorial posts have 190 clicks / 19,917 impressions, all still under 28 days. Hume vs RENPHO 36 clicks, Winter Arc 31, Evolt accuracy 26. Do not call these mature winners.
 >
 > **Historical review snapshot, before the approved execution above:** Blog inline **65/3,656 (1.78%)** vs sticky **33/3,631 (0.91%)**; pooled sample/time/interval gates pass and crossover exclusion preserves the effect. iOS **61/2,525 vs 20/2,485** favors inline, desktop **4/1,131 vs 13/1,146** reverses with only 17 direct clickers and QR incompleteness. F1 is an iOS rollout decision with final rendering/performance checks, keeping desktop control; device split is exploratory. Visualizer Analyze **186/1,208 (15.40%)** vs Direct **28/1,314 (2.13%)**; Track **90/1,293**, Future **49/1,242**. Remain collecting: slowest arm needs 392 additional 24-hour-mature viewers, plus 14 full days at September 29 19:27 UTC. Shared Improve **136/2,228** vs Future **110/2,205**, still short of 4,600 exposures/arm.
@@ -380,19 +690,52 @@ was created. Preserve prior first-person device-test/caliper holds; do not reviv
 >
 > **Measurement holds:** September 21 metadata through October 1; September 23/24 metadata ten days from actual release. New-post age gates: September 3 -> October 1; September 6 -> October 4; September 7 -> October 5; September 16 -> October 14; September 19 -> October 17; September 23 -> October 21; September 24 -> October 22. Add approximately 2–3 days for settled GSC and use full post-release days for final reads. RENPHO Sep 17–26: 13 clicks/1,841 impressions/0.71% CTR versus Sep 6–15 9/866/1.04%; no snippet win declared. WHtR's matched 14-day after window improved directionally, not causally. No content, tool, experiment, commit, deploy or index submission was executed in this review.
 
-
-
 > **September 21 customer-intent execution: approved `all`.** F1/F2/F3/F5/F6/F7/F8/F9/F10 are live in `ed96f821`, verified at 100% on September 21, 13:05:01 UTC (Worker `2d757ab8-c762-487c-8a9a-7295a919311e`). Seven existing destination articles refreshed plus six contextual-link sources, setup-tool Store link corrected, rater explanation/sample added. No new URLs. [Scope and evidence](2026-09-21.md); [execution receipt](2026-09-21-execution.md). F4 was explicitly accelerated by the owner and shipped as `f1e92985` at September 21, 14:11:07 UTC; all ten improvements are complete. [F4 receipt](2026-09-21-f4-execution.md). Follow-up automation is paused. Freeze its new metadata through October 01, 14:11 UTC; sample/mixed results and exports remain separate from personal-photo activation.
 > **Intent owners:** solo guide -> progress photos/gym progress photos; free roundup -> usable free options; main roundup -> paid-feature selection; body-tracking roundup -> categories and repeated physique tracking; score explainer -> interpretation; rater -> assessment. Physique tracker remains a secondary-copy hypothesis with no verified keyword conversion claim.
 > **Fresh listing corrections:** Progress photos are Pro; SnapTrack imports/overlays/sharing are IAPs and its update is 2017; Fit-Stitch is now $4.99; Shapez is now FormaTrack; Hevy has private comparisons. Free app scoring exists within allowances. GainFrame's old 25-photo limit is not universal; current public copy defers to the in-app allowance.
 > **Measurement:** preserve September 11 tool/blog experiment phases and September 15 Visualizer phase; content changes annotated, allocations/copy/eligibility unchanged. Freeze changed metadata through October 1, 13:05 UTC. Review September 22-October 19 with settled GSC around October 22. Comparison-tool inbounds changed before its gated product update; annotate separately. Fresh inspection is 88/89 PASS (all 15 changed URLs PASS); five-day-old Lean Body Mass Calculator remains unknown/too young. IndexNow accepted 3/5 engines; Google manual recrawl list and Bing verification remain in the execution receipt.
 
+> **September 19 attribution repair follow-up, authorized by owner:** confirmed native privacy redaction erased **195/195 app web click keys** in the September 1–19 snapshot; **1,084/1,084 website click keys** remained intact. Local native fix preserves bounded join keys at event/person boundaries, forwards scene links, restores RevenueCat attribution, and emits legacy recovery as `web_attribution_recovered`, separately from fresh resolutions. Native release/device validation pending; AppsFlyer's empty universal-link association still requires dashboard sign-in and repair. Do not interpret prior zero joins as zero arrivals, pool recovery time into acquisition cohorts, or change experiment allocations. [Receipts](../../analytics/raw/2026-09-19/attribution-fix/README.md).
+> **Latest status review: 2026-09-19.** Focused on current CTAs and experiments; no production changes or commit. [Full audit](2026-09-19.md). Final GSC through September 16: **29,080 vs 10,616 clicks (+173.9%)**; latest week **10,284 vs 7,347 (+40.0%)**. Disclosed nonbrand **11,516 vs 2,724**. Body Visualizer supplies **6,193** 28-day clicks and leads growth. GA4/PostHog comparisons straddle September 11's collection change and are descriptive.
+> **Early CTA leaders, not rollout winners:** Body Visualizer Analyze my photo **36/221 mature viewers (16.29%)** versus Get the app **4/236 (1.69%)**; Track my progress **17/243 (7.00%)**, Future **6/222 (2.70%)**, snapshot September 19 13:29 UTC. Only 3.75 days elapsed; keep 1,600/arm plus 14-day commitment. Shared-tool Improve **77/1,189 assigned (6.48%)** versus Future **52/1,155 (4.50%)**; excluding visualizer **56/696 vs 39/681**. Blog inline **34/1,590 assigned (2.14%)** versus sticky **17/1,569 (1.08%)**; exposed **792 vs 1,235**, still below 1,500/arm. Shared phases end September 18 complete days. Crossover: tools **1/2,343**, blog **7/3,152**, visualizer **0/1,327**. Preserve copy, styles, eligibility, allocation and measurement clocks.
+> **App outcomes:** compressed onboarding completion **466/550 vs 284/515**; only **328/336 D7-mature exposures**, paid **31/328 vs 30/336**. First-week return diagnostic remains weaker (**74/328 vs 104/336**); first-day pre-completion scoring failures **24/523 vs 10/498**. Keep investigating before promotion. New annual test is running: **8/108 payers at $49.99 vs 5/99 at $39.99**, revenue/customer **$1.37 vs $1.33**; too young, first D28 October 13. RevenueCat whole-business snapshot: **423 subscriptions, $2,390 MRR**; no SEO revenue attribution.
+> **Attribution/indexing:** no exact later app arrivals matched current-phase direct click keys or the separate post-repair QR-key diagnostic. QR visibility is arriving but is not a scan. Fresh-install validation remains outstanding. Apple CPP/PPO remain **PREPARE_FOR_SUBMISSION**. **91/92** inspected pages PASS; Gravl vs Fitbod now indexed, three-day-old Lean Body Mass Calculator still unknown. Keep September 16 content windows through October 14, settled read around October 17; RENPHO remains frozen to September 26 17:24 UTC, settled read around September 29. Two fresh DataForSEO calls support existing ownership; no new content proposals or expansion.
+>
 > **Latest execution: 2026-09-16.** Owner approved all September 16 proposals: **F1–F5, T1 and P1**. Website **`a8f5e420`** is live at 100%, deployed **17:24:07 UTC**, Worker version **`1bfe6b1f-69f3-40c3-8309-e0188c8ed561`**. Lean Body Mass Calculator and Gravl vs Fitbod are published; all five fixes and required touched-source validation repairs are complete. Full scope, evidence and follow-ups: [September 16 audit](2026-09-16.md).
 > **Search baseline:** final GSC through September 13: **26,340 clicks vs 9,519 (+176.7%)**, 1,536,097 impressions, average position 6.54; latest week **9,158 vs 6,626 (+38.2%)**. Tools/directory supply 13,155 clicks and blog paths 12,014. These gains predate today's release. Full source aggregates stay under `analytics/raw/2026-09-16/seo-cycle/` locally.
 > **Release evidence:** 120 tool tests, 10 report tests, 13 strict post checks and a selected-source production build pass. Eighteen live pages and all three new images verified. Fresh Google sweep: **90 existing PASS, two same-day new URLs unknown**. IndexNow accepted **3/5**; Bing verification and manual Google requests remain. [Compact release receipts](receipts/2026-09-16/).
 > **Attribution:** default listing restored on all three affected surfaces; campaign labels retained. Direct/QR HTTP redirects and Swift payload contract pass. New QR visibility events preserve the encoded key without changing click/exposure denominators. iOS uses first-touch attribution. **Fresh-install AppsFlyer delivery is unverified**, so there is no install/revenue attribution claim. App operating records are reconciled in docs-only commit `66f28a53`; no iOS release.
 > **Next reads:** RENPHO metadata frozen through **September 26 at 17:24 UTC**; read final September 17–26 data around **September 29**. New tool/article and full content-link window September 17–October 14, settled read around **October 17**. Existing experiment allocation, copy, eligibility and launch clocks remain unchanged. Holds remain holds. Older snapshots below are historical.
 
+> **Executed follow-up 2026-09-11:** website repair `a6f36ef6` plus startup-flush patch `9f41dc00` are live; clean phase clock **13:24:54 UTC**. Owner explicitly removed website consent gating; analytics starts on page load. Tool v4 and blog v2 stable-assignment phases reset measurement; retain the same visual arms. New blog/tool assignment events are confirmed arriving in PostHog; 156 tests and the production build pass. RevenueCat final anchor `expdfb28690d7` STOPPED at 2026-09-11T13:14:28.290000+00:00; default remains $7.99 monthly / $49.99 annual plus eligible $29.99 first-year annual rescue. No iOS release. Other paused legacy cohorts remain paused. See [execution record](2026-09-11-execution.md).
+> Prior status review **2026-09-11**: final GSC through Sep 8 reached **21,645 clicks vs 8,340 (+159.5%)**, with disclosed nonbrand query clicks 7,540 vs 1,804 and weekly clicks +16.2%. GA4 organic sessions 19,345 vs 9,271. iOS tool Store events 100→258 while blog events 249→188. **All 14 September posts indexed; 120/121 inspected URLs PASS**, only Aug 31 Progress Photo Compare crawled/not indexed. No new posts, production changes, commit, deployment or experiment mutation in this status review.
+> **New pricing guardrail evidence:** final anchor has 69/722 control payers vs 51/779 treatment; treatment conversion -31.49% with RevenueCat 95% relative-lift interval **-51.42% to -4.05%**. Revenue/customer $1.89 vs $2.08, MRR/customer $0.66 vs $0.41. Recommend owner ends challenger enrollment and retains control; no action taken. All-enrollment snapshot is not uniformly D28-mature and LTV superiority remains unestablished. **Compressed onboarding remains promising**: flag-exposure completion 259/299 vs 182/310; similar first-score reach; mature D7 paid 9/138 vs 8/143; keep collecting to 500/arm plus D7.
+> **Current website phases remain contaminated:** tool `improve_vs_future_v3` Future 15/302 versus Improve 8/264, with 25/541 people crossing arms. Blog inline 33/744 versus sticky 20/1,180, with 91/1,833 crossing. These are descriptive, not winners. F1 assignment/reach and F2 routing/attribution fixes remain proposed. CPP/PPO still PREPARE_FOR_SUBMISSION; C3 inactive. Preserve Sep 9 approvals and Sep 13/19/22 measurement gates below. Full readout and scoped recommendations: [2026-09-11.md](2026-09-11.md).
+
+> Latest owner-approved follow-up **2026-09-09: F3/F7 deployed**, commit `3aa858ec`, Cloudflare version `b8b126af-dda2-4e3f-bf46-9faf473a1ab6`, live verified 13:28:49 UTC. WHtR now leads with its calculator and has corrected screening guidance; frame-size and shoulder-to-waist guides support the existing bodybuilding chart. 140 tests, all touched strict checks, inventory, production build and live checks passed. IndexNow accepted 3/5 endpoints; all three Google inspections are indexed but crawls predate the release. **Shoulder width and average male body fat remain approved holds to approximately Sep 13; RENPHO F8 and Withings remain approved gated until final data includes Sep 10.** Final data currently ends Sep 6. F1/F2/F4/F5/F6/P1/T1 remain proposals. F3/F7 directional read Sep 19, ten-day read approximately Sep 22, full 28-day read approximately Oct 10. No recurring follow-up created. Release receipts: `analytics/raw/2026-09-09/page-one-deployment/`; details in `2026-09-09.md`.
+> Owner-approved follow-up **2026-09-09: Track retired and live**, commit `0bc8eb9`, Cloudflare version `b2c15f3d-1b23-4b49-bd7b-7a7448815338`, verified 13:11:42 UTC. Tool-result CTAs now assign Improve/Future 50/50 under **`improve_vs_future_v3`**; saved Track assignments migrate to an active arm, and Track is removed from contextual copy and the scheduled active-arm report. 140 tests, inventory, production build and live bundle checks passed. At that point the owner had approved only this retirement; **F1–F8/P1/T1 were pending** (later F3/F7/F8 status is recorded above), and this is not a statistical winner or an assignment-integrity repair. See the approved-follow-up section in `2026-09-09.md`. Historical review snapshots below predate this deployment.
+> Pre-execution review snapshot: **2026-09-09** (review complete; P1, T1 and F1–F8 proposed, no production changes or commits). Fresh GSC final through Sep 6: **20,324 clicks vs 7,902 (+157.2%)**, 1,246,024 impressions, average position 7.04; GA4 organic sessions 18,371 vs 8,826. Explicitly disclosed nonbrand query clicks 6,968 vs 1,628; anonymized queries prevent treating the residual as verified nonbrand. iOS tool Store events rose 101→230 while blog events fell 240→193. Both CTA tests remain contaminated by saved-assignment restoration: Future now leads tool exposed CTR, editorial inline leads blog exposed CTR, but neither supports a winner. Apple CPP creative remains PREPARE_FOR_SUBMISSION despite routing already in three tool surfaces. Thirteen September posts exist and are indexed; do not re-propose the ten Sep 6 sourced articles or RIRLift vs Hevy (Sep 7). Ab Analyzer is small but growing: 89 search clicks, 39 vs 11 weekly; ordered lifetime cohort 124 viewers→103 starts→92 results→4 later Store clickers. Prioritize CTA/routing repairs, the existing WHtR title, targeted inbound links, and a lean-body-mass calculator over another publishing batch. Full evidence and scoped approvals: [2026-09-09.md](2026-09-09.md).
+> Historical snapshots below are preserved. The September 9 audit supersedes stale “zero new posts,” unbuilt ZOZOFIT/Gravl review, unknown-gallery, unavailable RevenueCat-results, and undeployed-CPP statements. Earlier numbered proposals retain their original audit-specific identity.
+> Prior update: **2026-09-06** (approved photo-tool fixes shipped in `6a708dc`; ten new article briefs researched, zero new posts). Body Fat From Photo now has a benchmark-linked methodology with its limits, six visible FAQs matching JSON-LD, consistent result-confidence copy and three contextual inbound links. All touched strict checks, the build, Cloudflare deployment and live verification passed. Fresh US market data and live mobile SERPs support WW/ZOZOFIT/Gravl as the first testing priorities; eight briefs require original tests or service experience, while Cronometer vs MacroFactor and a Styku accuracy explainer can be commissioned as sourced articles. Preserve all earlier evidence and experiment gates. Details: `2026-09-06.md` and `../keyword-research/2026-09-06-customer-keyword-opportunities.md`.
+> Last run: **2026-09-04** (focused CTA review; no production changes). GSC through Sep 2: 18,010 clicks (+157.5%) / 1,082,487 impressions; known nonbrand query clicks 5,986 vs 1,344, with anonymized queries excluded from that subset. GA4 organic sessions 16,656 (+111.9%), engagement 70.69%. Correct the device-blended conversion narrative: total App Store events fell 15.6%, but iOS rose 10.7%; iOS tool events doubled while blog events fell 13.5%. Current tool message CTR: Improve 11/276, Future 6/290, Track 1/287. Blog inline 7/104 vs sticky 5/182. **Neither test is decision-ready:** 71/772 tool viewers and 11/275 blog viewers saw multiple variants; a reproducible consent-restoration path overwrites saved assignments. September 3 presentation changes and small samples add limitations. F1 assignment repair + F2 assignment/reach/attribution measurement are proposed, not implemented. No new posts or market-data refresh. Detailed evidence in `2026-09-04.md` and `analytics/raw/2026-09-04/cta-review/`.
+> Prior run: **2026-09-03** (review -> execution; owner approved `all`; P2/P4 plus fixes shipped in `e7812a7`). GSC reached 16,953 clicks / 997,347 impressions in 28d (+158% / +189%); tools supplied 7,280 clicks (+344%) and 42.9% of site clicks. Published InBody vs DEXA and a first-party GE Lunar DEXA report-reading pillar after existing report assets cleared P4's evidence gate. Retargeted the generic estimator to U.S. Navy tape-method intent, refreshed the page-two recomp timeline, aligned the average-male-BF schema, and added contextual support for FFMI, 1RM, strength, shoulder width, Progress Photo Compare, and Recomp Reality Checker. All 28 touched/new posts passed strict validation; global inventory passed at 241 posts; 94 tests and the 538-route build passed. Cloudflare deployed `860d4b8`; live pages/assets passed. IndexNow accepted seven URLs at 3/5 endpoints; Bing's known verification 403 remains. WeightWatchers, Evolt 360, and calipers remain approved but evidence-blocked. WHtR was held until the first settled Sep 1+ GSC row; those rows are now available but this focused CTA review does not execute the separate SEO change. · Data through 2026-08-31
+> Prior run: **2026-09-02** (review; zero executable posts or fixes; P1 ZOZOFIT remains approved but blocked). GSC reached 16,953 clicks / 997,347 impressions in 28d (+158% / +189%) and 10,953 / 648,584 in the latest 14d (+83% / +86%); average position improved in both comparisons. Brand supplied about 4.1% of clicks and residual nonbrand clicks rose about 175%. GA4 organic sessions rose 118% with engagement up 5.45 points, while PostHog App Store clicks fell 7.7% over 28d and 6.0% over 14d. Existing tools absorbed the highest-value query growth: body visualizer rose 94 -> 1,345 clicks in the latest 14d, and physique rater rose 100 -> 2,431 clicks over 28d. The live `physique check` AI Overview no longer cited GainFrame on Sep 2, but the query family is already split deliberately between the rater tool and interpretation article; wait for the Aug 23 bridge's Sep 20 full read before changing it. 153/157 valid recent/watch URLs were indexed; two Aug 6 gallery URLs remain unknown until the Sep 3 gate, and two Aug 31 tools are too new to judge until Sep 28. · Data through 2026-08-31
+> Prior run: **2026-08-30** (review -> execution; owner approved `all`; F1 SHIPPED in `a75e850`; zero posts). GSC reached 15,272 clicks / 888,340 impressions in 28d (+153% / +188%) and 9,924 / 587,704 in the latest 14d (+86% / +96%); average position improved in both comparisons. Brand supplied only 4.8% of clicks and residual nonbrand clicks rose about 168%. GA4 organic sessions rose 116% with engagement up 5.37 points. C2, C3, and C11 continue to lead growth; only C10 is flat. The best emerging keyword is physique check (140 volume / KD 2), but Google already assigns it to the existing rater tool and article, including both in the live AI Overview; do not create a sibling. F1 corrected two false descriptions of the photo-only body-proportion tool, normalized 35 long dashes in the measurement guide, and restored exact five-answer FAQ/schema parity in the scanning roundup. Global inventory, both strict slug checks, the 526-page build, Cloudflare Workers deployment, live-copy verification, and two indexed URL inspections passed. IndexNow accepted both refreshes at 3/5 endpoints; Bing and its aggregator retain the known authorization 403. P1 ZOZOFIT remains approved but blocked on first-party evidence. · Data through 2026-08-28
+> Prior run: **2026-08-29** (review -> execution; owner approved `all`; F1-F2 SHIPPED in `5148b60`; zero posts). GSC reached 14,134 clicks / 818,626 impressions in 28d (+149% / +186%) and 9,139 / 545,761 in the latest 14d (+83% / +100%); average position improved in both comparisons. Residual nonbrand clicks rose about 164% over 28d. GA4 organic sessions rose from 6,337 to 13,638 with engagement up 5.7 points. The Aug 26 body-visualizer links were already shipped in `e59463f`, so page copy and targeting remain frozen. F1 added privacy-safe `body_visualizer_result_shown` instrumentation with unit and reference sex only; F2 repaired exact FAQ/schema parity, two reader-visible long dashes, and the canonical App Store link on the indexed DEXA benchmark. All tests, strict checks, the 526-page build, GitHub Pages deployment, and live URL verification passed. IndexNow accepted the DEXA refresh at 3/5 endpoints; Bing and its aggregator retain the known authorization 403. P1 ZOZOFIT remains approved but blocked on first-party evidence. · Data through 2026-08-26
+> Prior run: **2026-08-26** (review; zero executable posts; F1-F3 proposed). Search growth accelerated to 13,084 clicks / 747,229 impressions in 28d (+144% / +183%) and 8,339 / 491,599 in the latest 14d (+76% / +92%). Residual nonbrand clicks rose about 82% in the two-week comparison while brand clicks fell by 10. GA4 organic sessions rose 44% with engagement up 3.4 points. `/tools/body-visualizer/` was the clearest existing-asset focus: 738 vs 27 clicks, 560 vs 34 organic sessions, 74.8% engagement, and exact-query position 12.5 in a 40,500-volume / KD 4 market. Proposed F1 added three relevant SEO-lane links, F2 added a privacy-safe result event, and F3 repaired FAQ/schema parity on the indexed but unmeasured DEXA benchmark. The three inbound links subsequently shipped in commit `e59463f`; the result event and DEXA repair did not. P1 ZOZOFIT remained approved but blocked on first-party evidence. 165/167 inspected recent or zero-impression URLs were indexed; the same two male gallery unknowns remained gated to Sep 3. · Data through 2026-08-24
+> Prior run: **2026-08-23** (review -> execution; owner approved `all`; F1-F4 SHIPPED; P1 approved but HOLD on first-party evidence). GSC reached 11,447 clicks / 648,562 impressions in 28d (+137% / +178%); residual nonbrand clicks rose 153%. **P1 ZOZOFIT Review** remains the only clean net-new keyword at 720 US volume and +22% yearly, but its three controlled scans, tape comparison, setup notes, screenshots, and interview do not exist yet, so no article or URL was created. The shipped work repointed `rate-my-physique` to the physique rater, corrected current ZOZOFIT app/suit/pricing facts, consolidated InBody-vs-Withings coverage on the existing owner, and updated three mature pages for live Target Training and nutrition. All six modified posts pass strict launch checks and the production build passes. No indexing requests were made because no new URL shipped. `hume vs renpho` remains a hardware-gated watch; Fitbod/Hevy/LeanLens/MyFitnessPal siblings remain rejected. 507/509 live sitemap URLs are indexed; the two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-21
+> Prior run: **2026-08-21 same-day rerun** (review; zero posts, one fix proposed). Final GSC cutoff remained Aug 19, but the finalized 28d total rose to 10,616 clicks / 599,647 impressions (+140% / +186%); brand remained 702 clicks (6.6%). The Hume retitle and accurate-to-worth-it link now exist as **uncommitted local changes** and pass strict slug checks, so they were removed from the proposal without being counted as shipped. The only remaining action is the already-approved `rate-my-physique` CTA bridge to `/tools/physique-rater/`. The sibling stays HOLD: tool takes `rate my body ai` at 3.2 with 36 clicks while the blog gets 1 click at 17. DataForSEO was available: picture intent still resolves to existing chart/tool pages; `best smart scale` now reads -19% yearly rather than the earlier +23%, reinforcing the Sep 8-10 hold; `fitbod review` has 1 exact-query GSC impression, below the proposal threshold. Eight recent URLs are indexed; two Aug 6 male gallery URLs remain unknown and too new to judge until Sep 3. · Data through 2026-08-19
+> Prior run: **2026-08-18** (review → execution; owner approved `all`: F4 absmaxx inbound SHIPPED same day; F1 Hume retitle + F2 accurate→worth-it remain SCHEDULED Aug 19; F3 rater CTA SCHEDULED Aug 21; zero posts; sibling HOLD) · Data through 2026-08-16
+> Prior run: **2026-08-17** (review; full experiment audit — chart revert CLOSED keep-control at 0.60% CTR / pos 9.3; WHR WIN 14.7→9.8; WHtR MIXED (imp 2.4× but pos 13.2→16.4); rate-my-physique trending GO for the Aug 21 sibling at 7.3 / 4.2% CTR; Hume long-tail already ranking (price @ 9, subscription @ 7) with retitle proposed for Aug 19; women-chart overlap NOT found — leave; F1 chart→gallery link SHIPPED same day + F2 Hume retitle APPROVED-SCHEDULED for Aug 19, zero posts until the Aug 21 gate) · Data through 2026-08-15
+> Prior run: **2026-08-14** (review → execution; owner approved `all`: Hume strengthen + waist size-8 chart + bodybuilding-measurements section SHIPPED same day; Hume retitle decision remains for ~Aug 19; F2's proposed retitle was already live since Jul 16 — only the chart section was needed) · **HUME FINDING**: 65K/mo brand family at KD 1-10 with hume-body-pod-review at rank 17-23 — F1 content strengthen proposed, retitle gated to ~Aug 19 by the Aug 11 og/subtitle dash-cleanup window; F2 average-waist-size-women retitle, F3 bodybuilding-measurements section; zero posts, competitors_domain sweep found no new brand targets) · Data through 2026-08-12
+> Prior run: **2026-08-13** (review → execution; owner approved `all` AND directed a new abs tool: M1 body-composition 301 + F2 Hevy 301 + F1 shoulder-to-waist calculator + **NEW `/tools/ab-analyzer/`** all shipped) · Data through 2026-08-11
+> Ab-analyzer bet: "do i have abs" 260 vol +529%/yr · "six pack calculator" thin-tool SERP (KD 5-6) · timeline FAQs (6,600+2,400 family). Windows: calculator directional ~Aug 23; ab-analyzer 28d ~Sep 10. "ab scanner" (720) excluded from titles — likely automotive-diagnostic ambiguity, verify SERP live before ever chasing it.
+> **Correction (2026-08-13): PostHog conversion evidence EXISTS.** Project 357433 (GainFrame org) holds app AND web events — outbound_app_store_click 671/14d (homepage 238, bf-photo tool 68, best-ai-body-fat-apps 48), bf_tool uploads 2,658, physique_rater requests 1,091, waist_tool_calculated 83. The 2026-08-11/12 "zero events" findings were wrong-scope queries; the skill's data-sources table now records the REST fallback.
+> Prior run: **2026-08-12** (review; App Store advice reconciliation; zero posts, one progress-focused hidden-keyword-field fix + the existing Hevy consolidation proposed) · Data through 2026-08-09
+> Prior run: **2026-08-11 run 2** (owner approved `all`; smart-scale/RENPHO series SHIPPED: 3 posts + retitle + review refresh + interlinks, commit 9698973) · Data through 2026-08-09
+> Same-day run 1: 2026-08-11 (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**)
+> Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
+> Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
 
 ## Current action ledger (September 16, 2026)
 
@@ -423,27 +766,114 @@ is the pre-release August 17–September 13 versus July 20–August 16 compariso
 
 The pre-release review inventory was 254 posts (206 SEO-category, 48 founder-category), 1,469 links, seven founder/product orphans, 49 Quick Answer issues and 80 schema issue rows. The approved release brings it to 255 posts and 1,480 links; all 13 touched posts pass strict checks. No blanket orphan fixes or title-similarity merges. Provider keyword gaps must be reconciled with actual GSC ownership: `rate my body female` already has a strong tool owner, and the shoulder-to-waist guide already embeds a calculator. All 11 SEO clusters grew; C2/C3/C11 remain the growth centers. No recurring monitor was created.
 
+## New findings (2026-09-09 - full SEO, tools and experiment review)
 
-## Historical strategy snapshots
+**Historical review snapshot: proposed, not built at review time.** The approved follow-ups above supersede release and approval status. This review changes the audit, rolling strategy and verified source notes only. No blog/tool copy, application code, allocation, indexing, commit or deployment changed. Raw receipts: `analytics/raw/2026-09-09/`. GSC is Aug 10–Sep 6 vs Jul 13–Aug 9; the latest weeks are Aug 31–Sep 6 vs Aug 24–30. PostHog is complete through Sep 8, production/consented; new-post GA4 is Sep 1–8. Market estimates and six US-English mobile SERPs are fresh Sep 9.
 
-> Last run: **2026-09-03** (review -> execution; owner approved `all`; P2/P4 plus fixes shipped in `e7812a7`). GSC reached 16,953 clicks / 997,347 impressions in 28d (+158% / +189%); tools supplied 7,280 clicks (+344%) and 42.9% of site clicks. Published InBody vs DEXA and a first-party GE Lunar DEXA report-reading pillar after existing report assets cleared P4's evidence gate. Retargeted the generic estimator to U.S. Navy tape-method intent, refreshed the page-two recomp timeline, aligned the average-male-BF schema, and added contextual support for FFMI, 1RM, strength, shoulder width, Progress Photo Compare, and Recomp Reality Checker. All 28 touched/new posts passed strict validation; global inventory passed at 241 posts; 94 tests and the 538-route build passed. Cloudflare deployed `860d4b8`; live pages/assets passed. IndexNow accepted seven URLs at 3/5 endpoints; Bing's known verification 403 remains. WeightWatchers, Evolt 360, and calipers remain approved but evidence-blocked. WHtR remains held until the first settled Sep 1+ GSC row; current API data still ends Aug 31. · Data through 2026-08-31
-> Prior run: **2026-09-02** (review; zero executable posts or fixes; P1 ZOZOFIT remains approved but blocked). GSC reached 16,953 clicks / 997,347 impressions in 28d (+158% / +189%) and 10,953 / 648,584 in the latest 14d (+83% / +86%); average position improved in both comparisons. Brand supplied about 4.1% of clicks and residual nonbrand clicks rose about 175%. GA4 organic sessions rose 118% with engagement up 5.45 points, while PostHog App Store clicks fell 7.7% over 28d and 6.0% over 14d. Existing tools absorbed the highest-value query growth: body visualizer rose 94 -> 1,345 clicks in the latest 14d, and physique rater rose 100 -> 2,431 clicks over 28d. The live `physique check` AI Overview no longer cited GainFrame on Sep 2, but the query family is already split deliberately between the rater tool and interpretation article; wait for the Aug 23 bridge's Sep 20 full read before changing it. 153/157 valid recent/watch URLs were indexed; two Aug 6 gallery URLs remain unknown until the Sep 3 gate, and two Aug 31 tools are too new to judge until Sep 28. · Data through 2026-08-31
-> Prior run: **2026-08-30** (review -> execution; owner approved `all`; F1 SHIPPED in `a75e850`; zero posts). GSC reached 15,272 clicks / 888,340 impressions in 28d (+153% / +188%) and 9,924 / 587,704 in the latest 14d (+86% / +96%); average position improved in both comparisons. Brand supplied only 4.8% of clicks and residual nonbrand clicks rose about 168%. GA4 organic sessions rose 116% with engagement up 5.37 points. C2, C3, and C11 continue to lead growth; only C10 is flat. The best emerging keyword is physique check (140 volume / KD 2), but Google already assigns it to the existing rater tool and article, including both in the live AI Overview; do not create a sibling. F1 corrected two false descriptions of the photo-only body-proportion tool, normalized 35 long dashes in the measurement guide, and restored exact five-answer FAQ/schema parity in the scanning roundup. Global inventory, both strict slug checks, the 526-page build, Cloudflare Workers deployment, live-copy verification, and two indexed URL inspections passed. IndexNow accepted both refreshes at 3/5 endpoints; Bing and its aggregator retain the known authorization 403. P1 ZOZOFIT remains approved but blocked on first-party evidence. · Data through 2026-08-28
-> Prior run: **2026-08-29** (review -> execution; owner approved `all`; F1-F2 SHIPPED in `5148b60`; zero posts). GSC reached 14,134 clicks / 818,626 impressions in 28d (+149% / +186%) and 9,139 / 545,761 in the latest 14d (+83% / +100%); average position improved in both comparisons. Residual nonbrand clicks rose about 164% over 28d. GA4 organic sessions rose from 6,337 to 13,638 with engagement up 5.7 points. The Aug 26 body-visualizer links were already shipped in `e59463f`, so page copy and targeting remain frozen. F1 added privacy-safe `body_visualizer_result_shown` instrumentation with unit and reference sex only; F2 repaired exact FAQ/schema parity, two reader-visible long dashes, and the canonical App Store link on the indexed DEXA benchmark. All tests, strict checks, the 526-page build, GitHub Pages deployment, and live URL verification passed. IndexNow accepted the DEXA refresh at 3/5 endpoints; Bing and its aggregator retain the known authorization 403. P1 ZOZOFIT remains approved but blocked on first-party evidence. · Data through 2026-08-26
-> Prior run: **2026-08-26** (review; zero executable posts; F1-F3 proposed). Search growth accelerated to 13,084 clicks / 747,229 impressions in 28d (+144% / +183%) and 8,339 / 491,599 in the latest 14d (+76% / +92%). Residual nonbrand clicks rose about 82% in the two-week comparison while brand clicks fell by 10. GA4 organic sessions rose 44% with engagement up 3.4 points. `/tools/body-visualizer/` was the clearest existing-asset focus: 738 vs 27 clicks, 560 vs 34 organic sessions, 74.8% engagement, and exact-query position 12.5 in a 40,500-volume / KD 4 market. Proposed F1 added three relevant SEO-lane links, F2 added a privacy-safe result event, and F3 repaired FAQ/schema parity on the indexed but unmeasured DEXA benchmark. The three inbound links subsequently shipped in commit `e59463f`; the result event and DEXA repair did not. P1 ZOZOFIT remained approved but blocked on first-party evidence. 165/167 inspected recent or zero-impression URLs were indexed; the same two male gallery unknowns remained gated to Sep 3. · Data through 2026-08-24
-> Prior run: **2026-08-23** (review -> execution; owner approved `all`; F1-F4 SHIPPED; P1 approved but HOLD on first-party evidence). GSC reached 11,447 clicks / 648,562 impressions in 28d (+137% / +178%); residual nonbrand clicks rose 153%. **P1 ZOZOFIT Review** remains the only clean net-new keyword at 720 US volume and +22% yearly, but its three controlled scans, tape comparison, setup notes, screenshots, and interview do not exist yet, so no article or URL was created. The shipped work repointed `rate-my-physique` to the physique rater, corrected current ZOZOFIT app/suit/pricing facts, consolidated InBody-vs-Withings coverage on the existing owner, and updated three mature pages for live Target Training and nutrition. All six modified posts pass strict launch checks and the production build passes. No indexing requests were made because no new URL shipped. `hume vs renpho` remains a hardware-gated watch; Fitbod/Hevy/LeanLens/MyFitnessPal siblings remain rejected. 507/509 live sitemap URLs are indexed; the two male gallery unknowns remain gated to Sep 3. · Data through 2026-08-21
-> Prior run: **2026-08-21 same-day rerun** (review; zero posts, one fix proposed). Final GSC cutoff remained Aug 19, but the finalized 28d total rose to 10,616 clicks / 599,647 impressions (+140% / +186%); brand remained 702 clicks (6.6%). The Hume retitle and accurate-to-worth-it link now exist as **uncommitted local changes** and pass strict slug checks, so they were removed from the proposal without being counted as shipped. The only remaining action is the already-approved `rate-my-physique` CTA bridge to `/tools/physique-rater/`. The sibling stays HOLD: tool takes `rate my body ai` at 3.2 with 36 clicks while the blog gets 1 click at 17. DataForSEO was available: picture intent still resolves to existing chart/tool pages; `best smart scale` now reads -19% yearly rather than the earlier +23%, reinforcing the Sep 8-10 hold; `fitbod review` has 1 exact-query GSC impression, below the proposal threshold. Eight recent URLs are indexed; two Aug 6 male gallery URLs remain unknown and too new to judge until Sep 3. · Data through 2026-08-19
-> Prior run: **2026-08-18** (review → execution; owner approved `all`: F4 absmaxx inbound SHIPPED same day; F1 Hume retitle + F2 accurate→worth-it remain SCHEDULED Aug 19; F3 rater CTA SCHEDULED Aug 21; zero posts; sibling HOLD) · Data through 2026-08-16
-> Prior run: **2026-08-17** (review; full experiment audit — chart revert CLOSED keep-control at 0.60% CTR / pos 9.3; WHR WIN 14.7→9.8; WHtR MIXED (imp 2.4× but pos 13.2→16.4); rate-my-physique trending GO for the Aug 21 sibling at 7.3 / 4.2% CTR; Hume long-tail already ranking (price @ 9, subscription @ 7) with retitle proposed for Aug 19; women-chart overlap NOT found — leave; F1 chart→gallery link SHIPPED same day + F2 Hume retitle APPROVED-SCHEDULED for Aug 19, zero posts until the Aug 21 gate) · Data through 2026-08-15
-> Prior run: **2026-08-14** (review → execution; owner approved `all`: Hume strengthen + waist size-8 chart + bodybuilding-measurements section SHIPPED same day; Hume retitle decision remains for ~Aug 19; F2's proposed retitle was already live since Jul 16 — only the chart section was needed) · **HUME FINDING**: 65K/mo brand family at KD 1-10 with hume-body-pod-review at rank 17-23 — F1 content strengthen proposed, retitle gated to ~Aug 19 by the Aug 11 og/subtitle dash-cleanup window; F2 average-waist-size-women retitle, F3 bodybuilding-measurements section; zero posts, competitors_domain sweep found no new brand targets) · Data through 2026-08-12
-> Prior run: **2026-08-13** (review → execution; owner approved `all` AND directed a new abs tool: M1 body-composition 301 + F2 Hevy 301 + F1 shoulder-to-waist calculator + **NEW `/tools/ab-analyzer/`** all shipped) · Data through 2026-08-11
-> Ab-analyzer bet: "do i have abs" 260 vol +529%/yr · "six pack calculator" thin-tool SERP (KD 5-6) · timeline FAQs (6,600+2,400 family). Windows: calculator directional ~Aug 23; ab-analyzer 28d ~Sep 10. "ab scanner" (720) excluded from titles — likely automotive-diagnostic ambiguity, verify SERP live before ever chasing it.
-> **Correction (2026-08-13): PostHog conversion evidence EXISTS.** Project 357433 (GainFrame org) holds app AND web events — outbound_app_store_click 671/14d (homepage 238, bf-photo tool 68, best-ai-body-fat-apps 48), bf_tool uploads 2,658, physique_rater requests 1,091, waist_tool_calculated 83. The 2026-08-11/12 "zero events" findings were wrong-scope queries; the skill's data-sources table now records the REST fallback.
-> Prior run: **2026-08-12** (review; App Store advice reconciliation; zero posts, one progress-focused hidden-keyword-field fix + the existing Hevy consolidation proposed) · Data through 2026-08-09
-> Prior run: **2026-08-11 run 2** (owner approved `all`; smart-scale/RENPHO series SHIPPED: 3 posts + retitle + review refresh + interlinks, commit 9698973) · Data through 2026-08-09
-> Same-day run 1: 2026-08-11 (review; zero posts, one low-risk consolidation fix proposed; full 257-URL inspection healthy; **F2 body-composition 301 still approved but GATED until data through Aug 11 is available ~Aug 13**)
-> Prior run: 2026-08-10 (review; verification-only — Thelo post indexed in ~14h, Aug 8 set an impression record, nothing proposed)
-> Prior run: 2026-08-09 (review → execution; owner approved `all`: Thelo review + gallery links + body-scan-app anchors shipped; F2 approved but gated)
+### Search and business evidence
+
+- Three consecutive 28-day search blocks: **2,557 → 7,902 → 20,324 clicks**. Current blog clicks 9,987 vs 4,292; tool paths including directory 9,224 vs 2,499, about 45% of site clicks. C3 scanning/measurement/hardware, C2 visual body-fat content and C11 physique rating are the main growth centers. All 11 SEO clusters grew over the matched period; founder lanes have a different business job.
+- GA4 organic sessions **18,371 vs 8,826** and engagement **71.80% vs 65.44%**. Total device-blended Store events fell 1,313→1,176, but iOS rose 708→818. iOS tools rose 101→230, blogs fell 240→193. These are click events, not installs or paid customers. Google-referred iOS blog events also declined 162→139.
+- `best-ai-body-fat-apps` lost 528→461 clicks; `ai-physique-rating-apps` 121→61; `best-body-composition-apps` 50→17. Some disclosed tool-use queries moved to the actual photo/rating tools. Keep app-selection intent with articles and interactive intent with tools; this does not justify a merge or fighting the tool for the same query. Anonymized query rows limit how much loss can be explained.
+- Fresh inventory: **252 posts (206 SEO, 46 founder/product), 1,461 internal links**, no broken internal links, missing covers or malformed JSON-LD. Six orphans are founder/product and skipped. Forty-nine Quick Answer issues do not become a blanket rewrite.
+- **124/125 valid inspected URLs indexed**, including every September post and both correctly named male galleries. Only Aug 31 Progress Photo Compare is crawled/not indexed. Robots access and fetch succeed; indexing state is unspecified and no canonical fields are supplied. Hold a substantive rewrite to Sep 28 unless a concrete technical defect is established. The prior shorthand gallery inspections were invalid URLs, not real coverage defects.
+
+### Current CTA and app experiments
+
+- Tool phase `expanded_result_cards_v2`: earlier-exposure-matched unique clickers **Future 36/675 (5.33%), Improve 25/611 (4.09%), Track 5/639 (0.78%)**. Crossovers: 156/1,751 people (8.9%), 153/1,822 distinct person-sessions (8.4%). Only 13–15% of the required 4,600 per arm; two complete weeks required. Future overtook Improve descriptively; no allocation change or winner.
+- Blog phase `sticky_vs_editorial_inline_v1`: **inline 27/564 (4.79%), sticky 13/873 (1.49%)**. Crossovers 69/1,368 people (5.0%) and 47/1,432 sessions (3.3%). Assignment denominators are missing and placement reach differs. Required 1,500 per arm plus 10–14 days. Exposed CTR is not total-visitor lift.
+- Consent restoration still overwrites saved assignment in both helpers. Sep 3 design changes and Sep 6 photo-result copy are concurrent interventions. F1 repairs assignment and separates assignment/reach/material exposure, then starts new clean phases with frozen presentation. Preserve contaminated old data as descriptive only.
+- **118 current-phase CTA click IDs have zero exact later app-resolution matches**; broader web/app records have populated IDs but empty CTA values. Campaign-level app arrivals exist (six inline, four sticky), so this is not evidence of zero installs. Audit exact direct/QR propagation before attributing paid outcomes.
+- **CPP is already routed, not a future launch:** photo estimator and physique rater use `seo-physique-cpp-v1`, first observed Aug 24; the shared transformation client also passes the CPP ID in Body Measurements mode with a separate campaign. Apple still reports PREPARE_FOR_SUBMISSION. Campaign labels do not establish approved creative exposure. F2 restores default destinations until approval/public verification, fixes attribution and corrects the operating record before F1's clean phase starts.
+- Onboarding flow-length remains active 50/50. Valid randomized starter diagnostic: compressed completion **216/252 (85.7%)** vs control **149/259 (57.5%)**; first score **203/252 vs 210/259**, roughly flat. This is not the preregistered flag-exposure denominator. Minimum 500 eligible exposures per arm and final-cohort D7 maturity remain unmet. Mature starter subset has only five vs three paid outcomes. Photo reassurance is active 50%, overlaps flow-length and has no standalone winner.
+- RevenueCat final-anchor experiment `expdfb28690d7` is running. Read-only **`/experiments/{id}/results` works** and reports 674 control vs 724 treatment customers; paid conversion **9.20% vs 5.94%**; realized revenue/customer **$1.79 vs $1.85 (+3.35%)**; MRR/customer **$0.64 vs $0.41 (-35.94%)**. Control $7.99/month+$49.99/year; treatment $9.99/week+$39.99/year. Churn counts 4 vs 8, refunds 0 vs 1. Statistical winner unavailable; Sep 11 is the first D28 age gate, not full cohort maturity. Do not use the zero-valued exposed-customer field as the enrollment denominator or the sibling `/metrics` 404 as evidence results are unavailable.
+- C3 toolkit paywall is an inactive draft without a carrying live build. Apple PPO is PREPARE_FOR_SUBMISSION, no dates. Old `paywall_variant` and `onboarding_friction` flag objects do not currently vary product behavior. The save offer is a 100% rollout: 12 shown, two accepted, ten declined in 28 days, no control. Apple Ads' Sep 12–26 plan is a dated saved schedule, not a freshly verified running campaign. Registry/API states and completed historical cohorts are kept separate.
+
+### Tools and September publication ledger
+
+- Individual tool search clicks: rater **2,982 vs 419**, photo **2,356 vs 1,376**, body visualizer **2,149 vs 17**, body-fat visualizer **910 vs 446**, AI transformation **385 vs 32**. Together **98.4%** of individual-tool clicks. Latest week rater/photo each lost 13 clicks, while body visualizer gained 164 and AI transformation gained 37; no broad tool collapse.
+- Ab Analyzer: **89 current-28d clicks/461 impressions**, latest week **39 vs 11**. Since Aug 13, ordered production cohort **124 viewers→103 starts→92 results→4 later Store clickers**. Start-to-result 89.3%. Fresh `do i have abs` is 320/month, +614% yearly, but informational/video/AEO intent; `six pack calculator` is 70/month, -81% yearly, and the ab tool is result 8 in the live snapshot. Only two articles currently link to it. Restore assessment links before considering a title test after full data through Sep 10. Do not invent volume for `abs rater`/`ab scanner` (no provider data) or infer rank from one-impression GSC rows. Keep current assessment distinct from the Six-Pack Timeline planning tool.
+- Body Measurements has **13 uploaders, five analysis result recipients, three preview requesters and two preview result recipients** in Sep 2–8 event cohorts. The normalized result event counts only the generated preview; it cannot measure initial-analysis completion. Initial-analysis failure paths lack a dedicated error event, so instrument before assigning a cause. Do not weaken rate limits on these small counts.
+- September posts: Sep 3 **DEXA report guide, InBody vs DEXA**; Sep 6 **Arboleaf, BodySpec, Cronometer vs MacroFactor, Evolt, Gravl, Hume vs RENPHO, Oxiline, Styku, WeightWatchers scanner, ZOZOFIT**; Sep 7 **RIRLift vs Hevy**. All 13 indexed. Settled search Sep 1–6: **five clicks/316 impressions**; ten GA4 organic sessions through Sep 8; 43 tracked pageviews and no Store events. Far too early to rank performance. The ten Sep 6 pieces are sourced evaluations, not claimed original personal tests; future firsthand evidence belongs on those same URLs.
+- RIRLift has only one contextual inbound link; restore two more now without altering metadata. Other new posts have three or more inbound links. Full post-launch periods end Oct 1 (Sep 3 articles), Oct 4 (Sep 6 batch), Oct 5 (RIRLift), with settled data approximately three days later.
+
+### 2026-09-09 proposal ledger
+
+Full briefs, exact copy and links are in `2026-09-09.md`; the numbers below belong only to this audit.
+
+| Item | Proposed scope | State / evidence |
+|---|---|---|
+| P1 | **Gravl vs Fitbod: Which Workout App Fits Your Training?** One sourced comparison, no invented personal tests; three inbound links from AI-trainer roundup, four-way Fitbod comparison and Hevy vs Strong. | Proposed. `gravl vs fitbod` 320/month, reverse 170 (overlapping), bulk KD 0, strong growth from small bases. Live SERP has both vendors and firsthand forums; independent comparison fits. Comparable app-selection posts have weak direct Store evidence, so modest business expectations. |
+| T1 | **Lean Body Mass Calculator**, weight+supplied BF to fat/fat-free mass, dual units and optional uncertainty range; onward photo/tracking path, three links from lean-vs-muscle, FFMI explainer and FFMI chart, explicit sitemap/directory entry. | Proposed after F1/F2. 6,600/month, bulk KD 0, +23% yearly; live calculator intent. Entrenched calculator publishers remain competition despite KD 0. |
+| F1 | Fix both CTA assignments; separate assigned/exposed denominators; lifecycle verification; new clean phase IDs and frozen visuals. | Proposed, highest priority. Preserve consent requirements, sample/duration gates and old contaminated data. |
+| F2 | Remove unapproved CPP routing from all three affected tool surfaces; default-listing campaigns; exact direct/QR click-ID/CTA audit; correct operating record. | Proposed, coordinate before F1 phase start. No approved creative or exact arm-level paid attribution established. |
+| F3 | Existing WHtR title: **Waist-to-Height Ratio Calculator and Chart (cm & Inches)**; synchronize description/social/schema; correct absolute medical claims to current NHS limits. | **Shipped Sep 9 in `3aa858ec`.** Combined targeting/guidance refresh. Head query baseline 1 click/298 impressions at 17.7; 14,800/month, KD 20, +513% yearly. Preserve working calculator and page's 55 clicks. |
+| F4 | Restore clear current-ab-assessment links from `how-long-to-see-abs` and `rate-my-physique` to Ab Analyzer. | Proposed. Retain timeline planning and general-rater primary CTA; no premature title change. |
+| F5 | Repair Quick Answers in AI-cited `body-fat-from-photo-app` (missing) and `best-ai-personal-trainer-apps` (78 words) to 40–60 words with body/schema parity. | Proposed, specific extraction/bridge fix; no broad rewrite or title changes. |
+| F6 | Add RIRLift vs Hevy links from `hevy-vs-strong` and `best-fitness-app-stack-2026`. | Proposed. Completes the three-source inbound contract. |
+| F7 | Support `ideal-body-measurements-men` from `body-frame-size` and `shoulder-to-waist-ratio` with bodybuilding-chart anchors. | **Shipped Sep 9 in `3aa858ec`.** Existing exact query baseline 38 impressions at 10.4; 8,100/month, KD 4; retain page earning 409 clicks. |
+| F8 | Conditional RENPHO title: **RENPHO Scale Review (2026): Accuracy, App & Is It Worth It?** | **Owner-approved, gated.** Only after settled data includes Sep 10 (~Sep 13), if relevant family remains positions 10–20 with impressions and few clicks. Otherwise keep. |
+| H1 | Embedded historical bodybuilding chart calculator on existing measurements owner. | Research hold. Generic `body proportion calculator` SERP is art/dress/body-shape intent; bodybuilding-specific calculator needs its own live brief. No new URL approved. |
+| H2 | Improve existing Recomp Reality Checker toward genuine calculator intent, if supported. | Hold to Sep 28 plus query/SERP validation. 5,400/month, +50% yearly; existing owner must be preserved. |
+| H3 | Muscle-potential scenarios inside existing natty-limit content. | Research hold. 210/month niche; controlled US SERP/formula evidence required, no genetic-ceiling claims. |
+
+**Suggested scope:** F1+F2, then F3–F7; F8 gated. T1 is preferable to another broad batch; P1 is the only executable new article brief. `all` for this audit means P1, T1, F1–F8, retaining gates; H1–H3 are not build approvals. No production approval was provided in this review.
+
+### Current watch dates (supersede historical watch table below)
+
+| Subject | Next evidence gate |
+|---|---|
+| CTA phases | Actual repair deployment starts the clean clock; keep pre-registered duration/sample gates |
+| CPP | Apple approval and public creative verification before custom routing restarts |
+| Final-anchor pricing | Sep 11 first D28 age read; later enrollees still immature |
+| Ab Analyzer; RENPHO/Withings | Full data through Sep 10, approximately Sep 13 availability |
+| Sep 3 Navy/recomp/male-BF/shoulder changes | Initial ~Sep 13; full Sep 4–Oct 1 |
+| Sep 6 photo-tool method/result changes | Initial ~Sep 16; full Sep 7–Oct 4 |
+| Hume | Sep 22 plus lag; annotate Sep 6 comparison publication |
+| Chart/visualizer work | Sep 23 plus lag; protect whole-page growth |
+| Aug 31 Progress Photo Compare/Recomp | Sep 28 plus lag; indexing and intended-query ownership |
+| Sep 3 / Sep 6 / Sep 7 articles | Periods end Oct 1 / Oct 4 / Oct 5; settled approximately Oct 4 / Oct 7 / Oct 8 |
+
+No new monitor or automation was created. Re-query source state at the next user-requested review.
+
+## New findings (2026-09-06 - photo estimator and customer keyword opportunities)
+
+- Photo estimator release `6a708dc` is live. Treat September 6 as the deployment day, use approximately September 16 for an initial settled read, and September 7-October 4 for a full post-release window. This is a concurrent content/result-copy change for the ongoing CTA experiments, not an experiment decision.
+- The current 28-day photo-tool cohort has 1,383 iOS viewers and 67 later same-path store clickers, versus 813 and 41. App-selection roundups also show store handoffs. These are consented, all-channel observations, not verified paid conversions or causal support for a particular new topic.
+- Ten distinct future article briefs are saved. First testing priorities: WeightWatchers scanner (260 US/month, KD 17), ZOZOFIT review (720, KD 8), Gravl review (390, KD 4). All require original app evidence before a personal review can be written. WW's +2,000% yearly trend starts from a small base; quarterly demand is down 19%.
+- Research-ready formats: Cronometer vs MacroFactor (390, KD 0) as a sourced comparison with an original GainFrame tracking workflow; Styku accuracy (90, KD 0) as a sourced research explainer. Neither format may imply hands-on tests that did not happen.
+- Evidence-gated follow-ons: Evolt accuracy (170, KD 0), Oxiline review (260, KD 0), Hume vs RENPHO (140, KD 1, preserve Sep 22 gate), Arboleaf review (140, KD 7), BodySpec review (210, KD 1, lower editorial confidence). Do not substitute larger navigational head-term volume for the specific article query.
+- All ten live SERPs contain an AI Overview. Existing generic tool/roundup owners were excluded. No new blog article, device purchase, scan booking or outreach was performed in this research phase.
+
+## New findings (2026-09-04 - CTA assignment integrity and device-qualified conversion)
+
+- **Separate discovery from handoff.** iOS tool clickers rose 55 to 73 on 1,140 to 1,268
+  production visitors in Aug 28-Sep 3 versus Aug 21-27. Blog clickers fell 45 to 38 on 1,267
+  to 1,452 visitors. The weaker current handoff is the blog; search growth itself is healthy.
+- **Treat current variant tables as descriptive.** Tool phase `expanded_result_cards_v2`
+  began Aug 31; blog phase `sticky_vs_editorial_inline_v1` began Sep 2. Tool arms have about
+  6% of the registered 4,600-viewer sample; blog arms have 104/182 of the required 1,500 each.
+  Within-session crossover exists in both tests. No winner, rollback, or arm removal is approved.
+- **F1, proposed:** repair the saved-assignment overwrite during consent restoration in both
+  experiment helpers and verify stability across eligible pages/reloads without reading storage
+  before consent. Start a new phase after repair and retain the old phase as contaminated evidence.
+- **F2, proposed:** instrument assignment before material exposure, separate reach from
+  exposed-reader CTR, preregister the assignment-based outcome for the clean phase, and verify
+  direct/QR attribution. Downstream download events use `$os`, not `platform`. Thirty tracked
+  test click IDs have zero exact resolved matches so far, while campaign attribution shows one
+  app arrival per blog arm; neither a new install nor a paid winner is established.
+- **H1, held:** after valid current-test decisions, test a contextual photo-analysis bridge from
+  both visualizers to `/tools/body-fat-from-photo/`, measured on linked downstream store clicks
+  per assigned source visitor, not just intermediate tool clicks. Sep 1-3 iOS same-path result
+  users with later store clicks: physique rater 20/171, BF photo 9/107, BMI visualizer 2/109,
+  BF visualizer 3/111. These small observational cohorts prioritize investigation, not tool ranks.
+- **D1, proposed read-only diagnostic:** determine whether rater/photo rate limits and errors
+  block a first successful result or affect repeat attempts; no limit-relaxation recommendation.
+- **Protect clean measurement.** September 3 tool-dock and blog-design changes belong in the
+  release ledger. Freeze visuals during the next clean phase. Measurement dates start at the
+  repair deployment, with existing sample/duration gates unless prospectively re-registered.
+- Marketing context dated July 21 is stale; historical revenue, pricing, and release status were
+  not treated as current. Existing SEO proposals, evidence gates, and content windows remain.
 
 ## New findings (2026-09-03 - keyword, tool, and page-two execution)
 
