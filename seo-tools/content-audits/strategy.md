@@ -2,6 +2,58 @@
 
 > Maintained by the `seo-content-cycle` skill. **Read first, update last.**
 
+## November 24, 2026: F1-F3 shipped — two tests closed, estimator winner rolled out
+
+**Latest decision:** the owner approved `Ship F1-F3` after the November 24 review.
+[Audit](2026-11-24.md) · [execution receipt](2026-11-24-execution.md) ·
+[contracts](../../web/docs/cta-tracking.md). Commit `02fe6212`, live at
+**2026-11-25 02:34:07 UTC**.
+
+- **F1.** The Body Visualizer four-offer test `app_screens_v3` is stopped and eligible
+  slider traffic returns to the `analysis_rollout_v2` experience. Control led every
+  treatment at ~750 per arm: 88/722 (12.19%) against `score_example` 52/788 (6.60%,
+  p = 1.8e-04), `front_side` 20/710 (2.82%, p = 1.9e-11), `future_you` 14/776 (1.80%,
+  p = 1.6e-15). This is an **early stop for futility** six days before the November 30
+  date gate; the treatments were costing about 24 Store clicks a day. Never describe a
+  treatment as untested at its registered sample.
+- **F2.** The estimator's `analysis` arm, the ask inside the result card, ships to every
+  eligible iOS visitor under the new deterministic phase **`inline_result_rollout_v1`**.
+  Basis: 88/220 (40.00%) against control 26/202 (12.87%), z = 6.27, p = 3.6e-10, +211%
+  relative, and 40.18% against 17.69% among visitors recorded seeing a bridge
+  (p = 5e-6). **The registered 400-per-arm gate was about half met** (202 to 227 per arm;
+  400 would have arrived about December 5) and the 14-day gate closed November 25. State
+  that shortfall whenever the result is reported. Native arrivals remain directional only
+  (9/220 against 3/202, p = .11) and **no install or revenue lift is established**; `goal`
+  matched `analysis` on arrivals per assigned visitor from half the clicks, which is an
+  open question for a later test.
+- **F3.** `future_you_placement_v1` closed with its parent arm. Its finding is kept, not
+  carried: `above_image` reached 100.0% qualified button visibility (366/366) against
+  `below_image`'s 49.7% (183/368), while clicks were 3.18% against 1.30% and unpowered
+  (p = .11). The visibility mechanism is reusable on surfaces that survive;
+  `body_visualizer_button_viewed` now has preview-only production volume by design.
+- **Reading rule.** Do not pool `fold_v1_stable_assignment` with `inline_result_rollout_v1`,
+  or `app_screens_v3` with `analysis_rollout_v2`. A before-and-after read across this
+  release is not randomized: traffic mix, season and the November 10 core update move
+  independently. Old tabs can emit retired arms for a while, so filter by phase.
+- **Also corrected.** `cta-tracking.md` had the November 17 event-volume cut recorded as
+  pending; it shipped in `3f9101dc` on November 17 at 22:17 Eastern, verified live
+  (`tool_funnel_viewed` 2,836 to 43 a day across the November 18 boundary, `$pageleave`
+  2,979 to 34, `tool_cta_assigned` 5,143 to 1,863 as designed). Exclude boundary days
+  from raw-count comparisons.
+- **Still proposed, not approved.** F4 retarget `/blog/dexa-scan-cost/` (does not rank for
+  its 12,100-volume KD-4 +49% head term at all; average position 31.2, 666 impressions,
+  0 clicks). F5 diagnose `/blog/best-body-scanning-measurement-apps/` (impressions halved,
+  clicks 500 to 200, positions slipped one place against a +22% market). F6 de-orphan
+  `best-app-store-screenshot-tools`. **F4 and F5 need a live SERP brief first.** No posts
+  were proposed this run and none shipped.
+- **Verification:** 230 tests pass, production build passes, content inventory PASS at 296
+  posts. Only the 7 touched files were staged in a shared, heavily modified checkout.
+
+Checkpoints unchanged: October 27 cohort **November 27**, Improve vs Future **December 4**,
+November 9 cohort **December 10**, January calendar **December 17**. New: read
+`inline_result_rollout_v1` and the restored visualizer control on their **first complete 7
+and 14 days** after the release timestamp above.
+
 ## November 24, 2026: the conversion layer is where the leverage is
 
 [Full audit: performance, four live experiments, striking distance, 1,871 AI Overview
@@ -55,7 +107,8 @@ Store: citations are discovery, not revenue.
 cannibalization pairs, zero missing covers, 7 orphans (6 founder-lane). All 7 inspected URLs
 indexed with matching canonicals. Discovery is not the constraint.
 
-**Proposed, pending selection.** F1 stop the Body Visualizer four-way now and return to control.
+**Proposed, pending selection** (F1-F3 were approved and shipped the same day; see the
+section above). F1 stop the Body Visualizer four-way now and return to control.
 F2 ship the estimator `analysis` arm to 100% of eligible iOS, recording the departure from the
 400-per-arm gate. F3 fold the Future You placement test into F1 and keep the visibility lesson.
 F4 diagnose `/blog/dexa-scan-cost/`, which does not rank for its 12,100-volume KD-4 +49% head
