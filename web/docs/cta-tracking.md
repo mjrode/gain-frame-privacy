@@ -2,7 +2,105 @@
 
 Release: `15ef1dc9`, live **2026-10-06 13:16:11 UTC**, Worker version `a13c8ee5-e9eb-4dc6-a29e-72f9b83ea518`. See [execution receipt](../../seo-tools/content-audits/2026-10-06-execution.md).
 
-## November 18, 2026: Future You button placement
+## November 24, 2026: two tests closed, the winning estimator arm shipped
+
+Owner approval: `Ship F1-F3`, November 24, after the
+[November 24 review](../../seo-tools/content-audits/2026-11-24.md). Release timestamp
+recorded in the [execution receipt](../../seo-tools/content-audits/2026-11-24-execution.md).
+
+### Body Visualizer four-offer test: stopped, control restored
+
+`visualizer_result_example / app_screens_v3` is closed. At the 24-hour mature read on
+November 24, with roughly 750 assigned visitors per arm, control led every treatment:
+
+| Offer | Store clickers / assigned | Rate | vs control |
+| --- | --- | ---: | --- |
+| `control` | 88/722 | 12.19% | — |
+| `score_example` | 52/788 | 6.60% | p = 1.8e-04 |
+| `front_side` | 20/710 | 2.82% | p = 1.9e-11 |
+| `future_you` | 14/776 | 1.80% | p = 1.6e-15 |
+
+This stops the test **before** its November 30 date gate. The reason is the cost of
+running it, not the arrival of the gate: the treatments held about 75% of eligible slider
+traffic at an average 3.74% against control's 12.19%, roughly **24 Store clicks a day**.
+A stopping rule exists to prevent acting on noise; three treatments losing by 85% to 576%
+relative at that sample are not noise. Record this as an early stop for futility, and do
+not describe any treatment as untested at its registered sample.
+
+Eligible iOS and desktop slider traffic returns to the `analysis_rollout_v2` experience
+described below. `lib/visualizer-screen-test.ts` no longer enrols anyone, draws a
+placement or writes an assignment, and the slider no longer signals adjustment to the CTA
+hook. `?visualizer_result_example=<arm>` still previews each offer screen and stays
+`experiment_forced=true`.
+
+### Future You button placement: folded into the decision
+
+`future_you_placement_v1` is closed with its parent arm. It compared button positions
+inside `future_you`, which converted at 1.80% against control's 12.19%, so no placement
+of it could beat control. Its finding stands on its own and is worth carrying elsewhere:
+
+| Placement | Button visible / assigned | Store clickers / mature |
+| --- | --- | --- |
+| `above_image` | 366/366 (100.0%) | 10/314 (3.18%) |
+| `below_image` | 183/368 (49.7%) | 4/308 (1.30%) |
+
+Putting the anchor above the image doubled button reach, from 49.7% to 100% qualified
+visibility. The click difference was directional only (p = .11). Treat the **visibility**
+result as reliable and the click result as unpowered. `?future_you_button=<position>`
+still previews both positions on a forced `future_you` card.
+
+`body_visualizer_button_viewed` now fires only for forced previews, so its production
+volume goes to zero. Do not read it as a regression.
+
+### Body Fat From Photo: `analysis` shipped to all eligible iOS
+
+`body_fat_result_cta_v1` moves from the randomized phase
+**`fold_v1_stable_assignment`** to the deterministic rollout phase
+**`inline_result_rollout_v1`**. Every eligible iOS visitor with a real result now gets the
+ask inside the result card.
+
+| Arm | Clickers / assigned | Rate | Exposed-only rate | Keyed clicks → arrivals |
+| --- | --- | ---: | ---: | --- |
+| `analysis` | 88/220 | **40.00%** | 40.18% | 97 → 9 |
+| `goal` | 42/218 | 19.27% | 19.53% | 43 → 9 |
+| `sticky` | 33/227 | 14.54% | 14.54% | 36 → 3 |
+| `control` | 26/202 | 12.87% | 17.69% | 31 → 3 |
+
+`analysis` against `control` is z = 6.27, p = 3.6e-10, +211% relative, which clears the
+registered adjusted threshold of .0167 and the 20% relative-lift floor. It also survives
+the sensitivity that matters: conditioning on visitors who were recorded seeing a bridge
+at all, it still leads 40.18% to 17.69% (z = 4.56, p = 5e-6). Part of the gap is reach,
+because control's ask sits below the fold and was seen by only 147 of 202 assigned
+visitors, but reach is not the whole effect.
+
+**This departs from the registered stopping rule, deliberately.** The contract required
+14 days *and* 400 assigned visitors per arm. The 14-day gate completed November 25;
+enrolment was 202 to 227 per arm, roughly half, and 400 per arm would have arrived about
+December 5. The remaining enrolment would have bought precision that a 3.1-fold effect
+does not need. Anyone reporting this result must state the enrolment shortfall alongside
+it.
+
+**Limits to carry forward.** Native arrivals are directional only: 9/220 assigned for
+`analysis` against 3/202 for control, p = .11. Per assigned visitor `goal` matched
+`analysis` on arrivals (4.13% against 4.09%) from fewer than half the clicks, so `goal`
+drew fewer but better-converting clickers; that question is unresolved and a future test
+could revisit it. **No install, subscription or revenue lift is established.** Zero
+assigned visitors in any arm triggered an email report send on the tool path.
+
+Nothing is read from or written to storage by the rollout, so the historical four-arm
+assignments stay intact and a returning visitor is never mistaken for a new enrolment.
+`?bf_cta=<arm>` still forces any of the four arms on non-Android platforms and stays
+`experiment_forced=true`.
+
+### How to read the data across this release
+
+Do not pool `fold_v1_stable_assignment` with `inline_result_rollout_v1`, and do not pool
+`app_screens_v3` with `analysis_rollout_v2`. The randomized phases answer what to ship;
+the rollout phases measure the shipped experience. A before-and-after comparison across
+this release is not a randomized result, because traffic mix, season and the November 10
+core update all move independently.
+
+## November 18, 2026: Future You button placement (CLOSED 2026-11-24)
 
 Only iOS slider users assigned to Future You in `visualizer_result_example/app_screens_v3`
 enter the 50/50 placement test. The parent offer stays saved. A separate draw persists
@@ -26,9 +124,14 @@ On the Body Visualizer, `?future_you_button=below_image` and
 `?future_you_button=above_image` force the respective preview. Both are tagged
 `experiment_forced=true` and leave saved assignments intact.
 
-## November 17, 2026: fewer repeated and duplicate events, pending release
+## November 17, 2026: fewer repeated and duplicate events, LIVE
 
-Not live until deployed; record the release timestamp here when it ships. The
+Shipped in `3f9101dc`, 2026-11-17 22:17 Eastern, and verified live on 2026-11-24: across
+the November 18 boundary `tool_funnel_viewed` fell 2,836 to 43 a day,
+`body_visualizer_result_shown` 1,462 to 2, `$pageleave` 2,979 to 34, and
+`tool_cta_assigned` 5,143 to 1,863, which is the expected deduplication rather than a
+traffic loss. The small residuals are stale tabs still running the previous bundle;
+exclude the boundary days from any raw-count comparison. The
 site sent about 1.33M events a month to PostHog against a 1M free tier. These
 changes remove repeats and duplicates. Event names and properties are unchanged
 except where an event is removed. `track` feeds GA4 and PostHog, so GA4 sees
@@ -74,7 +177,10 @@ Three limits of the replacement:
   after the tool client mounted, so small differences from older numbers are
   expected. Do not compare view counts across the release.
 
-## Body Fat From Photo result CTA test (`body_fat_result_cta_v1`), pending release
+## Body Fat From Photo result CTA test (`body_fat_result_cta_v1`), CLOSED 2026-11-24
+
+The randomized phase below ran November 11 to November 24 and chose `analysis`. See the
+November 24 section above for the result and the rollout phase.
 
 Branch `bf-result-cta-test`. Not live until merged; record the release timestamp
 here when it ships.

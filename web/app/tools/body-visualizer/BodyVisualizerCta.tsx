@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { claimOncePerPageView, track } from "@/lib/analytics";
 import { assignedCtaProperties, type AssignedCtaExperiment } from "@/lib/assigned-cta-experiment";
-import { placementPreview, screenPreview, visualizerScreenAssignment } from "@/lib/visualizer-screen-test";
+import { placementPreview, screenPreview, visualizerScreenPreview } from "@/lib/visualizer-screen-test";
 import ToolConversionCard from "@/components/ToolConversionCard";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
 import { ANALYSIS_APP_STORE_PAGE } from "@/lib/site";
@@ -26,19 +26,21 @@ import styles from "./VisualizerWorkspace.module.css";
 
 export function useBodyVisualizerCta() {
   const platform = useDownloadPlatform();
-  const [adjusted, setAdjusted] = useState(false);
   const [example, setExample] = useState<AssignedCtaExperiment | null>(null);
   const enrolled = useRef(false);
+  // The four-offer and placement tests closed 2026-11-24: control led every
+  // treatment, so only an explicit review preview renders an offer screen now.
   useEffect(() => {
-    const forced = screenPreview(window.location.search);
-    const forcedPlacement = placementPreview(window.location.search);
     if (enrolled.current || platform === "unknown" || platform === "android") return;
-    if (!forced && !forcedPlacement && (platform !== "ios" || !adjusted)) return;
-    const arm = visualizerScreenAssignment(forced, forcedPlacement);
+    const arm = visualizerScreenPreview(
+      screenPreview(window.location.search),
+      placementPreview(window.location.search),
+    );
+    if (!arm) return;
     enrolled.current = true;
     track("paired_cta_assigned", { ...assignedCtaProperties(arm), platform });
     setExample(arm);
-  }, [platform, adjusted]);
+  }, [platform]);
   const [preview, setPreview] = useState(false);
   const [bridgeEnabled, setBridgeEnabled] = useState(false);
   const [assignment, setAssignment] =
@@ -64,7 +66,7 @@ export function useBodyVisualizerCta() {
     window.history.replaceState(window.history.state, "", url);
   }
 
-  return { platform, example, setAdjusted, preview, bridgeEnabled, assignment, selectVariant, bridgeAnalytics };
+  return { platform, example, preview, bridgeEnabled, assignment, selectVariant, bridgeAnalytics };
 }
 
 type CtaState = ReturnType<typeof useBodyVisualizerCta>;

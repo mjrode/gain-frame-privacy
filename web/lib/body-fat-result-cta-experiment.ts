@@ -1,20 +1,31 @@
 import type { AssignedCtaExperiment } from "./assigned-cta-experiment.ts";
 
 export const BODY_FAT_RESULT_CTA_EXPERIMENT_ID = "body_fat_result_cta_v1";
-export const BODY_FAT_RESULT_CTA_PHASE = "fold_v1_stable_assignment";
-export const BODY_FAT_RESULT_CTA_STORAGE_KEY =
-  `gainframe:experiment:${BODY_FAT_RESULT_CTA_EXPERIMENT_ID}:${BODY_FAT_RESULT_CTA_PHASE}`;
+
+/** The randomized four-arm phase, 2026-11-11 to 2026-11-24. Kept for reference
+ * only: reads must never pool it with the rollout phase below. */
+export const BODY_FAT_RESULT_CTA_TEST_PHASE = "fold_v1_stable_assignment";
+
+/** Putting the ask inside the result card won the four-arm test decisively
+ * (88/220 assigned iOS visitors against control's 26/202, and 40.2% against
+ * 17.7% among visitors who actually saw a bridge), so it now ships to every
+ * eligible iOS visitor. */
+export const BODY_FAT_RESULT_CTA_PHASE = "inline_result_rollout_v1";
 export const BODY_FAT_RESULT_CTA_QUERY = "bf_cta";
 
 /**
- * control  — today's result card, then the analysis bridge.
- * analysis — the ask moves into the result card, led by the user's number.
- * goal     — the ask moves into the result card as a goal-physique preview.
- * sticky   — today's layout plus a bottom bar that stays on screen.
+ * control  — the previous layout: result card, then the analysis bridge.
+ * analysis — the ask inside the result card, led by the user's number. Shipped.
+ * goal     — the ask inside the result card as a goal-physique preview.
+ * sticky   — the previous layout plus a bottom bar that stays on screen.
+ *
+ * All four remain available as explicit QA previews.
  */
 export const BODY_FAT_RESULT_CTA_VARIANTS = ["control", "analysis", "goal", "sticky"] as const;
 export type BodyFatResultCtaVariant = (typeof BODY_FAT_RESULT_CTA_VARIANTS)[number];
 export type BodyFatResultCtaAssignment = { variant: BodyFatResultCtaVariant; forced: boolean };
+
+export const BODY_FAT_RESULT_CTA_ROLLOUT_VARIANT: BodyFatResultCtaVariant = "analysis";
 
 const ANGLE: Record<BodyFatResultCtaVariant, string> = {
   control: "analysis",
@@ -35,25 +46,15 @@ export function isBodyFatResultCtaVariant(value: unknown): value is BodyFatResul
     BODY_FAT_RESULT_CTA_VARIANTS.includes(value as BodyFatResultCtaVariant);
 }
 
-export function bodyFatResultCtaVariantForRandom(value: number): BodyFatResultCtaVariant {
-  const bounded = Number.isFinite(value) ? Math.min(Math.max(value, 0), 0.999999) : 0;
-  return BODY_FAT_RESULT_CTA_VARIANTS[Math.floor(bounded * BODY_FAT_RESULT_CTA_VARIANTS.length)];
-}
-
-let inMemoryVariant: BodyFatResultCtaVariant | null = null;
-
-/** Clears page-lifetime state for isolated tests. */
-export function clearBodyFatResultCtaAssignmentMemory(): void {
-  inMemoryVariant = null;
-}
-
-/** Restore this phase's saved arm before choosing a new one, and persist it at
- * once, so a returning visitor cannot cross arms. QA overrides are marked
- * forced and never replace the saved visitor arm. Only iOS calls this. */
+/**
+ * Deterministic iOS rollout of the winning arm. Android keeps the email form
+ * and never requests an assignment. Nothing is read from or written to
+ * storage, so the historical four-arm assignments stay intact and a returning
+ * visitor cannot be mistaken for a new enrolment. An explicit `?bf_cta=` arm
+ * stays `forced` and is excluded from every read.
+ */
 export function getBodyFatResultCtaAssignment(
-  storage: Pick<Storage, "getItem" | "setItem"> | null | undefined = undefined,
   search = typeof window === "undefined" ? "" : window.location.search,
-  random = Math.random,
 ): BodyFatResultCtaAssignment {
   try {
     const forced = new URLSearchParams(search).get(BODY_FAT_RESULT_CTA_QUERY);
@@ -61,28 +62,7 @@ export function getBodyFatResultCtaAssignment(
   } catch {
     // A malformed query string must never block the result CTA.
   }
-
-  let resolved = storage ?? null;
-  if (storage === undefined && typeof window !== "undefined") {
-    try {
-      resolved = window.localStorage;
-    } catch {
-      // Storage may be blocked; keep the page-lifetime fallback.
-    }
-  }
-  try {
-    const stored = resolved?.getItem(BODY_FAT_RESULT_CTA_STORAGE_KEY);
-    if (isBodyFatResultCtaVariant(stored)) inMemoryVariant = stored;
-  } catch {
-    // A storage error must never block the CTA.
-  }
-  if (!inMemoryVariant) inMemoryVariant = bodyFatResultCtaVariantForRandom(random());
-  try {
-    resolved?.setItem(BODY_FAT_RESULT_CTA_STORAGE_KEY, inMemoryVariant);
-  } catch {
-    // Keep the same page choice when persistence is unavailable.
-  }
-  return { variant: inMemoryVariant, forced: false };
+  return { variant: BODY_FAT_RESULT_CTA_ROLLOUT_VARIANT, forced: false };
 }
 
 export function bodyFatResultCtaExperiment(

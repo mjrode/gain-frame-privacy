@@ -483,7 +483,6 @@ export default function BodyVisualizerClient() {
                   aria-valuetext={`${compactNumber(Math.min(sliderRange.max, Math.max(sliderRange.min, sliderWeight)))} ${unit === "us" ? "pounds" : "kilograms"}`}
                   aria-describedby="weight-slider-note"
                   onChange={(event) => {
-                    ctaState.setAdjusted(true);
                     if (unit === "metric") updateMetric("weightKg", event.target.value);
                     else updateUs("pounds", event.target.value);
                   }}

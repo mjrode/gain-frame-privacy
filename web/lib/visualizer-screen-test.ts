@@ -1,5 +1,4 @@
 import type { AssignedCtaExperiment } from "./assigned-cta-experiment.ts";
-import { pairedCtaAssignment } from "./paired-cta-assignment.ts";
 
 export const SCREEN_TEST_ID = "visualizer_result_example";
 export const SCREEN_TEST_PHASE = "app_screens_v3";
@@ -7,8 +6,6 @@ export const SCREEN_ARMS = ["control", "score_example", "future_you", "front_sid
 type ScreenArm = typeof SCREEN_ARMS[number];
 export const FUTURE_YOU_PLACEMENT_PHASE = "future_you_placement_v1";
 type Placement = NonNullable<AssignedCtaExperiment["buttonPlacement"]>["variant"];
-const storageKey = `gainframe:experiment:${SCREEN_TEST_ID}:${SCREEN_TEST_PHASE}`;
-let pageArm: ScreenArm | undefined;
 
 function screenArm(value: string | null) {
   return SCREEN_ARMS.find(arm => arm === value);
@@ -24,28 +21,36 @@ export function placementPreview(search: string) {
   return value === "above_image" || value === "below_image" ? value : undefined;
 }
 
-export function visualizerScreenAssignment(preview?: ScreenArm, previewPlacement?: Placement): AssignedCtaExperiment {
+/**
+ * Both the four-offer test and the Future You button-placement test closed on
+ * 2026-11-24. Control led every treatment on the 24-hour Store-click read at
+ * roughly 750 visitors per arm, so eligible slider traffic returns to the
+ * `analysis_rollout_v2` experience and this module no longer enrols anyone,
+ * draws a placement or writes an assignment.
+ *
+ * Forced previews still render each arm for review. They stay
+ * `experiment_forced: true`, so they remain excluded from every read, and they
+ * never touch stored assignments.
+ */
+export function visualizerScreenPreview(
+  preview?: ScreenArm,
+  previewPlacement?: Placement,
+): AssignedCtaExperiment | null {
   if (previewPlacement) preview = "future_you";
-  let variant = preview;
-  if (!variant) {
-    try { pageArm = screenArm(window.localStorage.getItem(storageKey)) ?? pageArm; }
-    catch { /* The in-memory assignment also works with storage disabled. */ }
-    pageArm ??= SCREEN_ARMS[Math.floor(Math.random() * SCREEN_ARMS.length)];
-    variant = pageArm;
-    try { window.localStorage.setItem(storageKey, variant); }
-    catch { /* Keep the same arm for the rest of this page visit. */ }
-  }
+  if (!preview) return null;
   const assignment: AssignedCtaExperiment = {
-    id: SCREEN_TEST_ID, phase: SCREEN_TEST_PHASE, variant, forced: Boolean(preview),
-    angle: variant === "future_you" ? "future" : "analysis", style: variant,
+    id: SCREEN_TEST_ID,
+    phase: SCREEN_TEST_PHASE,
+    variant: preview,
+    forced: true,
+    angle: preview === "future_you" ? "future" : "analysis",
+    style: preview,
   };
-  if (variant === "future_you") {
-    let placement: Placement = previewPlacement ?? "below_image";
-    if (!preview) {
-      const draw = pairedCtaAssignment(SCREEN_TEST_ID, null, FUTURE_YOU_PLACEMENT_PHASE);
-      placement = draw.treatment ? "above_image" : "below_image";
-    }
-    assignment.buttonPlacement = { phase: FUTURE_YOU_PLACEMENT_PHASE, variant: placement };
+  if (preview === "future_you") {
+    assignment.buttonPlacement = {
+      phase: FUTURE_YOU_PLACEMENT_PHASE,
+      variant: previewPlacement ?? "below_image",
+    };
   }
   return assignment;
 }

@@ -317,9 +317,9 @@ export default function BFEstimatorClient() {
     return () => cancelAnimationFrame(raf);
   }, [stage]);
 
-  // Assign once, at the first result: assignment before exposure keeps the
-  // denominator honest. Android keeps today's page; the local sample result
-  // only takes an explicit QA arm, never a random one.
+  // Decide once, at the first result, so exposure never precedes the record.
+  // Android keeps today's page; the local sample result only takes an explicit
+  // QA arm, never the rollout.
   useEffect(() => {
     if (stage.kind !== "result" || resultCtaDecidedRef.current) return;
     if (downloadPlatform === "unknown") return;

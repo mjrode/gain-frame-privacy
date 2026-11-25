@@ -115,59 +115,83 @@ test("paired result example restores its arm and keeps forced previews out of st
   }
 });
 
-test("screen test previews every arm without changing the saved slider assignment", async () => {
-  const { SCREEN_ARMS, SCREEN_TEST_PHASE, screenPreview, visualizerScreenAssignment } = await import("./visualizer-screen-test.ts");
+test("the closed screen test previews every arm and enrols nobody", async (t) => {
+  const { SCREEN_ARMS, SCREEN_TEST_PHASE, screenPreview, visualizerScreenPreview } = await import("./visualizer-screen-test.ts");
   const key = `gainframe:experiment:visualizer_result_example:${SCREEN_TEST_PHASE}`;
   const saved = new Map([[key, "future_you"]]);
   const before = globalThis.window;
-  try {
-    globalThis.window = { localStorage: { getItem: k => saved.get(k), setItem: (k, v) => saved.set(k, v) } };
-    for (const arm of SCREEN_ARMS) {
-      const preview = screenPreview("?visualizer_result_example=" + arm);
-      const assignment = visualizerScreenAssignment(preview);
-      assert.equal(assignment.variant, arm);
-      assert.equal(assignment.forced, true);
-      assert.equal(saved.get(key), "future_you");
-    }
-    assert.equal(screenPreview("?visualizer_result_example=treatment"), "score_example");
-    assert.equal(screenPreview("?visualizer_result_example=unknown"), undefined);
-    assert.equal(visualizerScreenAssignment().variant, "future_you");
-    assert.equal(visualizerScreenAssignment().forced, false);
-  } finally {
-    if (before === undefined) delete globalThis.window;
-    else globalThis.window = before;
+  t.after(() => { if (before === undefined) delete globalThis.window; else globalThis.window = before; });
+  globalThis.window = {
+    localStorage: {
+      getItem: k => saved.get(k),
+      setItem: () => assert.fail("a closed test must not write an assignment"),
+    },
+  };
+  for (const arm of SCREEN_ARMS) {
+    const assignment = visualizerScreenPreview(screenPreview("?visualizer_result_example=" + arm));
+    assert.equal(assignment.variant, arm);
+    assert.equal(assignment.forced, true);
   }
+  assert.equal(screenPreview("?visualizer_result_example=treatment"), "score_example");
+  assert.equal(screenPreview("?visualizer_result_example=unknown"), undefined);
+  // A visitor with a saved arm from the randomized phase gets no offer screen.
+  assert.equal(visualizerScreenPreview(), null);
+  assert.equal(visualizerScreenPreview(undefined, undefined), null);
+  assert.equal(saved.get(key), "future_you");
 });
 
-test("only Future You draws a stable placement; placement previews never write either assignment", async (t) => {
-  const { FUTURE_YOU_PLACEMENT_PHASE, SCREEN_TEST_ID, SCREEN_TEST_PHASE, placementPreview, visualizerScreenAssignment } =
+test("placement survives only as a Future You preview, never as a live draw", async (t) => {
+  const { FUTURE_YOU_PLACEMENT_PHASE, placementPreview, visualizerScreenPreview } =
     await import("./visualizer-screen-test.ts");
-  const parent = `gainframe:experiment:${SCREEN_TEST_ID}:${SCREEN_TEST_PHASE}`;
-  const child = `gainframe:experiment:${SCREEN_TEST_ID}:${FUTURE_YOU_PLACEMENT_PHASE}`;
-  const saved = new Map([[parent, "score_example"]]);
-  const previous = globalThis.window;
-  t.after(() => { if (previous === undefined) delete globalThis.window; else globalThis.window = previous; });
-  globalThis.window = { localStorage: { getItem: k => saved.get(k), setItem: (k,v) => saved.set(k,v) } };
-  assert.equal(visualizerScreenAssignment().buttonPlacement, undefined);
+  const before = globalThis.window;
+  t.after(() => { if (before === undefined) delete globalThis.window; else globalThis.window = before; });
+  globalThis.window = {
+    localStorage: {
+      getItem: () => assert.fail("a closed placement test must not read an assignment"),
+      setItem: () => assert.fail("a closed placement test must not write an assignment"),
+    },
+  };
   for (const position of ["above_image", "below_image"]) {
-    const preview = placementPreview(`?future_you_button=${position}`);
-    const arm = visualizerScreenAssignment(undefined, preview);
+    const arm = visualizerScreenPreview(undefined, placementPreview(`?future_you_button=${position}`));
     assert.equal(arm.variant, "future_you");
     assert.equal(arm.forced, true);
+    assert.equal(arm.buttonPlacement.phase, FUTURE_YOU_PLACEMENT_PHASE);
     assert.equal(assignedCtaProperties(arm).button_placement, position);
   }
   assert.equal(placementPreview("?future_you_button=invalid"), undefined);
-  assert.equal(saved.get(parent), "score_example");
-  assert.equal(saved.has(child), false);
-  saved.set(parent, "future_you");
-  const live = visualizerScreenAssignment();
-  assert.equal(live.forced, false);
-  assert.equal(live.buttonPlacement.phase, FUTURE_YOU_PLACEMENT_PHASE);
-  assert.deepEqual(visualizerScreenAssignment().buttonPlacement, live.buttonPlacement);
-  for (const [stored, expected] of [["control","below_image"],["treatment","above_image"]]) {
-    saved.set(child, stored);
-    assert.equal(visualizerScreenAssignment().buttonPlacement.variant, expected);
-    assert.equal(visualizerScreenAssignment("future_you").buttonPlacement.variant, "below_image");
-    assert.equal(saved.get(child), stored);
+  // Forcing the parent arm alone falls back to the original position.
+  assert.equal(visualizerScreenPreview("future_you").buttonPlacement.variant, "below_image");
+  // No other arm carries a placement, and nobody is drawn into one.
+  assert.equal(visualizerScreenPreview("score_example").buttonPlacement, undefined);
+  assert.equal(visualizerScreenPreview(), null);
+});
+
+test("eligible iOS result visitors all receive the winning inline arm", async (t) => {
+  const {
+    BODY_FAT_RESULT_CTA_PHASE,
+    BODY_FAT_RESULT_CTA_TEST_PHASE,
+    bodyFatResultCtaExperiment,
+    getBodyFatResultCtaAssignment,
+  } = await import("./body-fat-result-cta-experiment.ts");
+  const before = globalThis.window;
+  t.after(() => { if (before === undefined) delete globalThis.window; else globalThis.window = before; });
+  globalThis.window = {
+    location: { search: "" },
+    get localStorage() {
+      throw Error("the rollout must not read or rewrite historical assignments");
+    },
+  };
+  assert.notEqual(BODY_FAT_RESULT_CTA_PHASE, BODY_FAT_RESULT_CTA_TEST_PHASE);
+  for (const search of ["", "?bf_cta=unknown", "?bf_cta="]) {
+    assert.deepEqual(getBodyFatResultCtaAssignment(search), { variant: "analysis", forced: false });
   }
+  for (const variant of ["control", "analysis", "goal", "sticky"]) {
+    assert.deepEqual(getBodyFatResultCtaAssignment(`?bf_cta=${variant}`), { variant, forced: true });
+  }
+  const props = assignedCtaProperties(bodyFatResultCtaExperiment(getBodyFatResultCtaAssignment("")));
+  assert.equal(props.experiment_id, "body_fat_result_cta_v1");
+  assert.equal(props.experiment_phase, "inline_result_rollout_v1");
+  assert.equal(props.experiment_variant, "analysis");
+  assert.equal(props.experiment_forced, false);
+  assert.equal(props.cta_style, "inline_result");
 });
