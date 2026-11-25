@@ -5,11 +5,16 @@ import { useEffect, useRef, useState } from "react";
 import { track } from "@/lib/analytics";
 import { getArticleAssistanceProperties } from "@/lib/article-assistance";
 import {
-  buildWebAttributionLink,
   directAppStoreUrl,
+  getPageViewAttributionLink,
   type WebAttributionLink,
 } from "@/lib/web-attribution";
 import { useDownloadPlatform } from "@/components/useDownloadPlatform";
+
+// Click IDs whose QR was already recorded as shown. The link (and its ID) is
+// stable per page view and placement, so this keeps one shown event per page
+// view even when the component remounts and loses its refs.
+const recordedQrClickIds = new Set<string>();
 
 type DownloadQrProps = {
   backgroundColor?: string;
@@ -34,7 +39,6 @@ export default function DownloadQr({
 }: DownloadQrProps) {
   const platform = useDownloadPlatform();
   const containerRef = useRef<HTMLDivElement>(null);
-  const recordedKey = useRef<string | null>(null);
   const [link, setLink] = useState<WebAttributionLink | null>(null);
   const href =
     link?.href ??
@@ -43,7 +47,7 @@ export default function DownloadQr({
   useEffect(() => {
     if (platform !== "desktop") return;
     setLink(
-      buildWebAttributionLink({ campaign, cta: content, customProductPageId }),
+      getPageViewAttributionLink({ campaign, cta: content, customProductPageId }),
     );
   }, [campaign, content, customProductPageId, platform]);
 
@@ -54,7 +58,7 @@ export default function DownloadQr({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting || entry.intersectionRatio < 0.5) return;
-        if (recordedKey.current === payload.web_click_id) return;
+        if (recordedQrClickIds.has(payload.web_click_id)) return;
         const experiment = container.closest<HTMLElement>(
           "[data-experiment-id]",
         )?.dataset;
@@ -78,7 +82,7 @@ export default function DownloadQr({
         // This records visibility, never a scan or a click. A later app event
         // can join the exact ID already encoded in the displayed QR.
         if (recorded) {
-          recordedKey.current = payload.web_click_id;
+          recordedQrClickIds.add(payload.web_click_id);
           observer.disconnect();
         }
       },

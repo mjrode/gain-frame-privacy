@@ -5,6 +5,7 @@ import {
   buildWebAttributionLink,
   deriveOriginalSource,
   directAppStoreUrl,
+  getPageViewAttributionLink,
   isGainFrameDownloadUrl,
   safeAnonymousPosthogId,
 } from "./web-attribution.ts";
@@ -173,3 +174,24 @@ for (const cta of ["tool_result_improve", "tool_result_improve_qr"]) {
     assert.equal(params.get("ct"), "seo-physique-cpp-v1");
   });
 }
+
+test("a QR placement keeps one click id per page view", () => {
+  let n = 0;
+  const runtime = (pageViewId) => ({
+    context,
+    path: "/tools/body-visualizer/",
+    pageViewId,
+    posthogDistinctId: "anon-1",
+    randomUUID: () => `click-${++n}`,
+  });
+  const options = { campaign: "qr_test", cta: "walkthrough_qr" };
+
+  const beforeSdk = getPageViewAttributionLink(options, runtime(null));
+  const remount = getPageViewAttributionLink(options, runtime("view-1"));
+  const again = getPageViewAttributionLink(options, runtime("view-1"));
+  const nextView = getPageViewAttributionLink(options, runtime("view-2"));
+
+  assert.equal(remount.payload.web_click_id, beforeSdk.payload.web_click_id);
+  assert.equal(again.payload.web_click_id, beforeSdk.payload.web_click_id);
+  assert.notEqual(nextView.payload.web_click_id, beforeSdk.payload.web_click_id);
+});

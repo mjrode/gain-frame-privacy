@@ -291,6 +291,77 @@ export function buildWebAttributionLink(
   return { href: url.toString(), payload };
 }
 
+type PageViewLinkRuntime = BuildRuntime & {
+  /** PostHog page view id; null before the SDK loads or when it is blocked. */
+  pageViewId?: string | null;
+  /** Current path; defaults to `window.location.pathname`. */
+  path?: string;
+};
+
+type PageViewLinkEntry = { pageViewId: string | null; link: WebAttributionLink };
+
+const pageViewLinks = new Map<string, PageViewLinkEntry>();
+
+function currentPageViewId(): string | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const id = window.posthog?.getPageViewId?.();
+    return typeof id === "string" && id ? id : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * One attribution link per page view and placement. A QR that remounts (the
+ * Body Visualizer result re-renders ~4.6 times per page) keeps the same
+ * `web_click_id`, so the app joins the ID the visitor actually scanned and the
+ * shown event fires once instead of once per mount (2026-11 PostHog volume
+ * cut). An id first built before the SDK loaded carries over to the page view
+ * id; a later page view of the same path gets a new link.
+ */
+export function getPageViewAttributionLink(
+  options: BuildOptions,
+  runtime: PageViewLinkRuntime = {},
+): WebAttributionLink {
+  const path = runtime.path ??
+    (typeof window !== "undefined" ? window.location.pathname : "/");
+  const pageViewId = runtime.pageViewId === undefined
+    ? currentPageViewId()
+    : runtime.pageViewId;
+  const key = [
+    path,
+    options.campaign,
+    options.cta,
+    options.customProductPageId ?? "",
+  ].join("|");
+  const cached = pageViewLinks.get(key);
+  const samePageView = cached &&
+    (cached.pageViewId === null || pageViewId === null ||
+      cached.pageViewId === pageViewId);
+
+  if (cached && samePageView) {
+    if (cached.pageViewId === null && pageViewId) {
+      cached.pageViewId = pageViewId;
+    }
+    const clickId = cached.link.payload?.web_click_id;
+    if (clickId && !cached.link.payload?.web_posthog_id) {
+      // The SDK may have loaded since the first mount: add its anonymous id
+      // (used to merge the web visitor into the app person), same click id.
+      const refreshed = buildWebAttributionLink(options, {
+        ...runtime,
+        randomUUID: () => clickId,
+      });
+      if (refreshed.payload?.web_posthog_id) cached.link = refreshed;
+    }
+    return cached.link;
+  }
+
+  const link = buildWebAttributionLink(options, runtime);
+  pageViewLinks.set(key, { pageViewId, link });
+  return link;
+}
+
 export function isGainFrameDownloadUrl(href: string): boolean {
   try {
     const url = new URL(href, "https://gainframe.app");
