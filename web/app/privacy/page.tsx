@@ -73,7 +73,7 @@ export default function PrivacyPage() {
         <div className="privacy-container">
           <h1>Privacy Policy</h1>
           <p className="privacy-subtitle">
-            GainFrame: Progress Photos — Last updated September 22, 2026
+            GainFrame: Progress Photos — Last updated November 26, 2026
           </p>
 
           <p>
@@ -199,12 +199,44 @@ export default function PrivacyPage() {
 
           <h2>5. Hevy Integration</h2>
           <p>
-            If you connect your Hevy account, GainFrame accesses your workout
-            data (exercises, sets, reps, weight) through Hevy&rsquo;s API to
-            attach workout details to your progress photos. This data is
-            stored locally on your device and is not shared with any other
-            third party.
+            If you connect your Hevy account, GainFrame reads your workouts,
+            exercises and routines (exercises, sets, reps, weight) through
+            Hevy&rsquo;s API. We use them to show the workout you did on the day
+            of each progress photo and how your training changed over time.
+            GainFrame only reads from Hevy; it never changes your Hevy data.
           </p>
+          <ul>
+            <li>
+              Your workouts are cached on your device. We do not keep a copy of
+              your workout log on our servers.
+            </li>
+            <li>
+              <strong>AI features.</strong> When you ask the Coach a question or
+              create a Deep Dive, a short summary of your recent training is
+              sent with your request to Google&rsquo;s Gemini API so the answer
+              can refer to it. If you are a Pro subscriber, a summary of your
+              top lifts for the month is uploaded to our server once a month and
+              sent to Gemini to write the &ldquo;Top lifts&rdquo; page of your
+              monthly report.
+            </li>
+            <li>
+              Hevy data is not used to train AI models, and is not sold or
+              shared with advertisers. Google processes it under the paid Gemini
+              API terms, which do not allow Google to use it to improve its
+              products.
+            </li>
+            <li>
+              If you connect with Hevy sign-in, our server keeps the sign-in
+              token and your Hevy user ID so GainFrame can read your workouts
+              and remind you to take a photo after you log one.
+            </li>
+            <li>
+              You can disconnect Hevy at any time in Settings &rarr;
+              Integrations. Within 30 days after you disconnect, we delete the
+              Hevy sign-in token and the Hevy-based monthly summaries and report
+              text on our server. Deleting your account deletes them at once.
+            </li>
+          </ul>
 
           <h2>6. Optional Community Profiles and Leaderboard</h2>
           <p>
